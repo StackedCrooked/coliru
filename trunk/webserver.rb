@@ -6,7 +6,7 @@ require 'pp'
 require 'thread'
 
 
-$local = true
+$local = false
 $command = "./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
 if $local
     $command = "./timeout 5 nice -n 10 ./test >>output 2>&1"
@@ -54,8 +54,6 @@ class SimpleHandler < Mongrel::HttpHandler
             if status != 0
                 out << "Runtime error.\n"
             end
-        else
-            out << "Compilation failed with the following errors:\n\n"
         end
         FileUtils.copy_stream(File.new("output"), out)
     end
