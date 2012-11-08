@@ -8,18 +8,35 @@
         }
 
         .cpp {
-            position: relative;
             width: 100%;
         }
 
-        #input   { height: 80% ; resize:none; }
-        #output  { height: 20% ; resize:none; }
+        .top    { height: 80% ; }
+        .bottom { height: 20% ; }
 
-
+        #input  { height: 80% ; resize:none; margin-bottom: 20px }
+        #output { height: 20% ; resize:none; }
 
     </style>
-    <script type="text/javascript">
+   
+</head>
+<body>
+    <div id="input" class"cpp top">
+        <div id="editor" class="cpp top" >#include <iostream>
 
+int main()
+{
+    std::cout << "Hello World!" << std::endl;
+}</div>
+    </div>
+    <textarea id="output" class="cpp bottom">Output</textarea>
+ 
+
+    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/textmate");
+        editor.getSession().setMode("ace/mode/c_cpp");
 
         var app = {};
 
@@ -30,11 +47,6 @@
         app.log = function (msg) {
             console.log(msg);
         };
-
-        app.input = document.getElementById("input");
-        app.inputMargin = 10;
-
-
         app.send = function (title, payload) {
 
             if (app.cache[payload] !== undefined) {
@@ -68,27 +80,12 @@
         };
 
         window.onload = function () {
-            app.input = document.getElementById("input");
             app.output = document.getElementById("output");
             if (localStorage.backup !== undefined) {
-                app.input.value = localStorage.backup;
+                editor.setValue(localStorage.backup);
             }
             app.output.disabled = true;
 
-
-            app.input.onkeydown = function(e) {
-                app.bump = true;
-                if (!e && event.keyCode == 9)
-                {
-                    event.returnValue = false;
-                    insertAtCursor(app.input, "    ");
-                }
-                else if (e.keyCode == 9)
-                {
-                    e.preventDefault();
-                    insertAtCursor(app.input, "    ");
-                }
-            };
 
             app.enterTimeoutLoop();
         };
@@ -111,75 +108,33 @@
                 return;
             }
 
-            if (app.previous === app.input.value) {
-                app.next = app.input.value;
+            if (app.previous === editor.getValue()) {
+                app.next = editor.getValue();
                 return;
             }
 
-            localStorage.backup = app.input.value;
+            localStorage.backup = editor.getValue();
 
             //app.output.value = "Compiling...";
-            app.previous = app.input.value;
+            app.previous = editor.getValue();
             app.onCompile();
         }
 
 
         app.onCompile = function () {
-            app.send("compile", app.input.value);
+
+            console.log("compile: " + editor.getValue());
+            app.send("compile", editor.getValue());
         };
 
         app.onReply = function (reply) {
+            console.log("reply: " + reply);
             app.output.value = reply;
         };
 
-        function insertAtCursor(myField, myValue) {
-            //IE support
-            if (document.selection) {
-                var temp;
-                myField.focus();
-                sel = document.selection.createRange();
-                temp = sel.text.length;
-                sel.text = myValue;
-                if (myValue.length == 0) {
-                    sel.moveStart('character', myValue.length);
-                    sel.moveEnd('character', myValue.length);
-                } else {
-                    sel.moveStart('character', -myValue.length + temp);
-                }
-                sel.select();
-            }
-            //MOZILLA/NETSCAPE support
-            else if (myField.selectionStart || myField.selectionStart == '0') {
-                var startPos = myField.selectionStart;
-                var endPos = myField.selectionEnd;
-                myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
-                myField.selectionStart = startPos + myValue.length;
-                myField.selectionEnd = startPos + myValue.length;
-            } else {
-                myField.value += myValue;
-            }
-        }
 
 
     </script>
-</head>
-<body>
-
-<span id="input_span" class="cpp">
-    <label for="input"></label>
-    <textarea id="input" class="cpp">#include &ltiostream&gt
-
-int main()
-{
-    std::cout << "Hello GCC " << __VERSION__ << "!" << std::endl;
-}</textarea>
-</span>
-
-
-<span id="output_span" class="cpp">
-    <label for="output"></label>
-    <textarea id="output" class="cpp"></textarea>
-</span>
 
 
 </body>
