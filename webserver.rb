@@ -6,7 +6,7 @@ require 'pp'
 require 'thread'
 
 
-$local = false
+$local = true
 $command = "./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
 if $local
     $command = "./timeout 5 nice -n 10 ./test >>output 2>&1"
