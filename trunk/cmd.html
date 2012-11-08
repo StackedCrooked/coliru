@@ -60,7 +60,8 @@
 
 <div id="container">
     <div id="editor" class="row expansive"></div>
-    <textarea id="output" class="row fixed" rows="10"></textarea>
+    <label for="output" style="display: none"></label>
+    <textarea id="output" class="row fixed" contenteditable="false" rows="10"></textarea>
 </div>
 
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
@@ -69,12 +70,11 @@
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
     editor.getSession().setMode("ace/mode/c_cpp");
-</script>
+    editor.setBehavioursEnabled(false);
 
-<script>
+
     var app = {};
     app.output = document.getElementById("output");
-    app.output.disabled = true;
     app.waiting = false;
 
     if (localStorage.backup !== undefined) {
@@ -85,7 +85,6 @@
     }
 
     app.cache = {};
-    app.bump = false;
 
 
     app.log = function (msg) {
@@ -124,8 +123,6 @@
         httpRequest.send(payload);
     };
 
-    app.previous = "";
-
 
     app.enterTimeoutLoop = function () {
         app.timeoutLoopImpl();
@@ -135,24 +132,13 @@
 
     app.timeoutLoopImpl = function () {
 
-        // Every time the user presses a key the compilation is delayed.
-        // This attempts prevent compilation while typing.
-        if (app.bump === true) {
-            app.bump = false;
-            return;
-        }
-
-        if (app.previous === editor.getValue()) {
-            app.next = editor.getValue();
-            return;
+        if (app.waiting === false && app.cache[editor.getValue()] === undefined) {
+            app.onCompile();
         }
 
         localStorage.backup = editor.getValue();
-
-        //app.output.value = "Compiling...";
-        app.previous = editor.getValue();
         app.onCompile();
-    }
+    };
 
 
     app.onCompile = function () {
