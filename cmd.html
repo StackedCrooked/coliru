@@ -10,26 +10,40 @@
             height: 100%;
         }
 
+
         #container {
             display: -webkit-box;
+            display: -moz-box;
+            display: box;
+
             -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -box-orient: vertical;
+
             -webkit-box-align: stretch;
+            -moz-box-align: stretch;
+            -box-align: stretch;
+
             width: 100%;
             height: 100%;
             overflow: hidden;
-            position: relative;
         }
 
         .row {
             display: -webkit-box;
+            width: 100%;
         }
 
         .expansive {
-            -webkit-box-flex: 1;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
+            -box-flex: 1.0;
         }
 
         .fixed {
-            -webkit-box-flex: 0;
+            -webkit-box-flex: 0.0;
+            -moz-box-flex: 0.0;
+            -box-flex: 0.0;
         }
 
         #editor {
@@ -64,6 +78,9 @@
 
     if (localStorage.backup !== undefined) {
         editor.setValue(localStorage.backup);
+    }
+    else {
+        editor.setValue("#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}");
     }
 
     app.cache = {};
