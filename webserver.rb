@@ -37,7 +37,7 @@ class SimpleHandler < Mongrel::HttpHandler
 
     def compile(request, out)
         # WRITE MAIN
-	$counter += 1
+	#$counter += 1
         File.open("main_#{$counter}.cpp", 'w') { |f| f.write(request.body.string) }
 
         # COMPILE

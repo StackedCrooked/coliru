@@ -39,12 +39,15 @@
 
             if (app.cache[payload] !== undefined) {
                 app.onReply(app.cache[payload]);
-                app.output.style.color = "gray";
+                app.output.style.color = "black";
                 return;
             }
             else {
                 app.output.style.color = "black";
             }
+
+	    app.output.value = app.output.value + "(compiling...)";
+	    app.output.style.color = "red";
 
             var httpRequest = new XMLHttpRequest();
 
@@ -57,6 +60,7 @@
                     if (httpRequest.status == 200) {
                         app.cache[payload] = httpRequest.responseText;
                         app.onReply(httpRequest.responseText);
+			app.output.style.color = "black";
                     }
                 }
             };
