@@ -43,7 +43,7 @@ class SimpleHandler < Mongrel::HttpHandler
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
 
         # COMPILE
-        status = POpen4::popen4("g++-4.7 -o test -Wall -Werror -Wextra -pedantic-errors -std=c++0x -pthread main.cpp >output 2>&1") do |stdout, stderr, stdin, pid|
+        status = POpen4::popen4("g++-4.7 -o test -Wall -Werror -Wextra -pedantic-errors -std=c++0x -pthread -I/usr/local/include main.cpp >output 2>&1") do |stdout, stderr, stdin, pid|
             stdin.close()
         end
 
