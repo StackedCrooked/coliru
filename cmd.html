@@ -35,25 +35,36 @@
         #editor {
             position: relative;
         }
+
+        #output {
+            font-family: monospace
+        }
     </style>
 
 </head>
 <body>
+
 <div id="container">
     <div id="editor" class="row expansive"></div>
     <textarea id="output" class="row fixed" rows="10"></textarea>
 </div>
 
-<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"
-        charset="utf-8"></script>
+<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
+
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
     editor.getSession().setMode("ace/mode/c_cpp");
+</script>
 
+<script>
     var app = {};
     app.output = document.getElementById("output");
     app.output.disabled = true;
+
+    if (localStorage.backup !== undefined) {
+        editor.setValue(localStorage.backup);
+    }
 
     app.cache = {};
     app.bump = false;
@@ -135,14 +146,7 @@
         app.output.value = reply;
     };
 
-    window.onload = function () {
-        if (localStorage.backup !== undefined) {
-            editor.setValue(localStorage.backup);
-        }
-        app.enterTimeoutLoop();
-    };
-
-
+    app.enterTimeoutLoop();
 </script>
 
 </body>
