@@ -75,6 +75,7 @@
     var app = {};
     app.output = document.getElementById("output");
     app.output.disabled = true;
+    app.waiting = false;
 
     if (localStorage.backup !== undefined) {
         editor.setValue(localStorage.backup);
@@ -100,6 +101,7 @@
             app.output.style.color = "black";
         }
 
+        app.waiting = true;
         app.output.value = app.output.value + "(compiling...)";
         app.output.style.color = "red";
 
@@ -114,6 +116,7 @@
                 if (httpRequest.status == 200) {
                     app.cache[payload] = httpRequest.responseText;
                     app.onReply(httpRequest.responseText);
+                    app.waiting = false;
                     app.output.style.color = "black";
                 }
             }
@@ -155,7 +158,10 @@
     app.onCompile = function () {
 
         console.log("compile: " + editor.getValue());
-        app.send("compile", editor.getValue());
+
+        if (app.waiting === false) {
+            app.send("compile", editor.getValue());
+        }
     };
 
     app.onReply = function (reply) {
