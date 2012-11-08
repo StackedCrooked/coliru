@@ -6,14 +6,17 @@ require 'pp'
 require 'thread'
 
 
-$local = false
+$local = true
+$command = "./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
+if $local
+    $command = "./timeout 5 nice -n 10 ./test >>output 2>&1"
+end
 
 
 $host = $local ? "localhost" : "stacked-crooked.com"
 $port = $local ? "4000" : 80
 
 $semaphore = Mutex.new
-$counter = Time.now.to_i
 
 
 class SimpleHandler < Mongrel::HttpHandler
@@ -37,16 +40,15 @@ class SimpleHandler < Mongrel::HttpHandler
 
     def compile(request, out)
         # WRITE MAIN
-	#$counter += 1
-        File.open("main_#{$counter}.cpp", 'w') { |f| f.write(request.body.string) }
+        File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
 
         # COMPILE
-        status = POpen4::popen4("g++-4.7 -o test -Wall -Werror -Wextra -pedantic-errors -std=c++0x -pthread main_#{$counter}.cpp >output 2>&1") do |stdout, stderr, stdin, pid|
+        status = POpen4::popen4("g++-4.7 -o test -Wall -Werror -Wextra -pedantic-errors -std=c++0x -pthread main.cpp >output 2>&1") do |stdout, stderr, stdin, pid|
             stdin.close()
         end
 
         if status == 0
-            status = POpen4::popen4("./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1") do |stdout, stderr, stdin, pid|
+            status = POpen4::popen4($command) do |stdout, stderr, stdin, pid|
                 stdin.close()
             end
             if status != 0
