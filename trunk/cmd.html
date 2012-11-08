@@ -1,141 +1,150 @@
+<!DOCTYPE html>
 <html>
 <head>
+
     <style type="text/css">
-
-        textarea {
-            font-family: Courier New, monospace ;
-            font-size: small;
-        }
-
-        .cpp {
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
             width: 100%;
         }
 
-        .top    { height: 80% ; }
-        .bottom { height: 20% ; }
-
-        #input  { height: 80% ; resize:none; margin-bottom: 20px }
-        #output { height: 20% ; resize:none; }
-
-    </style>
-   
-</head>
-<body>
-    <div id="input" class"cpp top">
-        <div id="editor" class="cpp top" >#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!" << std::endl;
-}</div>
-    </div>
-    <textarea id="output" class="cpp bottom">Output</textarea>
- 
-
-    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script>
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/textmate");
-        editor.getSession().setMode("ace/mode/c_cpp");
-
-        var app = {};
-
-        app.cache = {};
-        app.bump = false;
-
-
-        app.log = function (msg) {
-            console.log(msg);
-        };
-        app.send = function (title, payload) {
-
-            if (app.cache[payload] !== undefined) {
-                app.onReply(app.cache[payload]);
-                app.output.style.color = "black";
-                return;
-            }
-            else {
-                app.output.style.color = "black";
-            }
-
-	    app.output.value = app.output.value + "(compiling...)";
-	    app.output.style.color = "red";
-
-            var httpRequest = new XMLHttpRequest();
-
-            var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
-
-            httpRequest.open("PUT", url, true);
-
-            httpRequest.onreadystatechange = function () {
-                if (httpRequest.readyState == 4) {
-                    if (httpRequest.status == 200) {
-                        app.cache[payload] = httpRequest.responseText;
-                        app.onReply(httpRequest.responseText);
-			app.output.style.color = "black";
-                    }
-                }
-            };
-            httpRequest.send(payload);
-        };
-
-        window.onload = function () {
-            app.output = document.getElementById("output");
-            if (localStorage.backup !== undefined) {
-                editor.setValue(localStorage.backup);
-            }
-            app.output.disabled = true;
-
-
-            app.enterTimeoutLoop();
-        };
-
-        app.previous = "";
-
-
-        app.enterTimeoutLoop = function () {
-            app.timeoutLoopImpl();
-            window.setTimeout(app.enterTimeoutLoop, 500);
-        };
-
-
-        app.timeoutLoopImpl = function() {
-
-            // Every time the user presses a key the compilation is delayed.
-            // This attempts prevent compilation while typing.
-            if (app.bump === true) {
-                app.bump = false;
-                return;
-            }
-
-            if (app.previous === editor.getValue()) {
-                app.next = editor.getValue();
-                return;
-            }
-
-            localStorage.backup = editor.getValue();
-
-            //app.output.value = "Compiling...";
-            app.previous = editor.getValue();
-            app.onCompile();
+        #container {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-align: stretch;
+            -webkit-box-flex: 1;
+            height: 100%;
         }
 
+        .row {
+            display: -webkit-box;
+            width: 100%;
+        }
 
-        app.onCompile = function () {
+        .main {
+            -webkit-box-flex: 1;
+        }
 
-            console.log("compile: " + editor.getValue());
-            app.send("compile", editor.getValue());
+        .footer {
+            -webkit-box-flex: 0;
+            overflow: auto;
+        }
+        #editor {
+            position: relative;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="editor" class="row main"></div>
+        <textarea id="output" class="row footer" rows="10"></textarea>
+    </div>
+<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/textmate");
+    editor.getSession().setMode("ace/mode/c_cpp");
+
+    var app = {};
+
+    app.cache = {};
+    app.bump = false;
+
+
+    app.log = function (msg) {
+        console.log(msg);
+    };
+    app.send = function (title, payload) {
+
+        if (app.cache[payload] !== undefined) {
+            app.onReply(app.cache[payload]);
+            app.output.style.color = "black";
+            return;
+        }
+        else {
+            app.output.style.color = "black";
+        }
+
+        app.output.value = app.output.value + "(compiling...)";
+        app.output.style.color = "red";
+
+        var httpRequest = new XMLHttpRequest();
+
+        var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
+
+        httpRequest.open("PUT", url, true);
+
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4) {
+                if (httpRequest.status == 200) {
+                    app.cache[payload] = httpRequest.responseText;
+                    app.onReply(httpRequest.responseText);
+                    app.output.style.color = "black";
+                }
+            }
         };
+        httpRequest.send(payload);
+    };
 
-        app.onReply = function (reply) {
-            console.log("reply: " + reply);
-            app.output.value = reply;
-        };
+    window.onload = function () {
+        app.output = document.getElementById("output");
+        if (localStorage.backup !== undefined) {
+            editor.setValue(localStorage.backup);
+        }
+        app.output.disabled = true;
+
+
+        app.enterTimeoutLoop();
+    };
+
+    app.previous = "";
+
+
+    app.enterTimeoutLoop = function () {
+        app.timeoutLoopImpl();
+        window.setTimeout(app.enterTimeoutLoop, 500);
+    };
+
+
+    app.timeoutLoopImpl = function() {
+
+        // Every time the user presses a key the compilation is delayed.
+        // This attempts prevent compilation while typing.
+        if (app.bump === true) {
+            app.bump = false;
+            return;
+        }
+
+        if (app.previous === editor.getValue()) {
+            app.next = editor.getValue();
+            return;
+        }
+
+        localStorage.backup = editor.getValue();
+
+        //app.output.value = "Compiling...";
+        app.previous = editor.getValue();
+        app.onCompile();
+    }
+
+
+    app.onCompile = function () {
+
+        console.log("compile: " + editor.getValue());
+        app.send("compile", editor.getValue());
+    };
+
+    app.onReply = function (reply) {
+        console.log("reply: " + reply);
+        app.output.value = reply;
+    };
 
 
 
-    </script>
-
+</script>
 
 </body>
 </html>
