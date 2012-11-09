@@ -132,19 +132,20 @@
 
     app.timeoutLoopImpl = function () {
 
-        if (app.waiting === false && app.cache[editor.getValue()] === undefined) {
-            app.onCompile();
+        if (app.waiting === false) {
+            var cache = app.cache[editor.getValue()];
+            if (cache === undefined) {
+                app.onCompile();
+            } else if (app.output.value !== cache) {
+                app.output.value = cache;
+            }
         }
 
         localStorage.backup = editor.getValue();
-        app.onCompile();
     };
 
 
     app.onCompile = function () {
-
-        console.log("compile: " + editor.getValue());
-
         if (app.waiting === false) {
             app.send("compile", editor.getValue());
         }
