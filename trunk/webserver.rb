@@ -6,15 +6,16 @@ require 'pp'
 require 'thread'
 
 
-$local = true
+puts "ARGV.length: #{ARGV.length}"
+$local = (ARGV.length != 2)
 $command = "./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
 if $local
     $command = "./timeout 5 nice -n 10 ./test >>output 2>&1"
 end
 
 
-$host = $local ? "localhost" : "stacked-crooked.com"
-$port = $local ? "4000" : 80
+$host = $local ? "localhost" : ARGV[0]
+$port = $local ? "4000" : "80"
 
 $semaphore = Mutex.new
 

@@ -32,6 +32,11 @@
         .row {
             display: -webkit-box;
             width: 100%;
+
+
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -box-orient: vertical;
         }
 
         .expansive {
@@ -50,6 +55,11 @@
             position: relative;
         }
 
+
+        #links {
+            position: relative;
+        }
+
         #output {
             font-family: monospace
         }
@@ -60,12 +70,13 @@
 
 <div id="container">
     <div id="editor" class="row expansive"></div>
+    <div id="links" class="row expansive"></div>
     <label for="output" style="display: none"></label>
     <textarea id="output" class="row fixed" contenteditable="false" rows="10"></textarea>
-</div>
-
+    <a href="#" onclick="app.share(); return;">Share</a>
+    </div>
+<!--<script src="http://cdn.openkeyval.org/statics/openkeyval.packed.js"></script>-->
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
-
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
@@ -77,6 +88,78 @@
     app.output = document.getElementById("output");
     app.waiting = false;
 
+    app.data = {};
+    app.ids = {
+        "bookmarks" : "coliru-bookmarks"
+    };
+
+    app.load = function(key, f) {
+        //window.remoteStorage.getItem("stacked", function(value, key) { f(value); });
+        var result = window.localStorage[key];
+        f(result);
+    };
+
+    app.save = function(key, value) {
+        //window.remoteStorage.setItem(key, value, function(result) { console.log(JSON.stringify(result)) });
+        window.localStorage[key] = value;
+    };
+
+    app.getSharedLinks = function(f) {
+        app.load(app.ids.bookmarks, function(result) {
+            if (result !== undefined) {
+                f(JSON.parse(result));
+            } else {
+                f({});
+            }
+
+        });
+    };
+
+    app.appendSharedLink = function(link) {
+        app.getSharedLinks(function(links) {
+            links[link.time] = link;
+            app.save(app.ids.bookmarks, JSON.stringify(links));
+        });
+    };
+
+    app.visitSharedLink = function (id) {
+        app.getSharedLinks(function (links) {
+            var link = links[id];
+            editor.setValue(link.src);
+            app.output.value = link.output;
+        });
+    };
+
+    app.addLinkToDOM = function(result) {
+        var link = document.getElementById("links").createChild("div/a");
+        link.id = result.time;
+        link.innerText = result.name;
+        link.href = "#";
+        link.onclick = function() { app.visitSharedLink(result.time); };
+    };
+
+    app.addLinksToDOM = function() {
+        app.getSharedLinks(function(links){
+            for (var id in links) {
+                var link = links[id];
+                app.addLinkToDOM(link);
+            }
+        });
+
+    };
+
+    app.share = function() {
+        var link = app.lastresult;
+        if (link === undefined) {
+            return;
+        }
+
+        link.name = prompt("Please enter a name: ", "");
+
+        app.appendSharedLink(link);
+        app.addLinkToDOM(link);
+    };
+
     if (localStorage.backup !== undefined) {
         editor.setValue(localStorage.backup);
     }
@@ -85,15 +168,28 @@
     }
 
     app.cache = {};
+    Element.prototype.createChild = function (tagNamePath) {
+        "use strict";
+        var result = this;
+        var tagNames = tagNamePath.split("/");
+        for (var i = 0; i < tagNames.length; ++i) {
+            var child = document.createElement(tagNames[i]);
+            result.appendChild(child);
+            result = child;
+        }
+        return result;
+    };
 
 
     app.log = function (msg) {
         console.log(msg);
     };
-    app.send = function (title, payload) {
+    app.send = function (location, source_code) {
 
-        if (app.cache[payload] !== undefined) {
-            app.onReply(app.cache[payload]);
+        var epoch = new Date().valueOf();
+
+        if (app.cache[source_code] !== undefined) {
+            app.onReply(app.cache[source_code]);
             app.output.style.color = "black";
             return;
         } else {
@@ -113,14 +209,20 @@
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
-                    app.cache[payload] = httpRequest.responseText;
+                    var build_output = httpRequest.responseText;
+                    app.cache[source_code] = build_output;
+                    app.lastresult = { time: epoch, src: source_code, output: build_output };
+                    console.log(JSON.stringify(app.lastresult));
+                    app.data[epoch] = JSON.stringify({ src: source_code, output: build_output });
+
+                    app.save(source_code, build_output);
                     app.onReply(httpRequest.responseText);
                     app.waiting = false;
                     app.output.style.color = "black";
                 }
             }
         };
-        httpRequest.send(payload);
+        httpRequest.send(source_code);
     };
 
 
@@ -158,6 +260,8 @@
 
     app.enterTimeoutLoop();
 </script>
+
+
 
 </body>
 </html>
