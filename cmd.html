@@ -61,7 +61,7 @@
         }
 
         #header {
-            min-height: 20px;
+            min-height: 30px;
             display: -webkit-box;
             display: -moz-box-box;
             display: -box;
@@ -76,7 +76,6 @@
 
             width: 100%;
             overflow: hidden;
-            background-color: #d3d3d3;
             font-family: sans-serif;
             font-size: small;
         }
@@ -112,7 +111,7 @@
         }
 
         .fake-margin {
-            min-height: 10px;
+            min-height: 0px;
 
         }
 
@@ -121,17 +120,41 @@
         }
 
         #left {
-            min-width: 10px;
+            min-width: 0px;
         }
 
         #right {
-            min-width: 10px;
+            min-width: 0px;
         }
 
         #output {
             font-family: monospace;
             overflow: auto;
             height: 200px;
+        }
+
+        #footer {
+            min-height: 30px;
+            display: -webkit-box;
+            display: -moz-box-box;
+            display: -box;
+
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -box-orient: horizontal;
+
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            -box-align: center;
+
+            width: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+            font-size: small;
+        }
+
+        .surrounding {
+            background-color: #d3d3d3;
         }
 
         textarea {
@@ -142,6 +165,10 @@
         input:focus, textarea:focus {
             outline: none;
         }
+        button {
+            height: 23px;
+            margin: 7px;
+        }
     </style>
 
 </head>
@@ -150,11 +177,18 @@
 <div id="page" class="hbox">
     <div id="left" class="col flex0"></div>
     <div id="middle" class="vbox col flex1">
-        <div class="fake-margin row flex0"></div>
-        <div id="header" class="row flex0"></div>
+        <div class="fake-margin row flex0 "></div>
+        <div id="header" class="surrounding row flex0"></div>
         <div id="editor" class="row flex1"></div>
         <div class="fake-margin row flex0"></div>
-        <label for="output"></label><textarea id="output" class="row flex0" contenteditable="false" rows="10"></textarea>
+        <label for="output"></label><textarea id="output" class="row flex0" contenteditable="false"
+                                              rows="10"></textarea>
+
+        <div id="footer" class="surrounding row flex0 hbox">
+            <div class="flex1"></div>
+            <button onclick="app.postSample(); return;">Post Sample!</button>
+            <div class="flex1"></div>
+        </div>
         <!--<a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>-->
 
         <div class="fake-margin row flex0"></div>
@@ -183,8 +217,8 @@
 
     var app = {
         samples: {
-            "Hello World!" : "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
-            "Variadic Templates" : "#include <iostream>\n#include <stdexcept>\n\nnamespace cpp {\n\nvoid printf(const char* s)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') \n      throw std::runtime_error(\"invalid format string: missing arguments\");\n    std::cout << *s++;\n  }\n}\n\ntemplate<typename T, typename... Args>\nvoid printf(const char* s, const T& value, const Args&... args)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') {\n      std::cout << value;\n      return printf(++s, args...);\n    }\n    std::cout << *s++;\n  }\n  throw std::runtime_error(\"extra arguments provided to printf\");\n}\n\n} // namespace cpp\n\nint main()\n{\n    // classic printf\n    printf(\"%u\\n\", -1);\n       \n    // C++ variadic printf\n    cpp::printf(\"%u\\n\", -1);\n}"
+            "Hello World!": "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
+            "Variadic Templates": "#include <iostream>\n#include <stdexcept>\n\nnamespace cpp {\n\nvoid printf(const char* s)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') \n      throw std::runtime_error(\"invalid format string: missing arguments\");\n    std::cout << *s++;\n  }\n}\n\ntemplate<typename T, typename... Args>\nvoid printf(const char* s, const T& value, const Args&... args)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') {\n      std::cout << value;\n      return printf(++s, args...);\n    }\n    std::cout << *s++;\n  }\n  throw std::runtime_error(\"extra arguments provided to printf\");\n}\n\n} // namespace cpp\n\nint main()\n{\n    // classic printf\n    printf(\"%u\\n\", -1);\n       \n    // C++ variadic printf\n    cpp::printf(\"%u\\n\", -1);\n}"
 
         },
         elements: {
@@ -230,7 +264,7 @@
 
     };
 
-    window.onload = function() {
+    window.onload = function () {
 
         // Select the first sample.
         editor.setValue(app.samples["Hello World!"]);
@@ -245,12 +279,12 @@
             link.innerText = name;
             link.style.margin = "4px";
             link.style.fontSize = "normal";
-            link.onclick = function() {
+            link.onclick = function () {
                 editor.setValue(app.samples[this.innerText]);
                 editor.clearSelection();
             };
         }
-        app.enterTimeoutLoop() ;
+        app.enterTimeoutLoop();
     };
 </script>
 
