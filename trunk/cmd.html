@@ -60,6 +60,31 @@
             display: -box;
         }
 
+        #header {
+            min-height: 20px;
+            display: -webkit-box;
+            display: -moz-box-box;
+            display: -box;
+
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -box-orient: horizontal;
+
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            -box-align: center;
+
+            width: 100%;
+            overflow: hidden;
+            background-color: #d3d3d3;
+            font-family: 'Helvetica';
+            font-size: 12px;
+        }
+
+        .sample {
+            background-color: #a9a9a9;
+        }
+
         #middle {
             display: -webkit-box;
             display: -moz-box-box;
@@ -131,9 +156,10 @@
     <div id="left" class="col flex0"></div>
     <div id="middle" class="vbox col flex1">
         <div class="fake-margin row flex0"></div>
+        <div id="header" class="row flex0"></div>
         <div id="editor" class="row flex1"></div>
         <div class="fake-margin row flex0"></div>
-        <textarea id="output" class="row flex0" contenteditable="false" rows="10"></textarea>
+        <label for="output"></label><textarea id="output" class="row flex0" contenteditable="false" rows="10"></textarea>
         <a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>
 
         <div class="fake-margin row flex0"></div>
@@ -159,92 +185,58 @@
         return result;
     };
 
-    localStorage.setItem("data", JSON.stringify({
-        ids: [],
-        bookmarks: {},
-        builds: {},
+    var app = {
         samples: {
-            helloworld: "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
-            hellogcc: "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}"
+            "Hello World!" : "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
+            "Hello GCC": "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}"
+        },
+        elements: {
+            header: document.getElementById("header"),
+            editor: document.getElementById("editor"),
+            output: document.getElementById("output")
         }
-    }));
-
-    var app = {};
-
-    app.getIds = function () {
-        return app.getData().ids;
-    };
-    app.getBookmarks = function () {
-        return app.getData().bookmarks;
-    };
-    app.getBuilds = function () {
-        return app.getData().builds;
-    };
-    app.getSamples = function () {
-        return app.getData().samples;
     };
 
-    app.getAttributeCount = function (obj) {
-        var count = 0;
-        for (var k in obj) {
-            if (obj.hasOwnProperty(k)) {
-                ++count;
-            }
-        }
-        return count;
+    window.onload = function() {
 
-    };
-    app.getData = function () {
-        return JSON.parse(localStorage.getItem("data"));
-    }
-
-    app.output = document.getElementById("output");
-    app.waiting = false;
-
-    app.setInitialState = function () {
-        if (app.getAttributeCount(app.getBuilds()) == 0) {
-            editor.setValue(app.getSamples().helloworld);
-        } else {
-            var value;
-            for (var key in app.getBuilds()) {
-                if (app.getBuilds().hasOwnProperty(key)) {
-                    value = app.getBuilds()[key];
-                }
-            }
-            editor.setValue(value);
-        }
+        // Select the first sample.
+        editor.setValue(app.samples["Hello World!"]);
         editor.clearSelection();
-    };
-    app.setInitialState();
 
-    app.cache = {};
+        // Add event handles for the samples.
+        for (var name in app.samples) {
+            var link = header.createChild("a");
+            link.href = "#";
+            link.class = 'sample col flex0 box';
+            link.fontWeight = 'thicker';
+            link.innerText = name;
 
-    app.log = function (msg) {
-        console.log(msg);
-    };
-
-    str = JSON.stringify;
-
-    app.send = function (location, source_code) {
-
-
-        if (app.cache[source_code] !== undefined) {
-            return;
+//            link.style.backgroundColor = "black";
+//            link.style.color = 'red';
+//            link.onmouseover = function() {
+//                this.style.color = 'yellow';
+//            };
+//            link.onmouseout = function() {
+//                this.style.color = 'red';
+//            };
+            link.style.margin = "4px";
+            link.style.fontSize = "normal";
+            link.onclick = function() {
+                editor.setValue(app.samples[this.innerText]);
+                editor.clearSelection();
+            };
         }
+    };
 
+    app.send = function (location, source_code, f) {
         var httpRequest = new XMLHttpRequest();
-
         var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
-
         httpRequest.open("PUT", url, true);
-
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
-                    var build_output = httpRequest.responseText;
-                    app.cache[source_code] = build_output;
-                    app.output.value = build_output;
                     app.waiting = false;
+                    f(JSON.parse(httpRequest.responseText));
                 }
             }
         };
@@ -252,25 +244,30 @@
         httpRequest.send(source_code);
     };
 
-
-    app.getTime = function () {
-        var d = new Date();
-        var fill = function (c) {
-            c = "" + c;
-            return c.length == 2 ? c : "0" + c;
-        };
-        return fill(d.getHours()) + ":" + fill(d.getMinutes()) + ":" + fill(d.getSeconds());
-    };
-
     app.enterTimeoutLoop = function () {
         app.timeoutLoopImpl();
         window.setTimeout(app.enterTimeoutLoop, 500);
     };
 
-
     app.timeoutLoopImpl = function () {
-        app.onCompile();
-        localStorage.backup = editor.getValue();
+        var src = editor.getValue();
+        var key = JSON.stringify({ input: src });
+        if (localStorage.getItem(key) === undefined) {
+            app.send("compile", editor.getValue(), function (result) {
+                if (result.input !== src) {
+                    throw "Server response does not match expected input. Input that was sent with the request: " + src + ". Got: " + JSON.stringify(result);
+                } else {
+                    localStorage.setItem(key, result.output);
+                }
+            });
+        }
+    };
+
+    app.cache_build_results = function() {
+        localStorage.setItem(JSON.stringify({
+            input: editor.getValue(),
+            output: app.output.value
+        }));
     };
 
 
