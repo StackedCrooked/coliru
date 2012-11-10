@@ -41,6 +41,7 @@ class SimpleHandler < Mongrel::HttpHandler
 
     def compile(request, out)
         # WRITE MAIN
+        puts "Request: #{request.body.string}"
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
 
         # COMPILE
@@ -57,6 +58,7 @@ class SimpleHandler < Mongrel::HttpHandler
             end
         end
         FileUtils.copy_stream(File.new("output"), out)
+        puts "END request"
     end
 
     # Returns the location. E.g: if the URL is "http://localhost.com/compile" then "ccompile" will be returned.
