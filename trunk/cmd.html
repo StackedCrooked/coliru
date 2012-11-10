@@ -118,6 +118,7 @@
             border-color: #add8e6;
 
         }
+
         input:focus, textarea:focus {
             outline: none;
         }
@@ -146,99 +147,6 @@
     editor.getSession().setMode("ace/mode/c_cpp");
     editor.setBehavioursEnabled(false);
 
-
-    var app = {};
-    app.output = document.getElementById("output");
-    app.waiting = false;
-
-    app.data = {};
-    app.ids = {
-        "bookmarks": "coliru-bookmarks"
-    };
-
-    app.load = function (key, f) {
-        //window.remoteStorage.getItem("stacked", function(value, key) { f(value); });
-        var result = window.localStorage[key];
-        f(result);
-    };
-
-    app.save = function (key, value) {
-        //window.remoteStorage.setItem(key, value, function(result) { console.log(JSON.stringify(result)) });
-        window.localStorage[key] = value;
-    };
-
-    app.getSharedLinks = function (f) {
-        app.load(app.ids.bookmarks, function (result) {
-            if (result !== undefined) {
-                f(JSON.parse(result));
-            } else {
-                f({});
-            }
-
-        });
-    };
-
-    app.appendSharedLink = function (link) {
-        app.getSharedLinks(function (links) {
-            links[link.time] = link;
-            app.save(app.ids.bookmarks, JSON.stringify(links));
-        });
-    };
-
-    app.visitSharedLink = function (id) {
-        app.getSharedLinks(function (links) {
-            var link = links[id];
-            editor.setValue(link.src);
-            editor.clearSelection();
-            app.output.value = link.output;
-        });
-    };
-
-    app.addLinkToDOM = function (result) {
-        var link = document.getElementById("links").createChild("div/a");
-        link.id = result.time;
-        link.innerText = result.name;
-        link.href = "#";
-        link.onclick = function () {
-            app.visitSharedLink(result.time);
-        };
-    };
-
-    app.addLinksToDOM = function () {
-        app.getSharedLinks(function (links) {
-            for (var id in links) {
-                var link = links[id];
-                app.addLinkToDOM(link);
-            }
-        });
-
-    };
-
-    app.share = function () {
-        var link = app.lastresult;
-        if (link === undefined) {
-            return;
-        }
-
-        link.name = prompt("Please enter a name: ", "");
-
-        app.appendSharedLink(link);
-        app.addLinkToDOM(link);
-    };
-
-    if (localStorage.backup !== undefined) {
-        editor.setValue(localStorage.backup);
-        editor.clearSelection();
-    } else {
-        editor.setValue(app.samples.helloworld);
-        editor.clearSelection();
-    }
-
-    app.samples = [];
-    app.samples.helloworld = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}";
-    app.samples.hellogcc = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}";
-
-    app.cache = {};
     Element.prototype.createChild = function (tagNamePath) {
         "use strict";
         var result = this;
@@ -251,13 +159,74 @@
         return result;
     };
 
+    localStorage.setItem("data", JSON.stringify({
+        ids: [],
+        bookmarks: {},
+        builds: {},
+        samples: {
+            helloworld: "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
+            hellogcc: "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}"
+        }
+    }));
+
+    var app = {};
+
+    app.getIds = function () {
+        return app.getData().ids;
+    };
+    app.getBookmarks = function () {
+        return app.getData().bookmarks;
+    };
+    app.getBuilds = function () {
+        return app.getData().builds;
+    };
+    app.getSamples = function () {
+        return app.getData().samples;
+    };
+
+    app.getAttributeCount = function (obj) {
+        var count = 0;
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k)) {
+                ++count;
+            }
+        }
+        return count;
+
+    };
+    app.getData = function () {
+        return JSON.parse(localStorage.getItem("data"));
+    }
+
+    app.output = document.getElementById("output");
+    app.waiting = false;
+
+    app.setInitialState = function () {
+        if (app.getAttributeCount(app.getBuilds()) == 0) {
+            editor.setValue(app.getSamples().helloworld);
+        } else {
+            var value;
+            for (var key in app.getBuilds()) {
+                if (app.getBuilds().hasOwnProperty(key)) {
+                    value = app.getBuilds()[key];
+                }
+            }
+            editor.setValue(value);
+        }
+        editor.clearSelection();
+    };
+    app.setInitialState();
+
+    app.cache = {};
 
     app.log = function (msg) {
         console.log(msg);
     };
+
+    str = JSON.stringify;
+
     app.send = function (location, source_code) {
 
-        var epoch = new Date().valueOf();
 
         if (app.cache[source_code] !== undefined) {
             return;
@@ -272,15 +241,9 @@
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
-
                     var build_output = httpRequest.responseText;
                     app.cache[source_code] = build_output;
-                    app.lastresult = { time: epoch, src: source_code, output: build_output };
-                    console.log(JSON.stringify(app.lastresult));
-                    app.data[epoch] = JSON.stringify({ src: source_code, output: build_output });
-
-                    app.save(source_code, build_output);
-                    app.onReply(httpRequest.responseText);
+                    app.output.value = build_output;
                     app.waiting = false;
                 }
             }
@@ -292,7 +255,10 @@
 
     app.getTime = function () {
         var d = new Date();
-        var fill = function(c) { c = "" + c; return c.length == 2 ? c : "0" + c; };
+        var fill = function (c) {
+            c = "" + c;
+            return c.length == 2 ? c : "0" + c;
+        };
         return fill(d.getHours()) + ":" + fill(d.getMinutes()) + ":" + fill(d.getSeconds());
     };
 
@@ -312,11 +278,6 @@
         if (app.waiting === false) {
             app.send("compile", editor.getValue());
         }
-    };
-
-    app.onReply = function (reply) {
-        console.log("reply: " + reply);
-        app.output.value = app.getTime() + ": Build results:\n" + reply;
     };
 
     app.enterTimeoutLoop();
