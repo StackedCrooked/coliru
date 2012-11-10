@@ -160,7 +160,7 @@
         <div id="editor" class="row flex1"></div>
         <div class="fake-margin row flex0"></div>
         <label for="output"></label><textarea id="output" class="row flex0" contenteditable="false" rows="10"></textarea>
-        <a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>
+        <!--<a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>-->
 
         <div class="fake-margin row flex0"></div>
     </div>
@@ -185,10 +185,12 @@
         return result;
     };
 
+
     var app = {
         samples: {
             "Hello World!" : "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n}",
-            "Hello GCC": "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello GCC \" << __VERSION__ << std::endl;\n}"
+            "Variadic Templates" : "#include <iostream>\n#include <stdexcept>\n\nnamespace cpp {\n\nvoid printf(const char* s)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') \n      throw std::runtime_error(\"invalid format string: missing arguments\");\n    std::cout << *s++;\n  }\n}\n\ntemplate<typename T, typename... Args>\nvoid printf(const char* s, const T& value, const Args&... args)\n{\n  while (*s) {\n    if (*s == '%' && *++s != '%') {\n      std::cout << value;\n      return printf(++s, args...);\n    }\n    std::cout << *s++;\n  }\n  throw std::runtime_error(\"extra arguments provided to printf\");\n}\n\n} // namespace cpp\n\nint main()\n{\n    // classic printf\n    printf(\"The sum of %u and %i is %d\\n\", -1, 2, 1);\n       \n    // variadic printf\n    cpp::printf(\"The sum of %u and %i is %d\\n\", -1, 2, 1);\n}"
+
         },
         elements: {
             header: document.getElementById("header"),
@@ -196,6 +198,50 @@
             output: document.getElementById("output")
         }
     };
+
+    app.send = function (location, source_code, f) {
+        var httpRequest = new XMLHttpRequest();
+        var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
+        httpRequest.open("PUT", url, true);
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4) {
+                if (httpRequest.status == 200) {
+                    app.waiting = false;
+                    f({input: source_code, output: httpRequest.responseText});
+                }
+            }
+        };
+        app.waiting = true;
+        httpRequest.send(source_code);
+    };
+
+    app.enterTimeoutLoop = function () {
+        app.timeoutLoopImpl();
+        window.setTimeout(app.enterTimeoutLoop, 500);
+    };
+
+    app.timeoutLoopImpl = function () {
+
+        var storageKey = JSON.stringify({ input: editor.getValue() });
+        var cached_result = localStorage.getItem(storageKey);
+        if (!cached_result) {
+            app.send("compile", editor.getValue(), function (result) {
+                localStorage.setItem(JSON.stringify({ input: result.input }), result.output);
+                app.elements.output.value = result.output;
+            });
+        } else if (editor.getValue() !== cached_result) {
+            app.elements.output.value = cached_result;
+        }
+
+    };
+
+    app.cache_build_results = function() {
+        localStorage.setItem(JSON.stringify({
+            input: editor.getValue(),
+            output: app.output.value
+        }));
+    };
+
 
     window.onload = function() {
 
@@ -210,15 +256,6 @@
             link.class = 'sample col flex0 box';
             link.fontWeight = 'thicker';
             link.innerText = name;
-
-//            link.style.backgroundColor = "black";
-//            link.style.color = 'red';
-//            link.onmouseover = function() {
-//                this.style.color = 'yellow';
-//            };
-//            link.onmouseout = function() {
-//                this.style.color = 'red';
-//            };
             link.style.margin = "4px";
             link.style.fontSize = "normal";
             link.onclick = function() {
@@ -226,58 +263,8 @@
                 editor.clearSelection();
             };
         }
+        app.enterTimeoutLoop() ;
     };
-
-    app.send = function (location, source_code, f) {
-        var httpRequest = new XMLHttpRequest();
-        var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
-        httpRequest.open("PUT", url, true);
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState == 4) {
-                if (httpRequest.status == 200) {
-                    app.waiting = false;
-                    f(JSON.parse(httpRequest.responseText));
-                }
-            }
-        };
-        app.waiting = true;
-        httpRequest.send(source_code);
-    };
-
-    app.enterTimeoutLoop = function () {
-        app.timeoutLoopImpl();
-        window.setTimeout(app.enterTimeoutLoop, 500);
-    };
-
-    app.timeoutLoopImpl = function () {
-        var src = editor.getValue();
-        var key = JSON.stringify({ input: src });
-        if (localStorage.getItem(key) === undefined) {
-            app.send("compile", editor.getValue(), function (result) {
-                if (result.input !== src) {
-                    throw "Server response does not match expected input. Input that was sent with the request: " + src + ". Got: " + JSON.stringify(result);
-                } else {
-                    localStorage.setItem(key, result.output);
-                }
-            });
-        }
-    };
-
-    app.cache_build_results = function() {
-        localStorage.setItem(JSON.stringify({
-            input: editor.getValue(),
-            output: app.output.value
-        }));
-    };
-
-
-    app.onCompile = function () {
-        if (app.waiting === false) {
-            app.send("compile", editor.getValue());
-        }
-    };
-
-    app.enterTimeoutLoop();
 </script>
 
 
