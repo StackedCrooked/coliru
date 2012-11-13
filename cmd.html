@@ -4,196 +4,68 @@
 
     <style type="text/css">
         html, body {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
+            position: relative;
+            width: 96%;
+            height: 96%;
+        }
+
+
+        #b {
+            position: relative;
+            display: -webkit-box; display: -moz-box;
+            -webkit-box-orient: vertical; -moz-box-orient: vertical;
+            -webkit-box-align : stretch ; -moz-box-align : stretch;
         }
 
         #page {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-
-        }
-
-        .vbox {
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-
-            -webkit-box-orient: vertical;
-            -moz-box-orient: vertical;
-            -box-orient: vertical;
-
-            -webkit-box-align: stretch;
-            -moz-box-align: stretch;
-            -box-align: stretch;
-        }
-
-        .hbox {
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            -box-orient: horizontal;
-
-            -webkit-box-align: stretch;
-            -moz-box-align: stretch;
-            -box-align: stretch;
-        }
-
-        .col {
-            height: 100%;
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-        }
-
-        .row {
-            width: 100%;
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-        }
-
-        #header {
-            min-height: 30px;
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            -box-orient: horizontal;
-
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            -box-align: center;
-
-            width: 100%;
-            overflow: hidden;
-            font-family: sans-serif;
-            font-size: small;
-        }
-
-        #middle {
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-
-            -webkit-box-orient: vertical;
-            -moz-box-orient: vertical;
-            -box-orient: vertical;
-
-            -webkit-box-align: stretch;
-            -moz-box-align: stretch;
-            -box-align: stretch;
-
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .flex0 {
-            -webkit-box-flex: 0.0;
-            -moz-box-flex: 0.0;
-            -box-flex: 0.0;
-        }
-
-        .flex1 {
-            -webkit-box-flex: 1.0;
-            -moz-box-flex: 1.0;
-            -box-flex: 1.0;
-        }
-
-        .fake-margin {
-            min-height: 0px;
-
+            position: relative;
+            display: -webkit-box; display: -moz-box;
+            -webkit-box-orient: vertical; -moz-box-orient: vertical;
+            -webkit-box-align : stretch ; -moz-box-align : stretch;
+            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
         }
 
         #editor {
+            display: -webkit-box; display: -moz-box;
+            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
             position: relative;
-        }
-
-        #left {
-            min-width: 0px;
-        }
-
-        #right {
-            min-width: 0px;
+            resize: none;
+            margin-bottom: 4px;
         }
 
         #output {
-            font-family: monospace;
-            overflow: auto;
-            height: 200px;
+            display: -webkit-box; -display: -moz-box;
+            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+            position: relative;
+            resize: none;
+            border-style: ridge;
+            margin-bottom: 4px;
         }
 
         #footer {
-            min-height: 30px;
-            display: -webkit-box;
-            display: -moz-box-box;
-            display: -box;
-
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            -box-orient: horizontal;
-
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            -box-align: center;
-
-            width: 100%;
-            overflow: hidden;
-            font-family: sans-serif;
-            font-size: small;
+            position: relative;
+            display: -webkit-box; -display: -moz-box;
+            -webkit-box-orient: vertical; -moz-box-orient: vertical;
+            -webkit-box-align : center ; -moz-box-align : center;
+            text-align: center;
+            -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
         }
 
-        .surrounding {
-            background-color: #d3d3d3;
-        }
-
-        textarea {
-            border-width: medium;
-            border-color: #add8e6;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-        }
-        button {
-            height: 23px;
-            margin: 7px;
+        #post {
+            position: relative;
+            display: -webkit-box; -display: -moz-box;
+            -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+            height: 30px;
         }
     </style>
 
 </head>
-<body>
-
-<div id="page" class="hbox">
-    <div id="left" class="col flex0"></div>
-    <div id="middle" class="vbox col flex1">
-        <div class="fake-margin row flex0 "></div>
-        <div id="header" class="surrounding row flex0"></div>
-        <div id="editor" class="row flex1"></div>
-        <div class="fake-margin row flex0"></div>
-        <label for="output"></label><textarea id="output" class="row flex0" contenteditable="false"
-                                              rows="10"></textarea>
-
-        <div id="footer" class="surrounding row flex0 hbox">
-            <div class="flex1"></div>
-            <button onclick="app.postSample();">Post Sample!</button>
-            <div class="flex1"></div>
-        </div>
-        <!--<a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>-->
-
-        <div class="fake-margin row flex0"></div>
-    </div>
-    <div id="right" class="col flex0"></div>
+<body id="b">
+<div id="page">
+    <div id="editor"></div>
+    <div id="output"></div>
+    <div id="footer">
+    <button id="post" onclick="app.postSample();">Post Sample!</button></div>
 </div>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
 <script>
