@@ -116,6 +116,12 @@
         return this.replace(/^\s+|\s+$/g, "");
     };
 
+    app.lastChange = 0;
+
+    document.getElementById("editor").onkeyup = function() {
+        app.lastChange = new Date().getTime();
+    };
+
 
     app.send = function (location, source_code, f) {
         var httpRequest = new XMLHttpRequest();
@@ -134,6 +140,8 @@
         httpRequest.send(source_code);
     };
 
+
+    app.previousValue = "";
     app.enterTimeoutLoop = function () {
         app.timeoutLoopImpl();
         window.setTimeout(app.enterTimeoutLoop, 500);
@@ -141,15 +149,22 @@
 
     app.timeoutLoopImpl = function () {
         var storageKey = JSON.stringify({ input: editor.getValue() });
-        app.send("compile", editor.getValue(), function (result) {
-            document.getElementById("output").value = result.output;
-        });
+        var time = (new Date().getTime());
+        if (time - app.lastChange >= 1000 && editor.getValue() != app.previousValue) {
+            document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
+            app.previousValue = document.getElementById("output").value;
+            app.send("compile", editor.getValue(), function (result) {
+                document.getElementById("output").value = result.output;
+                app.previousValue = editor.getValue();
+            });
+        }
     };
 
     window.onload = function () {
 
         // Select the first sample.
         editor.setValue(app.samples["Hello World!"]);
+        app.previousValue = editor.getValue();
         editor.clearSelection();
         app.enterTimeoutLoop();
     };
