@@ -230,16 +230,21 @@
 
     app.postSample = function() {
         var url = "http://" + window.location.hostname + ":" + window.location.port + "/archive?id=" + app.lastResult;
-        console.log("url: " + url);
         window.open(url, '_blank');
     };
 
-    app.get = function(url) {
+    app.http_get = function(url) {
         var x = new XMLHttpRequest();
         x.open("GET", url, false);
         x.send(null);
         return x.responseText;
     };
+
+
+    String.prototype.trim = function() {
+        return this.replace(/^\s+|\s+$/g, "");
+    };
+
 
     app.send = function (location, source_code, f) {
         var httpRequest = new XMLHttpRequest();
@@ -249,8 +254,8 @@
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
                     app.waiting = false;
-                    app.lastResult = httpRequest.responseText;
-                    f({input: source_code, output: app.get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
+                    app.lastResult = httpRequest.responseText.trim();
+                    f({input: source_code, output: app.http_get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
                 }
             }
         };
@@ -264,18 +269,10 @@
     };
 
     app.timeoutLoopImpl = function () {
-
         var storageKey = JSON.stringify({ input: editor.getValue() });
-        var cached_result = localStorage.getItem(storageKey);
-        if (!cached_result) {
-            app.send("compile", editor.getValue(), function (result) {
-                localStorage.setItem(JSON.stringify({ input: result.input }), result.output);
-                app.elements.output.value = result.output;
-            });
-        } else if (editor.getValue() !== cached_result) {
-            app.elements.output.value = cached_result;
-        }
-
+        app.send("compile", editor.getValue(), function (result) {
+            app.elements.output.value = result.output;
+        });
     };
 
     window.onload = function () {
