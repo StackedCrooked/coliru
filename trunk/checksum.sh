@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [[ `uname` == "Linux" ]] ; then
     md5sum $1 | cut -d ' ' -f 1
 elif [[ `uname` == "Darwin" ]] ; then
