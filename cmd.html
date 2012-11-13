@@ -123,6 +123,7 @@
     };
 
     app.waiting = false;
+    document.getElementById("post").disabled = false;
 
 
     app.send = function (location, source_code, f) {
@@ -133,12 +134,14 @@
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
                     app.waiting = false;
+                    document.getElementById("post").disabled = false;
                     app.lastResult = httpRequest.responseText.trim();
                     f({input: source_code, output: app.http_get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
                 }
             }
         };
         app.waiting = true;
+        document.getElementById("post").disabled = true;
         httpRequest.send(source_code);
     };
 
@@ -155,7 +158,6 @@
         if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue) {
             document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
             app.previousValue = document.getElementById("output").value;
-
             app.send("compile", editor.getValue(), function (result) {
                 document.getElementById("output").value = result.output;
                 app.previousValue = editor.getValue();
