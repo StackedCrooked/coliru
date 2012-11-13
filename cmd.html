@@ -94,7 +94,6 @@
 
         },
         elements: {
-            header: document.getElementById("header"),
             editor: document.getElementById("editor"),
             output: document.getElementById("output")
         }
@@ -152,21 +151,6 @@
         // Select the first sample.
         editor.setValue(app.samples["Hello World!"]);
         editor.clearSelection();
-
-        // Add event handles for the samples.
-        for (var name in app.samples) {
-            var link = header.createChild("a");
-            link.href = "#";
-            link.class = 'sample col flex0 box';
-            link.fontWeight = 'thicker';
-            link.innerText = name;
-            link.style.margin = "4px";
-            link.style.fontSize = "normal";
-            link.onclick = function () {
-                editor.setValue(app.samples[this.innerText]);
-                editor.clearSelection();
-            };
-        }
         app.enterTimeoutLoop();
     };
 </script>
