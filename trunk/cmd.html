@@ -186,7 +186,7 @@
 
         <div id="footer" class="surrounding row flex0 hbox">
             <div class="flex1"></div>
-            <button onclick="app.postSample(); return;">Post Sample!</button>
+            <button onclick="app.postSample();">Post Sample!</button>
             <div class="flex1"></div>
         </div>
         <!--<a id="share" class="row flex0" href="#" onclick="app.share(); return;">Share</a>-->
@@ -228,6 +228,19 @@
         }
     };
 
+    app.postSample = function() {
+        var url = "http://" + window.location.hostname + ":" + window.location.port + "/archive?id=" + app.lastResult;
+        console.log("url: " + url);
+        window.open(url, '_blank');
+    };
+
+    app.get = function(url) {
+        var x = new XMLHttpRequest();
+        x.open("GET", url, false);
+        x.send(null);
+        return x.responseText;
+    };
+
     app.send = function (location, source_code, f) {
         var httpRequest = new XMLHttpRequest();
         var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
@@ -236,7 +249,8 @@
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
                     app.waiting = false;
-                    f({input: source_code, output: httpRequest.responseText});
+                    app.lastResult = httpRequest.responseText;
+                    f({input: source_code, output: app.get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
                 }
             }
         };
