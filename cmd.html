@@ -63,7 +63,7 @@
 <body id="b">
 <div id="page">
     <div id="editor"></div>
-    <div id="output"></div>
+    <textarea id="output"></textarea>
     <div id="footer">
     <button id="post" onclick="app.postSample();">Post Sample!</button></div>
 </div>
@@ -142,7 +142,7 @@
     app.timeoutLoopImpl = function () {
         var storageKey = JSON.stringify({ input: editor.getValue() });
         app.send("compile", editor.getValue(), function (result) {
-            app.elements.output.value = result.output;
+            document.getElementById("output").value = result.output;
         });
     };
 
