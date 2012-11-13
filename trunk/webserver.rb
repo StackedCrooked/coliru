@@ -15,7 +15,7 @@ end
 
 
 $host = $local ? "localhost" : ARGV[0]
-$port = $local ? "4000" : "80"
+$port = $local ? "4000" : ARGV[1]
 
 $semaphore = Mutex.new
 
