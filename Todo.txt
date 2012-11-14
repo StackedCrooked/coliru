@@ -1,7 +1,10 @@
 General
 -------
 - compile vs compile_and_run
-- Server: Don't run subprocess as admin.
+- Server: Don't run subprocess as admin. OK:
+    sudo apt-get install libcap2-bin
+    sudo setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
+    
 - Bookmarking, sharing files.
 - Warning options configurable.
 - Allow std::thread.
@@ -13,3 +16,4 @@ General
 - Ctrl-S for saving
 - Code in URL?
 - Chroot
+
