@@ -1,1 +1,1 @@
-nohup VBoxHeadless -s "coliru-server" &
+nohup VBoxHeadless -s "coliru" &
