@@ -54,71 +54,7 @@ long get_arg4(const user_regs_struct & regs) { return regs.r8;  }
 long get_arg5(const user_regs_struct & regs) { return regs.r9;  }
 
 
-long get_arg0(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg0, NULL); }
-long get_arg1(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg1, NULL); }
-long get_arg2(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg2, NULL); }
-long get_arg3(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg3, NULL); }
-long get_arg4(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg4, NULL); }
-long get_arg5(pid_t child) { return ptrace(PTRACE_PEEKUSER, child, offset_arg5, NULL); }
 
-
-void getdata(pid_t child, long addr, char * str, int len)
-{
-    char * laddr;
-    int i, j;
-    union u
-    {
-        long val;
-        char chars[sizeof(long)];
-    } data;
-    i = 0;
-    j = len / sizeof(long);
-    laddr = str;
-    while (i < j)
-    {
-        data.val = ptrace(PTRACE_PEEKDATA, child, addr + i * sizeof(long), NULL);
-        memcpy(laddr, data.chars, sizeof(long));
-        ++i;
-        laddr += sizeof(long);
-    }
-    j = len % sizeof(long);
-    if (j != 0)
-    {
-        data.val = ptrace(PTRACE_PEEKDATA, child, addr + i * sizeof(long), NULL);
-        memcpy(laddr, data.chars, j);
-    }
-    str[len] = '\0';
-}
-
-
-void putdata(pid_t child, long addr, char * str, int len)
-{
-    char * laddr;
-    int i, j;
-    union u
-    {
-        long val;
-        char chars[sizeof(long)];
-    } data;
-    i = 0;
-    j = len / sizeof(long);
-    laddr = str;
-    while (i < j)
-    {
-        memcpy(data.chars, laddr, sizeof(long));
-        ptrace(PTRACE_POKEDATA, child,
-               addr + i * sizeof(long), data.val);
-        ++i;
-        laddr += sizeof(long);
-    }
-    j = len % sizeof(long);
-    if (j != 0)
-    {
-        memcpy(data.chars, laddr, j);
-        ptrace(PTRACE_POKEDATA, child,
-               addr + i * sizeof(long), data.val);
-    }
-}
 
 const char * linux_syscallnames_64[] =
 {
