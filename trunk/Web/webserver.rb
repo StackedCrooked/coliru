@@ -5,13 +5,6 @@ require 'popen4'
 require 'pp'
 require 'thread'
 
-
-puts "ARGV.length: #{ARGV.length}"
-$local = (ARGV.length != 2)
-
-$host = $local ? "localhost" : ARGV[0]
-$port = $local ? "4000" : ARGV[1]
-
 $semaphore = Mutex.new
 
 
@@ -53,7 +46,17 @@ class SimpleHandler < Mongrel::HttpHandler
 end
 
 
-puts "Listening to #{$host}:#{$port}"
+if ARGV.length != 2
+    puts "Usage ruby webserver.rb Host Port"
+    exit
+end
+
+
+$host = ARGV[0]
+$port = ARGV[1]
+
+
+puts "Start listening to #{$host}:#{$port}"
 h = Mongrel::HttpServer.new($host, $port)
 h.register("/", SimpleHandler.new)
 h.register("/Archive", Mongrel::DirHandler.new("Archive"))
