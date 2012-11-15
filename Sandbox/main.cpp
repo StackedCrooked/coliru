@@ -29,14 +29,14 @@ std::string gRole = "";
 
 #define ASSERT_TRUE(cond) \
     if (!(cond)) { \
-        WARNING(#cond); \
+        ERROR(#cond); \
         ABORT(); \
     }
 
 
 #define ASSERT_LT(a, b) \
     if ((a) >= (b)) { \
-        ERROR(Futile::MakeString() << "Assertion failed: \"" << #a << " < " << #b << "\" because " << a << (a > b ? " > " : " >= ") << b << "!"); \
+        WARNING(Futile::MakeString() << "Assertion failed: \"" << #a << " < " << #b << "\" because " << a << (a > b ? " > " : " >= ") << b << "!"); \
         ABORT(); \
     }
 
@@ -46,6 +46,7 @@ std::string Translate(long id)
 {
     return linux_syscallnames_64[id];
 }
+
 
 user_regs_struct GetRegisters(pid_t child)
 {
@@ -86,11 +87,11 @@ void HandleSysOpen(const user_regs_struct & regs)
 void HandleSysMMap(const user_regs_struct & regs)
 {
     uint64_t len = get_arg1(regs);
-    TRACE(Futile::MakeString() << "Length: " << len);
+    ASSERT_LT(len, 10 * 1000 * 1000);
+
     static uint64_t sum = 0;
     sum += len;
-    //WARNING(Futile::MakeString() << "sum: " << sum);
-    ASSERT_LT(sum, 10 * 1000 * 1000);
+    ASSERT_LT(sum, 256 * 1000 * 1000);
 }
 
 

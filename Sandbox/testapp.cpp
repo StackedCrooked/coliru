@@ -4,16 +4,9 @@
 #include <fstream>
 #include <cstdint>
 
-bool IsRegistered(const char * name)
-{
-    std::cout << "Check: " << name << std::endl;
-    return true;
-}
-
 
 #define CAT_IMPL(a, b) a##b
 #define CAT(a, b) CAT_IMPL(a, b)
-
 
 #define TEST_IMPL(Name) \
     struct Name { \
@@ -27,12 +20,21 @@ bool IsRegistered(const char * name)
     Name CAT(g, Name); \
     void Name::implementation()
 
+#define EVIL_TEST(Name) \
+    TEST_IMPL(CAT(Evil_, Name))
 
-#define TEST(Name) \
-    TEST_IMPL(CAT(Tester_, Name))
+#define GOOD_TEST(Name) \
+    TEST_IMPL(CAT(Good_, Name))
 
 
-TEST(open)
+bool IsRegistered(const char * name)
+{
+    std::cout << "Check: " << name << std::endl;
+    return true;
+}
+
+
+GOOD_TEST(open)
 {
     std::ifstream read("main.cpp");
     std::string s;
@@ -41,13 +43,15 @@ TEST(open)
     }
 }
 
-TEST(open_create)
+
+EVIL_TEST(open)
 {
     std::ofstream create("open_create");
     create << "Created!" << std::endl;
 }
 
-TEST(test_malloc)
+
+GOOD_TEST(test_malloc)
 {
     uint32_t n = 1;
     uint32_t sum = 1;
@@ -57,7 +61,7 @@ TEST(test_malloc)
         n *= 2;
         sum += n;
     }
-    while (sum < 500 * 1000);
+    while (sum < 10 * 1000 * 1000);
 }
 
 
