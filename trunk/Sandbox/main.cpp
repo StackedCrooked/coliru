@@ -1,14 +1,48 @@
+#include "MakeString.h"
+#include <iomanip>
+#include <iostream>
 #include <string>
 #include "syscalls.h"
 
 
-std::string gRole = "Parent";
-
-#define ERROR(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": error: " << gRole << ": " << msg << std::endl
-#define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": " << gRole << ": " << msg << std::endl
+using Futile::ss;
 
 
-std::string TranslateSyscall(long id)
+std::string gRole = "";
+
+#define INFO(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": i: " << __FUNCTION__ << ": " << gRole << ": " << std::string(msg) << std::endl
+#define WARNING(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": warning: " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
+#define ERROR(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": error: " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
+
+#ifdef ENABLE_TRACE
+#define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
+#else
+#define TRACE(msg)
+#endif
+
+#ifdef FOR_REAL
+#define ABORT() std::abort();
+#else
+#define ABORT()
+#endif
+
+
+#define ASSERT_TRUE(cond) \
+    if (!(cond)) { \
+        WARNING(#cond); \
+        ABORT(); \
+    }
+
+
+#define ASSERT_LT(a, b) \
+    if ((a) >= (b)) { \
+        ERROR(Futile::MakeString() << "Assertion failed: \"" << #a << " < " << #b << "\" because " << a << (a > b ? " > " : " >= ") << b << "!"); \
+        ABORT(); \
+    }
+
+
+
+std::string Translate(long id)
 {
     return linux_syscallnames_64[id];
 }
@@ -25,21 +59,38 @@ user_regs_struct GetRegisters(pid_t child)
 }
 
 
-void HandleSysWrite(const user_regs_struct &)
+void HandleSysWrite(const user_regs_struct & /*regs*/)
 {
 }
 
-
+/**
+ * Linux system call signatures:
+ *   int open(const char *pathname, int flags);
+ *   int open(const char *pathname, int flags, mode_t mode);
+ *   int creat(const char *pathname, mode_t mode);
+ */
 void HandleSysOpen(const user_regs_struct & regs)
 {
-    //int open(const char *pathname, int flags);
-    //int open(const char *pathname, int flags, mode_t mode);
-    //int creat(const char *pathname, mode_t mode);
-    long long unsigned int flags = get_arg1(regs);
-    if (flags != 0)
-    {
-        throw std::runtime_error("HandleSysOpen: flag not allowed: " + std::to_string(flags));
-    }
+    std::stringstream ss;
+    ss << "SYS_open: flags: " << std::hex << "0x" << std::setw(4) << std::setfill('0') << int(get_arg1(regs)) << std::dec << std::endl;
+    TRACE(ss.str());
+    ASSERT_TRUE(get_arg1(regs) == 0);
+}
+
+
+/**
+ * Linux system call signatures:
+ *   void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);
+ *   int munmap(void *addr, size_t length);
+ */
+void HandleSysMMap(const user_regs_struct & regs)
+{
+    uint64_t len = get_arg1(regs);
+    TRACE(Futile::MakeString() << "Length: " << len);
+    static uint64_t sum = 0;
+    sum += len;
+    //WARNING(Futile::MakeString() << "sum: " << sum);
+    ASSERT_LT(sum, 10 * 1000 * 1000);
 }
 
 
@@ -54,7 +105,6 @@ std::string ToString(pid_t child)
 void HandleSyscall(pid_t child)
 {
     auto regs = GetRegisters(child);
-    TRACE("Handle system call " + ToString(regs.orig_rax) + " (" +  TranslateSyscall(regs.orig_rax) + ")");
     switch (regs.orig_rax)
     {
         case SYS_write:
@@ -67,9 +117,18 @@ void HandleSyscall(pid_t child)
             HandleSysOpen(regs);
             break;
         }
+        case SYS_brk:
+        {
+            break;
+        }
+        case SYS_mmap:
+        {
+            HandleSysMMap(regs);
+            break;
+        }
         default:
         {
-            throw std::runtime_error(std::string("Syscall not allowed: ") + linux_syscallnames_64[regs.orig_rax]);
+            //WARNING("Unchecked system call: " + Translate(regs.orig_rax));
         }
     }
 }
@@ -119,7 +178,7 @@ void run(int argc, char ** argv)
 
     if (child == 0)
     {
-        gRole = "Child";
+        gRole = "";
         TRACE("I am a child!");
         if (argc < 2)
         {
@@ -151,6 +210,6 @@ int main(int argc, char ** argv)
     }
     catch (const std::exception & exc)
     {
-        ERROR(exc.what());
+        std::cerr << exc.what();
     }
 }
