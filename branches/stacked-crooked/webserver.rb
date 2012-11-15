@@ -5,11 +5,16 @@ require 'popen4'
 require 'pp'
 require 'thread'
 
+POpen4::popen4("whoami") do |stdout, stderr, stdin, pid|
+    puts "whoami: #{stdout.read()}"
+end
 
-$local = true
-$command = "./timeout 5 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
+
+
+$local = false
+$command = "./timeout 1 nice -n 10 systrace -a -t -d . -e ./test >>output 2>&1"
 if $local
-    $command = "./timeout 5 nice -n 10 ./test >>output 2>&1"
+    $command = "./timeout 1 nice -n 10 ./test >>output 2>&1"
 end
 
 

@@ -1,1 +1,1 @@
-sudo killall ruby ; sudo ruby webserver.rb
+nohup ./_restart.sh &
