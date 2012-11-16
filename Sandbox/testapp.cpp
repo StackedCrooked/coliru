@@ -1,3 +1,5 @@
+#define ENABLE_EVIL_TESTS 1
+
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -28,7 +30,7 @@
 
 bool IsRegistered(std::string name)
 {
-    return name.find("Evil") == std::string::npos;
+    return ENABLE_EVIL_TESTS || name.find("Evil") == std::string::npos;
 }
 
 
