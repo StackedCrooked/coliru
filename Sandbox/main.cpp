@@ -1,3 +1,6 @@
+#define ENABLE_TRACE
+//#define FOR_REAL
+
 #include "MakeString.h"
 #include <iomanip>
 #include <iostream>
@@ -9,14 +12,12 @@
 using Futile::ss;
 
 
-std::string gRole = "";
-
-#define INFO(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": i: " << __FUNCTION__ << ": " << gRole << ": " << std::string(msg) << std::endl
-#define WARNING(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": warning: " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
-#define ERROR(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": error: " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
+#define INFO(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": info: " << std::string(msg) << std::endl
+#define WARNING(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": warning: " << std::string(msg) << std::endl
+#define ERROR(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": error: " << std::string(msg) << std::endl
 
 #ifdef ENABLE_TRACE
-#define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": " << __FUNCTION__ << ": "<< gRole << ": " << std::string(msg) << std::endl
+#define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": trace: " << std::string(msg) << std::endl
 #else
 #define TRACE(msg)
 #endif
@@ -196,7 +197,7 @@ void RunParent(pid_t child)
 
         static auto inside_syscall = false;
         inside_syscall = !inside_syscall;
-        TRACE(Futile::MakeString() << "<" << (inside_syscall ? "" : "/") << Translate(GetRegisters(child).orig_rax) << ">\n");
+        //TRACE(Futile::MakeString() << "<" << (inside_syscall ? "" : "/") << Translate(GetRegisters(child).orig_rax) << ">\n");
         if (inside_syscall)
         {
             HandleSyscall(child);
@@ -213,7 +214,6 @@ void run(int argc, char ** argv)
 
     if (child == 0)
     {
-        gRole = "";
         TRACE("I am a child!");
         if (argc < 2)
         {
