@@ -1,19 +1,33 @@
+#include <cassert>
+#include <cstdlib>
+#include <fcntl.h>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <sys/ptrace.h>
+#include <sys/syscall.h>
+#include <sys/types.h>
+#include <sys/user.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+
 #define ENABLE_TRACE 0
 #define FOR_REAL 0
 
 
-#include "MakeString.h"
-#include "syscalls.h"
-#include <fcntl.h>
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <cassert>
-#include <cstdlib>
+extern const char * linux_syscallnames_64[];
 
 
-using Futile::ss;
+long get_arg0(const user_regs_struct & regs) { return regs.rdi; }
+long get_arg1(const user_regs_struct & regs) { return regs.rsi; }
+long get_arg2(const user_regs_struct & regs) { return regs.rdx; }
+long get_arg3(const user_regs_struct & regs) { return regs.rcx; }
+long get_arg4(const user_regs_struct & regs) { return regs.r8;  }
+long get_arg5(const user_regs_struct & regs) { return regs.r9;  }
+
 
 
 #define INFO(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": info: " << std::string(msg) << std::endl
@@ -57,16 +71,36 @@ using Futile::ss;
 #define ASSERT_LT(a, b) ASSERT_TRUE(a < b)
 
 
+#define REQUIRE_EQ(call, a, b) \
+    if (eq((a), (b))) { \
+        INFO(MakeString() << #call << ": PERMIT"); \
+    } else { \
+        ERROR(MakeString() << #call ": DENY because " << #a << " != " << #b); \
+    }
+
 
 bool eq(long int a, int b) { return a == b; }
 
 
-#define REQUIRE_EQ(call, a, b) \
-    if (eq((a), (b))) { \
-        INFO(Futile::MakeString() << #call << ": PERMIT"); \
-    } else { \
-        ERROR(Futile::MakeString() << #call ": DENY because " << #a << " != " << #b); \
+class MakeString
+{
+public:
+    template <typename T>
+    MakeString & operator<<(const T & datum)
+    {
+        mBuffer << datum;
+        return *this;
     }
+
+    operator std::string() const
+    { return mBuffer.str(); }
+
+    std::string str() const
+    { return mBuffer.str(); }
+
+private:
+    std::stringstream mBuffer;
+};
 
 
 
@@ -85,25 +119,6 @@ user_regs_struct GetRegisters(pid_t child)
         throw std::runtime_error("PTRACE_GETREGS failed");
     }
     return regs;
-}
-
-
-void HandleSysWrite(const user_regs_struct & /*regs*/)
-{
-}
-
-/**
- * Linux system call signatures:
- *   int open(const char *pathname, int flags);
- *   int open(const char *pathname, int flags, mode_t mode);
- *   int creat(const char *pathname, mode_t mode);
- */
-void HandleSysOpen(const user_regs_struct & regs)
-{
-    std::stringstream ss;
-    ss << "SYS_open: flags: " << std::hex << "0x" << std::setw(4) << std::setfill('0') << int(get_arg1(regs)) << std::dec << std::endl;
-    TRACE(ss.str());
-    ASSERT_TRUE(get_arg1(regs) == 0);
 }
 
 
@@ -158,7 +173,7 @@ void HandleSyscall(pid_t child)
         case SYS_sendto:
         default:
         {
-            ERROR(Futile::MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
+            ERROR(MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
             ABORT();
             break;
         }
@@ -194,7 +209,7 @@ void RunParent(pid_t child)
 
         static auto inside_syscall = false;
         inside_syscall = !inside_syscall;
-        //TRACE(Futile::MakeString() << "<" << (inside_syscall ? "" : "/") << Translate(GetRegisters(child).orig_rax) << ">\n");
+        //TRACE(MakeString() << "<" << (inside_syscall ? "" : "/") << Translate(GetRegisters(child).orig_rax) << ">\n");
         if (inside_syscall)
         {
             HandleSyscall(child);
@@ -237,3 +252,61 @@ int main(int argc, char ** argv)
         std::cerr << exc.what();
     }
 }
+
+const char * linux_syscallnames_64[] =
+{
+    "read", "write", "open", "close", "stat", "fstat", "lstat", "poll",
+    "lseek", "mmap", "mprotect", "munmap", "brk", "rt_sigaction",
+    "rt_sigprocmask", "rt_sigreturn", "ioctl", "pread64", "pwrite64", "readv",
+    "writev", "access", "pipe", "select", "sched_yield", "mremap", "msync",
+    "mincore", "madvise", "shmget", "shmat", "shmctl", "dup", "dup2", "pause",
+    "nanosleep", "getitimer", "alarm", "setitimer", "getpid", "sendfile",
+    "socket", "connect", "accept", "sendto", "recvfrom", "sendmsg", "recvmsg",
+    "shutdown", "bind", "listen", "getsockname", "getpeername", "socketpair",
+    "setsockopt", "getsockopt", "clone", "fork", "vfork", "execve", "exit",
+    "wait4", "kill", "uname", "semget", "semop", "semctl", "shmdt", "msgget",
+    "msgsnd", "msgrcv", "msgctl", "fcntl", "flock", "fsync", "fdatasync",
+    "truncate", "ftruncate", "getdents", "getcwd", "chdir", "fchdir", "rename",
+    "mkdir", "rmdir", "creat", "link", "unlink", "symlink", "readlink",
+    "chmod", "fchmod", "chown", "fchown", "lchown", "umask", "gettimeofday",
+    "getrlimit", "getrusage", "sysinfo", "times", "ptrace", "getuid", "syslog",
+    "getgid", "setuid", "setgid", "geteuid", "getegid", "setpgid", "getppid",
+    "getpgrp", "setsid", "setreuid", "setregid", "getgroups", "setgroups",
+    "setresuid", "getresuid", "setresgid", "getresgid", "getpgid", "setfsuid",
+    "setfsgid", "getsid", "capget", "capset", "rt_sigpending",
+    "rt_sigtimedwait", "rt_sigqueueinfo", "rt_sigsuspend", "sigaltstack",
+    "utime", "mknod", "uselib", "personality", "ustat", "statfs", "fstatfs",
+    "sysfs", "getpriority", "setpriority", "sched_setparam", "sched_getparam",
+    "sched_setscheduler", "sched_getscheduler", "sched_get_priority_max",
+    "sched_get_priority_min", "sched_rr_get_interval", "mlock", "munlock",
+    "mlockall", "munlockall", "vhangup", "modify_ldt", "pivot_root", "_sysctl",
+    "prctl", "arch_prctl", "adjtimex", "setrlimit", "chroot", "sync", "acct",
+    "settimeofday", "mount", "umount2", "swapon", "swapoff", "reboot",
+    "sethostname", "setdomainname", "iopl", "ioperm", "create_module",
+    "init_module", "delete_module", "get_kernel_syms", "query_module",
+    "quotactl", "nfsservctl", "getpmsg", "putpmsg", "afs_syscall", "tuxcall",
+    "security", "gettid", "readahead", "setxattr", "lsetxattr", "fsetxattr",
+    "getxattr", "lgetxattr", "fgetxattr", "listxattr", "llistxattr",
+    "flistxattr", "removexattr", "lremovexattr", "fremovexattr", "tkill",
+    "time", "futex", "sched_setaffinity", "sched_getaffinity",
+    "set_thread_area", "io_setup", "io_destroy", "io_getevents", "io_submit",
+    "io_cancel", "get_thread_area", "lookup_dcookie", "epoll_create",
+    "epoll_ctl_old", "epoll_wait_old", "remap_file_pages", "getdents64",
+    "set_tid_address", "restart_syscall", "semtimedop", "fadvise64",
+    "timer_create", "timer_settime", "timer_gettime", "timer_getoverrun",
+    "timer_delete", "clock_settime", "clock_gettime", "clock_getres",
+    "clock_nanosleep", "exit_group", "epoll_wait", "epoll_ctl", "tgkill",
+    "utimes", "vserver", "mbind", "set_mempolicy", "get_mempolicy", "mq_open",
+    "mq_unlink", "mq_timedsend", "mq_timedreceive", "mq_notify",
+    "mq_getsetattr", "kexec_load", "waitid", "add_key", "request_key",
+    "keyctl", "ioprio_set", "ioprio_get", "inotify_init", "inotify_add_watch",
+    "inotify_rm_watch", "migrate_pages", "openat", "mkdirat", "mknodat",
+    "fchownat", "futimesat", "newfstatat", "unlinkat", "renameat", "linkat",
+    "symlinkat", "readlinkat", "fchmodat", "faccessat", "pselect6", "ppoll",
+    "unshare", "set_robust_list", "get_robust_list", "splice", "tee",
+    "sync_file_range", "vmsplice", "move_pages", "utimensat", "ORE_getcpu",
+    "epoll_pwait", "signalfd", "timerfd_create", "eventfd", "fallocate",
+    "timerfd_settime", "timerfd_gettime", "paccept", "signalfd4", "eventfd2",
+    "epoll_create1", "dup3", "pipe2", "inotify_init1",
+    NULL
+};

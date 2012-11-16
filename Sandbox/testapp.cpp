@@ -1,9 +1,10 @@
-#define ENABLE_EVIL_TESTS 1
-
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <cstdint>
+
+
+#define ENABLE_EVIL_TESTS 1
 
 
 #define CAT_IMPL(a, b) a##b
