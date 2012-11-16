@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "syscalls.h"
 
 
@@ -29,6 +30,13 @@ std::string gRole = "";
 
 #define ASSERT_TRUE(cond) \
     if (!(cond)) { \
+        ERROR(#cond); \
+        ABORT(); \
+    }
+
+
+#define ASSERT_FALSE(cond) \
+    if ((cond)) { \
         ERROR(#cond); \
         ABORT(); \
     }
@@ -108,30 +116,55 @@ void HandleSyscall(pid_t child)
     auto regs = GetRegisters(child);
     switch (regs.orig_rax)
     {
-        case SYS_write:
-        {
-            HandleSysWrite(regs);
-            break;
-        }
         case SYS_open:
         {
             HandleSysOpen(regs);
             break;
         }
-        case SYS_brk:
+        case SYS_fork:
+        case SYS_execve:
+        case SYS_socket:
+        case SYS_sendto:
         {
+            ERROR(Futile::MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
+            ABORT();
             break;
         }
+        case SYS_access:
+        case SYS_arch_prctl:
+        case SYS_brk:
+        case SYS_close:
+        case SYS_exit:
+        case SYS_exit_group:
+        case SYS_fstat:
+        case SYS_futex:
+        case SYS_getrlimit:
+        case SYS_gettid:
+        case SYS_gettimeofday:
+        case SYS_madvise:
         case SYS_mmap:
+        case SYS_mprotect:
+        case SYS_munmap:
+        case SYS_nanosleep:
+        case SYS_read:
+        case SYS_rt_sigaction:
+        case SYS_rt_sigprocmask:
+        case SYS_set_robust_list:
+        case SYS_set_tid_address:
+        case SYS_tgkill:
+        case SYS_time:
+        case SYS_write:
+        case SYS_writev:
         {
-            HandleSysMMap(regs);
             break;
         }
         default:
         {
-            //WARNING("Unchecked system call: " + Translate(regs.orig_rax));
+            ERROR(Futile::MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
+            ABORT();
+            break;
         }
-    }
+    };
 }
 
 

@@ -27,10 +27,9 @@
     TEST_IMPL(CAT(Good_, Name))
 
 
-bool IsRegistered(const char * name)
+bool IsRegistered(std::string name)
 {
-    std::cout << "Check: " << name << std::endl;
-    return true;
+    return name.find("Evil") == std::string::npos;
 }
 
 
@@ -44,7 +43,7 @@ GOOD_TEST(open)
 }
 
 
-EVIL_TEST(open)
+EVIL_TEST(open_create)
 {
     std::ofstream create("open_create");
     create << "Created!" << std::endl;
