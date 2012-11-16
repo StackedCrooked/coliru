@@ -1,12 +1,16 @@
-#define ENABLE_TRACE
-//#define FOR_REAL
+#define ENABLE_TRACE 0
+#define FOR_REAL 0
+
 
 #include "MakeString.h"
+#include "syscalls.h"
+#include <fcntl.h>
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <stdexcept>
+#include <cassert>
 #include <cstdlib>
-#include "syscalls.h"
 
 
 using Futile::ss;
@@ -16,13 +20,16 @@ using Futile::ss;
 #define WARNING(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": warning: " << std::string(msg) << std::endl
 #define ERROR(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": error: " << std::string(msg) << std::endl
 
-#ifdef ENABLE_TRACE
+#define DENY(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": DENY: " << std::string(msg) << std::endl
+#define PERMIT(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": PERMIT: " << std::string(msg) << std::endl
+
+#if ENABLE_TRACE
 #define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ": trace: " << std::string(msg) << std::endl
 #else
 #define TRACE(msg)
 #endif
 
-#ifdef FOR_REAL
+#if FOR_REAL
 #define ABORT() std::abort();
 #else
 #define ABORT()
@@ -31,22 +38,34 @@ using Futile::ss;
 
 #define ASSERT_TRUE(cond) \
     if (!(cond)) { \
-        ERROR(#cond); \
+        DENY(#cond); \
         ABORT(); \
+    } else { \
+        PERMIT(#cond); \
     }
 
 
 #define ASSERT_FALSE(cond) \
     if ((cond)) { \
-        ERROR(#cond); \
+        DENY(#cond); \
         ABORT(); \
+    } else { \
+        PERMIT(#cond); \
     }
 
 
-#define ASSERT_LT(a, b) \
-    if ((a) >= (b)) { \
-        WARNING(Futile::MakeString() << "Assertion failed: \"" << #a << " < " << #b << "\" because " << a << (a > b ? " > " : " >= ") << b << "!"); \
-        ABORT(); \
+#define ASSERT_LT(a, b) ASSERT_TRUE(a < b)
+
+
+
+bool eq(long int a, int b) { return a == b; }
+
+
+#define REQUIRE_EQ(call, a, b) \
+    if (eq((a), (b))) { \
+        INFO(Futile::MakeString() << #call << ": PERMIT"); \
+    } else { \
+        ERROR(Futile::MakeString() << #call ": DENY because " << #a << " != " << #b); \
     }
 
 
@@ -88,28 +107,11 @@ void HandleSysOpen(const user_regs_struct & regs)
 }
 
 
-/**
- * Linux system call signatures:
- *   void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);
- *   int munmap(void *addr, size_t length);
- */
-void HandleSysMMap(const user_regs_struct & regs)
-{
-    uint64_t len = get_arg1(regs);
-    ASSERT_LT(len, 10 * 1000 * 1000);
-
-    static uint64_t sum = 0;
-    sum += len;
-    ASSERT_LT(sum, 256 * 1000 * 1000);
-}
-
-
 std::string ToString(pid_t child)
 {
     std::cerr << "child: " << child << std::endl;
     return std::to_string(static_cast<long long>(child));
 }
-
 
 
 void HandleSyscall(pid_t child)
@@ -119,16 +121,7 @@ void HandleSyscall(pid_t child)
     {
         case SYS_open:
         {
-            HandleSysOpen(regs);
-            break;
-        }
-        case SYS_fork:
-        case SYS_execve:
-        case SYS_socket:
-        case SYS_sendto:
-        {
-            ERROR(Futile::MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
-            ABORT();
+            REQUIRE_EQ(SYS_open, get_arg1(regs), O_RDONLY);
             break;
         }
         case SYS_access:
@@ -159,6 +152,10 @@ void HandleSyscall(pid_t child)
         {
             break;
         }
+        case SYS_fork:
+        case SYS_execve:
+        case SYS_socket:
+        case SYS_sendto:
         default:
         {
             ERROR(Futile::MakeString() << "System call is not allowed: " << Translate(regs.orig_rax));
@@ -209,28 +206,20 @@ void RunParent(pid_t child)
 
 void run(int argc, char ** argv)
 {
-    TRACE("Start parent application.");
     pid_t child = fork();
 
     if (child == 0)
     {
-        TRACE("I am a child!");
         if (argc < 2)
         {
             throw std::runtime_error("Usage: ./sandbox Program");
         }
 
-        TRACE("Trace me.");
         ptrace(PTRACE_TRACEME, 0, NULL, NULL);
-
-        TRACE("execl " + std::string(argv[1]));
         execl(argv[1], argv[1], NULL);
-
-        TRACE("Child exited gracefully.");
     }
     else
     {
-        TRACE("I still the parent.");
         RunParent(child);
         TRACE("Parent exited gracefully.");
     }

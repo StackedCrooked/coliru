@@ -1,49 +1,10 @@
 #include <sys/ptrace.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-//#include <x86_64-linux-gnu/asm/unistd_64.h>
-#include <unistd.h>
 #include <sys/user.h>
-#include <sys/reg.h>
 #include <sys/syscall.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <iostream>
-#include <cassert>
-#include <cstring>
-#include <string>
-#include <stdexcept>
+#include <unistd.h>
 
-
-//#define ISLINUX32(x)      (linux_call_type((x)->cs) == LINUX32)
-#define SYSCALL_NUM(x)        (x)->orig_rax
-#define SET_RETURN_CODE(x, v) (x)->rax = (v)
-#define RETURN_CODE(x)        (ISLINUX32(x) ? (long)(int)(x)->rax : (x)->rax)
-#define ARGUMENT_0(x)     ((x)->rdi)
-#define ARGUMENT_1(x)     ((x)->rsi)
-#define ARGUMENT_2(x)     ((x)->rdx)
-#define ARGUMENT_3(x)     ((x)->rcx)
-#define ARGUMENT_4(x)     ((x)->r8)
-#define ARGUMENT_5(x)     ((x)->r9)
-#define SET_ARGUMENT_0(x, v)  (x)->rdi = (v)
-#define SET_ARGUMENT_1(x, v)  (x)->rsi = (v)
-#define SET_ARGUMENT_2(x, v)  (x)->rdx = (v)
-#define SET_ARGUMENT_3(x, v)  (x)->rcx = (v)
-#define SET_ARGUMENT_4(x, v)  (x)->r8 = (v)
-#define SET_ARGUMENT_5(x, v)  (x)->r9 = (v)
-
-
-enum
-{
-    offset_orig_rax = offsetof(user_regs_struct, orig_rax),
-    offset_arg0 = offsetof(user_regs_struct, rdi),
-    offset_arg1 = offsetof(user_regs_struct, rsi),
-    offset_arg2 = offsetof(user_regs_struct, rdx),
-    offset_arg3 = offsetof(user_regs_struct, rcx),
-    offset_arg4 = offsetof(user_regs_struct, r8),
-    offset_arg5 = offsetof(user_regs_struct, r9),
-    offset_ret = offsetof(user_regs_struct, rax)
-};
 
 
 long get_arg0(const user_regs_struct & regs) { return regs.rdi; }
@@ -356,48 +317,3 @@ const char * linux_syscallnames_64[] =
     "inotify_init1", /* 294 */
     NULL
 };
-
-
-void print(const user_regs_struct & regs)
-{
-    std::cout << "regs.r15: " << regs.r15 << std::endl;
-    std::cout << "regs.r14: " << regs.r14 << std::endl;
-    std::cout << "regs.r13: " << regs.r13 << std::endl;
-    std::cout << "regs.r12: " << regs.r12 << std::endl;
-    std::cout << "regs.rbp: " << regs.rbp << std::endl;
-    std::cout << "regs.rbx: " << regs.rbx << std::endl;
-    std::cout << "regs.r11: " << regs.r11 << std::endl;
-    std::cout << "regs.r10: " << regs.r10 << std::endl;
-    std::cout << "regs.r9: " << regs.r9 << std::endl;
-    std::cout << "regs.r8: " << regs.r8 << std::endl;
-    std::cout << "regs.rax: " << regs.rax << std::endl;
-    std::cout << "regs.rcx: " << regs.rcx << std::endl;
-    std::cout << "regs.rdx: " << regs.rdx << std::endl;
-    std::cout << "regs.rsi: " << regs.rsi << std::endl;
-    std::cout << "regs.rdi: " << regs.rdi << std::endl;
-    std::cout << "regs.orig_rax: " << regs.orig_rax << std::endl;
-    std::cout << "regs.rip: " << regs.rip << std::endl;
-    std::cout << "regs.cs: " << regs.cs << std::endl;
-    std::cout << "regs.eflags: " << regs.eflags << std::endl;
-    std::cout << "regs.rsp: " << regs.rsp << std::endl;
-    std::cout << "regs.ss: " << regs.ss << std::endl;
-    std::cout << "regs.fs_base: " << regs.fs_base << std::endl;
-    std::cout << "regs.gs_base: " << regs.gs_base << std::endl;
-    std::cout << "regs.ds: " << regs.ds << std::endl;
-    std::cout << "regs.es: " << regs.es << std::endl;
-    std::cout << "regs.fs: " << regs.fs << std::endl;
-    std::cout << "regs.gs: " << regs.gs << std::endl;
-}
-
-
-void check(int n)
-{
-    assert(n == 0);
-}
-
-
-
-
-#define assert_eq(a, b) \
-    if (a != b) std::cout << #a << "!=" << #b << " (a = " << a << ", b = " << b << ")" << std::endl;
-
