@@ -15,7 +15,7 @@
 
 
 #define ENABLE_TRACE 0
-#define FOR_REAL 0
+#define FOR_REAL     1
 
 
 extern const char * linux_syscallnames_64[];
