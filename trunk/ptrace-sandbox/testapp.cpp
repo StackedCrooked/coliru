@@ -51,20 +51,6 @@ EVIL_TEST(open_create)
 }
 
 
-GOOD_TEST(test_malloc)
-{
-    uint32_t n = 1;
-    uint32_t sum = 1;
-    do
-    {
-        malloc(n);
-        n *= 2;
-        sum += n;
-    }
-    while (sum < 10 * 1000 * 1000);
-}
-
-
 int main()
 {
 }
