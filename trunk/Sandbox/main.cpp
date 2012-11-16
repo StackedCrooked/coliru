@@ -196,6 +196,7 @@ void RunParent(pid_t child)
 
         static auto inside_syscall = false;
         inside_syscall = !inside_syscall;
+        TRACE(Futile::MakeString() << "<" << (inside_syscall ? "" : "/") << Translate(GetRegisters(child).orig_rax) << ">\n");
         if (inside_syscall)
         {
             HandleSyscall(child);
