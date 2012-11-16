@@ -1,4 +1,3 @@
-//#include <boost/preprocessor.hpp>
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -37,9 +36,8 @@ GOOD_TEST(open)
 {
     std::ifstream read("main.cpp");
     std::string s;
-    while (read >> s) {
-        std::cout << s;
-    }
+    read >> s;
+    std::cout << s.size() << std::endl;
 }
 
 
