@@ -39,6 +39,8 @@ class SimpleHandler < Mongrel::HttpHandler
     end
 
     def compile(request, out)
+        src = request.body.string
+        puts "src:\n#{src}"
         File.open("request.txt", 'w') { |f| f.write(request.body.string) }
         status = POpen4::popen4("sudo -u sandboxer sh bin/process-request-sandboxed.sh 2>&1") do |stdout, stderr, stdin, pid|
             stdin.close()

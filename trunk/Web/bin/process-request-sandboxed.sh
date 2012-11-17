@@ -1,23 +1,20 @@
-#!/bin/bash
-set -x
-cd /home/francis/programming/projects/coliru/Web
+#!/bin/sh
+set -e
 if [ "$(whoami)" != "sandboxer" ]; then
     echo "This script must be run by the sandboxer."
     exit 1
 fi
 
-rm -rf ./output/*
+rm output/*
 cd output
-
-cat ../request.txt > ./main.cpp
-TMPCMD=tmpcmd.txt
-cat ../request.txt | head -n1 > $TMPCMD
-if grep -q "^// g++" $TMPCMD ; then
-    cat ${TMPCMD} | sed 's,^// g++,,' > compiler-flags.txt
+cat ../request.txt > main.cpp
+cat main.cpp | head -n1 > options
+if grep -q "^// g++" options ; then
+    cat ${OPTIONS} | sed 's,^// g++,,' > options
 else
-    echo "-Wall -o test main.cpp" > compiler-flags.txt
+    echo "-Wall -o test main.cpp" > options
 fi
-
-ps -ef
-BUILD_COMMAND="g++ `cat compiler-flags.txt | head -n 1`"
-$BUILD_COMMAND && ./test
+BUILD_COMMAND="g++ `cat options | head -n 1` -o test main.cpp"
+set -x
+$BUILD_COMMAND
+./test
