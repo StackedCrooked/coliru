@@ -5,16 +5,15 @@ if [ "$(whoami)" != "sandboxer" ]; then
     exit 1
 fi
 
-rm output/*
+rm -f output/*
 cd output
 cat ../request.txt > main.cpp
 cat main.cpp | head -n1 > options
-if grep -q "^// g++" options ; then
+if grep -q "^// g++ -o test" options ; then
     cat ${OPTIONS} | sed 's,^// g++,,' > options
 else
-    echo "-Wall -o test main.cpp" > options
+    echo "-Wall main.cpp" > options
 fi
-BUILD_COMMAND="g++ `cat options | head -n 1` -o test main.cpp"
-set -x
+BUILD_COMMAND="g++ -o test `cat options | head -n 1`"
 $BUILD_COMMAND
 ./test
