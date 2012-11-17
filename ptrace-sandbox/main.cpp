@@ -136,7 +136,11 @@ void HandleSyscall(pid_t child)
     {
         case SYS_open:
         {
-            REQUIRE_EQ(SYS_open, get_arg1(regs), O_RDONLY);
+            if (get_arg1(regs) != O_RDONLY)
+            {
+                std::cerr << "Writing to the file system is not allowed." << std::endl;
+                std::abort();
+            }
             break;
         }
         case SYS_access:
@@ -227,7 +231,7 @@ void run(int argc, char ** argv)
     {
         if (argc < 2)
         {
-            throw std::runtime_error("Usage: ./sandbox Program");
+            throw std::runtime_error("Usage: ./sandbox Program\n");
         }
 
         ptrace(PTRACE_TRACEME, 0, NULL, NULL);
