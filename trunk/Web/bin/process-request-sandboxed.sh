@@ -1,9 +1,11 @@
 #!/bin/sh
+set -x
 set -e
 if [ "$(whoami)" != "sandboxer" ]; then
     echo "This script must be run by the sandboxer."
     exit 1
 fi
+ulimit -t 5
 
 rm -f output/*
 cd output
