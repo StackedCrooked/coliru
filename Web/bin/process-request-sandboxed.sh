@@ -1,5 +1,5 @@
-#!/bin/sh
-set -x
+#!/bin/bash
+set +x
 set -e
 ulimit -t 5
 
