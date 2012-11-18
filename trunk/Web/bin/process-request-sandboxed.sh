@@ -1,21 +1,29 @@
 #!/bin/sh
 set -x
 set -e
-if [ "$(whoami)" != "sandboxer" ]; then
+ulimit -t 5
+
+if [ `whoami` != "sandboxer" ]; then
     echo "This script must be run by the sandboxer."
     exit 1
 fi
-ulimit -t 5
 
-rm -f output/*
-cd output
-cat ../request.txt > main.cpp
-cat main.cpp | head -n1 > options
-if grep -q "^// g++ -o test" options ; then
-    cat ${OPTIONS} | sed 's,^// g++,,' > options
-else
-    echo "-Wall main.cpp" > options
+if [ $# -ne 1 ] ; then
+    echo "Usage $0 SourceFile" 1>&2 && exit 1
 fi
-BUILD_COMMAND="g++ -o test `cat options | head -n 1`"
-$BUILD_COMMAND
-./test
+
+OUTPUT=/home/`whoami`/output
+mkdir -p ${OUTPUT}
+rm -f ${OUTPUT}/*
+cp "$1" ${OUTPUT}/main.cpp
+cd ${OUTPUT}
+
+if grep -q "^// g++" main.cpp ; then
+    cat main.cpp | head -n1 > command
+else
+    echo 'g++ -Wall -o test main.cpp && ./test' > command
+fi
+
+cat command
+sh command
+
