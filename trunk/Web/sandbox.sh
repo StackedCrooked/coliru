@@ -25,8 +25,6 @@ else
 fi
 
 CMD=`cat command`
-echo "$ ${CMD}"
 sh -c "${CMD}"
-(file test 2>/dev/null 1>&2) || { echo "test was not created." 1>&2 ; exit 1 ; }
-echo "$ ./test"
-sh -c './test'
+#(file test 2>/dev/null 1>&2) || { echo "test was not created." 1>&2 ; exit 1 ; }
+#sh -c './test'
