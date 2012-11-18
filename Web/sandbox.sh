@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -x
 set -e
-ulimit -t 4
+ulimit -t 1
 
 if [ $# -ne 1 ] ; then
     echo "Usage $0 SourceFile" 1>&2 && exit 1
