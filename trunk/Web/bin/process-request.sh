@@ -1,7 +1,10 @@
-set -x
+#!/bin/bash
+set +x
 set -e 
-if [[ ! -f request.txt ]] ; then
-    echo "No request file found. Exiting." 2>&1 && exit 1
-fi
+#type ./request.txt &>/dev/null || { echo "No request file found. Exiting." >&2 ; exit 1 ; }
 
-{ { sleep 2 && echo "Timeout" 1>&2 ; /bin/bash -c 'killall test' ; } & } && { trap "kill $!" INT ERR EXIT && { sudo -u sandboxer bin/process-request-sandboxed.sh ./request.txt ; } && echo "Done!" ; }
+{ { sleep 3 && echo "Timeout" 1>&2 && /bin/bash -c 'killall test' ; exit 1 ; } & }
+PID=$!
+sudo -u sandboxer bin/process-request-sandboxed.sh ./request.txt
+kill -9 $PID
+exit 0
