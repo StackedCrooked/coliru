@@ -8,14 +8,6 @@ require 'thread'
 $semaphore = Mutex.new
 
 
-POpen4::popen4("whoami") { |stdout, stderr, stdin, pid|
-    user = stdout.read().chomp
-    if user != "webserver" then
-        abort("Current user is #{user}. This script must be run by webserver.\n")
-    end
-}
-
-
 class SimpleHandler < Mongrel::HttpHandler
 	def process(request, response)
 		response.start(200) do |head,out|
