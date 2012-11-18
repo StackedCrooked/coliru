@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set +x
 set -e 
 ulimit -t 10
 
