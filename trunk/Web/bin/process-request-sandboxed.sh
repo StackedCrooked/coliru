@@ -21,8 +21,12 @@ cd ${OUTPUT}
 if grep -q "^// g++" main.cpp ; then
     cat main.cpp | head -n1 | sed 's,^//[ ],,' > command
 else
-    echo 'g++ -Wall -o test main.cpp && ./test' > command
+    echo 'g++-4.7 -Wall -o test main.cpp && ./test' > command
 fi
 
-cat command
-sh command
+CMD=`cat command`
+echo "$ ${CMD}"
+sh -c "${CMD}"
+(file test 2>/dev/null 1>&2) || { echo "test was not created." 1>&2 ; exit 1 ; }
+echo "$ ./test"
+sh -c './test'
