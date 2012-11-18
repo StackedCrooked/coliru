@@ -1,22 +1,32 @@
 #!/bin/bash
-set +x
+#set -x
 set -e
-ulimit -t 5
+ulimit -t 4
 
 if [ $# -ne 1 ] ; then
     echo "Usage $0 SourceFile" 1>&2 && exit 1
 fi
 
+rm -f /tmp/main.cpp
+rm -f /tmp/test
+
+
 cat $1 > /tmp/main.cpp
 cd /tmp
 
 # Default command
-echo 'g++-4.7 -Wall -o test main.cpp && ./test' > buildcmd
+echo ' -Wall -o test main.cpp && ./test' > ./cmd
 
 # Can be overriden
-if grep -q "^// g++" main.cpp ; then
-    cat main.cpp | head -n1 | sed 's,^//[ ],,' > buildcmd
+if grep -q "^// c.." main.cpp ; then
+    cat main.cpp | head -n1 | sed 's,^//[ ]c++,,' > ./cmd
 fi
 
 # Run the command
-sh buildcmd
+CMD="c++ `cat /tmp/cmd`"
+echo ${CMD}
+$CMD
+
+RUN="./test"
+echo "${RUN}"
+${RUN}
