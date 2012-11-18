@@ -3,28 +3,20 @@ set +x
 set -e
 ulimit -t 5
 
-if [ `whoami` != "sandboxer" ]; then
-    echo "This script must be run by the sandboxer."
-    exit 1
-fi
-
 if [ $# -ne 1 ] ; then
     echo "Usage $0 SourceFile" 1>&2 && exit 1
 fi
 
-OUTPUT=/home/`whoami`/output
-mkdir -p ${OUTPUT}
-rm -f ${OUTPUT}/*
-cp "$1" ${OUTPUT}/main.cpp
-cd ${OUTPUT}
+cat $1 > /tmp/main.cpp
+cd /tmp
 
+# Default command
+echo 'g++-4.7 -Wall -o test main.cpp && ./test' > buildcmd
+
+# Can be overriden
 if grep -q "^// g++" main.cpp ; then
-    cat main.cpp | head -n1 | sed 's,^//[ ],,' > command
-else
-    echo 'g++-4.7 -Wall -o test main.cpp && ./test' > command
+    cat main.cpp | head -n1 | sed 's,^//[ ],,' > buildcmd
 fi
 
-CMD=`cat command`
-sh -c "${CMD}"
-#(file test 2>/dev/null 1>&2) || { echo "test was not created." 1>&2 ; exit 1 ; }
-#sh -c './test'
+# Run the command
+sh buildcmd
