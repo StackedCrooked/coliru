@@ -19,11 +19,10 @@ cp "$1" ${OUTPUT}/main.cpp
 cd ${OUTPUT}
 
 if grep -q "^// g++" main.cpp ; then
-    cat main.cpp | head -n1 > command
+    cat main.cpp | head -n1 | sed 's,^//[ ],,' > command
 else
     echo 'g++ -Wall -o test main.cpp && ./test' > command
 fi
 
 cat command
 sh command
-
