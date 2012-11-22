@@ -31,8 +31,8 @@ class SimpleHandler < Mongrel::HttpHandler
     end
 
     def compile(request, out)
-        File.open("request.txt", 'w') { |f| f.write(request.body.string) }
-        status = POpen4::popen4("./process.sh 2>&1") do |stdout, stderr, stdin, pid|
+        File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
+        status = POpen4::popen4("./sandbox.sh 2>&1") do |stdout, stderr, stdin, pid|
             stdin.close()
             out.write(stdout.read())
         end
