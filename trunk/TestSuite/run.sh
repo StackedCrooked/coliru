@@ -4,8 +4,14 @@ if [[ `whoami` == "root" ]] ; then
 	exit 1
 fi
 
-for dir in `ls` ; do
-	echo `pwd`
-	cd $dir && ../../Web/sandbox.sh 2>&1
-	cd - 
+BASEDIR=`pwd`
+LIST=`ls`
+echo "LIST: ${LIST}"
+
+for dir in $LIST ; do
+	cd $dir
+	echo "< `pwd` >"
+	../../Web/sandbox.sh 2>&1 || true
+	cd $BASEDIR
+	echo "</ `pwd` >"
 done
