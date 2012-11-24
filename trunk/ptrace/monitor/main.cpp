@@ -23,28 +23,39 @@
 
 std::string Translate(long id);
 
-user_regs_struct GetRegisters(pid_t child)
+user_regs_struct GetRegisters(pid_t child);
+
+
+struct Counters : std::map<long, long>
 {
-    user_regs_struct regs = user_regs_struct();
-    auto result = ptrace(PTRACE_GETREGS, child, NULL, &regs);
-    if (result != 0)
+
+    ~Counters()
     {
-        throw std::runtime_error("PTRACE_GETREGS failed");
+        std::set<std::pair<long, long>, std::greater< std::pair<long, long> > > messages;
+        for (auto & pair : *this)
+        {
+            messages.insert(std::make_pair(pair.second, pair.first));
+        }
+
+        for (auto & pair : messages)
+        {
+            std::cout << pair.first << "\t" << Translate(pair.second) << std::endl;
+        }
     }
-    return regs;
-}
+};
 
 
 void HandleSyscall(pid_t child)
 {
     auto regs = GetRegisters(child);
 
-    //std::cout << "SYS\t" << Translate(regs.orig_rax) << std::endl;
+    std::cerr << Translate(regs.orig_rax) << std::endl;
     switch (regs.orig_rax)
     {
         case SYS_fork:
         {
             static int i = 0;
+            std::cerr << "FORK " << i << std::endl;
             CHECK(++i <= 5, regs.orig_rax);
             break;
         }
@@ -71,26 +82,8 @@ void HandleSyscall(pid_t child)
         }
     };
 
-    struct Mapping : std::map<long, long>
-    {
-
-        ~Mapping()
-        {
-            std::set<std::pair<long, long>, std::greater< std::pair<long, long> > > messages;
-            for (auto & pair : *this)
-            {
-                messages.insert(std::make_pair(pair.second, pair.first));
-            }
-
-            for (auto & pair : messages)
-            {
-                std::cout << pair.first << "\t" << Translate(pair.second) << std::endl;
-            }
-        }
-    };
-    static Mapping mapping;
-    mapping[regs.orig_rax]++;
-
+    static Counters fCounters;
+    fCounters[regs.orig_rax]++;
 }
 
 
@@ -165,75 +158,6 @@ int main(int argc, char ** argv)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const char * linux_syscallnames_64[] =
 {
     "read", "write", "open", "close", "stat", "fstat", "lstat", "poll",
@@ -293,7 +217,8 @@ const char * linux_syscallnames_64[] =
 };
 
 
-enum {
+enum
+{
     num_linux_syscallnames_64 = sizeof(linux_syscallnames_64) / sizeof(linux_syscallnames_64[0])
 };
 
@@ -306,4 +231,16 @@ std::string Translate(long id)
     }
 
     return linux_syscallnames_64[id];
+}
+
+
+user_regs_struct GetRegisters(pid_t child)
+{
+    user_regs_struct regs = user_regs_struct();
+    auto result = ptrace(PTRACE_GETREGS, child, NULL, &regs);
+    if (result != 0)
+    {
+        throw std::runtime_error("PTRACE_GETREGS failed");
+    }
+    return regs;
 }
