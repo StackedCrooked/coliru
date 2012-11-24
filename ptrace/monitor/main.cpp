@@ -39,7 +39,7 @@ void HandleSyscall(pid_t child)
 {
     auto regs = GetRegisters(child);
 
-    std::cout << "SYS\t" << Translate(regs.orig_rax) << std::endl;
+    //std::cout << "SYS\t" << Translate(regs.orig_rax) << std::endl;
     switch (regs.orig_rax)
     {
         case SYS_fork:
