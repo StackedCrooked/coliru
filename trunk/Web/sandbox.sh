@@ -3,7 +3,9 @@ if [ "$(whoami)" != "sandbox" ]; then
 	echo "For security reasons this script must be run by a user named \"webserver\"."
 	exit 1
 fi
+ulimit -u 10
 NPROC_LIMIT=`ulimit -a 2>&1 | grep "\-u" | awk '{print $5}'`
+echo "nproc is ${NPROC_LIMIT}"
 [ ${NPROC_LIMIT} -lt 20 ] || { echo "NPROC limit is too high: ${NPROC_LIMIT}. Exiting." >&2 ; exit 1 ; }
 ulimit -t 1
 ulimit -n 20
