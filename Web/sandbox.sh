@@ -1,18 +1,10 @@
 #!/bin/bash
-if [ "$(whoami)" != "sandbox" ]; then
-	echo "For security reasons this script must be run by a user named \"webserver\"."
-	exit 1
-fi
-ulimit -u 10
-NPROC_LIMIT=`ulimit -a 2>&1 | grep "\-u" | awk '{print $5}'`
-echo "nproc is ${NPROC_LIMIT}"
-[ ${NPROC_LIMIT} -lt 20 ] || { echo "NPROC limit is too high: ${NPROC_LIMIT}. Exiting." >&2 ; exit 1 ; }
-ulimit -t 1
-ulimit -n 20
+set -x
+set -e
+[ -f main.cpp ] || { echo "Webserver could not find main.cpp. Exiting." >2 ; exit 1; }
+cp compile.sh main.cpp /var/chroot/tmp
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-[ -f main.cpp ] || { echo "No main.cpp found in ${DIR}." >&2 ; echo "Exiting." >&2 ; exit 1 ; }
-cp main.cpp /var/chroot/home/lol/main.cpp
-echo "cd /home/lol && bash main.cpp" >/var/chroot/home/lol/build.sh
-chroot /var/chroot bash /home/lol/build.sh
-
+# Run the chroot
+SANDBOX_UID=`id sandbox | cut -d ' ' -f1 | cut -d '=' -f2 | cut -d '(' -f1`
+SANDBOX_GID=`id sandbox | cut -d ' ' -f2 | cut -d '=' -f2 | cut -d '(' -f1`
+chroot --userspec=${SANDBOX_UID}:${SANDBOX_GID} /var/chroot /tmp/compile.sh
