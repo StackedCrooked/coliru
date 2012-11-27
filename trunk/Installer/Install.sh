@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -x
-CHROOT="/var/chroot/"
+CHROOT="/var/chroot"
 
 if [ $(whoami) != "root" ] ; then
 	echo "Installation requires root permissions. Exiting." 1>&2
@@ -55,6 +55,7 @@ fi
 
 
 mkdir -p ${CHROOT}
-rsync -avzl /bin /usr /lib /lib64 ${CHROOT}
+rsync -avzl /bin /usr /lib /lib64 ${CHROOT}/
+chmod -R o-r ${CHROOT}/
 mkdir -p ${CHROOT}/tmp
-chmod -R a-r ${CHROOT}
+chown -R sandbox:coliru ${CHROOT}/tmp
