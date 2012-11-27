@@ -12,23 +12,28 @@ if [ -d ${CHROOT} ] ; then
 	echo "Warning: ${CHROOT} already exists." 1>&2 || true
 fi
 
+apt-get install rsync
+mkdir -p ${CHROOT}
+rsync -avzl /bin /usr /lib /lib64 ${CHROOT}/
 
-apt-get install python-software-properties
-add-apt-repository ppa:ubuntu-toolchain-r/test
-apt-get update
-apt-get upgrade
-apt-get install g++-4.7
+if [ ! type g++-4.7 ] ; then
+	apt-get install python-software-properties
+	add-apt-repository ppa:ubuntu-toolchain-r/test
+	apt-get update
+	apt-get upgrade
+	apt-get install g++-4.7
+fi
 
 
 
-apt-get install -y libcap2-bin ruby rubygems lsof
+apt-get install -y libcap2-bin ruby rubygems lsof rsync
 gem install mongrel popen4
 
 
 setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
 setcap 'cap_sys_chroot=+ep' /bin/bash
 setcap 'cap_kill=+ep' /bin/kill
-setcap 'cap_kill=+ep' /usr/bin/pkill
+setcap 'cap_kill=+ep' /usr/bin/pgrep
 
 
 groupadd -g 2000 coliru
@@ -54,8 +59,6 @@ if [ $LIMITS_ALREADY_SET -ne 0 ] ; then
 fi
 
 
-mkdir -p ${CHROOT}
-rsync -avzl /bin /usr /lib /lib64 ${CHROOT}/
 chmod -R o-r ${CHROOT}/
 mkdir -p ${CHROOT}/tmp
 chown -R sandbox:coliru ${CHROOT}/tmp
