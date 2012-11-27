@@ -12,12 +12,12 @@ if [ -d ${CHROOT} ] ; then
 	echo "Warning: ${CHROOT} already exists." 1>&2 || true
 fi
 
-apt-get install rsync
+apt-get install -y rsync
 mkdir -p ${CHROOT}
 rsync -avzl /bin /usr /lib /lib64 ${CHROOT}/
 
 if [ ! type g++-4.7 ] ; then
-	apt-get install python-software-properties
+	apt-get install -y python-software-properties
 	add-apt-repository ppa:ubuntu-toolchain-r/test
 	apt-get update
 	apt-get upgrade
