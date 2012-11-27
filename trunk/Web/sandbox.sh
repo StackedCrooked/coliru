@@ -5,4 +5,4 @@ set -e
 cp compile.sh main.cpp /var/chroot/tmp
 
 # Run the chroot
-{ { sleep 1 && echo "Timeout!" && pkill -9 -u sandbox && exit 1 ; } & } && { trap "kill $!" INT ERR EXIT; ./chroot.sh ; exit 0 ; }
+{ { sleep 5 && echo "Timeout!" && pkill -9 -u sandbox && exit 1 ; } & } && { trap "kill $!" INT ERR EXIT; ./chroot.sh ; exit 0 ; }
