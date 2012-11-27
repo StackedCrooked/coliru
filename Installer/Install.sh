@@ -25,10 +25,6 @@ apt-get install -y libcap2-bin ruby rubygems lsof
 gem install mongrel popen4
 
 
-mkdir -p ${CHROOT}
-rsync -avzl /bin /usr /lib /lib64 ${CHROOT}
-
-
 setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
 setcap 'cap_sys_chroot=+ep' /bin/bash
 setcap 'cap_kill=+ep' /bin/kill
@@ -56,3 +52,9 @@ if [ $LIMITS_ALREADY_SET -ne 0 ] ; then
     # END COLIRU SETTINGS
     " >> /etc/security/limits.conf
 fi
+
+
+mkdir -p ${CHROOT}
+rsync -avzl /bin /usr /lib /lib64 ${CHROOT}
+mkdir -p ${CHROOT}/tmp
+chmod -R a-r ${CHROOT}
