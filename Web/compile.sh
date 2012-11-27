@@ -1,6 +1,5 @@
 #!/bin/bash
-set -x
-ulimit -a
+#ulimit -a
 ulimit -u 20
 ulimit -t 5
 ulimit -f 100
