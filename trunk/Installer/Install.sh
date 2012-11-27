@@ -14,7 +14,6 @@ fi
 
 apt-get install -y rsync
 mkdir -p ${CHROOT}
-rsync -avzl /bin /usr /lib /lib64 ${CHROOT}/
 
 if [ ! type g++-4.7 ] ; then
 	apt-get install -y python-software-properties
