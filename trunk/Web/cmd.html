@@ -65,7 +65,8 @@
     <div id="editor"></div>
     <textarea id="output"></textarea>
     <div id="footer">
-    <!-- <button id="post" onclick="app.postSample();">Post Sample!</button></div> -->
+    <!-- <button id="post" onclick="app.postSample();">Post Sample!</button> -->
+    </div>
 </div>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
 <script>
@@ -149,18 +150,24 @@
 
     app.enterTimeoutLoop = function () {
         app.timeoutLoopImpl();
-        window.setTimeout(app.enterTimeoutLoop, 500);
+        window.setTimeout(app.enterTimeoutLoop, 250);
     };
 
     app.timeoutLoopImpl = function () {
-        var storageKey = JSON.stringify({ input: editor.getValue() });
+        var sourceCode = editor.getValue();
+        var cachedOutput = localStorage.getItem(sourceCode);
+        if (cachedOutput !== undefined && cachedOutput !== null) {
+            document.getElementById("output").value = cachedOutput;
+            return;
+        }
         var time = (new Date().getTime());
-        if (app.waiting === false && time - app.lastChange >= 2000 && editor.getValue() != app.previousValue) {
+        if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue) {
             document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
             app.previousValue = document.getElementById("output").value;
-            app.sentData = editor.getValue();
+            app.sentData = sourceCode
             app.send("compile", app.sentData, function (result) {
                 document.getElementById("output").value = result.output;
+                localStorage.setItem(app.sentData, result.output);
                 app.previousValue = app.sentData;
             });
         }

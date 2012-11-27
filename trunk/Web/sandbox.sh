@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$(uname)" == "Darwin" ] ; then 
+    g++ -std=c++0x -o test -pthread main.cpp && ./test
+    exit 0
+fi
 ulimit -f 100
 set -e
 [ -f main.cpp ] || { echo "Webserver could not find main.cpp. Exiting." >2 ; exit 1; }
