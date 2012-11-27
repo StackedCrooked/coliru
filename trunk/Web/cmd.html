@@ -164,7 +164,7 @@
         if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue) {
             document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
             app.previousValue = document.getElementById("output").value;
-            app.sentData = sourceCode
+            app.sentData = sourceCode;
             app.send("compile", app.sentData, function (result) {
                 document.getElementById("output").value = result.output;
                 localStorage.setItem(app.sentData, result.output);
@@ -180,10 +180,6 @@
         app.previousValue = editor.getValue();
         editor.clearSelection();
         app.enterTimeoutLoop();
-        app.send("compile", editor.getValue(), function (result) {
-            document.getElementById("output").value = result.output;
-        });
-
     };
 </script>
 
