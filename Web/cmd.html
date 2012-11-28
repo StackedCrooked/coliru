@@ -201,7 +201,7 @@
             return;
         }
         var time = (new Date().getTime());
-        if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue && document.getElementById("compileAutomatically").checked === true) {
+        if (app.waiting === false && time - app.lastChange >= 2000 && editor.getValue() != app.previousValue && document.getElementById("compileAutomatically").checked === true) {
             document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
 	    document.getElementById("post").textContent = "Please wait...";
             app.previousValue = document.getElementById("output").value;
