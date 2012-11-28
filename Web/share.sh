@@ -7,7 +7,8 @@ else
 fi
 
 if [ -d "Archive/${ID}" ] ; then
-    rm -rf "Archive/${ID}"
+    echo ${ID}
+    exit
 fi
 
 DIR="Archive/${ID}"
