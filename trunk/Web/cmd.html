@@ -9,33 +9,44 @@
             height: 96%;
         }
 
-
         #b {
             position: relative;
-            display: -webkit-box; display: -moz-box;
-            -webkit-box-orient: vertical; -moz-box-orient: vertical;
-            -webkit-box-align : stretch ; -moz-box-align : stretch;
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
         }
 
         #page {
             position: relative;
-            display: -webkit-box; display: -moz-box;
-            -webkit-box-orient: vertical; -moz-box-orient: vertical;
-            -webkit-box-align : stretch ; -moz-box-align : stretch;
-            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
+            font-family: MONOSPACE;
         }
 
         #editor {
-            display: -webkit-box; display: -moz-box;
-            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
             position: relative;
             resize: none;
             margin-bottom: 4px;
         }
 
         #output {
-            display: -webkit-box; -display: -moz-box;
-            -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+            display: -webkit-box;
+            -display: -moz-box;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
             position: relative;
             resize: none;
             border-style: ridge;
@@ -44,17 +55,29 @@
 
         #footer {
             position: relative;
-            display: -webkit-box; -display: -moz-box;
-            -webkit-box-orient: vertical; -moz-box-orient: vertical;
-            -webkit-box-align : center ; -moz-box-align : center;
+            display: -webkit-box;
+            -display: -moz-box;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -webkit-box-align: center;
+            -moz-box-align: center;
             text-align: center;
-            -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+            -webkit-box-flex: 0.0;
+            -moz-box-flex: 0.0;
         }
+
+
+        #autocompile {
+            margin: 10px;
+        }
+
 
         #post {
             position: relative;
-            display: -webkit-box; -display: -moz-box;
-            -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+            display: -webkit-box;
+            -display: -moz-box;
+            -webkit-box-flex: 0.0;
+            -moz-box-flex: 0.0;
             height: 30px;
         }
     </style>
@@ -64,8 +87,10 @@
 <div id="page">
     <div id="editor"></div>
     <textarea id="output"></textarea>
+
     <div id="footer">
-    <!-- <button id="post" onclick="app.postSample();">Post Sample!</button> -->
+        <label style="vertical-align: middle"><input id="autocompile"  style="vertical-align: middle" type="checkbox" />Compile automatically</label>
+        <!--<button id="post" onclick="app.postSample();">Post Sample!</button>-->
     </div>
 </div>
 <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
@@ -89,7 +114,7 @@
 
 
     var app = {
-        samples: { 
+        samples: {
             "Hello World!": "#include <iostream>\n#include <thread>\n\nint main()\n{\n    std::cout << \"Hello GCC \" << __VERSION__ << \"!\" << std::endl;\n    std::thread t([](){ std::cout << \"Hello Thread!\"; });\n    t.join();\n}"
         },
         elements: {
@@ -98,12 +123,12 @@
         }
     };
 
-    app.postSample = function() {
+    app.postSample = function () {
         var url = "http://" + window.location.hostname + ":" + window.location.port + "/archive?id=" + app.lastResult;
         window.open(url, '_blank');
     };
 
-    app.http_get = function(url) {
+    app.http_get = function (url) {
         var x = new XMLHttpRequest();
         x.open("GET", url, false);
         x.send(null);
@@ -111,18 +136,17 @@
     };
 
 
-    String.prototype.trim = function() {
+    String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, "");
     };
 
     app.lastChange = 0;
 
-    document.getElementById("editor").onkeyup = function() {
+    document.getElementById("editor").onkeyup = function () {
         app.lastChange = new Date().getTime();
     };
 
-    app.waiting = false;
-    //document.getElementById("post").disabled = false;
+    app.waiting = false;//document.getElementById("post").disabled = false;
 
 
     app.send = function (location, source_code, f) {
@@ -153,6 +177,11 @@
         window.setTimeout(app.enterTimeoutLoop, 250);
     };
 
+
+    app.setOutput = function(value) {
+        document.getElementById("output").value = value;
+    };
+
     app.timeoutLoopImpl = function () {
         var sourceCode = editor.getValue();
         var cachedOutput = localStorage.getItem(sourceCode);
@@ -161,12 +190,12 @@
             return;
         }
         var time = (new Date().getTime());
-        if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue) {
+        if (app.waiting === false && time - app.lastChange >= 1000 && editor.getValue() != app.previousValue && document.getElementById("autocompile").checked === true) {
             document.getElementById("output").value = document.getElementById("output").value + "\n(compiling)";
             app.previousValue = document.getElementById("output").value;
             app.sentData = sourceCode;
             app.send("compile", app.sentData, function (result) {
-                document.getElementById("output").value = result.output;
+                app.setOutput(result.output);
                 localStorage.setItem(app.sentData, result.output);
                 app.previousValue = app.sentData;
             });
