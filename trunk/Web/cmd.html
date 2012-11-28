@@ -166,7 +166,7 @@
                 if (httpRequest.status == 200) {
                     app.waiting = false;
                     document.getElementById("post").disabled = false;
-		    document.getElementById("post").textContent = app.postText;
+		            document.getElementById("post").textContent = app.postText;
                     app.lastResult = httpRequest.responseText.trim();
                     //f({input: source_code, output: app.http_get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
                     f({input: source_code, output: app.lastResult});
@@ -214,9 +214,11 @@
     };
 
     app.postSample = function () {
+        editor.setReadOnly(true);
         document.getElementById("compileAutomatically").disabled = true;
         document.getElementById("post").textContent = "Please wait...";
         app.send("share", editor.getValue(), function(obj) {
+            editor.setReadOnly(false);
             var url = "http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output;
             window.open(url, '_self');
         });
