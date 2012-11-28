@@ -132,7 +132,8 @@
     }
     editor.setValue(localStorage.getItem("sourceCode"));
 
-    document.getElementById("autocompile").checked = false;
+    app.autoCompileChecked = false;
+    document.getElementById("autocompile").checked = app.autoCompileChecked;
 
     app.lastChange = 0;
 
@@ -145,6 +146,7 @@
     app.waiting = false;
     app.postText = "Share!";
     document.getElementById("post").disabled = false;
+    document.getElementById("autocompile").disabled = false;
 
 
     app.send = function (location, source_code, f) {
