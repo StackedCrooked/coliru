@@ -73,7 +73,7 @@
     <label for="output"></label><textarea id="output" readonly></textarea>
     <hr/>
     <div id="footer">
-        <label><input id="vim" onclick="app.toggleVim(); app.editor.focus();" type="checkbox">&nbspVim key bindings&nbsp</input></label>
+        <label><input id="vimBindings" onclick="app.toggleVim(); app.editor.focus();" type="checkbox">&nbspVim key bindings&nbsp</input></label>
         <label><input id="compileAutomatically" onclick="app.editor.focus();" type="checkbox">&nbspCompile automatically&nbsp</input></label>
         <br/>
         <br/>
@@ -115,7 +115,7 @@
     };
 
     app.toggleVim = function() {
-        var vim = document.getElementById("vim").checked;
+        var vim = document.getElementById("vimBindings").checked;
         editor.setKeyboardHandler(vim ? app.vimKeys : app.oldKeys);
     };
 
@@ -142,7 +142,7 @@
 
     app.compileAutomaticallyChecked = false;
     document.getElementById("compileAutomatically").checked = app.compileAutomaticallyChecked;
-    document.getElementById("vim").checked = false;
+    document.getElementById("vimBindings").checked = false;
 
     app.lastChange = 0;
 
@@ -216,6 +216,7 @@
 
     app.postSample = function () {
         editor.setReadOnly(true);
+        document.getElementById("vimBindings").disabled = true;
         document.getElementById("compileAutomatically").disabled = true;
         document.getElementById("post").textContent = "Please wait...";
         app.send("share", editor.getValue(), function(obj) {

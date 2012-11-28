@@ -79,8 +79,12 @@ app.send = function (location, post_data, f) {
 
 app.send(app.id, "", function(response) {
     var parts = response.split('\t');
-    app.editor.setValue(parts[0].replace(/\\t/, "\t"));
-    app.output.value = parts[1].replace(/\\t/, "\t");
+    if (parts.length > 0) {
+        app.editor.setValue(parts[0].replace(/\\t/, "\t"));
+    }
+    if (parts.length > 1) {
+        app.output.value = parts[1].replace(/\\t/, "\t");
+    }
     app.editor.clearSelection();
     app.editor.scrollToRow(0);
 });
