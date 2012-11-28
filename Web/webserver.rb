@@ -22,12 +22,18 @@ class SimpleHandler < Mongrel::HttpHandler
 				$semaphore.synchronize {
 					compile(request, out)
 				}
-            when /archive.*/
-                FileUtils.copy_stream(File.new("archive.html"), out)
+			when "share"
+				$semaphore.synchronize {
+					share(request, out)
+				}
+			when "view"
+				FileUtils.copy_stream(File.new("view.html"), out)
 			when "favicon.ico"
 				# Don't respond to favicon..
 			else
-				puts "Don't know how to respond to the request to #{location}."
+				$semaphore.synchronize {
+				  out.write(File.read("Archive/#{loc}/main.cpp").gsub(/\t/, "\\t") + "\t" + File.read("Archive/#{loc}/output").gsub(/\t/, "\\t"))
+				}
 			end
 		end
     end
@@ -35,6 +41,14 @@ class SimpleHandler < Mongrel::HttpHandler
     def compile(request, out)
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
         status = POpen4::popen4("./sandbox.sh 2>&1") do |stdout, stderr, stdin, pid|
+            stdin.close()
+            out.write(stdout.read())
+        end
+    end
+
+    def share(request, out)
+        File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
+        status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
             stdin.close()
             out.write(stdout.read())
         end
