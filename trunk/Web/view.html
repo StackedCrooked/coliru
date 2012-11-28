@@ -51,6 +51,7 @@ editor.setTheme("ace/theme/textmate");
 editor.getSession().setMode("ace/mode/c_cpp");
 editor.setBehavioursEnabled(false);
 editor.setReadOnly(true);
+editor.clearSelection();
 
 
 var app = {};
@@ -80,6 +81,8 @@ app.send(app.id, "", function(response) {
     var parts = response.split('\t');
     app.editor.setValue(parts[0].replace(/\\t/, "\t"));
     app.output.value = parts[1].replace(/\\t/, "\t");
+    app.editor.clearSelection();
+    app.editor.scrollToRow(0);
 });
 
 
