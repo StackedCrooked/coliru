@@ -59,7 +59,6 @@
             margin: 0;
             padding: 0;
             position: relative;
-            display: none;
             width: 100px;
             height: 30px;
         }
@@ -117,11 +116,6 @@
 
     app.editor = editor;
 
-    app.postSample = function () {
-        var url = "http://" + window.location.hostname + ":" + window.location.port + "/archive?id=" + app.lastResult;
-        window.open(url, '_blank');
-    };
-
     app.http_get = function (url) {
         var x = new XMLHttpRequest();
         x.open("GET", url, false);
@@ -155,7 +149,7 @@
 
     app.send = function (location, source_code, f) {
         var httpRequest = new XMLHttpRequest();
-        var url = "http://" + window.location.hostname + ":" + window.location.port + '/compile';
+        var url = "http://" + window.location.hostname + ":" + window.location.port + '/' + location;
         httpRequest.open("PUT", url, true);
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
@@ -204,6 +198,13 @@
                 app.previousValue = app.sentData;
             });
         }
+    };
+
+    app.postSample = function () {
+        app.send("share", editor.getValue(), function(obj) {
+            var url = "http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output;
+            window.open(url, '_self');
+        });
     };
 
 
