@@ -89,7 +89,7 @@
     <textarea id="output"></textarea>
 
     <div id="footer">
-        <label style="vertical-align: middle"><input id="autocompile"  style="vertical-align: middle" type="checkbox" />Compile automatically</label>
+        <label style="vertical-align: middle"><input id="autocompile" onclick="app.editor.focus();" style="vertical-align: middle" type="checkbox" />Compile automatically</label>
         <!--<button id="post" onclick="app.postSample();">Post Sample!</button>-->
     </div>
 </div>
@@ -122,6 +122,8 @@
             output: document.getElementById("output")
         }
     };
+
+    app.editor = editor;
 
     app.postSample = function () {
         var url = "http://" + window.location.hostname + ":" + window.location.port + "/archive?id=" + app.lastResult;
