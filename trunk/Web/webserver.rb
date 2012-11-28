@@ -16,6 +16,8 @@ class SimpleHandler < Mongrel::HttpHandler
 			case loc
 			when ""
 				FileUtils.copy_stream(File.new("cmd.html"), out)
+            when "md5-min.js"
+				FileUtils.copy_stream(File.new("md5-min.js"), out)
 			when "compile"
 				$semaphore.synchronize {
 					compile(request, out)
