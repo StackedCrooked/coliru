@@ -3,15 +3,148 @@
 <head>
     <title>Coliru</title>
 </head>
-
 <script type="text/javascript" language="javascript">
-    var app = {};
+
+    var app = { };
+    app.elements = {};
+
+    app.samples = {
+        "Hello World!": "#include <iostream>\n#include <thread>\n\nint main()\n{\n    std::cout << \"Hello GCC \" << __VERSION__ << \"!\" << std::endl;\n    std::thread t([](){ std::cout << \"Hello Thread!\"; });\n    t.join();\n}"
+    };
 
     document.write('<frameset rows="100%, 300" frameborder="1" border="3" framespacing="3">');
-    document.write('    <frame  src="frame-top.html"     name="top"      scrolling="no" frameborder="1" />');
-    document.write('    <frame src="frame-bottom.html"  name="bottom"   scrolling="no" frameborder="1" />');
+    document.write(' <frame src="frame-top.html" name="top" scrolling="no" frameborder="1" />');
+    document.write(' <frame src="frame-bottom.html" name="bottom" scrolling="no" frameborder="1" />');
     document.write('</frameset>');
 
 
+    window.onload = function () {
+
+
+        Element.prototype.createChild = function (tagNamePath) {
+            "use strict";
+            var result = this;
+            var tagNames = tagNamePath.split("/");
+            for (var i = 0; i < tagNames.length; ++i) {
+                var child = document.createElement(tagNames[i]);
+                result.appendChild(child);
+                result = child;
+            }
+            return result;
+        };
+
+        app.toggleVim = function () {
+            app.elements.editor.setKeyboardHandler(vim ? app.vimKeys : app.oldKeys);
+        };
+
+        app.elements.output.scrollTop = app.elements.output.scrollHeight;
+
+        app.http_get = function (url) {
+            var x = new XMLHttpRequest();
+            x.open("GET", url, false);
+            x.send(null);
+            return x.responseText;
+        };
+
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s+|\s+$/g, "");
+        };
+
+        if (localStorage.getItem("sourceCode") === null) {
+            localStorage.setItem("sourceCode", app.samples["Hello World!"]);
+        }
+        app.elements.editor.setValue(localStorage.getItem("sourceCode"));
+
+        app.autoCompileChecked = false;
+        app.elements.autoCompile.checked = app.autoCompileChecked;
+
+        app.lastChange = 0;
+
+        app.elements.editor.onkeyup = function () {
+            app.lastChange = new Date().getTime();
+            localStorage.setItem("sourceCode", app.elements.editor.getValue());
+
+        };
+
+        app.waiting = false;
+        app.postText = "Share!";
+        app.elements.postButton.disabled = false;
+        app.elements.autoCompile.disabled = false;
+
+
+        app.send = function (location, source_code, f) {
+            var httpRequest = new XMLHttpRequest();
+            var url = "http://" + window.location.hostname + ":" + window.location.port + '/' + location;
+            httpRequest.open("PUT", url, true);
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4) {
+                    if (httpRequest.status == 200) {
+                        app.waiting = false;
+                        app.elements.postButton.disabled = false;
+                        app.elements.postButton.textContent = app.postText;
+                        app.lastResult = httpRequest.responseText.trim();
+                        //f({input: source_code, output: app.http_get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
+                        f({input: source_code, output: app.lastResult});
+                    }
+                }
+            };
+            app.waiting = true;
+            app.elements.postButton.disabled = true;
+            httpRequest.send(source_code);
+        };
+
+
+        app.previousValue = "";
+
+        app.enterTimeoutLoop = function () {
+            app.timeoutLoopImpl();
+            window.setTimeout(app.enterTimeoutLoop, 250);
+        };
+
+
+        app.setOutput = function (value) {
+            app.elements.output.value = value;
+            app.elements.output.scrollTop = app.elements.output.scrollHeight;
+        };
+
+        app.timeoutLoopImpl = function () {
+            localStorage.setItem("sourceCode", app.elements.editor.getValue());
+            var cachedOutput = localStorage.getItem(localStorage.getItem("sourceCode"));
+            if (cachedOutput !== undefined && cachedOutput !== null) {
+                app.elements.output.value = cachedOutput;
+                return;
+            }
+            var time = (new Date().getTime());
+            if (app.waiting === false && time - app.lastChange >= 2000 && app.elements.editor.getValue() != app.previousValue && app.elements.autoCompile.checked === true) {
+                app.elements.output.value = app.elements.output.value + "\n(compiling)";
+                app.elements.postButton.textContent = "Please wait...";
+                app.previousValue = app.elements.output.value;
+                app.sentData = localStorage.getItem("sourceCode");
+                app.send("compile", app.sentData, function (result) {
+                    app.setOutput(result.output);
+                    localStorage.setItem(app.sentData, result.output);
+                    app.previousValue = app.sentData;
+                });
+            }
+        };
+
+        app.postSample = function () {
+            app.elements.editor.setReadOnly(true);
+            app.elements.autoCompile.disabled = true;
+            app.elements.postButton.textContent = "Please wait...";
+            app.send("share", app.elements.editor.getValue(), function (obj) {
+                app.elements.editor.setReadOnly(false);
+                var url = "http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output;
+                window.open(url, '_self');
+            });
+        };
+
+
+        app.elements.editor.setValue(localStorage.getItem("sourceCode"));
+        app.previousValue = "";
+        app.elements.editor.clearSelection();
+        app.enterTimeoutLoop();
+    };
 </script>
 </html>
