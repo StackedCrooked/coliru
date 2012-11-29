@@ -15,6 +15,8 @@ class SimpleHandler < Mongrel::HttpHandler
             loc = get_location(request)
 			case loc
 			when ""
+				FileUtils.copy_stream(File.new("index.html"), out)
+			when "cmd.html"
 				FileUtils.copy_stream(File.new("cmd.html"), out)
 			when "index.html"
 				FileUtils.copy_stream(File.new("index.html"), out)
