@@ -14,10 +14,9 @@
 
         textarea {
             border-color: gray;
-            outline:0 !important;
-            -webkit-appearance:none;
+            outline: 0 !important;
+            -webkit-appearance: none;
         }
-
 
         #frame-bottom {
             position: relative;
@@ -51,13 +50,23 @@
             height: 30px;
         }
 
+        *.unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+
+            /** Introduced in IE 10. See: http://ie.microsoft.com/testdrive/HTML5/msUserSelect*/
+            -ms-user-select: none;
+            user-select: none;
+        }
+
     </style>
 </head>
 <body>
 <div id="frame-bottom">
     <label for="output"></label><textarea id="output" readonly></textarea>
 
-    <div id="buttons" class="row">
+    <div id="buttons" class="row unselectable">
         <label for="autoCompile" class="row">
             <input id="autoCompile" onclick="parent.app.elements.editor.focus();" type="checkbox" class="row">
             Compile Automatically
