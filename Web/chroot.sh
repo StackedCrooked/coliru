@@ -1,2 +1,5 @@
 #!/bin/bash
-sudo -u sandbox chroot /var/chroot /tmp/compile.sh
+if [ -z "${CHROOT}" ] ; then
+    echo "CHROOT environment variable is not set. Exiting." 1>&2
+fi
+sudo -u sandbox chroot "${CHROOT}" /tmp/compile.sh
