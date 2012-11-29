@@ -16,6 +16,12 @@ class SimpleHandler < Mongrel::HttpHandler
 			case loc
 			when ""
 				FileUtils.copy_stream(File.new("cmd.html"), out)
+			when "index.html"
+				FileUtils.copy_stream(File.new("index.html"), out)
+            when "frame-top.html"
+				FileUtils.copy_stream(File.new("frame-top.html"), out)
+            when "frame-bottom.html"
+				FileUtils.copy_stream(File.new("frame-bottom.html"), out)
             when "md5-min.js"
 				FileUtils.copy_stream(File.new("md5-min.js"), out)
 			when "compile"
