@@ -20,19 +20,6 @@
 
     window.onload = function () {
 
-
-        Element.prototype.createChild = function (tagNamePath) {
-            "use strict";
-            var result = this;
-            var tagNames = tagNamePath.split("/");
-            for (var i = 0; i < tagNames.length; ++i) {
-                var child = document.createElement(tagNames[i]);
-                result.appendChild(child);
-                result = child;
-            }
-            return result;
-        };
-
         app.toggleVim = function () {
             app.elements.editor.setKeyboardHandler(vim ? app.vimKeys : app.oldKeys);
         };
