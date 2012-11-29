@@ -110,13 +110,13 @@
 
         app.timeoutLoopImpl = function () {
             localStorage.setItem("sourceCode", app.elements.editor.getValue());
-            var cachedOutput = localStorage.getItem(localStorage.getItem("sourceCode"));
-            if (cachedOutput !== undefined && cachedOutput !== null) {
-                app.elements.output.value = cachedOutput;
-                return;
-            }
             var time = (new Date().getTime());
             if (app.waiting === false && time - app.lastChange >= 2000 && app.elements.editor.getValue() != app.previousValue && app.elements.autoCompile.checked === true) {
+                var cachedOutput = localStorage.getItem(localStorage.getItem("sourceCode"));
+                if (cachedOutput !== undefined && cachedOutput !== null) {
+                    app.elements.output.value = cachedOutput;
+                    return;
+                }
                 app.elements.output.value = app.elements.output.value + "\n(compiling)";
                 app.elements.postButton.textContent = "Please wait...";
                 app.previousValue = app.elements.output.value;
