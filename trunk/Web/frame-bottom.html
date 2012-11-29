@@ -15,10 +15,7 @@
         #frame-bottom {
             margin-left: 80px;
             margin-right: 80px;
-            border-color: blue;
-            border-width: 4px;
-            border-style: groove;
-
+            border: 4px groove blue;
         }
 
         #output {
@@ -42,7 +39,7 @@
         }
 
 
-        #compileAutomatically {
+        #autoCompile {
             position: relative;
             margin: 0;
             padding: 0;
@@ -73,7 +70,7 @@
             border: 0;
         }
 
-        #post {
+        #postButton {
             position: relative;
             height: 30px;
             padding: 7px;
@@ -84,19 +81,23 @@
 <body>
 
 <div id="frame-bottom">
-<textarea id="output" rows="8" readonly>Output</textarea>
+    <label for="output"></label><textarea id="output" rows="8" readonly>Output</textarea>
 
 <div id="footer" class="table">
     <div class="table-row">
-        <input id="compileAutomatically" class="table-cell" onclick="app.editor.focus();" type="checkbox">&nbspCompile automatically&nbsp</input>
-    </div>
-    <div class="table-row">
-        <button id="post" class="table-cell" onclick="app.postSample();">Share!</button>
+        <label for="autoCompile"></label><input id="autoCompile"
+                                                class="table-cell" onclick="parent.app.elements.editor.focus();" type="checkbox"/>
+
+        <button id="postButton" class="table-cell" onclick="parent.app.postSample();">Share!</button>
     </div>
 </div>
 </div>
 <script>
-    window.parent.app
+
+    parent.app.elements.autoCompile = document.getElementById("autoCompile");
+    parent.app.elements.postButton = document.getElementById("postButton");
+    parent.app.elements.output = document.getElementById("output");
+
 </script>
 </body>
 </html>
