@@ -1,5 +1,3 @@
 #!/bin/bash
-if [ -z "${CHROOT}" ] ; then
-    echo "CHROOT environment variable is not set. Exiting." 1>&2
-fi
+export CHROOT=/var/chroot
 sudo -u sandbox chroot "${CHROOT}" /tmp/compile.sh

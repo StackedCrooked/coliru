@@ -9,41 +9,41 @@ $semaphore = Mutex.new
 
 
 class SimpleHandler < Mongrel::HttpHandler
-	def process(request, response)
-		response.start(200) do |head,out|
-			head["Content-Type"] = "text/html"
+    def process(request, response)
+        response.start(200) do |head,out|
+            head["Content-Type"] = "text/html"
             loc = get_location(request)
-			case loc
-			when ""
-				FileUtils.copy_stream(File.new("index.html"), out)
-			when "cmd.html"
-				FileUtils.copy_stream(File.new("cmd.html"), out)
-			when "index.html"
-				FileUtils.copy_stream(File.new("index.html"), out)
+            case loc
+            when ""
+                FileUtils.copy_stream(File.new("index.html"), out)
+            when "cmd.html"
+                FileUtils.copy_stream(File.new("cmd.html"), out)
+            when "index.html"
+                FileUtils.copy_stream(File.new("index.html"), out)
             when "frame-top.html"
-				FileUtils.copy_stream(File.new("frame-top.html"), out)
+                FileUtils.copy_stream(File.new("frame-top.html"), out)
             when "frame-bottom.html"
-				FileUtils.copy_stream(File.new("frame-bottom.html"), out)
+                FileUtils.copy_stream(File.new("frame-bottom.html"), out)
             when "md5-min.js"
-				FileUtils.copy_stream(File.new("md5-min.js"), out)
-			when "compile"
-				$semaphore.synchronize {
-					compile(request, out)
-				}
-			when "share"
-				$semaphore.synchronize {
-					share(request, out)
-				}
-			when "view"
-				FileUtils.copy_stream(File.new("view.html"), out)
-			when "favicon.ico"
-				# Don't respond to favicon..
-			else
-				$semaphore.synchronize {
-				  out.write(File.read("Archive/#{loc}/main.cpp").gsub(/\t/, "\\t") + "\t" + File.read("Archive/#{loc}/output").gsub(/\t/, "\\t"))
-				}
-			end
-		end
+                FileUtils.copy_stream(File.new("md5-min.js"), out)
+            when "compile"
+                $semaphore.synchronize {
+                    compile(request, out)
+                }
+            when "share"
+                $semaphore.synchronize {
+                    share(request, out)
+                }
+            when "view"
+                FileUtils.copy_stream(File.new("view.html"), out)
+            when "favicon.ico"
+                # Don't respond to favicon..
+            else
+                $semaphore.synchronize {
+                  out.write(File.read("Archive/#{loc}/main.cpp").gsub(/\t/, "\\t") + "\t" + File.read("Archive/#{loc}/output").gsub(/\t/, "\\t"))
+                }
+            end
+        end
     end
 
     def compile(request, out)
@@ -62,10 +62,10 @@ class SimpleHandler < Mongrel::HttpHandler
         end
     end
 
-	# Returns the location. E.g: if the URL is "http://localhost.com/compile" then "ccompile" will be returned.
-	def get_location(request)
-		return request.params["REQUEST_PATH"][1..-1]
-	end
+    # Returns the location. E.g: if the URL is "http://localhost.com/compile" then "ccompile" will be returned.
+    def get_location(request)
+        return request.params["REQUEST_PATH"][1..-1]
+    end
 
 end
 
