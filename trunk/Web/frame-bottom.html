@@ -5,99 +5,64 @@
     <style type="text/css">
         html, body {
             position: relative;
+            font-family: monospace;
             width: 100%;
             height: 100%;
             padding: 0;
             margin: 0;
-            font-family: monospace;
         }
 
         #frame-bottom {
-            margin-left: 80px;
-            margin-right: 80px;
-            border: 4px groove blue;
+            position: relative;
+            height: 100%;
+            padding: 0;
+            margin: 8px;
         }
 
         #output {
             position: relative;
+            resize:vertical;
+            width: 100%;
+            height: 138px;
+            padding: 0;
+            margin-bottom: 8px;
+        }
+
+        #buttons {
+            position: relative;
+            font-size: medium;
             width: 100%;
             padding: 0;
             margin: 0;
-            font-family: monospace;
+            vertical-align: bottom;
+            text-align: right;
         }
 
-        #footer {
-            position: relative;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            font-family: monospace;
-
-            display: table;
-            vertical-align: middle
-
-        }
-
-
-        #autoCompile {
-            position: relative;
-            margin: 0;
-            padding: 0;
-            vertical-align: middle
-        }
-
-
-        .table {
-            display: table;
-            vertical-align: middle;
-            border: 0;
-        }
-
-        .table-row {
-            display: table-row;
-            position: relative;
-            vertical-align: middle;
+        .row {
             text-align: center;
-            width: 100%;
-            border: 0;
-        }
-
-        .table-cell {
-            display: table-cell;
-            position: relative;
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        #postButton {
-            position: relative;
+            vertical-align: middle;
             height: 30px;
-            padding: 7px;
 
         }
+
     </style>
 </head>
 <body>
-
 <div id="frame-bottom">
-    <label for="output"></label><textarea id="output" rows="8" readonly>Output</textarea>
+    <label for="output"></label><textarea id="output" readonly>Output</textarea>
 
-<div id="footer" class="table">
-    <div class="table-row">
-        <label for="autoCompile"></label><input id="autoCompile"
-                                                class="table-cell" onclick="parent.app.elements.editor.focus();" type="checkbox"/>
-
-        <button id="postButton" class="table-cell" onclick="parent.app.postSample();">Share!</button>
+    <div id="buttons" class="row">
+        <label for="autoCompile" class="row">
+            <input id="autoCompile" onclick="parent.app.elements.editor.focus();" type="checkbox" class="row">
+            Compile Automatically
+        </label>
+        <button id="postButton" class="row" onclick="parent.app.postSample();">Share!</button>
     </div>
 </div>
-</div>
 <script>
-
     parent.app.elements.autoCompile = document.getElementById("autoCompile");
     parent.app.elements.postButton = document.getElementById("postButton");
     parent.app.elements.output = document.getElementById("output");
-
 </script>
 </body>
 </html>
