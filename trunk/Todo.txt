@@ -4,29 +4,27 @@ Features
 - Files have ancestry. Clone function, using file system, etc...
 - Build command modifiable.
 - Compilation command out of chroot.
-- Compile and run as separate commands.
-    . compile only         : g++ -c main.cpp
-        => not sandboxed, faster
-        => new user: "compiler:coliru". Restrictions on cpu time and file size. And also limit nproc just to be sure.
-        => run in the Web dir
-    . compile and link     : g++ main.cp
-        => slower
-    . compile, link and run: g++ main.cpp && a.out
-        => slower
-    . custom
-        => slowest
+- Compiler modes:
+    . compile only, e.g: g++ -fsyntax-only ${OPTIONS} main.cpp
+    . compile and link, e..g: g++ ${OPTIONS} main.cp
+    . compile, link and run
+    . custom build command, e.g: g++ -o pp.out -E main.cpp && cat pp.out | tail -n 50
+        . requires full of both the compiler and application
 
-- Run on user's computer.
-    . webserver installable
-    . user browses to localhost:some_port
+- "Installer" to install the application on your own computer
+    . better performance
+    . localhost:port
+    . basically deploying a prebuilt VM
 
-- Archive features
+- Sharing options
     . Require username for each snippit.
     . '+1' or 'Like!' button
     . Comments
 
 - UI design
-    . Try using frames like TBB docs
+    v Try using frames like TBB docs
+    v Box layout
+
 
 
 
