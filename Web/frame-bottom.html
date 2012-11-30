@@ -82,6 +82,17 @@
             min-height: 20px;
         }
 
+        textarea {
+            border-width: 1px;
+            border-color: gray;
+            border-style: solid;
+
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+
         #buttons {
             margin: 8px;
         }
@@ -90,8 +101,8 @@
             margin-left: 8px;
         }
 
-        input {
-            margin: 8px;
+        label, input {
+            position: relative; margin: 0; padding: 0;
         }
 
         button {
@@ -100,26 +111,18 @@
         }
 
         .unselectable {
-            -moz-user-select: -moz-none;
-            -khtml-user-select: none;
+            user-select: none;
+            -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            user-select: none;
         }
-
-        textarea {
-            border-color: gray;
-            outline: 0 !important;
-            -webkit-appearance: none;
-        }
-
 
     </style>
 </head>
 <body>
 <div id="frame-bottom" class="box-layout box-layout-orient-vertical">
     <label for="output" class="box-layout box-layout-orient-vertical box-element box-element-flex-1">
-        <textarea id="output" class="box-element box-element-flex-1" readonly></textarea>
+        <textarea id="output" class="box-element box-element-flex-1 appearance-none" readonly></textarea>
     </label>
 
     <div id="buttons" class="box-layout box-layout-orient-horizontal box-element-flex-0">
