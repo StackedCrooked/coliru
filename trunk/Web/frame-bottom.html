@@ -101,8 +101,14 @@
             margin-left: 8px;
         }
 
-        label, input {
+        label {
             position: relative; margin: 0; padding: 0;
+        }
+
+        input {
+            position: relative;
+            margin:  10px;
+            padding: 0;
         }
 
         button {
@@ -137,6 +143,8 @@
     parent.app.elements.autoCompile = document.getElementById("autoCompile");
     parent.app.elements.postButton = document.getElementById("postButton");
     parent.app.elements.output = document.getElementById("output");
+
+    parent.app.elements.autoCompile.checked = (localStorage.getItem("autoCompile") === "true");
 </script>
 </body>
 </html>
