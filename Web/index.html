@@ -43,8 +43,7 @@
         }
         app.elements.editor.setValue(localStorage.getItem("sourceCode"));
 
-        app.autoCompileChecked = false;
-        app.elements.autoCompile.checked = app.autoCompileChecked;
+
 
         app.lastChange = 0;
 
@@ -86,6 +85,7 @@
 
         app.enterTimeoutLoop = function () {
             app.timeoutLoopImpl();
+            localStorage.setItem("autoCompile", app.elements.autoCompile.checked);
             window.setTimeout(app.enterTimeoutLoop, 250);
         };
 
