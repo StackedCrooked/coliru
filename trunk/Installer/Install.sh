@@ -35,9 +35,9 @@ setcap 'cap_kill=+ep' /bin/kill
 setcap 'cap_kill=+ep' /usr/bin/pgrep
 
 
-groupadd -g 2000 coliru
-useradd -g coliru -u 2001 webserver
-useradd -g coliru -u 2002 sandbox
+groupadd -g 2000 coliru || echo "Group coliru already exists. Continuing."
+useradd -g coliru -u 2001 webserver || echo "User webserver already exists. Continuing."
+useradd -g coliru -u 2002 sandbox || echo "User sandbox already exists. Continuing."
 
 
 LIMITS_ALREADY_SET=$(cat /etc/security/limits.conf | grep COLIRU | wc -l)
