@@ -47,12 +47,6 @@
 
         app.lastChange = 0;
 
-        app.elements.editor.onkeyup = function () {
-            app.lastChange = new Date().getTime();
-            localStorage.setItem("sourceCode", app.elements.editor.getValue());
-
-        };
-
         app.waiting = false;
         app.postText = "Share!";
         app.elements.postButton.disabled = false;
@@ -96,8 +90,14 @@
         };
 
         app.timeoutLoopImpl = function () {
-            localStorage.setItem("sourceCode", app.elements.editor.getValue());
+            var newCode = app.elements.editor.getValue();
+            var oldCode = localStorage.getItem("sourceCode");
             var time = (new Date().getTime());
+            if (newCode !== oldCode) {
+                localStorage.setItem("sourceCode", newCode);
+                app.lastChange = time;
+            }
+
             if (app.waiting === false && time - app.lastChange >= 2000 && app.elements.editor.getValue() != app.previousValue && app.elements.autoCompile.checked === true) {
                 var cachedOutput = localStorage.getItem(localStorage.getItem("sourceCode"));
                 if (cachedOutput !== undefined && cachedOutput !== null) {
