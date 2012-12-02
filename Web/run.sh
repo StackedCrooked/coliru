@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname $0)"
 pkill -9 -u webserver
 
 mkdir -p /var/chroot/tmp
