@@ -13,8 +13,8 @@
             padding: 0;
             margin: 0;
         }
-
-        .box-layout {
+        
+        .box-layout-orient-horizontal {
             display: box;
             display: -webkit-box;
             display: -moz-box;
@@ -22,17 +22,7 @@
             position: relative;
             padding: 0;
             margin: 0;
-        }
 
-        .box-element {
-            display: box;
-            display: -webkit-box;
-            display: -moz-box;
-
-            position: relative;
-        }
-
-        .box-layout-orient-horizontal {
             box-orient:         horizontal;
             -webkit-box-orient: horizontal;
             -moz-box-orient:    horizontal;
@@ -47,6 +37,14 @@
         }
 
         .box-layout-orient-vertical {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+
+            position: relative;
+            padding: 0;
+            margin: 0;
+
             box-orient:         vertical;
             -webkit-box-orient: vertical;
             -moz-box-orient:    vertical;
@@ -61,12 +59,24 @@
         }
 
         .box-element-flex-0 {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+
+            position: relative;
+
             box-flex:           0.0;
             -webkit-box-flex:   0.0;
             -moz-box-flex:      0.0;
         }
 
         .box-element-flex-1 {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+
+            position: relative;
+
             box-flex:           1.0;
             -webkit-box-flex:   1.0;
             -moz-box-flex:      1.0;
@@ -126,17 +136,17 @@
     </style>
 </head>
 <body>
-<div id="frame-bottom" class="box-layout box-layout-orient-vertical">
-    <label for="output" class="box-layout box-layout-orient-vertical box-element box-element-flex-1">
-        <textarea id="output" class="box-element box-element-flex-1 appearance-none" readonly></textarea>
+<div id="frame-bottom" class="box-layout-orient-vertical">
+    <label for="output" class="box-layout-orient-vertical box-element-flex-1">
+        <textarea id="output" class="box-element-flex-1 appearance-none" readonly></textarea>
     </label>
 
-    <div id="buttons" class="box-layout box-layout-orient-horizontal box-element-flex-0">
-        <div id="filler" class="box-element box-element-flex-1"></div>
-        <label for="autoCompile" class="box-layout box-layout-orient-horizontal box-element box-element-flex-0 unselectable">
-            <input id="autoCompile" class="box-element box-element-flex-1" onclick="parent.app.elements.editor.focus();" type="checkbox">Compile Automatically</input>
+    <div id="buttons" class="box-layout-orient-horizontal box-element-flex-0">
+        <div id="filler" class="box-element-flex-1"></div>
+        <label for="autoCompile" class="box-layout-orient-horizontal box-element-flex-0 unselectable">
+            <input id="autoCompile" class="box-element-flex-1" onclick="parent.app.elements.editor.focus();" type="checkbox">Compile Automatically</input>
         </label>
-        <button id="postButton" class="box-element box-element-flex-0" onclick="parent.app.postSample();">Share!</button>
+        <button id="postButton" class="box-element-flex-0" onclick="parent.app.postSample();">Share!</button>
     </div>
 </div>
 <script>
