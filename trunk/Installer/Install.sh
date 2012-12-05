@@ -61,3 +61,9 @@ fi
 chmod -R o-r ${CHROOT}/
 mkdir -p ${CHROOT}/tmp
 chown -R sandbox:coliru ${CHROOT}/tmp
+
+
+
+# TODO: Install wheels
+#apt-get install mercurial
+#hg clone https://bitbucket.org/martinhofernandes/wheels
