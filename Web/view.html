@@ -38,15 +38,19 @@ app.elements = {
     };
 
     app.send(app.id, "", function(response) {
-        var parts = response.split('\t');
-        if (parts.length > 0) {
-            app.elements.editor.setValue(parts[0].replace(/\\t/, "\t"));
-        }
-        if (parts.length > 1) {
-            app.elements.output.value = parts[1].replace(/\\t/, "\t");
-        }
-        app.elements.editor.clearSelection();
-        app.elements.editor.scrollToRow(0);
+	console.log("response: " + response)
+        app.parts = response.split('\t');
+	setTimeout(function(){
+	
+		if (app.parts.length > 0) {
+		    app.elements.editor.setValue(app.parts[0].replace(/\\t/, "\t"));
+		}
+		if (app.parts.length > 1) {
+		    app.elements.output.value = app.parts[1].replace(/\\t/, "\t");
+		}
+		app.elements.editor.clearSelection();
+		app.elements.editor.scrollToRow(0);
+	}, 100);
     });
 </script>
 </html>
