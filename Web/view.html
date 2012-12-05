@@ -41,6 +41,7 @@ app.elements = {
 	console.log("response: " + response)
         app.parts = response.split('\t');
 	setTimeout(function(){
+		app.elements.editor.setReadOnly(true);
 	
 		if (app.parts.length > 0) {
 		    app.elements.editor.setValue(app.parts[0].replace(/\\t/, "\t"));
