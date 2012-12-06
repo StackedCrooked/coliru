@@ -20,118 +20,57 @@
 
     window.onload = function () {
 
-        app.toggleVim = function () {
-            app.elements.editor.setKeyboardHandler(vim ? app.vimKeys : app.oldKeys);
-        };
-
-        app.elements.output.scrollTop = app.elements.output.scrollHeight;
-
-        app.http_get = function (url) {
-            var x = new XMLHttpRequest();
-            x.open("GET", url, false);
-            x.send(null);
-            return x.responseText;
-        };
-
-
         String.prototype.trim = function () {
             return this.replace(/^\s+|\s+$/g, "");
         };
 
-        if (localStorage.getItem("sourceCode") === null) {
+        var sourceCode = localStorage.getItem("sourceCode");
+        if (sourceCode === null || sourceCode === "") {
             localStorage.setItem("sourceCode", app.samples["Hello World!"]);
         }
         app.elements.editor.setValue(localStorage.getItem("sourceCode"));
 
-
-
-        app.lastChange = 0;
-
-        app.waiting = false;
-        app.postText = "Share!";
-        app.elements.postButton.disabled = false;
-        app.elements.autoCompile.disabled = false;
-
+        app.enableUI = function(value) {
+            app.elements.compileButton.disabled = !value;;
+            app.elements.postButton.disabled = !value;;
+            app.elements.editor.setReadOnly(!value);
+        };
 
         app.send = function (location, source_code, f) {
+            app.enableUI(false);
             var httpRequest = new XMLHttpRequest();
-            var url = "http://" + window.location.hostname + ":" + window.location.port + '/' + location;
-            httpRequest.open("PUT", url, true);
+            httpRequest.open("PUT", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
                 if (httpRequest.readyState == 4) {
                     if (httpRequest.status == 200) {
-                        app.waiting = false;
-                        app.elements.postButton.disabled = false;
-                        app.elements.postButton.textContent = app.postText;
+                        app.enableUI(true);
                         app.lastResult = httpRequest.responseText.trim();
-                        //f({input: source_code, output: app.http_get("http://" + window.location.hostname + ":" + window.location.port + "/Archive/" + app.lastResult + "/output.txt")});
                         f({input: source_code, output: app.lastResult});
                     }
                 }
             };
-            app.waiting = true;
-            app.elements.postButton.disabled = true;
             httpRequest.send(source_code);
         };
 
 
         app.previousValue = "";
 
-        app.enterTimeoutLoop = function () {
-            app.timeoutLoopImpl();
-            localStorage.setItem("autoCompile", app.elements.autoCompile.checked);
-            window.setTimeout(app.enterTimeoutLoop, 250);
-        };
-
-
-        app.setOutput = function (value) {
-            app.elements.output.value = value;
-            app.elements.output.scrollTop = app.elements.output.scrollHeight;
-        };
-
-        app.timeoutLoopImpl = function () {
-            var newCode = app.elements.editor.getValue();
-            var oldCode = localStorage.getItem("sourceCode");
-            var time = (new Date().getTime());
-            if (newCode !== oldCode) {
-                localStorage.setItem("sourceCode", newCode);
-                app.lastChange = time;
-            }
-
-            if (app.waiting === false && time - app.lastChange >= 2000 && app.elements.editor.getValue() != app.previousValue && app.elements.autoCompile.checked === true) {
-                var cachedOutput = localStorage.getItem(localStorage.getItem("sourceCode"));
-                if (cachedOutput !== undefined && cachedOutput !== null) {
-                    app.elements.output.value = cachedOutput;
-                    return;
-                }
-                app.elements.output.value = app.elements.output.value + "\n(compiling)";
-                app.elements.postButton.textContent = "Please wait...";
-                app.previousValue = app.elements.output.value;
-                app.sentData = localStorage.getItem("sourceCode");
-                app.send("compile", app.sentData, function (result) {
-                    app.setOutput(result.output);
-                    localStorage.setItem(app.sentData, result.output);
-                    app.previousValue = app.sentData;
-                });
-            }
-        };
-
-        app.postSample = function () {
-            app.elements.editor.setReadOnly(true);
-            app.elements.autoCompile.disabled = true;
-            app.elements.postButton.textContent = "Please wait...";
-            app.send("share", app.elements.editor.getValue(), function (obj) {
-                app.elements.editor.setReadOnly(false);
-                var url = "http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output;
-                window.open(url, '_self');
+        app.compileNow = function () {
+            app.send("compile", app.elements.editor.getValue(), function (obj) {
+                app.elements.output.value = obj.output;
             });
         };
 
 
+        app.postSample = function () {
+            app.send("share", app.elements.editor.getValue(), function (obj) {
+                window.open("http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output, '_self');
+            });
+        };
+
         app.elements.editor.setValue(localStorage.getItem("sourceCode"));
         app.previousValue = "";
         app.elements.editor.clearSelection();
-        app.enterTimeoutLoop();
     };
 </script>
 </html>

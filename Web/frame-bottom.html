@@ -143,18 +143,14 @@
 
     <div id="buttons" class="box-layout-orient-horizontal box-element-flex-0">
         <div id="filler" class="box-element-flex-1"></div>
-        <label for="autoCompile" class="box-layout-orient-horizontal box-element-flex-0 unselectable">
-            <input id="autoCompile" class="box-element-flex-1" onclick="parent.app.elements.editor.focus();" type="checkbox">Compile Automatically</input>
-        </label>
+        <button id="compileButton" class="box-element-flex-0" onclick="parent.app.compileNow();">Compile now</button>
         <button id="postButton" class="box-element-flex-0" onclick="parent.app.postSample();">Share!</button>
     </div>
 </div>
 <script>
-    parent.app.elements.autoCompile = document.getElementById("autoCompile");
+    parent.app.elements.compileButton = document.getElementById("compileButton");
     parent.app.elements.postButton = document.getElementById("postButton");
     parent.app.elements.output = document.getElementById("output");
-
-    parent.app.elements.autoCompile.checked = (localStorage.getItem("autoCompile") === "true");
 </script>
 </body>
 </html>
