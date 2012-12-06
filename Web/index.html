@@ -38,6 +38,7 @@
 
         app.send = function (location, source_code, f) {
             app.enableUI(false);
+            localStorage.setItem("sourceCode", app.elements.editor.getValue());
             var httpRequest = new XMLHttpRequest();
             httpRequest.open("PUT", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
@@ -68,7 +69,6 @@
             });
         };
 
-        app.elements.editor.setValue(localStorage.getItem("sourceCode"));
         app.previousValue = "";
         app.elements.editor.clearSelection();
     };
