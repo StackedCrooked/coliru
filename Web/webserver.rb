@@ -28,7 +28,7 @@ class SimpleHandler < Mongrel::HttpHandler
                 FileUtils.copy_stream(File.new("md5-min.js"), out)
             when "compile"
                 $semaphore.synchronize {
-                    compile(request, out)
+                    safe_compile(request, out)
                 }
             when "share"
                 $semaphore.synchronize {
@@ -43,6 +43,20 @@ class SimpleHandler < Mongrel::HttpHandler
                   out.write(File.read("Archive/#{loc}/main.cpp").gsub(/\t/, "\\t") + "\t" + File.read("Archive/#{loc}/output").gsub(/\t/, "\\t"))
                 }
             end
+        end
+    end
+
+    def safe_compile(req, out)
+        begin
+            Timeout.timeout(5) do
+                begin
+                    compile(req, out)
+                rescue Exception => e
+                    out.write(e.inspect)
+                end
+            end
+        rescue Timeout::Error => e
+            out.write(e)
         end
     end
 

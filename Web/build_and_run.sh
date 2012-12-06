@@ -9,5 +9,5 @@ cp compile.sh main.cpp "${CHROOT}/tmp/"
 chmod 755 "${CHROOT}/tmp/compile.sh"
 
 # Run the chroot
-{ { sleep 10 && echo "Timeout!" && { pkill -9 -u sandbox >/dev/null 2>&1  ; } && exit 1 ; } & } && { trap "kill $! >/dev/null 2>&1" INT ERR EXIT; ./chroot.sh ; exit 0 ; }
-
+#{ { sleep 5 && echo "Timeout!" && { pkill -9 -u sandbox >/dev/null 2>&1  ; } && exit 1 ; } & } && { trap "kill $! >/dev/null 2>&1" INT ERR EXIT; ./chroot.sh ; exit 0 ; }
+./chroot.sh
