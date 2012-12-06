@@ -3,11 +3,11 @@
 <head>
 
     <style type="text/css">
-        html, head, body, div, label, textarea {
+        * {
             position: relative;
             width: 100%; height: 100%;
             margin: 0; padding: 0;
-            border: 0 hidden;
+            overflow: hidden;
         }
 
         #page {
@@ -18,24 +18,35 @@
 
         #editor {
             position: relative;
-            width: 100%; height: 40%;
-            margin: 0; padding: 0;
+            width: 100%; height: 60%;
+            margin-bottom: 1px; padding: 0px;
         }
 
         #output {
-            height: 40%;
-            margin: 2px;
-            border: 1px;
+            position: relative;
+            height: 30%;
+            margin: 0; padding: 0;
             border-style: solid;
             border-color: gray;
         }
 
-        textarea {
-            border-color: gray;
-            outline: 0 !important;
-            -webkit-appearance: none;
+        #backButton {
+            position: relative;
+            width: 100%; height: 10%;
+            margin-bottom: 1px; padding: 0px;
         }
 
+        
+        textarea {
+            border-width: 1px;
+            border-color: gray;
+            border-style: solid;
+
+            outline: 0 !important;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
 
     </style>
 
@@ -44,6 +55,7 @@
 <div id="page">
     <div id="editor"></div>
     <label for="output"></label><textarea id="output" readonly></textarea>
+    <a id="backButton" href="#">Go back</a>
 </div>
 <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
 <script>
@@ -62,6 +74,7 @@ app.editor = editor;
 app.output = document.getElementById("output");
 app.output.readOnly = true;
 app.output.data = "Fetching data....";
+
 
 app.send = function (location, post_data, f) {
     var httpRequest = new XMLHttpRequest();
@@ -90,6 +103,12 @@ app.send(app.id, "", function(response) {
     app.editor.clearSelection();
     app.editor.scrollToRow(0);
 });
+
+app.goBack = function () {
+    history.go(-1);
+};
+
+document.getElementById("backButton").onclick = app.goBack;
 
 
 </script>
