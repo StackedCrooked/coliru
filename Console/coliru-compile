@@ -1,0 +1,11 @@
+[ $# -eq 1 ] || {
+    echo "$(basename $0): fatal error: no input files" 1>&2
+    exit 1
+}
+
+[ -f $1 ] || { 
+    echo "$(basename $0): error: $1: No such file or directory" 1>&1
+    exit 127
+}
+
+wget -q -O - stacked-crooked.com/compile --post-file=$1
