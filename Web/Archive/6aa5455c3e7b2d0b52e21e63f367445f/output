@@ -1,0 +1,24 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from /usr/include/c++/4.7/bits/locale_classes.h:42,
+                 from /usr/include/c++/4.7/bits/ios_base.h:43,
+                 from /usr/include/c++/4.7/ios:43,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h: In instantiation of ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = Point; _Args = {Point&}; _Tp = Point]’:
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from ‘static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Point; _Args = {Point&}; _Alloc = std::allocator<Point>; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]’
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   required from ‘static void std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Point; _Args = {Point&}; _Alloc = std::allocator<Point>]’
+/usr/include/c++/4.7/bits/shared_ptr_base.h:402:4:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {Point&}; _Tp = Point; _Alloc = std::allocator<Point>; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]’
+/usr/include/c++/4.7/ext/new_allocator.h:110:4:   required from ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<Point, std::allocator<Point>, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<Point>, Point&}; _Tp = std::_Sp_counted_ptr_inplace<Point, std::allocator<Point>, (__gnu_cxx::_Lock_policy)2u>]’
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from ‘static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<Point, std::allocator<Point>, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<Point>, Point&}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<Point, std::allocator<Point>, (__gnu_cxx::_Lock_policy)2u> >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]’
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   [ skipping 2 instantiation contexts ]
+/usr/include/c++/4.7/bits/shared_ptr_base.h:997:35:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Point>; _Args = {Point&}; _Tp = Point; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]’
+/usr/include/c++/4.7/bits/shared_ptr.h:317:64:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Point>; _Args = {Point&}; _Tp = Point]’
+/usr/include/c++/4.7/bits/shared_ptr.h:599:39:   required from ‘std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = Point; _Alloc = std::allocator<Point>; _Args = {Point&}]’
+/usr/include/c++/4.7/bits/shared_ptr.h:615:42:   required from ‘std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = Point; _Args = {Point&}]’
+main.cpp:25:35:   required from ‘std::shared_ptr<_Tp> share(T&&) [with T = Point]’
+main.cpp:31:53:   required from here
+/usr/include/c++/4.7/ext/new_allocator.h:110:4: error: use of deleted function ‘Point::Point(const Point&)’
+main.cpp:13:5: error: declared here

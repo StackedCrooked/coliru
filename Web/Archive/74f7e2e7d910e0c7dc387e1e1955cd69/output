@@ -1,0 +1,16 @@
+main.cpp: In function ‘int main()’:
+main.cpp:31:48: error: conversion from ‘void’ to non-scalar type ‘std::future<int>’ requested
+main.cpp:32:55: error: conversion from ‘void’ to non-scalar type ‘std::future<int>’ requested
+In file included from /usr/include/c++/4.7/future:38:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/functional: In instantiation of ‘static void std::_Function_handler<void(_ArgTypes ...), _Functor>::_M_invoke(const std::_Any_data&, _ArgTypes ...) [with _Functor = int (*)(int); _ArgTypes = {}]’:
+/usr/include/c++/4.7/functional:2298:6:   required from ‘std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = int (*)(int); _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]’
+main.cpp:31:48:   required from here
+/usr/include/c++/4.7/functional:1925:2: error: too few arguments to function
+/usr/include/c++/4.7/functional: In instantiation of ‘static void std::_Function_handler<void(_ArgTypes ...), _Functor>::_M_invoke(const std::_Any_data&, _ArgTypes ...) [with _Functor = Increment; _ArgTypes = {}]’:
+/usr/include/c++/4.7/functional:2298:6:   required from ‘std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = Increment; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]’
+main.cpp:32:55:   required from here
+/usr/include/c++/4.7/functional:1925:2: error: no match for call to ‘(Increment) ()’
+main.cpp:22:8: note: candidate is:
+main.cpp:24:9: note: int Increment::operator()(int) const
+main.cpp:24:9: note:   candidate expects 1 argument, 0 provided
