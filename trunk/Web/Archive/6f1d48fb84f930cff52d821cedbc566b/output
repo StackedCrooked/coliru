@@ -1,0 +1,21 @@
+main.cpp: In instantiation of ‘void __match<Ts>::do_assign(std::tuple<U, Us ...>) [with long unsigned int I = 2ul; U = int; Us = {int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’:
+main.cpp:107:9:   recursively required from ‘void __match<Ts>::do_assign(std::tuple<U, Us ...>) [with long unsigned int I = 1ul; U = int; Us = {int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:107:9:   required from ‘void __match<Ts>::do_assign(std::tuple<U, Us ...>) [with long unsigned int I = 0ul; U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:76:9:   required from ‘__match<Ts>& __match<Ts>::operator=(std::tuple<U, Us ...>) [with U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:120:67:   required from here
+main.cpp:106:9: error: cannot convert ‘predicate<int, op_eq<int> >’ to ‘int’ in assignment
+main.cpp: In instantiation of ‘void __match<Ts>::do_match(const std::tuple<U, Us ...>&) [with long unsigned int I = 3ul; U = int; Us = {}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’:
+main.cpp:94:9:   recursively required from ‘void __match<Ts>::do_match(const std::tuple<U, Us ...>&) [with long unsigned int I = 1ul; U = int; Us = {int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:94:9:   required from ‘void __match<Ts>::do_match(const std::tuple<U, Us ...>&) [with long unsigned int I = 0ul; U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:75:9:   required from ‘__match<Ts>& __match<Ts>::operator=(std::tuple<U, Us ...>) [with U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:120:67:   required from here
+main.cpp:94:9: error: no matching function for call to ‘__match<int&, int&, predicate<int, op_eq<int> >, int&>::do_match(std::tuple<>)’
+main.cpp:94:9: note: candidates are:
+main.cpp:84:10: note: template<long unsigned int I, class V, class W, class ... Us> void __match::do_match(const std::tuple<predicate<V, W>, Us ...>&) [with long unsigned int I = I; V = V; W = W; Us = {Us ...}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]
+main.cpp:84:10: note:   template argument deduction/substitution failed:
+main.cpp:94:9: note:   candidate expects 2 arguments, 0 provided
+main.cpp:94:9: note:   ‘std::tuple<>’ is not derived from ‘const std::tuple<predicate<V, W>, Us ...>’
+main.cpp:93:10: note: template<long unsigned int I, class U, class ... Us> void __match::do_match(const std::tuple<U, Us ...>&) [with long unsigned int I = I; U = U; Us = {Us ...}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]
+main.cpp:93:10: note:   template argument deduction/substitution failed:
+main.cpp:94:9: note:   candidate expects 2 arguments, 0 provided
+main.cpp:94:9: note:   ‘std::tuple<>’ is not derived from ‘const std::tuple<_Head, _Tail ...>’

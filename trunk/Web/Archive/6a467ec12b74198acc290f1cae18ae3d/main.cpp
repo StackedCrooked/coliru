@@ -1,0 +1,3 @@
+// Coliru Bookmarklet
+// javascript:(function(){var e={};e.getOffset=function(e,t){return(e-t)/2};e.getClientPos=function(e,t,n,r){return[getOffset(e,n),getOffset(t,r)]};e.getWindowWidth=function(){return document.documentElement.clientWidth};e.getWindowHeight=function(){return document.documentElement.clientHeight};e.getString=function(t,n){var r=e.getWindowWidth();var i=window.screenX+e.getOffset(r,t);var s=window.screenY+e.getOffset(e.getWindowHeight(),n);return"scrollbars=0,resizable=1,target=_blank,left="+i+",top="+s+",width="+t+",height="+n};var t=e.getString(600,600);window.open("http://www.stacked-crooked.com","Coliru",t);})();
+

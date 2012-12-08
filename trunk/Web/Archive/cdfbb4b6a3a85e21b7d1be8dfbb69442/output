@@ -1,0 +1,23 @@
+main.cpp: In instantiation of ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = int&; Tail = {int&, predicate<int, op_eq<int> >&, int&}]’:
+main.cpp:102:9:   required from ‘static void matcher<Ts>::match(const std::tuple<U, Us ...>&, const std::tuple<V, Vs ...>&) [with U = int&; Us = {int&, predicate<int, op_eq<int> >&, int&}; V = int; Vs = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:86:9:   required from ‘matcher<Ts>& matcher<Ts>::operator=(std::tuple<U, Us ...>) [with U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:115:71:   required from here
+main.cpp:37:73: error: could not convert ‘tuple_subset(const Tuple&, ct_integers_list<indices ...>) [with long unsigned int ...indices = {1ul, 2ul, 3ul}; Tuple = std::tuple<int&, int&, predicate<int, op_eq<int> >&, int&>; decltype (std::make_tuple((get<indices>)(*tuple_subset::tpl)...)) = std::tuple<int, predicate<int, op_eq<int> >, int>]((ct_iota_1<3ul>::type(), ct_iota_1<3ul>::type()))’ from ‘std::tuple<int, predicate<int, op_eq<int> >, int>’ to ‘std::tuple<int&, predicate<int, op_eq<int> >&, int&>’
+main.cpp: In instantiation of ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = int&; Tail = {predicate<int, op_eq<int> >&, int&}]’:
+main.cpp:102:9:   recursively required from ‘static void matcher<Ts>::match(const std::tuple<U, Us ...>&, const std::tuple<V, Vs ...>&) [with U = int&; Us = {predicate<int, op_eq<int> >&, int&}; V = int; Vs = {int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:102:9:   required from ‘static void matcher<Ts>::match(const std::tuple<U, Us ...>&, const std::tuple<V, Vs ...>&) [with U = int&; Us = {int&, predicate<int, op_eq<int> >&, int&}; V = int; Vs = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:86:9:   required from ‘matcher<Ts>& matcher<Ts>::operator=(std::tuple<U, Us ...>) [with U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:115:71:   required from here
+main.cpp:37:73: error: could not convert ‘tuple_subset(const Tuple&, ct_integers_list<indices ...>) [with long unsigned int ...indices = {1ul, 2ul}; Tuple = std::tuple<int&, predicate<int, op_eq<int> >&, int&>; decltype (std::make_tuple((get<indices>)(*tuple_subset::tpl)...)) = std::tuple<predicate<int, op_eq<int> >, int>]((ct_iota_1<2ul>::type(), ct_iota_1<2ul>::type()))’ from ‘std::tuple<predicate<int, op_eq<int> >, int>’ to ‘std::tuple<predicate<int, op_eq<int> >&, int&>’
+main.cpp: In instantiation of ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = predicate<int, op_eq<int> >&; Tail = {int&}]’:
+main.cpp:102:9:   recursively required from ‘static void matcher<Ts>::match(const std::tuple<U, Us ...>&, const std::tuple<V, Vs ...>&) [with U = int&; Us = {predicate<int, op_eq<int> >&, int&}; V = int; Vs = {int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:102:9:   required from ‘static void matcher<Ts>::match(const std::tuple<U, Us ...>&, const std::tuple<V, Vs ...>&) [with U = int&; Us = {int&, predicate<int, op_eq<int> >&, int&}; V = int; Vs = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:86:9:   required from ‘matcher<Ts>& matcher<Ts>::operator=(std::tuple<U, Us ...>) [with U = int; Us = {int, int, int}; Ts = {int&, int&, predicate<int, op_eq<int> >, int&}]’
+main.cpp:115:71:   required from here
+main.cpp:37:73: error: could not convert ‘tuple_subset(const Tuple&, ct_integers_list<indices ...>) [with long unsigned int ...indices = {1ul}; Tuple = std::tuple<predicate<int, op_eq<int> >&, int&>; decltype (std::make_tuple((get<indices>)(*tuple_subset::tpl)...)) = std::tuple<int>]((ct_iota_1<1ul>::type(), ct_iota_1<1ul>::type()))’ from ‘std::tuple<int>’ to ‘std::tuple<int&>’
+main.cpp: In function ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = predicate<int, op_eq<int> >&; Tail = {int&}]’:
+main.cpp:38:1: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In function ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = int&; Tail = {predicate<int, op_eq<int> >&, int&}]’:
+main.cpp:38:1: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In function ‘std::tuple<_Elements ...> tuple_tail(const std::tuple<_Head, _Tail ...>&) [with Head = int&; Tail = {int&, predicate<int, op_eq<int> >&, int&}]’:
+main.cpp:38:1: warning: control reaches end of non-void function [-Wreturn-type]
