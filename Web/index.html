@@ -59,6 +59,25 @@
         app.compileNow = function () {
             app.send("compile", app.elements.editor.getValue(), function (obj) {
                 app.elements.output.value = obj.output;
+                window.setTimeout(function() {
+                    var ace_lines = app.editorDocument.getElementsByClassName("ace_line");
+                    for (var i = 0; i !== ace_lines.length; ++i) {
+                        ace_lines[i].style.color = "inherit";
+                    }
+                    var output_lines = app.elements.output.value.split(/\n/);
+                    for (var i = 0; i != output_lines.length; ++i) {
+                        try {
+                            var line = output_lines[i];
+                            if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
+                                var lineno = parseInt(line.split(":")[1]);
+                                ace_lines[lineno - 1].style.color = "red";
+                            }
+                        }
+                        catch (e) {
+                            console.log(JSON.stringify(e));
+                        }
+                    }
+                }, 100);
             });
         };
 

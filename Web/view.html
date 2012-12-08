@@ -110,6 +110,28 @@ app.send(app.id, "", function(response) {
     if (parts.length > 1) {
         app.output.value = parts[1].replace(/\\t/, "\t");
     }
+
+    window.setTimeout(function() {
+        var ace_lines = document.getElementsByClassName("ace_line");
+        for (var i = 0; i !== ace_lines.length; ++i) {
+            ace_lines[i].style.color = "inherit";
+        }
+        var output_lines = app.output.value.split(/\n/);
+        for (var i = 0; i != output_lines.length; ++i) {
+            try {
+                var line = output_lines[i];
+                if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
+                    var lineno = parseInt(line.split(":")[1]);
+                    ace_lines[lineno - 1].style.color = "red";
+                }
+            }
+            catch (e) {
+                console.log(JSON.stringify(e));
+            }
+        }
+    }, 100);
+
+
     app.editor.clearSelection();
     app.editor.scrollToRow(0);
 });
