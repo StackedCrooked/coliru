@@ -11,5 +11,5 @@ if [ -f "Archive/${ID}/output" ] ; then
 fi
 
 pkill -9 -u sandbox
-./repair-permissions.sh
+./repair-permissions.sh >/dev/null 2>&1
 ./build_and_run.sh
