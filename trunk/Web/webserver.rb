@@ -6,6 +6,7 @@ require 'pp'
 require 'thread'
 
 $semaphore = Mutex.new
+$pid = 0
 
 
 class SimpleHandler < Mongrel::HttpHandler
@@ -28,11 +29,11 @@ class SimpleHandler < Mongrel::HttpHandler
                 FileUtils.copy_stream(File.new("md5-min.js"), out)
             when "compile"
                 $semaphore.synchronize {
-                    safe_compile(request, out)
+                    safe_compile(request, "sandbox", out)
                 }
             when "share"
                 $semaphore.synchronize {
-                    share(request, out)
+                    safe_compile(request, "share", out)
                 }
             when "view"
                 FileUtils.copy_stream(File.new("view.html"), out)
@@ -46,31 +47,26 @@ class SimpleHandler < Mongrel::HttpHandler
         end
     end
 
-    def safe_compile(req, out)
+    def safe_compile(req, script, out)
+        $pid = 0;
+        puts "$pid is #{$pid}"
         begin
-            Timeout.timeout(5) do
-                begin
-                    compile(req, out)
-                rescue Exception => e
-                    out.write(e.inspect)
-                end
+            Timeout.timeout(10) do
+                compile(req, script, out)
             end
         rescue Timeout::Error => e
-            out.write(e)
+            out.write(e.to_s)
+            puts "rescue from #{e.to_s}"
+            puts "killing sandbox"
+            POpen4::popen4("pkill -9 -u sandbox") {} 
         end
     end
 
-    def compile(request, out)
+    def compile(request, script, out)
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
-        status = POpen4::popen4("./sandbox.sh 2>&1") do |stdout, stderr, stdin, pid|
-            stdin.close()
-            out.write(stdout.read())
-        end
-    end
-
-    def share(request, out)
-        File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
-        status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
+        status = POpen4::popen4("./#{script}.sh 2>&1") do |stdout, stderr, stdin, pid|
+            $pid = pid
+            puts "$pid is assigned to #{$pid}"
             stdin.close()
             out.write(stdout.read())
         end
