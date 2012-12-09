@@ -1,23 +1,24 @@
 #!/bin/bash
+echo "$(whoami)"
 
-chown -R webserver:coliru .
-chmod -R a+rw .
+chown webserver:coliru .
+chmod a+rw .
 
-rm -rf /var/chroot/tmp
+find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
+chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1 || sudo -u sandbox chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1
+
+echo "Owner of /var/chroot/tmp is $(ls -alt /var/chroot/tmp | head -n2 | tail -n1)"
+sudo -u sandbox rm -rf /var/chroot/tmp
 mkdir -p /var/chroot/tmp
-chown -R sandbox:coliru /var/chroot/tmp
 
 touch ./output
-chown -R webserver:coliru ./output
+chown webserver:coliru ./output
 
 touch ./main.cpp
-chown -R webserver:coliru ./main.cpp
+chown webserver:coliru ./main.cpp
 
 touch /var/chroot/tmp/main.cpp
-chown -R webserver:coliru /var/chroot/tmp/main.cpp 
+chown webserver:coliru /var/chroot/tmp/main.cpp 
 
 touch /var/chroot/tmp/compile.sh 
-chown -R webserver:coliru /var/chroot/tmp/compile.sh 
-
-chmod -R a+r /var/chroot/tmp
-chmod -R g+w /var/chroot/tmp
+chown webserver:coliru /var/chroot/tmp/compile.sh 
