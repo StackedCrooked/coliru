@@ -10,4 +10,6 @@ if [ -f "Archive/${ID}/output" ] ; then
     exit
 fi
 
+pkill -9 -u sandbox
+./repair-permissions.sh
 ./build_and_run.sh
