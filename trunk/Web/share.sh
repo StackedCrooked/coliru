@@ -1,4 +1,7 @@
 #!/bin/bash
+pkill -9 -u sandbox
+./repair-permissions.sh >/dev/null 2>&1
+
 mkdir -p Archive
 if [ "$(uname)" == "Darwin" ] ; then 
     ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')"
