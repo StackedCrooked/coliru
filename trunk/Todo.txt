@@ -59,7 +59,7 @@ v Server: Don't run subprocess as admin. OK:
 Notes
 -----
 To allow non-root to listen to port 80:
-    sudo apt-get install libcap2-bin
-    sudo setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
-    sudo setcap 'cap_kill=+ep' /usr/bin/killall
-    sudo setcap cap_sys_chroot+ep /usr/sbin/chroot
+    apt-get install libcap2-bin
+    setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
+    setcap 'cap_kill=+ep' /usr/bin/killall
+    setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
