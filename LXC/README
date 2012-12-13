@@ -1,0 +1,51 @@
+- Run Install.sh
+- cd to /lxc/rootfs.ubuntu and run ConfigureDevices.sh
+
+Modify rootfs:
+
+
+Add lines following to /lxc/rootfs.ubuntu/etc/apt/sources.list:
+
+    deb http://archive.ubuntu.com/ubuntu precise main universe multiverse
+    deb http://archive.ubuntu.com/ubuntu precise-security main universe multiverse
+
+Chroot:
+
+    chroot /lxc/rootfs.ubuntu /bin/bash
+
+Run commands in chroot:
+
+apt-get install --force-yes -y gpgv
+apt-get update
+
+# set locales
+apt-get -y install language-pack-en
+locale-gen en_US.UTF-8
+/usr/sbin/update-locale LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8" LC_CTYPE="C"
+
+# Add to the installed applications
+apt-get install -y adduser apt-utils console-setup iproute iptables mysql-server nano netbase openssh-blacklist openssh-blacklist-extra openssh-server php5 php5-mysql iputils-ping rsyslog sudo ufw vim
+
+#Set a root passwd
+passwd
+
+# As an alternate to setting a root password, you may of course add a new user and configure sudo.
+
+# Configure the hostname of the container and /etc/hosts
+# Change "192.168.0.60" to the ip address you wish to assign to the container
+echo "coliru-container" > /etc/hostname
+echo "127.0.0.1 localhost coliru-container" > /etc/hosts
+echo "192.168.0.60 coliru-container" >> /etc/hosts
+
+# Fix mtab
+rm -f /etc/mtab
+ln -s /proc/mounts /etc/mtab
+
+
+Add to /etc/environment:
+LANG="en_US.UTF-8"
+LANGUAGE="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+LC_CTYPE="C"
+
+
