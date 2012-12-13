@@ -55,10 +55,13 @@ class SimpleHandler < Mongrel::HttpHandler
                 compile(req, script, out)
             end
         rescue Timeout::Error => e
-            out.write(e.to_s)
-            puts "rescue from #{e.to_s}"
-            puts "killing sandbox"
-            POpen4::popen4("pkill -9 -u sandbox") {} 
+            out.write("The operation timed out.")
+            Thread.new do 
+                puts "Killing myself to live."
+                sleep(0.01)
+                POpen4::popen4("pkill -u 2002") {} 
+                POpen4::popen4("pkill -u 2001") {} 
+            end
         end
     end
 
