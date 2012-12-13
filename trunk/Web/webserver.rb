@@ -51,7 +51,7 @@ class SimpleHandler < Mongrel::HttpHandler
         $pid = 0;
         puts "$pid is #{$pid}"
         begin
-            Timeout.timeout(10) do
+            Timeout.timeout(20) do
                 compile(req, script, out)
             end
         rescue Timeout::Error => e
