@@ -1,0 +1,25 @@
+main.cpp:6:5: error: template with C linkage
+main.cpp: In function ‘typename std::result_of<R (*)(Args ...)>::type call_c(F<R, Args ...>, G)’:
+main.cpp:17:22: error: ‘Brgs’ has not been declared
+main.cpp:17:32: error: expansion pattern ‘int&&’ contains no argument packs
+main.cpp: In lambda function:
+main.cpp:22:39: error: ‘Brgs’ was not declared in this scope
+main.cpp:22:45: error: ‘args’ was not declared in this scope
+main.cpp:22:50: error: expansion pattern ‘forward<<expression error> >(<expression error>)’ contains no argument packs
+main.cpp: In function ‘int main()’:
+main.cpp:36:6: error: no matching function for call to ‘call_c(void (&)(F<void, int>), main()::<lambda(int)>)’
+main.cpp:36:6: note: candidate is:
+main.cpp:11:46: note: template<class R, class ... Args, class G> typename std::result_of<R (*)(Args ...)>::type call_c(F<R, Args ...>, G)
+main.cpp:11:46: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class R, class ... Args, class G> typename std::result_of<R (*)(Args ...)>::type call_c(F<R, Args ...>, G) [with R = void; Args = {void (*)(int)}; G = main()::<lambda(int)>]’:
+main.cpp:36:6:   required from here
+main.cpp:11:46: error: invalid use of incomplete type ‘class std::result_of<void (*)(void (*)(int))>’
+In file included from /usr/include/c++/4.7/bits/move.h:57:0,
+                 from /usr/include/c++/4.7/bits/stl_pair.h:61,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:2:
+/usr/include/c++/4.7/type_traits:1783:11: error: declaration of ‘class std::result_of<void (*)(void (*)(int))>’
