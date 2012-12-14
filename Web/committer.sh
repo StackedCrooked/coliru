@@ -1,1 +1,1 @@
-while true ; do svn add * 2>/dev/null ; svn ci -m "Update Archive. ${RANDOM}" ; sleep 60 ; done
+while true ; do ls -tc1 Archive | xargs -I {} svn add {} ; svn ci Archive -m "Update archive" ; sleep 3600 ; done
