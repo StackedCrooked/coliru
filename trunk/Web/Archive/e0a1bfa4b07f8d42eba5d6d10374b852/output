@@ -1,0 +1,32 @@
+main.cpp:46:5: error: ‘ConstPtr’ does not name a type
+main.cpp: In instantiation of ‘Proxy<T>::Proxy(const T&) [with T = Item]’:
+main.cpp:117:17:   required from here
+main.cpp:65:46: error: invalid conversion from ‘const Item*’ to ‘Item*’ [-fpermissive]
+main.cpp: In instantiation of ‘WithMutex<T>::WithMutex(const T&) [with T = std::basic_string<char>]’:
+main.cpp:121:35:   required from here
+main.cpp:96:40: error: invalid conversion from ‘const std::basic_string<char>*’ to ‘std::basic_string<char>*’ [-fpermissive]
+main.cpp: In instantiation of ‘Proxy<T>::Proxy(const T&) [with T = WithMutex<std::basic_string<char> >]’:
+main.cpp:121:35:   required from here
+main.cpp:65:46: error: invalid conversion from ‘const WithMutex<std::basic_string<char> >*’ to ‘WithMutex<std::basic_string<char> >*’ [-fpermissive]
+main.cpp: In instantiation of ‘Hooker<T>::Ptr Hooker<T>::operator->() [with T = WithMutex<std::basic_string<char> >; Hooker<T>::Ptr = WithMutex<std::basic_string<char> >]’:
+main.cpp:122:9:   recursively required from ‘Hooker<T> Proxy<T>::operator->() const [with T = WithMutex<std::basic_string<char> >]’
+main.cpp:122:9:   required from here
+main.cpp:47:32: error: could not convert ‘&((Hooker<WithMutex<std::basic_string<char> > >*)this)->Hooker<WithMutex<std::basic_string<char> > >::t’ from ‘WithMutex<std::basic_string<char> >*’ to ‘Hooker<WithMutex<std::basic_string<char> > >::Ptr {aka WithMutex<std::basic_string<char> >}’
+main.cpp: In instantiation of ‘Hooker<T>::Hooker(const T&) [with T = Item]’:
+main.cpp:69:30:   required from ‘Hooker<T> Proxy<T>::operator->() const [with T = Item]’
+main.cpp:118:9:   required from here
+main.cpp:35:36: error: invalid initialization of reference of type ‘Item&’ from expression of type ‘const Item’
+main.cpp:37:9: error: no matching function for call to ‘HookerTraits<Item>::before(const Item&)’
+main.cpp:37:9: note: candidate is:
+main.cpp:87:17: note: static void HookerTraits<Item>::before(Item&)
+main.cpp:87:17: note:   no known conversion for argument 1 from ‘const Item’ to ‘Item&’
+main.cpp: In instantiation of ‘Hooker<T>::Hooker(const T&) [with T = WithMutex<std::basic_string<char> >]’:
+main.cpp:69:30:   required from ‘Hooker<T> Proxy<T>::operator->() const [with T = WithMutex<std::basic_string<char> >]’
+main.cpp:122:9:   required from here
+main.cpp:35:36: error: invalid initialization of reference of type ‘WithMutex<std::basic_string<char> >&’ from expression of type ‘const WithMutex<std::basic_string<char> >’
+main.cpp:37:9: error: no matching function for call to ‘HookerTraits<WithMutex<std::basic_string<char> > >::before(const WithMutex<std::basic_string<char> >&)’
+main.cpp:37:9: note: candidate is:
+main.cpp:108:17: note: static void HookerTraits<WithMutex<T> >::before(WithMutex<T>&) [with T = std::basic_string<char>]
+main.cpp:108:17: note:   no known conversion for argument 1 from ‘const WithMutex<std::basic_string<char> >’ to ‘WithMutex<std::basic_string<char> >&’
+main.cpp: In member function ‘Hooker<T>::Ptr Hooker<T>::operator->() [with T = WithMutex<std::basic_string<char> >; Hooker<T>::Ptr = WithMutex<std::basic_string<char> >]’:
+main.cpp:47:35: warning: control reaches end of non-void function [-Wreturn-type]
