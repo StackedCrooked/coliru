@@ -1,0 +1,10 @@
+main.cpp: In instantiation of ‘Protected<T, HookPolicy>::HookedProxy Protected<T, HookPolicy>::lock() const [with T = Item; HookPolicy = policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind; Protected<T, HookPolicy>::HookedProxy = Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>]’:
+main.cpp:150:30:   required from here
+main.cpp:39:68: error: no matching function for call to ‘Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>::Proxy(const Item*)’
+main.cpp:39:68: note: candidates are:
+main.cpp:15:5: note: Proxy<T, HookPolicy>::Proxy(T*) [with T = Item; HookPolicy = policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind] <near match>
+main.cpp:15:5: note:   no known conversion for argument 1 from ‘const Item*’ to ‘Item*’
+main.cpp:12:8: note: Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>::Proxy(const Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>&)
+main.cpp:12:8: note:   no known conversion for argument 1 from ‘const Item*’ to ‘const Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>&’
+main.cpp: In member function ‘Protected<T, HookPolicy>::HookedProxy Protected<T, HookPolicy>::lock() const [with T = Item; HookPolicy = policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind; Protected<T, HookPolicy>::HookedProxy = Proxy<Item, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>]’:
+main.cpp:39:71: warning: control reaches end of non-void function [-Wreturn-type]
