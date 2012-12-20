@@ -1,0 +1,15 @@
+main.cpp: In member function ‘Proxy<T, HookPolicy>::HookedPtr Proxy<T, HookPolicy>::operator->() const’:
+main.cpp:111:21: error: there are no arguments to ‘lock’ that depend on a template parameter, so a declaration of ‘lock’ must be available [-fpermissive]
+main.cpp:111:21: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function ‘int main()’:
+main.cpp:201:27: error: ‘class Proxy<String, MyDecorator>’ has no member named ‘get’
+main.cpp:201:31: error: unable to deduce ‘auto’ from ‘<expression error>’
+main.cpp:208:26: error: ‘class Proxy<String, MyDecorator>’ has no member named ‘lock’
+main.cpp: In instantiation of ‘Proxy<T, HookPolicy>::HookedPtr Proxy<T, HookPolicy>::operator->() const [with T = String; HookPolicy = MyDecorator]’:
+main.cpp:211:11:   required from here
+main.cpp:111:21: error: ‘lock’ was not declared in this scope
+main.cpp:111:21: note: suggested alternative:
+In file included from main.cpp:4:0:
+/usr/include/c++/4.7/mutex:742:5: note:   ‘std::lock’
+main.cpp: In member function ‘Proxy<T, HookPolicy>::HookedPtr Proxy<T, HookPolicy>::operator->() const [with T = String; HookPolicy = MyDecorator]’:
+main.cpp:112:5: warning: control reaches end of non-void function [-Wreturn-type]
