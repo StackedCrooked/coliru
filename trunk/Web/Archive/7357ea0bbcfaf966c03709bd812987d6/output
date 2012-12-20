@@ -1,0 +1,10 @@
+main.cpp:98:14: warning: unused parameter ‘item’ [-Wunused-parameter]
+main.cpp: In function ‘int main()’:
+main.cpp:114:28: error: no match for ‘operator*’ in ‘*str’
+main.cpp: In instantiation of ‘policies::MutexLock<T>::MutexLock(T*) [with T = std::basic_string<char>]’:
+main.cpp:91:60:   required from ‘policies::Group<Args>::Rebind<T>::Rebind(T*) [with T = std::basic_string<char>; Args = {policies::Timer, policies::MutexLock, policies::Inspect}]’
+main.cpp:14:43:   required from ‘Proxy<T, HookPolicy>::Proxy(T*) [with T = std::basic_string<char>; HookPolicy = policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind]’
+main.cpp:33:68:   required from ‘Hookable<T, HookPolicy>::HookedProxy Hookable<T, HookPolicy>::lock() const [with T = std::basic_string<char>; HookPolicy = policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind; Hookable<T, HookPolicy>::HookedProxy = Proxy<std::basic_string<char>, policies::Group<policies::Timer, policies::MutexLock, policies::Inspect>::Rebind>]’
+main.cpp:113:32:   required from here
+main.cpp:62:51: error: ‘GetMutex’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+main.cpp:98:14: note: ‘std::mutex& GetMutex(std::string&)’ declared here, later in the translation unit
