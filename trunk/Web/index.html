@@ -32,11 +32,13 @@
     document.write('</frameset>');
 
 
+    // Redirect www. to host domain.
+    if (window.location.host.search(/^www./) === 0) {
+        window.location.hostname = window.location.host.replace(/^www./, "");
+    }
+
     window.onload = function () {
 
-        if (window.location.host.search(/^www./) === 0) {
-            window.location.host = window.location.host.replace(/^www./, "");
-        }
 
         String.prototype.trim = function () {
             return this.replace(/^\s+|\s+$/g, "");
