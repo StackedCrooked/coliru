@@ -24,8 +24,13 @@ if [ ! type g++-4.7 ] ; then
 fi
 
 
+apt-get install -y dchroot debootstrap
+mkdir -p ${CHROOT}
+rsync -aqz /usr /bin /lib /lib64 ${CHROOT}
 
-apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync
+
+apt-get remove ruby1.9.1 libruby1.9.1 ruby1.9.1-dev rubygems1.9.1 || true
+apt-get install -y libcap2-bin ruby1.8-dev rubygems1.8 lsof rsync subversion
 gem install mongrel popen4
 
 
