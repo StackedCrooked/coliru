@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 ulimit -u 20
 ulimit -t 20
 cd /tmp
