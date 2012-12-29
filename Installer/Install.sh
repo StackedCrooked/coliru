@@ -25,7 +25,7 @@ fi
 
 
 
-apt-get install -y libcap2-bin ruby rubygems lsof rsync
+apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync
 gem install mongrel popen4
 
 
