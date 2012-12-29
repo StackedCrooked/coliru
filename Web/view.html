@@ -160,12 +160,10 @@ app.goBack = function () {
 
 document.getElementById("cloneButton").onclick = app.goBack;
 
-// Remove the www from the url.
-window.onload = function() {
-    if (window.location.host.search(/^www./) === 0) {
-        window.location.host = window.location.host.replace(/^www./, "");
-    }
-};
+// Redirect www. to host domain.
+if (window.location.host.search(/^www./) === 0) {
+    window.location.hostname = window.location.host.replace(/^www./, "");
+}
 
 
 </script>
