@@ -1,0 +1,9 @@
+main.cpp: In instantiation of ‘void show_stuff(Args ...) [with T = int; Args = {int, int, int}]’:
+main.cpp:14:28:   required from here
+main.cpp:7:49: warning: missing braces around initializer for ‘std::array<int, 3ul>::value_type [3] {aka int [3]}’ [-Wmissing-braces]
+main.cpp: In instantiation of ‘void show_stuff(Args ...) [with T = float; Args = {int, int, const char*}]’:
+main.cpp:16:32:   required from here
+main.cpp:7:49: warning: missing braces around initializer for ‘std::array<float, 3ul>::value_type [3] {aka float [3]}’ [-Wmissing-braces]
+main.cpp:7:49: error: narrowing conversion of ‘a#0’ from ‘int’ to ‘std::array<float, 3ul>::value_type {aka float}’ inside { } [-Wnarrowing]
+main.cpp:7:49: error: narrowing conversion of ‘a#1’ from ‘int’ to ‘std::array<float, 3ul>::value_type {aka float}’ inside { } [-Wnarrowing]
+main.cpp:7:49: error: cannot convert ‘const char*’ to ‘std::array<float, 3ul>::value_type {aka float}’ in initialization
