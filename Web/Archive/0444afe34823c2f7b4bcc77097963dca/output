@@ -1,0 +1,268 @@
+main.cpp: In member function ‘void policies::PolicyVisitor<Args>::operator()(const policies::PolicyInterface<C>&) const’:
+main.cpp:29:11: error: ‘os’ was not declared in this scope
+main.cpp:29:15: error: ‘s’ was not declared in this scope
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 0ul; _Head = std::basic_stringstream<char>]’:
+/usr/include/c++/4.7/tuple:241:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = std::basic_stringstream<char>; _Tail = {Point}]’
+/usr/include/c++/4.7/tuple:517:30:   required from ‘constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = std::basic_stringstream<char>; _T2 = Point]’
+/usr/include/c++/4.7/tuple:848:62:   required from ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::serialization::JSON, policies::serialization::XML>; Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:121:9:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:128:25: error: use of deleted function ‘std::basic_stringstream<char>::basic_stringstream(const std::basic_stringstream<char>&)’
+In file included from main.cpp:4:0:
+/usr/include/c++/4.7/sstream:483:11: note: ‘std::basic_stringstream<char>::basic_stringstream(const std::basic_stringstream<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/sstream:483:11: error: use of deleted function ‘std::basic_iostream<char>::basic_iostream(const std::basic_iostream<char>&)’
+In file included from /usr/include/c++/4.7/iostream:41:0,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/istream:789:11: note: ‘std::basic_iostream<char>::basic_iostream(const std::basic_iostream<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/istream:789:11: error: use of deleted function ‘std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)’
+/usr/include/c++/4.7/istream:56:11: note: ‘std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/istream:56:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+In file included from /usr/include/c++/4.7/ios:45:0,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/basic_ios.h:64:11: note: ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+In file included from /usr/include/c++/4.7/ios:43:0,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/ios_base.h:788:5: error: ‘std::ios_base::ios_base(const std::ios_base&)’ is private
+In file included from /usr/include/c++/4.7/ios:45:0,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/basic_ios.h:64:11: error: within this context
+In file included from /usr/include/c++/4.7/iostream:41:0,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/istream:56:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+/usr/include/c++/4.7/istream:789:11: error: use of deleted function ‘std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)’
+In file included from /usr/include/c++/4.7/iostream:40:0,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/ostream:56:11: note: ‘std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/ostream:56:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+/usr/include/c++/4.7/ostream:56:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+In file included from /usr/include/c++/4.7/iostream:41:0,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/istream:789:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+In file included from main.cpp:4:0:
+/usr/include/c++/4.7/sstream:483:11: error: use of deleted function ‘std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)’
+/usr/include/c++/4.7/sstream:483:11: error: use of deleted function ‘std::basic_stringbuf<char>::basic_stringbuf(const std::basic_stringbuf<char>&)’
+/usr/include/c++/4.7/sstream:60:11: note: ‘std::basic_stringbuf<char>::basic_stringbuf(const std::basic_stringbuf<char>&)’ is implicitly deleted because the default definition would be ill-formed:
+In file included from /usr/include/c++/4.7/ios:44:0,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from /usr/local/include/boost/assert.hpp:82,
+                 from /usr/local/include/boost/variant/detail/backup_holder.hpp:16,
+                 from /usr/local/include/boost/variant/variant.hpp:28,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:1:
+/usr/include/c++/4.7/streambuf:800:7: error: ‘std::basic_streambuf<_CharT, _Traits>::basic_streambuf(const __streambuf_type&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_streambuf<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]’ is private
+In file included from main.cpp:4:0:
+/usr/include/c++/4.7/sstream:60:11: error: within this context
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = std::basic_stringstream<char>; <template-parameter-2-2> = void; long unsigned int _Idx = 0ul; _Head = std::basic_stringstream<char>]’:
+/usr/include/c++/4.7/tuple:257:42:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = std::basic_stringstream<char>; _Tail = {Point}; std::_Tuple_impl<_Idx, _Head, _Tail ...> = std::_Tuple_impl<0ul, std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>]’
+/usr/include/c++/4.7/tuple:528:17:   required from ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::serialization::JSON, policies::serialization::XML>; Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:121:9:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:134:42: error: use of deleted function ‘std::basic_stringstream<char>::basic_stringstream(const std::basic_stringstream<char>&)’
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’:
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::serialization::JSON, policies::serialization::XML>; Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:121:9:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:848:62: note: synthesized method ‘constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_T1, _T2>&&) [with _T1 = std::basic_stringstream<char>; _T2 = Point; std::tuple<_T1, _T2> = std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>]’ first required here 
+main.cpp: In instantiation of ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’:
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::serialization::JSON, policies::serialization::XML>; Args = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}]’
+main.cpp:121:9:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+main.cpp:24:68: error: no matching function for call to ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&>::tuple(std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>)’
+main.cpp:24:68: note: candidates are:
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:597:9: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::pair<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:597:9: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:592:9: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::pair<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:592:9: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:587:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::tuple<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:587:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:580:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::tuple<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:580:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:576:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::tuple<_T1, _T2>&&)
+/usr/include/c++/4.7/tuple:576:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:572:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::tuple<_T1, _T2>&)
+/usr/include/c++/4.7/tuple:572:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:567:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, _U1&&, _U2&&)
+/usr/include/c++/4.7/tuple:567:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:562:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const _T1&, const _T2&)
+/usr/include/c++/4.7/tuple:562:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:558:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&)
+/usr/include/c++/4.7/tuple:558:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:551:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(std::pair<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:551:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’ is not derived from ‘std::pair<_InputIterator1, _InputIterator2>’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:545:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(const std::pair<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:545:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’ is not derived from ‘const std::pair<_InputIterator1, _InputIterator2>’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:539:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:539:19: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/tuple:536:44: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+/usr/include/c++/4.7/tuple:533:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(const std::tuple<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:533:19: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/tuple:530:44: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+/usr/include/c++/4.7/tuple:528:17: note: constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_T1, _T2>&&) [with _T1 = std::basic_stringstream<char>&; _T2 = const Point&; std::tuple<_T1, _T2> = std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&>]
+/usr/include/c++/4.7/tuple:528:17: note:   no known conversion for argument 1 from ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’ to ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&>&&’
+/usr/include/c++/4.7/tuple:526:17: note: constexpr std::tuple<_T1, _T2>::tuple(const std::tuple<_T1, _T2>&) [with _T1 = std::basic_stringstream<char>&; _T2 = const Point&; std::tuple<_T1, _T2> = std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&>]
+/usr/include/c++/4.7/tuple:526:17: note:   no known conversion for argument 1 from ‘std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >, Point>’ to ‘const std::tuple<std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, const Point&>&’
+/usr/include/c++/4.7/tuple:523:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(_U1&&, _U2&&)
+/usr/include/c++/4.7/tuple:523:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   candidate expects 2 arguments, 1 provided
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:516:17: note: constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = std::basic_stringstream<char>&; _T2 = const Point&]
+/usr/include/c++/4.7/tuple:516:17: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.7/tuple:512:17: note: constexpr std::tuple<_T1, _T2>::tuple() [with _T1 = std::basic_stringstream<char>&; _T2 = const Point&]
+/usr/include/c++/4.7/tuple:512:17: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 0ul; _Head = std::basic_ostream<char>]’:
+/usr/include/c++/4.7/tuple:241:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = std::basic_ostream<char>; _Tail = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+/usr/include/c++/4.7/tuple:517:30:   required from ‘constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = std::basic_ostream<char>; _T2 = std::basic_string<char>]’
+/usr/include/c++/4.7/tuple:848:62:   required from ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::compression::Plain, policies::compression::Zip>; Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:122:37:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:128:25: error: use of deleted function ‘std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)’
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = std::basic_ostream<char>; <template-parameter-2-2> = void; long unsigned int _Idx = 0ul; _Head = std::basic_ostream<char>]’:
+/usr/include/c++/4.7/tuple:257:42:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = std::basic_ostream<char>; _Tail = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; std::_Tuple_impl<_Idx, _Head, _Tail ...> = std::_Tuple_impl<0ul, std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >]’
+/usr/include/c++/4.7/tuple:528:17:   required from ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::compression::Plain, policies::compression::Zip>; Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:122:37:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:134:42: error: use of deleted function ‘std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)’
+/usr/include/c++/4.7/tuple: In instantiation of ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]’:
+main.cpp:24:68:   required from ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::compression::Plain, policies::compression::Zip>; Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:122:37:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+/usr/include/c++/4.7/tuple:848:62: note: synthesized method ‘constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_T1, _T2>&&) [with _T1 = std::basic_ostream<char>; _T2 = std::basic_string<char>; std::tuple<_T1, _T2> = std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >]’ first required here 
+main.cpp: In instantiation of ‘policies::PolicyVisitor<Args>::PolicyVisitor(Args&& ...) [with Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’:
+main.cpp:39:57:   required from ‘void policies::RunPolicy(const P&, Args&& ...) [with P = boost::variant<policies::compression::Plain, policies::compression::Zip>; Args = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’
+main.cpp:122:37:   required from ‘void Archive::archive(std::ostream&, const T&) [with T = Point; std::ostream = std::basic_ostream<char>]’
+main.cpp:147:47:   required from here
+main.cpp:24:68: error: no matching function for call to ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::tuple(std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >)’
+main.cpp:24:68: note: candidates are:
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:597:9: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::pair<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:597:9: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:592:9: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::pair<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:592:9: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:587:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::tuple<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:587:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:580:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::tuple<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:580:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:576:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, std::tuple<_T1, _T2>&&)
+/usr/include/c++/4.7/tuple:576:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:572:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const std::tuple<_T1, _T2>&)
+/usr/include/c++/4.7/tuple:572:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:567:2: note: template<class _Alloc, class _U1, class _U2> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, _U1&&, _U2&&)
+/usr/include/c++/4.7/tuple:567:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:562:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&, const _T1&, const _T2&)
+/usr/include/c++/4.7/tuple:562:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:558:2: note: template<class _Alloc> std::tuple<_T1, _T2>::tuple(std::allocator_arg_t, const _Alloc&)
+/usr/include/c++/4.7/tuple:558:2: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   cannot convert ‘std::make_tuple(_Elements&& ...) [with _Elements = {std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; typename std::__decay_and_strip<_Elements>::__type = <type error>]((* & args#1))’ (type ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’) to type ‘std::allocator_arg_t’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:551:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(std::pair<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:551:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’ is not derived from ‘std::pair<_InputIterator1, _InputIterator2>’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:545:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(const std::pair<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:545:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’ is not derived from ‘const std::pair<_InputIterator1, _InputIterator2>’
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:539:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_U1, _U2>&&)
+/usr/include/c++/4.7/tuple:539:19: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/tuple:536:44: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+/usr/include/c++/4.7/tuple:533:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(const std::tuple<_U1, _U2>&)
+/usr/include/c++/4.7/tuple:533:19: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/tuple:530:44: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+/usr/include/c++/4.7/tuple:528:17: note: constexpr std::tuple<_T1, _T2>::tuple(std::tuple<_T1, _T2>&&) [with _T1 = std::basic_ostream<char>&; _T2 = std::basic_string<char>; std::tuple<_T1, _T2> = std::tuple<std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >]
+/usr/include/c++/4.7/tuple:528:17: note:   no known conversion for argument 1 from ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’ to ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&&’
+/usr/include/c++/4.7/tuple:526:17: note: constexpr std::tuple<_T1, _T2>::tuple(const std::tuple<_T1, _T2>&) [with _T1 = std::basic_ostream<char>&; _T2 = std::basic_string<char>; std::tuple<_T1, _T2> = std::tuple<std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >]
+/usr/include/c++/4.7/tuple:526:17: note:   no known conversion for argument 1 from ‘std::tuple<std::basic_ostream<char, std::char_traits<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >’ to ‘const std::tuple<std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&’
+/usr/include/c++/4.7/tuple:523:19: note: template<class _U1, class _U2, class> constexpr std::tuple<_T1, _T2>::tuple(_U1&&, _U2&&)
+/usr/include/c++/4.7/tuple:523:19: note:   template argument deduction/substitution failed:
+main.cpp:24:68: note:   candidate expects 2 arguments, 1 provided
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/tuple:516:17: note: constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = std::basic_ostream<char>&; _T2 = std::basic_string<char>]
+/usr/include/c++/4.7/tuple:516:17: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.7/tuple:512:17: note: constexpr std::tuple<_T1, _T2>::tuple() [with _T1 = std::basic_ostream<char>&; _T2 = std::basic_string<char>]
+/usr/include/c++/4.7/tuple:512:17: note:   candidate expects 0 arguments, 1 provided
