@@ -1,0 +1,47 @@
+---------- Pushing data on vector ----------
+
+StringHolder(const char*) constructor, init string: strA
+StringHolder (*MOVE*) Constructor called, now owning: strA
+~StringHolder ~destructor~, string contents: 
+StringHolder(const char*) constructor, init string: strB
+StringHolder (*MOVE*) Constructor called, now owning: strB
+~StringHolder ~destructor~, string contents: 
+StringHolder(const char*) constructor, init string: strC
+StringHolder (*MOVE*) Constructor called, now owning: strC
+~StringHolder ~destructor~, string contents: 
+StringHolder(const char*) constructor, init string: strD
+StringHolder (*MOVE*) Constructor called, now owning: strD
+~StringHolder ~destructor~, string contents: 
+
+------ Now invoking initializer_list insertion ------
+
+StringHolder(const char*) constructor, init string: str1
+StringHolder(const char*) constructor, init string: str2
+StringHolder (*COPY*) Constructor called, made COPY of: str1
+StringHolder (*COPY*) Constructor called, made COPY of: str2
+~StringHolder ~destructor~, string contents: str2
+~StringHolder ~destructor~, string contents: str1
+
+------ Now invoking initializer_list proxy ------
+
+StringHolder(const char*) constructor, init string: str3
+StringHolder (*MOVE*) Constructor called, now owning: str3
+~StringHolder ~destructor~, string contents: 
+StringHolder(const char*) constructor, init string: str4
+StringHolder (*MOVE*) Constructor called, now owning: str4
+~StringHolder ~destructor~, string contents: 
+StringHolder(const char*) constructor, init string: str5
+StringHolder (*MOVE*) Constructor called, now owning: str5
+~StringHolder ~destructor~, string contents: 
+
+---------- Vector Destruction looming ----------
+
+~StringHolder ~destructor~, string contents: strA
+~StringHolder ~destructor~, string contents: strB
+~StringHolder ~destructor~, string contents: strC
+~StringHolder ~destructor~, string contents: strD
+~StringHolder ~destructor~, string contents: str1
+~StringHolder ~destructor~, string contents: str2
+~StringHolder ~destructor~, string contents: str3
+~StringHolder ~destructor~, string contents: str4
+~StringHolder ~destructor~, string contents: str5
