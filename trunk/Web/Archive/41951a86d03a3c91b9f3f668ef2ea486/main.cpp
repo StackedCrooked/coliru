@@ -1,0 +1,1 @@
+typename int main(typename int argc, typename char const* argv[]){}
