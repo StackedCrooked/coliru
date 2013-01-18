@@ -1,0 +1,19 @@
+main.cpp:10:41: error: ‘dllimport’ was not declared in this scope
+main.cpp:10:52: error: expected ‘,’ or ‘;’ before ‘create_game_context’
+main.cpp:16:7: error: redefinition of ‘class GameContext’
+main.cpp:4:7: error: previous definition of ‘class GameContext’
+main.cpp:22:7: error: deleted function ‘virtual GameContextImpl::~GameContextImpl()’
+main.cpp:7:13: error: overriding non-deleted function ‘virtual GameContext::~GameContext()’
+main.cpp:22:7: note: ‘virtual GameContextImpl::~GameContextImpl()’ is implicitly deleted because the default definition would be ill-formed:
+main.cpp:7:13: error: ‘virtual GameContext::~GameContext()’ is private
+main.cpp:22:7: error: within this context
+main.cpp:26:50: error: redefinition of ‘std::unique_ptr<GameContext> __declspec’
+main.cpp:10:30: error: ‘std::unique_ptr<GameContext> __declspec’ previously declared here
+main.cpp:26:41: error: ‘dllexport’ was not declared in this scope
+/usr/include/c++/4.7/bits/unique_ptr.h: In instantiation of ‘void std::default_delete<_Tp>::operator()(_Tp*) const [with _Tp = GameContext]’:
+/usr/include/c++/4.7/bits/unique_ptr.h:173:4:   required from ‘std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = GameContext; _Dp = std::default_delete<GameContext>]’
+main.cpp:10:30:   required from here
+main.cpp:7:13: error: ‘virtual GameContext::~GameContext()’ is private
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/bits/unique_ptr.h:63:2: error: within this context
