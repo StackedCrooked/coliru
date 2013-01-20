@@ -18,5 +18,6 @@ DIR="Archive/${ID}"
 mkdir "${DIR}"
 
 cat main.cpp > "${DIR}/main.cpp"
-./build_and_run.sh >"${DIR}/output" 2>&1
 echo ${ID}
+echo "Operation timed out." > "${DIR}/output"
+./build_and_run.sh >"${DIR}/output.tmp" 2>&1 && mv "${DIR}/output.tmp" "${DIR}/output"

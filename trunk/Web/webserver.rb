@@ -33,7 +33,7 @@ class SimpleHandler < Mongrel::HttpHandler
                 }
             when "share"
                 $semaphore.synchronize {
-                    safe_compile(request, "share", out)
+                    share(request, out)
                 }
             when "view"
                 FileUtils.copy_stream(File.new("view.html"), out)
@@ -46,6 +46,25 @@ class SimpleHandler < Mongrel::HttpHandler
             end
         end
     end
+
+    def share(req, out)
+        $pid = 0;
+        puts "$pid is #{$pid}"
+        begin
+            Timeout.timeout(20) do
+                File.open("main.cpp", 'w') { |f| f.write(req.body.string) }
+                status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
+                    $pid = pid
+                    puts "$pid is assigned to #{$pid}"
+                    stdin.close()
+                    out.write(stdout.readline())
+                end
+            end
+        rescue Timeout::Error => e
+            puts e
+        end
+    end
+
 
     def safe_compile(req, script, out)
         $pid = 0;
