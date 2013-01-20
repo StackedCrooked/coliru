@@ -29,7 +29,7 @@ mkdir -p ${CHROOT}
 rsync -aqz /usr /bin /lib /lib64 ${CHROOT}
 
 
-apt-get remove ruby1.9.1 libruby1.9.1 ruby1.9.1-dev rubygems1.9.1 || true
+apt-get remove -y ruby1.9.1 libruby1.9.1 ruby1.9.1-dev rubygems1.9.1 || true
 apt-get install -y libcap2-bin ruby1.8-dev rubygems1.8 lsof rsync subversion
 gem install mongrel popen4
 
