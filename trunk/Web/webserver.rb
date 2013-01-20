@@ -29,13 +29,11 @@ class SimpleHandler < Mongrel::HttpHandler
                 FileUtils.copy_stream(File.new("md5-min.js"), out)
             when "compile"
                 $semaphore.synchronize {
-					if run("sandbox.sh", request, out) == :run_timeout
-						out.write("The operation timed out.")
-					end
+                    safe_compile(request, "sandbox", out)
                 }
             when "share"
                 $semaphore.synchronize {
-                    run("share.sh", request, out)
+                    safe_compile(request, "share", out)
                 }
             when "view"
                 FileUtils.copy_stream(File.new("view.html"), out)
@@ -49,28 +47,27 @@ class SimpleHandler < Mongrel::HttpHandler
         end
     end
 
-    def run(script, req, out)
+    def safe_compile(req, script, out)
         $pid = 0;
         puts "$pid is #{$pid}"
         begin
             Timeout.timeout(20) do
-                run_impl(script, req, out)
+                compile(req, script, out)
             end
-            return :run_ok;
         rescue Timeout::Error => e
+            out.write("The operation timed out.")
             Thread.new do 
                 puts "Killing myself to live."
                 sleep(0.01)
                 POpen4::popen4("pkill -u 2002") {} 
                 POpen4::popen4("pkill -u 2001") {} 
             end
-            return :run_timeout;
         end
     end
 
-    def run_impl(request, script, out)
+    def compile(request, script, out)
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
-        status = POpen4::popen4("./#{script} 2>&1") do |stdout, stderr, stdin, pid|
+        status = POpen4::popen4("./#{script}.sh 2>&1") do |stdout, stderr, stdin, pid|
             $pid = pid
             puts "$pid is assigned to #{$pid}"
             stdin.close()
