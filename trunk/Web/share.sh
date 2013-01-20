@@ -18,5 +18,6 @@ DIR="Archive/${ID}"
 mkdir "${DIR}"
 
 cat main.cpp > "${DIR}/main.cpp"
-./build_and_run.sh >"${DIR}/output" 2>&1
 echo ${ID}
+echo "The operation could not be completed." > "${DIR}/output"
+./build_and_run.sh >"${DIR}/output"
