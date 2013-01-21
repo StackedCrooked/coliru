@@ -1,0 +1,4 @@
+main.cpp:18:28: error: 'constexpr Enum operator|(const Enum&, const Enum&) [with Enum = foo; typename std::enable_if<wheels::All<std::is_enum<Enum>, wheels::is_flags<Enum> >::value, const wheels::meta_detail::enabler>::type <anonymous> = (wheels::meta_detail::enabler)0]' called in a constant expression
+In file included from main.cpp:1:0:
+/usr/local/include/wheels/enums.h++:58:1: note: 'constexpr Enum operator|(const Enum&, const Enum&) [with Enum = foo; typename std::enable_if<wheels::All<std::is_enum<Enum>, wheels::is_flags<Enum> >::value, const wheels::meta_detail::enabler>::type <anonymous> = (wheels::meta_detail::enabler)0]' is not usable as a constexpr function because:
+/usr/local/include/wheels/enums.h++:58:1: error: call to non-constexpr function 'wheels::UnderlyingType<Enum> wheels::to_underlying(Enum) [with Enum = foo; wheels::UnderlyingType<Enum> = int]'
