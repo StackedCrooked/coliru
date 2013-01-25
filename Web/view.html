@@ -119,12 +119,12 @@ app.send = function (location, post_data, f) {
 
 
 app.send(app.id, "", function(response) {
-    var parts = response.split('\t');
+    var parts = response.split('__COLIRU_SEP__');
     if (parts.length > 0) {
-		app.editor.setValue(parts[0].replace(/\\t/g, "\t"));
+		app.editor.setValue(parts[0]);
     }
     if (parts.length > 1) {
-		app.output.value = parts[1].replace(/\\t/g, "\t");
+		app.output.value = parts[1];
     }
 
     window.setTimeout(function() {

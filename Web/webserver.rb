@@ -41,7 +41,7 @@ class SimpleHandler < Mongrel::HttpHandler
                 # Don't respond to favicon..
             else
                 $semaphore.synchronize {
-                  out.write(File.read("Archive/#{loc}/main.cpp").gsub(/\t/, "\\t") + "\t" + File.read("Archive/#{loc}/output").gsub(/\t/, "\\t"))
+                  out.write(File.read("Archive/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("Archive/#{loc}/output"))
                 }
             end
         end
