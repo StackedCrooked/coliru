@@ -1,0 +1,67 @@
+main.cpp: In instantiation of 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>':
+main.cpp:39:30:   required from 'struct Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>'
+main.cpp:42:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]'
+main.cpp:86:68:   required from here
+main.cpp:39:40: error: return-statement with a value, in function returning 'void' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:86:68:   required from here
+main.cpp:44:29: error: could not convert 'std::packaged_task<_Res(_ArgTypes ...)>::get_future() [with _Res = void; _ArgTypes = {}]()' from 'std::future<void>' to 'std::future<unsigned int>'
+main.cpp: In instantiation of 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>':
+main.cpp:39:30:   required from 'struct Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>'
+main.cpp:42:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]'
+main.cpp:87:68:   required from here
+main.cpp:39:40: error: return-statement with a value, in function returning 'void' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:87:68:   required from here
+main.cpp:44:29: error: could not convert 'std::packaged_task<_Res(_ArgTypes ...)>::get_future() [with _Res = void; _ArgTypes = {}]()' from 'std::future<void>' to 'std::future<unsigned int>'
+main.cpp: In instantiation of 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>':
+main.cpp:39:30:   required from 'struct Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>'
+main.cpp:42:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]'
+main.cpp:88:68:   required from here
+main.cpp:39:40: error: return-statement with a value, in function returning 'void' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:88:68:   required from here
+main.cpp:44:29: error: could not convert 'std::packaged_task<_Res(_ArgTypes ...)>::get_future() [with _Res = void; _ArgTypes = {}]()' from 'std::future<void>' to 'std::future<unsigned int>'
+main.cpp: In instantiation of 'Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>':
+main.cpp:39:30:   required from 'struct Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>'
+main.cpp:42:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]'
+main.cpp:30:9:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:85:17:   required from here
+main.cpp:39:40: error: return-statement with a value, in function returning 'void' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]':
+main.cpp:30:9:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:85:17:   required from here
+main.cpp:44:29: error: could not convert 'std::packaged_task<_Res(_ArgTypes ...)>::get_future() [with _Res = void; _ArgTypes = {}]()' from 'std::future<void>' to 'std::future<int>'
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::copy_item(tbb::internal::concurrent_queue_base_v3::page&, std::size_t, const void*) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:90:1:   required from here
+/usr/include/tbb/concurrent_queue.h:189:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::assign_and_destroy_item(void*, tbb::internal::concurrent_queue_base_v3::page&, std::size_t) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:90:1:   required from here
+/usr/include/tbb/concurrent_queue.h:199:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>& std::packaged_task<_Res(_ArgTypes ...)>::operator=(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1335:22: error: declared here
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::copy_page_item(tbb::internal::concurrent_queue_base_v3::page&, std::size_t, const tbb::internal::concurrent_queue_base_v3::page&, std::size_t) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:90:1:   required from here
+/usr/include/tbb/concurrent_queue.h:193:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>', is used but never defined [-fpermissive]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:45:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:45:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:45:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]':
+main.cpp:45:5: warning: control reaches end of non-void function [-Wreturn-type]
