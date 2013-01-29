@@ -1,0 +1,23 @@
+main.cpp:9:67: warning: unused parameter 'p' [-Wunused-parameter]
+main.cpp:9:67: warning: unused parameter 'p' [-Wunused-parameter]
+In file included from /usr/include/c++/4.7/memory:81:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = std::_Bind<main()::<lambda(std::unique_ptr<int>&)>(std::unique_ptr<int>)>; std::false_type = std::integral_constant<bool, false>]':
+/usr/include/c++/4.7/functional:1800:8:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = std::_Bind<main()::<lambda(std::unique_ptr<int>&)>(std::unique_ptr<int>)>]'
+/usr/include/c++/4.7/functional:2299:6:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = std::_Bind<main()::<lambda(std::unique_ptr<int>&)>(std::unique_ptr<int>)>; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]'
+main.cpp:9:85:   required from here
+/usr/include/c++/4.7/functional:1764:4: error: use of deleted function 'std::_Bind<_Functor(_Bound_args ...)>::_Bind(const std::_Bind<_Functor(_Bound_args ...)>&) [with _Functor = main()::<lambda(std::unique_ptr<int>&)>; _Bound_args = {std::unique_ptr<int, std::default_delete<int> >}; std::_Bind<_Functor(_Bound_args ...)> = std::_Bind<main()::<lambda(std::unique_ptr<int>&)>(std::unique_ptr<int>)>]'
+/usr/include/c++/4.7/functional:1199:7: note: 'std::_Bind<_Functor(_Bound_args ...)>::_Bind(const std::_Bind<_Functor(_Bound_args ...)>&) [with _Functor = main()::<lambda(std::unique_ptr<int>&)>; _Bound_args = {std::unique_ptr<int, std::default_delete<int> >}; std::_Bind<_Functor(_Bound_args ...)> = std::_Bind<main()::<lambda(std::unique_ptr<int>&)>(std::unique_ptr<int>)>]' is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/functional:1199:7: error: use of deleted function 'constexpr std::tuple< <template-parameter-1-1> >::tuple(const std::tuple< <template-parameter-1-1> >&) [with _Elements = {std::unique_ptr<int, std::default_delete<int> >}; std::tuple< <template-parameter-1-1> > = std::tuple<std::unique_ptr<int, std::default_delete<int> > >]'
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/memory:81,
+                 from main.cpp:1:
+/usr/include/c++/4.7/tuple:393:17: note: 'constexpr std::tuple< <template-parameter-1-1> >::tuple(const std::tuple< <template-parameter-1-1> >&) [with _Elements = {std::unique_ptr<int, std::default_delete<int> >}; std::tuple< <template-parameter-1-1> > = std::tuple<std::unique_ptr<int, std::default_delete<int> > >]' is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/tuple:393:17: error: use of deleted function 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = std::unique_ptr<int>; _Tail = {}; std::_Tuple_impl<_Idx, _Head, _Tail ...> = std::_Tuple_impl<0ul, std::unique_ptr<int, std::default_delete<int> > >]'
+/usr/include/c++/4.7/tuple:250:17: note: 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = std::unique_ptr<int>; _Tail = {}; std::_Tuple_impl<_Idx, _Head, _Tail ...> = std::_Tuple_impl<0ul, std::unique_ptr<int, std::default_delete<int> > >]' is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/tuple:250:17: error: use of deleted function 'std::_Head_base<0ul, std::unique_ptr<int>, false>::_Head_base(const std::_Head_base<0ul, std::unique_ptr<int>, false>&)'
+/usr/include/c++/4.7/tuple:122:12: note: 'std::_Head_base<0ul, std::unique_ptr<int>, false>::_Head_base(const std::_Head_base<0ul, std::unique_ptr<int>, false>&)' is implicitly deleted because the default definition would be ill-formed:
+/usr/include/c++/4.7/tuple:122:12: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = int; _Dp = std::default_delete<int>; std::unique_ptr<_Tp, _Dp> = std::unique_ptr<int>]'
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/unique_ptr.h:262:7: error: declared here
