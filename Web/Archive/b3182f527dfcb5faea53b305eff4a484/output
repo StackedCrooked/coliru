@@ -1,0 +1,69 @@
+
+[[TestSuper(): Initializing parent object via temp (via retSuper())]]
+
+-- retSuper(): returning temporary [copy elision form] --
+
+SuperClass() empty constructor
+
+[[TestSuper(): Empty construction]]
+
+SuperClass() empty constructor
+
+[[TestSuper(): MOVE-assignment]]
+
+SuperClass MOVE-Assignment
+SuperClass.assign() - RValue version
+
+[[TestSuper() exiting, Destructors follow]]
+
+~SuperClass() destructor, string value at destruct: 'a string'
+~SuperClass() destructor, string value at destruct: 
+
+[[TestSub(): Initializing child object via temp (via retSub())]]
+
+- retSub(): returning temporary --
+
+SuperClass() empty constructor
+SubClass() empty constructor
+
+[[TestSub(): Empty constructor]]
+
+SuperClass() empty constructor
+SubClass() empty constructor
+
+[[TestSub(): Copy-assignment]]
+
+SubClass COPY-Assignment
+SuperClass.assign() - Const LValue version
+
+[[TestSub() exiting, Destructors follow]]
+
+~SubClass() destructor
+~SuperClass() destructor, string value at destruct: 'a string'
+~SubClass() destructor
+~SuperClass() destructor, string value at destruct: 'a string'
+
+[[TestSubFail(): Initializing child object via temp (via retSubFail()) -
+	Notice Parent COPY-construct error!]]
+
+-- retSubFail(): returning temporary --
+
+SuperClass() empty constructor
+SubFailClass() empty constructor
+
+[[TestSubFail(): Empty constructor]]
+
+SuperClass() empty constructor
+SubFailClass() empty constructor
+
+[[TestSubFail(): MOVE-assignment - Notice incorrect LValue assign!]]
+
+SubFailClass MOVE-Assignment
+SuperClass.assign() - Const LValue version
+
+[[TestSubFail() exiting, Destructors follow]]
+
+~SubFailClass() destructor
+~SuperClass() destructor, string value at destruct: 'a string'
+~SubFailClass() destructor
+~SuperClass() destructor, string value at destruct: 'a string'
