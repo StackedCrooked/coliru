@@ -38,6 +38,7 @@ class SimpleHandler < Mongrel::HttpHandler
             when "view"
                 FileUtils.copy_stream(File.new("view.html"), out)
             when "favicon.ico"
+                FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
                 # Don't respond to favicon..
             else
                 $semaphore.synchronize {

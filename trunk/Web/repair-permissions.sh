@@ -1,10 +1,8 @@
 #!/bin/bash
+set -x
 echo "$0 executed by $(whoami)"
 
-chown -R webserver:coliru .
-chmod a+rw .
-
-chown -R webserver:coliru .
+chown webserver:coliru .
 chmod a+rw .
 
 find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
