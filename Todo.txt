@@ -1,3 +1,83 @@
+GENERAL HTTP SERVER
+===================
+- Goal: a simple file-system based HTTP server.
+- URLs are mapped to the file system.
+	GET  /abc matches $WEB/abc.GET   (abc.GET may be a symbolic link to /resources/icon.jpg)
+	POST /abc matches $WEB/abc.POST
+	PUT /abc matches $WEB/abc.PUT
+
+- Symbolic links make life easy. For example $WEB/favicon.GET might point to $WEB/resources/icons/favicon.ico.
+- $TARGET refers to the mapped file.
+- POST and PUT:
+	- dump form data to $TEMP
+	- require $TARGET to be executable
+     - run $TARGET and send std-out to client
+- GET
+	- runs $TARGET if executable
+	- returns $TARGET file contents if not executable
+- URL parameters are passed as environment variables
+	- name=value becomes URL_NAME=value
+	- "http://coliru/view?id=123&fmt=json" -> URL_ID=123 URL_FMT=json $TARGET
+- HTTP HEADERS
+	- prepend with HEADER_
+	- name is upper case and dash is replaced with underscore
+	- example:
+		Accept: text/plain
+			->
+		HEADER_ACCEPT="text/plain"
+	- example:
+		Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT
+			->
+		HEADER_ACCEPT_DATETIME="Thu, 31 May 2007 20:35:00 GMT"
+
+COLIRU CODE PASTES
+==================
+- Files must be stored.
+- Retrieval must be fast.
+- Avoid to have thousands of files or directories in one flat directory.
+	- Maybe use Year/Month/Day structure.
+- Hit count.
+- Search code paste by tag or list by most recent.
+- Caching: MD5(file_contents)/MD5(build_command)
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/main.cpp: source code.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/build_command: build command
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/output: contains output from standard output.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/error: contains output from standard error.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/tags: one tag per line
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/hitcount: one timestamp per line for each hit
+- Save std-out and std-err in separate files and prepend each message with time-stamp so that they can be interleaved afterwards?
+- Separation storage and source code.
+- Design a general REST-based archiving service?
+- Use github API? Google drive API? Ubuntu one API? Etc..?
+
+COLIRU USER TAGS
+============
+- User can add tags when sharing a code paste.
+- Tags are stored in a global dir: $STORAGE/tags/$TAGNAME
+- $STORAGE/tags/constexpr
+- Tags have their own file:
+    $ ls $STORAGE/tags
+  	constexpr
+    test
+    friday-code
+
+- Tag file contains paste ids:
+    $ cat $STORAGE/tags/constexpr
+    dda0a6e4968619c0091baac944a8f5b4
+    2882aad1d39c2be95d37b0e3227a2f43
+    4633d518288e35624d6f150e16b1c044
+    abfbad24c369a8ab018ca7f5e1a10937
+    bf68bbd38997006ab03d591a378e412c
+
+- Each paste id has a tag file:
+    $ cat $ARCHIVE/dda0a6e4968619c0091baac944a8f5b4/tags
+    StackedCrooked
+    friday-code
+    constexpr
+
+
+
+
 Foundation
 ----------
 - Escaping.
