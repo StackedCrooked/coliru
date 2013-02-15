@@ -7,7 +7,6 @@ require 'thread'
 
 $semaphore = Mutex.new
 $pid = 0
-ENV.each { |k,v| puts "#{k}=#{v}" }
 $archive = ENV["COLIRU_ARCHIVE"]
 puts "$archive: #{$archive}"
 
