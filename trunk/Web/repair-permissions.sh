@@ -3,6 +3,7 @@ set -x
 echo "$0 executed by $(whoami)"
 
 chown webserver:coliru .
+chown webserver:coliru ${COLIRU_ARCHIVE}
 chmod a+rw .
 
 find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
