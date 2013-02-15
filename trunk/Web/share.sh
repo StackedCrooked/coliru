@@ -1,5 +1,5 @@
 #!/bin/bash
-./coliru-environment.sh
+[ -z "$COLIRU" ] && { echo "COLIRU environment variable needs to be set." && exit 1 ; }
 pkill -9 -u sandbox
 ./repair-permissions.sh >/dev/null 2>&1
 

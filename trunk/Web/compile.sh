@@ -1,4 +1,6 @@
 #!/bin/bash
+[ -z "$COLIRU" ] && { echo "COLIRU environment variable needs to be set." && exit 1 ; }
+
 ulimit -u 20
 ulimit -t 20
 cd /tmp
