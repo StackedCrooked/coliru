@@ -2,28 +2,28 @@ GENERAL HTTP SERVER
 ===================
 - Goal: a simple file-system based HTTP server.
 - URLs are mapped to the file system.
-  	GET  abc matches abc.GET   (abc.GET may be a symbolic link to /resources/icon.jpg)
+  	GET  abc matches abc.GET
   	POST abc matches abc.POST
   	PUT  abc matches abc.PUT
 
 - Symbolic links make life easy:
   	ln -s resouces/icons/favicon.ico web/favicon.GET
-- Form data:
-  	
-  	- concurrent request not enabled now
+     
 - POST
   	requires $TARGET to be executable
     dumps form data to $TARGET.form-data prior to invoking $TARGET
   	runs $TARGET and send std-out to client
+     
 - GET
   	runs $TARGET if executable
   	returns $TARGET contents if not executable
+     
 - URL parameters
   	are passed as environment variables
-  	  	name=value -> URL_NAME=value
-  	  	http://coliru/view?id=123&fmt=json -> URL_ID=123 URL_FMT=json $TARGET
+  	  	id=123&fmt=json -> URL_ID=123 URL_FMT=json
+          
 - HTTP headers
-  	are also passed as environment variables
+  	are passed as environment variables
   	  	- prepend with HEADER_
   	  	- change name to upper case
   	  	- replace dashes with underscores
