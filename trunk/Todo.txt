@@ -2,33 +2,33 @@ GENERAL HTTP SERVER
 ===================
 - Goal: a simple file-system based HTTP server.
 - URLs are mapped to the file system.
-	GET  /abc matches $WEB/abc.GET   (abc.GET may be a symbolic link to /resources/icon.jpg)
-	POST /abc matches $WEB/abc.POST
-	PUT /abc matches $WEB/abc.PUT
+  	GET  abc matches abc.GET   (abc.GET may be a symbolic link to /resources/icon.jpg)
+  	POST abc matches abc.POST
+  	PUT  abc matches abc.PUT
 
-- Symbolic links make life easy. For example $WEB/favicon.GET might point to $WEB/resources/icons/favicon.ico.
-- $TARGET refers to the mapped file.
-- POST and PUT:
-	- dump form data to $TEMP
-	- require $TARGET to be executable
-     - run $TARGET and send std-out to client
+- Symbolic links make life easy:
+  	ln -s resouces/icons/favicon.ico web/favicon.GET
+- Form data:
+  	
+  	- concurrent request not enabled now
+- POST
+  	requires $TARGET to be executable
+    dumps form data to $TARGET.form-data prior to invoking $TARGET
+  	runs $TARGET and send std-out to client
 - GET
-	- runs $TARGET if executable
-	- returns $TARGET file contents if not executable
-- URL parameters are passed as environment variables
-	- name=value becomes URL_NAME=value
-	- "http://coliru/view?id=123&fmt=json" -> URL_ID=123 URL_FMT=json $TARGET
-- HTTP HEADERS
-	- prepend with HEADER_
-	- name is upper case and dash is replaced with underscore
-	- example:
-		Accept: text/plain
-			->
-		HEADER_ACCEPT="text/plain"
-	- example:
-		Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT
-			->
-		HEADER_ACCEPT_DATETIME="Thu, 31 May 2007 20:35:00 GMT"
+  	runs $TARGET if executable
+  	returns $TARGET contents if not executable
+- URL parameters
+  	are passed as environment variables
+  	  	name=value -> URL_NAME=value
+  	  	http://coliru/view?id=123&fmt=json -> URL_ID=123 URL_FMT=json $TARGET
+- HTTP headers
+  	are also passed as environment variables
+  	  	- prepend with HEADER_
+  	  	- change name to upper case
+  	  	- replace dashes with underscores
+  	"Accept: text/plain" -> HEADER_ACCEPT="text/plain"
+
 
 COLIRU CODE PASTES
 ==================
@@ -50,19 +50,20 @@ COLIRU CODE PASTES
 - Design a general REST-based archiving service?
 - Use github API? Google drive API? Ubuntu one API? Etc..?
 
-COLIRU USER TAGS
-============
+
+TAGS
+====
 - User can add tags when sharing a code paste.
-- Tags are stored in a global dir: $STORAGE/tags/$TAGNAME
-- $STORAGE/tags/constexpr
+- Tags are stored in a global dir: tags/$TAGNAME
+- tags/constexpr
 - Tags have their own file:
-    $ ls $STORAGE/tags
+    $ ls tags
   	constexpr
     test
     friday-code
 
 - Tag file contains paste ids:
-    $ cat $STORAGE/tags/constexpr
+    $ cat tags/constexpr
     dda0a6e4968619c0091baac944a8f5b4
     2882aad1d39c2be95d37b0e3227a2f43
     4633d518288e35624d6f150e16b1c044
@@ -70,7 +71,7 @@ COLIRU USER TAGS
     bf68bbd38997006ab03d591a378e412c
 
 - Each paste id has a tag file:
-    $ cat $ARCHIVE/dda0a6e4968619c0091baac944a8f5b4/tags
+    $ cat archive/dda0a6e4968619c0091baac944a8f5b4/tags
     StackedCrooked
     friday-code
     constexpr
