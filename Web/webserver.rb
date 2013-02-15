@@ -7,6 +7,9 @@ require 'thread'
 
 $semaphore = Mutex.new
 $pid = 0
+ENV.each { |k,v| puts "#{k}=#{v}" }
+$archive = ENV["COLIRU_ARCHIVE"]
+puts "$archive: #{$archive}"
 
 
 class SimpleHandler < Mongrel::HttpHandler
@@ -41,7 +44,7 @@ class SimpleHandler < Mongrel::HttpHandler
                 FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
             else
                 $semaphore.synchronize {
-                  out.write(File.read("Archive/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("Archive/#{loc}/output"))
+                  out.write(File.read("#{$archive}/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("#{$archive}/#{loc}/output"))
                 }
             end
         end
@@ -115,7 +118,7 @@ $port = ARGV[1]
 puts "Start listening to #{$host}:#{$port}"
 h = Mongrel::HttpServer.new($host, $port)
 h.register("/", SimpleHandler.new)
-h.register("/Archive", Mongrel::DirHandler.new("Archive"))
+h.register("/Archive", Mongrel::DirHandler.new($archive))
 puts "h.num_processors: #{h.num_processors}"
 h.run.join
 
