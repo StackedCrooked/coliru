@@ -5,8 +5,8 @@ else
     ID="$(md5sum main.cpp | cut -d ' ' -f 1)"
 fi
 
-if [ -f "Archive/${ID}/output" ] ; then
-    cat "Archive/${ID}/output"
+if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
+    cat "${COLIRU_ARCHIVE}/${ID}/output"
     exit
 fi
 
