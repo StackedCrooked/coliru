@@ -1,4 +1,5 @@
 #!/bin/bash
+./coliru-environment.sh
 set -x
 echo "$0 executed by $(whoami)"
 
