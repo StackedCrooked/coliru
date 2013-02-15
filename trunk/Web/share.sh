@@ -1,4 +1,5 @@
 #!/bin/bash
+./coliru-environment.sh
 pkill -9 -u sandbox
 ./repair-permissions.sh >/dev/null 2>&1
 
