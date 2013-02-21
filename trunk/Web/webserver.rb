@@ -2,6 +2,7 @@ require 'rubygems'
 require 'fileutils'
 require 'mongrel'
 require 'popen4'
+require 'cgi'
 require 'pp'
 require 'thread'
 
@@ -19,6 +20,13 @@ class SimpleHandler < Mongrel::HttpHandler
             case loc
             when ""
                 FileUtils.copy_stream(File.new("index.html"), out)
+            when "embed"
+                html =  File.open("embed.html", "r").read
+                query = request.params["QUERY_STRING"]
+                url_params = CGI::parse(query)
+                video_id = url_params['v'][0]
+                html['{{YOUTUBE_URL}}'] = "http://youtube.com/embed/" + (video_id ? video_id : "video_id_goes_here")
+                out << html
             when "cmd.html"
                 FileUtils.copy_stream(File.new("cmd.html"), out)
             when "index.html"
