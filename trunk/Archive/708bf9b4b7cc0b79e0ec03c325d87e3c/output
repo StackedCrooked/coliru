@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:61:64: error: use of deleted function 'Wrap<Resource>::Locker::Locker(const Wrap<Resource>::Locker&)'
+main.cpp:37:11: note: 'Wrap<Resource>::Locker::Locker(const Wrap<Resource>::Locker&)' is implicitly deleted because the default definition would be ill-formed:
+main.cpp:37:11: error: use of deleted function 'std::unique_lock<_Mutex>::unique_lock(const std::unique_lock<_Mutex>&) [with _Mutex = std::mutex; std::unique_lock<_Mutex> = std::unique_lock<std::mutex>]'
+In file included from main.cpp:2:0:
+/usr/include/c++/4.7/mutex:513:7: error: declared here
+main.cpp:67:64: error: use of deleted function 'Wrap<Resource>::Locker::Locker(const Wrap<Resource>::Locker&)'
+main.cpp: In instantiation of 'Wrap<T>::Locker Wrap<T>::lock() [with T = Resource]':
+main.cpp:61:64:   required from here
+main.cpp:46:40: error: use of deleted function 'Wrap<Resource>::Locker::Locker(const Wrap<Resource>::Locker&)'
