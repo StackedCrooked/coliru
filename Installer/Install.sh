@@ -36,6 +36,7 @@ gem install mongrel popen4
 
 setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
 setcap 'cap_sys_chroot=+ep' /bin/bash
+setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
 setcap 'cap_kill=+ep' /bin/kill
 setcap 'cap_kill=+ep' /usr/bin/pgrep
 
