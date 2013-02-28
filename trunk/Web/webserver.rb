@@ -25,7 +25,6 @@ class SimpleHandler < Mongrel::HttpHandler
             else
                 case location
                 when "": FileUtils.copy_stream(File.new("index.html"), out)
-                when "md5-min.js": FileUtils.copy_stream(File.new("md5-min.js"), out)
                 when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
                 when "share": $semaphore.synchronize { share(request, out) }
                 when "view": FileUtils.copy_stream(File.new("view.html"), out)
