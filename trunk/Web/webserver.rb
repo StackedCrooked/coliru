@@ -16,26 +16,29 @@ class SimpleHandler < Mongrel::HttpHandler
     def process(request, response)
         response.start(200) do |head,out|
             head["Content-Type"] = "text/html"
-            loc = get_location(request)
-            case loc
-            when "": FileUtils.copy_stream(File.new("index.html"), out)
-            when "cmd.html": FileUtils.copy_stream(File.new("cmd.html"), out)
-            when "index.html": FileUtils.copy_stream(File.new("index.html"), out)
-            when "frame-top.html": FileUtils.copy_stream(File.new("frame-top.html"), out)
-            when "frame-bottom.html": FileUtils.copy_stream(File.new("frame-bottom.html"), out)
-            when "md5-min.js": FileUtils.copy_stream(File.new("md5-min.js"), out)
-            when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
-            when "share": $semaphore.synchronize { share(request, out) }
-            when "view": FileUtils.copy_stream(File.new("view.html"), out)
-            when "embed"
-                html =  File.open("embed.html", "r").read
-                query = request.params["QUERY_STRING"]
-                url_params = CGI::parse(query)
-                video_id = url_params['v'][0]
-                html['{{YOUTUBE_URL}}'] = "http://youtube.com/embed/" + (video_id ? video_id : "video_id_goes_here")
-                out << html
-            when "favicon.ico": FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
-            else $semaphore.synchronize { out.write(File.read("#{$archive}/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("#{$archive}/#{loc}/output")) }
+            location = get_location(request)
+
+            match_data = %r(([\w-]+\.html).*).match(location)
+            if match_data
+                FileUtils.copy_stream(File.new(match_data[1]), out)
+                return
+            else
+                case location
+                when "": FileUtils.copy_stream(File.new("index.html"), out)
+                when "md5-min.js": FileUtils.copy_stream(File.new("md5-min.js"), out)
+                when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
+                when "share": $semaphore.synchronize { share(request, out) }
+                when "view": FileUtils.copy_stream(File.new("view.html"), out)
+                when "embed"
+                    html =  File.open("embed.html", "r").read
+                    query = request.params["QUERY_STRING"]
+                    url_params = CGI::parse(query)
+                    video_id = url_params['v'][0]
+                    html['{{YOUTUBE_URL}}'] = "http://youtube.com/embed/" + (video_id ? video_id : "video_id_goes_here")
+                    out << html
+                when "favicon.ico": FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
+                else $semaphore.synchronize { out.write(File.read("#{$archive}/#{location}/main.cpp") + "__COLIRU_SEP__" + File.read("#{$archive}/#{location}/output")) }
+                end
             end
         end
     end
