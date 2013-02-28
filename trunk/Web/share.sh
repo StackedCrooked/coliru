@@ -1,5 +1,6 @@
 #!/bin/bash
-[ -z "$COLIRU" ] && { echo "COLIRU environment variable needs to be set." && exit 1 ; }
+source coliru_env.source
+[ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 pkill -9 -u sandbox
 ./repair-permissions.sh >/dev/null 2>&1
 
@@ -11,7 +12,7 @@ else
 fi
 
 if [ -d "${COLIRU_ARCHIVE}/${ID}" ] ; then
-    echo ${ID}
+    echo "ID=${ID}"
     exit
 fi
 
@@ -19,6 +20,6 @@ DIR="${COLIRU_ARCHIVE}/${ID}"
 mkdir "${DIR}"
 
 cat main.cpp > "${DIR}/main.cpp"
-echo ${ID}
+echo "ID=${ID}"
 echo "Operation timed out." > "${DIR}/output"
 ./build_and_run.sh >"${DIR}/output.tmp" 2>&1 && mv "${DIR}/output.tmp" "${DIR}/output"
