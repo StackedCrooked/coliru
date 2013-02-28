@@ -19,13 +19,6 @@ class SimpleHandler < Mongrel::HttpHandler
             loc = get_location(request)
             case loc
             when "": FileUtils.copy_stream(File.new("index.html"), out)
-            when "embed"
-                html =  File.open("embed.html", "r").read
-                query = request.params["QUERY_STRING"]
-                url_params = CGI::parse(query)
-                video_id = url_params['v'][0]
-                html['{{YOUTUBE_URL}}'] = "http://youtube.com/embed/" + (video_id ? video_id : "video_id_goes_here")
-                out << html
             when "cmd.html": FileUtils.copy_stream(File.new("cmd.html"), out)
             when "index.html": FileUtils.copy_stream(File.new("index.html"), out)
             when "frame-top.html": FileUtils.copy_stream(File.new("frame-top.html"), out)
@@ -34,11 +27,15 @@ class SimpleHandler < Mongrel::HttpHandler
             when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
             when "share": $semaphore.synchronize { share(request, out) }
             when "view": FileUtils.copy_stream(File.new("view.html"), out)
+            when "embed"
+                html =  File.open("embed.html", "r").read
+                query = request.params["QUERY_STRING"]
+                url_params = CGI::parse(query)
+                video_id = url_params['v'][0]
+                html['{{YOUTUBE_URL}}'] = "http://youtube.com/embed/" + (video_id ? video_id : "video_id_goes_here")
+                out << html
             when "favicon.ico": FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
-            else
-                $semaphore.synchronize {
-                  out.write(File.read("#{$archive}/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("#{$archive}/#{loc}/output"))
-                }
+            else $semaphore.synchronize { out.write(File.read("#{$archive}/#{loc}/main.cpp") + "__COLIRU_SEP__" + File.read("#{$archive}/#{loc}/output")) }
             end
         end
     end
