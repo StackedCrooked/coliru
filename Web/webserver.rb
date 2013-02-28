@@ -59,15 +59,13 @@ class SimpleHandler < Mongrel::HttpHandler
 
     def share(req, out)
         $pid = 0;
-        puts "$pid is #{$pid}"
         begin
             Timeout.timeout(20) do
                 File.open("main.cpp", 'w') { |f| f.write(req.body.string) }
                 status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
                     $pid = pid
-                    puts "$pid is assigned to #{$pid}"
                     stdin.close()
-                    out.write(stdout.readline())
+                    out.write(%r(ID=(\w+)).match(stdout.read())[1])
                 end
             end
         rescue Timeout::Error => e
@@ -78,7 +76,6 @@ class SimpleHandler < Mongrel::HttpHandler
 
     def safe_compile(req, script, out)
         $pid = 0;
-        puts "$pid is #{$pid}"
         begin
             Timeout.timeout(20) do
                 compile(req, script, out)
@@ -98,7 +95,6 @@ class SimpleHandler < Mongrel::HttpHandler
         File.open("main.cpp", 'w') { |f| f.write(request.body.string) }
         status = POpen4::popen4("./#{script}.sh 2>&1") do |stdout, stderr, stdin, pid|
             $pid = pid
-            puts "$pid is assigned to #{$pid}"
             stdin.close()
             out.write(stdout.read())
         end

@@ -1,6 +1,5 @@
 #!/bin/bash
-export COLIRU=${COLIRU:-${HOME}/coliru}
-export COLIRU_ARCHIVE=${COLIRU_ARCHIVE:-${COLIRU}/Archive}
+source "./coliru_env.source"
 [ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 nohup ./committer.sh >/dev/null 2>&1 &
 while true ; do
