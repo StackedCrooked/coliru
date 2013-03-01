@@ -39,13 +39,10 @@ class SimpleHandler < Mongrel::HttpHandler
         when "favicon.ico": FileUtils.copy_stream(File.new("favicon.png", "rb"), out)
         else $semaphore.synchronize {
           p = Proc.new { |name| begin ; File.read("#{$archive}/#{location}/#{name}") ; rescue Errno::ENOENT => e ; e.to_s ; end }
-          src = p.call("main.cpp").rstrip
-          cmd = p.call("cmd.sh").rstrip
-          output = p.call("output").rstrip
           out.write({
-            'src' => src,
-            'cmd' => cmd,
-            'output' => output
+            'src' => p.call("main.cpp").rstrip,
+            'cmd' => cmd = p.call("cmd.sh").rstrip,
+            'output' => p.call("output").rstrip
           }.to_json)
         }
       end
