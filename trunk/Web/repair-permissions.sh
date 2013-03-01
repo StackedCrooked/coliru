@@ -15,14 +15,6 @@ mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp
 chmod a+rw /var/chroot/tmp
 
-touch ./output
-chown webserver:coliru ./output
-
-touch ./main.cpp
-chown webserver:coliru ./main.cpp
-
-touch /var/chroot/tmp/main.cpp
-chown webserver:coliru /var/chroot/tmp/main.cpp 
-
-touch /var/chroot/tmp/compile.sh 
-chown webserver:coliru /var/chroot/tmp/compile.sh 
+for file in "output main.cpp cmd.sh /var/chroot/tmp/main.cpp /var/chroot/tmp/compile.sh" ; do
+  touch $file && chown webserver:coliru $file
+done

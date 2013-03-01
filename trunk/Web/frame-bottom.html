@@ -13,7 +13,7 @@
             padding: 0;
             margin: 0;
         }
-        
+
         .box-layout-orient-horizontal {
             display: box;
             display: -webkit-box;
@@ -23,17 +23,13 @@
             padding: 0;
             margin: 0;
 
-            box-orient:         horizontal;
+            box-orient: horizontal;
             -webkit-box-orient: horizontal;
-            -moz-box-orient:    horizontal;
+            -moz-box-orient: horizontal;
 
-            box-pack:           center;
-            -webkit-box-pack:   center;
-            -moz-box-pack:      center;
-
-            box-align:          center;
-            -webkit-box-align:  center;
-            -moz-box-align:     center;
+            box-align: stretch;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
         }
 
         .box-layout-orient-vertical {
@@ -45,17 +41,13 @@
             padding: 0;
             margin: 0;
 
-            box-orient:         vertical;
+            box-orient: vertical;
             -webkit-box-orient: vertical;
-            -moz-box-orient:    vertical;
+            -moz-box-orient: vertical;
 
-            box-pack:           stretch;
-            -webkit-box-pack:   stretch;
-            -moz-box-pack:      stretch;
-
-            box-align:          stretch;
-            -webkit-box-align:  stretch;
-            -moz-box-align:     stretch;
+            box-align: stretch;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
         }
 
         .box-element-flex-0 {
@@ -65,9 +57,9 @@
 
             position: relative;
 
-            box-flex:           0.0;
-            -webkit-box-flex:   0.0;
-            -moz-box-flex:      0.0;
+            box-flex: 0.0;
+            -webkit-box-flex: 0.0;
+            -moz-box-flex: 0.0;
         }
 
         .box-element-flex-1 {
@@ -77,9 +69,9 @@
 
             position: relative;
 
-            box-flex:           1.0;
-            -webkit-box-flex:   1.0;
-            -moz-box-flex:      1.0;
+            box-flex: 1.0;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
         }
 
         #frame-bottom {
@@ -98,11 +90,27 @@
             border-style: solid;
 
             outline: 0 !important;
+
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
         }
 
+        input {
+
+            margin: 0;
+            padding: 0;
+            height: 21px;
+
+            border-width: 1px;
+            border-color: gray;
+            border-style: solid;
+
+            outline: 0 !important;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
 
         #buttons {
             margin: 8px;
@@ -113,32 +121,30 @@
         }
 
         label {
-            position: relative; margin: 0; padding: 0;
-        }
-
-        input {
             position: relative;
-            margin:  10px;
+            margin: 0;
             padding: 0;
         }
 
         button {
-            height: 29px;
-            padding: 8px;
+            height: 23px;
         }
 
     </style>
     <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-37220775-1']);
-      _gaq.push(['_trackPageview']);
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37220775-1']);
+        _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
 
     </script>
 </head>
@@ -149,15 +155,18 @@
     </label>
 
     <div id="buttons" class="box-layout-orient-horizontal box-element-flex-0">
-    <span title="Drag  bookmarklet to your browser toolbar." class="box-element-flex-0"><a href='javascript:(function()%7Bvar%20e%3D%7B%7D%3Be.getOffset%3Dfunction(e,t)%7Breturn(e-t)/2%7D%3Be.getClientPos%3Dfunction(e,t,n,r)%7Breturn%5BgetOffset(e,n),getOffset(t,r)%5D%7D%3Be.getWindowWidth%3Dfunction()%7Breturn%20document.documentElement.clientWidth%7D%3Be.getWindowHeight%3Dfunction()%7Breturn%20document.documentElement.clientHeight%7D%3Be.getString%3Dfunction(t,n)%7Bvar%20r%3De.getWindowWidth()%3Bvar%20i%3Dwindow.screenX%2Be.getOffset(r,t)%3Bvar%20s%3Dwindow.screenY%2Be.getOffset(e.getWindowHeight(),n)%3Breturn%22scrollbars%3D0,resizable%3D1,target%3D_blank,left%3D%22%2Bi%2B%22,top%3D%22%2Bs%2B%22,width%3D%22%2Bt%2B%22,height%3D%22%2Bn%7D%3Bvar%20t%3De.getString(600,600)%3Bwindow.open(%22http://www.stacked-crooked.com%22,%22Coliru%22,t)%3B%7D)()%3B'>Coliru Bookmarklet</a> </span>
-        <div id="filler" class="box-element-flex-1"></div>
-        <button id="compileButton" class="box-element-flex-0" onclick="parent.app.compileNow();">Compile, link and run...</button>
+        <!--<span title="Drag  bookmarklet to your browser toolbar." class="box-element-flex-0"><a href='javascript:(function()%7Bvar%20e%3D%7B%7D%3Be.getOffset%3Dfunction(e,t)%7Breturn(e-t)/2%7D%3Be.getClientPos%3Dfunction(e,t,n,r)%7Breturn%5BgetOffset(e,n),getOffset(t,r)%5D%7D%3Be.getWindowWidth%3Dfunction()%7Breturn%20document.documentElement.clientWidth%7D%3Be.getWindowHeight%3Dfunction()%7Breturn%20document.documentElement.clientHeight%7D%3Be.getString%3Dfunction(t,n)%7Bvar%20r%3De.getWindowWidth()%3Bvar%20i%3Dwindow.screenX%2Be.getOffset(r,t)%3Bvar%20s%3Dwindow.screenY%2Be.getOffset(e.getWindowHeight(),n)%3Breturn%22scrollbars%3D0,resizable%3D1,target%3D_blank,left%3D%22%2Bi%2B%22,top%3D%22%2Bs%2B%22,width%3D%22%2Bt%2B%22,height%3D%22%2Bn%7D%3Bvar%20t%3De.getString(600,600)%3Bwindow.open(%22http://www.stacked-crooked.com%22,%22Coliru%22,t)%3B%7D)()%3B'>Coliru Bookmarklet</a></span>-->
+        <label for="cmd"></label><input id="cmd" class="box-element-flex-1 " value="g++ -o test main.cpp && ./test">
+        <button id="compileButton" class="box-element-flex-0" onclick="parent.app.compileNow();">Compile, link and
+            run...
+        </button>
         <button id="postButton" class="box-element-flex-0" onclick="parent.app.postSample();">Share!</button>
     </div>
 </div>
 <script>
     parent.app.elements.compileButton = document.getElementById("compileButton");
     parent.app.elements.postButton = document.getElementById("postButton");
+    parent.app.elements.cmd = document.getElementById("cmd");
     parent.app.elements.output = document.getElementById("output");
 </script>
 </body>
