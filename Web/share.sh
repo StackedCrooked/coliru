@@ -6,9 +6,9 @@ pkill -9 -u sandbox
 
 mkdir -p ${COLIRU_ARCHIVE}
 if [ "$(uname)" == "Darwin" ] ; then 
-    ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')"
+    ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')-$(md5 cmd.sh | cut -d '=' -f 2 | sed -e 's/ //g')"
 else
-    ID="$(md5sum main.cpp | cut -d ' ' -f 1)"
+    ID="$(md5sum main.cpp | cut -d ' ' -f 1)-$(md5sum cmd.sh | cut -d ' ' -f 1)"
 fi
 
 if [ -d "${COLIRU_ARCHIVE}/${ID}" ] ; then
@@ -20,6 +20,8 @@ DIR="${COLIRU_ARCHIVE}/${ID}"
 mkdir "${DIR}"
 
 cat main.cpp > "${DIR}/main.cpp"
+cat cmd.sh > "${DIR}/cmd.sh" ;
+chmod 755 "${DIR}/cmd.sh"
 echo "ID=${ID}"
 echo "Operation timed out." > "${DIR}/output"
-./build_and_run.sh >"${DIR}/output.tmp" 2>&1 && mv "${DIR}/output.tmp" "${DIR}/output"
+./build_and_run.sh >"${DIR}/output" 2>&1

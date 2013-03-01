@@ -95,7 +95,9 @@ editor.clearSelection();
 
 
 var app = {};
+console.log("window.location.href: " + window.location.href);
 app.id = "" + window.location.href.split("?")[1].split('=')[1];
+console.log("app.id: " + app.id);
 app.editor = editor;
 app.output = document.getElementById("output");
 app.output.readOnly = true;
@@ -105,7 +107,7 @@ app.output.data = "Fetching data....";
 app.send = function (location, post_data, f) {
     var httpRequest = new XMLHttpRequest();
     var url = "http://" + window.location.hostname + ":" + window.location.port + '/' + location;
-    httpRequest.open("PUT", url, true);
+    httpRequest.open("POST", url, true);
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == 4) {
             if (httpRequest.status == 200) {
