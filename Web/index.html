@@ -1,6 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
 <html>
-<title>Coliru Editor</title>
 <head>
     <title>Coliru</title>
     <script type="text/javascript">
@@ -51,12 +50,13 @@
         app.elements.editor.setValue(localStorage.getItem("sourceCode"));
 
         app.enableUI = function(value) {
-            app.elements.compileButton.disabled = !value;;
-            app.elements.postButton.disabled = !value;;
+            app.elements.compileButton.disabled = !value;
+            app.elements.postButton.disabled = !value;
             app.elements.editor.setReadOnly(!value);
+            app.elements.cmd.disabled = !value;
         };
 
-        app.send = function (location, source_code, f) {
+        app.send = function (location, f) {
             app.enableUI(false);
             localStorage.setItem("sourceCode", app.elements.editor.getValue());
             var httpRequest = new XMLHttpRequest();
@@ -66,26 +66,33 @@
                     if (httpRequest.status == 200) {
                         app.enableUI(true);
                         app.lastResult = httpRequest.responseText.trim();
-                        f({input: source_code, output: app.lastResult});
+                        f({src: app.elements.editor.getValue(), cmd: app.elements.cmd.value, output: app.lastResult});
                     }
                 }
             };
-            httpRequest.send(source_code);
+            var post_data = JSON.stringify({
+                "cmd" : app.elements.cmd.value,
+                "src" : app.elements.editor.getValue()
+            });
+            console.log("post_data: " + post_data);
+            httpRequest.send(post_data);
         };
 
 
         app.previousValue = "";
 
         app.compileNow = function () {
-            app.send("compile", app.elements.editor.getValue(), function (obj) {
-                app.elements.output.value = obj.output;
+            app.send("compile", function (obj) {
+                app.elements.output.value = "$ " + obj.cmd + "\n" + obj.output;
+                app.elements.cmd.value = obj.cmd;
                 window.setTimeout(function() {
                     var ace_lines = app.editorDocument.getElementsByClassName("ace_line");
-                    for (var i = 0; i !== ace_lines.length; ++i) {
+                    var i;
+                    for (i = 0; i !== ace_lines.length; ++i) {
                         ace_lines[i].style.color = "inherit";
                     }
                     var output_lines = app.elements.output.value.split(/\n/);
-                    for (var i = 0; i != output_lines.length; ++i) {
+                    for (i = 0; i != output_lines.length; ++i) {
                         try {
                             var line = output_lines[i];
                             if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
@@ -102,7 +109,7 @@
         };
 
         app.postSample = function () {
-            app.send("share", app.elements.editor.getValue(), function (obj) {
+            app.send("share", function (obj) {
                 window.open("http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output, '_self');
             });
         };
