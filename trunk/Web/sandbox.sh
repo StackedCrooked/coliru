@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ "$(uname)" == "Darwin" ] ; then 
-    ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')"
+    ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')-$(md5 cmd.sh | cut -d '=' -f 2 | sed -e 's/ //g')"
 else
-    ID="$(md5sum main.cpp | cut -d ' ' -f 1)"
+    ID="$(md5sum main.cpp | cut -d ' ' -f 1)-$(md5sum cmd.sh | cut -d ' ' -f 1)"
 fi
 
 if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then

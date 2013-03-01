@@ -57,7 +57,7 @@ class SimpleHandler < Mongrel::HttpHandler
           while not stdout.eof?
               output += stdout.read(1)
           end
-          out.write(%r(ID=(\w+)).match(output)[1])
+          out.write(%r(ID=(\S+)).match(output)[1])
         end
       end
     rescue Timeout::Error => e
