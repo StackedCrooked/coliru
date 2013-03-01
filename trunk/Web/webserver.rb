@@ -53,7 +53,11 @@ class SimpleHandler < Mongrel::HttpHandler
         status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
           $pid = pid
           stdin.close()
-          out.write(%r(ID=(\w+)).match(stdout.read())[1])
+          output = ""
+          while not stdout.eof?
+              output += stdout.read(1)
+          end
+          out.write(%r(ID=(\w+)).match(output)[1])
         end
       end
     rescue Timeout::Error => e
