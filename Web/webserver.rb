@@ -30,6 +30,7 @@ class SimpleHandler < Mongrel::HttpHandler
         when "": FileUtils.copy_stream(File.new("index.html"), out)
         when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
         when "share": $semaphore.synchronize { share(request, out) }
+        when "view": FileUtils.copy_stream(File.new("view.html"), out)
         when "external": load_external(request, out)
         when "embed"
           html =  File.open("embed.html", "r").read
@@ -74,16 +75,13 @@ def share(req, out)
   begin
     Timeout.timeout($timeout) do
       obj = JSON.parse(req.body.string)
+      pp obj
       File.open("main.cpp", 'w') { |f| f.write(obj['src']) }
       File.open("cmd.sh", 'w') { |f| f.write(obj['cmd']) }
       status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
         $pid = pid
         stdin.close()
-        output = ""
-        while not stdout.eof?
-          output += stdout.read(1)
-        end
-        out.write(%r(ID=(\S+)).match(output)[1])
+        out.write(%r(ID=(\S+)).match(stdout.read)[1])
       end
     end
   rescue Timeout::Error => e
