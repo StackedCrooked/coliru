@@ -14,10 +14,10 @@ $timeout = 10
 $archive = ENV["COLIRU_ARCHIVE"]
 puts "$archive: #{$archive}"
 
-
 class SimpleHandler < Mongrel::HttpHandler
   def process(request, response)
     response.start(200) do |head,out|
+      File.open('requests.log', "a") { |f| f << PP.pp(request, "") << "\n" }
       head["Content-Type"] = "text/html"
       location = get_location(request)
 
@@ -57,15 +57,15 @@ def load_external(req, out)
 
   # get url params
   req_params=CGI::parse(req.params["QUERY_STRING"])
-  
+
   # get external url from paramas
   external_url = req_params['url'][0]
-  
+
   # download url
   uri = URI.parse(external_url)
   http_get_request = Net::HTTP::Get.new(uri.path)
   result = Net::HTTP.start(uri.host, uri.port){ |http| http.request(http_get_request) }
-  
+
   # send to out
   out.write(result.body)
 end
@@ -75,7 +75,6 @@ def share(req, out)
   begin
     Timeout.timeout($timeout) do
       obj = JSON.parse(req.body.string)
-      pp obj
       File.open("main.cpp", 'w') { |f| f.write(obj['src']) }
       File.open("cmd.sh", 'w') { |f| f.write(obj['cmd']) }
       status = POpen4::popen4("./share.sh 2>&1") do |stdout, stderr, stdin, pid|
