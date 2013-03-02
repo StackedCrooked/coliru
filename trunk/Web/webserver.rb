@@ -88,6 +88,8 @@ def share(req, out)
     end
   rescue Timeout::Error => e
     puts e
+  rescue Exception => e
+    out.write(e.to_s)
   end
 end
 
@@ -106,6 +108,8 @@ def safe_compile(req, script, out)
       POpen4::popen4("pkill -u 2002") {} 
       POpen4::popen4("pkill -u 2001") {} 
     end
+  rescue Exception => e
+    out.write(e.to_s)
   end
 end
 
