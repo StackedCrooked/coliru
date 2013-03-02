@@ -2,6 +2,7 @@ require 'rubygems'
 require 'json'
 require 'fileutils'
 require 'mongrel'
+require 'net/http'
 require 'popen4'
 require 'cgi'
 require 'pp'
@@ -28,7 +29,7 @@ class SimpleHandler < Mongrel::HttpHandler
         when "": FileUtils.copy_stream(File.new("index.html"), out)
         when "compile": $semaphore.synchronize { safe_compile(request, "sandbox", out) }
         when "share": $semaphore.synchronize { share(request, out) }
-        when "view": FileUtils.copy_stream(File.new("view.html"), out)
+        when "external": load_external(request, out)
         when "embed"
           html =  File.open("embed.html", "r").read
           query = request.params["QUERY_STRING"]
@@ -48,6 +49,23 @@ class SimpleHandler < Mongrel::HttpHandler
       end
     end
   end
+end
+
+def load_external(req, out)
+
+  # get url params
+  req_params=CGI::parse(req.params["QUERY_STRING"])
+  
+  # get external url from paramas
+  external_url = req_params['url'][0]
+  
+  # download url
+  uri = URI.parse(external_url[0])
+  http_get_request = Net::HTTP::Get.new(uri.path)
+  result = Net::HTTP.start(uri.host, uri.port){ |http| http.request(http_get_request) }
+  
+  # send to out
+  out.write(result.body)
 end
 
 def share(req, out)
