@@ -1,0 +1,1 @@
+for h in You I ; do for i in I You ; do for j in Goodbye Hello ; do for k in Hello Goodbye ; do echo "$i say $j, I say $k" ; done ; done ; done ; done
