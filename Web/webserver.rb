@@ -10,6 +10,7 @@ require 'thread'
 
 $semaphore = Mutex.new
 $pid = 0
+$timeout = 10
 $archive = ENV["COLIRU_ARCHIVE"]
 puts "$archive: #{$archive}"
 
@@ -60,7 +61,7 @@ def load_external(req, out)
   external_url = req_params['url'][0]
   
   # download url
-  uri = URI.parse(external_url[0])
+  uri = URI.parse(external_url)
   http_get_request = Net::HTTP::Get.new(uri.path)
   result = Net::HTTP.start(uri.host, uri.port){ |http| http.request(http_get_request) }
   
@@ -71,7 +72,7 @@ end
 def share(req, out)
   $pid = 0;
   begin
-    Timeout.timeout(20) do
+    Timeout.timeout($timeout) do
       obj = JSON.parse(req.body.string)
       File.open("main.cpp", 'w') { |f| f.write(obj['src']) }
       File.open("cmd.sh", 'w') { |f| f.write(obj['cmd']) }
@@ -94,7 +95,7 @@ end
 def safe_compile(req, script, out)
   $pid = 0;
   begin
-    Timeout.timeout(20) do
+    Timeout.timeout($timeout) do
       compile(req, script, out)
     end
   rescue Timeout::Error => e
