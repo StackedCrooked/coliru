@@ -6,6 +6,34 @@ require 'pp'
 require 'sinatra'
 
 
+def safe_popen(cmd, out) 
+  begin 
+    process_id = 0
+    Timeout::timeout(1) do
+      POpen4.popen4("#{cmd} 2>&1") do |stdout, _, stdin, pid|
+        process_id = pid
+        system("ps -ef | grep #{process_id} | grep -v grep")
+        stdin.close
+        until stdout.eof? do
+          out << stdout.readline
+        end
+      end
+    end
+  rescue Exception => e
+    out << e.to_s
+    puts process_id
+    puts "before kill"
+    system("ps -ef | grep #{process_id} | grep -v grep")
+    puts Process.kill(9, process_id).to_s
+    puts "after kill"
+    system("ps -ef | grep #{process_id} | grep -v grep")
+    sleep(1)
+    puts "after sleep"
+    system("ps -ef | grep #{process_id} | grep -v grep")
+  end
+end
+
+
 get '/' do
   File.read('index.html')
 end
@@ -29,28 +57,14 @@ post '/compile' do
   end
 
   stream do |out|
-    Timeout::timeout(20) do
-      POpen4.popen4('./sandbox.sh 2>&1') do |stdout, _, stdin, _|
-        stdin.close
-        until stdout.eof? do
-          out << stdout.readline
-        end
-      end
-    end
+    safe_popen('./sandbox.sh', out)
   end
 end
 
 
 post '/share' do
   stream do |out|
-    Timeout::timeout(20) do
-      POpen4.popen4('./share.sh 2>&1') do |stdout, _, stdin, _|
-        stdin.close
-        until stdout.eof? do
-          out << stdout.readline.sub(/ID=/, '')
-        end
-      end
-    end
+    safe_popen('./share.sh', out)
   end
 end
 
@@ -84,8 +98,7 @@ end
 
 before do
   @path_info = request.path_info
-  @request_start = Time.now
-
+  @request_start = Time.now.to_f
   log.info("before #{@path_info}")
 end
 
