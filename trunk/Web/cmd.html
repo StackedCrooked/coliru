@@ -75,8 +75,8 @@
     <label for="output"></label><textarea id="output" readonly></textarea>
     <hr/>
     <div id="footer">
-        <label style="display: none;" ><input id="vimBindings" onclick="app.toggleVim(); app.editor.focus();" type="checkbox">&nbspVim key bindings&nbsp</input></label>
-        <label><input id="compileAutomatically" onclick="app.editor.focus();" type="checkbox">&nbspCompile automatically&nbsp</input></label>
+        <label style="display: none;" ><input id="vimBindings" onclick="app.toggleVim(); app.editor.focus();" type="checkbox">&nbspVim key bindings&nbsp</label>
+        <label><input id="compileAutomatically" onclick="app.editor.focus();" type="checkbox">&nbspCompile automatically&nbsp</label>
         <br/>
         <br/>
         <button id="post" onclick="app.postSample();">Share!</button>
@@ -87,7 +87,7 @@
 <script>
     var app = {
         samples: {
-            "Hello World!": "#include <iostream>\n#include <thread>\n\nint main()\n{\n    std::cout << \"Hello GCC \" << __VERSION__ << \"!\" << std::endl;\n    std::thread t([](){ std::cout << \"Hello Thread!\"; });\n    t.join();\n}"
+            "Hello World!": '#include <iostream>\n#include <thread>\n\nint main()\n{\n    std::cout << \"Hello GCC \" << __VERSION__ << \"!\" << std::endl;\n    std::thread t([](){ std::cout << \"Hello Thread!\"; });\n    t.join();\n}'
         },
         elements: {
             editor: document.getElementById("editor"),
