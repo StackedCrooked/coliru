@@ -75,6 +75,11 @@ get '/*' do
 end
 
 
+def log
+  Logger.new(STDOUT)
+end
+
+
 before do
   @path_info = request.path_info
   @request_start = Time.now
