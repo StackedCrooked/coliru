@@ -5,13 +5,34 @@ require 'popen4'
 require 'pp'
 require 'sinatra'
 
+
+# func_composition.rb
+class Proc
+  def self.compose(f, g)
+    lambda { |*args| f[g[*args]] }
+  end
+  def *(g)
+    Proc.compose(self, g)
+  end
+end
+def log
+  Logger.new(STDOUT)
+end
+
+
 get '/' do
   File.read('index.html')
 end
 
+
 get '/*.*' do |file, ext|
-  File.read("#{file}.#{ext}")
+  begin
+    File.read("#{file}.#{ext}")
+  rescue Exception => e
+    e.to_s
+  end
 end
+
 
 post '/compile' do
   json_obj = JSON.parse(request.body.read)
@@ -22,14 +43,17 @@ post '/compile' do
   end
 
   stream do |out|
-    POpen4.popen4('./sandbox.sh 2>&1') do |stdout, _, stdin, _|
-      stdin.close
-      until stdout.eof? do
-        out << stdout.readline
+    Timeout::timeout(5) do
+      POpen4.popen4('./sandbox.sh 2>&1') do |stdout, _, stdin, _|
+        stdin.close
+        until stdout.eof? do
+          out << stdout.readline
+        end
       end
     end
   end
 end
+
 
 post '/share' do
   stream do |out|
@@ -41,6 +65,7 @@ post '/share' do
     end
   end
 end
+
 
 get '/view' do
   File.read('view.html')
@@ -61,4 +86,17 @@ get '/*' do
       :src => get_contents.call('main.cpp'),
       :output => get_contents.call('output')
   }.to_json
+end
+
+
+before do
+  @path_info = request.path_info
+  @request_start = Time.now
+
+  log.info("before #{@path_info}")
+end
+
+
+after do
+  log.info("after  #{@path_info}")
 end
