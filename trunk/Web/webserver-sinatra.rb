@@ -6,20 +6,6 @@ require 'pp'
 require 'sinatra'
 
 
-# func_composition.rb
-class Proc
-  def self.compose(f, g)
-    lambda { |*args| f[g[*args]] }
-  end
-  def *(g)
-    Proc.compose(self, g)
-  end
-end
-def log
-  Logger.new(STDOUT)
-end
-
-
 get '/' do
   File.read('index.html')
 end
@@ -82,9 +68,9 @@ get '/*' do
   end
 
   return {
-      :cmd => get_contents.call('cmd.sh'),
-      :src => get_contents.call('main.cpp'),
-      :output => get_contents.call('output')
+    :cmd => get_contents.call('cmd.sh'),
+    :src => get_contents.call('main.cpp'),
+    :output => get_contents.call('output')
   }.to_json
 end
 
@@ -100,3 +86,4 @@ end
 after do
   log.info("after  #{@path_info}")
 end
+
