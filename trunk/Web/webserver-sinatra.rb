@@ -29,7 +29,7 @@ post '/compile' do
   end
 
   stream do |out|
-    Timeout::timeout(5) do
+    Timeout::timeout(20) do
       POpen4.popen4('./sandbox.sh 2>&1') do |stdout, _, stdin, _|
         stdin.close
         until stdout.eof? do
@@ -43,10 +43,12 @@ end
 
 post '/share' do
   stream do |out|
-    POpen4.popen4('./share.sh 2>&1') do |stdout, _, stdin, _|
-      stdin.close
-      until stdout.eof? do
-        out << stdout.readline.sub(/ID=/, '')
+    Timeout::timeout(20) do
+      POpen4.popen4('./share.sh 2>&1') do |stdout, _, stdin, _|
+        stdin.close
+        until stdout.eof? do
+          out << stdout.readline.sub(/ID=/, '')
+        end
       end
     end
   end
