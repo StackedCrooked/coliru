@@ -6,7 +6,6 @@ require 'pp'
 require 'sinatra'
 
 get '/' do
-  pp params
   File.read('index.html')
 end
 
@@ -49,11 +48,17 @@ end
 
 
 get '/*' do
-  dir = "../Archive/#{params[:captures]}"
-  {
-      :cmd => (begin ; File.read("#{dir}/cmd.sh") ; rescue Exception => e ; e.to_s ; end),
-      :src => (begin ; File.read("#{dir}/main.cpp") ; rescue Exception => e ; e.to_s ; end),
-      :output =>  (begin ; File.read("#{dir}/output") ; rescue Exception => e ; e.to_s ; end),
-  }.to_json
+  get_contents = Proc.new do |name|
+    begin
+      File.read("../Archive/#{params[:captures]}/#{name}")
+    rescue Exception => e;
+      e.to_s
+    end
+  end
 
+  return {
+      :cmd => get_contents.call('cmd.sh'),
+      :src => get_contents.call('main.cpp'),
+      :output => get_contents.call('output')
+  }.to_json
 end
