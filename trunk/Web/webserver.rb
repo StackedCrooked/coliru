@@ -30,7 +30,7 @@ class SimpleHandler < Mongrel::HttpHandler
           when '' :
             FileUtils.copy_stream(File.new('index.html'), out)
           when 'compile' :
-            $semaphore.synchronize { safe_compile(request, 'sandbox', out) }
+            $semaphore.synchronize { compile(request, out) }
           when 'share' :
             $semaphore.synchronize { share(request, out) }
           when 'view' :
@@ -83,54 +83,38 @@ class SimpleHandler < Mongrel::HttpHandler
     out.write(result.body)
   end
 
-  def share(req, out)
-    $pid = 0
+
+  def safe_popen(cmd)
     begin
-      Timeout.timeout($timeout) do
-        obj = JSON.parse(req.body.string)
-        File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
-        File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
-        POpen4::popen4("/usr/bin/timeout -s9 #{$timeout} ./share.sh 2>&1") do |stdout, _, stdin, pid|
-          $pid = pid
-          stdin.close()
-          out.write(%r(ID=(\S+)).match(stdout.read)[1])
+      Timeout.timeout(3) do
+        @my_pipe = IO.popen(cmd)
+        puts "pid #{@my_pipe.pid}"
+        until @my_pipe.eof?
+          line = @my_pipe.readline
+          yield line
         end
+        Process.wait @my_pipe.pid
       end
     rescue Timeout::Error => e
-      puts 
-    rescue Exception => e
-      out.write(e.to_s)
+      puts "killing #{@my_pipe.pid}"
+      Process.kill 9, @my_pipe.pid
+      Process.wait @my_pipe.pid
+      yield e.to_s
     end
   end
 
-
-  def safe_compile(req, script, out)
-    $pid = 0
-    begin
-      Timeout.timeout($timeout) do
-        compile(req, script, out)
-      end
-    rescue Timeout::Error => e
-      out.write('The operation timed out.')
-    rescue Exception => e
-      out.write(e.to_s)
-    end
+  def share(req, out)
+    safe_popen('./share.sh 2>&1') { |line| out.write(%r(ID=(\S+)).match(line.read)[1]) }
   end
 
-  def compile(req, script, out)
+  def compile(req, out)
     obj = JSON.parse(req.body.string)
     File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
     File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
-    POpen4::popen4("/usr/bin/timeout -s9 #{$timeout} ./#{script}.sh 2>&1") do |stdout, _, stdin, pid|
-      $pid = pid
-      stdin.close()
-      until stdout.eof?
-        out.write(stdout.read(1))
-      end
-    end
+    safe_popen("./sandbox.sh 2>&1") { |line| out.write(line) }
   end
 
-# Returns the location. E.g: if the URL is "http://localhost.com/compile" then "compile" will be returned.
+  # Returns the location. E.g: if the URL is "http://localhost.com/compile" then "compile" will be returned.
   def get_location(req)
     req.params['REQUEST_PATH'][1..-1]
   end
