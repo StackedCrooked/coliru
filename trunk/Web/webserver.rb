@@ -90,14 +90,14 @@ class SimpleHandler < Mongrel::HttpHandler
         obj = JSON.parse(req.body.string)
         File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
         File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
-        POpen4::popen4('./share.sh 2>&1') do |stdout, _, stdin, pid|
+        POpen4::popen4("/usr/bin/timeout -s9 #{$timeout} ./share.sh 2>&1") do |stdout, _, stdin, pid|
           $pid = pid
           stdin.close()
           out.write(%r(ID=(\S+)).match(stdout.read)[1])
         end
       end
     rescue Timeout::Error => e
-      puts e
+      puts 
     rescue Exception => e
       out.write(e.to_s)
     end
@@ -112,12 +112,6 @@ class SimpleHandler < Mongrel::HttpHandler
       end
     rescue Timeout::Error => e
       out.write('The operation timed out.')
-      Thread.new do
-        puts 'Killing myself to live.'
-        sleep(0.01)
-        POpen4::popen4('pkill -u 2002') {}
-        POpen4::popen4('pkill -u 2001') {}
-      end
     rescue Exception => e
       out.write(e.to_s)
     end
@@ -127,7 +121,7 @@ class SimpleHandler < Mongrel::HttpHandler
     obj = JSON.parse(req.body.string)
     File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
     File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
-    POpen4::popen4("./#{script}.sh 2>&1") do |stdout, _, stdin, pid|
+    POpen4::popen4("/usr/bin/timeout -s9 #{$timeout} ./#{script}.sh 2>&1") do |stdout, _, stdin, pid|
       $pid = pid
       stdin.close()
       until stdout.eof?
