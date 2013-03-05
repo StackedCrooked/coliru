@@ -17,8 +17,6 @@ def safe_popen(cmd)
   end
 end
 
-safe_popen('for i in `seq 5` ; do echo $i ; sleep 1 ; done') { |line|
+safe_popen('for i in `seq 100` ; do echo $i ; sleep 1 ; done') { |line|
   puts line
 }
-
-puts "result: #{result}"
