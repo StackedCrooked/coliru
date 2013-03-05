@@ -86,25 +86,35 @@ class SimpleHandler < Mongrel::HttpHandler
 
   def safe_popen(cmd)
     begin
+      my_pipe = IO.popen(cmd)
       Timeout.timeout(3) do
-        @my_pipe = IO.popen(cmd)
-        puts "pid #{@my_pipe.pid}"
-        until @my_pipe.eof?
-          line = @my_pipe.readline
+        puts "pid #{my_pipe.pid}"
+        until my_pipe.eof?
+          line = my_pipe.readline
           yield line
         end
-        Process.wait @my_pipe.pid
+        Process.wait my_pipe.pid
       end
     rescue Timeout::Error => e
-      puts "killing #{@my_pipe.pid}"
-      Process.kill 9, @my_pipe.pid
-      Process.wait @my_pipe.pid
+      puts "killing #{my_pipe.pid}"
+      Process.kill 9, my_pipe.pid
+      Process.wait my_pipe.pid
       yield e.to_s
     end
   end
 
   def share(req, out)
-    safe_popen('./share.sh 2>&1') { |line| out.write(%r(ID=(\S+)).match(line.read)[1]) }
+    obj = JSON.parse(req.body.string)
+    File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
+    File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
+    safe_popen('./share.sh 2>&1') { |line|
+      puts "line: #{line}"
+      matches = %r(ID=(\S+)).match(line)
+      if matches && matches.length > 0
+        id = matches[1]
+        out.write(id)
+      end
+    }
   end
 
   def compile(req, out)
