@@ -122,6 +122,7 @@ class SimpleHandler < Mongrel::HttpHandler
     File.open('main.cpp', 'w') { |f| f.write(obj['src']) }
     File.open('cmd.sh', 'w') { |f| f.write(obj['cmd']) }
     safe_popen("./sandbox.sh 2>&1") { |line| out.write(line) }
+    out.write(File.read('/var/chroot/tmp/status'))
   end
 
   # Returns the location. E.g: if the URL is "http://localhost.com/compile" then "compile" will be returned.
@@ -148,4 +149,3 @@ h.register('/', SimpleHandler.new)
 h.register('/Archive', Mongrel::DirHandler.new($archive))
 puts "h.num_processors: #{h.num_processors}"
 h.run.join
-

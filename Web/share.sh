@@ -23,5 +23,7 @@ cat main.cpp > "${DIR}/main.cpp"
 cat cmd.sh > "${DIR}/cmd.sh" ;
 chmod 755 "${DIR}/cmd.sh"
 echo "ID=${ID}"
-echo "Operation timed out." > "${DIR}/output"
+echo "Operation timed out." > "${DIR}/info"
+echo "expired" > "${DIR}/status"
 ./build_and_run.sh >"${DIR}/output" 2>&1
+echo "$?" > "${DIR}/status"
