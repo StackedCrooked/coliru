@@ -2,6 +2,7 @@
 set -x
 echo "$0 executed by $(whoami)"
 
+touch webserver.log ; chown a+rw webserver.log
 chown webserver:coliru .
 chown webserver:coliru ${COLIRU_ARCHIVE}
 chmod a+rw .
