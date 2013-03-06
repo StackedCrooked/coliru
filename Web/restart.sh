@@ -1,1 +1,2 @@
-./kill-all.sh && ./run.sh
+./kill-all.sh
+nohup ./run.sh &
