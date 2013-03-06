@@ -12,7 +12,7 @@ set :port, ENV['COLIRU_PORT']
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
   begin
-    Timeout.timeout(20) do
+    Timeout.timeout(10) do
       @stdout = IO.popen("#{cmd} 2>&1 ")
       until @stdout.eof?
         line = @stdout.readline
