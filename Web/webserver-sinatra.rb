@@ -7,6 +7,7 @@ require 'sinatra'
 
 
 set :port, ENV['COLIRU_PORT']
+$semaphore = Mutex.new
 
 
 # @param [String] cmd Command to be executed.
@@ -40,24 +41,28 @@ end
 
 
 post '/compile' do
-  json_obj = JSON.parse(request.body.read)
-  File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
-  File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
-  stream do |out|
-    safe_popen('./sandbox.sh') { |line| out << line }
+  $semaphore.synchronize do
+    json_obj = JSON.parse(request.body.read)
+    File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
+    File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
+    stream do |out|
+      safe_popen('./sandbox.sh') { |line| out << line }
+    end
   end
 end
 
 
 post '/share' do
-  json_obj = JSON.parse(request.body.read)
-  File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
-  File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
-
   result = nil
-  safe_popen('./share.sh') do |line|
-    result = result || line
-    next # we want to wait for the process to completely finish
+  $semaphore.synchronize do
+    json_obj = JSON.parse(request.body.read)
+    File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
+    File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
+    
+    safe_popen('./share.sh') do |line|
+      result = result || line
+      next # we want to wait for the process to completely finish
+    end
   end
   result
 end
@@ -78,10 +83,12 @@ get '/archive' do
     end
   end
 
-  return {
-      :cmd => get_contents.call('cmd.sh'),
-      :src => get_contents.call('main.cpp'),
-      :output => get_contents.call('output')
-  }.to_json
+  $semaphore.synchronize do
+    return {
+        :cmd => get_contents.call('cmd.sh'),
+        :src => get_contents.call('main.cpp'),
+        :output => get_contents.call('output')
+    }.to_json
+  end
 end
 
