@@ -53,8 +53,8 @@ end
 
 
 post '/share' do
-  result = nil
   $semaphore.synchronize do
+    result = nil
     json_obj = JSON.parse(request.body.read)
     File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
     File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
@@ -63,8 +63,8 @@ post '/share' do
       result = result || line
       next # we want to wait for the process to completely finish
     end
-  end
   result
+  end
 end
 
 
@@ -84,11 +84,10 @@ get '/archive' do
   end
 
   $semaphore.synchronize do
-    return {
+    {
         :cmd => get_contents.call('cmd.sh'),
         :src => get_contents.call('main.cpp'),
         :output => get_contents.call('output')
     }.to_json
   end
 end
-
