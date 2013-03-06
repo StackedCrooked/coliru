@@ -22,13 +22,13 @@ def safe_popen(cmd, out)
   rescue Exception => e
     out << e.to_s
     puts process_id
-    puts "before kill"
+    puts 'before kill'
     system("ps -ef | grep #{process_id} | grep -v grep")
     puts Process.kill(9, process_id).to_s
-    puts "after kill"
+    puts 'after kill'
     system("ps -ef | grep #{process_id} | grep -v grep")
     sleep(1)
-    puts "after sleep"
+    puts 'after sleep'
     system("ps -ef | grep #{process_id} | grep -v grep")
   end
 end
