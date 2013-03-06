@@ -13,10 +13,14 @@ set :port, ENV['COLIRU_PORT']
 def safe_popen(cmd)
   begin
     Timeout.timeout(10) do
+      @count += 0
       @stdout = IO.popen("#{cmd} 2>&1 ")
       until @stdout.eof?
-        line = @stdout.readline
-        yield line
+        @count += 1
+        if @count > (1024 * 1024)
+          raise 'output limit exceeded'
+        end
+        yield @stdout.read(1)
       end
     end
   rescue Timeout::Error => e
@@ -45,7 +49,7 @@ post '/compile' do
   File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
   File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
   stream do |out|
-    safe_popen('./sandbox.sh') { |line| out << line }
+    safe_popen('./sandbox.sh') { |c| out << c }
   end
 end
 
@@ -56,8 +60,8 @@ post '/share' do
   File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
 
   result = nil
-  safe_popen('./share.sh') do |line|
-    result = result || line
+  safe_popen('./share.sh') do |c|
+    result = result || c
     next # we want to wait for the process to completely finish
   end
   result
@@ -85,3 +89,4 @@ get '/archive' do
       :output => get_contents.call('output')
   }.to_json
 end
+
