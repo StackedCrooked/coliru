@@ -4,15 +4,15 @@ require 'pp'
 def safe_popen(cmd)
   begin
     Timeout.timeout(3) do
-      @my_pipe = IO.popen(cmd)
-      until @my_pipe.eof?
-        line = @my_pipe.readline
+      @stdout = IO.popen(cmd)
+      until @stdout.eof?
+        line = @stdout.readline
         yield line
       end
-      Process.wait @my_pipe.pid
+      Process.wait @stdout.pid
     end
   rescue Timeout::Error => e
-    Process.kill 9, @my_pipe.pid
+    Process.kill 9, @stdout.pid
     yield e.to_s
   end
 end
