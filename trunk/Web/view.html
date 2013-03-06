@@ -117,8 +117,9 @@
          httpRequest.send(post_data);
        };
 
-       app.send(app.id, "", function(response) {
+       app.send("archive?id=" + app.id, "", function(response) {
          var obj = JSON.parse(response);
+           console.log(JSON.stringify(obj))
          app.editor.setValue(obj.src);
          app.output.value = obj.cmd.trim() + "\n" + obj.output.trim();
 

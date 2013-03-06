@@ -4,4 +4,4 @@ cd "$(dirname $0)"
 ./kill-current.sh
 ./repair-permissions.sh 
 echo "Starting web server."
-sudo -E -u webserver ruby webserver.rb "${COLIRU_URL}" "${COLIRU_PORT}"
+sudo -E -u webserver ruby webserver-sinatra.rb
