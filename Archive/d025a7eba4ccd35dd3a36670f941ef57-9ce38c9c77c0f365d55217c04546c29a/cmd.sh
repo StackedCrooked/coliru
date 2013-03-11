@@ -1,0 +1,1 @@
+g++ -o test -std=c++11 -Werror -Wall -Wextra -pedantic-errors -O0 -m32 main.cpp && ./test
