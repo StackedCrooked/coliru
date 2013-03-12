@@ -1,0 +1,11 @@
+main.cpp:11:31: error: expected unqualified-id before '<' token
+main.cpp:13:20: error: 'stream' has not been declared
+main.cpp: In member function 'void foo<T>::X<U, F>::print(int)':
+main.cpp:13:32: error: 'stream' was not declared in this scope
+main.cpp:13:39: error: expected ';' before 's'
+main.cpp:13:42: error: 's' was not declared in this scope
+main.cpp: In function 'int main()':
+main.cpp:21:22: error: no matching function for call to 'foo<int>::X<int>::print(std::ostream&)'
+main.cpp:21:22: note: candidate is:
+main.cpp:13:14: note: void foo<T>::X<U, F>::print(int) [with U = int; F = std::basic_ostream<char>; T = int]
+main.cpp:13:14: note:   no known conversion for argument 1 from 'std::ostream {aka std::basic_ostream<char>}' to 'int'
