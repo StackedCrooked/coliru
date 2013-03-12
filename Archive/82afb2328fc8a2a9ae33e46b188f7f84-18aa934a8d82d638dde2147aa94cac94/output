@@ -1,0 +1,8 @@
+main.cpp:11:24: error: '::X' has not been declared
+main.cpp: In member function 'void foo<T>::X<U, F>::print(foo<T>::X<U, F>::stream)':
+main.cpp:13:48: error: invalid operands of types 'foo<T>::X<U, F>::stream {aka int}' and 'const char [3]' to binary 'operator<<'
+main.cpp: In function 'int main()':
+main.cpp:21:22: error: no matching function for call to 'foo<int>::X<int>::print(std::ostream&)'
+main.cpp:21:22: note: candidate is:
+main.cpp:13:14: note: void foo<T>::X<U, F>::print(foo<T>::X<U, F>::stream) [with U = int; F = std::basic_ostream<char>; T = int; foo<T>::X<U, F>::stream = int]
+main.cpp:13:14: note:   no known conversion for argument 1 from 'std::ostream {aka std::basic_ostream<char>}' to 'foo<int>::X<int>::stream {aka int}'
