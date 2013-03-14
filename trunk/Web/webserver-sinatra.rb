@@ -13,7 +13,7 @@ $semaphore = Mutex.new
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
   begin
-    Timeout.timeout(10) do
+    Timeout.timeout(20) do
       @stdout = IO.popen("#{cmd} 2>&1 ")
       until @stdout.eof?
         yield @stdout.readline
