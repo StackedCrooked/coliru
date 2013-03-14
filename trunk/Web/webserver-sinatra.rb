@@ -63,7 +63,7 @@ post '/share' do
       result = result || line
       next # we want to wait for the process to completely finish
     end
-  result
+    stream { |out| out << result }
   end
 end
 
