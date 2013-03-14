@@ -79,7 +79,7 @@ get '/archive' do
       pp ENV
       File.read("#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}")
     rescue Exception => e
-      e.to_s
+      ""
     end
   end
 
