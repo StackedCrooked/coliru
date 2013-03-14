@@ -32,8 +32,11 @@
 
 
     // Redirect www. to host domain.
-    if (window.location.host.search(/^www./) === 0) {
-        window.location.hostname = window.location.host.replace(/^www./, "");
+    if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
+      var host = window.location.hostname + "";
+      host = host.replace(/^www./, "")
+      host = host.replace(/^stacked/, "coliru.stacked");
+      window.location.hostname = host;
     }
 
     window.onload = function () {

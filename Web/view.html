@@ -87,6 +87,15 @@
      <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
      <script>
 
+       // Redirect www. to host domain.
+       if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
+         var host = window.location.hostname + "";
+         host = host.replace(/^www./, "")
+         host = host.replace(/^stacked/, "coliru.stacked");
+         window.location.hostname = host;
+       }
+
+
        var editor = ace.edit("editor");
        editor.setTheme("ace/theme/textmate");
        editor.getSession().setMode("ace/mode/c_cpp");
@@ -122,7 +131,7 @@
            console.log(JSON.stringify(obj))
          app.editor.setValue(obj.src);
          app.cmd = obj.cmd;
-         app.output.value = (obj.cmd ? (obj.cmd.trim() + "\n") : "") + obj.output.trim();
+         app.output.value = (obj.cmd ? ("$ " + obj.cmd.trim() + "\n") : "") + obj.output.trim();
 
          window.setTimeout(function() {
            var ace_lines = document.getElementsByClassName("ace_line");
@@ -158,12 +167,6 @@
        };
 
        document.getElementById("cloneButton").onclick = app.goBack;
-
-       // Redirect www. to host domain.
-       if (window.location.host.search(/^www./) === 0) {
-         window.location.hostname = window.location.host.replace(/^www./, "");
-       }
-
 
      </script>
    </body>
