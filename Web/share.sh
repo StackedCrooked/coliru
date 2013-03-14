@@ -11,8 +11,9 @@ else
     ID="$(md5sum main.cpp | cut -d ' ' -f 1)-$(md5sum cmd.sh | cut -d ' ' -f 1)"
 fi
 
+echo "${ID}"
+
 if [ -d "${COLIRU_ARCHIVE}/${ID}" ] ; then
-    echo "${ID}"
     exit
 fi
 
@@ -26,4 +27,3 @@ chmod 755 "${DIR}/cmd.sh"
 
 { ./build_and_run.sh >"${DIR}/output" 2>&1 ; } || true
 
-echo "${ID}"
