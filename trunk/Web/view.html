@@ -122,7 +122,7 @@
            console.log(JSON.stringify(obj))
          app.editor.setValue(obj.src);
          app.cmd = obj.cmd;
-         app.output.value = obj.cmd.trim() + "\n" + obj.output.trim();
+         app.output.value = (obj.cmd ? (obj.cmd.trim() + "\n") : "") + obj.output.trim();
 
          window.setTimeout(function() {
            var ace_lines = document.getElementsByClassName("ace_line");
@@ -152,6 +152,7 @@
        app.goBack = function () {
          localStorage.setItem("src", editor.getValue());
          localStorage.setItem("cmd", app.cmd);
+         localStorage.setItem("output", app.output.value);
          window.location.href = "/";
          //history.go(-1);
        };
