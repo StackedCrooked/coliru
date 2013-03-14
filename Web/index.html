@@ -43,11 +43,12 @@
             return this.replace(/^\s+|\s+$/g, "");
         };
 
-        var sourceCode = localStorage.getItem("sourceCode");
+        var sourceCode = localStorage.getItem("src");
         if (sourceCode === null || sourceCode === "") {
-            localStorage.setItem("sourceCode", app.samples["Hello World!"]);
+            localStorage.setItem("src", app.samples["Hello World!"]);
         }
-        app.elements.editor.setValue(localStorage.getItem("sourceCode"));
+        app.elements.editor.setValue(localStorage.getItem("src"));
+        app.elements.cmd.value = localStorage.getItem("cmd") || "g++ -std=c++11 -O2 -pthread main.cpp && ./a.out";
 
         app.enableUI = function(value) {
             app.elements.compileButton.disabled = !value;
@@ -58,7 +59,8 @@
 
         app.send = function (location, f) {
             app.enableUI(false);
-            localStorage.setItem("sourceCode", app.elements.editor.getValue());
+            localStorage.setItem("src", app.elements.editor.getValue());
+            localStorage.setItem("cmd", app.elements.cmd.value);
             var httpRequest = new XMLHttpRequest();
             httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
