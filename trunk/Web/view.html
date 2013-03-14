@@ -121,6 +121,7 @@
          var obj = JSON.parse(response);
            console.log(JSON.stringify(obj))
          app.editor.setValue(obj.src);
+         app.cmd = obj.cmd;
          app.output.value = obj.cmd.trim() + "\n" + obj.output.trim();
 
          window.setTimeout(function() {
@@ -149,7 +150,8 @@
        });
 
        app.goBack = function () {
-         localStorage.setItem("sourceCode", editor.getValue());
+         localStorage.setItem("src", editor.getValue());
+         localStorage.setItem("cmd", app.cmd);
          window.location.href = "/";
          //history.go(-1);
        };
