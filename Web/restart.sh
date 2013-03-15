@@ -1,2 +1,3 @@
 ./kill-all.sh
-nohup ./run.sh &
+./run.sh &
+disown
