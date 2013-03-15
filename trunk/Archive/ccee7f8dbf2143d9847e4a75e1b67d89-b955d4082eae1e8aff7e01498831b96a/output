@@ -1,0 +1,37 @@
+cat foo.hpp
+
+    template<typename T>
+    struct Foo {
+        T get();
+    };
+    
+cat foo.cpp
+    
+    #include "foo.hpp"
+    
+    template<typename T>
+    T Foo<T>::get() {
+        return T();
+    }
+    
+    // Explicit instantiations.
+    template<> struct Foo<int>;
+    template<> struct Foo<char>;    
+    
+cat test.cpp
+
+    #include "foo.hpp"
+    #include <iostream>
+    
+    int main() {
+        std::cout << Foo<int>().get() << std::endl;  // should work?
+        std::cout << Foo<char>().get() << std::endl; // should work?
+        std::cout << Foo<bool>().get() << std::endl; // should fail?
+    }
+    
+g++ foo.cpp test.cpp -o app && ./app
+/tmp/ccihJ6Wx.o: In function `main':
+test.cpp:(.text+0x10): undefined reference to `Foo<int>::get()'
+test.cpp:(.text+0x35): undefined reference to `Foo<char>::get()'
+test.cpp:(.text+0x5d): undefined reference to `Foo<bool>::get()'
+collect2: error: ld returned 1 exit status
