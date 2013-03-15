@@ -1,0 +1,1 @@
+g++ -c -std=c++11 -Werror -Wall -Wextra -pedantic-errors -Weffc++ -O2 -pthread main.cpp
