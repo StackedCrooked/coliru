@@ -1,0 +1,35 @@
+cat foo.hpp
+
+    template<typename T>
+    struct Foo {
+        T get();
+    };
+    
+cat foo.cpp
+    
+    #include "foo.hpp"
+    
+    template<typename T>
+    T Foo<T>::get() {
+        return T();
+    }
+    
+    // Explicit instantiations.
+    template struct Foo<int>; // without <>!
+    template struct Foo<long>; // without <>!
+    
+cat test.cpp
+
+    #include "foo.hpp"
+    #include <iostream>
+    
+    int main() {
+        std::cout << Foo<int>().get() << std::endl;
+        std::cout << Foo<long>().get() << std::endl;
+        std::cout << "Done." << std::endl;
+    }
+    
+g++ -std=c++11 foo.cpp test.cpp -o app && ./app
+0
+0
+Done.
