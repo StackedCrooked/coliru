@@ -1,0 +1,153 @@
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+main.cpp:49:1: error: macro "BOOST_PP_SEQ_ELEM_III" requires 2 arguments, but only 1 given
+formatted  /tmp/file.cpp
+  BOOST_PP_SEQ_FOR_EACH_M
+ )(((X)(x))((Y)(y))((Z)(z)), GENERATE_COMMA) > {
+     Point(const X & x , const Y & y , const Z & z ) : std::tuple< (Fields, GenSep) BOOST_PP_SEQ_ELEM_III BOOST_PP_IIF_0
+         BOOST_PP_SEQ_TAIL_I
+         Fields (nil)(
+             BOOST_PP_SEQ_FOR_EACH_M
+             ,
+             BOOST_PP_TUPLE_EAT_2
+         )(2, ((r, GenSep, Pair) GenSep()
+               BOOST_PP_SEQ_ELEM_III
+               , GenSep,
+               BOOST_PP_SEQ_TAIL_I
+               Fields (nil))) BOOST_PP_IIF_0
+         BOOST_PP_SEQ_TAIL_I
+         Fields (nil)(
+             BOOST_PP_FOR_2
+             ,
+             BOOST_PP_TUPLE_EAT_4
+         )(BOOST_PP_EXPR_IIF_0
+           BOOST_PP_SEQ_TAIL_I
+           Fields (nil)(
+               BOOST_PP_SEQ_FOR_EACH_O
+           )(2, ((r, GenSep, Pair) GenSep()
+                 BOOST_PP_SEQ_ELEM_III
+                 , GenSep,
+                 BOOST_PP_SEQ_TAIL_I
+                 Fields (nil))),
+           BOOST_PP_SEQ_FOR_EACH_P
+           ,
+           BOOST_PP_SEQ_FOR_EACH_O
+           ,
+           BOOST_PP_SEQ_FOR_EACH_M
+          )(((X)(x))((Y)(y))((Z)(z)), GENERATE_COMMA) >(x , y , z ) {}
+const X & get_x () const {
+    return std::get< 0 >(*this);
+}
+const Y & get_y () const {
+    return std::get< 1 >(*this);
+}
+const Z & get_z () const {
+    return std::get< 2 >(*this);
+}
+ }
+;
+int main()
+{
+    Point p(1, 2, 3);
+    std::cout << p.get_x() << p.get_y() << p.get_z();
+}
+
+file.cpp:20047:29: error: 'Fields' was not declared in this scope
+file.cpp:20047:37: error: 'GenSep' was not declared in this scope
+file.cpp: In constructor 'Point::Point(const X&, const Y&, const Z&)':
+file.cpp:20078:69: error: 'Fields' was not declared in this scope
+file.cpp:20078:77: error: 'GenSep' was not declared in this scope
+file.cpp:20108:56: error: expected '{' before '(' token
+file.cpp: In member function 'const X& Point::get_x() const':
+file.cpp:20110:31: error: no matching function for call to 'get(const Point&)'
+file.cpp:20110:31: note: candidates are:
+file.cpp:18939:13: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+file.cpp:18939:13: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18944:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+file.cpp:18944:5: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18949:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+file.cpp:18949:5: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   'const Point' is not derived from 'const std::pair<_Tp1, _Tp2>'
+file.cpp:19705:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+file.cpp:19705:5: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19712:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+file.cpp:19712:5: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   'const Point' is not derived from 'const std::tuple<_Elements ...>'
+file.cpp:19719:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+file.cpp:19719:5: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19832:20: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+file.cpp:19832:20: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19834:21: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+file.cpp:19834:21: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19836:26: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+file.cpp:19836:26: note:   template argument deduction/substitution failed:
+file.cpp:20110:31: note:   'const Point' is not derived from 'const std::array<_Tp, _Nm>'
+file.cpp: In member function 'const Y& Point::get_y() const':
+file.cpp:20113:31: error: no matching function for call to 'get(const Point&)'
+file.cpp:20113:31: note: candidates are:
+file.cpp:18939:13: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+file.cpp:18939:13: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18944:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+file.cpp:18944:5: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18949:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+file.cpp:18949:5: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   'const Point' is not derived from 'const std::pair<_Tp1, _Tp2>'
+file.cpp:19705:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+file.cpp:19705:5: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19712:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+file.cpp:19712:5: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   'const Point' is not derived from 'const std::tuple<_Elements ...>'
+file.cpp:19719:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+file.cpp:19719:5: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19832:20: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+file.cpp:19832:20: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19834:21: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+file.cpp:19834:21: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19836:26: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+file.cpp:19836:26: note:   template argument deduction/substitution failed:
+file.cpp:20113:31: note:   'const Point' is not derived from 'const std::array<_Tp, _Nm>'
+file.cpp: In member function 'const Z& Point::get_z() const':
+file.cpp:20116:31: error: no matching function for call to 'get(const Point&)'
+file.cpp:20116:31: note: candidates are:
+file.cpp:18939:13: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+file.cpp:18939:13: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18944:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+file.cpp:18944:5: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::pair<_Tp1, _Tp2>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:18949:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+file.cpp:18949:5: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   'const Point' is not derived from 'const std::pair<_Tp1, _Tp2>'
+file.cpp:19705:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+file.cpp:19705:5: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19712:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+file.cpp:19712:5: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   'const Point' is not derived from 'const std::tuple<_Elements ...>'
+file.cpp:19719:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+file.cpp:19719:5: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::tuple<_Elements ...>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19832:20: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+file.cpp:19832:20: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19834:21: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+file.cpp:19834:21: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   types 'std::array<_Tp, _Nm>' and 'const Point' have incompatible cv-qualifiers
+file.cpp:19836:26: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+file.cpp:19836:26: note:   template argument deduction/substitution failed:
+file.cpp:20116:31: note:   'const Point' is not derived from 'const std::array<_Tp, _Nm>'
