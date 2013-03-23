@@ -35,8 +35,8 @@ get '/' do
 end
 
 
-get '/*.*' do |file, ext|
-  File.read("#{file}.#{ext}")
+get '/favicon.ico' do
+  File.read('favicon.ico')
 end
 
 
