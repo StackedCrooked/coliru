@@ -6,26 +6,26 @@
         html, body { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
         .content { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
 
-        .box-layout-orient-horizontal {
+        .hbox {
             display: box; display: -webkit-box; display: -moz-box; position: relative; padding: 0; margin: 0; 
             box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
             box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
         }
 
-        .box-layout-orient-vertical {
+        .vbox {
             display: box; display: -webkit-box; display: -moz-box;
             position: relative; padding: 0; margin: 0;
             box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
             box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
         }
 
-        .box-element-flex-0 {
+        .f0 {
             display: box; display: -webkit-box; display: -moz-box;
             position: relative;
             box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
         }
 
-        .box-element-flex-1 {
+        .f1 {
             display: box; display: -webkit-box; display: -moz-box;
             position: relative;
             box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
@@ -34,13 +34,13 @@
         #frame-bottom { height: 100%; width: 100%; }
 
         #output {
-          resize: vertical; min-height: 20px; font-family: monospace; background-color: #eeeeee;
+            resize: vertical; min-height: 20px; font-family: monospace; background-color: #eeeeee;
         }
 
         #cmd {
-          resize: none; font-family: monospace; font-weight: bolder;
+            resize: none; font-family: monospace; font-weight: bolder;
         }
- 
+
         textarea {
             border: 1px solid gray;
             outline: 0 !important;
@@ -56,7 +56,7 @@
 
 
         button {
-          margin: 2px;
+            margin: 2px;
         }
 
 
@@ -68,39 +68,34 @@
         _gaq.push(['_trackPageview']);
 
         (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+         var ga = document.createElement('script');
+         ga.type = 'text/javascript';
+         ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(ga, s);
+         })();
 
-    </script>
+</script>
 </head>
 <body>
-  <div class="content box-layout-orient-horizontal">
-    <div id="frame-bottom" class="box-layout-orient-vertical box-element-flex-1">
-
-      <textarea id="output" class="box-element-flex-1" readonly></textarea>
-
-      <div class="box-layout-orient-horizontal box-element-flex-0">
-
-        <textarea id="cmd" rows="3" class="box-element-flex-1" ></textarea> 
-
-        <div class="box-element-flex-0 box-layout-orient-horizontal">
-          <button id="compileButton" class="box-element-flex-1" onclick="parent.app.compileNow();">Compile, link and run...</button>
-          <button id="postButton" class="box-element-flex-1" onclick="parent.app.postSample();">Share!</button>
+    <div class="content hbox">
+        <div id="frame-bottom" class="vbox f1">
+            <textarea id="output" class="f1" readonly></textarea>
+            <div class="hbox f0">
+                <textarea id="cmd" rows="3" class="f1" ></textarea> 
+                <div class="f0 hbox">
+                    <button id="compileButton" class="f1" onclick="parent.app.compileNow();">Compile, link and run...</button>
+                    <button id="postButton" class="f1" onclick="parent.app.postSample();">Share!</button>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
-  </div>
-<script>
-    parent.app.elements.compileButton = document.getElementById("compileButton");
-    parent.app.elements.postButton = document.getElementById("postButton");
-    parent.app.elements.cmd = document.getElementById("cmd");
-    parent.app.elements.output = document.getElementById("output");
-</script>
+    <script>
+        parent.app.elements.compileButton = document.getElementById("compileButton");
+        parent.app.elements.postButton = document.getElementById("postButton");
+        parent.app.elements.cmd = document.getElementById("cmd");
+        parent.app.elements.output = document.getElementById("output");
+    </script>
 </body>
 </html>
