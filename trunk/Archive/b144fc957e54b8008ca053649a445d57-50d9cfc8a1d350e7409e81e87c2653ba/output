@@ -1,0 +1,53 @@
+main.cpp: In function 'int main()':
+main.cpp:16:27: error: no matching function for call to 'Foo::Foo(std::remove_reference<std::basic_string<char>&>::type)'
+     Foo foo(std::move(abc));
+                           ^
+main.cpp:16:27: note: candidates are:
+main.cpp:5:8: note: Foo::Foo()
+ struct Foo : std::string
+        ^
+main.cpp:5:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const std::allocator<char>&)
+     using std::string::string;
+                        ^
+main.cpp:7:24: note:   no known conversion for argument 1 from 'std::remove_reference<std::basic_string<char>&>::type {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:7:24: note: Foo::Foo(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:7:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:7:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:7:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:7:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const char*, std::basic_string<char>::size_type)
+main.cpp:7:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const char*, const std::allocator<char>&)
+main.cpp:7:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(const char*)
+main.cpp:7:24: note:   no known conversion for argument 1 from 'std::remove_reference<std::basic_string<char>&>::type {aka std::basic_string<char>}' to 'const char*'
+main.cpp:7:24: note: Foo::Foo(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:7:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(std::basic_string<char>::size_type, char)
+main.cpp:7:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:7:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:7:24: note: Foo::Foo(std::initializer_list<char>)
+main.cpp:7:24: note:   no known conversion for argument 1 from 'std::remove_reference<std::basic_string<char>&>::type {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:7:24: note: template<class _InputIterator> Foo::Foo(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:7:24: note:   template argument deduction/substitution failed:
+main.cpp:16:27: note:   candidate expects 3 arguments, 1 provided
+     Foo foo(std::move(abc));
+                           ^
+main.cpp:7:24: note: template<class _InputIterator> Foo::Foo(_InputIterator, _InputIterator)
+     using std::string::string;
+                        ^
+main.cpp:7:24: note:   template argument deduction/substitution failed:
+main.cpp:16:27: note:   candidate expects 2 arguments, 1 provided
+     Foo foo(std::move(abc));
+                           ^
+main.cpp:5:8: note: Foo::Foo(const Foo&)
+ struct Foo : std::string
+        ^
+main.cpp:5:8: note:   no known conversion for argument 1 from 'std::remove_reference<std::basic_string<char>&>::type {aka std::basic_string<char>}' to 'const Foo&'
+main.cpp:5:8: note: Foo::Foo(Foo&&)
+main.cpp:5:8: note:   no known conversion for argument 1 from 'std::remove_reference<std::basic_string<char>&>::type {aka std::basic_string<char>}' to 'Foo&&'
