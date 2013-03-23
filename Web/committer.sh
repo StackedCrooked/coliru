@@ -13,5 +13,5 @@ while true ; do
   svn ci ${COLIRU_ARCHIVE} -m "Update archive"
 
   # Repeat later. 
-  sleep 3600
+  sleep 1200
 done
