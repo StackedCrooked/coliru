@@ -34,13 +34,13 @@
         #frame-bottom { height: 100%; width: 100%; }
 
         #output {
-            resize: vertical; min-height: 20px; font-family: monospace; background-color: #eeeeee;
+          resize: vertical; min-height: 20px; font-family: monospace; background-color: #eeeeee;
         }
 
         #cmd {
-            resize: vertical; max-height: 120px; font-family: monospace; font-weight: bolder;
+          resize: vertical; max-height: 160px; font-family: monospace; font-weight: bolder;
         }
-
+ 
         textarea {
             border: 1px solid gray;
             outline: 0 !important;
@@ -56,9 +56,7 @@
 
 
         button {
-            height: 30px;
-            /*padding-left: 20px; padding-right: 20px;*/
-            margin: 3px;
+          margin: 2px;
         }
 
 
@@ -70,55 +68,39 @@
         _gaq.push(['_trackPageview']);
 
         (function () {
-         var ga = document.createElement('script');
-         ga.type = 'text/javascript';
-         ga.async = true;
-         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-         var s = document.getElementsByTagName('script')[0];
-         s.parentNode.insertBefore(ga, s);
-         })();
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
 
-</script>
+    </script>
 </head>
 <body>
-    <div id="frame-bottom" class="content box-layout-orient-horizontal box-element-flex-1">
-        <div class="box-layout-orient-vertical box-element-flex-1">
-            <textarea id="output" class="box-element-flex-1" readonly></textarea>
-            <div class="box-layout-orient-vertical box-element-flex-0">
-                <textarea id="cmd" class="box-element-flex-1" ></textarea> 
-            </div>
-        </div>
-        <div class="box-element-flex-0 box-layout-orient-horizontal" style="text-align:center;">
-            <div class="box-layout-orient-vertical box-element-flex-0" >
+  <div class="content box-layout-orient-horizontal">
+    <div id="frame-bottom" class="box-layout-orient-vertical box-element-flex-1">
 
-                <div class="box-element-flex-1"> </div>
-                <button id="compileButton" class="box-element-flex-0 box-layout-orient-vertical" style="height: 200px" onclick="parent.app.compileNow();">
-                    <div class="box-element-flex-1" style="height:4px"></div>
-                    <img class="box-element-flex-0" style="height: 195px" src="http://i.imgur.com/CUhcR.gif" alt="Compile, link and run..."></img>
-                    <div class="box-element-flex-1" style="height:4px"></div>
-                </button>
+      <textarea id="output" class="box-element-flex-1" readonly></textarea>
 
-                <div class="box-element-flex-0" style="height: 2px"> </div>
+      <div class="box-layout-orient-horizontal box-element-flex-0">
 
-                <button id="postButton" class="box-element-flex-0 box-layout-orient-vertical" onclick="parent.app.postSample();">
-                    <div class="box-element-flex-1" ></div>
-                        <div class="box-element-flex-0 box-element-layout-orient-horizontal" >
-                            <div class="box-element-flex-1" ></div>
-                            Share
-                            <div class="box-element-flex-1" ></div>
-                        </div>
-                    <div class="box-element-flex-1" ></div>
-                </button>
-            </div>
+        <textarea id="cmd" class="box-element-flex-1" ></textarea> 
+
+        <div class="box-element-flex-0 box-layout-orient-horizontal">
+          <button id="compileButton" class="box-element-flex-1" onclick="parent.app.compileNow();">Compile, link and run...</button>
+          <button id="postButton" class="box-element-flex-1" onclick="parent.app.postSample();">Share!</button>
         </div>
 
-
+      </div>
     </div>
-    <script>
-        parent.app.elements.compileButton = document.getElementById("compileButton");
-        parent.app.elements.postButton = document.getElementById("postButton");
-        parent.app.elements.cmd = document.getElementById("cmd");
-        parent.app.elements.output = document.getElementById("output");
-    </script>
+  </div>
+<script>
+    parent.app.elements.compileButton = document.getElementById("compileButton");
+    parent.app.elements.postButton = document.getElementById("postButton");
+    parent.app.elements.cmd = document.getElementById("cmd");
+    parent.app.elements.output = document.getElementById("output");
+</script>
 </body>
 </html>
