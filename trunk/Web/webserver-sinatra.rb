@@ -35,6 +35,11 @@ get '/' do
 end
 
 
+get '/*.html' do |file|
+  File.read("#{file}.html")
+end
+
+
 get '/favicon.ico' do
   File.read('favicon.ico')
 end
