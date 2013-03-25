@@ -1,0 +1,92 @@
+main.cpp:1:6: error: 'FileSystemMonitor' has not been declared
+ void FileSystemMonitor::UpdatePending ( ) {
+      ^
+main.cpp: In function 'void UpdatePending()':
+main.cpp:2:8: error: 'changes' was not declared in this scope
+  if ( !changes )
+        ^
+main.cpp:5:2: error: 'vector' is not a member of 'std'
+  std::vector<FileSystemMonitor*> add; 
+  ^
+main.cpp:5:14: error: 'FileSystemMonitor' was not declared in this scope
+  std::vector<FileSystemMonitor*> add; 
+              ^
+main.cpp:5:32: error: expected primary-expression before '>' token
+  std::vector<FileSystemMonitor*> add; 
+                                ^
+main.cpp:5:34: error: 'add' was not declared in this scope
+  std::vector<FileSystemMonitor*> add; 
+                                  ^
+main.cpp:6:2: error: 'vector' is not a member of 'std'
+  std::vector<FileSystemMonitor::Removal> remove; 
+  ^
+main.cpp:6:14: error: 'FileSystemMonitor' is not a class, namespace, or enumeration
+  std::vector<FileSystemMonitor::Removal> remove; 
+              ^
+main.cpp:6:42: error: 'remove' was not declared in this scope
+  std::vector<FileSystemMonitor::Removal> remove; 
+                                          ^
+main.cpp:8:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( pendingmutex );
+   ^
+main.cpp:8:14: error: expected ';' before 'guard'
+   TLockGuard guard( pendingmutex );
+              ^
+main.cpp:9:9: error: 'move' is not a member of 'std'
+   add = std::move( pendingadditions );
+         ^
+main.cpp:9:20: error: 'pendingadditions' was not declared in this scope
+   add = std::move( pendingadditions );
+                    ^
+main.cpp:10:12: error: 'move' is not a member of 'std'
+   remove = std::move( pendingremovals );
+            ^
+main.cpp:10:23: error: 'pendingremovals' was not declared in this scope
+   remove = std::move( pendingremovals );
+                       ^
+main.cpp:15:2: error: 'changes' was not declared in this scope
+  changes = false;
+  ^
+main.cpp:18:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard scanguard( scanmutex );
+   ^
+main.cpp:18:14: error: expected ';' before 'scanguard'
+   TLockGuard scanguard( scanmutex );
+              ^
+main.cpp:19:26: error: unable to deduce 'auto&&' from 'add'
+   for ( auto& addition : add ) {
+                          ^
+main.cpp:20:22: error: 'drives' was not declared in this scope
+    auto drivecatch = drives.find( addition->drive );
+                      ^
+main.cpp:22:38: error: 'make_pair' is not a member of 'std'
+     drives.emplace( addition->drive, std::make_pair<ptr<FileSystemMonitor>, lword>( new FileSystemMonitor( true, addition->drive ), 1 ) );
+                                      ^
+main.cpp:22:53: error: 'ptr' was not declared in this scope
+     drives.emplace( addition->drive, std::make_pair<ptr<FileSystemMonitor>, lword>( new FileSystemMonitor( true, addition->drive ), 1 ) );
+                                                     ^
+main.cpp:22:75: error: expected primary-expression before ',' token
+     drives.emplace( addition->drive, std::make_pair<ptr<FileSystemMonitor>, lword>( new FileSystemMonitor( true, addition->drive ), 1 ) );
+                                                                           ^
+main.cpp:22:77: error: 'lword' was not declared in this scope
+     drives.emplace( addition->drive, std::make_pair<ptr<FileSystemMonitor>, lword>( new FileSystemMonitor( true, addition->drive ), 1 ) );
+                                                                             ^
+main.cpp:22:89: error: expected type-specifier before 'FileSystemMonitor'
+     drives.emplace( addition->drive, std::make_pair<ptr<FileSystemMonitor>, lword>( new FileSystemMonitor( true, addition->drive ), 1 ) );
+                                                                                         ^
+main.cpp:22:89: error: expected ')' before 'FileSystemMonitor'
+main.cpp:27:4: error: 'activelist' was not declared in this scope
+    activelist.emplace_back( addition );
+    ^
+main.cpp:30:25: error: unable to deduce 'auto&&' from 'remove'
+   for ( auto& removal : remove ) {
+                         ^
+main.cpp:31:22: error: 'drives' was not declared in this scope
+    auto drivecatch = drives.find( removal.drive );
+                      ^
+main.cpp:37:4: error: 'activelist' was not declared in this scope
+    activelist.erase( std::find( activelist.begin(), activelist.end(), removal.destructedelement ) );
+    ^
+main.cpp:37:22: error: 'find' is not a member of 'std'
+    activelist.erase( std::find( activelist.begin(), activelist.end(), removal.destructedelement ) );
+                      ^
