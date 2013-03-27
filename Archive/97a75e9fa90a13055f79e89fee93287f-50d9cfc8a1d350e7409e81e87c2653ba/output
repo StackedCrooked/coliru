@@ -1,0 +1,28 @@
+main.cpp: In function 'std::tuple<_Elements ...> make_record(Args&& ...)':
+main.cpp:30:19: error: 'all_types_are_different' was not declared in this scope
+     static_assert(all_types_are_different<Args>::value, "The argument list must not contain two objects of same type.")
+                   ^
+main.cpp:30:47: error: expected primary-expression before '>' token
+     static_assert(all_types_are_different<Args>::value, "The argument list must not contain two objects of same type.")
+                                               ^
+main.cpp:30:48: error: '::value' has not been declared
+     static_assert(all_types_are_different<Args>::value, "The argument list must not contain two objects of same type.")
+                                                ^
+main.cpp:31:5: error: expected ';' before 'return'
+     return std::make_tuple(std::forward<Args>(args)...);
+     ^
+main.cpp: In function 'int main()':
+main.cpp:39:46: error: 'Author' was not declared in this scope
+                             Author("Your mom"));
+                                              ^
+main.cpp:41:18: error: 'get' was not declared in this scope
+     auto title = get<Title>(book);
+                  ^
+main.cpp:41:18: note: suggested alternative:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.8.0/tuple:771:5: note:   'std::get'
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+main.cpp:41:27: error: expected primary-expression before '>' token
+     auto title = get<Title>(book);
+                           ^
