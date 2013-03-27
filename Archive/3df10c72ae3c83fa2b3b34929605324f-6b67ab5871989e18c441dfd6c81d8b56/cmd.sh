@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O2 -pthread main.cpp -D_GLIBCXX_DEBUG -lboost_program_options && ./a.out
