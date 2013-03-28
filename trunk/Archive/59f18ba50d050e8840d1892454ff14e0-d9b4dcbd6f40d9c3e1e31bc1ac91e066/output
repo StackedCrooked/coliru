@@ -1,0 +1,27 @@
+Serialize int:1
+1
+
+ArgCount=2, Serialize std::tuple<int, int>
+Helper<0>: T&&= std::ostream, Serializer, std::tuple<int, int>
+Helper<1> , Index=0, F=Serializer, Tup=std::tuple<int, int>
+Serializer::operator()<const int&>
+Serialize int:1
+Helper<2> , Index=1, F=Serializer, Tup=std::tuple<int, int>
+Serializer::operator()<const int&>
+Serialize int:2
+1 2
+
+Serialize string
+hello
+
+ArgCount=2, Serialize std::tuple<int, std::string>
+Helper<0>: T&&= std::ostream, Serializer, std::tuple<int, std::string>
+Helper<1> , Index=0, F=Serializer, Tup=std::tuple<int, std::string>
+Serializer::operator()<const int&>
+Serialize int:1
+Helper<2> , Index=1, F=Serializer, Tup=std::tuple<int, std::string>
+Serializer::operator()<const std::string&>
+Serialize string
+1 hello
+
+End of program.
