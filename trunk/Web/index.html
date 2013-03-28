@@ -48,7 +48,8 @@
 
         var sourceCode = localStorage.getItem("src");
         app.elements.editor.setValue(localStorage.getItem("src") || app.samples["Default"]);
-        app.elements.cmd.value = localStorage.getItem("cmd") || "g++-4.8 -std=c++11 -O2 -pthread main.cpp && ./a.out";
+        app.defaultCommand = "g++-4.8 -std=c++11 -O2 -pthread main.cpp && ./a.out";
+        app.elements.cmd.value = localStorage.getItem("cmd") || app.defaultCommand;
         app.elements.output.value = localStorage.getItem("output") || "";
 
         app.enableUI = function(value) {
@@ -84,6 +85,15 @@
 
         app.previousValue = "";
 
+        app.resetCommand = function () {
+            app.elements.cmd.value = app.defaultCommand;
+        };
+
+        app.resetCode = function () {
+            app.elements.editor.setValue(app.samples["Default"]);
+            app.elements.editor.clearSelection();
+            //app.elements.editor.focus();
+        };
         app.compileNow = function () {
             app.send("compile", function (obj) {
                 app.elements.output.value = "$ " + obj.cmd + "\n" + obj.output;
