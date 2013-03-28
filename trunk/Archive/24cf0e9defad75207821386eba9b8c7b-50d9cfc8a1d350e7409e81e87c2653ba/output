@@ -1,0 +1,354 @@
+main.cpp:1:32: error: expected type-specifier before 'Furrovine'
+  template <typename key_type = Furrovine::String>
+                                ^
+main.cpp:1:32: error: expected '>' before 'Furrovine'
+main.cpp:15:41: error: expected type-specifier
+   template < typename T, typename TDx = std::default_delete<T> > 
+                                         ^
+main.cpp:15:41: error: expected '>'
+main.cpp:17:4: error: 'ptr' does not name a type
+    ptr<T, TDx> resource;
+    ^
+main.cpp:44:3: error: 'unordered_map' in namespace 'std' does not name a type
+   std::unordered_map<TKey, ptr<ResourceBase>> resources;
+   ^
+main.cpp:48:36: error: 'std::unique_ptr' has not been declared
+   void Add ( const TKey& key, std::unique_ptr<T> value ) {
+                                    ^
+main.cpp:48:46: error: expected ',' or '...' before '<' token
+   void Add ( const TKey& key, std::unique_ptr<T> value ) {
+                                              ^
+main.cpp:53:31: error: 'ptr' has not been declared
+   void Add ( const TKey& key, ptr<T> value ) {
+                               ^
+main.cpp:53:34: error: expected ',' or '...' before '<' token
+   void Add ( const TKey& key, ptr<T> value ) {
+                                  ^
+main.cpp:53:8: error: 'template<class key_type> template<class T> void ResourceCache<key_type>::Add(const TKey&, int)' cannot be overloaded
+   void Add ( const TKey& key, ptr<T> value ) {
+        ^
+main.cpp:48:8: error: with 'template<class key_type> template<class T> void ResourceCache<key_type>::Add(const TKey&, int)'
+   void Add ( const TKey& key, std::unique_ptr<T> value ) {
+        ^
+main.cpp:70:39: error: 'std::unique_ptr' has not been declared
+   bool TryAdd ( const TKey& key, std::unique_ptr<T> value ) {
+                                       ^
+main.cpp:70:49: error: expected ',' or '...' before '<' token
+   bool TryAdd ( const TKey& key, std::unique_ptr<T> value ) {
+                                                 ^
+main.cpp:75:34: error: 'ptr' has not been declared
+   bool TryAdd ( const TKey& key, ptr<T> value ) {
+                                  ^
+main.cpp:75:37: error: expected ',' or '...' before '<' token
+   bool TryAdd ( const TKey& key, ptr<T> value ) {
+                                     ^
+main.cpp:75:8: error: 'template<class key_type> template<class T> bool ResourceCache<key_type>::TryAdd(const TKey&, int)' cannot be overloaded
+   bool TryAdd ( const TKey& key, ptr<T> value ) {
+        ^
+main.cpp:70:8: error: with 'template<class key_type> template<class T> bool ResourceCache<key_type>::TryAdd(const TKey&, int)'
+   bool TryAdd ( const TKey& key, std::unique_ptr<T> value ) {
+        ^
+main.cpp:133:11: error: 'ulword' was not declared in this scope
+   T& At ( ulword index ) {
+           ^
+main.cpp:133:26: error: expected ';' before '{' token
+   T& At ( ulword index ) {
+                          ^
+main.cpp:143:3: error: data member 'At' cannot be a member template
+   }
+   ^
+main.cpp:146:20: error: 'ulword' was not declared in this scope
+   T& operator [] ( ulword index ) {
+                    ^
+main.cpp:146:33: error: declaration of 'operator[]' as non-function
+   T& operator [] ( ulword index ) {
+                                 ^
+main.cpp:166:40: error: 'std::unique_ptr' has not been declared
+   bool Replace ( const TKey& key, std::unique_ptr<T> value ) {
+                                        ^
+main.cpp:166:50: error: expected ',' or '...' before '<' token
+   bool Replace ( const TKey& key, std::unique_ptr<T> value ) {
+                                                  ^
+main.cpp:171:35: error: 'ptr' has not been declared
+   bool Replace ( const TKey& key, ptr<T> value ) {
+                                   ^
+main.cpp:171:38: error: expected ',' or '...' before '<' token
+   bool Replace ( const TKey& key, ptr<T> value ) {
+                                      ^
+main.cpp:171:8: error: 'template<class key_type> template<class T> bool ResourceCache<key_type>::Replace(const TKey&, int)' cannot be overloaded
+   bool Replace ( const TKey& key, ptr<T> value ) {
+        ^
+main.cpp:166:8: error: with 'template<class key_type> template<class T> bool ResourceCache<key_type>::Replace(const TKey&, int)'
+   bool Replace ( const TKey& key, std::unique_ptr<T> value ) {
+        ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder()':
+main.cpp:19:24: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( ) : resource( null ) {
+                        ^
+main.cpp:19:34: error: 'null' was not declared in this scope
+    ResourceHolder( ) : resource( null ) {
+                                  ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder(T)':
+main.cpp:23:35: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( T resource ) : resource( std::move( resource ) ) {
+                                   ^
+main.cpp:23:45: error: 'move' is not a member of 'std'
+    ResourceHolder( T resource ) : resource( std::move( resource ) ) {
+                                             ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder(T&&)':
+main.cpp:27:32: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( T&& res ) : resource( std::move( res ) ) {
+                                ^
+main.cpp:27:42: error: 'move' is not a member of 'std'
+    ResourceHolder( T&& res ) : resource( std::move( res ) ) {
+                                          ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder(T*)':
+main.cpp:31:31: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( T* res ) : resource( res ) {
+                               ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder(T*, TDx)':
+main.cpp:35:44: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( T* res, TDx deleter ) : resource( res, deleter ) {
+                                            ^
+main.cpp: In constructor 'ResourceCache<key_type>::ResourceHolder<T, TDx>::ResourceHolder(T*, TDx&&)':
+main.cpp:39:46: error: class 'ResourceCache<key_type>::ResourceHolder<T, TDx>' does not have any field named 'resource'
+    ResourceHolder( T* res, TDx&& deleter ) : resource( res, deleter ) {
+                                              ^
+main.cpp: In member function 'void ResourceCache<key_type>::Add(const TKey&, int)':
+main.cpp:49:14: error: 'value' was not declared in this scope
+    Add( key, value.release() );
+              ^
+main.cpp: In member function 'void ResourceCache<key_type>::Add(const TKey&, int)':
+main.cpp:54:14: error: 'value' was not declared in this scope
+    Add( key, value.release() );
+              ^
+main.cpp: In member function 'void ResourceCache<key_type>::Add(const TKey&, T*)':
+main.cpp:59:18: error: 'null' was not declared in this scope
+    if ( value == null )
+                  ^
+main.cpp:62:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( key );
+                 ^
+main.cpp:64:22: error: 'String' has not been declared
+     throw Exception( String::Format( "Key \"{0}\" already exists in the cache", key ) );
+                      ^
+main.cpp:64:87: error: there are no arguments to 'Exception' that depend on a template parameter, so a declaration of 'Exception' must be available [-fpermissive]
+     throw Exception( String::Format( "Key \"{0}\" already exists in the cache", key ) );
+                                                                                       ^
+main.cpp:64:87: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:66:22: error: 'make_pair' is not a member of 'std'
+    resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                      ^
+main.cpp:66:63: error: template argument 2 is invalid
+    resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                                                               ^
+main.cpp: In member function 'bool ResourceCache<key_type>::TryAdd(const TKey&, int)':
+main.cpp:71:24: error: 'value' was not declared in this scope
+    return TryAdd( key, value.release() );
+                        ^
+main.cpp: In member function 'bool ResourceCache<key_type>::TryAdd(const TKey&, int)':
+main.cpp:76:24: error: 'value' was not declared in this scope
+    return TryAdd( key, value.release() );
+                        ^
+main.cpp: In member function 'bool ResourceCache<key_type>::TryAdd(const TKey&, T*)':
+main.cpp:81:18: error: 'null' was not declared in this scope
+    if ( value == null )
+                  ^
+main.cpp:84:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( key );
+                 ^
+main.cpp:88:22: error: 'make_pair' is not a member of 'std'
+    resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                      ^
+main.cpp:88:63: error: template argument 2 is invalid
+    resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                                                               ^
+main.cpp: In member function 'bool ResourceCache<key_type>::TryGet(const TKey&, T*&)':
+main.cpp:95:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( id );
+                 ^
+main.cpp:97:21: error: template argument 2 is invalid
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                     ^
+main.cpp:97:36: error: invalid type in declaration before '=' token
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                                    ^
+main.cpp:97:67: error: template argument 2 is invalid
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                                                                   ^
+main.cpp:97:68: error: expected '>' before '*' token
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                                                                    ^
+main.cpp:97:68: error: expected '(' before '*' token
+main.cpp:97:69: error: expected primary-expression before '>' token
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                                                                     ^
+main.cpp:97:93: error: expected ')' before ';' token
+     ResourceHolder<T>* cacheholder = dynamic_cast<ResourceHolder<T>*>( index->second.get() );
+                                                                                             ^
+main.cpp:98:25: error: 'null' was not declared in this scope
+     if ( cacheholder != null ) {
+                         ^
+main.cpp:99:32: error: request for member 'resource' in 'cacheholder->', which is of non-class type 'int'
+      resource = &(cacheholder->resource);
+                                ^
+main.cpp: In member function 'T* ResourceCache<key_type>::TryGet(const TKey&)':
+main.cpp:108:13: error: 'null' was not declared in this scope
+    T* res = null;
+             ^
+main.cpp: In member function 'T& ResourceCache<key_type>::Get(const TKey&)':
+main.cpp:115:25: error: 'null' was not declared in this scope
+    ResourceBase* base = null;
+                         ^
+main.cpp:116:20: error: template argument 2 is invalid
+    ResourceHolder<T>* resourceholder = null;
+                    ^
+main.cpp:116:38: error: invalid type in declaration before '=' token
+    ResourceHolder<T>* resourceholder = null;
+                                      ^
+main.cpp:117:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( id );
+                 ^
+main.cpp:125:50: error: template argument 2 is invalid
+    resourceholder = dynamic_cast<ResourceHolder<T>*>( base );
+                                                  ^
+main.cpp:125:51: error: expected '>' before '*' token
+    resourceholder = dynamic_cast<ResourceHolder<T>*>( base );
+                                                   ^
+main.cpp:125:51: error: expected '(' before '*' token
+main.cpp:125:52: error: expected primary-expression before '>' token
+    resourceholder = dynamic_cast<ResourceHolder<T>*>( base );
+                                                    ^
+main.cpp:125:61: error: expected ')' before ';' token
+    resourceholder = dynamic_cast<ResourceHolder<T>*>( base );
+                                                             ^
+main.cpp:129:29: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+    return *(resourceholder->resource);
+                             ^
+main.cpp: In member function 'bool ResourceCache<key_type>::Remove(const TKey&)':
+main.cpp:156:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( id );
+                 ^
+main.cpp:160:25: error: 'null' was not declared in this scope
+    index->second.reset( null );
+                         ^
+main.cpp: In member function 'bool ResourceCache<key_type>::Replace(const TKey&, int)':
+main.cpp:167:25: error: 'value' was not declared in this scope
+    return Replace( key, value.release() );
+                         ^
+main.cpp: In member function 'bool ResourceCache<key_type>::Replace(const TKey&, int)':
+main.cpp:172:25: error: 'value' was not declared in this scope
+    return Replace( key, value.release() );
+                         ^
+main.cpp: In member function 'bool ResourceCache<key_type>::Replace(const TKey&, T*)':
+main.cpp:177:20: error: template argument 2 is invalid
+    ResourceHolder<T>* resourceholder = null;
+                    ^
+main.cpp:177:38: error: invalid type in declaration before '=' token
+    ResourceHolder<T>* resourceholder = null;
+                                      ^
+main.cpp:177:40: error: 'null' was not declared in this scope
+    ResourceHolder<T>* resourceholder = null;
+                                        ^
+main.cpp:181:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( key );
+                 ^
+main.cpp:183:5: error: 'ptr' was not declared in this scope
+     ptr<ResourceBase>& resourcebase = index->second;
+     ^
+main.cpp:183:21: error: expected primary-expression before '>' token
+     ptr<ResourceBase>& resourcebase = index->second;
+                     ^
+main.cpp:183:24: error: 'resourcebase' was not declared in this scope
+     ptr<ResourceBase>& resourcebase = index->second;
+                        ^
+main.cpp:184:51: error: template argument 2 is invalid
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                   ^
+main.cpp:184:52: error: expected '>' before '*' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                    ^
+main.cpp:184:52: error: expected '(' before '*' token
+main.cpp:184:53: error: expected primary-expression before '>' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                     ^
+main.cpp:184:76: error: expected ')' before ';' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                                            ^
+main.cpp:185:52: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+     if ( resourceholder == null || resourceholder->resource == null ) {
+                                                    ^
+main.cpp:186:46: error: template argument 2 is invalid
+      resourcebase.reset( new ResourceHolder<T>( value ) );
+                                              ^
+main.cpp:189:24: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+      *(resourceholder->resource) = std::move( *value );
+                        ^
+main.cpp:189:36: error: 'move' is not a member of 'std'
+      *(resourceholder->resource) = std::move( *value );
+                                    ^
+main.cpp:194:23: error: 'make_pair' is not a member of 'std'
+     resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                       ^
+main.cpp:194:64: error: template argument 2 is invalid
+     resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                                                                ^
+main.cpp: In member function 'bool ResourceCache<key_type>::Replace(const TKey&, T*, T*&)':
+main.cpp:201:20: error: template argument 2 is invalid
+    ResourceHolder<T>* resourceholder = null;
+                    ^
+main.cpp:201:38: error: invalid type in declaration before '=' token
+    ResourceHolder<T>* resourceholder = null;
+                                      ^
+main.cpp:201:40: error: 'null' was not declared in this scope
+    ResourceHolder<T>* resourceholder = null;
+                                        ^
+main.cpp:205:17: error: 'resources' was not declared in this scope
+    auto index = resources.find( key );
+                 ^
+main.cpp:207:5: error: 'ptr' was not declared in this scope
+     ptr<ResourceBase>& resourcebase = index->second;
+     ^
+main.cpp:207:21: error: expected primary-expression before '>' token
+     ptr<ResourceBase>& resourcebase = index->second;
+                     ^
+main.cpp:207:24: error: 'resourcebase' was not declared in this scope
+     ptr<ResourceBase>& resourcebase = index->second;
+                        ^
+main.cpp:208:51: error: template argument 2 is invalid
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                   ^
+main.cpp:208:52: error: expected '>' before '*' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                    ^
+main.cpp:208:52: error: expected '(' before '*' token
+main.cpp:208:53: error: expected primary-expression before '>' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                     ^
+main.cpp:208:76: error: expected ')' before ';' token
+     resourceholder = dynamic_cast<ResourceHolder<T>*>( resourcebase.get() );
+                                                                            ^
+main.cpp:209:52: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+     if ( resourceholder == null || resourceholder->resource == null ) {
+                                                    ^
+main.cpp:211:46: error: template argument 2 is invalid
+      resourcebase.reset( new ResourceHolder<T>( value ) );
+                                              ^
+main.cpp:214:24: error: 'move' is not a member of 'std'
+      oldvalue = new T( std::move( *resourceholder->resource ) );
+                        ^
+main.cpp:214:52: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+      oldvalue = new T( std::move( *resourceholder->resource ) );
+                                                    ^
+main.cpp:215:24: error: request for member 'resource' in 'resourceholder->', which is of non-class type 'int'
+      *(resourceholder->resource) = std::move( *value );
+                        ^
+main.cpp:215:36: error: 'move' is not a member of 'std'
+      *(resourceholder->resource) = std::move( *value );
+                                    ^
+main.cpp:220:23: error: 'make_pair' is not a member of 'std'
+     resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                       ^
+main.cpp:220:64: error: template argument 2 is invalid
+     resources.insert( std::make_pair( key, new ResourceHolder<T>( value ) ) );
+                                                                ^
