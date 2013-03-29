@@ -1,0 +1,73 @@
+	.file	"main.cpp"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"Hello World!"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1250:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1250
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	$24, %esi
+	subq	$368, %rsp
+	.cfi_def_cfa_offset 384
+	movq	%rsp, %rdi
+.LEHB0:
+	call	_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode
+.LEHE0:
+	leaq	16(%rsp), %rdi
+	movl	$.LC0, %esi
+.LEHB1:
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+.LEHE1:
+	movq	%rsp, %rdi
+	call	_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev
+	addq	$368, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+.L3:
+	.cfi_restore_state
+	movq	%rax, %rbx
+	movq	%rsp, %rdi
+	call	_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev
+	movq	%rbx, %rdi
+.LEHB2:
+	call	_Unwind_Resume
+.LEHE2:
+	.cfi_endproc
+.LFE1250:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA1250:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1250-.LLSDACSB1250
+.LLSDACSB1250:
+	.uleb128 .LEHB0-.LFB1250
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB1250
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L3-.LFB1250
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB1250
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1250:
+	.section	.text.startup
+	.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits
