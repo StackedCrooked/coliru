@@ -3,10 +3,8 @@
 
     <title>Coliru History</title>
     <style type="text/css">
-
-
-      html, body { position: relative; font-family: monospace; width: 100%; height: 100%; }
-      #content { position: relative; font-family: monospace; width: 100%; height: 100%; }
+      html, body { font-family: monospace; }
+      #content { width: 100%; }
     </style>
     <script>
 
@@ -21,7 +19,6 @@
 
       window.onload = function () {
         Element.prototype.createNBSP = function () {
-          "use strict";
           this.appendChild(document.createTextNode("\u00a0"));
         };
         Element.prototype.createChild = function (tagNamePath) {
@@ -37,10 +34,8 @@
         var getHistory = function() {
           var historyObj = localStorage['history'];
           if (historyObj === undefined)  {
-            console.log("History object is undefined. So create it.");
             historyObj = '[]';
             } else if (historyObj === null) {
-            console.log("History object returns null. Clearing the history.");
             localStorage.clear();
             historyObj = '[]';
           }
@@ -48,7 +43,6 @@
           return JSON.parse(historyObj);
         };
         var history = getHistory();
-        console.log('history: ' + JSON.stringify(history));
         if (history.length === 1) {
           document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history."; 
           } else {
@@ -56,9 +50,7 @@
         }
 
         for (var i = 0; i !== history.length; ++i) {
-          console.log('i: ' + i);
           var url = history[i];
-          console.log('url: ' + url);
           var c = document.getElementById('content');
           var a = c.createChild('a');
           a.href = url;
