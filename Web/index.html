@@ -122,9 +122,11 @@
 
         app.postSample = function () {
             app.send("share", function (obj) {
-                var url = "http://" + window.location.hostname + ":" + window.location.port + "/view?id=" + obj.output;
+                var url = "http://" + window.location.hostname + "/view?id=" + obj.output;
                 app.history = JSON.parse(localStorage['history'] || '[]');
                 app.history.push(url);
+
+
                 localStorage['history'] = JSON.stringify(app.history);
                 window.open(url, '_self');
             });
