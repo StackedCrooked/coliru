@@ -34,17 +34,20 @@
           }
           return result;
         };
-        var historyObj = localStorage['history'];
-        if (historyObj === undefined)  {
-          console.log("History object is undefined. So create it.");
-          historyObj = '[]';
-        } else if (historyObj === null) {
-          console.log("History object returns null. Clearing the history.");
-          localStorage.clear();
-          historyObj = '[]';
-        }
+        var getHistory = function() {
+          var historyObj = localStorage['history'];
+          if (historyObj === undefined)  {
+            console.log("History object is undefined. So create it.");
+            historyObj = '[]';
+            } else if (historyObj === null) {
+            console.log("History object returns null. Clearing the history.");
+            localStorage.clear();
+            historyObj = '[]';
+          }
 
-        var history = JSON.parse(historyObj);
+          return JSON.parse(historyObj);;
+        };
+        var history = getHistory();
         console.log('history: ' + JSON.stringify(history));
         if (history.length === 1) {
           document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history."; 
