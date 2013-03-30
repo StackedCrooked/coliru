@@ -1,0 +1,73 @@
+<html>
+  <head>
+
+    <title>Coliru History</title>
+    <style type="text/css">
+
+
+      html, body { position: relative; font-family: monospace; width: 100%; height: 100%; }
+      #content { position: relative; font-family: monospace; width: 100%; height: 100%; }
+    </style>
+    <script>
+
+      // Redirect www. to host domain.
+      if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
+        var host = window.location.hostname + "";
+        host = host.replace(/^www./, "")
+        host = host.replace(/^stacked/, "coliru.stacked");
+        window.location.hostname = host;
+      }
+
+
+      window.onload = function () {
+        Element.prototype.createNBSP = function () {
+          "use strict";
+          this.appendChild(document.createTextNode("\u00a0"));
+        };
+        Element.prototype.createChild = function (tagNamePath) {
+          var result = this;
+          var tagNames = tagNamePath.split("/");
+          for (var i = 0; i < tagNames.length; ++i) {
+            var child = document.createElement(tagNames[i]);
+            result.appendChild(child);
+            result = child;
+          }
+          return result;
+        };
+        var historyObj = localStorage['history'];
+        if (historyObj === undefined)  {
+          console.log("History object is undefined. So create it.");
+          historyObj = '[]';
+        } else if (historyObj === null) {
+          console.log("History object returns null. Clearing the history.");
+          localStorage.clear();
+          historyObj = '[]';
+        }
+
+        var history = JSON.parse(historyObj);
+        console.log('history: ' + JSON.stringify(history));
+        if (history.length === 1) {
+          document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history."; 
+          } else {
+          document.getElementById('h2').textContent = "There are currently " + history.length + " items in your history."; 
+        }
+
+        for (var i = 0; i !== history.length; ++i) {
+          console.log('i: ' + i);
+          var url = history[i];
+          console.log('url: ' + url);
+          var c = document.getElementById('content');
+          var a = c.createChild('a');
+          a.href = url;
+          a.textContent = "" + i;
+          c.createNBSP();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Coliru History</h1>
+    <h2 id="h2">Coliru History</h2>
+    <div id="content" class="vbox flex=1"></div>
+  </body>
+</html>
