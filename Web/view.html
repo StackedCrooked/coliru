@@ -20,16 +20,15 @@
       #editor {
         position: relative;
         width: 100%; height: 60%;
-        margin-bottom: 1px; padding: 0px;
+        margin-bottom: 1px; padding: 0;
       }
 
       #output {
         position: relative;
         height: 30%;
         margin: 0; padding: 0;
-        border-style: solid;
-        border-color: gray;
-        background-color: #eeeeee;
+          border: solid gray;
+          background-color: #eeeeee;
         font-family: monospace;
       }
 
@@ -41,7 +40,7 @@
 
 
       #cloneButton {
-        position:absolute; right:0px; top: 0px;
+        position:absolute; right:0; top: 0;
         height: 30px;
         width: 100px;
         margin: 8px;
@@ -52,11 +51,9 @@
       .ace_cursor-layer { display:none; }
 
       textarea {
-        border-width: 1px;
-        border-color: gray;
-        border-style: solid;
+          border: 1px solid gray;
 
-        outline: 0 !important;
+          outline: 0 !important;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -91,7 +88,7 @@
        // Redirect www. to host domain.
        if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
          var host = window.location.hostname + "";
-         host = host.replace(/^www./, "")
+         host = host.replace(/^www./, "");
          host = host.replace(/^stacked/, "coliru.stacked");
          window.location.hostname = host;
        }
@@ -129,7 +126,7 @@
 
        app.send("archive?id=" + app.id, "", function(response) {
          var obj = JSON.parse(response);
-           console.log(JSON.stringify(obj))
+           console.log(JSON.stringify(obj));
          app.editor.setValue(obj.src);
          app.cmd = obj.cmd;
          app.output.value = (obj.cmd ? ("$ " + obj.cmd.trim() + "\n") : "") + obj.output.trim();
