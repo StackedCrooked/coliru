@@ -123,7 +123,21 @@
         app.postSample = function () {
             app.send("share", function (obj) {
                 var url = "http://" + window.location.hostname + "/view?id=" + obj.output;
-                app.history = JSON.parse(localStorage['history'] || '[]');
+                var getHistory = function() {
+                  var historyObj = localStorage['history'];
+                  if (historyObj === undefined)  {
+                    console.log("History object is undefined. So create it.");
+                    historyObj = '[]';
+                  } else if (historyObj === null) {
+                    console.log("History object returns null. Clearing the history.");
+                    localStorage.clear();
+                    historyObj = '[]';
+                  }
+                  return JSON.parse(historyObj);;
+                };
+                app.history = getHistory();
+
+                //app.history = JSON.parse(localStorage['history'] || '[]');
                 app.history.push(url);
 
 
