@@ -1,0 +1,30 @@
+main.cpp: In member function 'bool Compar::equal(std::vector<float>, std::vector<float>)':
+main.cpp:18:65: error: no matching function for call to 'equal(std::vector<float>::iterator, std::vector<float>::iterator, std::vector<float>::iterator, <unresolved overloaded function type>)'
+     return std::equal(a.begin(), a.end(), b.begin(), mypredicate);
+                                                                 ^
+main.cpp:18:65: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/bits/char_traits.h:39:0,
+                 from /usr/local/include/c++/4.8.0/ios:40,
+                 from /usr/local/include/c++/4.8.0/ostream:38,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:1021:5: note: template<class _II1, class _II2> bool std::equal(_II1, _II1, _II2)
+     equal(_II1 __first1, _II1 __last1, _II2 __first2)
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:1021:5: note:   template argument deduction/substitution failed:
+main.cpp:18:65: note:   candidate expects 3 arguments, 4 provided
+     return std::equal(a.begin(), a.end(), b.begin(), mypredicate);
+                                                                 ^
+In file included from /usr/local/include/c++/4.8.0/bits/char_traits.h:39:0,
+                 from /usr/local/include/c++/4.8.0/ios:40,
+                 from /usr/local/include/c++/4.8.0/ostream:38,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:1053:5: note: bool std::equal(_IIter1, _IIter1, _IIter2, _BinaryPredicate) [with _IIter1 = __gnu_cxx::__normal_iterator<float*, std::vector<float> >; _IIter2 = __gnu_cxx::__normal_iterator<float*, std::vector<float> >; _BinaryPredicate = bool (Compar::*)(float, float)]
+     equal(_IIter1 __first1, _IIter1 __last1,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:1053:5: note:   no known conversion for argument 4 from '<unresolved overloaded function type>' to 'bool (Compar::*)(float, float)'
+main.cpp: In member function 'bool Compar::mypredicate(float, float)':
+main.cpp:25:18: error: 'fabs' is not a member of 'std'
+     float diff = std::fabs(i-j);
+                  ^
