@@ -150,28 +150,29 @@
         app.cmd = obj.cmd;
         app.output.value = obj.output.trim();
 
-
         var getHistory = function () {
             var historyObj = localStorage['history_items'];
             if (historyObj === undefined) {
                 console.log("History object is undefined. So create it.");
-                historyObj = '[]';
+                historyObj = '{}';
             } else if (historyObj === null) {
                 console.log("History object returns null. Clearing the history.");
                 localStorage.clear();
-                historyObj = '[]';
+                historyObj = '{}';
             }
             return JSON.parse(historyObj);
         };
         app.history = getHistory();
 
-        obj['timestamp'] = "" + Date.now();
-        obj['url'] = "" + window.location;
-        obj['output'] = app.output.value;
-        app.history.push(obj);
-
-        localStorage['history_items'] = JSON.stringify(app.history);
-
+        if (app.history["" + app.id] === undefined)
+        {
+            obj['timestamp'] = "" + Date.now();
+            obj['id'] = app.id;
+            obj['url'] = "" + window.location;
+            obj['output'] = app.output.value;
+            app.history["" + app.id] = obj;
+            localStorage['history_items'] = JSON.stringify(app.history);
+        }
 
         window.setTimeout(function () {
             var ace_lines = document.getElementsByClassName("ace_line");
