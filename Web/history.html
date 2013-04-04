@@ -1,69 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
 
     <title>Coliru History</title>
     <style type="text/css">
-      html, body { font-family: monospace; }
-      #content { width: 100%; }
+        html, body, iframe, div, textarea {
+            position: relative;
+            width: 100%;
+            font-family: monospace;
+        }
+
+        textarea {
+            border: 0;/*1px solid gray;*/
+            outline: 0 !important;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
     </style>
+    <script type="text/javascript" src="https://raw.github.com/timrwood/moment/2.0.0/min/moment.min.js"></script>
     <script>
 
-      // Redirect www. to host domain.
-      if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
-        var host = window.location.hostname + "";
-        host = host.replace(/^www./, "");
-        host = host.replace(/^stacked/, "coliru.stacked");
-        window.location.hostname = host;
-      }
-
-
-      window.onload = function () {
-        Element.prototype.createNBSP = function () {
-          this.appendChild(document.createTextNode("\u00a0"));
-        };
-        Element.prototype.createChild = function (tagNamePath) {
-          var result = this;
-          var tagNames = tagNamePath.split("/");
-          for (var i = 0; i < tagNames.length; ++i) {
-            var child = document.createElement(tagNames[i]);
-            result.appendChild(child);
-            result = child;
-          }
-          return result;
-        };
-        var getHistory = function() {
-          var historyObj = localStorage['history'];
-          if (historyObj === undefined)  {
-            historyObj = '[]';
-            } else if (historyObj === null) {
-            localStorage.clear();
-            historyObj = '[]';
-          }
-
-          return JSON.parse(historyObj);
-        };
-        var history = getHistory();
-        if (history.length === 1) {
-          document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history."; 
-          } else {
-          document.getElementById('h2').textContent = "There are currently " + history.length + " items in your history."; 
+        // Redirect www. to host domain.
+        if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
+            var host = window.location.hostname + "";
+            host = host.replace(/^www./, "");
+            host = host.replace(/^stacked/, "coliru.stacked");
+            window.location.hostname = host;
         }
 
-        for (var i = 0; i !== history.length; ++i) {
-          var url = history[i];
-          var c = document.getElementById('content');
-          var a = c.createChild('a');
-          a.href = url;
-          a.textContent = "" + i;
-          c.createNBSP();
+
+        window.http_get = function (url) {
+            var x = new XMLHttpRequest();
+            x.open("GET", url, false);
+            x.send(null);
+            return x.responseText;
+        };
+
+
+        window.onload = function () {
+
+//            Element.prototype.createNBSP = function () {
+//                this.appendChild(document.createTextNode("\u00a0"));
+//            };
+            Element.prototype.createChild = function (tagNamePath) {
+                var result = this;
+                var tagNames = tagNamePath.split("/");
+                for (var i = 0; i < tagNames.length; ++i) {
+                    var child = document.createElement(tagNames[i]);
+                    result.appendChild(child);
+                    result = child;
+                }
+                return result;
+            };
+            var getHistory = function () {
+                var historyObj = localStorage['history_items'];
+                if (historyObj === undefined) {
+                    historyObj = '[]';
+                } else if (historyObj === null) {
+                    localStorage.clear();
+                    historyObj = '[]';
+                }
+
+                return JSON.parse(historyObj);
+            };
+            window.history = getHistory();
+
+            if (history.length === 1) {
+                document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history.";
+            } else {
+                document.getElementById('h2').textContent = "There are currently " + history.length + " items in your history.";
+            }
+
+
+            var c = document.getElementById('content');
+            for (var i = 0; i < history.length; ++i) {
+                var obj = history[i];
+                var url = obj.url;
+                var a = c.createChild('div/strong/a');
+                a.href = url;
+                a.textContent = moment.unix(obj.timestamp / 1000).fromNow();
+
+                var d = c.createChild('div');
+                var cmd_field = d.createChild('div/textarea');
+                cmd_field.textContent = obj.src + '\n\n\n' + obj.cmd + '\n' + obj.output;
+                cmd_field.rows = Math.min(80, cmd_field.textContent.split('\n').length);
+                cmd_field.setAttribute('style', 'background-color: #EEEEEE');
+            }
         }
-      }
     </script>
-  </head>
-  <body>
-    <h1>Coliru History</h1>
-    <h2 id="h2">Coliru History</h2>
-    <div id="content"></div>
-  </body>
+</head>
+<body>
+<h1>Coliru History</h1>
+
+<h2 id="h2">Coliru History</h2>
+
+<div id="content"></div>
+</body>
 </html>

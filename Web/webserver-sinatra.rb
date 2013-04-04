@@ -6,6 +6,11 @@ require 'pp'
 require 'sinatra'
 
 
+if ENV['COLIRU_ARCHIVE'] == nil
+    $stderr.puts "COLIRU_ARCHIVE not set. Exiting."
+    exit 1
+end
+
 set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
 
