@@ -1,0 +1,311 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.section	.text._ZNSt6vectorIjSaIjEED2Ev,"axG",		.section	.text._ZNSt6vectorIjSaIjEED2Ev,"axG",
+	.align 2							.align 2
+	.p2align 4,,15							.p2align 4,,15
+	.weak	_ZNSt6vectorIjSaIjEED2Ev				.weak	_ZNSt6vectorIjSaIjEED2Ev
+	.type	_ZNSt6vectorIjSaIjEED2Ev, @function			.type	_ZNSt6vectorIjSaIjEED2Ev, @function
+_ZNSt6vectorIjSaIjEED2Ev:					_ZNSt6vectorIjSaIjEED2Ev:
+.LFB3824:							.LFB3824:
+	.cfi_startproc							.cfi_startproc
+	movq	(%rdi), %rdi						movq	(%rdi), %rdi
+	testq	%rdi, %rdi						testq	%rdi, %rdi
+	je	.L1							je	.L1
+	jmp	_ZdlPv							jmp	_ZdlPv
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L1:								.L1:
+	rep; ret							rep; ret
+	.cfi_endproc							.cfi_endproc
+.LFE3824:							.LFE3824:
+	.size	_ZNSt6vectorIjSaIjEED2Ev, .-_ZNSt6vectorIjSaI		.size	_ZNSt6vectorIjSaIjEED2Ev, .-_ZNSt6vectorIjSaI
+	.weak	_ZNSt6vectorIjSaIjEED1Ev				.weak	_ZNSt6vectorIjSaIjEED1Ev
+	.set	_ZNSt6vectorIjSaIjEED1Ev,_ZNSt6vectorIjSaIjEE		.set	_ZNSt6vectorIjSaIjEED1Ev,_ZNSt6vectorIjSaIjEE
+							      >		.section	.text.unlikely,"ax",@progbits
+							      >		.type	_ZStlsISt11char_traitsIcEERSt13basic_ostreamI
+							      >	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.part.
+							      >	.LFB3995:
+							      >		.cfi_startproc
+							      >		pushq	%rax
+							      >		.cfi_def_cfa_offset 16
+							      >		movq	(%rdi), %rax
+							      >		addq	-24(%rax), %rdi
+							      >		movl	32(%rdi), %esi
+							      >		orl	$1, %esi
+							      >		call	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt
+							      >		popq	%rdx
+							      >		.cfi_def_cfa_offset 8
+							      >		ret
+							      >		.cfi_endproc
+							      >	.LFE3995:
+							      >		.size	_ZStlsISt11char_traitsIcEERSt13basic_ostreamI
+	.section	.rodata.str1.1,"aMS",@progbits,1		.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:								.LC0:
+	.string	"THROW "				      |		.string	"RETURN "
+.LC1:								.LC1:
+	.string	"CAUGHT: "				      |		.string	"EXIT: "
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	_Z12process_datav					.globl	_Z12process_datav
+	.type	_Z12process_datav, @function				.type	_Z12process_datav, @function
+_Z12process_datav:						_Z12process_datav:
+.LFB3761:							.LFB3761:
+	.cfi_startproc							.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0	      <
+	.cfi_lsda 0x3,.LLSDA3761			      <
+	movq	data(%rip), %rdx					movq	data(%rip), %rdx
+	movq	data+8(%rip), %rsi					movq	data+8(%rip), %rsi
+	cmpq	%rsi, %rdx						cmpq	%rsi, %rdx
+	je	.L18					      |		je	.L16
+	pushq	%r12					      |		pushq	%r13
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16				      |		.cfi_offset 13, -16
+	movq	%rsi, %rcx						movq	%rsi, %rcx
+	subq	%rdx, %rcx						subq	%rdx, %rcx
+	pushq	%rbp					      |		addq	$4, %rdx
+							      >		pushq	%r12
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24				      |		.cfi_offset 12, -24
+	sarq	$2, %rcx						sarq	$2, %rcx
+	movq	%rcx, %rax						movq	%rcx, %rax
+	pushq	%rbx					      |		pushq	%rbp
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32				      |		.cfi_offset 6, -32
+	movl	(%rdx), %ebx				      |		pushq	%rbx
+	movl	%ebx, %ebp				      |		.cfi_def_cfa_offset 40
+	cmpq	%rcx, %rbp				      |		.cfi_offset 3, -40
+	je	.L6					      |		subq	$8, %rsp
+	addq	$4, %rdx				      |		.cfi_def_cfa_offset 48
+							      >		movl	-4(%rdx), %ebp
+							      >		movl	%ebp, %ebx
+							      >		cmpq	%rcx, %rbx
+							      >		jne	.L10
+	jmp	.L8							jmp	.L8
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L12:							      |	.L15:
+	movl	(%rdx), %ebx				      |		movl	(%rdx), %ebp
+	addq	$4, %rdx						addq	$4, %rdx
+	movl	%ebx, %ebp				      |		movl	%ebp, %ebx
+	cmpq	%rcx, %rbp				      |		cmpq	%rcx, %rbx
+	je	.L6					      |		je	.L8
+.L8:							      |	.L10:
+	cmpq	%rdx, %rsi						cmpq	%rdx, %rsi
+	jne	.L12					      |		jne	.L15
+.L22:							      |		addq	$8, %rsp
+							      >		.cfi_remember_state
+							      >		.cfi_def_cfa_offset 40
+	popq	%rbx							popq	%rbx
+	.cfi_restore 3							.cfi_restore 3
+	.cfi_def_cfa_offset 24				      |		.cfi_def_cfa_offset 32
+	popq	%rbp							popq	%rbp
+	.cfi_restore 6							.cfi_restore 6
+	.cfi_def_cfa_offset 16				      |		.cfi_def_cfa_offset 24
+	popq	%r12							popq	%r12
+	.cfi_restore 12							.cfi_restore 12
+							      >		.cfi_def_cfa_offset 16
+							      >		popq	%r13
+							      >		.cfi_restore 13
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+.L18:							      |		.p2align 4,,10
+	xorl	%eax, %eax				      |		.p2align 3
+	.p2align 4,,3					      |	.L8:
+	ret						      |		.cfi_restore_state
+.L6:							      |		movl	$7, %edx
+	.cfi_def_cfa_offset 32				      <
+	.cfi_offset 3, -32				      <
+	.cfi_offset 6, -24				      <
+	.cfi_offset 12, -16				      <
+	movl	$6, %edx				      <
+	movl	$.LC0, %esi						movl	$.LC0, %esi
+	movl	$_ZSt4cout, %edi					movl	$_ZSt4cout, %edi
+.LEHB0:							      <
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERS		call	_ZSt16__ostream_insertIcSt11char_traitsIcEERS
+	movq	%rbp, %rsi				      |		movq	%rbx, %rsi
+	movl	$_ZSt4cout, %edi					movl	$_ZSt4cout, %edi
+	call	_ZNSo9_M_insertImEERSoT_				call	_ZNSo9_M_insertImEERSoT_
+	movq	%rax, %r12				      |		movq	%rax, %r13
+	movq	(%rax), %rax						movq	(%rax), %rax
+	movq	-24(%rax), %rax						movq	-24(%rax), %rax
+	movq	240(%r12,%rax), %rbp			      |		movq	240(%r13,%rax), %r12
+	testq	%rbp, %rbp				      |		testq	%r12, %r12
+	je	.L25					      |		je	.L20
+	cmpb	$0, 56(%rbp)				      |		cmpb	$0, 56(%r12)
+	je	.L10					      |		je	.L12
+	movzbl	67(%rbp), %eax				      |		movzbl	67(%r12), %eax
+.L11:							      |	.L13:
+	movsbl	%al, %esi						movsbl	%al, %esi
+	movq	%r12, %rdi				      |		movq	%r13, %rdi
+	call	_ZNSo3putEc						call	_ZNSo3putEc
+	movq	%rax, %rdi						movq	%rax, %rdi
+	call	_ZNSo5flushEv						call	_ZNSo5flushEv
+	movl	$4, %edi				      |		movl	$6, %edx
+	call	__cxa_allocate_exception		      <
+	xorl	%edx, %edx				      <
+	movl	%ebx, (%rax)				      <
+	movl	$_ZTIj, %esi				      <
+	movq	%rax, %rdi				      <
+	call	__cxa_throw				      <
+.LEHE0:							      <
+.L19:							      <
+	cmpq	$1, %rdx				      <
+	movq	%rax, %rdi				      <
+	jne	.L26					      <
+	call	__cxa_begin_catch			      <
+	movl	$.LC1, %esi						movl	$.LC1, %esi
+	movl	$_ZSt4cout, %edi					movl	$_ZSt4cout, %edi
+	movl	(%rax), %ebx				      |		call	_ZSt16__ostream_insertIcSt11char_traitsIcEERS
+.LEHB1:							      |		movq	%rbx, %rsi
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamI |		movl	$_ZSt4cout, %edi
+	movl	%ebx, %esi				      <
+	movq	%rax, %rdi				      <
+	call	_ZNSo9_M_insertImEERSoT_				call	_ZNSo9_M_insertImEERSoT_
+	movq	%rax, %rdi				      |		addq	$8, %rsp
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostr |		.cfi_remember_state
+.LEHE1:							      |		.cfi_def_cfa_offset 40
+	call	__cxa_end_catch				      |		movl	%ebp, %eax
+	movl	%ebx, %eax				      |		popq	%rbx
+	jmp	.L22					      |		.cfi_restore 3
+							      >		.cfi_def_cfa_offset 32
+							      >		popq	%rbp
+							      >		.cfi_restore 6
+							      >		.cfi_def_cfa_offset 24
+							      >		popq	%r12
+							      >		.cfi_restore 12
+							      >		.cfi_def_cfa_offset 16
+							      >		popq	%r13
+							      >		.cfi_restore 13
+							      >		.cfi_def_cfa_offset 8
+							      >		ret
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L10:							      |	.L12:
+	movq	%rbp, %rdi				      |		.cfi_restore_state
+.LEHB2:							      |		movq	%r12, %rdi
+	call	_ZNKSt5ctypeIcE13_M_widen_initEv			call	_ZNKSt5ctypeIcE13_M_widen_initEv
+	movq	0(%rbp), %rax				      |		movq	(%r12), %rax
+	movl	$10, %esi						movl	$10, %esi
+	movq	%rbp, %rdi				      |		movq	%r12, %rdi
+	call	*48(%rax)						call	*48(%rax)
+	jmp	.L11					      |		jmp	.L13
+.L25:							      |	.L16:
+	call	_ZSt16__throw_bad_castv			      |		.cfi_def_cfa_offset 8
+.LEHE2:							      |		.cfi_restore 3
+							      >		.cfi_restore 6
+							      >		.cfi_restore 12
+							      >		.cfi_restore 13
+							      >		xorl	%eax, %eax
+							      >		ret
+.L20:								.L20:
+	movq	%rax, %rbx				      |		.cfi_def_cfa_offset 48
+	.p2align 4,,5					      |		.cfi_offset 3, -40
+	call	__cxa_end_catch				      |		.cfi_offset 6, -32
+	movq	%rbx, %rdi				      |		.cfi_offset 12, -24
+.LEHB3:							      |		.cfi_offset 13, -16
+	call	_Unwind_Resume				      |		.p2align 4,,10
+.L26:							      |		call	_ZSt16__throw_bad_castv
+	call	_Unwind_Resume				      <
+.LEHE3:							      <
+	.cfi_endproc							.cfi_endproc
+.LFE3761:							.LFE3761:
+	.globl	__gxx_personality_v0			      <
+	.section	.gcc_except_table,"a",@progbits	      <
+	.align 4					      <
+.LLSDA3761:						      <
+	.byte	0xff					      <
+	.byte	0x3					      <
+	.uleb128 .LLSDATT3761-.LLSDATTD3761		      <
+.LLSDATTD3761:						      <
+	.byte	0x1					      <
+	.uleb128 .LLSDACSE3761-.LLSDACSB3761		      <
+.LLSDACSB3761:						      <
+	.uleb128 .LEHB0-.LFB3761			      <
+	.uleb128 .LEHE0-.LEHB0				      <
+	.uleb128 .L19-.LFB3761				      <
+	.uleb128 0x1					      <
+	.uleb128 .LEHB1-.LFB3761			      <
+	.uleb128 .LEHE1-.LEHB1				      <
+	.uleb128 .L20-.LFB3761				      <
+	.uleb128 0					      <
+	.uleb128 .LEHB2-.LFB3761			      <
+	.uleb128 .LEHE2-.LEHB2				      <
+	.uleb128 .L19-.LFB3761				      <
+	.uleb128 0x1					      <
+	.uleb128 .LEHB3-.LFB3761			      <
+	.uleb128 .LEHE3-.LEHB3				      <
+	.uleb128 0					      <
+	.uleb128 0					      <
+.LLSDACSE3761:						      <
+	.byte	0x1					      <
+	.byte	0					      <
+	.align 4					      <
+	.long	_ZTIj					      <
+.LLSDATT3761:						      <
+	.text						      <
+	.size	_Z12process_datav, .-_Z12process_datav			.size	_Z12process_datav, .-_Z12process_datav
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB3762:							.LFB3762:
+	.cfi_startproc							.cfi_startproc
+	pushq	%rbx							pushq	%rbx
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16						.cfi_offset 3, -16
+	call	_ZNSt6chrono12system_clock3nowEv			call	_ZNSt6chrono12system_clock3nowEv
+	movq	%rax, %rbx						movq	%rax, %rbx
+	call	_Z12process_datav					call	_Z12process_datav
+	call	_ZNSt6chrono12system_clock3nowEv			call	_ZNSt6chrono12system_clock3nowEv
+	movq	%rax, %rsi						movq	%rax, %rsi
+	movl	$_ZSt4cout, %edi					movl	$_ZSt4cout, %edi
+	subq	%rbx, %rsi						subq	%rbx, %rsi
+	call	_ZNSo9_M_insertIlEERSoT_				call	_ZNSo9_M_insertIlEERSoT_
+	movq	%rax, %rdi						movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostr		call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostr
+	xorl	%eax, %eax						xorl	%eax, %eax
+	popq	%rbx							popq	%rbx
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE3762:							.LFE3762:
+	.size	main, .-main						.size	main, .-main
+	.p2align 4,,15							.p2align 4,,15
+	.type	_GLOBAL__sub_I_data, @function				.type	_GLOBAL__sub_I_data, @function
+_GLOBAL__sub_I_data:						_GLOBAL__sub_I_data:
+.LFB3992:							.LFB3992:
+	.cfi_startproc							.cfi_startproc
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi					movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev					call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx					movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi					movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi				movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	call	__cxa_atexit						call	__cxa_atexit
+	movl	$data, %edi						movl	$data, %edi
+	call	_Z8get_datav						call	_Z8get_datav
+	movl	$__dso_handle, %edx					movl	$__dso_handle, %edx
+	movl	$data, %esi						movl	$data, %esi
+	movl	$_ZNSt6vectorIjSaIjEED1Ev, %edi				movl	$_ZNSt6vectorIjSaIjEED1Ev, %edi
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit						jmp	__cxa_atexit
+	.cfi_endproc							.cfi_endproc
+.LFE3992:							.LFE3992:
+	.size	_GLOBAL__sub_I_data, .-_GLOBAL__sub_I_data		.size	_GLOBAL__sub_I_data, .-_GLOBAL__sub_I_data
+	.section	.init_array,"aw"				.section	.init_array,"aw"
+	.align 8							.align 8
+	.quad	_GLOBAL__sub_I_data					.quad	_GLOBAL__sub_I_data
+	.globl	data							.globl	data
+	.bss								.bss
+	.align 16							.align 16
+	.type	data, @object						.type	data, @object
+	.size	data, 24						.size	data, 24
+data:								data:
+	.zero	24							.zero	24
+	.local	_ZStL8__ioinit						.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1					.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle						.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
