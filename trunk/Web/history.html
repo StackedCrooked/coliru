@@ -129,7 +129,7 @@
 
                 return JSON.parse(historyObj);
             };
-            window.history = getHistory();
+            var history = getHistory();
 
             var length = Object.keys(history).length;
 
@@ -142,8 +142,11 @@
 
             var bydate = [];
             for (var key in history) {
-                var obj = history[key];
-                bydate.push(JSON.stringify({ 'timestamp':obj.timestamp, 'url':obj.url, 'src':obj.src, 'cmd':obj.cmd, 'output':obj.output }));
+                if (history.hasOwnProperty(key))
+                {
+                    var obj = history["" + key];
+                    bydate.push(JSON.stringify({ 'timestamp':obj.timestamp, 'url':obj.url, 'src':obj.src, 'cmd':obj.cmd, 'output':obj.output }));
+                }
             }
 
             bydate.sort(function (a, b) {
@@ -169,6 +172,7 @@
                 var d = c.createChild('div');
 
                 var cmd_field = d.createChild('div/textarea');
+                cmd_field.setAttribute('readonly', 'true');
 
                 cmd_field.textContent = obj.src + '\n\n\n' + obj.cmd + '\n' + obj.output;
                 cmd_field.rows = Math.min(20, cmd_field.textContent.split('\n').length);
