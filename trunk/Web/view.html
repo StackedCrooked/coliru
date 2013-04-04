@@ -11,9 +11,6 @@
             margin: 0;
             padding: 0;
         }
-        a {
-            font-size: large;
-        }
 
         #page {
             position: relative;
@@ -51,13 +48,14 @@
 
         button {
             position: absolute;
-            width: 100px;
-            margin: 8px;
+            margin: 2px;
+            height: 30px;
+            font-size: 10pt;
         }
 
 
-        #cloneButton { right: 0; top: 0; height: 30px; width: 100px; }
-        #historyButton { right: 108px; top: 0; height: 30px; width: 100px; }
+        #cloneButton   { right: 0;    top: 0; height: 30px; width: 60px;  }
+        #historyButton { right: 68px; top: 0; height: 30px; width: 130px; }
 
         .ace_cursor {
             display: none;
@@ -153,6 +151,7 @@
         var obj = JSON.parse(response);
         app.editor.setValue(obj.src);
         app.cmd = obj.cmd;
+        app.cmd_output = obj.output.trim();
         app.output.value = obj.cmd + "\n" + obj.output.trim();
 
         document.domain = "stacked-crooked.com";
@@ -209,7 +208,7 @@
     app.goBack = function () {
         localStorage.setItem("src", editor.getValue());
         localStorage.setItem("cmd", app.cmd);
-        localStorage.setItem("output", app.output.value);
+        localStorage.setItem("output", app.cmd_output);
         window.location.href = "/";
         //history.go(-1);
     };
