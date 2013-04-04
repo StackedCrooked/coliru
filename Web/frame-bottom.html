@@ -57,6 +57,7 @@
 
         button {
             margin: 2px;
+            height: 30px;
             padding-left: 10px; padding-right: 10px;
             font-size: inherit;
         }
@@ -78,25 +79,37 @@
          s.parentNode.insertBefore(ga, s);
          })();
 
-</script>
-</head>
-<body>
-    <div class="content hbox">
-        <div id="frame-bottom" class="vbox f1">
-            <textarea id="output" class="f1" readonly></textarea>
-            <div class="hbox f0">
-                <textarea id="cmd" rows="3" class="f1" ></textarea> 
-                <div class="f0 hbox">
-                    <button id="compileButton" class="f1" onclick="parent.app.compileNow();">Compile, link and run...</button>
-                    <button id="postButton" class="f1" onclick="parent.app.postSample();">Share!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        parent.app.elements.compileButton = document.getElementById("compileButton");
-        parent.app.elements.postButton = document.getElementById("postButton");
-        parent.app.elements.cmd = document.getElementById("cmd");
-        parent.app.elements.output = document.getElementById("output");
-    </script>
-</body>
+     </script>
+     <script>
+         function update_rows(){
+             var cmd = document.getElementById('cmd');
+             var rows = Math.min(cmd.value.split('\n').length, 8);
+             if (rows < 1) rows = 1;
+             cmd.rows = rows;
+             //window.setTimeout(update_rows, 100);
+         }
+         update_rows();
+         //window.setTimeout(update_rows, 100);
+     </script>
+ </head>
+ <body>
+     <div class="content hbox">
+         <div id="frame-bottom" class="vbox f1">
+             <textarea id="output" class="f1" readonly></textarea>
+             <div class="hbox f0">
+                 <textarea id="cmd" onchange='update_rows();' onkeyup='update_rows();'  rows="1" class="f1" ></textarea> 
+             </div>
+             <div class="f0 hbox">
+                 <div class="f1 vbox"></div>
+                 <button id="compileButton" class="f0" onclick="parent.app.compileNow();">Compile, link and run...</button>
+                 <button id="postButton" class="f0" onclick="parent.app.postSample();">Share!</button>
+             </div>
+         </div>
+     </div>
+     <script>
+         parent.app.elements.compileButton = document.getElementById("compileButton");
+         parent.app.elements.postButton = document.getElementById("postButton");
+         parent.app.elements.cmd = document.getElementById("cmd");
+         parent.app.elements.output = document.getElementById("output");
+     </script>
+ </body>
