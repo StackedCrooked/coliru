@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:8:20: error: no matching function for call to 'std::vector<int>::push_back(volatile int&)'
+     vec.push_back(x);
+                    ^
+main.cpp:8:20: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/vector:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:901:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int]
+       push_back(const value_type& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:901:7: note:   no known conversion for argument 1 from 'volatile int' to 'const value_type& {aka const int&}'
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:919:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int]
+       push_back(value_type&& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:919:7: note:   no known conversion for argument 1 from 'volatile int' to 'std::vector<int>::value_type&& {aka int&&}'
