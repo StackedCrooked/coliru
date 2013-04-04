@@ -1,0 +1,250 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	_Z12process_datav					.globl	_Z12process_datav
+	.type	_Z12process_datav, @function				.type	_Z12process_datav, @function
+_Z12process_datav:						_Z12process_datav:
+.LFB676:							.LFB676:
+	.cfi_startproc							.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0			.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA676						.cfi_lsda 0x3,.LLSDA676
+	pushq	%r12							pushq	%r12
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16						.cfi_offset 12, -16
+	xorl	%r12d, %r12d						xorl	%r12d, %r12d
+	pushq	%rbp							pushq	%rbp
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24						.cfi_offset 6, -24
+	pushq	%rbx							pushq	%rbx
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32						.cfi_offset 3, -32
+	subq	$32, %rsp						subq	$32, %rsp
+	.cfi_def_cfa_offset 64						.cfi_def_cfa_offset 64
+	.p2align 4,,10					      <
+	.p2align 3					      <
+.L2:								.L2:
+	movq	%rsp, %rdi						movq	%rsp, %rdi
+.LEHB0:								.LEHB0:
+	call	_Z8get_datav						call	_Z8get_datav
+	movq	(%rsp), %rdi						movq	(%rsp), %rdi
+	movq	8(%rsp), %rbx						movq	8(%rsp), %rbx
+	subq	%rdi, %rbx						subq	%rdi, %rbx
+	sarq	$2, %rbx						sarq	$2, %rbx
+	testq	%rdi, %rdi						testq	%rdi, %rdi
+	je	.L13					      |		je	.L14
+	call	_ZdlPv							call	_ZdlPv
+.L13:							      |	.L14:
+	cmpq	%rbx, %r12						cmpq	%rbx, %r12
+	je	.L14					      |		je	.L15
+	xorl	%ebp, %ebp						xorl	%ebp, %ebp
+	.p2align 4,,3							.p2align 4,,3
+	jmp	.L15					      |		jmp	.L16
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L3:								.L3:
+	testq	%rdi, %rdi						testq	%rdi, %rdi
+	je	.L8							je	.L8
+	.p2align 4,,6							.p2align 4,,6
+	call	_ZdlPv							call	_ZdlPv
+.L8:								.L8:
+	testb	%bl, %bl						testb	%bl, %bl
+	.p2align 4,,3							.p2align 4,,3
+	jne	.L35					      |		jne	.L34
+	addq	$1, %rbp						addq	$1, %rbp
+.L15:							      |	.L16:
+	movq	%rsp, %rdi						movq	%rsp, %rdi
+	call	_Z8get_datav						call	_Z8get_datav
+	movq	(%rsp), %rdi						movq	(%rsp), %rdi
+	movq	8(%rsp), %rbx						movq	8(%rsp), %rbx
+	subq	%rdi, %rbx						subq	%rdi, %rbx
+	sarq	$2, %rbx						sarq	$2, %rbx
+	testq	%rdi, %rdi						testq	%rdi, %rdi
+	je	.L11					      |		je	.L12
+	call	_ZdlPv							call	_ZdlPv
+.L11:							      |	.L12:
+	cmpq	%rbx, %rbp						cmpq	%rbx, %rbp
+	je	.L36					      |		je	.L35
+	movq	%rsp, %rdi						movq	%rsp, %rdi
+	xorl	%ebx, %ebx						xorl	%ebx, %ebx
+	call	_Z8get_datav						call	_Z8get_datav
+.LEHE0:								.LEHE0:
+	movq	(%rsp), %rdi						movq	(%rsp), %rdi
+	movq	8(%rsp), %rax						movq	8(%rsp), %rax
+	subq	%rdi, %rax						subq	%rdi, %rax
+	sarq	$2, %rax						sarq	$2, %rax
+	cmpq	%rax, %r12						cmpq	%rax, %r12
+	jne	.L3							jne	.L3
+	leaq	0(%rbp,%r12), %rbx					leaq	0(%rbp,%r12), %rbx
+.LEHB1:								.LEHB1:
+	call	_Z8get_sizev						call	_Z8get_sizev
+.LEHE1:								.LEHE1:
+	addq	%rax, %rax						addq	%rax, %rax
+	movq	(%rsp), %rdi						movq	(%rsp), %rdi
+	cmpq	%rbx, %rax						cmpq	%rbx, %rax
+	seta	%bl							seta	%bl
+	jmp	.L3							jmp	.L3
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L36:							      |	.L35:
+	addq	$1, %r12						addq	$1, %r12
+	jmp	.L2							jmp	.L2
+.L14:							      |		.p2align 4,,10
+							      >		.p2align 3
+							      >	.L34:
+							      >		movq	%rsp, %rdi
+.LEHB2:								.LEHB2:
+	call	_Z8get_sizev				      |		call	_Z8get_datav
+.LEHE2:							      |		movq	(%rsp), %rdi
+							      >		testq	%rdi, %rdi
+							      >		je	.L10
+							      >		call	_ZdlPv
+							      >	.L10:
+							      >		xorl	%eax, %eax
+							      >	.L31:
+	addq	$32, %rsp						addq	$32, %rsp
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	popq	%rbx							popq	%rbx
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	popq	%rbp							popq	%rbp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	popq	%r12							popq	%r12
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+.L35:							      |	.L15:
+	.cfi_restore_state						.cfi_restore_state
+	movl	$8, %edi				      |		call	_Z8get_sizev
+	call	__cxa_allocate_exception		      |		jmp	.L31
+	movq	%rsp, %rdi				      <
+	movq	%rax, %rbx				      <
+.LEHB3:							      <
+	call	_Z8get_datav				      <
+.LEHE3:							      <
+	movq	(%rsp), %rdi				      <
+	movq	8(%rsp), %rdx				      <
+	subq	%rdi, %rdx				      <
+	sarq	$2, %rdx				      <
+	testq	%rdi, %rdi				      <
+	movq	%rdx, (%rbx)				      <
+	je	.L10					      <
+	call	_ZdlPv					      <
+.L10:							      <
+	xorl	%edx, %edx				      <
+	movl	$_ZTIm, %esi				      <
+	movq	%rbx, %rdi				      <
+.LEHB4:							      <
+	call	__cxa_throw				      <
+.L19:							      <
+	movq	%rax, %rbp				      <
+	movq	%rbx, %rdi				      <
+	call	__cxa_free_exception			      <
+	movq	%rbp, %rdi				      <
+	call	_Unwind_Resume				      <
+.L18:								.L18:
+	movq	(%rsp), %rdi						movq	(%rsp), %rdi
+	movq	%rax, %rbx						movq	%rax, %rbx
+	testq	%rdi, %rdi						testq	%rdi, %rdi
+	je	.L7							je	.L7
+	call	_ZdlPv							call	_ZdlPv
+.L7:								.L7:
+	movq	%rbx, %rdi						movq	%rbx, %rdi
+	call	_Unwind_Resume						call	_Unwind_Resume
+.LEHE4:							      |	.LEHE2:
+	.cfi_endproc							.cfi_endproc
+.LFE676:							.LFE676:
+	.globl	__gxx_personality_v0					.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits			.section	.gcc_except_table,"a",@progbits
+.LLSDA676:							.LLSDA676:
+	.byte	0xff							.byte	0xff
+	.byte	0xff							.byte	0xff
+	.byte	0x1							.byte	0x1
+	.uleb128 .LLSDACSE676-.LLSDACSB676				.uleb128 .LLSDACSE676-.LLSDACSB676
+.LLSDACSB676:							.LLSDACSB676:
+	.uleb128 .LEHB0-.LFB676						.uleb128 .LEHB0-.LFB676
+	.uleb128 .LEHE0-.LEHB0						.uleb128 .LEHE0-.LEHB0
+	.uleb128 0							.uleb128 0
+	.uleb128 0							.uleb128 0
+	.uleb128 .LEHB1-.LFB676						.uleb128 .LEHB1-.LFB676
+	.uleb128 .LEHE1-.LEHB1						.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L18-.LFB676						.uleb128 .L18-.LFB676
+	.uleb128 0							.uleb128 0
+	.uleb128 .LEHB2-.LFB676						.uleb128 .LEHB2-.LFB676
+	.uleb128 .LEHE2-.LEHB2						.uleb128 .LEHE2-.LEHB2
+	.uleb128 0							.uleb128 0
+	.uleb128 0							.uleb128 0
+	.uleb128 .LEHB3-.LFB676				      <
+	.uleb128 .LEHE3-.LEHB3				      <
+	.uleb128 .L19-.LFB676				      <
+	.uleb128 0					      <
+	.uleb128 .LEHB4-.LFB676				      <
+	.uleb128 .LEHE4-.LEHB4				      <
+	.uleb128 0					      <
+	.uleb128 0					      <
+.LLSDACSE676:							.LLSDACSE676:
+	.text								.text
+	.size	_Z12process_datav, .-_Z12process_datav			.size	_Z12process_datav, .-_Z12process_datav
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB677:							.LFB677:
+	.cfi_startproc							.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0			.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA677						.cfi_lsda 0x3,.LLSDA677
+	subq	$24, %rsp						subq	$24, %rsp
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+.LEHB5:							      |	.LEHB3:
+	call	_Z12process_datav					call	_Z12process_datav
+.LEHE5:							      |	.LEHE3:
+	xorl	%eax, %eax						xorl	%eax, %eax
+.L43:							      |	.L42:
+	addq	$24, %rsp						addq	$24, %rsp
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+.L42:							      |	.L41:
+	.cfi_restore_state						.cfi_restore_state
+	subq	$1, %rdx						subq	$1, %rdx
+	movq	%rax, %rdi						movq	%rax, %rdi
+	je	.L40					      |		je	.L39
+.LEHB6:							      |	.LEHB4:
+	call	_Unwind_Resume						call	_Unwind_Resume
+.LEHE6:							      |	.LEHE4:
+.L40:							      |	.L39:
+	call	__cxa_begin_catch					call	__cxa_begin_catch
+	movl	(%rax), %eax						movl	(%rax), %eax
+	movl	%eax, 12(%rsp)						movl	%eax, 12(%rsp)
+	call	__cxa_end_catch						call	__cxa_end_catch
+	movl	12(%rsp), %eax						movl	12(%rsp), %eax
+	jmp	.L43					      |		jmp	.L42
+	.cfi_endproc							.cfi_endproc
+.LFE677:							.LFE677:
+	.section	.gcc_except_table				.section	.gcc_except_table
+	.align 4							.align 4
+.LLSDA677:							.LLSDA677:
+	.byte	0xff							.byte	0xff
+	.byte	0x3							.byte	0x3
+	.uleb128 .LLSDATT677-.LLSDATTD677				.uleb128 .LLSDATT677-.LLSDATTD677
+.LLSDATTD677:							.LLSDATTD677:
+	.byte	0x1							.byte	0x1
+	.uleb128 .LLSDACSE677-.LLSDACSB677				.uleb128 .LLSDACSE677-.LLSDACSB677
+.LLSDACSB677:							.LLSDACSB677:
+	.uleb128 .LEHB5-.LFB677				      |		.uleb128 .LEHB3-.LFB677
+	.uleb128 .LEHE5-.LEHB5				      |		.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L42-.LFB677				      |		.uleb128 .L41-.LFB677
+	.uleb128 0x1							.uleb128 0x1
+	.uleb128 .LEHB6-.LFB677				      |		.uleb128 .LEHB4-.LFB677
+	.uleb128 .LEHE6-.LEHB6				      |		.uleb128 .LEHE4-.LEHB4
+	.uleb128 0							.uleb128 0
+	.uleb128 0							.uleb128 0
+.LLSDACSE677:							.LLSDACSE677:
+	.byte	0x1							.byte	0x1
+	.byte	0							.byte	0
+	.align 4							.align 4
+	.long	_ZTIj							.long	_ZTIj
+.LLSDATT677:							.LLSDATT677:
+	.section	.text.startup					.section	.text.startup
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
