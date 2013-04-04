@@ -14,6 +14,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
+
     </script>
 </head>
 <script type="text/javascript" language="javascript">
@@ -123,26 +124,7 @@
 
         app.postSample = function () {
             app.send("share", function (obj) {
-                var url = "http://" + window.location.hostname + "/view?id=" + obj.output;
-                var getHistory = function() {
-                  var historyObj = localStorage['history'];
-                  if (historyObj === undefined)  {
-                    console.log("History object is undefined. So create it.");
-                    historyObj = '[]';
-                  } else if (historyObj === null) {
-                    console.log("History object returns null. Clearing the history.");
-                    localStorage.clear();
-                    historyObj = '[]';
-                  }
-                    return JSON.parse(historyObj);
-                };
-                app.history = getHistory();
-
-                //app.history = JSON.parse(localStorage['history'] || '[]');
-                app.history.push(url);
-
-
-                localStorage['history'] = JSON.stringify(app.history);
+                var url = window.location + "view?id=" + obj.output;
                 window.open(url, '_self');
             });
         };
