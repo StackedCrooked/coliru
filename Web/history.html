@@ -4,18 +4,82 @@
 
     <title>Coliru History</title>
     <style type="text/css">
-        html, body, iframe, div, textarea {
+
+        html, body, textarea {
+            position: relative;
+            font-family: monospace;
+            width: 100%;
+            height: 100%;
+        }
+
+        #page {
             position: relative;
             width: 100%;
-            font-family: monospace;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .margin {
+            min-width: 20px;
         }
 
         textarea {
-            border: 0;/*1px solid gray;*/
+            border: 0; /*1px solid gray;*/
             outline: 0 !important;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
+        }
+
+
+        .hbox {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            box-orient: horizontal;
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            box-align: stretch;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
+        }
+
+        .vbox {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            box-orient: vertical;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-align: stretch;
+            -webkit-box-align: stretch;
+            -moz-box-align: stretch;
+        }
+
+        .f0 {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+            position: relative;
+            box-flex: 0.0;
+            -webkit-box-flex: 0.0;
+            -moz-box-flex: 0.0;
+        }
+
+        .f1 {
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+            position: relative;
+            box-flex: 1.0;
+            -webkit-box-flex: 1.0;
+            -moz-box-flex: 1.0;
         }
 
     </style>
@@ -57,45 +121,81 @@
             var getHistory = function () {
                 var historyObj = localStorage['history_items'];
                 if (historyObj === undefined) {
-                    historyObj = '[]';
+                    historyObj = '{}';
                 } else if (historyObj === null) {
                     localStorage.clear();
-                    historyObj = '[]';
+                    historyObj = '{}';
                 }
 
                 return JSON.parse(historyObj);
             };
             window.history = getHistory();
 
-            if (history.length === 1) {
-                document.getElementById('h2').textContent = "There is currently " + history.length + " item in your history.";
+            var length = Object.keys(history).length;
+
+            if (length === 1) {
+                document.getElementById('h2').textContent = "There is currently " + length + " item in your history.";
             } else {
-                document.getElementById('h2').textContent = "There are currently " + history.length + " items in your history.";
+                document.getElementById('h2').textContent = "There are currently " + length + " items in your history.";
             }
 
 
-            var c = document.getElementById('content');
-            for (var i = 0; i < history.length; ++i) {
-                var obj = history[i];
+            var bydate = [];
+            for (var key in history) {
+                var obj = history[key];
+                bydate.push(JSON.stringify({ 'timestamp':obj.timestamp, 'url':obj.url, 'src':obj.src, 'cmd':obj.cmd, 'output':obj.output }));
+            }
+
+            bydate.sort(function (a, b) {
+                if (a !== b) {
+                    if (a < b) {
+                        return 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                }
+                return -1;
+            });
+
+            for (var i = 0; i < bydate.length; ++i) {
+                var obj = JSON.parse(bydate[i]);
                 var url = obj.url;
+                var c = document.getElementById('content');
                 var a = c.createChild('div/strong/a');
                 a.href = url;
                 a.textContent = moment.unix(obj.timestamp / 1000).fromNow();
 
                 var d = c.createChild('div');
+
                 var cmd_field = d.createChild('div/textarea');
+
                 cmd_field.textContent = obj.src + '\n\n\n' + obj.cmd + '\n' + obj.output;
-                cmd_field.rows = Math.min(80, cmd_field.textContent.split('\n').length);
-                cmd_field.setAttribute('style', 'background-color: #EEEEEE');
+                cmd_field.rows = Math.min(20, cmd_field.textContent.split('\n').length);
+                cmd_field.setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
+                cmd_field.onmousedown = function(){
+                    this.setAttribute('style', 'overflow:auto; background-color: #EEEEEE');
+                    document.body.style.overflow='hidden';
+                };
+                cmd_field.onmouseout = function(){
+                    this.setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
+                    document.body.style.overflow='auto';
+                    this.blur();
+                };
+                d.createChild('br');
             }
         }
     </script>
 </head>
-<body>
+<body class='vbox f1'>
 <h1>Coliru History</h1>
-
 <h2 id="h2">Coliru History</h2>
 
-<div id="content"></div>
+
+<div class='hbox f1'>
+    <div class='margin'></div>
+    <div id="content" class="vbox f1"></div>
+    <div class='margin'></div>
+</div>
 </body>
 </html>
