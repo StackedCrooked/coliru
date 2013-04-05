@@ -11,6 +11,9 @@
             width: 100%;
             height: 100%;
         }
+        body { 
+            overflow: scroll;
+        }
 
         h1 { margin: 8px; }
         h2 { margin: 12px; }
@@ -19,15 +22,17 @@
             position: relative;
             width: 100%;
             height: 100%;
-            overflow: hidden;
         }
 
         .margin {
             min-width: 20px;
+            padding: 40px;
         }
 
         textarea {
             border: 0; /*1px solid gray;*/
+            min-width: 800px;
+            max-width: 800px;
             outline: 0 !important;
             appearance: none;
             -webkit-appearance: none;
@@ -180,14 +185,26 @@
                 cmd_field.textContent = obj.src + '\n\n\n' + obj.cmd + '\n' + obj.output;
                 cmd_field.rows = Math.min(20, cmd_field.textContent.split('\n').length);
                 cmd_field.setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
-                cmd_field.onmousedown = function(){
-                    this.setAttribute('style', 'overflow:auto; background-color: #EEEEEE');
-                    document.body.style.overflow='hidden';
+                cmd_field.onkeydown = function(e){
+                    if (e.keyCode == 27) {
+                        this.setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
+                        var oldw = this.width;
+                        document.body.style.overflow='scroll';
+                        this.width = oldw;
+                        this.blur();
+                    }
                 };
-                cmd_field.onmouseout = function(){
-                    this.setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
-                    document.body.style.overflow='auto';
-                    this.blur();
+                cmd_field.onmouseup = function(){
+                    this.select();
+                    this.setAttribute('style', 'overflow-y:scroll; background-color: #EEEEEE');
+                };
+                cmd_field.onmousedown = function(){
+                    document.body.style.overflow='hidden';
+                    var textareas = document.getElementsByTagName('textarea');
+                    for (var i = 0; i < textareas.length; ++i)
+                    {
+                        textareas[i].setAttribute('style', 'overflow:hidden; background-color: #EEEEEE');
+                    }
                 };
                 d.createChild('br');
             }
