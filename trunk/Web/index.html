@@ -97,7 +97,7 @@
 
         app.compileNow = function () {
             app.send("compile", function (obj) {
-                app.elements.output.value = obj.output;
+                app.elements.output.value = obj.cmd + "\n" + obj.output;
                 app.elements.cmd.value = obj.cmd;
                 window.setTimeout(function() {
                     var ace_lines = app.editorDocument.getElementsByClassName("ace_line");
