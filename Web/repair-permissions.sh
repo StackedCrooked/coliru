@@ -14,14 +14,7 @@ echo "Owner of /var/chroot/tmp is $(ls -alt /var/chroot/tmp | head -n2 | tail -n
 rm -rf /var/chroot/tmp
 mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp
-chmod -R a+rw /var/chroot/tmp
-
-# Cleanup /dev
-rm -rf /var/chroot/dev
-mkdir -p /var/chroot/dev
-touch /var/chroot/dev/null
-chown -R webserver:coliru /var/chroot/dev
-chmod -R a+rw /var/chroot/dev
+chmod a+rw /var/chroot/tmp
 
 for file in "output main.cpp cmd.sh /var/chroot/tmp/main.cpp /var/chroot/tmp/compile.sh" ; do
   touch $file && chown webserver:coliru $file

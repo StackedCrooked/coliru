@@ -22,9 +22,8 @@ mkdir "${DIR}"
 
 cat main.cpp > "${DIR}/main.cpp"
 cat cmd.sh > "${DIR}/cmd.sh" ;
-date '+%s' > "${DIR}/timestamp"
 
 chmod 755 "${DIR}/cmd.sh"
 
 { ./build_and_run.sh >"${DIR}/output" 2>&1 ; } || true
-{ rsync -a --exclude=.svn ${DIR} /var/chroot/Archive/ ; } || true
+
