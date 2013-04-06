@@ -26,15 +26,17 @@ fi
 
 apt-get install -y dchroot debootstrap
 mkdir -p ${CHROOT}
-rsync -aqz /usr /bin /lib /lib64 ${CHROOT}
+rsync -aqz /usr /bin /lib /lib64 ${CHROOT} & disown
 
 
-apt-get remove -y ruby1.9.1 libruby1.9.1 ruby1.9.1-dev rubygems1.9.1 || true
-apt-get install -y libcap2-bin ruby1.8-dev rubygems1.8 lsof rsync subversion
-gem install mongrel popen4
+apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync subversion
+gem install sinatra shotgun popen4
 
 
-setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
+for ruby in `ls /usr/bin/ruby*` ; do
+    setcap 'cap_net_bind_service=+ep' $ruby || true
+done
+
 setcap 'cap_sys_chroot=+ep' /bin/bash
 setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
 setcap 'cap_kill=+ep' /bin/kill
@@ -73,3 +75,4 @@ chown -R sandbox:coliru ${CHROOT}/tmp
 # TODO: Install wheels
 #apt-get install mercurial
 #hg clone https://bitbucket.org/martinhofernandes/wheels
+
