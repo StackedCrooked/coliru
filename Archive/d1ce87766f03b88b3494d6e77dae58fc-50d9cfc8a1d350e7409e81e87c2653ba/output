@@ -1,0 +1,7 @@
+main.cpp: In function 'int main()':
+main.cpp:25:53: error: invalid conversion from 'void (*)(const float*, double*, const int*)' to 'Functor<std::tuple<float, double, int>, Pack<0ul, 2ul>, Pack<1ul> >::Type {aka void (*)(const float*, const int*, double*)}' [-fpermissive]
+     Functor<Pixel, Pack<0,2>, Pack<1>> apply_foo(foo);
+                                                     ^
+main.cpp:12:5: error:   initializing argument 1 of 'Functor<TL, T1<A1 ...>, T2<A2 ...> >::Functor(Functor<TL, T1<A1 ...>, T2<A2 ...> >::Type) [with TL = std::tuple<float, double, int>; T1 = Pack; long unsigned int ...A1 = {0ul, 2ul}; T2 = Pack; long unsigned int ...A2 = {1ul}; Functor<TL, T1<A1 ...>, T2<A2 ...> >::Type = void (*)(const float*, const int*, double*)]' [-fpermissive]
+     Functor(Type) {}
+     ^
