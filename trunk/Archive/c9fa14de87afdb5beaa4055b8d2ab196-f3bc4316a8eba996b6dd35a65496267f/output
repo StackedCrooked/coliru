@@ -1,0 +1,313 @@
+================================================================================
+// Finds the most recent post.
+================================================================================
+#include <tuple>
+
+template<typename TL, class T1, class T2> struct Functor{};
+template< typename TL,
+          template<size_t...> class T1, size_t... A1, // read only arguments
+          template<size_t...> class T2, size_t... A2  // read-write arguments
+        >
+struct Functor< TL, T1<A1...>, T2<A2...>> {
+    typedef void (*Type)(const typename std::tuple_element<A1, TL>::type* ... ,
+                               typename std::tuple_element<A2, TL>::type* ...);
+
+    Functor(Type) {}
+};
+
+void foo(const float  *,
+         const int    *,
+               double *)
+{}
+
+template<size_t ... T> struct Pack {};
+
+int main()
+{
+    using Pixel = std::tuple<float, double, int>;
+    Functor<Pixel, Pack<0,2>, Pack<1>> apply_foo(foo);
+}
+================================================================================
+#include <iostream>
+#include <limits>
+
+int main()
+{
+    float fInf = std::numeric_limits<float>::infinity();
+    double dInf = std::numeric_limits<double>::infinity();
+    std::cout << (fInf == fInf) << std::endl;
+    std::cout << (dInf == dInf) << std::endl;
+}
+
+================================================================================
+#include <functional>
+
+
+template <typename T, typename...Args>
+std::function<T*()> MakeFactoryMethod(Args&&... args)
+{
+    return std::bind([](Args&... args2)
+        {
+            return new T(std::forward<Args>(args2)...);
+        },
+        std::forward<Args>(args)...);
+}
+
+struct foo {
+    explicit foo(int) {}
+};
+
+int main()
+{
+    auto test = MakeFactoryMethod<foo>(5);
+    delete test();
+}
+================================================================================
+#include <tuple>
+
+template<typename TL, class T1, class T2> struct Functor{};
+template< typename TL,
+          template<size_t...> class T1, size_t... A1, // read only arguments
+          template<size_t...> class T2, size_t... A2  // read-write arguments
+        >
+struct Functor< TL, T1<A1...>, T2<A2...>> {
+    typedef void (*Type)(const typename std::tuple_element<A1, TL>::type* ... ,
+                               typename std::tuple_element<A2, TL>::type* ...);
+
+    Functor(Type) {}
+};
+
+void foo(const float  *,
+               double *,
+         const int    *)
+{}
+
+template<size_t ... T> struct Pack {};
+
+int main()
+{
+    using Pixel = std::tuple<float, double, int>;
+    Functor<Pixel, Pack<0,2>, Pack<1>> apply_foo(foo);
+}
+================================================================================
+template <class T>
+class Outer {
+    Outer();
+    void foo();
+};
+
+template<class T>
+Outer<T>::Outer<T>() {}
+
+// Not working
+template <class T>
+typename Outer<T>::Inner* Outer<T>::x = 0;
+
+int main() {
+    int x;
+}
+================================================================================
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct X
+{
+  X() : m_a() {}             // well-formed
+  X(int (&a)[3]) : m_a{a} {} // ill-formed; however, compiler-generated copy constructors may do this; see ConstructorPrologProcessor::BaseOrMemberProcessor::Process
+  X(int) : m_a(1, 2, 3) {}   // ill-formed
+  X(char) : m_a{1, 2, 3} {}  // well-formed; new behavior in C++11
+
+  int m_a[3];
+  int m_b1[3]{};           // well-formed
+  int m_b2[3] = {};        // well-formed
+  int m_b3[3]{1, 2, 3};    // well-formed
+  int m_b4[3] = {1, 2, 3}; // well-formed
+  int m_b5[3]{m_a};        // ill-formed
+  int m_b6[3] = m_a;       // ill-formed
+};
+
+int main()
+{
+}
+
+================================================================================
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct X
+{
+  X() : m_a() {}             // well-formed
+//  X(int (&a)[3]) : m_a{a} {} // ill-formed; however, compiler-generated copy constructors may do this; see ConstructorPrologProcessor::BaseOrMemberProcessor::Process
+//  X(int) : m_a(1, 2, 3) {}   // ill-formed
+  X(char) : m_a{1, 2, 3} {}  // well-formed; new behavior in C++11
+
+  int m_a[3];
+  int m_b1[3]{};           // well-formed
+  int m_b2[3] = {};        // well-formed
+  int m_b3[3]{1, 2, 3};    // well-formed
+  int m_b4[3] = {1, 2, 3}; // well-formed
+//  int m_b5[3]{m_a};        // ill-formed
+//  int m_b6[3] = m_a;       // ill-formed
+};
+
+int main()
+{
+}
+
+================================================================================
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct X
+{
+  X() : m_a() {}             // well-formed
+  X(int (&a)[3]) : m_a{a} {} // ill-formed; however, compiler-generated copy constructors may do this; see ConstructorPrologProcessor::BaseOrMemberProcessor::Process
+  X(int) : m_a(1, 2, 3) {}   // ill-formed
+  X(char) : m_a{1, 2, 3} {}  // well-formed; new behavior in C++11
+
+  int m_a[3];
+  int m_b1[3]{};           // well-formed
+  int m_b2[3] = {};        // well-formed
+  int m_b3[3]{1, 2, 3};    // well-formed
+  int m_b4[3] = {1, 2, 3}; // well-formed
+  int m_b5[3]{m_a};          // ill-formed
+  int m_b6[3] = m_a;       // ill-formed
+};
+
+int main()
+{
+}
+
+================================================================================
+#include <iostream>
+#include <mutex>
+
+
+template<typename>
+struct Locker;
+
+
+template<typename T>
+struct Protected
+{
+    template<typename ...Args>
+    Protected(Args && ...args) :
+        obj_(std::forward<Args>(args)...)
+    {        
+    }
+    
+    Locker<const T> operator->() const;
+    
+    Locker<T> operator->();
+
+private:    
+    friend class Locker<T>;
+    friend class Locker<const T>;
+    mutable std::mutex mtx_;
+    T obj_;
+};
+
+
+template<typename T>
+struct Locker
+{
+    Locker(Protected<T> & p) :
+        lock_(p.mtx_),
+        obj_(p.obj_)
+    {
+        std::cout << "LOCK" << std::endl;
+    }
+    
+    Locker(Locker<T> && rhs) = default;
+    
+    ~Locker()
+    {
+        std::cout << "UNLOCK\n" << std::endl;
+    }
+    
+    const T& get() const { return obj_; }
+    T& get() { return obj_; }
+    
+    const T* operator->() const { return &get(); }
+    T* operator->() { return &get(); }
+    
+private:    
+    std::unique_lock<std::mutex> lock_;
+    T & obj_;    
+};
+
+
+template<typename T>
+struct Locker<const T>
+{
+    Locker(const Protected<T> & p) :
+        lock_(p.mtx_),
+        obj_(p.obj_)
+    {
+        std::cout << "LOCK (const)" << std::endl;
+    }
+    
+    Locker(Locker<const T> && rhs) = default;
+    
+    ~Locker()
+    {
+        std::cout << "UNLOCK (const)\n" << std::endl;
+    }
+    
+    const T& get() const { return obj_; }    
+    const T* operator->() const { return &get(); }
+    
+private:    
+    std::unique_lock<std::mutex> lock_;
+    const T & obj_;
+};
+
+
+template<typename T>
+Locker<T> Protected<T>::operator->()
+{
+    return Locker<T>(const_cast<Protected<T>&>(*this));
+}
+
+
+template<typename T>
+Locker<const T> Protected<T>::operator->() const
+{
+    return Locker<T>(const_cast<Protected<T>&>(*this));
+}
+
+struct Foo
+{
+    void bar() { std::cout << "Foo::bar()" << std::endl; }
+    void car() const { std::cout << "Foo::car() const" << std::endl; }
+};
+
+int main()
+{
+    Protected<Foo> foo;
+    
+    // Using Locker<T> for full access.
+    {
+        Locker<Foo> locker(foo);
+        Foo & foo = locker.get();
+        foo.bar();
+        foo.car();
+    }
+    
+    // Using Locker<const T> for const access
+    {
+        Locker<const Foo> locker(foo);
+        const Foo & foo = locker.get();
+        foo.car(); // can only call const methods
+    }
+    
+    
+    // Single actions can be performed quickly with operator-> 
+    foo->bar();
+    foo->car();
+}
+
+    
