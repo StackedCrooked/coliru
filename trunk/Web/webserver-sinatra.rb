@@ -94,6 +94,20 @@ get '/external' do
 end
 
 
+get '/Archive/*' do |file|
+    begin
+        real_file = "#{ENV['COLIRU_ARCHIVE']}/#{file}"
+        if File.directory? real_file
+            Dir.entries(real_file).join("\n").to_s
+        else
+            File.read(real_file)
+        end
+    rescue Exception => e
+        e.to_s
+    end
+end
+
+
 get '/archive' do
     get_contents = Proc.new do |name|
         begin
