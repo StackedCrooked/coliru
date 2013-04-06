@@ -1,0 +1,8 @@
+main.cpp:8:1: error: 'Outer<T>::Outer' names the constructor, not the type
+ Outer<T>::Outer<T>() {}
+ ^
+main.cpp:8:1: error: and 'Outer<T>' has no template constructors
+main.cpp:12:37: error: 'typename Outer<T>::Inner* Outer<T>::x' is not a static member of 'class Outer<T>'
+ typename Outer<T>::Inner* Outer<T>::x = 0;
+                                     ^
+main.cpp:12:37: error: template definition of non-template 'typename Outer<T>::Inner* Outer<T>::x'
