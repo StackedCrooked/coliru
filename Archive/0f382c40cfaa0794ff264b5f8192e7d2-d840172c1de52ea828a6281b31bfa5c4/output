@@ -1,0 +1,24 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/vector:62,
+                 from main.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = Base; _Args = {const Base&}; _Tp = Base]':
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Base; _Args = {const Base&}; _Alloc = std::allocator<Base>; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   required from 'static void std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Base; _Args = {const Base&}; _Alloc = std::allocator<Base>]'
+/usr/include/c++/4.7/bits/stl_vector.h:885:6:   required from 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = Base; _Alloc = std::allocator<Base>; std::vector<_Tp, _Alloc>::value_type = Base]'
+main.cpp:25:24:   required from here
+/usr/include/c++/4.7/ext/new_allocator.h:110:4: error: cannot allocate an object of abstract type 'Base'
+main.cpp:4:7: note:   because the following virtual functions are pure within 'Base':
+main.cpp:7:18: note: 	virtual bool Base::stuff()
+In file included from /usr/include/c++/4.7/vector:63:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = Base; _Args = {Base}]':
+/usr/include/c++/4.7/bits/stl_uninitialized.h:77:3:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<Base*>; _ForwardIterator = Base*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:119:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<Base*>; _ForwardIterator = Base*]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:260:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<Base*>; _ForwardIterator = Base*; _Tp = Base]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:283:69:   required from '_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = Base*; _ForwardIterator = Base*; _Allocator = std::allocator<Base>]'
+/usr/include/c++/4.7/bits/vector.tcc:410:6:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {const Base&}; _Tp = Base; _Alloc = std::allocator<Base>]'
+/usr/include/c++/4.7/bits/stl_vector.h:891:4:   required from 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = Base; _Alloc = std::allocator<Base>; std::vector<_Tp, _Alloc>::value_type = Base]'
+main.cpp:25:24:   required from here
+/usr/include/c++/4.7/bits/stl_construct.h:77:7: error: cannot allocate an object of abstract type 'Base'
+main.cpp:4:7: note:   since type 'Base' has pure virtual functions

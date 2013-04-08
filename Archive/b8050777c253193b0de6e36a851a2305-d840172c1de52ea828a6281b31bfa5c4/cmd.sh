@@ -1,0 +1,1 @@
+g++-4.7 -std=c++11 -O3 -pthread main.cpp && ./a.out
