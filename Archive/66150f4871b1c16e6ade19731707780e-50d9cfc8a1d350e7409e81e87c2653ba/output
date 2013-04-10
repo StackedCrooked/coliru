@@ -1,0 +1,44 @@
+main.cpp: In function ‘int main()’:
+main.cpp:31:60: error: no matching function for call to ‘std::map<int, A>::insert(int&, A&)’
+         PNTree.insert(person[counter].key1, person[counter]);
+                                                            ^
+main.cpp:31:60: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/map:61:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.0/bits/stl_map.h:594:7: note: std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(const value_type&) [with _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >; typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator = std::_Rb_tree_iterator<std::pair<const int, A> >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, A>]
+       insert(const value_type& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:594:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.8.0/bits/stl_map.h:602:9: note: template<class _Pair, class> std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(_Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >]
+         insert(_Pair&& __x)
+         ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:602:9: note:   template argument deduction/substitution failed:
+main.cpp:31:60: note:   candidate expects 1 argument, 2 provided
+         PNTree.insert(person[counter].key1, person[counter]);
+                                                            ^
+In file included from /usr/local/include/c++/4.8.0/map:61:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.0/bits/stl_map.h:615:7: note: void std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::initializer_list<std::pair<const _Key, _Tp> >) [with _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >]
+       insert(std::initializer_list<value_type> __list)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:615:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.8.0/bits/stl_map.h:644:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, const value_type&) [with _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >; std::map<_Key, _Tp, _Compare, _Alloc>::iterator = std::_Rb_tree_iterator<std::pair<const int, A> >; std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<std::pair<const int, A> >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, A>]
+       insert(const_iterator __position, const value_type& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:644:7: note:   no known conversion for argument 1 from ‘int’ to ‘std::map<int, A>::const_iterator {aka std::_Rb_tree_const_iterator<std::pair<const int, A> >}’
+/usr/local/include/c++/4.8.0/bits/stl_map.h:655:9: note: template<class _Pair, class> std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, _Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >]
+         insert(const_iterator __position, _Pair&& __x)
+         ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:655:9: note:   template argument deduction/substitution failed:
+main.cpp:31:60: note:   cannot convert ‘person[counter].A::key1’ (type ‘int’) to type ‘std::map<int, A>::const_iterator {aka std::_Rb_tree_const_iterator<std::pair<const int, A> >}’
+         PNTree.insert(person[counter].key1, person[counter]);
+                                                            ^
+In file included from /usr/local/include/c++/4.8.0/map:61:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.0/bits/stl_map.h:670:9: note: template<class _InputIterator> void std::map<_Key, _Tp, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = int; _Tp = A; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, A> >]
+         insert(_InputIterator __first, _InputIterator __last)
+         ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:670:9: note:   template argument deduction/substitution failed:
+main.cpp:31:60: note:   deduced conflicting types for parameter ‘_InputIterator’ (‘int’ and ‘A’)
+         PNTree.insert(person[counter].key1, person[counter]);
+                                                            ^
