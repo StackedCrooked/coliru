@@ -1,0 +1,87 @@
+''***********                                                  ************
+  * pointer *                                                  * iterator *
+  ***********                                                  ************
+
+	.file	"main.cpp"						.file	"main.cpp"
+	.text						      <
+	.p2align 4,,15					      <
+	.globl	_Z7processPiS_				      <
+	.type	_Z7processPiS_, @function		      <
+_Z7processPiS_:						      <
+.LFB456:						      <
+	.cfi_startproc					      <
+	pushq	%rbp					      <
+	.cfi_def_cfa_offset 16				      <
+	.cfi_offset 6, -16				      <
+	movq	%rsi, %rbp				      <
+	pushq	%rbx					      <
+	.cfi_def_cfa_offset 24				      <
+	.cfi_offset 3, -24				      <
+	movq	%rdi, %rbx				      <
+	subq	$8, %rsp				      <
+	.cfi_def_cfa_offset 32				      <
+	cmpq	%rsi, %rdi				      <
+	je	.L1					      <
+	.p2align 4,,10					      <
+	.p2align 3					      <
+.L5:							      <
+	movl	(%rbx), %edi				      <
+	addq	$4, %rbx				      <
+	call	_Z9disappeari				      <
+	cmpq	%rbx, %rbp				      <
+	jne	.L5					      <
+.L1:							      <
+	addq	$8, %rsp				      <
+	.cfi_def_cfa_offset 24				      <
+	popq	%rbx					      <
+	.cfi_def_cfa_offset 16				      <
+	popq	%rbp					      <
+	.cfi_def_cfa_offset 8				      <
+	ret						      <
+	.cfi_endproc					      <
+.LFE456:						      <
+	.size	_Z7processPiS_, .-_Z7processPiS_	      <
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB457:						      |	.LFB464:
+	.cfi_startproc							.cfi_startproc
+	pushq	%rbp							pushq	%rbp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16						.cfi_offset 6, -16
+	pushq	%rbx							pushq	%rbx
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24						.cfi_offset 3, -24
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	call	_Z8get_datav						call	_Z8get_datav
+	movq	%rax, %rbx						movq	%rax, %rbx
+	call	_Z10get_lengthv						call	_Z10get_lengthv
+	cltq								cltq
+	leaq	(%rbx,%rax,4), %rbp					leaq	(%rbx,%rax,4), %rbp
+	cmpq	%rbp, %rbx						cmpq	%rbp, %rbx
+	je	.L12					      |		je	.L5
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L13:							      |	.L6:
+	movl	(%rbx), %edi						movl	(%rbx), %edi
+	addq	$4, %rbx						addq	$4, %rbx
+	call	_Z9disappeari						call	_Z9disappeari
+	cmpq	%rbx, %rbp						cmpq	%rbx, %rbp
+	jne	.L13					      |		jne	.L6
+.L12:							      |	.L5:
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	xorl	%eax, %eax						xorl	%eax, %eax
+	popq	%rbx							popq	%rbx
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	popq	%rbp							popq	%rbp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE457:						      |	.LFE464:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
