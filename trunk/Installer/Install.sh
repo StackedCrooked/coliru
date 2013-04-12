@@ -44,6 +44,7 @@ setcap 'cap_kill=+ep' /usr/bin/pgrep
 
 
 groupadd -g 2000 coliru || echo "Group coliru already exists. Continuing."
+useradd -g coliru -u 2000 coliru-launcher || echo "User coliru-launcher already exists. Continuing."
 useradd -g coliru -u 2001 webserver || echo "User webserver already exists. Continuing."
 useradd -g coliru -u 2002 sandbox || echo "User sandbox already exists. Continuing."
 
