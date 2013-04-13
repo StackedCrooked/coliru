@@ -1,0 +1,43 @@
+main.cpp:6:8: error: ‘template<test I> struct select’ redeclared as different kind of symbol
+ struct select
+        ^
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:220:0,
+                 from /usr/include/stdlib.h:320,
+                 from /usr/local/include/c++/4.8.0/cstdlib:72,
+                 from /usr/local/include/c++/4.8.0/ext/string_conversions.h:41,
+                 from /usr/local/include/c++/4.8.0/bits/basic_string.h:2817,
+                 from /usr/local/include/c++/4.8.0/string:52,
+                 from /usr/local/include/c++/4.8.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.0/ios:42,
+                 from /usr/local/include/c++/4.8.0/ostream:38,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:2:
+/usr/include/x86_64-linux-gnu/sys/select.h:107:12: error: previous declaration of ‘int select(int, fd_set*, fd_set*, fd_set*, timeval*)’
+ extern int select (int __nfds, fd_set *__restrict __readfds,
+            ^
+main.cpp:12:8: error: ‘select’ is not a class template
+ struct select<a>
+        ^
+main.cpp:13:1: error: explicit specialization of non-template ‘select’
+ {
+ ^
+main.cpp:18:8: error: ‘select’ is not a class template
+ struct select<b>
+        ^
+main.cpp:18:16: error: ‘select’ is not a template type
+ struct select<b>
+                ^
+main.cpp:23:8: error: ‘select’ is not a class template
+ struct select<c>
+        ^
+main.cpp:23:16: error: ‘select’ is not a template type
+ struct select<c>
+                ^
+main.cpp: In function ‘int main()’:
+main.cpp:30:8: error: no match for ‘operator<’ (operand types are ‘int(int, fd_set*, fd_set*, fd_set*, timeval*)’ and ‘test’)
+  select<a>::f();
+        ^
+main.cpp:30:11: error: ‘::f’ has not been declared
+  select<a>::f();
+           ^
