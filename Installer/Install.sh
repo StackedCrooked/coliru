@@ -15,18 +15,17 @@ fi
 apt-get install -y rsync
 mkdir -p ${CHROOT}
 
-if [ ! type g++-4.7 ] ; then
+if [ ! type g++-4.8 ] ; then
 	apt-get install -y python-software-properties
 	add-apt-repository ppa:ubuntu-toolchain-r/test
 	apt-get update
 	apt-get upgrade
-	apt-get install g++-4.7
+	apt-get install g++-4.7 g++-4.8 libstdc++-4.8-dev
 fi
-
 
 apt-get install -y dchroot debootstrap
 mkdir -p ${CHROOT}
-rsync -aqz /usr /bin /lib /lib64 ${CHROOT} & disown
+rsync -aqz --copy-links /usr /bin /lib /lib64 ${CHROOT}
 
 
 apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync subversion
