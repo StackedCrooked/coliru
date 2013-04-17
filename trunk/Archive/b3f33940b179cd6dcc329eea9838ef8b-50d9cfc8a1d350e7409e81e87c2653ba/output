@@ -1,0 +1,63 @@
+main.cpp: In lambda function:
+main.cpp:57:65: error: ‘this’ was not captured for this lambda function
+                                                                 service_.run();
+                                                                 ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:80:37: error: invalid conversion from ‘ThreadPool*’ to ‘std::size_t {aka long unsigned int}’ [-fpermissive]
+     ThreadPool tp = new ThreadPool(2);
+                                     ^
+main.cpp:44:1: error:   initializing argument 1 of ‘ThreadPool::ThreadPool(std::size_t)’ [-fpermissive]
+ ThreadPool::ThreadPool(size_t threads) :
+ ^
+main.cpp:80:37: error: use of deleted function ‘ThreadPool::ThreadPool(const ThreadPool&)’
+     ThreadPool tp = new ThreadPool(2);
+                                     ^
+main.cpp:17:7: note: ‘ThreadPool::ThreadPool(const ThreadPool&)’ is implicitly deleted because the default definition would be ill-formed:
+ class ThreadPool {
+       ^
+main.cpp:17:7: error: use of deleted function ‘boost::asio::io_service::io_service(const boost::asio::io_service&)’
+In file included from /usr/local/include/boost/asio/basic_io_object.hpp:19:0,
+                 from /usr/local/include/boost/asio/basic_socket.hpp:19,
+                 from /usr/local/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/local/include/boost/asio.hpp:20,
+                 from main.cpp:2:
+/usr/local/include/boost/asio/io_service.hpp:187:7: note: ‘boost::asio::io_service::io_service(const boost::asio::io_service&)’ is implicitly deleted because the default definition would be ill-formed:
+ class io_service
+       ^
+In file included from /usr/local/include/boost/system/error_code.hpp:18:0,
+                 from /usr/local/include/boost/system/system_error.hpp:14,
+                 from /usr/local/include/boost/thread/exceptions.hpp:22,
+                 from /usr/local/include/boost/thread/pthread/thread_data.hpp:10,
+                 from /usr/local/include/boost/thread/thread.hpp:17,
+                 from /usr/local/include/boost/thread.hpp:13,
+                 from main.cpp:1:
+/usr/local/include/boost/noncopyable.hpp:27:7: error: ‘boost::noncopyable_::noncopyable::noncopyable(const boost::noncopyable_::noncopyable&)’ is private
+       noncopyable( const noncopyable& );
+       ^
+In file included from /usr/local/include/boost/asio/basic_io_object.hpp:19:0,
+                 from /usr/local/include/boost/asio/basic_socket.hpp:19,
+                 from /usr/local/include/boost/asio/basic_datagram_socket.hpp:20,
+                 from /usr/local/include/boost/asio.hpp:20,
+                 from main.cpp:2:
+/usr/local/include/boost/asio/io_service.hpp:187:7: error: within this context
+ class io_service
+       ^
+In file included from /usr/local/include/boost/move/utility.hpp:18:0,
+                 from /usr/local/include/boost/thread/detail/move.hpp:20,
+                 from /usr/local/include/boost/thread/lock_guard.hpp:12,
+                 from /usr/local/include/boost/thread/pthread/thread_data.hpp:11,
+                 from /usr/local/include/boost/thread/thread.hpp:17,
+                 from /usr/local/include/boost/thread.hpp:13,
+                 from main.cpp:1:
+/usr/local/include/boost/interprocess/smart_ptr/unique_ptr.hpp:328:4: error: ‘boost::interprocess::unique_ptr<T, D>::unique_ptr(const boost::interprocess::unique_ptr<T, D>&) [with T = boost::asio::io_service::work; D = UniquePtrDefaultDeleter<boost::asio::io_service::work>]’ is private
+    BOOST_MOVABLE_BUT_NOT_COPYABLE(unique_ptr)
+    ^
+main.cpp:17:7: error: within this context
+ class ThreadPool {
+       ^
+main.cpp:82:11: error: base operand of ‘->’ has non-pointer type ‘ThreadPool’
+         tp->enqueue([i]{
+           ^
+main.cpp:87:5: error: expected ‘;’ before ‘}’ token
+     }
+     ^
