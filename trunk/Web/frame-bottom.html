@@ -41,18 +41,18 @@
             resize: none; font-family: monospace; font-weight: bolder; font-size: medium;
         }
 
-        textarea {
+        input {
             border: 1px solid gray;
             outline: 0 !important;
             appearance: none; -webkit-appearance: none; -moz-appearance: none;
         }
 
-        input {
+        /*input {
             margin: 0; padding: 0;
             border: 1px solid gray;
             outline: 0 !important;
             appearance: none; -webkit-appearance: none; -moz-appearance: none;
-        }
+        }*/
 
 
         button {
@@ -81,24 +81,24 @@
 
      </script>
      <script>
-         function update_rows(){
-             var cmd = document.getElementById('cmd');
-             var rows = Math.min(cmd.value.split('\n').length, 8);
-             if (rows < 1) rows = 1;
-             cmd.rows = rows;
+         function on_enter(e) {
+             if (e.keyCode == 13) {
+                
+                parent.app.compileNow();
+                return true;
+             }
+             return false;
          }
-         update_rows();
      </script>
  </head>
  <body>
      <div class="content hbox">
          <div id="frame-bottom" class="vbox f1">
-             <div class="hbox f0">
-                 <textarea id="cmd" onchange='update_rows();' onkeyup='update_rows();'  rows="1" class="f1" ></textarea> 
-             </div>
              <textarea id="output" class="f1" readonly></textarea>
              <div class="f0 hbox">
-                 <div class="f1 vbox"></div>
+                 <div class="f1 vbox">
+                     <input type="text" id="cmd" onkeyup='on_enter(event)' class="f1"></input>
+                 </div>
                  <button id="compileButton" class="f0" onclick="parent.app.compileNow();">Compile, link and run...</button>
                  <button id="postButton" class="f0" onclick="parent.app.postSample();">Share!</button>
              </div>
