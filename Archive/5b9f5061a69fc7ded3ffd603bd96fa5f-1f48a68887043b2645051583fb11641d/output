@@ -1,0 +1,226 @@
+main.cpp: In instantiation of ‘parser<U> operator>>(parser<T>, parser<U>) [with T = char; U = char; parser<U> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>; parser<T> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>]’:
+main.cpp:37:22:   required from here
+main.cpp:29:14: error: no match for ‘operator>=’ (operand types are ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ and ‘operator>>(parser<T>, parser<U>) [with T = char; U = char; parser<U> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>; parser<T> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>]::__lambda2’)
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+main.cpp:29:14: note: candidates are:
+main.cpp:19:11: note: template<class T, class U> parser<U> operator>=(parser<T>, std::function<std::function<boost::optional<std::pair<U, std::basic_string<char> > >(const std::basic_string<char>&)>(T)>)
+ parser<U> operator>=(parser<T> p, std::function<parser<U>(T)> k) {
+           ^
+main.cpp:19:11: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘operator>>(parser<T>, parser<U>) [with T = char; U = char; parser<U> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>; parser<T> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>]::__lambda2’ is not derived from ‘std::function<std::function<boost::optional<std::pair<U, std::basic_string<char> > >(const std::basic_string<char>&)>(T)>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/functional:55:0,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/tuple:851:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator>=(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator>=(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.8.0/tuple:851:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::tuple<_Elements ...>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/tuple:39:0,
+                 from /usr/local/include/c++/4.8.0/functional:55,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/array:256:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator>=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator>=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.8.0/array:256:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::array<_Tp, _Nm>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/vector:64:0,
+                 from /usr/local/include/c++/4.8.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.8.0/random:50,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:1441:5: note: template<class _Tp, class _Alloc> bool std::operator>=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator>=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_vector.h:1441:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/string:52:0,
+                 from /usr/local/include/c++/4.8.0/random:41,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2704:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator>=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator>=(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2704:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   mismatched types ‘const _CharT*’ and ‘std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/string:52:0,
+                 from /usr/local/include/c++/4.8.0/random:41,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2692:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator>=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator>=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2692:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/string:52:0,
+                 from /usr/local/include/c++/4.8.0/random:41,
+                 from /usr/local/include/c++/4.8.0/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.0/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2680:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator>=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator>=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.0/bits/basic_string.h:2680:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:1097:5: note: template<class _Iterator> bool std::operator>=(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator>=(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:1097:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::move_iterator<_Iterator>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:1091:5: note: template<class _IteratorL, class _IteratorR> bool std::operator>=(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator>=(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:1091:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::move_iterator<_Iterator>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:371:5: note: template<class _IteratorL, class _IteratorR> bool std::operator>=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator>=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:371:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:321:5: note: template<class _Iterator> bool std::operator>=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator>=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:321:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/utility:70:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:60,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_pair.h:245:5: note: template<class _T1, class _T2> constexpr bool std::operator>=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator>=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_pair.h:245:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const std::pair<_T1, _T2>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:872:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator>=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator>=(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:872:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.0/algorithm:61,
+                 from /usr/local/include/boost/optional/optional.hpp:19,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:866:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator>=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator>=(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.0/bits/stl_iterator.h:866:5: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/optional/optional.hpp:918:6: note: template<class T> bool boost::operator>=(boost::none_t, const boost::optional<T>&)
+ bool operator >= ( none_t x, optional<T> const& y )
+      ^
+/usr/local/include/boost/optional/optional.hpp:918:6: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   cannot convert ‘p’ (type ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’) to type ‘boost::none_t {aka int boost::detail::none_helper::*}’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/optional/optional.hpp:884:6: note: template<class T> bool boost::operator>=(const boost::optional<T>&, boost::none_t)
+ bool operator >= ( optional<T> const& x, none_t y )
+      ^
+/usr/local/include/boost/optional/optional.hpp:884:6: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const boost::optional<T>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/optional/optional.hpp:849:6: note: template<class T> bool boost::operator>=(const T&, const boost::optional<T>&)
+ bool operator >= ( T const& x, optional<T> const& y )
+      ^
+/usr/local/include/boost/optional/optional.hpp:849:6: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘operator>>(parser<T>, parser<U>) [with T = char; U = char; parser<U> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>; parser<T> = std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>]::__lambda2’ is not derived from ‘const boost::optional<T>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/optional/optional.hpp:815:6: note: template<class T> bool boost::operator>=(const boost::optional<T>&, const T&)
+ bool operator >= ( optional<T> const& x, T const& y )
+      ^
+/usr/local/include/boost/optional/optional.hpp:815:6: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const boost::optional<T>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/optional/optional.hpp:781:6: note: template<class T> bool boost::operator>=(const boost::optional<T>&, const boost::optional<T>&)
+ bool operator >= ( optional<T> const& x, optional<T> const& y )
+      ^
+/usr/local/include/boost/optional/optional.hpp:781:6: note:   template argument deduction/substitution failed:
+main.cpp:29:14: note:   ‘parser<char> {aka std::function<boost::optional<std::pair<char, std::basic_string<char> > >(const std::basic_string<char>&)>}’ is not derived from ‘const boost::optional<T>’
+     return p >= [=] (std::string const& cs) { return q(cs); };
+              ^
