@@ -14,6 +14,7 @@ end
 
 set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
+$feedback_semaphore = Mutex.new
 
 
 # @param [String] cmd Command to be executed.
@@ -48,6 +49,26 @@ end
 
 get '/favicon.ico' do
     File.read('favicon.ico')
+end
+
+
+post '/feedback' do
+    $feedback_semaphore.synchronize do
+        File.open('feedback.txt', 'a') do |file|
+            file.puts(request.body.read)
+        end
+    end
+end
+
+
+get '/feedback' do
+    stream do |out|
+        out << '<html><body><ul>'
+        $feedback_semaphore.synchronize do
+            File.readlines("feedback.txt").reverse.each { |l| out << "<li>#{l}</li>" }
+        end
+        out << '</ul></body></html>'
+    end
 end
 
 
