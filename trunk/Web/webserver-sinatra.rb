@@ -65,7 +65,7 @@ get '/feedback' do
     stream do |out|
         out << '<html><body><ul>'
         $feedback_semaphore.synchronize do
-            File.readlines("feedback.txt").reverse.each { |l| out << "<li>#{l}</li>" }
+            File.readlines("feedback.txt").reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
         end
         out << '</ul></body></html>'
     end
