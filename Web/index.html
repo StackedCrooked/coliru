@@ -95,6 +95,20 @@
 
         app.previousValue = "";
 
+        app.feedback = function (msg) {
+            if (!msg) return;
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/feedback', true);
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4) {
+                    if (httpRequest.status == 200) {
+                        window.location = "http://coliru.stacked-crooked.com/feedback";
+                    }
+                }
+            };
+            httpRequest.send(msg);
+
+        };
         app.compileNow = function () {
             app.send("compile", function (obj) {
                 app.elements.output.value = obj.output;

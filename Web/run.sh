@@ -11,7 +11,7 @@ restart_webserver() {
   ./kill-current.sh
   ./repair-permissions.sh 
   echo "Starting web server."
-  sudo -E -u webserver ruby webserver-sinatra.rb >/dev/null 2>&1
+  sudo -E -u webserver ruby webserver-sinatra.rb 
 }
 
 while true ; do
