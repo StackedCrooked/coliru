@@ -12,6 +12,9 @@ while true ; do
   # And commit them.
   svn ci ${COLIRU_ARCHIVE} -m "Update archive"
 
+  # Also commit the feedback."
+  svn ci feedback.txt -m "Update feedback."
+
   # Repeat later. 
   sleep 1200
 done
