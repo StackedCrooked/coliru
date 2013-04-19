@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 set -e
-[ "`whoami`" == "coliru-launcher" ] || { echo "This program must be run by coliru-launcher." 1>&2 ; exit 1; }
+[ "`whoami`" == "root" ] || { echo "This program must be run by root." 1>&2 ; exit 1; }
 source "./coliru_env.source"
 [ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 
