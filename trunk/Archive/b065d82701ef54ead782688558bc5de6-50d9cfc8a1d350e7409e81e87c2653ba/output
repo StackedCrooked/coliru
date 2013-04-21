@@ -1,0 +1,350 @@
+main.cpp:3:11: error: 'unique_ptr' in namespace 'std' does not name a type
+   typedef std::unique_ptr<DispatchBase> TDispatch;
+           ^
+main.cpp:4:11: error: 'vector' in namespace 'std' does not name a type
+   typedef std::vector<TDispatch> TDispatchList;
+           ^
+main.cpp:5:11: error: 'lock_guard' in namespace 'std' does not name a type
+   typedef std::lock_guard<std::mutex> TLockGuard;
+           ^
+main.cpp:6:3: error: 'TDispatchList' does not name a type
+   TDispatchList work;
+   ^
+main.cpp:7:3: error: 'mutex' in namespace 'std' does not name a type
+   std::mutex thislock;
+   ^
+main.cpp:8:3: error: 'thread' in namespace 'std' does not name a type
+   std::thread::id threadid;
+   ^
+main.cpp:16:19: error: 'std::function' has not been declared
+   void Add ( std::function<R ( )>&& f ) {
+                   ^
+main.cpp:16:27: error: expected ',' or '...' before '<' token
+   void Add ( std::function<R ( )>&& f ) {
+                           ^
+main.cpp:23:19: error: 'std::function' has not been declared
+   void Add ( std::function<R (T1)>&& f, T1&& t1  ) {
+                   ^
+main.cpp:23:27: error: expected ',' or '...' before '<' token
+   void Add ( std::function<R (T1)>&& f, T1&& t1  ) {
+                           ^
+main.cpp:31:19: error: 'std::function' has not been declared
+   void Add ( std::function<R (T1, T2)>&& f, T1&& t1, T2&& t2 ) {
+                   ^
+main.cpp:31:27: error: expected ',' or '...' before '<' token
+   void Add ( std::function<R (T1, T2)>&& f, T1&& t1, T2&& t2 ) {
+                           ^
+main.cpp:41:19: error: 'std::function' has not been declared
+   void Add ( std::function<R (T1, T2, T3)>&& f, T1&& t1, T2&& t2, T3&& t3 ) {
+                   ^
+main.cpp:41:27: error: expected ',' or '...' before '<' token
+   void Add ( std::function<R (T1, T2, T3)>&& f, T1&& t1, T2&& t2, T3&& t3 ) {
+                           ^
+main.cpp:51:19: error: 'std::function' has not been declared
+   void Add ( std::function<R (T1, T2, T3, T4)>&& f, T1&& t1, T2&& t2, T3&& t3, T4&& t4 ) {
+                   ^
+main.cpp:51:27: error: expected ',' or '...' before '<' token
+   void Add ( std::function<R (T1, T2, T3, T4)>&& f, T1&& t1, T2&& t2, T3&& t3, T4&& t4 ) {
+                           ^
+main.cpp: In constructor 'Dispatcher::Dispatcher()':
+main.cpp:11:19: error: class 'Dispatcher' does not have any field named 'threadid'
+   Dispatcher () : threadid ( std::this_thread::get_id() ) {
+                   ^
+main.cpp:11:35: error: 'std::this_thread' has not been declared
+   Dispatcher () : threadid ( std::this_thread::get_id() ) {
+                                   ^
+main.cpp: In member function 'void Dispatcher::Add(int)':
+main.cpp:17:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard( thislock );
+    ^
+main.cpp:17:15: error: expected ';' before 'guard'
+    TLockGuard guard( thislock );
+               ^
+main.cpp:18:4: error: 'work' was not declared in this scope
+    work.emplace_back( TDispatch( new Dispatch0<R>(
+    ^
+main.cpp:18:38: error: expected type-specifier before 'Dispatch0'
+    work.emplace_back( TDispatch( new Dispatch0<R>(
+                                      ^
+main.cpp:19:48: error: there are no arguments to 'TDispatch' that depend on a template parameter, so a declaration of 'TDispatch' must be available [-fpermissive]
+     std::forward<std::function<R ()>&&>( f ) ) ) );
+                                                ^
+main.cpp:19:48: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In member function 'void Dispatcher::Add(int)':
+main.cpp:24:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard( thislock );
+    ^
+main.cpp:24:15: error: expected ';' before 'guard'
+    TLockGuard guard( thislock );
+               ^
+main.cpp:25:4: error: 'work' was not declared in this scope
+    work.emplace_back( TDispatch( new Dispatch1<R, T1>( 
+    ^
+main.cpp:25:38: error: expected type-specifier before 'Dispatch1'
+    work.emplace_back( TDispatch( new Dispatch1<R, T1>( 
+                                      ^
+main.cpp:25:53: error: expected primary-expression before '>' token
+    work.emplace_back( TDispatch( new Dispatch1<R, T1>( 
+                                                     ^
+main.cpp:26:5: error: 'forward' is not a member of 'std'
+     std::forward<std::function<R (T1)>&&>( f ), 
+     ^
+main.cpp:26:18: error: 'function' is not a member of 'std'
+     std::forward<std::function<R (T1)>&&>( f ), 
+                  ^
+main.cpp:26:34: error: expected primary-expression before '(' token
+     std::forward<std::function<R (T1)>&&>( f ), 
+                                  ^
+main.cpp:26:37: error: expected primary-expression before ')' token
+     std::forward<std::function<R (T1)>&&>( f ), 
+                                     ^
+main.cpp:26:41: error: expected identifier before '>' token
+     std::forward<std::function<R (T1)>&&>( f ), 
+                                         ^
+main.cpp:26:44: error: 'f' was not declared in this scope
+     std::forward<std::function<R (T1)>&&>( f ), 
+                                            ^
+main.cpp:27:5: error: 'forward' is not a member of 'std'
+     std::forward<T1>( t1 ) ) ) );
+     ^
+main.cpp:27:20: error: expected primary-expression before '>' token
+     std::forward<T1>( t1 ) ) ) );
+                    ^
+main.cpp:27:23: error: 't1' was not declared in this scope
+     std::forward<T1>( t1 ) ) ) );
+                       ^
+main.cpp:27:30: error: there are no arguments to 'TDispatch' that depend on a template parameter, so a declaration of 'TDispatch' must be available [-fpermissive]
+     std::forward<T1>( t1 ) ) ) );
+                              ^
+main.cpp: In member function 'void Dispatcher::Add(int)':
+main.cpp:32:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard( thislock );
+    ^
+main.cpp:32:15: error: expected ';' before 'guard'
+    TLockGuard guard( thislock );
+               ^
+main.cpp:33:4: error: 'work' was not declared in this scope
+    work.emplace_back( 
+    ^
+main.cpp:34:20: error: expected type-specifier before 'Dispatch2'
+     TDispatch( new Dispatch2<R, T1, T2>(
+                    ^
+main.cpp:34:35: error: expected primary-expression before ',' token
+     TDispatch( new Dispatch2<R, T1, T2>(
+                                   ^
+main.cpp:34:39: error: expected primary-expression before '>' token
+     TDispatch( new Dispatch2<R, T1, T2>(
+                                       ^
+main.cpp:35:5: error: 'forward' is not a member of 'std'
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+     ^
+main.cpp:35:18: error: 'function' is not a member of 'std'
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                  ^
+main.cpp:35:34: error: expected primary-expression before '(' token
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                                  ^
+main.cpp:35:37: error: expected primary-expression before ',' token
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                                     ^
+main.cpp:35:41: error: expected primary-expression before ')' token
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                                         ^
+main.cpp:35:45: error: expected identifier before '>' token
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                                             ^
+main.cpp:35:48: error: 'f' was not declared in this scope
+     std::forward<std::function<R (T1, T2)>&&>( f ), 
+                                                ^
+main.cpp:36:5: error: 'forward' is not a member of 'std'
+     std::forward<T1>( t1 ), 
+     ^
+main.cpp:36:20: error: expected primary-expression before '>' token
+     std::forward<T1>( t1 ), 
+                    ^
+main.cpp:36:23: error: 't1' was not declared in this scope
+     std::forward<T1>( t1 ), 
+                       ^
+main.cpp:37:5: error: 'forward' is not a member of 'std'
+     std::forward<T2>( t2 ) ) ) );
+     ^
+main.cpp:37:20: error: expected primary-expression before '>' token
+     std::forward<T2>( t2 ) ) ) );
+                    ^
+main.cpp:37:23: error: 't2' was not declared in this scope
+     std::forward<T2>( t2 ) ) ) );
+                       ^
+main.cpp:37:30: error: there are no arguments to 'TDispatch' that depend on a template parameter, so a declaration of 'TDispatch' must be available [-fpermissive]
+     std::forward<T2>( t2 ) ) ) );
+                              ^
+main.cpp: In member function 'void Dispatcher::Add(int)':
+main.cpp:42:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard( thislock );
+    ^
+main.cpp:42:15: error: expected ';' before 'guard'
+    TLockGuard guard( thislock );
+               ^
+main.cpp:43:4: error: 'work' was not declared in this scope
+    work.emplace_back( TDispatch( 
+    ^
+main.cpp:44:9: error: expected type-specifier before 'Dispatch3'
+     new Dispatch3<R, T1, T2, T3>( f, 
+         ^
+main.cpp:44:24: error: expected primary-expression before ',' token
+     new Dispatch3<R, T1, T2, T3>( f, 
+                        ^
+main.cpp:44:28: error: expected primary-expression before ',' token
+     new Dispatch3<R, T1, T2, T3>( f, 
+                            ^
+main.cpp:44:32: error: expected primary-expression before '>' token
+     new Dispatch3<R, T1, T2, T3>( f, 
+                                ^
+main.cpp:44:35: error: 'f' was not declared in this scope
+     new Dispatch3<R, T1, T2, T3>( f, 
+                                   ^
+main.cpp:45:5: error: 'forward' is not a member of 'std'
+     std::forward<T1>( t1 ), 
+     ^
+main.cpp:45:20: error: expected primary-expression before '>' token
+     std::forward<T1>( t1 ), 
+                    ^
+main.cpp:45:23: error: 't1' was not declared in this scope
+     std::forward<T1>( t1 ), 
+                       ^
+main.cpp:46:5: error: 'forward' is not a member of 'std'
+     std::forward<T2>( t2 ), 
+     ^
+main.cpp:46:20: error: expected primary-expression before '>' token
+     std::forward<T2>( t2 ), 
+                    ^
+main.cpp:46:23: error: 't2' was not declared in this scope
+     std::forward<T2>( t2 ), 
+                       ^
+main.cpp:47:5: error: 'forward' is not a member of 'std'
+     std::forward<T3>( t3 ) ) ) );
+     ^
+main.cpp:47:20: error: expected primary-expression before '>' token
+     std::forward<T3>( t3 ) ) ) );
+                    ^
+main.cpp:47:23: error: 't3' was not declared in this scope
+     std::forward<T3>( t3 ) ) ) );
+                       ^
+main.cpp:47:30: error: there are no arguments to 'TDispatch' that depend on a template parameter, so a declaration of 'TDispatch' must be available [-fpermissive]
+     std::forward<T3>( t3 ) ) ) );
+                              ^
+main.cpp: In member function 'void Dispatcher::Add(int)':
+main.cpp:52:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard( thislock );
+    ^
+main.cpp:52:15: error: expected ';' before 'guard'
+    TLockGuard guard( thislock );
+               ^
+main.cpp:53:4: error: 'work' was not declared in this scope
+    work.emplace_back( TDispatch( 
+    ^
+main.cpp:54:9: error: expected type-specifier before 'Dispatch4'
+     new Dispatch4<R, T1, T2, T3, T4>( 
+         ^
+main.cpp:54:24: error: expected primary-expression before ',' token
+     new Dispatch4<R, T1, T2, T3, T4>( 
+                        ^
+main.cpp:54:28: error: expected primary-expression before ',' token
+     new Dispatch4<R, T1, T2, T3, T4>( 
+                            ^
+main.cpp:54:32: error: expected primary-expression before ',' token
+     new Dispatch4<R, T1, T2, T3, T4>( 
+                                ^
+main.cpp:54:36: error: expected primary-expression before '>' token
+     new Dispatch4<R, T1, T2, T3, T4>( 
+                                    ^
+main.cpp:55:5: error: 'forward' is not a member of 'std'
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+     ^
+main.cpp:55:18: error: 'function' is not a member of 'std'
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                  ^
+main.cpp:55:34: error: expected primary-expression before '(' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                  ^
+main.cpp:55:37: error: expected primary-expression before ',' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                     ^
+main.cpp:55:41: error: expected primary-expression before ',' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                         ^
+main.cpp:55:45: error: expected primary-expression before ',' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                             ^
+main.cpp:55:49: error: expected primary-expression before ')' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                                 ^
+main.cpp:55:53: error: expected identifier before '>' token
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                                     ^
+main.cpp:55:56: error: 'f' was not declared in this scope
+     std::forward<std::function<R (T1, T2, T3, T4)>&&>( f ), 
+                                                        ^
+main.cpp:56:5: error: 'forward' is not a member of 'std'
+     std::forward<T1>( t1 ), 
+     ^
+main.cpp:56:20: error: expected primary-expression before '>' token
+     std::forward<T1>( t1 ), 
+                    ^
+main.cpp:56:23: error: 't1' was not declared in this scope
+     std::forward<T1>( t1 ), 
+                       ^
+main.cpp:57:5: error: 'forward' is not a member of 'std'
+     std::forward<T2>( t2 ), 
+     ^
+main.cpp:57:20: error: expected primary-expression before '>' token
+     std::forward<T2>( t2 ), 
+                    ^
+main.cpp:57:23: error: 't2' was not declared in this scope
+     std::forward<T2>( t2 ), 
+                       ^
+main.cpp:58:5: error: 'forward' is not a member of 'std'
+     std::forward<T3>( t3 ), 
+     ^
+main.cpp:58:20: error: expected primary-expression before '>' token
+     std::forward<T3>( t3 ), 
+                    ^
+main.cpp:58:23: error: 't3' was not declared in this scope
+     std::forward<T3>( t3 ), 
+                       ^
+main.cpp:59:5: error: 'forward' is not a member of 'std'
+     std::forward<T4>( t4 ) ) ) );
+     ^
+main.cpp:59:20: error: expected primary-expression before '>' token
+     std::forward<T4>( t4 ) ) ) );
+                    ^
+main.cpp:59:23: error: 't4' was not declared in this scope
+     std::forward<T4>( t4 ) ) ) );
+                       ^
+main.cpp:59:30: error: there are no arguments to 'TDispatch' that depend on a template parameter, so a declaration of 'TDispatch' must be available [-fpermissive]
+     std::forward<T4>( t4 ) ) ) );
+                              ^
+main.cpp: In member function 'void Dispatcher::Invoke()':
+main.cpp:63:4: error: 'TDispatchList' was not declared in this scope
+    TDispatchList dispatchwork; {
+    ^
+main.cpp:63:18: error: expected ';' before 'dispatchwork'
+    TDispatchList dispatchwork; {
+                  ^
+main.cpp:64:5: error: 'TLockGuard' was not declared in this scope
+     TLockGuard guard(thislock);
+     ^
+main.cpp:64:16: error: expected ';' before 'guard'
+     TLockGuard guard(thislock);
+                ^
+main.cpp:65:5: error: 'dispatchwork' was not declared in this scope
+     dispatchwork = std::move( work );
+     ^
+main.cpp:65:20: error: 'move' is not a member of 'std'
+     dispatchwork = std::move( work );
+                    ^
+main.cpp:65:31: error: 'work' was not declared in this scope
+     dispatchwork = std::move( work );
+                               ^
+main.cpp:68:24: error: 'dispatchwork' was not declared in this scope
+    for ( auto&& task : dispatchwork ) {
+                        ^
