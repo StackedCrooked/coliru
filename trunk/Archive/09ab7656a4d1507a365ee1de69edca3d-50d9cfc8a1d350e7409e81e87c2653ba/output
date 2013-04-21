@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'struct is_constructible<B>':
+main.cpp:23:36:   required from here
+main.cpp:20:11: error: 'B::B()' is private
+ class B { B() = delete; };
+           ^
+main.cpp:16:98: error: within this context
+   template<typename T, typename... Args> struct is_constructible : integral_constant<bool, sizeof(decltype(T(declval<Args>()...)))> {};
+                                                                                                  ^
+main.cpp:16:98: error: use of deleted function 'B::B()'
+main.cpp:20:11: error: declared here
+ class B { B() = delete; };
+           ^
+main.cpp:23:1: error: static assertion failed: B
+ static_assert(!is_constructible<B>(), "B");
+ ^
