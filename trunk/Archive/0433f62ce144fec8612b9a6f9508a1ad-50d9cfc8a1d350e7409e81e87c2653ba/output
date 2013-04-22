@@ -1,0 +1,30 @@
+main.cpp:70:1: error: expected '}' at end of input
+ }
+ ^
+main.cpp: In constructor 'Thread::Thread(Fx&&, T&& ...)':
+main.cpp:49:66: error: expected parameter pack before '...'
+     Thread ( Fx&& fx, T&&... args ) : threadjump( new ThreadJump<...T>( fx, args ), done( false ), thread( *threadjump ) {
+                                                                  ^
+main.cpp:49:70: error: template argument 1 is invalid
+     Thread ( Fx&& fx, T&&... args ) : threadjump( new ThreadJump<...T>( fx, args ), done( false ), thread( *threadjump ) {
+                                                                      ^
+main.cpp:49:97: error: no match for call to '(std::atomic<bool>) (bool)'
+     Thread ( Fx&& fx, T&&... args ) : threadjump( new ThreadJump<...T>( fx, args ), done( false ), thread( *threadjump ) {
+                                                                                                 ^
+main.cpp:49:120: error: no match for call to '(std::thread) (Thread::ThreadJumpBase&)'
+     Thread ( Fx&& fx, T&&... args ) : threadjump( new ThreadJump<...T>( fx, args ), done( false ), thread( *threadjump ) {
+                                                                                                                        ^
+main.cpp:61:1: error: expected '{' before '}' token
+ };
+ ^
+main.cpp: In member function 'int Thread::main()':
+main.cpp:68:15: error: ISO C++ forbids taking the address of an unqualified or parenthesized non-static member function to form a pointer to member function.  Say '&Thread::abc' [-fpermissive]
+     Thread t(&abc, 1);
+               ^
+main.cpp:69:7: error: 'class Thread' has no member named 'Join'
+     t.Join();
+       ^
+main.cpp: At global scope:
+main.cpp:70:1: error: expected unqualified-id at end of input
+ }
+ ^
