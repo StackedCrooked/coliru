@@ -1,0 +1,32 @@
+main.cpp: In instantiation of 'Thread::Thread(Fx&&, T&& ...) [with Fx = void (*)(int); T = {int}]':
+main.cpp:32:21:   required from here
+main.cpp:14:68: error: no matching function for call to 'forward(int&)'
+     Thread ( Fx&& fx, T&&... args ) : thrd( fx, std::forward( args )... ), done( true ) {
+                                                                    ^
+main.cpp:14:68: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.8.0/utility:70,
+                 from /usr/local/include/c++/4.8.0/tuple:38,
+                 from /usr/local/include/c++/4.8.0/functional:55,
+                 from /usr/local/include/c++/4.8.0/thread:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/local/include/c++/4.8.0/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:14:68: note:   couldn't deduce template parameter '_Tp'
+     Thread ( Fx&& fx, T&&... args ) : thrd( fx, std::forward( args )... ), done( true ) {
+                                                                    ^
+In file included from /usr/local/include/c++/4.8.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.8.0/utility:70,
+                 from /usr/local/include/c++/4.8.0/tuple:38,
+                 from /usr/local/include/c++/4.8.0/functional:55,
+                 from /usr/local/include/c++/4.8.0/thread:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/local/include/c++/4.8.0/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:14:68: note:   couldn't deduce template parameter '_Tp'
+     Thread ( Fx&& fx, T&&... args ) : thrd( fx, std::forward( args )... ), done( true ) {
+                                                                    ^
