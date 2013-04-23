@@ -1,0 +1,38 @@
+main.cpp: In instantiation of 'struct range_value<std::list<int>, void>':
+main.cpp:35:5:   required by substitution of 'template<class R, class C> typename std::enable_if<std::is_same<typename range_value<R>::type, typename range_value<C>::type>::value, C>::type concat(C, const R&) [with R = std::list<int>; C = std::vector<int>]'
+main.cpp:48:63:   required from here
+main.cpp:18:8: error: base type 'BoostRangeValue<std::list<int, std::allocator<int> > > {aka int}' fails to be a struct or class type
+main.cpp: In instantiation of 'struct range_value<std::vector<int>, void>':
+main.cpp:25:5:   required by substitution of 'template<class T, class C> typename std::enable_if<std::is_same<T, typename range_value<C>::type>::value, C>::type concat(C, T) [with T = std::list<int>; C = std::vector<int>]'
+main.cpp:48:63:   required from here
+main.cpp:18:8: error: base type 'BoostRangeValue<std::vector<int, std::allocator<int> > > {aka int}' fails to be a struct or class type
+main.cpp: In function 'int main()':
+main.cpp:48:63: error: no matching function for call to 'concat(std::vector<int>, std::list<int>)'
+main.cpp:48:63: note: candidates are:
+main.cpp:25:5: note: template<class T, class C> typename std::enable_if<std::is_same<T, typename range_value<C>::type>::value, C>::type concat(C, T)
+main.cpp:25:5: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:35:5: note: template<class R, class C> typename std::enable_if<std::is_same<typename range_value<R>::type, typename range_value<C>::type>::value, C>::type concat(C, const R&)
+main.cpp:35:5: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:48:63: error: unable to deduce 'auto' from '<expression error>'
+main.cpp:49:18: error: unable to deduce 'auto&&' from 'v'
+main.cpp:49:18: error: unable to deduce 'auto' from '<expression error>'
+In file included from /usr/local/include/boost/range/iterator.hpp:23:0,
+                 from /usr/local/include/boost/range/begin.hpp:24,
+                 from /usr/local/include/boost/range/functions.hpp:18,
+                 from /usr/local/include/boost/range.hpp:26,
+                 from main.cpp:4:
+/usr/local/include/boost/mpl/eval_if.hpp: In instantiation of 'struct boost::mpl::eval_if_c<false, boost::range_const_iterator<int>, boost::range_mutable_iterator<int> >':
+/usr/local/include/boost/range/iterator.hpp:63:63:   required from 'struct boost::range_iterator<int>'
+/usr/local/include/boost/range/value_type.hpp:30:12:   required from 'struct boost::range_value<int>'
+main.cpp:35:5:   required by substitution of 'template<class R, class C> typename std::enable_if<std::is_same<typename range_value<R>::type, typename range_value<C>::type>::value, C>::type concat(C, const R&) [with R = int; C = std::vector<int>]'
+main.cpp:53:41:   required from here
+/usr/local/include/boost/mpl/eval_if.hpp:60:31: error: no type named 'type' in 'boost::mpl::eval_if_c<false, boost::range_const_iterator<int>, boost::range_mutable_iterator<int> >::f_ {aka struct boost::range_mutable_iterator<int>}'
+main.cpp:53:41: error: no matching function for call to 'concat(std::vector<int>, int)'
+main.cpp:53:41: note: candidates are:
+main.cpp:25:5: note: template<class T, class C> typename std::enable_if<std::is_same<T, typename range_value<C>::type>::value, C>::type concat(C, T)
+main.cpp:25:5: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class C> typename std::enable_if<std::is_same<T, typename range_value<C>::type>::value, C>::type concat(C, T) [with T = int; C = std::vector<int>]':
+main.cpp:53:41:   required from here
+main.cpp:25:5: error: no type named 'type' in 'struct range_value<std::vector<int>, void>'
+main.cpp:35:5: note: template<class R, class C> typename std::enable_if<std::is_same<typename range_value<R>::type, typename range_value<C>::type>::value, C>::type concat(C, const R&)
+main.cpp:35:5: note:   substitution of deduced template arguments resulted in errors seen above
