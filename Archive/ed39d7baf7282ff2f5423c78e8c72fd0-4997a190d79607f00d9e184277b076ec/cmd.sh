@@ -1,0 +1,1 @@
+g++-4.8 -O2 -pthread main.cpp -fpermissive -lboost_system -lboost_thread -lboost_unit_test_framework && ./a.out

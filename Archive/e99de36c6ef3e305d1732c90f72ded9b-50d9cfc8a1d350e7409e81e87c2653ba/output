@@ -1,0 +1,28 @@
+main.cpp: In function 'int main()':
+main.cpp:19:35: error: no matching function for call to 'boost::grid_graph<2ul>::grid_graph(boost::array<unsigned int, 2ul>&, bool)'
+         Graph graph(lengths, false);
+                                   ^
+main.cpp:19:35: note: candidates are:
+In file included from main.cpp:3:0:
+/usr/local/include/boost/graph/grid_graph.hpp:348:5: note: boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::grid_graph(boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor, boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::WrapDimensionArray) [with long unsigned int Dimensions = 2ul; VertexIndex = long unsigned int; EdgeIndex = long unsigned int; boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor = boost::array<long unsigned int, 2ul>; boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::WrapDimensionArray = boost::array<bool, 2ul>]
+     grid_graph(vertex_descriptor dimension_lengths,
+     ^
+/usr/local/include/boost/graph/grid_graph.hpp:348:5: note:   no known conversion for argument 1 from 'boost::array<unsigned int, 2ul>' to 'boost::grid_graph<2ul>::vertex_descriptor {aka boost::array<long unsigned int, 2ul>}'
+/usr/local/include/boost/graph/grid_graph.hpp:335:5: note: boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::grid_graph(boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor, bool) [with long unsigned int Dimensions = 2ul; VertexIndex = long unsigned int; EdgeIndex = long unsigned int; boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor = boost::array<long unsigned int, 2ul>]
+     grid_graph(vertex_descriptor dimension_lengths,
+     ^
+/usr/local/include/boost/graph/grid_graph.hpp:335:5: note:   no known conversion for argument 1 from 'boost::array<unsigned int, 2ul>' to 'boost::grid_graph<2ul>::vertex_descriptor {aka boost::array<long unsigned int, 2ul>}'
+/usr/local/include/boost/graph/grid_graph.hpp:324:5: note: boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::grid_graph(boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor) [with long unsigned int Dimensions = 2ul; VertexIndex = long unsigned int; EdgeIndex = long unsigned int; boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::vertex_descriptor = boost::array<long unsigned int, 2ul>]
+     grid_graph(vertex_descriptor dimension_lengths) :
+     ^
+/usr/local/include/boost/graph/grid_graph.hpp:324:5: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/boost/graph/grid_graph.hpp:266:5: note: boost::grid_graph<DimensionsT, VertexIndexT, EdgeIndexT>::grid_graph() [with long unsigned int Dimensions = 2ul; VertexIndex = long unsigned int; EdgeIndex = long unsigned int]
+     grid_graph() { };
+     ^
+/usr/local/include/boost/graph/grid_graph.hpp:266:5: note:   candidate expects 0 arguments, 2 provided
+/usr/local/include/boost/graph/grid_graph.hpp:262:9: note: constexpr boost::grid_graph<2ul>::grid_graph(const boost::grid_graph<2ul>&)
+   class grid_graph {
+         ^
+/usr/local/include/boost/graph/grid_graph.hpp:262:9: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/boost/graph/grid_graph.hpp:262:9: note: constexpr boost::grid_graph<2ul>::grid_graph(boost::grid_graph<2ul>&&)
+/usr/local/include/boost/graph/grid_graph.hpp:262:9: note:   candidate expects 1 argument, 2 provided

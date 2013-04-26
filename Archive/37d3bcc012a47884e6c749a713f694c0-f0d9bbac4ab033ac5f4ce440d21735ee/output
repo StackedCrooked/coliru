@@ -1,0 +1,34 @@
+main.cpp: In instantiation of 'multiplex_functions<Fs>::return_type multiplex_functions<Fs>::operator()(Args&& ...) [with Args = {int}; Fs = {std::function<bool(int)>&, std::function<char(double)>&}; multiplex_functions<Fs>::return_type = boost::variant<bool, char>]':
+main.cpp:385:12:   required from here
+main.cpp:326:115: error: request for member 'operator()' is ambiguous
+         return return_type( static_cast< multiplex_functions_helper<Fs...>& >(*this)( std::forward<Args>(args)... ));
+                                                                                                                   ^
+main.cpp:291:7: note: candidates are: R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) [with R = char; Args = {double}]
+     R operator()( Args&&... args ) {
+       ^
+main.cpp:288:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) const [with R = char; Args = {double}]
+     R operator()( Args&&... args ) const {
+       ^
+main.cpp:291:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) [with R = bool; Args = {int}]
+     R operator()( Args&&... args ) {
+       ^
+main.cpp:288:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) const [with R = bool; Args = {int}]
+     R operator()( Args&&... args ) const {
+       ^
+main.cpp: In instantiation of 'multiplex_functions<Fs>::return_type multiplex_functions<Fs>::operator()(Args&& ...) [with Args = {double}; Fs = {std::function<bool(int)>&, std::function<char(double)>&}; multiplex_functions<Fs>::return_type = boost::variant<bool, char>]':
+main.cpp:386:15:   required from here
+main.cpp:326:115: error: request for member 'operator()' is ambiguous
+         return return_type( static_cast< multiplex_functions_helper<Fs...>& >(*this)( std::forward<Args>(args)... ));
+                                                                                                                   ^
+main.cpp:291:7: note: candidates are: R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) [with R = char; Args = {double}]
+     R operator()( Args&&... args ) {
+       ^
+main.cpp:288:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) const [with R = char; Args = {double}]
+     R operator()( Args&&... args ) const {
+       ^
+main.cpp:291:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) [with R = bool; Args = {int}]
+     R operator()( Args&&... args ) {
+       ^
+main.cpp:288:7: note:                 R handle_function<std::function<_Res(_ArgTypes ...)> >::operator()(Args&& ...) const [with R = bool; Args = {int}]
+     R operator()( Args&&... args ) const {
+       ^
