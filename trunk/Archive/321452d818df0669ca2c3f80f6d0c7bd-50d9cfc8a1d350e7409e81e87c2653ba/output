@@ -1,0 +1,58 @@
+main.cpp: In function 'decltype (fold(r, f, (* r()))) fold(R, F)':
+main.cpp:6:26: error: there are no arguments to 'assert' that depend on a template parameter, so a declaration of 'assert' must be available [-fpermissive]
+     assert("Fuckbuckets.");    
+                          ^
+main.cpp:6:26: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function 'decltype (fold(r, f, (* r()))) fold(R, F, T)':
+main.cpp:12:18: error: 'move' is not a member of 'std'
+         return f(std::move(t), fold(r, f, *std::move(val)));
+                  ^
+main.cpp:12:44: error: 'move' is not a member of 'std'
+         return f(std::move(t), fold(r, f, *std::move(val)));
+                                            ^
+main.cpp: At global scope:
+main.cpp:16:54: warning: 'filter' function uses 'auto' type specifier without trailing return type [enabled by default]
+ template<typename R, typename F> auto filter(R r, F f) {
+                                                      ^
+main.cpp: In lambda function:
+main.cpp:19:33: error: 'move' is not a member of 'std'
+             if (f(*val)) return std::move(val);
+                                 ^
+main.cpp:21:16: error: 'nullopt' is not a member of 'std'
+         return std::nullopt;
+                ^
+main.cpp: At global scope:
+main.cpp:25:51: warning: 'map' function uses 'auto' type specifier without trailing return type [enabled by default]
+ template<typename R, typename F> auto map(R r, F f) {
+                                                   ^
+main.cpp: In function 'auto map(R, F)':
+main.cpp:26:21: error: expected type-specifier
+     return [=]() -> std::optional<decltype(f(*r()))> {
+                     ^
+main.cpp: In lambda function:
+main.cpp:26:21: error: expected '{'
+main.cpp: In function 'auto map(R, F)':
+main.cpp:26:21: error: expected ';'
+main.cpp:26:21: error: 'optional' is not a member of 'std'
+main.cpp:26:35: error: expected primary-expression before 'decltype'
+     return [=]() -> std::optional<decltype(f(*r()))> {
+                                   ^
+main.cpp:26:35: error: expected ';' before 'decltype'
+main.cpp: At global scope:
+main.cpp:32:55: error: 'R2' has not been declared
+ template<typename R1, typename T2> auto concat(R1 r1, R2 r2) {
+                                                       ^
+main.cpp:32:60: warning: 'concat' function uses 'auto' type specifier without trailing return type [enabled by default]
+ template<typename R1, typename T2> auto concat(R1 r1, R2 r2) {
+                                                            ^
+main.cpp: In lambda function:
+main.cpp:34:16: error: expected '{' before 'mutable'
+     return [=] mutable {
+                ^
+main.cpp: In function 'auto concat(R1, int)':
+main.cpp:34:16: error: expected ';' before 'mutable'
+main.cpp:34:16: error: expected primary-expression before 'mutable'
+main.cpp:34:16: error: expected ';' before 'mutable'
+main.cpp:42:1: error: expected '}' at end of input
+ }
+ ^

@@ -1,0 +1,86 @@
+main.cpp:35:26: error: 'emptyfold' does not name a type
+     template<typename F> emptyfold<F> auto fold(F f) -> impl::emptyfold<F> { return { std::move(f); } }
+                          ^
+main.cpp:36:81: error: wrong number of template arguments (2, should be 1)
+     template<typename T, typename F> auto fold(F f, T t) -> impl::emptyfold<F, T> { return { std::move(f), std::move(t) } }
+                                                                                 ^
+main.cpp:31:33: error: provided for 'template<class F> struct impl::emptyfold'
+     template<typename F> struct emptyfold { F f; };
+                                 ^
+main.cpp:39:70: error: 'initialfold' has not been declared
+     template<typename R, typename F, typename T> auto operator|(R r, initialfold<F, T> values)
+                                                                      ^
+main.cpp:39:81: error: expected ',' or '...' before '<' token
+     template<typename R, typename F, typename T> auto operator|(R r, initialfold<F, T> values)
+                                                                                 ^
+main.cpp:40:26: error: 'values' was not declared in this scope
+     -> decltype(r | fold(values.f, *std::move(val))) 
+                          ^
+main.cpp:40:37: error: 'move' is not a member of 'std'
+     -> decltype(r | fold(values.f, *std::move(val))) 
+                                     ^
+main.cpp:40:47: error: 'val' was not declared in this scope
+     -> decltype(r | fold(values.f, *std::move(val))) 
+                                               ^
+main.cpp:40:51: error: there are no arguments to 'fold' that depend on a template parameter, so a declaration of 'fold' must be available [-fpermissive]
+     -> decltype(r | fold(values.f, *std::move(val))) 
+                                                   ^
+main.cpp:40:51: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function 'decltype ((r | fold(<expression error>, <expression error>))) range::operator|(R, int)':
+main.cpp:43:22: error: 'move' is not a member of 'std'
+             return f(std::move(values.t), r | fold(values.f, *std::move(val)));
+                      ^
+main.cpp:43:32: error: 'values' was not declared in this scope
+             return f(std::move(values.t), r | fold(values.f, *std::move(val)));
+                                ^
+main.cpp:43:63: error: 'move' is not a member of 'std'
+             return f(std::move(values.t), r | fold(values.f, *std::move(val)));
+                                                               ^
+main.cpp:43:77: error: there are no arguments to 'fold' that depend on a template parameter, so a declaration of 'fold' must be available [-fpermissive]
+             return f(std::move(values.t), r | fold(values.f, *std::move(val)));
+                                                                             ^
+main.cpp:44:16: error: 'move' is not a member of 'std'
+         return std::move(values.t);
+                ^
+main.cpp:44:26: error: 'values' was not declared in this scope
+         return std::move(values.t);
+                          ^
+main.cpp: At global scope:
+main.cpp:46:58: error: 'emptyfold' has not been declared
+     template<typename R, typename F> auto operator|(R r, emptyfold<F> func)
+                                                          ^
+main.cpp:46:67: error: expected ',' or '...' before '<' token
+     template<typename R, typename F> auto operator|(R r, emptyfold<F> func)
+                                                                   ^
+main.cpp:47:26: error: 'func' was not declared in this scope
+     -> decltype(r | fold(func.f, *r()))
+                          ^
+main.cpp: In function 'decltype ((r | fold(<expression error>, (* r())))) range::operator|(R, int)':
+main.cpp:50:29: error: 'func' was not declared in this scope
+             return r | fold(func.f, *std::move(val));
+                             ^
+main.cpp:50:38: error: 'move' is not a member of 'std'
+             return r | fold(func.f, *std::move(val));
+                                      ^
+main.cpp:50:52: error: there are no arguments to 'fold' that depend on a template parameter, so a declaration of 'fold' must be available [-fpermissive]
+             return r | fold(func.f, *std::move(val));
+                                                    ^
+main.cpp:51:30: error: there are no arguments to 'assert' that depend on a template parameter, so a declaration of 'assert' must be available [-fpermissive]
+         assert("Fuckbuckets.");
+                              ^
+main.cpp: In function 'int main()':
+main.cpp:55:5: error: 'cout' is not a member of 'std'
+     std::cout << [curr = 0] mutable { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+     ^
+main.cpp: In lambda function:
+main.cpp:55:29: error: expected '{' before 'mutable'
+     std::cout << [curr = 0] mutable { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                             ^
+main.cpp: In function 'int main()':
+main.cpp:55:29: error: expected ';' before 'mutable'
+main.cpp:55:113: error: expected primary-expression before '|' token
+     std::cout << [curr = 0] mutable { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                                                                                 ^
+main.cpp:55:115: error: 'fold' is not a member of 'range'
+     std::cout << [curr = 0] mutable { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                                                                                   ^

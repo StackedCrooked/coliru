@@ -1,0 +1,33 @@
+main.cpp:9:27: error: expected type-specifier
+     using argument_type = std::tuple<Args...>;
+                           ^
+main.cpp:13:18: error: expected type-specifier before 'uint32_t'
+ using PlayerId = uint32_t;
+                  ^
+main.cpp:14:14: error: expected type-specifier
+ using Name = std::string;
+              ^
+main.cpp:17:40: error: 'PlayerId' was not declared in this scope
+ struct CreatePlayer : Command<PlayerId()> {};
+                                        ^
+main.cpp:17:41: error: template argument 1 is invalid
+ struct CreatePlayer : Command<PlayerId()> {};
+                                         ^
+main.cpp:18:37: error: 'PlayerId' was not declared in this scope
+ struct DestroyPlayer : Command<void(PlayerId)> {};
+                                     ^
+main.cpp:18:46: error: template argument 1 is invalid
+ struct DestroyPlayer : Command<void(PlayerId)> {};
+                                              ^
+main.cpp:19:31: error: 'PlayerId' was not declared in this scope
+ struct SetName : Command<void(PlayerId, Name)> {};
+                               ^
+main.cpp:19:41: error: 'Name' was not declared in this scope
+ struct SetName : Command<void(PlayerId, Name)> {};
+                                         ^
+main.cpp:19:45: error: expression list treated as compound expression in functional cast [-fpermissive]
+ struct SetName : Command<void(PlayerId, Name)> {};
+                                             ^
+main.cpp:19:46: error: template argument 1 is invalid
+ struct SetName : Command<void(PlayerId, Name)> {};
+                                              ^
