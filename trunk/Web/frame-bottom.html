@@ -74,57 +74,68 @@
          s.parentNode.insertBefore(ga, s);
          })();
 
-     </script>
-     <script>
-         function getCaret(el) {
-             if (el.selectionStart) {
-                 return el.selectionStart;
-             }
-             else if (document.selection) {
-                 el.focus();
+</script>
+<script>
+    function getCaret(el) {
+        if (el.selectionStart) {
+            return el.selectionStart;
+        }
+        else if (document.selection) {
+            el.focus();
 
-                 var r = document.selection.createRange();
-                 if (r == null) {
-                     return 0;
-                 }
+            var r = document.selection.createRange();
+            if (r == null) {
+                return 0;
+            }
 
-                 var re = el.createTextRange(),
-                 rc = re.duplicate();
-                 re.moveToBookmark(r.getBookmark());
-                 rc.setEndPoint('EndToStart', re);
+            var re = el.createTextRange(),
+            rc = re.duplicate();
+            re.moveToBookmark(r.getBookmark());
+            rc.setEndPoint('EndToStart', re);
 
-                 return rc.text.length;
-             }  
-             return 0;
-         }
-         function on_enter(e) {
-             if (e.keyCode == 13) {
-                 if (!e.shiftKey) {
-                     parent.app.compileNow();
-                     e.stopPropagation();
-                 }
-                 /*else {
-                     var content = this.value;
-                     var caret = getCaret(this);
-                     this.value = content.substring(0,caret)+
-                     "\n"+content.substring(caret,content.length);
-                     e.stopPropagation();
-                 }*/
-             }
-         }
-     </script>
+            return rc.text.length;
+        }  
+        return 0;
+    }
+    function on_enter(e) {
+        if (e.keyCode == 13) {
+            if (!e.shiftKey) {
+                parent.app.compileNow();
+                e.stopPropagation();
+            }
+            /*else {
+                var content = this.value;
+                var caret = getCaret(this);
+                this.value = content.substring(0,caret)+
+                "\n"+content.substring(caret,content.length);
+                e.stopPropagation();
+            }*/
+        }
+    }
+</script>
  </head>
  <body>
      <div class="content hbox">
          <div id="frame-bottom" class="vbox f1">
              <textarea id="output" class="f1" readonly></textarea>
              <div class="f0 hbox">
+                 <div class="f0 vbox" style="border: 1px solid black; margin: 2px">
+                     <div class="f0 hbox">
+                         <div class="f1"></div>
+                         <a id="feedbackButton" class="f0" style="x-small" href="#" onclick="parent.window.location='/feedback'">read feedback</a>
+                         <div class="f1"></div>
+                     </div>
+                     <div class="f0 hbox">
+                         <div class="f1"></div>
+                         <a id="feedbackButton" class="f0" style="x-small" href="#" onclick="parent.app.feedback(prompt('What is it?'));">creat feedback</a>
+                         <div class="f1"></div>
+                     </div>
+                 </div>
                  <div class="f1 vbox">
                      <textarea type="text" id="cmd" onkeydown='on_enter(event)' class="f1"></textarea>
                  </div>
                  <button id="compileButton" class="f0" onclick="parent.app.compileNow();">Compile, link and run...</button>
                  <button id="postButton" class="f0" onclick="parent.app.postSample();">Share!</button>
-                 <button id="feedbackButton" class="f0" style="x-small" onclick="parent.app.feedback(prompt('What is it?'));">Feedback</button>
              </div>
          </div>
      </div>
