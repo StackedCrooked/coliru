@@ -76,7 +76,7 @@
 
 </script>
 <script>
-    function on_enter(e) {
+    function on_cmd_keydown(e) {
         if (e.keyCode == 13) {
             if (!e.shiftKey) {
                 parent.app.compileNow();
@@ -92,7 +92,7 @@
              <textarea id="output" class="f1" readonly></textarea>
              <div class="f0 hbox">
                  <div class="f1 vbox">
-                     <textarea type="text" id="cmd" rows='3' onkeydown='on_enter(event)' class="f1"></textarea>
+                     <textarea type="text" id="cmd" rows='3' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
                  </div>
                  <div class="f0 vbox">
                  <button id="compileButton" class="f1" onclick="parent.app.compileNow();">Compile, link and run...</button>
