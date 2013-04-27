@@ -84,6 +84,18 @@ post '/compile' do
 end
 
 
+post '/compile2' do
+    $semaphore.synchronize do
+        parts = request.body.read.split("__COLIRU_SPLIT__");
+        File.open('cmd.sh', 'w') { |f| f << parts[0] }
+        File.open('main.cpp', 'w') { |f| f << parts[1] }
+        stream do |out|
+            safe_popen('./sandbox.sh') { |line| out << line }
+        end
+    end
+end
+
+
 post '/share' do
     $semaphore.synchronize do
         result = nil
