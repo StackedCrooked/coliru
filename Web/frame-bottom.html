@@ -76,40 +76,12 @@
 
 </script>
 <script>
-    function getCaret(el) {
-        if (el.selectionStart) {
-            return el.selectionStart;
-        }
-        else if (document.selection) {
-            el.focus();
-
-            var r = document.selection.createRange();
-            if (r == null) {
-                return 0;
-            }
-
-            var re = el.createTextRange(),
-            rc = re.duplicate();
-            re.moveToBookmark(r.getBookmark());
-            rc.setEndPoint('EndToStart', re);
-
-            return rc.text.length;
-        }  
-        return 0;
-    }
     function on_enter(e) {
         if (e.keyCode == 13) {
             if (!e.shiftKey) {
                 parent.app.compileNow();
                 e.stopPropagation();
             }
-            /*else {
-                var content = this.value;
-                var caret = getCaret(this);
-                this.value = content.substring(0,caret)+
-                "\n"+content.substring(caret,content.length);
-                e.stopPropagation();
-            }*/
         }
     }
 </script>
