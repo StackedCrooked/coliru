@@ -1,0 +1,19 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:18:60: error: invalid initialization of reference of type 'std::stringstream& {aka std::basic_stringstream<char>&}' from expression of type 'std::basic_ostream<char>::__ostream_type {aka std::basic_ostream<char>}'
+                         __FUNCTION__, (std::stringstream() << f))
+                                                            ^
+main.cpp:22:5: note: in expansion of macro 'LOG_TEST'
+     LOG_TEST("HELLO");
+     ^
+main.cpp:4:6: error: in passing argument 4 of 'void log(const char*, int, const char*, std::stringstream&)'
+ void log(
+      ^
+main.cpp:23:22: error: invalid initialization of reference of type 'std::stringstream& {aka std::basic_stringstream<char>&}' from expression of type 'std::basic_ostream<char>'
+     LOG_TEST("HELLO" << " !");
+                      ^
+main.cpp:18:63: note: in definition of macro 'LOG_TEST'
+                         __FUNCTION__, (std::stringstream() << f))
+                                                               ^
+main.cpp:4:6: error: in passing argument 4 of 'void log(const char*, int, const char*, std::stringstream&)'
+ void log(
+      ^
