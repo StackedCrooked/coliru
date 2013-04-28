@@ -1,0 +1,63 @@
+main.cpp:4:23: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Tensor<-898>'
+         Tensor<N - 1> x;
+                       ^
+main.cpp:4:23:   recursively required from 'struct Tensor<1>'
+main.cpp:4:23:   required from 'struct Tensor<2>'
+main.cpp:41:59:   required from here
+
+main.cpp:4:23: error: 'Tensor<N>::x' has incomplete type
+main.cpp:2:8: error: declaration of 'struct Tensor<-898>'
+ struct Tensor
+        ^
+main.cpp:5:23: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Tensor<-898>'
+         Tensor<N - 1> y;
+                       ^
+main.cpp:4:23:   recursively required from 'struct Tensor<1>'
+main.cpp:4:23:   required from 'struct Tensor<2>'
+main.cpp:41:59:   required from here
+
+main.cpp:5:23: error: 'Tensor<N>::y' has incomplete type
+main.cpp:2:8: error: declaration of 'struct Tensor<-898>'
+ struct Tensor
+        ^
+main.cpp:6:23: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Tensor<-898>'
+         Tensor<N - 1> z;
+                       ^
+main.cpp:4:23:   recursively required from 'struct Tensor<1>'
+main.cpp:4:23:   required from 'struct Tensor<2>'
+main.cpp:41:59:   required from here
+
+main.cpp:6:23: error: 'Tensor<N>::z' has incomplete type
+main.cpp:2:8: error: declaration of 'struct Tensor<-898>'
+ struct Tensor
+        ^
+main.cpp: In function 'Tensor<(N + 1)> Outer(const Tensor<N>&, const Tensor<1>&) [with int N = 1]':
+main.cpp:45:28: error: no match for 'operator*' (operand types are 'const Tensor<0>' and 'const Tensor<0>')
+         result.x.x = lhs.x * rhs.x;
+                            ^
+main.cpp:46:28: error: no match for 'operator*' (operand types are 'const Tensor<0>' and 'const Tensor<0>')
+         result.x.y = lhs.x * rhs.y;
+                            ^
+main.cpp:47:28: error: no match for 'operator*' (operand types are 'const Tensor<0>' and 'const Tensor<0>')
+         result.x.z = lhs.x * rhs.z;
+                            ^
+main.cpp: At global scope:
+main.cpp:53:8: error: specialization of 'Tensor<1>' after instantiation
+ struct Tensor<1>
+        ^
+main.cpp:53:8: error: redefinition of 'struct Tensor<1>'
+main.cpp:2:8: error: previous definition of 'struct Tensor<1>'
+ struct Tensor
+        ^
+main.cpp:8:19: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'Tensor<N>::Tensor() [with int N = -897]'
+         Tensor() {}
+                   ^
+main.cpp:8:18:   recursively required from 'Tensor<N>::Tensor() [with int N = 1]'
+main.cpp:8:18:   required from 'Tensor<N>::Tensor() [with int N = 2]'
+main.cpp:43:19:   required from here
+
+main.cpp:8:19: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'Tensor<N>::Tensor() [with int N = -897]'
+main.cpp:8:18:   recursively required from 'Tensor<N>::Tensor() [with int N = 1]'
+main.cpp:8:18:   required from 'Tensor<N>::Tensor() [with int N = 2]'
+main.cpp:43:19:   required from here
+
