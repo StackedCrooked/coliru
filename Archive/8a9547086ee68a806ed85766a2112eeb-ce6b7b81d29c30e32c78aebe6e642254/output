@@ -1,0 +1,10 @@
+main.cpp:6:6: error: overload resolution selected deleted operator '='
+ A() = A(); // error
+ ~~~ ^ ~~~
+main.cpp:2:10: note: candidate function has been explicitly deleted
+    void operator=(A&&) && = delete; // no op= for rvalues
+         ^
+main.cpp:1:7: note: candidate function (the implicit copy assignment operator) has been implicitly deleted
+class A {
+      ^
+1 error generated.
