@@ -149,8 +149,7 @@
     app.send("archive?id=" + app.id, "", function (response) {
         var obj = JSON.parse(response);
         app.editor.setValue(obj.src);
-        app.cmd = obj.cmd;
-        app.cmd_output = obj.output.trim();
+        obj.output = obj.cmd + '\n' + obj.output.trim();
         var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='margin:0; padding:0; '>";
         var pre_close = "</pre>";
         var text = "";
