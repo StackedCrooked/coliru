@@ -96,7 +96,7 @@
 <body>
 <div id="page">
     <div id="editor"></div>
-    <label for="output"></label><textarea id="output" ondblclick='window.highlightError()' readonly></textarea>
+    <div id="output" contenteditable='true' class="vbox f1"></div>
 
     <div id="footer">
         <button id="historyButton" onclick="window.location='history.html'">View History</a>
@@ -153,9 +153,38 @@
         app.editor.setValue(obj.src);
         app.cmd = obj.cmd;
         app.cmd_output = obj.output.trim();
+        var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='margin:0; padding:0; '>";
+        var pre_close = "</pre>";
+        var text = "";
+        var new_line = true;
+        for (var i = 0; i !== obj.output.length; ++i)
+        {
+            if (new_line)
+            {
+                text += pre_open;
+                new_line = false;
+            }
+
+
+            if (obj.output[i] == '\n')
+            {
+                text += pre_close;
+                new_line = true;
+            }
+            else
+            {
+                text += obj.output[i];
+            }
+        }
+        if (!new_line)
+        {
+            text += pre_close;
+        }
+        app.output.innerHTML = text;
+
         app.output.value = obj.cmd + "\n" + obj.output.trim();
 
-        document.domain = "stacked-crooked.com";
+        try { document.domain = "stacked-crooked.com"; } catch (e) { console.log("Caught: " + e); }
         var getHistory = function () {
             var historyObj = localStorage['history_items'];
             if (historyObj === undefined) {
@@ -211,41 +240,23 @@
         localStorage.setItem("cmd", app.cmd);
         window.location.href = "/";
     };
-    window.highlightError = function() {
-        function getCaret(node) {
-            if (node.selectionStart) {
-                return node.selectionStart;
-                } else if (!document.selection) {
-                return 0;
-            }
-
-            var c = "\001",
-            sel = document.selection.createRange(),
-            dul = sel.duplicate(),
-            len = 0;
-
-            dul.moveToElementText(node);
-            sel.text = c;
-            len = dul.text.indexOf(c);
-            sel.moveStart('character',-1);
-            sel.text = "";
-            return len;
+    window.highlightError = function(node, b) {
+        if (node.textContent.search(/^main.cpp:/) === -1) {
+            return;
         }
+        node.style.textDecoration = b ? 'underline' : '';
+        node.style.fontWeight = b ? 'bold' : 'normal';
+        node.style.cursor = b ? 'pointer' : 'auto';
+    };
+    window.jumpToError = function(node) {
 
-        var caret = getCaret(app.output);
-        var lineIndex = 0;
-        var text = app.output.value;
-        for (var i = 0; i !== text.length; ++i)
-        {
-            if (text[i] === "\n") lineIndex++;
-            if (i == caret) break;
-        }
-        var line = text.split("\n")[lineIndex];
+        var line = node.textContent;
         if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
             var components = line.split(":");
             var lineno = parseInt(components[1]);
             var col = parseInt(components[2]);
             app.editor.gotoLine(lineno, col, true);
+            app.editor.focus();
         }
     };
 
