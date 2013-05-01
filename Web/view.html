@@ -96,7 +96,7 @@
 <body>
 <div id="page">
     <div id="editor"></div>
-    <label for="output"></label><textarea id="output" readonly></textarea>
+    <label for="output"></label><textarea id="output" ondblclick='window.highlightError()' readonly></textarea>
 
     <div id="footer">
         <button id="historyButton" onclick="window.location='history.html'">View History</a>
@@ -210,6 +210,43 @@
         localStorage.setItem("src", editor.getValue());
         localStorage.setItem("cmd", app.cmd);
         window.location.href = "/";
+    };
+    window.highlightError = function() {
+        function getCaret(node) {
+            if (node.selectionStart) {
+                return node.selectionStart;
+                } else if (!document.selection) {
+                return 0;
+            }
+
+            var c = "\001",
+            sel = document.selection.createRange(),
+            dul = sel.duplicate(),
+            len = 0;
+
+            dul.moveToElementText(node);
+            sel.text = c;
+            len = dul.text.indexOf(c);
+            sel.moveStart('character',-1);
+            sel.text = "";
+            return len;
+        }
+
+        var caret = getCaret(app.output);
+        var lineIndex = 0;
+        var text = app.output.value;
+        for (var i = 0; i !== text.length; ++i)
+        {
+            if (text[i] === "\n") lineIndex++;
+            if (i == caret) break;
+        }
+        var line = text.split("\n")[lineIndex];
+        if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
+            var components = line.split(":");
+            var lineno = parseInt(components[1]);
+            var col = parseInt(components[2]);
+            app.editor.gotoLine(lineno, col, true);
+        }
     };
 
     document.getElementById("cloneButton").onclick = app.goBack;
