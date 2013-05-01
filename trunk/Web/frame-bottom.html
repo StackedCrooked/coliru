@@ -108,7 +108,14 @@
          parent.app.elements.postButton = document.getElementById("postButton");
          parent.app.elements.cmd = document.getElementById("cmd");
          parent.app.elements.output = document.getElementById("output");
-         window.highlightError = function(node) {};
+         window.highlightError = function(node, b) {
+            if (node.textContent.search(/^main.cpp:/) === -1) {
+                return;
+            }
+            node.style.textDecoration = b ? 'underline' : '';
+            node.style.fontWeight = b ? 'bold' : 'normal';
+            node.style.cursor = b ? 'pointer' : 'auto';
+         };
          window.jumpToError = function(node) {
             
              var line = node.textContent;

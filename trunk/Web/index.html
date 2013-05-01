@@ -111,7 +111,7 @@
         };
         app.compileNow = function () {
             app.send("compile", function (obj) {
-                var pre_open = "<pre class='f0' ondblclick='window.jumpToError(this)' onmouseover='window.highlightError(this)' style='margin:0; padding:0; '>";
+                var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='margin:0; padding:0; '>";
                 var pre_close = "</pre>";
                 var text = "";
                 var new_line = true;
