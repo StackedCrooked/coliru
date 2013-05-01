@@ -1,1 +1,2 @@
-shotgun -o 10.10.10.128 -p 8080 webserver-sinatra.rb
+#!/bin/bash
+shotgun webserver-sinatra.rb -p 8080 -o $(ifconfig eth0 | grep 'inet addr' | perl -p -e 's,\s+inet addr:([0-9.]+).*,\1,')
