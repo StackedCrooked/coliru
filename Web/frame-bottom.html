@@ -89,7 +89,7 @@
  <body>
      <div class="content hbox">
          <div id="frame-bottom" class="vbox f1">
-             <textarea id="output" class="f1" readonly ondblclick='window.highlightError()' ></textarea>
+             <div id="output" contenteditable='true' class="vbox f1"></div>
              <div class="f0 hbox">
                  <div class="f1 vbox">
                      <textarea type="text" id="cmd" rows='3' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
@@ -108,36 +108,10 @@
          parent.app.elements.postButton = document.getElementById("postButton");
          parent.app.elements.cmd = document.getElementById("cmd");
          parent.app.elements.output = document.getElementById("output");
-         window.highlightError = function() {
-             function getCaret(node) {
-                 if (node.selectionStart) {
-                     return node.selectionStart;
-                     } else if (!document.selection) {
-                     return 0;
-                 }
-
-                 var c = "\001",
-                 sel = document.selection.createRange(),
-                 dul = sel.duplicate(),
-                 len = 0;
-
-                 dul.moveToElementText(node);
-                 sel.text = c;
-                 len = dul.text.indexOf(c);
-                 sel.moveStart('character',-1);
-                 sel.text = "";
-                 return len;
-             }
-
-             var caret = getCaret(parent.app.elements.output);
-             var lineIndex = 0;
-             var text = parent.app.elements.output.value;
-             for (var i = 0; i !== text.length; ++i)
-             {
-                if (text[i] === "\n") lineIndex++;
-                if (i == caret) break;
-             }
-             var line = text.split("\n")[lineIndex];
+         window.highlightError = function(node) {};
+         window.jumpToError = function(node) {
+            
+             var line = node.textContent;
              if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
                  var components = line.split(":");
                  var lineno = parseInt(components[1]);
