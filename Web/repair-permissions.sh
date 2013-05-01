@@ -9,6 +9,7 @@ chown webserver:coliru ${COLIRU_ARCHIVE}
 chmod a+rw .
 
 find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
+chown -R sandbox:coliru /var/chroot & 
 chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1 || sudo -u sandbox chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1
 
 echo "Owner of /var/chroot/tmp is $(ls -alt /var/chroot/tmp | head -n2 | tail -n1)"
