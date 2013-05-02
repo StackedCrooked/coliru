@@ -1,0 +1,106 @@
+main.cpp:16:5: error: 'ptree' does not name a type
+     ptree ptree_;
+     ^
+main.cpp:37:31: error: 'detail' was not declared in this scope
+     typename boost::enable_if<detail::is_translator<Translator>, Type>::type
+                               ^
+main.cpp:37:31: note: suggested alternatives:
+In file included from /usr/local/include/boost/throw_exception.hpp:44:0,
+                 from /usr/local/include/boost/property_tree/ptree_fwd.hpp:16,
+                 from /usr/local/include/boost/property_tree/ptree.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/boost/current_function.hpp:26:1: note:   'boost::detail'
+ {
+ ^
+In file included from /usr/local/include/boost/property_tree/ptree.hpp:15:0,
+                 from main.cpp:1:
+/usr/local/include/boost/property_tree/ptree_fwd.hpp:23:22: note:   'boost::property_tree::detail'
+     namespace detail {
+                      ^
+In file included from /usr/local/include/boost/optional/optional.hpp:22:0,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from /usr/local/include/boost/property_tree/id_translator.hpp:16,
+                 from /usr/local/include/boost/property_tree/string_path.hpp:15,
+                 from /usr/local/include/boost/property_tree/ptree.hpp:16,
+                 from main.cpp:1:
+/usr/local/include/boost/assert.hpp:96:9: note:   'boost::assertion::detail'
+         {
+         ^
+In file included from /usr/local/include/boost/multi_index_container_fwd.hpp:17:0,
+                 from /usr/local/include/boost/multi_index_container.hpp:30,
+                 from /usr/local/include/boost/property_tree/ptree.hpp:21,
+                 from main.cpp:1:
+/usr/local/include/boost/multi_index/identity.hpp:33:17: note:   'boost::multi_index::detail'
+ namespace detail{
+                 ^
+In file included from /usr/local/include/boost/multi_index/detail/index_node_base.hpp:22:0,
+                 from /usr/local/include/boost/multi_index/detail/node_type.hpp:23,
+                 from /usr/local/include/boost/multi_index/detail/index_base.hpp:21,
+                 from /usr/local/include/boost/multi_index/detail/base_type.hpp:21,
+                 from /usr/local/include/boost/multi_index_container.hpp:33,
+                 from /usr/local/include/boost/property_tree/ptree.hpp:21,
+                 from main.cpp:1:
+/usr/local/include/boost/serialization/access.hpp:26:18: note:   'boost::archive::detail'
+ namespace detail {
+                  ^
+/usr/local/include/boost/serialization/access.hpp:39:18: note:   'boost::serialization::detail'
+ namespace detail {
+                  ^
+In file included from /usr/local/include/boost/tuple/tuple.hpp:33:0,
+                 from /usr/local/include/boost/multi_index/detail/index_base.hpp:23,
+                 from /usr/local/include/boost/multi_index/detail/base_type.hpp:21,
+                 from /usr/local/include/boost/multi_index_container.hpp:33,
+                 from /usr/local/include/boost/property_tree/ptree.hpp:21,
+                 from main.cpp:1:
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:51:18: note:   'boost::tuples::detail'
+ namespace detail {
+                  ^
+main.cpp:37:70: error: template argument 1 is invalid
+     typename boost::enable_if<detail::is_translator<Translator>, Type>::type
+                                                                      ^
+main.cpp:37:71: error: expected identifier before '::' token
+     typename boost::enable_if<detail::is_translator<Translator>, Type>::type
+                                                                       ^
+main.cpp:38:5: error: expected initializer before 'get'
+     get(const std::string &argPath, const Type &argDefault, Translator tr) const {
+     ^
+main.cpp: In constructor 'AXmlConfigurator::AXmlConfigurator(const string&)':
+main.cpp:24:39: error: 'ptree_' was not declared in this scope
+         read_xml(configuration_file_, ptree_);
+                                       ^
+main.cpp:24:45: error: 'read_xml' was not declared in this scope
+         read_xml(configuration_file_, ptree_);
+                                             ^
+main.cpp:24:45: note: suggested alternatives:
+In file included from main.cpp:2:0:
+/usr/local/include/boost/property_tree/xml_parser.hpp:46:10: note:   'boost::property_tree::xml_parser::read_xml'
+     void read_xml(std::basic_istream<
+          ^
+/usr/local/include/boost/property_tree/xml_parser.hpp:73:10: note:   'boost::property_tree::xml_parser::read_xml'
+     void read_xml(const std::string &filename,
+          ^
+main.cpp: In member function 'Type AXmlConfigurator::get(const string&, Type) const':
+main.cpp:31:22: error: 'ptree_' was not declared in this scope
+         Type value = ptree_.get<Type>(argPath, argDefault);
+                      ^
+main.cpp:32:78: error: no matching function for call to 'std::map<std::basic_string<char>, std::basic_string<char> >::insert(std::pair<std::basic_string<char>, std::basic_string<char> >&) const'
+         parameters_.insert(std::pair<std::string,std::string>(argPath, value));
+                                                                              ^
+main.cpp:32:78: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/map:61:0,
+                 from main.cpp:6:
+/usr/local/include/c++/4.8.0/bits/stl_map.h:594:7: note: std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(const value_type&) [with _Key = std::basic_string<char>; _Tp = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::basic_string<char>, std::basic_string<char> > >; typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator = std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, std::basic_string<char> > >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const std::basic_string<char>, std::basic_string<char> >] <near match>
+       insert(const value_type& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:594:7: note:   no known conversion for implicit 'this' parameter from 'const std::map<std::basic_string<char>, std::basic_string<char> >*' to 'std::map<std::basic_string<char>, std::basic_string<char> >*'
+/usr/local/include/c++/4.8.0/bits/stl_map.h:646:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::iterator, const value_type&) [with _Key = std::basic_string<char>; _Tp = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::basic_string<char>, std::basic_string<char> > >; std::map<_Key, _Tp, _Compare, _Alloc>::iterator = std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, std::basic_string<char> > >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const std::basic_string<char>, std::basic_string<char> >]
+       insert(iterator __position, const value_type& __x)
+       ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:646:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.8.0/bits/stl_map.h:670:9: note: template<class _InputIterator> void std::map<_Key, _Tp, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = std::basic_string<char>; _Tp = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::basic_string<char>, std::basic_string<char> > >]
+         insert(_InputIterator __first, _InputIterator __last)
+         ^
+/usr/local/include/c++/4.8.0/bits/stl_map.h:670:9: note:   template argument deduction/substitution failed:
+main.cpp:32:78: note:   candidate expects 2 arguments, 1 provided
+         parameters_.insert(std::pair<std::string,std::string>(argPath, value));
+                                                                              ^

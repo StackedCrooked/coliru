@@ -1,0 +1,1 @@
+echo 'main.cpp:9:12: This is line 9 column 12.'

@@ -1,0 +1,1 @@
+echo main.cpp:5:41: bad_alloc

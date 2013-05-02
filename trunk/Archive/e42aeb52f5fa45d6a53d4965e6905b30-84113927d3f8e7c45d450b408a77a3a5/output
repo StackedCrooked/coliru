@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:222:9: error: 'WorkStealing' has not been declared
+         WorkStealing::WorkerPool pool{4};
+         ^
+main.cpp:222:34: error: expected ';' before 'pool'
+         WorkStealing::WorkerPool pool{4};
+                                  ^
+main.cpp:225:34: error: 'pool' was not declared in this scope
+             futures.emplace_back(pool.execute([=]{print(i);}));
+                                  ^
+
+real	0m2.126s
+user	0m1.900s
+sys	0m0.220s
