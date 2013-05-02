@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:82:10: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second: [enabled by default]
+     (e33 = e22) = "three";
+          ^
+main.cpp:46:21: note: candidate 1: A<T>::ElementRef<AT>& A<T>::ElementRef<AT>::operator=(const A<T>::ElementRef<AT>&) [with AT = A<std::basic_string<char> >; T = std::basic_string<char>]
+         ElementRef &operator=(const ElementRef &other)
+                     ^
+main.cpp:38:106: note: candidate 2: typename std::enable_if<((! std::is_const<AT>::value) && std::is_assignable<T, U&&>::value), const A<T>::ElementRef<AT> >::type A<T>::ElementRef<AT>::operator=(U&&) const [with U = A<std::basic_string<char> >::ElementRef<A<std::basic_string<char> > >&; AT = A<std::basic_string<char> >; T = std::basic_string<char>; typename std::enable_if<((! std::is_const<AT>::value) && std::is_assignable<T, U&&>::value), const A<T>::ElementRef<AT> >::type = const A<std::basic_string<char> >::ElementRef<A<std::basic_string<char> > >]
+         typename enable_if<!is_const<AT>::value && is_assignable<T, U&&>::value, const ElementRef>::type operator=(U &&u) const
+                                                                                                          ^
+A(0, 0) => const T & (default)
+A(1, 1) = one
+A(1, 1) => const T & (one)
+A(2, 2) = two
+A(2, 2) => const T & (two)
+ElementRef::operator=(const ElementRef &other)
+A(2, 2) = three
+A(2, 2) => const T & (three)
+const A(0, 0) => const T & (default)
+const A(1, 1) => const T & (one)
+const A(2, 2) => const T & (three)
+const A(3, 3) => const T & (default)
