@@ -1,0 +1,106 @@
+main.cpp: In instantiation of 'void f(Args&& ...) [with Args = {}]':
+main.cpp:15:7:   required from here
+main.cpp:8:39: error: no matching function for call to 'get(std::tuple<>&)'
+     std::cout << std::get<0>(arguments);
+                                       ^
+main.cpp:8:39: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:142:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.8.0/utility:142:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'std::pair<_Tp1, _Tp2>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:147:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.8.0/utility:147:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'std::pair<_Tp1, _Tp2>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:152:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.8.0/utility:152:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from /usr/local/include/c++/4.8.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/array:268:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.8.0/array:268:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'std::array<_Tp, _Nm>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from /usr/local/include/c++/4.8.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/array:277:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.8.0/array:277:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'std::array<_Tp, _Nm>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from /usr/local/include/c++/4.8.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/array:285:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.8.0/array:285:5: note:   template argument deduction/substitution failed:
+main.cpp:8:39: note:   'std::tuple<>' is not derived from 'const std::array<_Tp, _Nm>'
+     std::cout << std::get<0>(arguments);
+                                       ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/tuple:757:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.8.0/tuple:757:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.0/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 0ul; _Elements = {}]':
+main.cpp:8:39:   required from 'void f(Args&& ...) [with Args = {}]'
+main.cpp:15:7:   required from here
+/usr/local/include/c++/4.8.0/tuple:757:5: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:84:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+In file included from main.cpp:1:0:
+main.cpp: In instantiation of 'void f(Args&& ...) [with Args = {}]':
+main.cpp:15:7:   required from here
+/usr/local/include/c++/4.8.0/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.8.0/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.0/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 0ul; _Elements = {}]':
+main.cpp:8:39:   required from 'void f(Args&& ...) [with Args = {}]'
+main.cpp:15:7:   required from here
+/usr/local/include/c++/4.8.0/tuple:764:5: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:84:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+In file included from main.cpp:1:0:
+main.cpp: In instantiation of 'void f(Args&& ...) [with Args = {}]':
+main.cpp:15:7:   required from here
+/usr/local/include/c++/4.8.0/tuple:771:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.8.0/tuple:771:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.0/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&) [with long unsigned int __i = 0ul; _Elements = {}]':
+main.cpp:8:39:   required from 'void f(Args&& ...) [with Args = {}]'
+main.cpp:15:7:   required from here
+/usr/local/include/c++/4.8.0/tuple:771:5: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+In file included from /usr/local/include/c++/4.8.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/utility:84:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
