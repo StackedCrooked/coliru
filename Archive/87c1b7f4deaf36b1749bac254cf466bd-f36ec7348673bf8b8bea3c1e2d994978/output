@@ -1,0 +1,40 @@
+main.cpp:5:1: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+ auto make_counter () {
+ ^
+main.cpp:5:20: error: ISO C++ forbids declaration of 'make_counter' with no type [-fpermissive]
+ auto make_counter () {
+                    ^
+main.cpp:5:20: error: top-level declaration of 'make_counter' specifies 'auto'
+main.cpp:5:20: error: storage class 'auto' invalid for function 'make_counter'
+main.cpp: In function 'int make_counter()':
+main.cpp:7:40: warning: lambda expressions only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     return [=]() mutable { return i++; };
+                                        ^
+main.cpp:7:40: error: cannot convert 'make_counter()::__lambda0' to 'int' in return
+main.cpp: At global scope:
+main.cpp:10:1: error: 'function' in namespace 'std' does not name a type
+ std::function<int()> make_counter_f () {
+ ^
+main.cpp: In function 'int main()':
+main.cpp:16:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto lambda = make_counter();
+     ^
+main.cpp:16:10: error: 'lambda' does not name a type
+     auto lambda = make_counter();
+          ^
+main.cpp:17:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto func = make_counter_f();
+     ^
+main.cpp:17:10: error: 'func' does not name a type
+     auto func = make_counter_f();
+          ^
+main.cpp:19:26: error: 'lambda' was not declared in this scope
+     std::cout << typeid( lambda ).name() << std::endl;
+                          ^
+main.cpp:20:26: error: 'func' was not declared in this scope
+     std::cout << typeid( func ).name() << std::endl;
+                          ^
+main.cpp: In function 'int make_counter()':
+main.cpp:8:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
