@@ -1,0 +1,1 @@
+g++ main.cpp -std=c++11 -Ofast -Wall -Wextra && ./a.out
