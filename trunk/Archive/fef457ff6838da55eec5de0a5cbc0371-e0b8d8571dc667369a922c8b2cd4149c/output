@@ -1,0 +1,24 @@
+main.cpp: In function 'T Acc(T, V ...)':
+main.cpp:33:1: error: expected primary-expression before '}' token
+ }
+ ^
+main.cpp:33:1: error: expected ';' before '}' token
+main.cpp: In instantiation of 'T Acc(T, V ...) [with T = double; V = {}]':
+main.cpp:30:31:   recursively required from 'T Acc(T, V ...) [with T = double; V = {double, int, double}]'
+main.cpp:30:31:   required from 'T Acc(T, V ...) [with T = double; V = {double, double, int, double}]'
+main.cpp:43:37:   required from here
+main.cpp:30:31: error: no matching function for call to 'Acc()'
+         return v + Acc( va... );
+                               ^
+main.cpp:30:31: note: candidate is:
+main.cpp:27:3: note: template<class T, class ... V> T Acc(T, V ...)
+ T Acc( T v, V... va )
+   ^
+main.cpp:27:3: note:   template argument deduction/substitution failed:
+main.cpp:30:31: note:   candidate expects 2 arguments, 0 provided
+         return v + Acc( va... );
+                               ^
+main.cpp: In function 'T Acc(T, V ...) [with T = double; V = {}]':
+main.cpp:33:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
