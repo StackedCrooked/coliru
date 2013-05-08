@@ -1,4 +1,5 @@
 #!/bin/bash
+source coliru_env.source
 if [ "$(uname)" == "Darwin" ] ; then 
     ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')-$(md5 cmd.sh | cut -d '=' -f 2 | sed -e 's/ //g')"
 else

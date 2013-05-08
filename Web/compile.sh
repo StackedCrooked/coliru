@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 ulimit -u 20
 ulimit -t TIMEOUT
 cd /tmp

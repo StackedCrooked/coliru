@@ -37,7 +37,7 @@ end
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
     begin
-        Timeout.timeout(get_timeout) do
+        Timeout.timeout(get_timeout.to_i) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             until @stdout.eof?
                 yield @stdout.readline
