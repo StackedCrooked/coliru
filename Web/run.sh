@@ -15,7 +15,8 @@ restart_webserver() {
 }
 
 while true ; do
-    restart_webserver
+    restart_webserver >webserver.log 2>&1
+    echo 'webserver crashed' >webserver.log
     sleep 2
 done
 
