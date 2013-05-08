@@ -14,7 +14,8 @@
 # http://stackoverflow.com/questions/185451/quick-and-dirty-way-to-ensure-only-one-instance-of-a-shell-script-is-running-at
 
 
-LOCKFILE=/tmp/lock.txt
+COMMAND_MD5=$(echo "$@" | md5sum - | cut -d ' ' -f1)
+LOCKFILE="/tmp/${COMMAND_MD5}"
 if [ -e ${LOCKFILE} ] && kill -0 `cat ${LOCKFILE}`; then
     echo "already running"
     exit
