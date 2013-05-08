@@ -12,7 +12,6 @@ if [ -d ${CHROOT} ] ; then
 	echo "Warning: ${CHROOT} already exists." 1>&2 || true
 fi
 
-apt-get install -y rsync
 mkdir -p ${CHROOT}
 
 if [ ! type g++-4.8 ] ; then
@@ -24,8 +23,11 @@ if [ ! type g++-4.8 ] ; then
 fi
 
 apt-get install -y dchroot debootstrap
-mkdir -p ${CHROOT}
-rsync -aqz --copy-links /usr /bin /lib /lib64 ${CHROOT}
+
+for dir in $(echo /usr /bin /lib /lib64) ; do
+    mount --bind ${dir} ${CHROOT}${dir}
+    mount -o remount,ro ${CHROOT}${dir}
+done
 
 
 apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync subversion
@@ -66,7 +68,6 @@ if [ $LIMITS_ALREADY_SET -ne 0 ] ; then
 fi
 
 
-chmod -R o-r ${CHROOT}/
 mkdir -p ${CHROOT}/tmp
 chown -R sandbox:coliru ${CHROOT}/tmp
 
