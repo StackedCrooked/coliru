@@ -1,7 +1,6 @@
 #!/bin/bash
 export CHROOT="/var/chroot"
-export COLIRU_TIMEOUT="$(cat timeout.txt || echo 20)"
-echo "COLIRU_TIMEOUT: ${COLIRU_TIMEOUT}"
+export COLIRU_TIMEOUT="$(cat timeout.txt 2>/dev/null || echo 20)"
 
 
 rm -rf "${CHROOT}/tmp/*"
