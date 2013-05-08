@@ -16,19 +16,28 @@ set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
 $timeout_semaphore = Mutex.new
-$timeout = 20
+
+def get_timeout
+    $timeout_semaphore.synchronize do
+        begin
+            [60, File.read('timeout.txt').to_i ].min.to_s
+        rescue Exception => e
+            20.to_s
+        end
+    end
+end
+
+
+def set_timeout(t)
+    $timeout_semaphore.synchronize do
+        File.open('timeout.txt', 'w') { |f| f << t }
+    end
+end
 
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
     begin
-        $timeout_semaphore.synchronize do
-            begin 
-                $timeout = File.read('timeout.txt').split(/\n/)[0].to_i
-            rescue Exception => e
-            end
-        end
-        puts "Starting popen with timeout #{$timeout}"
-        Timeout.timeout($timeout) do
+        Timeout.timeout(get_timeout) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             until @stdout.eof?
                 yield @stdout.readline
@@ -105,24 +114,15 @@ end
 
 
 post '/timeout' do
-    $timeout_semaphore.synchronize do
-        $timeout = request.body.read.to_i
-        if $timeout > 60
-            $timeout = 60
-        end
-        File.open('timeout.txt', 'w') { |f| f << $timeout.to_s }
+    stream do |out|
+        set_timeout(request.body.read.to_i)
+        get_timeout
     end
 end
 
 
 get '/timeout' do
-    $timeout_semaphore.synchronize do
-        begin
-            $timeout.to_s
-        rescue Exception => e
-            e.to_s
-        end
-    end
+    get_timeout
 end
 
 

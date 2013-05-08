@@ -11,7 +11,7 @@ restart_webserver() {
   ./kill-current.sh
   ./repair-permissions.sh 
   echo "Starting web server."
-  sudo -E -u webserver ruby webserver-sinatra.rb 
+  shotgun webserver-sinatra.rb -p 80 -o stacked-crooked.com
 }
 
 while true ; do
