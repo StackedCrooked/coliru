@@ -10,6 +10,8 @@ if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
     exit
 fi
 
+trap "rm -f timeout.txt; exit" INT TERM EXIT
+
 pkill -9 -u sandbox
 ./repair-permissions.sh >/dev/null 2>&1
 ./build_and_run.sh
