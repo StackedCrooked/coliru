@@ -2,15 +2,11 @@
 export CHROOT="/var/chroot"
 
 TIMEOUT=$(cat timeout.txt 2>/dev/null || echo 20)
-echo "TIMEOUT is ${TIMEOUT}"
 if [ "${TIMEOUT}" != "" ] ; then
-    echo "set it"
     COLIRU_TIMEOUT=${TIMEOUT}
 else
-    echo "set it to default: ${COLIRU_DEFAULT_TIMEOUT}"
     COLIRU_TIMEOUT=${COLIRU_DEFAULT_TIMEOUT}
 fi
-echo "the COLIRU_TIMEOUT: ${COLIRU_TIMEOUT}"
 
 
 rm -rf "${CHROOT}/tmp/*"
