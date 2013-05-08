@@ -1,9 +1,7 @@
 #!/bin/bash
-set -x
 echo "$0 executed by $(whoami)"
 
 touch webserver.log ; chown webserver:coliru webserver.log
-touch timeout.txt ; chown webserver:coliru timeout.txt
 touch feedback.txt ; chown webserver:coliru feedback.txt ; chmod +w feedback.txt
 chown webserver:coliru .
 chown webserver:coliru ${COLIRU_ARCHIVE}
