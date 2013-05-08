@@ -20,7 +20,13 @@ $feedback_semaphore = Mutex.new
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
     begin
-        Timeout.timeout(20) do
+        timeout = 20
+        begin 
+            timeout = File.read('timeout.txt').split(/\n/)[0].to_i
+        rescue Exception => e
+        end
+        puts "Starting popen with timeout #{timeout}"
+        Timeout.timeout(timeout) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             until @stdout.eof?
                 yield @stdout.readline
