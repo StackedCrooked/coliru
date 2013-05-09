@@ -173,7 +173,9 @@ get '/images/?' do |file|
         stream do |out|
             out << page_start
             Dir.entries("./images").each do |file|
-                out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
+                if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
+                    out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
+                end
             end
             out << page_end
         end
