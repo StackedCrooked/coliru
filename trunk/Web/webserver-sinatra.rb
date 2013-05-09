@@ -182,6 +182,21 @@ get '/images/?' do |file|
     end
 end
 
+get '/random_image' do 
+    content_type :jpg
+    entries = [ Dir["./images/*.jpg"], Dir["./images/*.png"] ].flatten
+    if entries.empty?
+        raise "not found"
+    end
+
+    file = entries[rand(entries.size)]
+    $image_semaphore.synchronize do 
+        File.open(file, "rb") do |io|
+            io.read
+        end
+    end
+end
+
 get '/images/*' do |file|
     $image_semaphore.synchronize do 
         content_type :jpg
