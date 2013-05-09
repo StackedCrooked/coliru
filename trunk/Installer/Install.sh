@@ -25,6 +25,7 @@ type 'g++-4.8' || { \
 apt-get install -y dchroot debootstrap
 
 for dir in $(echo /usr /bin /lib /lib64) ; do
+    mkdir -p ${CHROOT}${dir}
     mount --bind ${dir} ${CHROOT}${dir}
     mount -o remount,ro ${CHROOT}${dir}
 done
