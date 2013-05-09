@@ -1,0 +1,49 @@
+++ FILE=/Archive/a848bc486ba7bf212a0418f852468e33-2363d320710392186e30fe4a9f9f25ef/main.cpp
+++ g++-4.8 -std=c++11 -O3 -DINLINE= /Archive/a848bc486ba7bf212a0418f852468e33-2363d320710392186e30fe4a9f9f25ef/main.cpp -S -o -
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	_Z20__Int__modify__Int__R4Blob
+	.type	_Z20__Int__modify__Int__R4Blob, @function
+_Z20__Int__modify__Int__R4Blob:
+.LFB26:
+	.cfi_startproc
+	movl	$42, 4(%rdi)
+	ret
+	.cfi_endproc
+.LFE26:
+	.size	_Z20__Int__modify__Int__R4Blob, .-_Z20__Int__modify__Int__R4Blob
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB27:
+	.cfi_startproc
+	subq	$152, %rsp
+	.cfi_def_cfa_offset 160
+	movq	%rsp, %rdi
+	movq	%fs:40, %rax
+	movq	%rax, 136(%rsp)
+	xorl	%eax, %eax
+	call	_Z22__Ext__get_blob__Ext__v
+	movq	%rsp, %rdi
+	call	_Z20__Int__modify__Int__R4Blob
+	movq	%rsp, %rdi
+	call	_Z22__Ext__set_blob__Ext__RK4Blob
+	xorl	%eax, %eax
+	movq	136(%rsp), %rdx
+	xorq	%fs:40, %rdx
+	jne	.L6
+	addq	$152, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L6:
+	.cfi_restore_state
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE27:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.8.0-3ubuntu3~12.04) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits
