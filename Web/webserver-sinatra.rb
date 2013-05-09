@@ -11,6 +11,8 @@ set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
 $timeout_semaphore = Mutex.new
+$image_semaphore = Mutex.new
+$images_semaphore = Mutex.new
 
 configure do
   mime_type :js, 'application/javascript'
@@ -164,24 +166,28 @@ end
 
 
 get '/images/?' do |file|
-    page_start = "<!DOCTYPE html>\n<html><body>"
-    page_end = '</body></html>'
-    link = '<div><img src="/images/FILE"></div>'
-    stream do |out|
-        out << page_start
-        Dir.entries("./images").each do |file|
-            out << link.sub(/HREF/, "/images/#{file}").sub(/FILE/, "#{file}")
+    $images_semaphore.synchronize do 
+        page_start = "<!DOCTYPE html>\n<html><body><span>"
+        page_end = '</span></body></html>'
+        link = '<a href="images/FILE"><img style="max-width: 400px ; max-height: 400px" src="/images/FILE"></a>'
+        stream do |out|
+            out << page_start
+            Dir.entries("./images").each do |file|
+                out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
+            end
+            out << page_end
         end
-        out << page_end
     end
 end
 
 get '/images/*' do |file|
-    content_type :jpg
-    path = "images/#{file}"
-    puts path
-    File.open(path, "rb") do |io|
-        io.read
+    $image_semaphore.synchronize do 
+        content_type :jpg
+        path = "images/#{file}"
+        puts path
+        File.open(path, "rb") do |io|
+            io.read
+        end
     end
 end
 
