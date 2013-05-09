@@ -3,16 +3,22 @@
 # Launcher script that ensures there is only one instance of the launched
 # script running.
 #
-# Usage examples:
+# Usage:
+#  ./singleton.sh [command ...]
+#
+# Examples:
 #  ./singleton.sh ./user_script.sh
-#  ./singleton.sh echo hello
+#
+# Example of collision detection:
+#  ./singleton.sh sleep 10
+#  ./singleton.sh sleep 20
+#  ./singleton.sh sleep 10 # error: already running
 #
 # The trick here is the kill -0 which doesn't deliver any signal but just
 # checks if a pid is running. Also the call to trap will ensure that the
 # lockfile is removed even when your process is killed (except kill -9).
 #
 # http://stackoverflow.com/questions/185451/quick-and-dirty-way-to-ensure-only-one-instance-of-a-shell-script-is-running-at
-
 
 COMMAND_MD5=$(echo "$@" | md5sum - | cut -d ' ' -f1)
 LOCKFILE="/tmp/${COMMAND_MD5}"
@@ -27,5 +33,3 @@ echo $$ > ${LOCKFILE}
 
 # run user program
 $@
-
-rm -f ${LOCKFILE}
