@@ -14,6 +14,7 @@ $timeout_semaphore = Mutex.new
 
 configure do
   mime_type :js, 'application/javascript'
+  mime_type :jpg, 'image/jpeg'
 end
 
 def get_timeout
@@ -158,6 +159,29 @@ get '/external' do
         http_get_request = Net::HTTP::Get.new(uri.path)
         result = Net::HTTP.start(uri.host, uri.port) { |http| http.request(http_get_request) }
         out << result.body
+    end
+end
+
+
+get '/images/?' do |file|
+    page_start = "<!DOCTYPE html>\n<html><body>"
+    page_end = '</body></html>'
+    link = '<div><img src="/images/FILE"></div>'
+    stream do |out|
+        out << page_start
+        Dir.entries("./images").each do |file|
+            out << link.sub(/HREF/, "/images/#{file}").sub(/FILE/, "#{file}")
+        end
+        out << page_end
+    end
+end
+
+get '/images/*' do |file|
+    content_type :jpg
+    path = "images/#{file}"
+    puts path
+    File.open(path, "rb") do |io|
+        io.read
     end
 end
 
