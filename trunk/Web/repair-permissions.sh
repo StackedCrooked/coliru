@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "$0 executed by $(whoami)"
+source coliru_env.source
 
 touch webserver.log ; chown webserver:coliru webserver.log
 touch feedback.txt ; chown webserver:coliru feedback.txt ; chmod +w feedback.txt
@@ -26,4 +27,10 @@ chmod -R a+rw /var/chroot/dev
 
 for file in "output main.cpp cmd.sh /var/chroot/tmp/main.cpp /var/chroot/tmp/compile.sh" ; do
   touch $file && chown webserver:coliru $file
+done
+
+
+# Mount the chroot directories
+for dir in $(echo /usr /bin /lib /lib64) ; do
+    { mkdir -p ${CHROOT}${dir} && mount --bind ${dir} ${CHROOT}${dir} && mount -o remount,ro ${CHROOT}${dir} ; } || true
 done
