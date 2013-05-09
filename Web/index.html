@@ -55,7 +55,6 @@
             name: 'Build and run',
                 bindKey: {win: 'Ctrl-B',  mac: 'Command-B'},
                     exec: function(editor) { 
-                        if (app.elements.compileButton.disabled) return;
                         app.compileNow();
                     },
                     readOnly: true // false if this command should not apply in readOnly mode
@@ -68,26 +67,20 @@
             app.elements.editor.setReadOnly(!value);
             app.elements.editor.setReadOnly(!value);
             app.elements.cmd.disabled = !value;
-            var colors = [
-                //'#ff6347', // red
-                '#ff7f00', // orange
-                '#ffff00', // geel
-                '#00ff00', // groen
-                '#00ffff' // cyan
-                //'#00bfff' // blauw
-                //'#8b00ff'  // violet
-            ];
+            var colors = [ '#ffcc00', '#ffff00', '#00ff00', '#00ffff' ];
             if (parent.app.elements.fade_count === undefined)
                 parent.app.elements.fade_count = 0;//Math.round(Math.random() * 10) % colors.length;
 
             if (!value) {
                 var n = parent.app.elements.fade_count++ % colors.length;
                 console.log("n: " +n);
-                //app.elements.fade.style.background = colors[n]
-                app.elements.fade.style.backgroundImage = 'url(/random_image)';
+                app.elements.fade.style.background = colors[n]
+                //app.elements.fade.style.backgroundImage = 'url(/random_image)';
             }
-            app.elements.fade.style.opacity = value ? "0.00" : "0.92";
-            //app.elements.fade.style.zIndex = value ? "10" : "0";
+            else {
+                app.elements.fade.style.background = '#ffffff';
+            }
+            app.elements.fade.style.opacity = value ? "0" : "80";
         };
         app.enableUI(true);
 
@@ -131,6 +124,7 @@
 
         };
         app.compileNow = function () {
+            if (app.elements.compileButton.disabled) return;
             app.send("compile", function (obj) {
                 var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='margin:0; padding:0; '>";
                 var pre_close = "</pre>";
