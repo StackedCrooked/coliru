@@ -32,7 +32,7 @@ done
 
 
 apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync subversion
-gem install sinatra shotgun popen4
+gem install sinatra shotgun popen4 --no-ri --no-rdoc
 
 
 for ruby in `ls /usr/bin/ruby*` ; do
