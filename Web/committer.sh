@@ -1,19 +1,24 @@
 #!/bin/bash
-set -e
 source coliru_env.source
 [ -z ${COLIRU_ARCHIVE} ] && { echo "COLIRU_ARCHIVE variable must be set." && exit 1; }
 [ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 
+# sleep duration is 20 seconds
+SLEEP_DURATION=20
+
 while true ; do
   # Add new files to subversion.
-  (cd ${COLIRU_ARCHIVE} && svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' | xargs -I {} svn add -q ${COLIRU_ARCHIVE}/{} >committer.log 2>&1)
-
-  # And commit them.
-  svn ci ${COLIRU_ARCHIVE} -m "Update archive" >committer.log 2>&1
+  for i in $(ls -tc1 ${COLIRU_ARCHIVE}) ; do
+    DIR="${COLIRU_ARCHIVE}/${i}"
+    [ -d ${DIR} ] && [ ! -d "${DIR}/.svn" ] && { echo "Adding ${DIR} to svn." ; svn add ${DIR} ; svn ci ${DIR} -m "Add to archive." ; sleep 1 ; }
+  done
+  echo "Finished checking for new posts."
 
   # Also commit the feedback."
-  svn ci feedback.txt -m "Update feedback." >committer.log 2>&1
+  echo "Committing any new feedback..."
+  svn ci feedback.txt -m "Update feedback." || echo "...but there is no new feedback."
 
   # Repeat later. 
-  sleep 1200
+  echo "Sleeping for ${SLEEP_DURATION} seconds until retry."
+  sleep ${SLEEP_DURATION}
 done
