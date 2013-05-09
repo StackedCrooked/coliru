@@ -12,6 +12,10 @@ $semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
 $timeout_semaphore = Mutex.new
 
+configure do
+  mime_type :js, 'application/javascript'
+end
+
 def get_timeout
     $timeout_semaphore.synchronize do
         begin
@@ -56,6 +60,12 @@ end
 
 get '/*.html' do |file|
     File.read("#{file}.html")
+end
+
+
+get '/*.js' do |file|
+    content_type :js
+    File.read("#{file}.js")
 end
 
 
