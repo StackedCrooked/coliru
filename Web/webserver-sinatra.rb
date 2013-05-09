@@ -11,8 +11,6 @@ set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
 $timeout_semaphore = Mutex.new
-$image_semaphore = Mutex.new
-$images_semaphore = Mutex.new
 
 configure do
   mime_type :js, 'application/javascript'
@@ -166,19 +164,17 @@ end
 
 
 get '/images/?' do |file|
-    $images_semaphore.synchronize do 
-        page_start = "<!DOCTYPE html>\n<html><body><span>"
-        page_end = '</span></body></html>'
-        link = '<a href="images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
-        stream do |out|
-            out << page_start
-            Dir.entries("./images").each do |file|
-                if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
-                    out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
-                end
+    page_start = "<!DOCTYPE html>\n<html><body><span>"
+    page_end = '</span></body></html>'
+    link = '<a href="images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
+    stream do |out|
+        out << page_start
+        Dir.entries("./images").each do |file|
+            if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
+                out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
             end
-            out << page_end
         end
+        out << page_end
     end
 end
 
@@ -189,22 +185,15 @@ get '/random_image' do
         raise "not found"
     end
 
-    file = entries[rand(entries.size)]
-    $image_semaphore.synchronize do 
-        File.open(file, "rb") do |io|
-            io.read
-        end
+    File.open(entries[rand(entries.size)], "rb") do |io|
+        io.read
     end
 end
 
 get '/images/*' do |file|
-    $image_semaphore.synchronize do 
-        content_type :jpg
-        path = "images/#{file}"
-        puts path
-        File.open(path, "rb") do |io|
-            io.read
-        end
+    content_type :jpg
+    File.open("images/#{file}", "rb") do |io|
+        io.read
     end
 end
 
