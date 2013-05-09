@@ -169,7 +169,7 @@ get '/images/?' do |file|
     $images_semaphore.synchronize do 
         page_start = "<!DOCTYPE html>\n<html><body><span>"
         page_end = '</span></body></html>'
-        link = '<a href="images/FILE"><img style="max-width: 400px ; max-height: 400px" src="/images/FILE"></a>'
+        link = '<a href="images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
         stream do |out|
             out << page_start
             Dir.entries("./images").each do |file|
