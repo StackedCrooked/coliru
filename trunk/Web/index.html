@@ -54,7 +54,10 @@
         app.elements.editor.commands.addCommand({
             name: 'Build and run',
                 bindKey: {win: 'Ctrl-B',  mac: 'Command-B'},
-                    exec: function(editor) { app.compileNow(); },
+                    exec: function(editor) { 
+                        if (app.elements.compileButton.disabled) return;
+                        app.compileNow();
+                    },
                     readOnly: true // false if this command should not apply in readOnly mode
                     });
         app.elements.cmd.value = localStorage.getItem("cmd") || "g++-4.8 -std=c++11 -O2 -Wall -pthread main.cpp && ./a.out";
