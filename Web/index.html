@@ -65,20 +65,24 @@
             app.elements.editor.setReadOnly(!value);
             app.elements.editor.setReadOnly(!value);
             app.elements.cmd.disabled = !value;
+            var colors = [
+                //'#ff6347', // red
+                '#ff7f00', // orange
+                '#ffff00', // geel
+                '#00ff00', // groen
+                '#00ffff' // cyan
+                //'#00bfff' // blauw
+                //'#8b00ff'  // violet
+            ];
             if (parent.app.elements.fade_count === undefined)
-                parent.app.elements.fade_count = Math.round(Math.random() * 10) % 5;
+                parent.app.elements.fade_count = 0;//Math.round(Math.random() * 10) % colors.length;
 
-            var r = (parent.app.elements.fade_count % 5);
-            if (value) {
-                parent.app.elements.fade_count++;
-                console.log("r: " +r);
+            if (!value) {
+                var n = parent.app.elements.fade_count++ % colors.length;
+                console.log("n: " +n);
+                app.elements.fade.style.background = colors[n];
             }
-            if (r == 0) app.elements.fade.style.background = '#FF6666';
-            else if (r == 1) app.elements.fade.style.background = '#ffa500';
-            else if (r == 2) app.elements.fade.style.background = '#FFFF00';
-            else if (r == 3) app.elements.fade.style.background = '#22FF22';
-            else if (r == 4) app.elements.fade.style.background = '#8888FF';
-            app.elements.fade.style.opacity = value ? "0.00" : "0.96";
+            app.elements.fade.style.opacity = value ? "0.00" : "0.92";
             //app.elements.fade.style.zIndex = value ? "10" : "0";
         };
         app.enableUI(true);
