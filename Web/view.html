@@ -155,7 +155,7 @@
         var pre_close = "</pre>";
         var text = "";
         var new_line = true;
-        var output = '$ ' + obj.cmd + '\n' + obj.output;
+        var output = obj.output;
         for (var i = 0; i !== output.length; ++i)
         {
             if (new_line)
@@ -172,7 +172,7 @@
             }
             else
             {
-                text += output[i];
+                text += output[i].replace(/</, '&lt').replace(/>/, '&gt');
             }
         }
         if (!new_line)
