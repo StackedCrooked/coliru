@@ -18,7 +18,4 @@ fi
 
 trap "rm -f timeout.txt; exit" INT TERM EXIT
 
-#pkill -9 -u sandbox
-
-#{ ./repair-permissions.sh >/dev/null 2>&1 ; } || true
 ./build_and_run.sh
