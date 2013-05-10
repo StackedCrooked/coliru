@@ -95,7 +95,8 @@ end
 
 post '/compile' do
     json_obj = JSON.parse(request.body.read)
-    dir = "/tmp/coliru/#{Time.now.to_i}"
+    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
+    dir = "/tmp/coliru/#{id}"
     FileUtils.mkdir_p(dir)
 
     File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
@@ -108,10 +109,14 @@ end
 
 post '/compile2' do
     parts = request.body.read.split("__COLIRU_SPLIT__");
-    File.open('cmd.sh', 'w') { |f| f << parts[0] }
-    File.open('main.cpp', 'w') { |f| f << parts[1] }
+    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
+    dir = "/tmp/coliru/#{id}"
+    FileUtils.mkdir_p(dir)
+
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << parts[0] }
+    File.open("#{dir}/main.cpp", 'w') { |f| f << parts[1] }
     stream do |out|
-        safe_popen('./sandbox.sh') { |line| out << line }
+        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
@@ -131,11 +136,15 @@ end
 
 post '/share' do
     result = nil
-    json_obj = JSON.parse(request.body.read)
-    File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
-    File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
+    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
+    dir = "/tmp/coliru/#{id}"
+    FileUtils.mkdir_p(dir)
 
-    safe_popen('./share.sh') do |line|
+    json_obj = JSON.parse(request.body.read)
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+    File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+
+    safe_popen("TMP_DIR=#{dir} ./share.sh") do |line|
         result = result || line
         next # we want to wait for the process to completely finish
     end
