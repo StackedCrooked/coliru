@@ -30,7 +30,11 @@ end
 
 def set_timeout(t)
     $timeout_semaphore.synchronize do
-        File.open('timeout.txt', 'w') { |f| f << t }
+        begin
+            File.open('timeout.txt', 'w') { |f| f << t }
+        rescue Exception => e
+            puts e.to_s
+        end
     end
 end
 
