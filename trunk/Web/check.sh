@@ -8,7 +8,6 @@
     else
         echo "$(date): Server is still running fine."
     fi
-    echo "$(date): Wait a little bit."
     sleep 60
 done ; } >>server.log 2>&1 & disown
 
