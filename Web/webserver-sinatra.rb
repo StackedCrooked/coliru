@@ -97,10 +97,12 @@ end
 post '/compile' do
     $semaphore.synchronize do
         json_obj = JSON.parse(request.body.read)
+        epoch = Time.now.to_i
+
         File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
         File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
         stream do |out|
-            safe_popen('./sandbox.sh') { |line| out << line }
+            safe_popen("./sandbox.sh #{epoch}") { |line| out << line }
         end
     end
 end

@@ -8,7 +8,7 @@ chown webserver:coliru .
 chown webserver:coliru ${COLIRU_ARCHIVE}
 chmod a+rw .
 
-find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
+#find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
 #chown -R sandbox:coliru /var/chroot & disown
 chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1 || sudo -u sandbox chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1
 
@@ -25,7 +25,7 @@ touch /var/chroot/dev/null
 chown -R webserver:coliru /var/chroot/dev
 chmod -R a+rw /var/chroot/dev
 
-for file in "output main.cpp cmd.sh /var/chroot/tmp/main.cpp /var/chroot/tmp/compile.sh" ; do
+for file in "output main.cpp cmd.sh" ; do
   touch $file && chown webserver:coliru $file
 done
 
@@ -34,3 +34,6 @@ done
 for dir in $(echo /usr /bin /lib /lib64) ; do
     { mkdir -p ${CHROOT}${dir} && mount --bind ${dir} ${CHROOT}${dir} && mount -o remount,ro ${CHROOT}${dir} ; } || true
 done
+
+# Mount the Archive
+{ mkdir -p ${CHROOT}/Archive && mount --bind ../Archive ${CHROOT}/Archive && mount -o remount,ro ${CHROOT}/Archive ; } || true
