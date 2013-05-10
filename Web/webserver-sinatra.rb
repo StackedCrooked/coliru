@@ -8,7 +8,6 @@ require 'sinatra'
 
 
 set :port, ENV['COLIRU_PORT']
-$semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
 
 configure do
@@ -95,27 +94,24 @@ end
 
 
 post '/compile' do
-    $semaphore.synchronize do
-        json_obj = JSON.parse(request.body.read)
-        epoch = Time.now.to_i
+    json_obj = JSON.parse(request.body.read)
+    dir = "/tmp/coliru/#{Time.now.to_i}"
+    FileUtils.mkdir_p(dir)
 
-        File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
-        File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
-        stream do |out|
-            safe_popen("./sandbox.sh #{epoch}") { |line| out << line }
-        end
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+    File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+    stream do |out|
+        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
 
 post '/compile2' do
-    $semaphore.synchronize do
-        parts = request.body.read.split("__COLIRU_SPLIT__");
-        File.open('cmd.sh', 'w') { |f| f << parts[0] }
-        File.open('main.cpp', 'w') { |f| f << parts[1] }
-        stream do |out|
-            safe_popen('./sandbox.sh') { |line| out << line }
-        end
+    parts = request.body.read.split("__COLIRU_SPLIT__");
+    File.open('cmd.sh', 'w') { |f| f << parts[0] }
+    File.open('main.cpp', 'w') { |f| f << parts[1] }
+    stream do |out|
+        safe_popen('./sandbox.sh') { |line| out << line }
     end
 end
 
@@ -134,18 +130,16 @@ end
 
 
 post '/share' do
-    $semaphore.synchronize do
-        result = nil
-        json_obj = JSON.parse(request.body.read)
-        File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
-        File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
+    result = nil
+    json_obj = JSON.parse(request.body.read)
+    File.open('cmd.sh', 'w') { |f| f << json_obj['cmd'] }
+    File.open('main.cpp', 'w') { |f| f << json_obj['src'] }
 
-        safe_popen('./share.sh') do |line|
-            result = result || line
-            next # we want to wait for the process to completely finish
-        end
-        stream { |out| out << result }
+    safe_popen('./share.sh') do |line|
+        result = result || line
+        next # we want to wait for the process to completely finish
     end
+    stream { |out| out << result }
 end
 
 
@@ -155,12 +149,10 @@ end
 
 
 get '/external' do
-    stream do |out|
-        uri = URI.parse(params[:url])
-        http_get_request = Net::HTTP::Get.new(uri.path)
-        result = Net::HTTP.start(uri.host, uri.port) { |http| http.request(http_get_request) }
-        out << result.body
-    end
+    uri = URI.parse(params[:url])
+    http_get_request = Net::HTTP::Get.new(uri.path)
+    result = Net::HTTP.start(uri.host, uri.port) { |http| http.request(http_get_request) }
+    out << result.body
 end
 
 
@@ -221,11 +213,9 @@ get '/archive' do
         end
     end
 
-    $semaphore.synchronize do
-        {
-            :cmd => get_contents.call('cmd.sh'),
-            :src => get_contents.call('main.cpp'),
-            :output => get_contents.call('output')
-        }.to_json
-    end
+    {
+        :cmd => get_contents.call('cmd.sh'),
+        :src => get_contents.call('main.cpp'),
+        :output => get_contents.call('output')
+    }.to_json
 end
