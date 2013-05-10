@@ -10,7 +10,6 @@ require 'sinatra'
 set :port, ENV['COLIRU_PORT']
 $semaphore = Mutex.new
 $feedback_semaphore = Mutex.new
-$timeout_semaphore = Mutex.new
 
 configure do
   mime_type :js, 'application/javascript'
@@ -18,23 +17,19 @@ configure do
 end
 
 def get_timeout
-    $timeout_semaphore.synchronize do
-        begin
-            [60, File.read('timeout.txt').to_i ].min.to_s
-        rescue Exception => e
-            20.to_s
-        end
+    begin
+        [60, File.read('timeout.txt').to_i ].min.to_s
+    rescue Exception => e
+        20.to_s
     end
 end
 
 
 def set_timeout(t)
-    $timeout_semaphore.synchronize do
-        begin
-            File.open('timeout.txt', 'w') { |f| f << t }
-        rescue Exception => e
-            puts e.to_s
-        end
+    begin
+        File.open('timeout.txt', 'w') { |f| f << t }
+    rescue Exception => e
+        puts e.to_s
     end
 end
 
@@ -170,16 +165,15 @@ end
 get '/images/?' do |file|
     page_start = "<!DOCTYPE html>\n<html><body><span>"
     page_end = '</span></body></html>'
-    link = '<a href="images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
-    stream do |out|
-        out << page_start
-        Dir.entries("./images").each do |file|
-            if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
-                out << link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
-            end
+    link = '<a href="/images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
+    page = page_start
+    Dir.entries("./images").each do |file|
+        if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
+            page += link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
         end
-        out << page_end
     end
+    page += page_end
+    return page
 end
 
 get '/random_image' do 
