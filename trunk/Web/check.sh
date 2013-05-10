@@ -1,14 +1,14 @@
 #!/bin/bash
-
-while true  ; do
+{ while true  ; do
     IS_RUNNING="$(ps -ef | grep '/usr/bin/ruby1.8' | grep -v grep | wc -l)"
+    echo "$(date): Check status: ${IS_RUNNING}"
     if [ "${IS_RUNNING}" != "1" ] ; then
-        echo "$(date): The server seems to have crashed. Restarting" >> check.log
+        echo "$(date): The server seems to have crashed. Restarting"
         ./restart.sh
-        svn ci check.log -m "Server crash. Restarted." >/dev/null 2>&1
+    else
+        echo "$(date): Server is still running fine."
     fi
-    sleep 10
-done
-
-
+    echo "$(date): Wait a little bit."
+    sleep 60
+done ; } >>server.log 2>&1 & disown
 
