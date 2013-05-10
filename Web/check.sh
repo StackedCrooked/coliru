@@ -5,7 +5,7 @@ while true  ; do
     if [ "${IS_RUNNING}" != "1" ] ; then
         echo "$(date): The server seems to have crashed. Restarting" >> check.log
         ./restart.sh
-        svn ci check.log -m "Server crash. Restarted." >/dev/null 2&1 & disown 
+        svn ci check.log -m "Server crash. Restarted." >/dev/null 2>&1
     fi
     sleep 10
 done
