@@ -1,7 +1,7 @@
 #!/bin/bash
 [ "`whoami`" == "root" ] || { echo "This program must be run by root." 1>&2 ; exit 1; }
 source "./coliru_env.source"
-[ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
+[ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." 1>&2 && exit 1 ; }
 
 restart_webserver() {
   source ./coliru_env.source
