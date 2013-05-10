@@ -10,13 +10,13 @@ restart_webserver() {
   cd "$(dirname $0)"
   ./kill-current.sh
   ./repair-permissions.sh 
-  echo "$(date): Starting web server." >>webserver.log
-  sudo -u webserver -E shotgun webserver-sinatra.rb -p 80 -o stacked-crooked.com >>webserver.log
+  echo "$(date): Starting web server." >>webserver.log 2>&1
+  { sudo -u webserver -E shotgun webserver-sinatra.rb -p 80 -o stacked-crooked.com ; } >>webserver.log 2>&1
 }
 
 while true ; do
     restart_webserver >>webserver.log 2>&1
-    echo "$(date): webserver crashed' >>webserver.log
+    echo "$(date): webserver crashed" >>webserver.log 2>&1
     sleep 2
 done
 
