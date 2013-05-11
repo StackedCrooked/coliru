@@ -1,5 +1,7 @@
 #!/bin/bash
 export CHROOT="/var/chroot"
+echo "now TMP_DIR is ${TMP_DIR} " >> webserver.log
+echo "now TMP_DIR constains $(ls ${TMP_DIR}) " >> webserver.log
 
 TIMEOUT=$(cat timeout.txt 2>/dev/null || echo 20)
 if [ "${TIMEOUT}" != "" ] ; then
@@ -9,7 +11,7 @@ else
 fi
 
 
-[ ! -d ${CHROOT}/${TMP_DIR} ] || { echo "The temp directory already exists: ${TMP_DIR}." 1>&2 ; exit 1 ; }
+#[ -d ${CHROOT}/${TMP_DIR} ] && { echo "The temp directory already exists: ${TMP_DIR}." 1>&2 ; exit 1 ; }
 #sudo -u sandbox chroot ${CHROOT} mkdir -p ${TMP_DIR}
 DIR=$(basename ${TMP_DIR})
 chmod 755 ${TMP_DIR}/cmd.sh
