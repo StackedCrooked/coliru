@@ -144,7 +144,7 @@ post '/share' do
     File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-    safe_popen("TMP_DIR=#{dir} ./share.sh") do |line|
+    safe_popen("export TMP_DIR=#{dir} ; ./share.sh") do |line|
         result = result || line
         next # we want to wait for the process to completely finish
     end

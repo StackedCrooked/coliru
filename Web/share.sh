@@ -1,30 +1,32 @@
 #!/bin/bash
-source coliru_env.source
-[ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
-pkill -9 -u sandbox
-./repair-permissions.sh >/dev/null 2>&1
+[ "$TMP_DIR" == "" ] && { echo "TMP_DIR is not set." 1>&2 ; exit 1 ; }
+[ "$TMP_DIR" == "." ] && { echo "TMP_DIR is jsut a dot." 1>&2 ; exit 1 ; }
+export TMP_DIR
+echo "TMP_DIR is ${TMP_DIR} " >> webserver.log
+echo "TMP_DIR constains $(ls ${TMP_DIR}) " >> webserver.log
 
-mkdir -p ${COLIRU_ARCHIVE}
-if [ "$(uname)" == "Darwin" ] ; then 
-    ID="$(md5 main.cpp | cut -d '=' -f 2 | sed -e 's/ //g')-$(md5 cmd.sh | cut -d '=' -f 2 | sed -e 's/ //g')"
-else
-    ID="$(md5sum main.cpp | cut -d ' ' -f 1)-$(md5sum cmd.sh | cut -d ' ' -f 1)"
-fi
+# Make the archive id
+ID="$(md5sum ${TMP_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${TMP_DIR}/cmd.sh | cut -d ' ' -f 1)"
 
+# This is the only return 
 echo "${ID}"
 
+
+# If the id already existed then simply return.
+# We don't have to compile anymore.
 if [ -d "${COLIRU_ARCHIVE}/${ID}" ] ; then
     exit
 fi
 
-DIR="${COLIRU_ARCHIVE}/${ID}"
-mkdir "${DIR}"
+# The archive directory for the ide.
+export DIR=${COLIRU_ARCHIVE}/${ID}
+mkdir ${DIR}
 
-cat main.cpp > "${DIR}/main.cpp"
-cat cmd.sh > "${DIR}/cmd.sh" ;
-date '+%s' > "${DIR}/timestamp"
+chmod 755 ${TMP_DIR}/cmd.sh
+cat ${TMP_DIR}/main.cpp > ${DIR}/main.cpp
+cat ${TMP_DIR}/cmd.sh > ${DIR}/cmd.sh
+date '+%s' > ${DIR}/timestamp
 
-chmod 755 "${DIR}/cmd.sh"
 
 { ./build_and_run.sh >"${DIR}/output" 2>&1 ; } || true
 { rsync -a --exclude=.svn ${DIR} /var/chroot/Archive/ ; } || true
