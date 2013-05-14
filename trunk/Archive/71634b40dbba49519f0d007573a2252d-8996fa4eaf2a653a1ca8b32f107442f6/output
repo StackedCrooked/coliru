@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:14:31: error: call of overloaded 'vector(<brace-enclosed initializer list>)' is ambiguous
+     generic_vector<int> p{f, h};
+                               ^
+main.cpp:14:31: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:281:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = int* (*)(); _Alloc = std::allocator<int* (*)()>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = int* (*)(); std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int* (*)()>] <near match>
+       vector(size_type __n, const value_type& __value,
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:281:7: note:   no known conversion for argument 2 from 'char*()' to 'int* (* const&)()'
+/usr/include/c++/4.8/bits/stl_vector.h:364:7: note: std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = int* (*)(); _Alloc = std::allocator<int* (*)()>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int* (*)()>] <near match>
+       vector(initializer_list<value_type> __l,
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:364:7: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'std::initializer_list<int* (*)()>'
