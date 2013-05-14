@@ -1,0 +1,1 @@
+g++-4.8 -std=c++0x -O2 -pthread main.cpp && ./a.out
