@@ -1,0 +1,21 @@
+main.cpp:37:21: error: 'size_type' has not been declared
+   template<class T, size_type n>
+                     ^
+main.cpp:38:29: error: ISO C++ forbids declaration of 'operator=' with no type [-fpermissive]
+   operator=(std::array<T, n>) {
+                             ^
+main.cpp: In member function 'int Uniform::operator=(std::array<T, n>)':
+main.cpp:39:23: error: expected ',' before ')' token
+    static_assert(n > 4), "Compile time array size is >4!");
+                       ^
+main.cpp:39:23: error: expected string-literal before ')' token
+main.cpp:39:24: error: expected ';' before ',' token
+    static_assert(n > 4), "Compile time array size is >4!");
+                        ^
+main.cpp:39:24: error: expected primary-expression before ',' token
+main.cpp:39:58: error: expected ';' before ')' token
+    static_assert(n > 4), "Compile time array size is >4!");
+                                                          ^
+main.cpp:40:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
