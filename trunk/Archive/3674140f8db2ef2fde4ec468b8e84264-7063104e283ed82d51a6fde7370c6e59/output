@@ -1,0 +1,117 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:15:22: error: expected identifier before '(' token
+     auto results = [ ( x * x ) | (1, 20) | (x * x > 144) ] ;
+                      ^
+main.cpp: In lambda function:
+main.cpp:15:60: error: expected '{' before ';' token
+     auto results = [ ( x * x ) | (1, 20) | (x * x > 144) ] ;
+                                                            ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:17:26: error: no matching function for call to 'begin(main(int, char**)::__lambda0&)'
+     for ( auto& result : results ) {
+                          ^
+main.cpp:17:26: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/basic_string.h:42:0,
+                 from /usr/include/c++/4.8/string:52,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/initializer_list:89:5: note: template<class _Tp> constexpr const _Tp* std::begin(std::initializer_list<_Tp>)
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+/usr/include/c++/4.8/initializer_list:89:5: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   'main(int, char**)::__lambda0' is not derived from 'std::initializer_list<_Tp>'
+     for ( auto& result : results ) {
+                          ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:87:5: note: template<class _Tp, long unsigned int _Nm> _Tp* std::begin(_Tp (&)[_Nm])
+     begin(_Tp (&__arr)[_Nm])
+     ^
+/usr/include/c++/4.8/bits/range_access.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   mismatched types '_Tp [_Nm]' and 'main(int, char**)::__lambda0'
+     for ( auto& result : results ) {
+                          ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:58:5: note: template<class _Container> decltype (__cont.begin()) std::begin(const _Container&)
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:58:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(const _Container&) [with _Container = main(int, char**)::__lambda0]':
+main.cpp:17:26:   required from here
+/usr/include/c++/4.8/bits/range_access.h:58:5: error: 'const struct main(int, char**)::__lambda0' has no member named 'begin'
+/usr/include/c++/4.8/bits/range_access.h:48:5: note: template<class _Container> decltype (__cont.begin()) std::begin(_Container&)
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:48:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of 'template<class _Container> decltype (__cont.begin()) std::begin(_Container&) [with _Container = main(int, char**)::__lambda0]':
+main.cpp:17:26:   required from here
+/usr/include/c++/4.8/bits/range_access.h:48:5: error: 'struct main(int, char**)::__lambda0' has no member named 'begin'
+main.cpp:17:26: error: no matching function for call to 'end(main(int, char**)::__lambda0&)'
+     for ( auto& result : results ) {
+                          ^
+main.cpp:17:26: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/basic_string.h:42:0,
+                 from /usr/include/c++/4.8/string:52,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/initializer_list:99:5: note: template<class _Tp> constexpr const _Tp* std::end(std::initializer_list<_Tp>)
+     end(initializer_list<_Tp> __ils) noexcept
+     ^
+/usr/include/c++/4.8/initializer_list:99:5: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   'main(int, char**)::__lambda0' is not derived from 'std::initializer_list<_Tp>'
+     for ( auto& result : results ) {
+                          ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:97:5: note: template<class _Tp, long unsigned int _Nm> _Tp* std::end(_Tp (&)[_Nm])
+     end(_Tp (&__arr)[_Nm])
+     ^
+/usr/include/c++/4.8/bits/range_access.h:97:5: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   mismatched types '_Tp [_Nm]' and 'main(int, char**)::__lambda0'
+     for ( auto& result : results ) {
+                          ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:78:5: note: template<class _Container> decltype (__cont.end()) std::end(const _Container&)
+     end(const _Container& __cont) -> decltype(__cont.end())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:78:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(const _Container&) [with _Container = main(int, char**)::__lambda0]':
+main.cpp:17:26:   required from here
+/usr/include/c++/4.8/bits/range_access.h:78:5: error: 'const struct main(int, char**)::__lambda0' has no member named 'end'
+/usr/include/c++/4.8/bits/range_access.h:68:5: note: template<class _Container> decltype (__cont.end()) std::end(_Container&)
+     end(_Container& __cont) -> decltype(__cont.end())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:68:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of 'template<class _Container> decltype (__cont.end()) std::end(_Container&) [with _Container = main(int, char**)::__lambda0]':
+main.cpp:17:26:   required from here
+/usr/include/c++/4.8/bits/range_access.h:68:5: error: 'struct main(int, char**)::__lambda0' has no member named 'end'
