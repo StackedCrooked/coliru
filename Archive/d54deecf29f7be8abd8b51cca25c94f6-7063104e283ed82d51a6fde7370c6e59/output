@@ -1,0 +1,46 @@
+main.cpp: In instantiation of 'void ForwardToTits(std::tuple<_Elements ...>) [with Ts = int, int, int]':
+main.cpp:31:19:   required from here
+main.cpp:26:27: error: no matching function for call to 'get(std::tuple<int, int, int>&)'
+     tits( std::get<Ts>( t )... );
+                           ^
+main.cpp:26:27: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/utility:142:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/include/c++/4.8/utility:142:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/utility:147:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/include/c++/4.8/utility:147:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/utility:152:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/include/c++/4.8/utility:152:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/tuple:39:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/array:268:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/include/c++/4.8/array:268:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/array:277:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/include/c++/4.8/array:277:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/array:285:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/include/c++/4.8/array:285:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/tuple:757:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/include/c++/4.8/tuple:757:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/include/c++/4.8/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/tuple:771:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/include/c++/4.8/tuple:771:5: note:   template argument deduction/substitution failed:
