@@ -93,6 +93,11 @@ get '/feedback' do
 end
 
 
+get '/sh' do
+    File.read('sh.html')
+end
+
+
 post '/sh' do
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
     dir = "/tmp/coliru/#{id}"
