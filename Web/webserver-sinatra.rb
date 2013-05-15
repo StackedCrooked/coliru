@@ -119,6 +119,17 @@ post '/compile' do
 end
 
 
+post '/sh' do
+    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
+    dir = "/tmp/coliru/#{id}"
+    FileUtils.mkdir_p(dir)
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
+    stream do |out|
+        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+    end
+end
+
+
 post '/compile2' do
     parts = request.body.read.split("__COLIRU_SPLIT__");
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
