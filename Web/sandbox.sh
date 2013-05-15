@@ -16,6 +16,6 @@ if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
     exit
 fi
 
-trap "rm -f timeout.txt; exit" INT TERM EXIT
+trap "echo 20 > timeout.txt ; exit" INT TERM EXIT
 
 ./build_and_run.sh
