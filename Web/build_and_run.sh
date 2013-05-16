@@ -1,5 +1,4 @@
 #!/bin/bash
-export CHROOT="/var/chroot"
 echo "now INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
 echo "now INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
 
@@ -12,7 +11,6 @@ fi
 
 
 CHROOT_TARGET_DIRNAME=$(basename ${INPUT_FILES_DIR})
-chmod 755 ${INPUT_FILES_DIR}/cmd.sh
 mv ${INPUT_FILES_DIR} ${CHROOT}/tmp/
 
 
