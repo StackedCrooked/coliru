@@ -1,12 +1,12 @@
 #!/bin/bash
-[ "$TMP_DIR" == "" ] && { echo "TMP_DIR is not set." 1>&2 ; exit 1 ; }
-[ "$TMP_DIR" == "." ] && { echo "TMP_DIR is jsut a dot." 1>&2 ; exit 1 ; }
-export TMP_DIR
-echo "TMP_DIR is ${TMP_DIR} " >> webserver.log
-echo "TMP_DIR constains $(ls ${TMP_DIR}) " >> webserver.log
+[ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR is not set." 1>&2 ; exit 1 ; }
+[ "$INPUT_FILES_DIR" == "." ] && { echo "INPUT_FILES_DIR is jsut a dot." 1>&2 ; exit 1 ; }
+export INPUT_FILES_DIR
+echo "INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
+echo "INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
 
 # Make the archive id
-ID="$(md5sum ${TMP_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${TMP_DIR}/cmd.sh | cut -d ' ' -f 1)"
+ID="$(md5sum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f 1)"
 
 # This is the only return 
 echo "${ID}"
@@ -22,9 +22,9 @@ fi
 export DIR=${COLIRU_ARCHIVE}/${ID}
 mkdir ${DIR}
 
-chmod 755 ${TMP_DIR}/cmd.sh
-cat ${TMP_DIR}/main.cpp > ${DIR}/main.cpp
-cat ${TMP_DIR}/cmd.sh > ${DIR}/cmd.sh
+chmod 755 ${INPUT_FILES_DIR}/cmd.sh
+cat ${INPUT_FILES_DIR}/main.cpp > ${DIR}/main.cpp
+cat ${INPUT_FILES_DIR}/cmd.sh > ${DIR}/cmd.sh
 date '+%s' > ${DIR}/timestamp
 
 
