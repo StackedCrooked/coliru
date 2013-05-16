@@ -1,0 +1,16 @@
+++ g++-4.8 -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp: In function 'int main(int, char**)':
+main.cpp:31:31: error: expected ')' before numeric constant
+     Cleave( 1, 2, 3, split, 4 5 6 );
+                               ^
+main.cpp:31:35: error: no matching function for call to 'Cleave(int, int, int, const disambiguator_t&, int)'
+     Cleave( 1, 2, 3, split, 4 5 6 );
+                                   ^
+main.cpp:31:35: note: candidate is:
+main.cpp:22:6: note: template<class ... Tn, class ... Tx> void Cleave(Tn&& ..., const disambiguator_t&, Tx&& ...)
+ void Cleave ( Tn&&... argn, const disambiguator_t&, Tx&&... argx ) {
+      ^
+main.cpp:22:6: note:   template argument deduction/substitution failed:
+main.cpp:31:35: note:   cannot convert '1' (type 'int') to type 'const disambiguator_t&'
+     Cleave( 1, 2, 3, split, 4 5 6 );
+                                   ^
