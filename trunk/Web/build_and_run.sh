@@ -11,7 +11,7 @@ else
 fi
 
 
-CHROOT_TARGET_DIR=$(basename ${INPUT_FILES_DIR})
+CHROOT_TARGET_DIRNAME=$(basename ${INPUT_FILES_DIR})
 chmod 755 ${INPUT_FILES_DIR}/cmd.sh
 mv ${INPUT_FILES_DIR} ${CHROOT}/tmp/
 
@@ -28,8 +28,8 @@ cat ${CMD}_ >> ${CMD}
 rm ${CMD}_
 chmod a+rx ${CMD}
 
-export DST=${CHROOT}/tmp/${CHROOT_TARGET_DIR}
-chmod -R a+w ${CHROOT}/tmp/${CHROOT_TARGET_DIR}
+export CHROOT_TARGET_PATH=${CHROOT}/tmp/${CHROOT_TARGET_DIRNAME}
+chmod -R a+w ${CHROOT}/tmp/${CHROOT_TARGET_DIRNAME}
 
-cp compile.sh /var/chroot/tmp/$(basename ${CHROOT_TARGET_DIR}).sh
+cp compile.sh /var/chroot/tmp/$(basename ${CHROOT_TARGET_DIRNAME}).sh
 ./chroot.sh
