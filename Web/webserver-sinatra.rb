@@ -106,7 +106,7 @@ post '/sh' do
 
     File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
     stream do |out|
-        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
@@ -120,7 +120,7 @@ post '/compile' do
     File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
     stream do |out|
-        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
@@ -131,7 +131,7 @@ post '/sh' do
     FileUtils.mkdir_p(dir)
     File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
     stream do |out|
-        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
@@ -145,7 +145,7 @@ post '/compile2' do
     File.open("#{dir}/cmd.sh", 'w') { |f| f << parts[0] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << parts[1] }
     stream do |out|
-        safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
     end
 end
 
@@ -173,7 +173,7 @@ post '/share' do
     File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-    safe_popen("export TMP_DIR=#{dir} ; ./share.sh") do |line|
+    safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |line|
         result = result || line
         next # we want to wait for the process to completely finish
     end

@@ -1,7 +1,7 @@
 #!/bin/bash
 export CHROOT="/var/chroot"
-echo "now TMP_DIR is ${TMP_DIR} " >> webserver.log
-echo "now TMP_DIR constains $(ls ${TMP_DIR}) " >> webserver.log
+echo "now INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
+echo "now INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
 
 TIMEOUT=$(cat timeout.txt 2>/dev/null || echo 20)
 if [ "${TIMEOUT}" != "" ] ; then
@@ -11,27 +11,25 @@ else
 fi
 
 
-#[ -d ${CHROOT}/${TMP_DIR} ] && { echo "The temp directory already exists: ${TMP_DIR}." 1>&2 ; exit 1 ; }
-#sudo -u sandbox chroot ${CHROOT} mkdir -p ${TMP_DIR}
-DIR=$(basename ${TMP_DIR})
-chmod 755 ${TMP_DIR}/cmd.sh
-mv ${TMP_DIR} ${CHROOT}/tmp/
+CHROOT_TARGET_DIR=$(basename ${INPUT_FILES_DIR})
+chmod 755 ${INPUT_FILES_DIR}/cmd.sh
+mv ${INPUT_FILES_DIR} ${CHROOT}/tmp/
 
 
 #
 # Insert set -x and ulimit
 #
-HLP=${CHROOT}/tmp/$(basename ${TMP_DIR})
+HLP=${CHROOT}/tmp/$(basename ${INPUT_FILES_DIR})
 CMD=${HLP}/cmd.sh
 mv ${CMD} ${CMD}_
-echo 'set -x' >> ${CMD}
 echo 'ulimit -u 20' >> ${CMD}
+echo 'set -x' >> ${CMD}
 cat ${CMD}_ >> ${CMD}
 rm ${CMD}_
 chmod a+rx ${CMD}
 
-export DST=${CHROOT}/tmp/${DIR}
-chmod -R a+w ${CHROOT}/tmp/${DIR}
+export DST=${CHROOT}/tmp/${CHROOT_TARGET_DIR}
+chmod -R a+w ${CHROOT}/tmp/${CHROOT_TARGET_DIR}
 
-cp compile.sh /var/chroot/tmp/$(basename ${DIR}).sh
+cp compile.sh /var/chroot/tmp/$(basename ${CHROOT_TARGET_DIR}).sh
 ./chroot.sh
