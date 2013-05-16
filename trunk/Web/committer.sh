@@ -8,11 +8,7 @@ SLEEP_DURATION=20
 
 while true ; do
   # Add new files to subversion.
-  for i in $(ls -tc1 ${COLIRU_ARCHIVE}) ; do
-    DIR="${COLIRU_ARCHIVE}/${i}"
-    [ -d ${DIR} ] && [ ! -d "${DIR}/.svn" ] && { echo "Adding ${DIR} to svn." ; svn add ${DIR} ; svn ci ${DIR} -m "Add to archive." ; sleep 1 ; }
-  done
-  echo "Finished checking for new posts."
+  (cd ${COLIRU_ARCHIVE} && svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' && xargs svn add && svn ci -m "Update Archive.")
 
   # Also commit the feedback."
   echo "Committing any new feedback..."

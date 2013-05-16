@@ -117,7 +117,7 @@ post '/compile' do
     dir = "/tmp/coliru/#{id}"
     FileUtils.mkdir_p(dir)
 
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << "set -x\nulimit -u 20\n" << json_obj['cmd'] }
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
     stream do |out|
         safe_popen("TMP_DIR=#{dir} ./sandbox.sh") { |line| out << line }
@@ -170,7 +170,7 @@ post '/share' do
     FileUtils.mkdir_p(dir)
 
     json_obj = JSON.parse(request.body.read)
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << "set -x\nulimit -u 20\n" << json_obj['cmd'] }
+    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
     safe_popen("export TMP_DIR=#{dir} ; ./share.sh") do |line|
