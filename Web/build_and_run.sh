@@ -10,24 +10,26 @@ else
 fi
 
 
-CHROOT_TARGET_DIRNAME=$(basename ${INPUT_FILES_DIR})
+COLIRU_JOBID=$(basename ${INPUT_FILES_DIR})
 mv ${INPUT_FILES_DIR} ${CHROOT}/tmp/
+export CHROOT_TARGET_PATH=${CHROOT}/tmp/${COLIRU_JOBID}
 
 
 #
 # Insert set -x and ulimit
 #
-HLP=${CHROOT}/tmp/$(basename ${INPUT_FILES_DIR})
-CMD=${HLP}/cmd.sh
-mv ${CMD} ${CMD}_
-echo 'ulimit -u 20' >> ${CMD}
-echo 'set -x' >> ${CMD}
-cat ${CMD}_ >> ${CMD}
-rm ${CMD}_
-chmod a+rx ${CMD}
+CMD_FILE=${CHROOT_TARGET_PATH}/cmd.sh
+mv ${CMD_FILE} ${CMD_FILE}_
+echo '#!/bin/bash' >> ${CMD_FILE}
+echo 'set -x' >> ${CMD_FILE}
+echo 'ulimit -u 20' >> ${CMD_FILE}
+echo 'echo $0' >> ${CMD_FILE}
+echo 'cd $(dirname $0)' >> ${CMD_FILE}
+echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
+cat ${CMD_FILE}_ >> ${CMD_FILE}
+rm ${CMD_FILE}_
+chmod a+rx ${CMD_FILE}
 
-export CHROOT_TARGET_PATH=${CHROOT}/tmp/${CHROOT_TARGET_DIRNAME}
-chmod -R a+w ${CHROOT}/tmp/${CHROOT_TARGET_DIRNAME}
+chmod -R a+w ${CHROOT_TARGET_PATH}
 
-cp compile.sh /var/chroot/tmp/$(basename ${CHROOT_TARGET_DIRNAME}).sh
-./chroot.sh
+sudo -u sandbox chroot "${CHROOT}" /tmp/${COLIRU_JOBID}/cmd.sh
