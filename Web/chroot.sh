@@ -1,4 +1,4 @@
 #!/bin/bash
 export CHROOT=/var/chroot
-ID=$(basename ${DST})
+ID=$(basename ${CHROOT_TARGET_PATH})
 sudo -u sandbox chroot "${CHROOT}" /tmp/${ID}.sh /tmp/${ID}
