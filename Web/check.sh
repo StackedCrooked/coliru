@@ -1,4 +1,5 @@
 #!/bin/bash
+exec > >(logger -t $0) 2>&1
 while true  ; do
     IS_RUNNING="$(ps -ef | grep '/usr/bin/ruby1.8' | grep -v grep | wc -l)"
     echo "$(date): Check status: ${IS_RUNNING}"
