@@ -23,7 +23,7 @@ CMD_FILE=${CHROOT_TARGET_PATH}/cmd.sh
 mv ${CMD_FILE} ${CMD_FILE}_
 echo '#!/bin/bash' >> ${CMD_FILE}
 echo 'ulimit -u 8' >> ${CMD_FILE}
-echo 'ulimit -t 20' >> ${CMD_FILE}
+echo "ulimit -t ${TIMEOUT}" >> ${CMD_FILE}
 echo 'cd $(dirname $0)' >> ${CMD_FILE}
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
 echo 'set -x' >> ${CMD_FILE}
