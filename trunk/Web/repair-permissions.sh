@@ -2,7 +2,6 @@
 echo "$0 executed by $(whoami)"
 source coliru_env.source
 
-touch webserver.log ; chown webserver:coliru webserver.log
 touch feedback.txt ; chown webserver:coliru feedback.txt ; chmod +w feedback.txt
 chown webserver:coliru .
 chown webserver:coliru ${COLIRU_ARCHIVE}

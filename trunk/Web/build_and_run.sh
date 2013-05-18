@@ -1,7 +1,5 @@
 #!/bin/bash
 ulimit -f 10000
-echo "now INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
-echo "now INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
 
 TIMEOUT=$(cat timeout.txt 2>/dev/null || echo 20)
 if [ "${TIMEOUT}" != "" ] ; then
