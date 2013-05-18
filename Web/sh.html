@@ -46,7 +46,10 @@
             return this.replace(/^\s+|\s+$/g, "");
         };
 
-        app.elements.cmd.value = localStorage.getItem("cmd") || "g++ --version";
+        app.elements.cmd.rows = 8;
+        app.elements.compileButton.style.display = 'none';
+        app.elements.postButton.style.display = 'none';
+        app.elements.cmd.value = localStorage.getItem("cmd") || "set +x ; rm -rf \x2Ftmp\x2Fwide ; cp -r \x2FArchive\x2Fwide \x2Ftmp\x2Fwide ; cd \x2Ftmp\x2Fwide ; echo \"pwd: $(pwd)\"\nprintf \"my link command (wrong):\\n\\t$(cat link.sh)\\n\"\nprintf \'use shift-enter to insert new commands. press enter to execute the commands. have fun\\n\'";
         app.elements.cmd.focus();
 
         app.enableUI = function(value) {
@@ -63,11 +66,19 @@
             httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
                 if (httpRequest.readyState == 4) {
+                    app.enableUI(true);
+                    var result = {
+                        status: httpRequest.status,
+                        cmd: app.elements.cmd.value,
+                        output: ""
+                    };
                     if (httpRequest.status == 200) {
-                        app.enableUI(true);
                         app.lastResult = httpRequest.responseText.trim();
-                        f({cmd: app.elements.cmd.value, output: app.lastResult});
+                        result.output = app.lastResult;
+                    } else {
+                        result.output = httpRequest.status;
                     }
+                    f(result);
                 }
             };
             httpRequest.send(app.elements.cmd.value);
@@ -126,10 +137,13 @@
         };
 
         app.postSample = function () {
-            app.send("share", function (obj) {
-                var url = window.location + "view?id=" + obj.output;
-                window.open(url, '_self');
-            });
+            alert('not enabled right now');
+
+            //app.send("share", function (obj) {
+                //app.enableUI(true);
+                //var url = window.location + "view?id=" + obj.output;
+                //window.open(url, '_self');
+            //});
         };
 
         app.previousValue = "";
