@@ -192,7 +192,7 @@ get '/external' do
     uri = URI.parse(params[:url])
     http_get_request = Net::HTTP::Get.new(uri.path)
     result = Net::HTTP.start(uri.host, uri.port) { |http| http.request(http_get_request) }
-    out << result.body
+    result.body
 end
 
 
@@ -231,6 +231,7 @@ end
 
 
 get '/Archive/*' do |file|
+    content_type :txt
     begin
         real_file = "#{ENV['COLIRU_ARCHIVE']}/#{file}"
         if File.directory? real_file
