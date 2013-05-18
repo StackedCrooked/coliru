@@ -1,5 +1,4 @@
 #!/bin/bash
-exec 2> >(logger -t $0)
 ulimit -f 10000
 echo "now INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
 echo "now INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
