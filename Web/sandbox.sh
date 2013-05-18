@@ -21,7 +21,7 @@ fi
 #
 # Reset the timeout to 20 seconds after this script exits.
 #
-trap "echo 20 > timeout.txt ; exit" INT TERM EXIT
+trap "pkill -9 -u sandbox ; echo 20 > timeout.txt ; exit" INT TERM EXIT
 
 
 ./build_and_run.sh
