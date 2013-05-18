@@ -9,7 +9,6 @@ source "./coliru_env.source"
 
 source ./coliru_env.source
 cd "$(dirname $0)"
-./kill-current.sh
 ./repair-permissions.sh 
 echo "$(date): Starting web server."
 sudo -u webserver -E ruby webserver-sinatra.rb -o stacked-crooked.com
