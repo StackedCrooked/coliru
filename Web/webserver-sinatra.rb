@@ -46,7 +46,7 @@ def safe_popen(cmd)
     rescue Timeout::Error => e
         Process.kill 9, @stdout.pid
         Process.wait @stdout.pid
-        IO.popen('pkill -9 -u sandbox')
+        IO.popen('./killuid.sh 2002')
         yield e.to_s
     rescue Exception => e
         yield e.to_s
