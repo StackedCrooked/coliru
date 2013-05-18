@@ -13,6 +13,7 @@ $feedback_semaphore = Mutex.new
 configure do
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
+  mime_type :txt, 'text/plain'
 end
 
 def get_timeout
@@ -237,6 +238,16 @@ get '/Archive/*' do |file|
         end
     rescue Exception => e
         e.to_s
+    end
+end
+
+
+get '/log' do
+    content_type :txt
+    stream do |out|
+        safe_popen('cat /var/log/syslog') do |line|
+            out << line
+        end
     end
 end
 
