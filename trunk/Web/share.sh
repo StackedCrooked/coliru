@@ -27,4 +27,6 @@ cat ${INPUT_FILES_DIR}/cmd.sh > ${DIR}/cmd.sh
 date '+%s' > ${DIR}/timestamp
 
 
+trap "pkill -9 -u sandbox ; echo 20 > timeout.txt ; exit" INT TERM EXIT
+
 ./build_and_run.sh >${DIR}/output 2>&1 || true
