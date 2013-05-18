@@ -1,5 +1,4 @@
 #!/bin/bash
-exec 2> >(logger -t $0)
 set -e
 source coliru_env.source
 

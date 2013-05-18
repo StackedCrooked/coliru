@@ -1,9 +1,8 @@
 #!/bin/bash
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR is not set." 1>&2 ; exit 1 ; }
 [ "$INPUT_FILES_DIR" == "." ] && { echo "INPUT_FILES_DIR is jsut a dot." 1>&2 ; exit 1 ; }
+
 export INPUT_FILES_DIR
-echo "INPUT_FILES_DIR is ${INPUT_FILES_DIR} " >> webserver.log
-echo "INPUT_FILES_DIR constains $(ls ${INPUT_FILES_DIR}) " >> webserver.log
 
 # Make the archive id
 ID="$(md5sum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f 1)"
@@ -28,5 +27,4 @@ cat ${INPUT_FILES_DIR}/cmd.sh > ${DIR}/cmd.sh
 date '+%s' > ${DIR}/timestamp
 
 
-{ ./build_and_run.sh >"${DIR}/output" 2>&1 ; } || true
-{ rsync -a --exclude=.svn ${DIR} /var/chroot/Archive/ ; } || true
+./build_and_run.sh >${DIR}/output 2>&1 || true
