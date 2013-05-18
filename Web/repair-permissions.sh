@@ -20,8 +20,6 @@ chmod -R a+rw /var/chroot/tmp
 # Cleanup /dev
 mkdir -p /var/chroot/dev
 touch /var/chroot/dev/null
-chown -R webserver:coliru /var/chroot/dev
-chmod -R a+rw /var/chroot/dev
 
 for file in "output main.cpp cmd.sh" ; do
   touch $file && chown webserver:coliru $file

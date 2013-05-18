@@ -46,7 +46,7 @@ def safe_popen(cmd)
     rescue Timeout::Error => e
         Process.kill 9, @stdout.pid
         Process.wait @stdout.pid
-        IO.popen('./killuid.sh 2002')
+        IO.popen('./killuid.sh 2002').readlines
         yield e.to_s
     rescue Exception => e
         yield e.to_s
