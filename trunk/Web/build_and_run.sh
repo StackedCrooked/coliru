@@ -1,6 +1,7 @@
 #!/bin/bash
 ulimit -f 10000
 
+PROCESS_COUNT=16
 TIMEOUT=$(cat timeout.txt 2>/dev/null || echo 20)
 if [ "${TIMEOUT}" != "" ] ; then
     COLIRU_TIMEOUT=${TIMEOUT}
@@ -20,7 +21,7 @@ export CHROOT_TARGET_PATH=${CHROOT}/tmp/${COLIRU_JOBID}
 CMD_FILE=${CHROOT_TARGET_PATH}/cmd.sh
 mv ${CMD_FILE} ${CMD_FILE}_
 echo '#!/bin/bash' >> ${CMD_FILE}
-echo 'ulimit -u 20' >> ${CMD_FILE}
+echo "ulimit -u ${PROCESS_COUNT}" >> ${CMD_FILE}
 echo "ulimit -t ${TIMEOUT}" >> ${CMD_FILE}
 echo 'cd $(dirname $0)' >> ${CMD_FILE}
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
