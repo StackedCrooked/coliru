@@ -1,5 +1,5 @@
 #!/bin/bash
-exec 2> >(logger -t $0)
+exec > >(logger -t $0) 2>&1
 
 [ "`whoami`" == "root" ] || { echo "This program must be run by root." 1>&2 ; exit 1; }
 
