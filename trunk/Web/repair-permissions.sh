@@ -18,7 +18,6 @@ chown -R webserver:coliru /var/chroot/tmp
 chmod -R a+rw /var/chroot/tmp
 
 # Cleanup /dev
-rm -rf /var/chroot/dev
 mkdir -p /var/chroot/dev
 touch /var/chroot/dev/null
 chown -R webserver:coliru /var/chroot/dev
