@@ -1,2 +1,2 @@
 #!/bin/bash
-ps -eopgid,uid,comm,args
+ps -eopgid,ppid,pid,uid,comm,args
