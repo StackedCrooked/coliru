@@ -1,2 +1,5 @@
+#!/bin/bash
 exec > >(logger -t $0) 2>&1
-{ ./kill-current.sh  && ./run.sh ; } & disown
+./killuid.sh 2001
+./killuid.sh 2002
+./run.sh & disown
