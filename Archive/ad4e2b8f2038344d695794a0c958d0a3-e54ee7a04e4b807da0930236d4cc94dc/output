@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:7:52: error: expansion pattern 'unsigned int' contains no argument packs
+ constexpr unsigned mask(unsigned head, unsigned ...tail)
+                                                    ^
+main.cpp: In function 'constexpr unsigned int mask(unsigned int)':
+main.cpp:7:20: error: redefinition of 'constexpr unsigned int mask(unsigned int)'
+ constexpr unsigned mask(unsigned head, unsigned ...tail)
+                    ^
+main.cpp:2:20: error: 'constexpr unsigned int mask(unsigned int)' previously defined here
+ constexpr unsigned mask(unsigned n)
+                    ^
+main.cpp:9:30: error: 'tail' was not declared in this scope
+     return mask(head) | mask(tail);
+                              ^
+main.cpp:10:1: error: body of constexpr function 'constexpr unsigned int mask(unsigned int)' not a return-statement
+ }
+ ^
+main.cpp: In function 'int main()':
+main.cpp:14:24: error: too many arguments to function 'constexpr unsigned int mask(unsigned int)'
+     return mask(1, 2, 3);
+                        ^
+main.cpp:2:20: note: declared here
+ constexpr unsigned mask(unsigned n)
+                    ^

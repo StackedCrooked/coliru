@@ -1,0 +1,34 @@
++ g++ -O3 -fpermissive main.cpp -o main.out
+main.cpp:14:24: error: 'Node' does not name a type
+                        Node* position;
+                        ^
+main.cpp: In constructor 'LList<T1>::Iterator::Iterator()':
+main.cpp:50:5: error: 'position' was not declared in this scope
+     position = 0;
+     ^
+main.cpp: In member function 'T1 LList<T1>::Iterator::get() const':
+main.cpp:57:12: error: 'position' was not declared in this scope
+     return position->data;
+            ^
+main.cpp: In member function 'void LList<T1>::Iterator::next()':
+main.cpp:63:8: error: 'position' was not declared in this scope
+     if(position == container->ptr_last)
+        ^
+main.cpp: In member function 'void LList<T1>::Iterator::previous()':
+main.cpp:76:6: error: 'position' was not declared in this scope
+  if(!position)
+      ^
+main.cpp: In member function 'bool LList<T1>::Iterator::equals(LList<T1>::Iterator) const':
+main.cpp:89:9: error: 'position' was not declared in this scope
+  return position == iter.position;
+         ^
+main.cpp: At global scope:
+main.cpp:129:2: error: 'Iterator' does not name a type
+  Iterator LList<T1>::begin()
+  ^
+main.cpp:138:1: error: 'Iterator' does not name a type
+ Iterator LList<T2>::end()
+ ^
+main.cpp:169:3: error: 'Iterator' does not name a type
+   Iterator LList<T1>::erase(Iterator iter)
+   ^

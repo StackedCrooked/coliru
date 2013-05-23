@@ -1,0 +1,17 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:1: error: 'Class' does not name a type
+ Class A{
+ ^
+main.cpp:5:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp:7:19: error: expected class-name before '{' token
+ class B : public A{
+                   ^
+main.cpp: In member function 'void B::function()':
+main.cpp:11:5: error: 'A' was not declared in this scope
+     A test = new A()
+     ^
+main.cpp:11:7: error: expected ';' before 'test'
+     A test = new A()
+       ^
