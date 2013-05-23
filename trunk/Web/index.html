@@ -74,12 +74,17 @@
 
             if (!value) {
                 var n = parent.app.elements.fade_count++ % colors.length;
+                document.getElementsByTagName('frame')[0].contentDocument.getElementById('editor').style.zIndex = 0;
+                document.getElementsByTagName('frame')[0].contentDocument.getElementById('fade').style.zIndex = 1;
+
                 app.elements.fade.style.backgroundColor = colors[n]
                 //app.elements.fade.style.backgroundImage = 'url(/random_image)';
             }
             else {
                 app.elements.fade.style.backgroundColor = '#ffffff';
                 //app.elements.fade.style.backgroundImage = 'none';
+                document.getElementsByTagName('frame')[0].contentDocument.getElementById('editor').style.zIndex = 1;
+                document.getElementsByTagName('frame')[0].contentDocument.getElementById('fade').style.zIndex = 0;
             }
             app.elements.fade.style.opacity = value ? "1.00" : "0.20";
         };
