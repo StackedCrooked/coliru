@@ -1,0 +1,11 @@
++ clang++ -std=c++11 main.cpp
+main.cpp:5:18: error: call to function 'do_func' that is neither visible in the template definition nor found by argument-dependent lookup
+void func(T t) { do_func(t); }
+                 ^
+main.cpp:10:5: note: in instantiation of function template specialization 'func<int>' requested here
+    func(1);
+    ^
+main.cpp:14:6: note: 'do_func' should be declared prior to the call site
+void do_func(int) { std::cout << "do_func(int)\n"; }
+     ^
+1 error generated.

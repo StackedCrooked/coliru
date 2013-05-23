@@ -1,0 +1,98 @@
++ g++ -std=c++11 -Wall -Wextra -Werror -pedantic-errors main.cpp -ggdb3 -ltbb
++ ./a.out
+/tmp/1368839843-846940705/cmd.sh: line 7: 21266 Segmentation fault      (core dumped) ./a.out
++ valgrind ./a.out
+==21271== Memcheck, a memory error detector
+==21271== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==21271== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==21271== Command: ./a.out
+==21271== 
+==21271== Thread 2:
+==21271== Use of uninitialised value of size 8
+==21271==    at 0x4E3E59E: tbb::internal::concurrent_queue_base_v3::internal_pop(void*) (in /usr/lib/libtbb.so.2)
+==21271==    by 0x405784: tbb::concurrent_bounded_queue<std::string, tbb::cache_aligned_allocator<std::string> >::pop(std::string&) (concurrent_queue.h:269)
+==21271==    by 0x4054FF: actor<std::string>::receive() (main.cpp:24)
+==21271==    by 0x401B93: _ZNKUlR5actorISsEE_clES1_ (main.cpp:42)
+==21271==    by 0x401DFF: _ZZN5actorISsEC1IUlRS0_E_EET_ENKUlvE_clEv (main.cpp:11)
+==21271==    by 0x404C71: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEE9_M_invokeIIEEEvSt12_Index_tupleIIXspT_EEE (functional:1732)
+==21271==    by 0x404A6E: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEEclEv (functional:1720)
+==21271==    by 0x404923: _ZNSt6thread5_ImplISt12_Bind_simpleIFZN5actorISsEC1IUlRS3_E_EET_EUlvE_vEEE6_M_runEv (thread:115)
+==21271==    by 0x5110A0F: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18)
+==21271==    by 0x593FE99: start_thread (pthread_create.c:308)
+==21271==    by 0x566CCCC: clone (clone.S:112)
+==21271== 
+==21271== Invalid read of size 8
+==21271==    at 0x4E3E59E: tbb::internal::concurrent_queue_base_v3::internal_pop(void*) (in /usr/lib/libtbb.so.2)
+==21271==    by 0x405784: tbb::concurrent_bounded_queue<std::string, tbb::cache_aligned_allocator<std::string> >::pop(std::string&) (concurrent_queue.h:269)
+==21271==    by 0x4054FF: actor<std::string>::receive() (main.cpp:24)
+==21271==    by 0x401B93: _ZNKUlR5actorISsEE_clES1_ (main.cpp:42)
+==21271==    by 0x401DFF: _ZZN5actorISsEC1IUlRS0_E_EET_ENKUlvE_clEv (main.cpp:11)
+==21271==    by 0x404C71: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEE9_M_invokeIIEEEvSt12_Index_tupleIIXspT_EEE (functional:1732)
+==21271==    by 0x404A6E: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEEclEv (functional:1720)
+==21271==    by 0x404923: _ZNSt6thread5_ImplISt12_Bind_simpleIFZN5actorISsEC1IUlRS3_E_EET_EUlvE_vEEE6_M_runEv (thread:115)
+==21271==    by 0x5110A0F: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18)
+==21271==    by 0x593FE99: start_thread (pthread_create.c:308)
+==21271==    by 0x566CCCC: clone (clone.S:112)
+==21271==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==21271== 
+==21271== 
+==21271== Process terminating with default action of signal 11 (SIGSEGV)
+==21271==  Access not within mapped region at address 0x0
+==21271==    at 0x4E3E59E: tbb::internal::concurrent_queue_base_v3::internal_pop(void*) (in /usr/lib/libtbb.so.2)
+==21271==    by 0x405784: tbb::concurrent_bounded_queue<std::string, tbb::cache_aligned_allocator<std::string> >::pop(std::string&) (concurrent_queue.h:269)
+==21271==    by 0x4054FF: actor<std::string>::receive() (main.cpp:24)
+==21271==    by 0x401B93: _ZNKUlR5actorISsEE_clES1_ (main.cpp:42)
+==21271==    by 0x401DFF: _ZZN5actorISsEC1IUlRS0_E_EET_ENKUlvE_clEv (main.cpp:11)
+==21271==    by 0x404C71: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEE9_M_invokeIIEEEvSt12_Index_tupleIIXspT_EEE (functional:1732)
+==21271==    by 0x404A6E: _ZNSt12_Bind_simpleIFZN5actorISsEC1IUlRS1_E_EET_EUlvE_vEEclEv (functional:1720)
+==21271==    by 0x404923: _ZNSt6thread5_ImplISt12_Bind_simpleIFZN5actorISsEC1IUlRS3_E_EET_EUlvE_vEEE6_M_runEv (thread:115)
+==21271==    by 0x5110A0F: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.18)
+==21271==    by 0x593FE99: start_thread (pthread_create.c:308)
+==21271==    by 0x566CCCC: clone (clone.S:112)
+==21271==  If you believe this happened as a result of a stack
+==21271==  overflow in your program's main thread (unlikely but
+==21271==  possible), you can try to increase the size of the
+==21271==  main thread stack using the --main-stacksize= flag.
+==21271==  The main thread stack size used in this run was 8388608.
+==21271== 
+==21271== HEAP SUMMARY:
+==21271==     in use at exit: 512 bytes in 5 blocks
+==21271==   total heap usage: 11 allocs, 6 frees, 891 bytes allocated
+==21271== 
+==21271== LEAK SUMMARY:
+==21271==    definitely lost: 0 bytes in 0 blocks
+==21271==    indirectly lost: 0 bytes in 0 blocks
+==21271==      possibly lost: 288 bytes in 1 blocks
+==21271==    still reachable: 224 bytes in 4 blocks
+==21271==         suppressed: 0 bytes in 0 blocks
+==21271== Rerun with --leak-check=full to see details of leaked memory
+==21271== 
+==21271== For counts of detected and suppressed errors, rerun with: -v
+==21271== Use --track-origins=yes to see where uninitialised values come from
+==21271== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 2 from 2)
+/tmp/1368839843-846940705/cmd.sh: line 8: 21271 Killed                  valgrind ./a.out
++ gdb --eval-command=r ./a.out
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /tmp/1368839843-846940705/a.out...done.
+Starting program: /tmp/1368839843-846940705/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6bb6700 (LWP 21280)]
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7ffff6bb6700 (LWP 21280)]
+0x00007ffff7bb959e in tbb::internal::concurrent_queue_base_v3::internal_pop(void*) () from /usr/lib/libtbb.so.2
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 21277] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

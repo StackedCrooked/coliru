@@ -1,0 +1,1 @@
+g++ main.cpp -std=c++11 -ltbb -g && printf 'run\nbt\n' | gdb ./a.out

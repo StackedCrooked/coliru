@@ -1,0 +1,58 @@
++ g++ main.cpp -std=c++11 -ltbb
++ printf 'run\nbt\n'
++ gdb ./a.out
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /tmp/1368830513-67635501/a.out...(no debugging symbols found)...done.
+(gdb) Starting program: /tmp/1368830513-67635501/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+warning: unable to open /proc file '/proc/5347/status'
+[New Thread 0x7ffff6bb6700 (LWP 5350)]
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+[New Thread 0x7ffff5f93700 (LWP 5351)]
+warning: unable to open /proc file '/proc/5347/status'
+warning: unable to open /proc file '/proc/5347/status'
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  random_device::random_device(const std::string&)
+warning: unable to open /proc file '/proc/5347/status'
+
+Program received signal SIGABRT, Aborted.
+[Switching to Thread 0x7ffff5f93700 (LWP 5351)]
+0x00007ffff730a425 in __GI_raise (sig=<optimized out>)
+    at ../nptl/sysdeps/unix/sysv/linux/raise.c:64
+64	../nptl/sysdeps/unix/sysv/linux/raise.c: No such file or directory.
+(gdb) #0  0x00007ffff730a425 in __GI_raise (sig=<optimized out>)
+    at ../nptl/sysdeps/unix/sysv/linux/raise.c:64
+#1  0x00007ffff730db8b in __GI_abort () at abort.c:91
+#2  0x00007ffff7909955 in __gnu_cxx::__verbose_terminate_handler() ()
+   from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#3  0x00007ffff7907ac6 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007ffff7907af3 in std::terminate() ()
+   from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#5  0x00007ffff795aaa5 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#6  0x00007ffff70bee9a in start_thread (arg=0x7ffff5f93700)
+    at pthread_create.c:308
+#7  0x00007ffff73c7ccd in clone ()
+    at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+#8  0x0000000000000000 in ?? ()
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 5347] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

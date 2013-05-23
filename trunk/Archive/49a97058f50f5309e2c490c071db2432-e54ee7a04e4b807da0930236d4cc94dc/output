@@ -1,0 +1,11 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:5:32: error: template argument 1 is invalid
+ struct MakeBitmask<unsigned pos>
+                                ^
+main.cpp:11:51: error: template argument 1 is invalid
+ struct MakeBitmask<unsigned head, unsigned ...tail>
+                                                   ^
+main.cpp: In function 'int main()':
+main.cpp:18:16: error: incomplete type 'MakeBitmask<0u, 1u, 2u>' used in nested name specifier
+         return MakeBitmask<0, 1, 2>::value;
+                ^
