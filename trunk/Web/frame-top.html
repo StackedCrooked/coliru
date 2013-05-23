@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style type="text/css">
-        html, body { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
-        .content { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
+    <head>
+        <style type="text/css">
+            html, body { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
+            .content { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
 
-        .hbox {
-            display: box; display: -webkit-box; display: -moz-box; position: relative; padding: 0; margin: 0; 
-            box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
-            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
-        }
+            .hbox {
+                display: box; display: -webkit-box; display: -moz-box; position: relative; padding: 0; margin: 0; 
+                box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
+                box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
+            }
 
-        .vbox {
-            display: box; display: -webkit-box; display: -moz-box;
-            position: relative; padding: 0; margin: 0;
-            box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
-            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
-        }
+            .vbox {
+                display: box; display: -webkit-box; display: -moz-box;
+                position: relative; padding: 0; margin: 0;
+                box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
+                box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
+            }
 
-        .f0 {
-            display: box; display: -webkit-box; display: -moz-box;
-            position: relative;
-            box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
-        }
+            .f0 {
+                display: box; display: -webkit-box; display: -moz-box;
+                position: relative;
+                box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+            }
 
-        .f1 {
-            display: box; display: -webkit-box; display: -moz-box;
-            position: relative;
-            box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
-        }
+            .f1 {
+                display: box; display: -webkit-box; display: -moz-box;
+                position: relative;
+                box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+            }
 
 
-        input {
-            position: relative;
-            width: 100%;
-            height: 18px;
-            border: 0;
-            margin-bottom: 0;
-            border-bottom-width: 2px;
-            border-bottom-color: #d3d3d3;
-            border-bottom-style: solid;
-            outline: 0 !important;
-        }
+            input {
+                position: relative;
+                width: 100%;
+                height: 18px;
+                border: 0;
+                margin-bottom: 0;
+                border-bottom-width: 2px;
+                border-bottom-color: #d3d3d3;
+                border-bottom-style: solid;
+                outline: 0 !important;
+            }
 
-        #editor {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
+            #editor {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
 
-        div.fade {
-            opacity:    0.0; 
-            background: #FFFF00; 
-            width:      100%;
-            height:     100%; 
-            /*z-index:    0;*/
-            top:        0; 
-            left:       0; 
-            position:   fixed; 
-        }
+            div.fade {
+                opacity:    0.0; 
+                background: #FFFF00; 
+                width:      100%;
+                height:     100%; 
+                /*z-index:    0;*/
+                top:        0; 
+                left:       0; 
+                position:   fixed; 
+            }
 
-    </style>
-    <script type="text/javascript">
+        </style>
+        <script type="text/javascript">
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37220775-1']);
-        _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37220775-1']);
+            _gaq.push(['_trackPageview']);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+            (function () {
+             var ga = document.createElement('script');
+             ga.type = 'text/javascript';
+             ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(ga, s);
+             })();
 
-    </script>
+</script>
 </head>
 <body>
     <div id="fade" class="fade"></div>
     <div class="content hbox f1">
         <div class="vbox f1">
             <div class="hbox f0" style="min-height:10px; background-color: #99aaff; color: #ffff00">
-                <div class="f1 vbox"></div>
+                <div class="f1 vbox">
+                    <div class="f1"></div>
+                    <a href="#" onclick="window.open('https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts', '_blank')">Keyboard&nbsp;Shortcuts</a>
+                    <div class="f1"></div>
+                </div>
                 <div class="f0 vbox" style="font-size: large">
                     <div class="hbox f1"></div>
                     <b> &nbsp;C&nbsp;o&nbsp;l&nbsp;i&nbsp;r&nbsp;u&nbsp; </b>
