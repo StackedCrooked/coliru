@@ -1,10 +1,12 @@
 #!/bin/bash
+set -x
+exec 1> >(logger -t $0)
+exec 2> >(logger -t $0)
 source coliru_env.source
 [ -z ${COLIRU_ARCHIVE} ] && { echo "COLIRU_ARCHIVE variable must be set." && exit 1; }
 [ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 
-# sleep duration is 20 seconds
-SLEEP_DURATION=20
+SLEEP_DURATION=3600
 
 while true ; do
   # Add new files to subversion.
