@@ -1,0 +1,50 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp:3:7: error: deleted function 'virtual b::~b()'
+ class b : a {};
+       ^
+main.cpp:1:19: error: overriding non-deleted function 'virtual a::~a()'
+ class a { virtual ~a(); };
+                   ^
+main.cpp:3:7: note: 'virtual b::~b()' is implicitly deleted because the default definition would be ill-formed:
+ class b : a {};
+       ^
+main.cpp:1:19: error: 'virtual a::~a()' is private
+ class a { virtual ~a(); };
+                   ^
+main.cpp:3:7: error: within this context
+ class b : a {};
+       ^
+main.cpp:5:7: error: deleted function 'virtual c::~c()'
+ class c : a {};
+       ^
+main.cpp:1:19: error: overriding non-deleted function 'virtual a::~a()'
+ class a { virtual ~a(); };
+                   ^
+main.cpp:5:7: note: 'virtual c::~c()' is implicitly deleted because the default definition would be ill-formed:
+ class c : a {};
+       ^
+main.cpp:1:19: error: 'virtual a::~a()' is private
+ class a { virtual ~a(); };
+                   ^
+main.cpp:5:7: error: within this context
+ class c : a {};
+       ^
+main.cpp: In function 'int main()':
+main.cpp:8:7: error: use of deleted function 'c::c()'
+     c one;
+       ^
+main.cpp:5:7: note: 'c::c()' is implicitly deleted because the default definition would be ill-formed:
+ class c : a {};
+       ^
+main.cpp:1:19: error: 'virtual a::~a()' is private
+ class a { virtual ~a(); };
+                   ^
+main.cpp:5:7: error: within this context
+ class c : a {};
+       ^
+main.cpp:8:7: error: use of deleted function 'virtual c::~c()'
+     c one;
+       ^
+main.cpp:9:15: error: 'a' is an inaccessible base of 'c'
+     a* two = &one;
+               ^

@@ -1,0 +1,21 @@
++ g++ main.cpp -std=c++11 -Ofast -Wall -Wextra
+main.cpp: In function 'void pipes(int)':
+main.cpp:3:5: error: 'hdnum' has not been declared
+     hdnum::DenseMatrix<T> pointPressure(pipeN*pipeN, pipeN*pipeN, 0);
+     ^
+main.cpp:3:25: error: expected primary-expression before '>' token
+     hdnum::DenseMatrix<T> pointPressure(pipeN*pipeN, pipeN*pipeN, 0);
+                         ^
+main.cpp:3:68: error: there are no arguments to 'pointPressure' that depend on a template parameter, so a declaration of 'pointPressure' must be available [-fpermissive]
+     hdnum::DenseMatrix<T> pointPressure(pipeN*pipeN, pipeN*pipeN, 0);
+                                                                    ^
+main.cpp:3:68: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:5:2: error: 'pointPressure' was not declared in this scope
+  pointPressure.width(2);
+  ^
+main.cpp:44:2: error: 'cout' is not a member of 'std'
+  std::cout << pointPressure << std::endl;
+  ^
+main.cpp:44:32: error: 'endl' is not a member of 'std'
+  std::cout << pointPressure << std::endl;
+                                ^
