@@ -1,0 +1,10 @@
++ g++-4.8 -c -std=c++11 -Wall -Wextra -pedantic main.cpp
+main.cpp: In function 'void wait(F&& ...)':
+main.cpp:12:29: error: expected ';' before '...' token
+     wait(std::forward<F>(f))...;
+                             ^
+main.cpp:12:32: error: parameter packs not expanded with '...':
+     wait(std::forward<F>(f))...;
+                                ^
+main.cpp:12:32: note:         'f'
+main.cpp:12:32: note:         'F'
