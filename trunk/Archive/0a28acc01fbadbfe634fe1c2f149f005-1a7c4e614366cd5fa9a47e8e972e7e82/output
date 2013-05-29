@@ -1,0 +1,24 @@
++ clang++ -S -std=c++11 -O2 -pthread main.cpp -o main.S
++ cat main.S
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	movl	$1, -4(%rsp)
+	movl	$0, -8(%rsp)
+	movl	-4(%rsp), %eax
+	cltd
+	idivl	-8(%rsp)
+	movl	%eax, -12(%rsp)
+	movl	-12(%rsp), %eax
+	ret
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+
+	.section	".note.GNU-stack","",@progbits
