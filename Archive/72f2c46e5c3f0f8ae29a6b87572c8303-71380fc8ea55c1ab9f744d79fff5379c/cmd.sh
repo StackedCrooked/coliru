@@ -1,0 +1,1 @@
+g++-4.8 -O2 -pthread main.cpp -lrt -fpermissive && ./a.out
