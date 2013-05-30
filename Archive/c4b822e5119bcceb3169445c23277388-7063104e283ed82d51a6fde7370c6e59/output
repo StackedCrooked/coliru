@@ -1,0 +1,6 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp: In instantiation of 'void call(F&&) [with F = Foo]':
+main.cpp:15:15:   required from here
+main.cpp:10:23: error: passing 'Foo' as 'this' argument of 'void Foo::operator()() const &&' discards qualifiers [-fpermissive]
+     (std::forward<F>(f))();
+                       ^
