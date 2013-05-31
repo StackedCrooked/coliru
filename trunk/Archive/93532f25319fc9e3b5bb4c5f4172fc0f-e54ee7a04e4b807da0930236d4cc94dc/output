@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'void library::impl::Foo<T>::bar() [with T = int]':
+main.cpp:56:13:   required from here
+main.cpp:25:33: error: call of overloaded 'hook_after(library::impl::Foo<int>&)' is ambiguous
+                 hook_after(*this);
+                                 ^
+main.cpp:25:33: note: candidates are:
+main.cpp:13:31: note: void library::hook_after(T&) [with T = library::impl::Foo<int>]
+     template<typename T> void hook_after(T&)
+                               ^
+main.cpp:44:14: note: void library::impl::hook_after(T&) [with T = library::impl::Foo<int>]
+         void hook_after(T&)
+              ^
