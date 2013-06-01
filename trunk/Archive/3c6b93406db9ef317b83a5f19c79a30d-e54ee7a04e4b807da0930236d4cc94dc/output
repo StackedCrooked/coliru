@@ -1,0 +1,14 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:24:5: error: 'A::A' names the constructor, not the type
+     A::A a3 = A::A();
+     ^
+main.cpp:24:10: error: expected ';' before 'a3'
+     A::A a3 = A::A();
+          ^
+main.cpp:24:21: error: statement cannot resolve address of overloaded function
+     A::A a3 = A::A();
+                     ^
+main.cpp:26:8: warning: unused variable 'a4' [-Wunused-variable]
+     A* a4 = new A();
+        ^
