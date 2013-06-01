@@ -1,0 +1,8 @@
++ clang++ -fno-elide-constructors -std=c++1y -O3 -Wall -pthread main.cpp
+main.cpp:19:10: error: cannot deduce actual type for variable 'l' with type 'auto' from initializer list
+    auto l = { (h<Is>(), 0)... };
+         ^   ~~~~~~~~~~~~~~~~~~~
+main.cpp:25:5: note: in instantiation of function template specialization 'f<>' requested here
+    f(gen_seq<5>{});
+    ^
+1 error generated.
