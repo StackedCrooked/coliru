@@ -1,0 +1,23 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:11:39: error: cannot bind 'int' lvalue to 'int&&'
+     decltype(func(std::declval<int&>())) x = func(i);
+                                       ^
+main.cpp:4:5: error:   initializing argument 1 of 'int func(int&&)'
+ int func(int&& i) {
+     ^
+main.cpp:11:39: error: cannot bind 'int' lvalue to 'int&&'
+     decltype(func(std::declval<int&>())) x = func(i);
+                                       ^
+main.cpp:4:5: error:   initializing argument 1 of 'int func(int&&)'
+ int func(int&& i) {
+     ^
+main.cpp:11:44: error: invalid type in declaration before '=' token
+     decltype(func(std::declval<int&>())) x = func(i);
+                                            ^
+main.cpp:11:52: error: cannot bind 'int' lvalue to 'int&&'
+     decltype(func(std::declval<int&>())) x = func(i);
+                                                    ^
+main.cpp:4:5: error:   initializing argument 1 of 'int func(int&&)'
+ int func(int&& i) {
+     ^
