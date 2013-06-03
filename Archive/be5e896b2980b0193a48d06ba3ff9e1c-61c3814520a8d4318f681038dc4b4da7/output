@@ -1,0 +1,57 @@
++ g++ -std=c++11 -O2 -pthread main.cpp
+main.cpp:9:5: error: templates may not be 'virtual'
+     virtual T foo( T2 value ){ return new T + value;}
+     ^
+main.cpp:9: confused by earlier errors, bailing out
+Preprocessed source stored into /tmp/ccxkG349.out file, please attach this to your bugreport.
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 15, in <module>
+    import apport, apport.fileutils
+  File "/usr/lib/python2.7/dist-packages/apport/__init__.py", line 1, in <module>
+    from apport.report import Report
+  File "/usr/lib/python2.7/dist-packages/apport/report.py", line 12, in <module>
+    import subprocess, tempfile, os.path, urllib, re, pwd, grp, os
+  File "/usr/lib/python2.7/tempfile.py", line 34, in <module>
+    from random import Random as _Random
+  File "/usr/lib/python2.7/random.py", line 881, in <module>
+    _inst = Random()
+  File "/usr/lib/python2.7/random.py", line 97, in __init__
+    self.seed(x)
+  File "/usr/lib/python2.7/random.py", line 111, in seed
+    a = long(_hexlify(_urandom(16)), 16)
+OSError: [Errno 2] No such file or directory: '/dev/urandom'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/apport_python_hook.py", line 66, in apport_excepthook
+    from apport.fileutils import likely_packaged, get_recent_crashes
+  File "/usr/lib/python2.7/dist-packages/apport/__init__.py", line 1, in <module>
+    from apport.report import Report
+  File "/usr/lib/python2.7/dist-packages/apport/report.py", line 12, in <module>
+    import subprocess, tempfile, os.path, urllib, re, pwd, grp, os
+  File "/usr/lib/python2.7/tempfile.py", line 34, in <module>
+    from random import Random as _Random
+  File "/usr/lib/python2.7/random.py", line 881, in <module>
+    _inst = Random()
+  File "/usr/lib/python2.7/random.py", line 97, in __init__
+    self.seed(x)
+  File "/usr/lib/python2.7/random.py", line 111, in seed
+    a = long(_hexlify(_urandom(16)), 16)
+OSError: [Errno 2] No such file or directory: '/dev/urandom'
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 15, in <module>
+    import apport, apport.fileutils
+  File "/usr/lib/python2.7/dist-packages/apport/__init__.py", line 1, in <module>
+    from apport.report import Report
+  File "/usr/lib/python2.7/dist-packages/apport/report.py", line 12, in <module>
+    import subprocess, tempfile, os.path, urllib, re, pwd, grp, os
+  File "/usr/lib/python2.7/tempfile.py", line 34, in <module>
+    from random import Random as _Random
+  File "/usr/lib/python2.7/random.py", line 881, in <module>
+    _inst = Random()
+  File "/usr/lib/python2.7/random.py", line 97, in __init__
+    self.seed(x)
+  File "/usr/lib/python2.7/random.py", line 111, in seed
+    a = long(_hexlify(_urandom(16)), 16)
+OSError: [Errno 2] No such file or directory: '/dev/urandom'
