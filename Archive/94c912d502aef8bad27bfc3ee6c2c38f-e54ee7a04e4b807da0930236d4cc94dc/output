@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'struct Array<int>::Iterator':
+main.cpp:25:26:   required from here
+main.cpp:12:25: error: template-id 'operator+<>' for 'Array<int>::Iterator operator+(int, const Array<int>::Iterator&)' does not match any template declaration
+         friend Iterator operator+<>(int, const typename Array<T>::Iterator&);
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:26:9: error: no match for 'operator+' (operand types are 'int' and 'Array<int>::Iterator')
+     it=5+it;
+         ^
+main.cpp:26:9: note: candidate is:
+main.cpp:17:29: note: template<class T> typename Array<T>::Iterator operator+(int, const typename Array<T>::Iterator&)
+ typename Array<T>::Iterator operator+(int, const typename Array<T>::Iterator& it)
+                             ^
+main.cpp:17:29: note:   template argument deduction/substitution failed:
+main.cpp:26:10: note:   couldn't deduce template parameter 'T'
+     it=5+it;
+          ^
+main.cpp:24:16: warning: unused variable 'arr' [-Wunused-variable]
+     Array<int> arr;
+                ^
