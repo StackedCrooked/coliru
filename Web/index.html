@@ -49,8 +49,8 @@
 
         var sourceCode = localStorage.getItem("src");
         app.elements.editor.getSession().setValue(localStorage.getItem("src") || app.samples["Default"]);
-        app.elements.editor.commands.bindKeys({"ctrl-l":null}) 
-        app.elements.editor.commands.bindKeys({"ctrl-t":null}) 
+        app.elements.editor.commands.bindKeys({"Ctrl-l":null}) 
+        app.elements.editor.commands.bindKeys({"Ctrl-t":null}) 
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
         app.elements.editor.commands.addCommand({ name: 'Build and run', bindKey: {win: 'Ctrl-B',  mac: 'Command-B'}, exec: function(editor) { app.compileNow(); }, readOnly: true });
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
