@@ -52,14 +52,8 @@
         app.elements.editor.commands.bindKeys({"ctrl-l":null}) 
         app.elements.editor.commands.bindKeys({"ctrl-t":null}) 
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
-        app.elements.editor.commands.addCommand({
-            name: 'Build and run',
-                bindKey: {win: 'Ctrl-B',  mac: 'Command-B'},
-                    exec: function(editor) { 
-                        app.compileNow();
-                    },
-                    readOnly: true // false if this command should not apply in readOnly mode
-                    });
+        app.elements.editor.commands.addCommand({ name: 'Build and run', bindKey: {win: 'Ctrl-B',  mac: 'Command-B'}, exec: function(editor) { app.compileNow(); }, readOnly: true });
+        app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
         app.elements.cmd.value = localStorage.getItem("cmd") || "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
 
         app.enableUI = function(value) {
