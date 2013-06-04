@@ -56,6 +56,14 @@
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
         app.elements.cmd.value = localStorage.getItem("cmd") || "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
 
+        app.resetCommand = function() {
+            app.elements.cmd.value = "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+        };
+
+        app.resetEditor = function() {
+            app.elements.editor.getSession().setValue(app.samples["Default"]);
+        };
+
         app.enableUI = function(value) {
             app.elements.compileButton.disabled = !value;
             app.elements.postButton.disabled = !value;
@@ -167,7 +175,6 @@
                 window.open(url, '_self');
             });
         };
-
         app.previousValue = "";
     };
 </script>
