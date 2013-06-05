@@ -1,0 +1,15 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'join(std::future<std::future<_Res> >&&) [with T = int]::__lambda4':
+main.cpp:10:32:   required from 'struct join(std::future<std::future<_Res> >&&) [with T = int]::__lambda4'
+main.cpp:12:6:   required from 'std::future<_Res> join(std::future<std::future<_Res> >&&) [with T = int]'
+main.cpp:19:40:   required from here
+main.cpp:10:43: error: use of deleted function 'std::future<_Res>::future(const std::future<_Res>&) [with _Res = int]'
+         std::future<T> inner = shared.get();
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/future:660:7: error: declared here
+       future(const future&) = delete;
+       ^
+/usr/include/c++/4.8/future:1538:5: error: 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> std::async(_Fn&&, _Args&& ...) [with _Fn = join(std::future<std::future<_Res> >&&) [with T = int]::__lambda4; _Args = {}; typename std::result_of<_Functor(_ArgTypes ...)>::type = int]', declared using local type 'join(std::future<std::future<_Res> >&&) [with T = int]::__lambda4', is used but never defined [-fpermissive]
+     async(_Fn&& __fn, _Args&&... __args)
+     ^
