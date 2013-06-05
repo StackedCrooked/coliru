@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:9:13: error: type 'float' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+    int x { 1.0f };
+            ^~~~
+main.cpp:9:13: note: override this message by inserting an explicit cast
+    int x { 1.0f };
+            ^~~~
+            static_cast<int>( )
+main.cpp:13:9: error: type 'float' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+    X d{1.0f};  // list (narrowing conversion) ARG!!!
+        ^~~~
+main.cpp:13:9: note: override this message by inserting an explicit cast
+    X d{1.0f};  // list (narrowing conversion) ARG!!!
+        ^~~~
+        static_cast<int>( )
+main.cpp:9:9: warning: unused variable 'x' [-Wunused-variable]
+    int x { 1.0f };
+        ^
+1 warning and 2 errors generated.
