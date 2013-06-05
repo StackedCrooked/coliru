@@ -1,0 +1,10 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'struct inherit_one<bar>':
+main.cpp:9:16:   required by substitution of 'template<class T> std::true_type test_inheritance(typename inherit_one<T>::base*) [with T = bar]'
+main.cpp:17:54:   required from here
+main.cpp:4:8: error: cannot derive from 'final' base 'bar' in derived type 'inherit_one<bar>'
+ struct inherit_one : T {
+        ^
+main.cpp:17:1: error: static assertion failed: 
+ static_assert(!decltype(test_inheritance<bar>(nullptr))(), "");
+ ^
