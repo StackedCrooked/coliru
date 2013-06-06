@@ -1,0 +1,1 @@
+gcc  -O2 -Wall -Wextra -pthread main.cpp && ./a.out
