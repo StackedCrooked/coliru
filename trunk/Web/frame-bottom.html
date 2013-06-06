@@ -84,6 +84,16 @@
                 e.stopPropagation();
             }
         }
+        update_rows();
+    }
+
+    function on_cmd_keyup(e) {
+        update_rows();
+    }
+    function update_rows() {
+        var rows = parent.app.elements.cmd.value.split(/\n/).length ;
+        if (rows < 3) rows = 3;
+        parent.app.elements.cmd.rows = rows;
     }
 </script>
  </head>
@@ -93,7 +103,7 @@
              <div id="output" style="overflow:auto;" class="vbox f1"></div>
              <div class="f0 hbox">
                  <div class="f1 vbox">
-                     <textarea type="text" id="cmd" rows='3' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
+                     <textarea type="text" id="cmd" rows='3' onkeyup='on_cmd_keyup(event);' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
                  </div>
                  <div class="f0 vbox">
                  <button id="compileButton" class="f1" onclick="if (parent.app.elements.editor) parent.app.elements.editor.focus(); parent.app.compileNow();">Compile, link and run...</button>
