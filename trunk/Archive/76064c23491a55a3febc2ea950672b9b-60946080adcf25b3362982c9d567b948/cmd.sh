@@ -1,0 +1,1 @@
+cat main.cpp | sed -e 's/game/program of any sort/'
