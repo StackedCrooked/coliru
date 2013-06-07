@@ -51,23 +51,6 @@ get '/feedback' do
 end
 
 
-get '/sh' do
-    File.read('sh.html')
-end
-
-
-post '/sh' do
-    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
-    dir = "/tmp/coliru/#{id}"
-    FileUtils.mkdir_p(dir)
-
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
-    stream do |out|
-        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-    end
-end
-
-
 post '/compile' do
     json_obj = JSON.parse(request.body.read)
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
@@ -82,6 +65,11 @@ post '/compile' do
 end
 
 
+get '/sh' do
+    File.read('sh.html')
+end
+
+
 post '/sh' do
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
     dir = "/tmp/coliru/#{id}"
@@ -93,13 +81,13 @@ post '/sh' do
 end
 
 
-post '/timeout' do
-    set_timeout(request.body.read.to_i)
+get '/timeout' do
     get_timeout
 end
 
 
-get '/timeout' do
+post '/timeout' do
+    set_timeout(request.body.read.to_i)
     get_timeout
 end
 
@@ -149,6 +137,22 @@ get '/Archive/*' do |file|
     end
 end
 
+get '/archive' do       
+    get_contents = Proc.new do |name|       
+        begin       
+            File.read("#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}")        
+        rescue Exception => e       
+            ""      
+        end     
+    end     
+
+    {       
+        :cmd => get_contents.call('cmd.sh'),        
+        :src => get_contents.call('main.cpp'),      
+        :output => get_contents.call('output')      
+    }.to_json       
+end     
+
 
 get '/log' do
     content_type :txt
@@ -171,6 +175,7 @@ end
 
 # Implementation details..
 
+
 set :port, ENV['COLIRU_PORT']
 $feedback_semaphore = Mutex.new
 
@@ -180,6 +185,7 @@ configure do
   mime_type :jpg, 'image/jpeg'
   mime_type :txt, 'text/plain'
 end
+
 
 def get_timeout
     begin
@@ -197,6 +203,7 @@ def set_timeout(t)
         puts e.to_s
     end
 end
+
 
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
