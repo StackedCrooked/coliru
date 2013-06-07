@@ -247,9 +247,5 @@ end
 
 get '/log' do
     content_type :txt
-    stream do |out|
-        safe_popen('cat /var/log/syslog') do |line|
-            out << line
-        end
-    end
+    File.read("/var/log/syslog")
 end
