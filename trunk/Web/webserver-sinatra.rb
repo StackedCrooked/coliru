@@ -253,20 +253,3 @@ get '/log' do
         end
     end
 end
-
-
-get '/archive' do
-    get_contents = Proc.new do |name|
-        begin
-            File.read("#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}")
-        rescue Exception => e
-            ""
-        end
-    end
-
-    {
-        :cmd => get_contents.call('cmd.sh'),
-        :src => get_contents.call('main.cpp'),
-        :output => get_contents.call('output')
-    }.to_json
-end
