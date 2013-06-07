@@ -138,25 +138,9 @@ post '/sh' do
 end
 
 
-post '/compile2' do
-    parts = request.body.read.split("__COLIRU_SPLIT__");
-    id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
-    dir = "/tmp/coliru/#{id}"
-    FileUtils.mkdir_p(dir)
-
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << parts[0] }
-    File.open("#{dir}/main.cpp", 'w') { |f| f << parts[1] }
-    stream do |out|
-        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-    end
-end
-
-
 post '/timeout' do
-    stream do |out|
-        set_timeout(request.body.read.to_i)
-        get_timeout
-    end
+    set_timeout(request.body.read.to_i)
+    get_timeout
 end
 
 
@@ -196,40 +180,6 @@ get '/external' do
 end
 
 
-get '/images/?' do |file|
-    page_start = "<!DOCTYPE html>\n<html><body><span>"
-    page_end = '</span></body></html>'
-    link = '<a href="/images/FILE"><img style="max-width: 500px ; max-height: 500px" src="/images/small/FILE"></a>'
-    page = page_start
-    Dir.entries("./images").each do |file|
-        if [".jpg", ".jpeg", ".png" ].include?(File.extname(file))
-            page += link.sub(/HREF/, "/images/#{file}").gsub(/FILE/, "#{file}")
-        end
-    end
-    page += page_end
-    return page
-end
-
-get '/random_image' do 
-    content_type :jpg
-    entries = [ Dir["./images/*.jpg"], Dir["./images/*.png"] ].flatten
-    if entries.empty?
-        raise "not found"
-    end
-
-    File.open(entries[rand(entries.size)], "rb") do |io|
-        io.read
-    end
-end
-
-get '/images/*' do |file|
-    content_type :jpg
-    File.open("images/#{file}", "rb") do |io|
-        io.read
-    end
-end
-
-
 get '/Archive/*' do |file|
     content_type :txt
     begin
@@ -248,4 +198,17 @@ end
 get '/log' do
     content_type :txt
     File.read("/var/log/syslog")
+end
+
+
+get '/random_image' do 
+    content_type :jpg
+    entries = [ Dir["./images/*.jpg"], Dir["./images/*.png"] ].flatten
+    if entries.empty?
+        raise "not found"
+    end
+
+    File.open(entries[rand(entries.size)], "rb") do |io|
+        io.read
+    end
 end
