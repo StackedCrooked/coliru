@@ -7,52 +7,7 @@ require 'pp'
 require 'sinatra'
 
 
-set :port, ENV['COLIRU_PORT']
-$feedback_semaphore = Mutex.new
-
-configure do
-  mime_type :js, 'application/javascript'
-  mime_type :jpg, 'image/jpeg'
-  mime_type :txt, 'text/plain'
-end
-
-def get_timeout
-    begin
-        [60, File.read('timeout.txt').to_i ].min.to_s
-    rescue Exception => e
-        20.to_s
-    end
-end
-
-
-def set_timeout(t)
-    begin
-        File.open('timeout.txt', 'w') { |f| f << t }
-    rescue Exception => e
-        puts e.to_s
-    end
-end
-
-# @param [String] cmd Command to be executed.
-def safe_popen(cmd)
-    begin
-        Timeout.timeout(get_timeout.to_i) do
-            @stdout = IO.popen("#{cmd} 2>&1 ")
-            until @stdout.eof?
-                yield @stdout.readline
-            end
-            Process.wait @stdout.pid
-        end
-    rescue Timeout::Error => e
-        # Kill the process group that started the sandbox
-        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
-        Process.kill 9, @stdout.pid
-        Process.wait @stdout.pid
-        yield e.to_s
-    rescue Exception => e
-        yield e.to_s
-    end
-end
+# API
 
 
 get '/' do
@@ -212,3 +167,55 @@ get '/random_image' do
         io.read
     end
 end
+
+
+# Implementation details..
+
+set :port, ENV['COLIRU_PORT']
+$feedback_semaphore = Mutex.new
+
+
+configure do
+  mime_type :js, 'application/javascript'
+  mime_type :jpg, 'image/jpeg'
+  mime_type :txt, 'text/plain'
+end
+
+def get_timeout
+    begin
+        [60, File.read('timeout.txt').to_i ].min.to_s
+    rescue Exception => e
+        20.to_s
+    end
+end
+
+
+def set_timeout(t)
+    begin
+        File.open('timeout.txt', 'w') { |f| f << t }
+    rescue Exception => e
+        puts e.to_s
+    end
+end
+
+# @param [String] cmd Command to be executed.
+def safe_popen(cmd)
+    begin
+        Timeout.timeout(get_timeout.to_i) do
+            @stdout = IO.popen("#{cmd} 2>&1 ")
+            until @stdout.eof?
+                yield @stdout.readline
+            end
+            Process.wait @stdout.pid
+        end
+    rescue Timeout::Error => e
+        # Kill the process group that started the sandbox
+        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
+        Process.kill 9, @stdout.pid
+        Process.wait @stdout.pid
+        yield e.to_s
+    rescue Exception => e
+        yield e.to_s
+    end
+end
+
