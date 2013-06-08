@@ -23,7 +23,7 @@
     app.elements = {};
 
     app.samples = {
-        "Default": "#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Sentence = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Sentence & sentence)\n{\n    for (const auto & word : sentence)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Sentence sentence = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << sentence << std::endl;\n}\n"
+        "Default": "#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Words = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Words & words)\n{\n    for (const auto & word : words)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Words words = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << words << std::endl;\n}\n"
     };
 
     document.write('<frameset rows="100%, 200" border="4" >');
@@ -54,10 +54,10 @@
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
         app.elements.editor.commands.addCommand({ name: 'Build and run', bindKey: {win: 'Ctrl-B',  mac: 'Command-B'}, exec: function(editor) { app.compileNow(); }, readOnly: true });
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
-        app.elements.cmd.value = localStorage.getItem("cmd") || "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+        app.elements.cmd.value = localStorage.getItem("cmd") || "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
 
         app.resetCommand = function() {
-            app.elements.cmd.value = "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+            app.elements.cmd.value = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
         };
 
         app.resetEditor = function() {
