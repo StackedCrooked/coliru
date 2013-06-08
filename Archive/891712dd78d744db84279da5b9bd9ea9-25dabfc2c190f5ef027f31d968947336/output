@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:13: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        = { [&a]{ std::cout << a; } ... };
+            ^~~~~~~~~~~~~~~~~~~~~~~
+            {                      }
+main.cpp:17:5: note: in instantiation of function template specialization 'tprintf<char [4], char [6], char [7]>' requested here
+    tprintf( "021", "Hel", "rld!\n", "lo, wo" );
+    ^
+1 warning generated.
++ ./a.out
+Hello, world!
