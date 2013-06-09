@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:7:43: error: chosen constructor is explicit in copy-initialization
+    lol(const std::unordered_set<double>& yodel = {}): har(yodel) {}
+                                          ^       ~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_set.h:132:7: note: constructor declared here
+      unordered_set(size_type __n = 10,
+      ^
+main.cpp:7:43: note: passing argument to parameter 'yodel' here
+    lol(const std::unordered_set<double>& yodel = {}): har(yodel) {}
+                                          ^
+main.cpp:5:39: warning: private field 'har' is not used [-Wunused-private-field]
+    const std::unordered_set<double>& har;
+                                      ^
+1 warning and 1 error generated.
