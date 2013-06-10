@@ -1,0 +1,8 @@
++ clang++ -fno-elide-constructors -std=c++1y -O3 -Wall -pthread main.cpp
+main.cpp:6:16: error: cannot initialize a parameter of type 'char const (*)[3]' with an rvalue of type 'const char (*)[5]'
+    return ptr(&"good");
+               ^~~~~~~
+main.cpp:16:12: note: in instantiation of function template specialization 'foo<5, int (*)(char const (*)[3])>' requested here
+    return foo<5>(bar);
+           ^
+1 error generated.
