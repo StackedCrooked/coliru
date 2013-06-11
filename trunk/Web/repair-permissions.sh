@@ -21,7 +21,7 @@ chmod -R a+rw /var/chroot/tmp
 mkdir -p /var/chroot/dev
 touch /var/chroot/dev/null
 
-for file in "output main.cpp cmd.sh" ; do
+for file in "timeout.txt output main.cpp cmd.sh timestamp.txt" ; do
   touch $file && chown webserver:coliru $file
 done
 
