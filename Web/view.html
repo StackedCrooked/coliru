@@ -151,6 +151,7 @@
     app.send("archive?id=" + app.id, "", function (response) {
         var obj = JSON.parse(response);
         app.editor.setValue(obj.src);
+        app.editor.getSession().setScrollLeft(0);
         app.cmd = obj.cmd;
         app.cmd_output = obj.output.trim();
         var lines = app.cmd_output.split(/\n/);
