@@ -1,0 +1,54 @@
++ g++ -DOPTIMIZE_BRANCH=1 -O2 -Wall -pedantic -S -masm=intel main.cpp -o -
++ c++filt
++ g++ -DOPTIMIZE_BRANCH=0 -O2 -Wall -pedantic -S -masm=intel main.cpp -o -
++ c++filt
++ diff -y optimize_branch no_optimize_branch
+	.file	"main.cpp"						.file	"main.cpp"
+	.intel_syntax noprefix						.intel_syntax noprefix
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	something(char const*)					.globl	something(char const*)
+	.type	something(char const*), @function			.type	something(char const*), @function
+something(char const*):						something(char const*):
+.LFB0:								.LFB0:
+	.cfi_startproc							.cfi_startproc
+	push	rbx							push	rbx
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16						.cfi_offset 3, -16
+	mov	rbx, rdi						mov	rbx, rdi
+	call	is_running()						call	is_running()
+	test	eax, eax						test	eax, eax
+	je	.L2							je	.L2
+	mov	rdi, rbx						mov	rdi, rbx
+	pop	rbx							pop	rbx
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	jmp	something_impl(char const*)				jmp	something_impl(char const*)
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L2:								.L2:
+	.cfi_restore_state						.cfi_restore_state
+	mov	eax, -1							mov	eax, -1
+	pop	rbx							pop	rbx
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE0:								.LFE0:
+	.size	something(char const*), .-something(char cons		.size	something(char const*), .-something(char cons
+	.section	.rodata.str1.1,"aMS",@progbits,1		.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:								.LC0:
+	.string	"branch optimized (?)"			      |		.string	"no branch optimize"
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB1:								.LFB1:
+	.cfi_startproc							.cfi_startproc
+	mov	edi, OFFSET FLAT:.LC0					mov	edi, OFFSET FLAT:.LC0
+	jmp	something(char const*)					jmp	something(char const*)
+	.cfi_endproc							.cfi_endproc
+.LFE1:								.LFE1:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
