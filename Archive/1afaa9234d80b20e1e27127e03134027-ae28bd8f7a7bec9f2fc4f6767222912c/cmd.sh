@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ main.cpp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 && ./a.out
