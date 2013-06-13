@@ -93,7 +93,7 @@ end
 
 
 post '/share' do
-    result = nil
+    result = ""
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
     dir = "/tmp/coliru/#{id}"
     FileUtils.mkdir_p(dir)
@@ -102,9 +102,11 @@ post '/share' do
     File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
     File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-    safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |line|
-        result = result || line
-        next # we want to wait for the process to completely finish
+    skip = false
+    safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |b|
+        next if skip
+        skip = (b == '\n')
+        result += b
     end
     stream { |out| out << result }
 end
@@ -209,7 +211,6 @@ def set_timeout(t)
     end
 end
 
-
 # @param [String] cmd Command to be executed.
 def safe_popen(cmd)
     begin
@@ -234,4 +235,3 @@ def safe_popen(cmd)
         yield e.to_s
     end
 end
-
