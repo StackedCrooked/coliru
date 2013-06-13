@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++1y -O3 -Wno-missing-field-initializers -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:19:12: error: ‘Three’ is not a member of ‘B’
+ A::c meh = B::Three; //fails because only en was brought into B
+            ^
+main.cpp:19:12: note: suggested alternative:
+main.cpp:7:13: note:   ‘Three’
+     enum c {Three};
+             ^
