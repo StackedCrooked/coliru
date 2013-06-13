@@ -45,6 +45,7 @@
 
             #editor {
                 position: relative;
+                font-size: inherit;
                 width: 100%;
                 height: 100%;
                 padding: 0;
@@ -56,7 +57,7 @@
                 background: #FFFF00; 
                 width:      100%;
                 height:     100%; 
-                /*z-index:    0;*/
+                z-index:    0;
                 top:        0; 
                 left:       0; 
                 position:   fixed; 
@@ -77,6 +78,16 @@
              var s = document.getElementsByTagName('script')[0];
              s.parentNode.insertBefore(ga, s);
              })();
+
+    function on_cmd_keydown(e) {
+            //console.log("e.keyCode: " + e.keyCode);
+            //console.log(e);
+            if ((e.metaKey || e.ctrlKey) && e.keyCode == 66) {
+                console.log("e.keyCode: " + e.keyCode);
+                parent.app.compileNow();
+            }
+    }
+
 
 </script>
 </head>
@@ -133,7 +144,7 @@
                 </div>
             </div>
             <div class="hbox f0" style="min-height:1px; background-color: #666666; "></div>
-            <textarea id="editor" class="f1"></textarea>
+            <textarea id="editor" onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
             <div class="f0" style="min-height:0"></div>
         </div>
         <div class="f0" style="min-width:0"></div>
