@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function ‘void Vec::push_back(int)’:
+main.cpp:17:4: error: expected primary-expression before ‘<<’ token
+    <<" or cease attempt to add."<<endl;
+    ^
+main.cpp:21:30: error: no matching function for call to ‘Vec::push_back(const char [10])’
+   cout<<push_back(" << i << ")
+                              ^
+main.cpp:21:30: note: candidate is:
+main.cpp:12:13: note: void Vec::push_back(int) <near match>
+ inline void Vec::push_back(int i)
+             ^
+main.cpp:12:13: note:   no known conversion for argument 1 from ‘const char [10]’ to ‘int’
