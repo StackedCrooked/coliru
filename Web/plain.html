@@ -62,6 +62,7 @@
         app.enableUI = function(value) {
             app.elements.compileButton.disabled = !value;
             app.elements.postButton.disabled = !value;
+            parent.app.elements.editor.disabled = !value;
             //app.elements.editor.setReadOnly(!value);
             //app.elements.editor.setReadOnly(!value);
             app.elements.cmd.disabled = !value;
@@ -78,7 +79,8 @@
                 app.elements.fade.style.backgroundColor = '#ffffff';
                 //app.elements.fade.style.backgroundImage = 'none';
             }
-            app.elements.fade.style.opacity = value ? "1.00" : "0.20";
+            app.elements.fade.style.zIndex = value ? 0 : 1;
+            app.elements.fade.style.opacity = value ? "1.00" : "0.10";
         };
         app.enableUI(true);
 
