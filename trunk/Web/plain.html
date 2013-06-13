@@ -28,7 +28,7 @@
 
     document.write('<frameset rows="100%, 200" border="4" >');
     document.write(' <frame src="frame-top-beta.html" name="top" scrolling="no" frameborder="1" />');
-    document.write(' <frame src="frame-bottom.html" name="bottom" scrolling="no" frameborder="1" />');
+    document.write(' <frame src="frame-bottom-beta.html" name="bottom" scrolling="no" frameborder="1" />');
     document.write('</frameset>');
 
 
@@ -168,7 +168,7 @@
 
         app.postSample = function () {
             app.send("share", function (obj) {
-                var url = window.location + "view?id=" + obj.output;
+                var url = window.location.pathname = "view?id=" + obj.output;
                 window.open(url, '_self');
             });
         };
