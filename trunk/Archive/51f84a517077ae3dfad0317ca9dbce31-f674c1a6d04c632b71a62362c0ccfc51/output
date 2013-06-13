@@ -1,0 +1,9 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘T Cxx<T>::foo() [with T = int]’:
+main.cpp:46:1:   required from here
+main.cpp:9:7: error: ‘int C<int>::z’ is private
+     T z;
+       ^
+main.cpp:27:27: error: within this context
+     T foo() {return this->z;};
+                           ^
