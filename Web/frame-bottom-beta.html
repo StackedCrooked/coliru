@@ -1,0 +1,144 @@
+<head>
+    <title>Coliru Output</title>
+    <style type="text/css">
+
+
+        html, body { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
+        .content { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
+
+        .hbox {
+            display: box; display: -webkit-box; display: -moz-box; position: relative; padding: 0; margin: 0; 
+            box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
+            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
+        }
+
+        .vbox {
+            display: box; display: -webkit-box; display: -moz-box;
+            position: relative; padding: 0; margin: 0;
+            box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
+            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
+        }
+
+        .f0 {
+            display: box; display: -webkit-box; display: -moz-box;
+            position: relative;
+            box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+        }
+
+        .f1 {
+            display: box; display: -webkit-box; display: -moz-box;
+            position: relative;
+            box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0;
+        }
+
+        #frame-bottom { height: 100%; width: 100%; }
+
+        #output {
+            resize: vertical; min-height: 20px; font-family: monospace; font-size: medium; background-color: #bbbbaa;
+        }
+
+        #cmd {
+            resize: none; font-family: monospace; font-weight: bolder; font-size: medium;
+        }
+
+
+        div,textarea {
+            outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+        }
+
+        input {
+            border: 1px solid gray;
+            outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+        }
+
+        button {
+            margin: 2px;
+            height: 30px;
+            padding-left: 10px; padding-right: 10px;
+            font-size: inherit;
+        }
+
+
+    </style>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37220775-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+         var ga = document.createElement('script');
+         ga.type = 'text/javascript';
+         ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(ga, s);
+         })();
+
+</script>
+<script>
+    function on_cmd_keydown(e) {
+        if (e.keyCode == 13) {
+            if (!e.shiftKey) {
+                parent.app.compileNow();
+                e.stopPropagation();
+            }
+        }
+        update_rows();
+    }
+
+    function on_cmd_keyup(e) {
+        update_rows();
+    }
+    function update_rows() {
+        var rows = parent.app.elements.cmd.value.split(/\n/).length ;
+        if (rows < 3) rows = 3;
+        parent.app.elements.cmd.rows = rows;
+    }
+</script>
+ </head>
+ <body>
+     <div class="content hbox">
+         <div id="frame-bottom" class="vbox f1">
+             <div id="output" style="overflow:auto;" class="vbox f1"></div>
+             <div class="f0 hbox">
+                 <div class="f1 vbox">
+                     <textarea type="text" id="cmd" rows='3' onkeyup='on_cmd_keyup(event);' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
+                 </div>
+                 <div class="f0 vbox">
+                 <button id="compileButton" class="f1" onclick="if (parent.app.elements.editor) parent.app.elements.editor.focus(); parent.app.compileNow();">Compile, link and run...</button>
+                 </div>
+                 <div class="f0 vbox">
+                 <button id="postButton" class="f1" onclick="parent.app.postSample();">Share!</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <script>
+         parent.app.elements.compileButton = document.getElementById("compileButton");
+         parent.app.elements.postButton = document.getElementById("postButton");
+         parent.app.elements.cmd = document.getElementById("cmd");
+         parent.app.elements.output = document.getElementById("output");
+         window.highlightError = function(node, b) {
+            if (node.textContent.search(/^main.cpp:\d+:\d+/) === -1) {
+                return;
+            }
+            //node.style.textDecoration = b ? 'underline' : '';
+            node.style.fontWeight = b ? 'bold' : 'normal';
+            node.style.cursor = b ? 'pointer' : 'auto';
+         };
+         window.jumpToError = function(node) {
+            
+             var line = node.textContent;
+             if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
+                 var components = line.split(":");
+                 var lineno = parseInt(components[1]);
+                 var col = parseInt(components[2]) - 1;
+                 if (parent.app.elements.editor) {
+                     parent.app.elements.editor.gotoLine(lineno, col, true);
+                     parent.app.elements.editor.focus();
+                 }
+             }
+         };
+     </script>
+ </body>
