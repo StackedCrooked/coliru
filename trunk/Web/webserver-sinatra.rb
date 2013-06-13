@@ -157,7 +157,11 @@ end
 
 get '/log' do
     content_type :txt
-    File.read("/var/log/syslog")
+    stream do |out|
+        safe_popen("tail -n1024 /var/log/syslog") do |line| 
+            out << line
+        end
+    end
 end
 
 
