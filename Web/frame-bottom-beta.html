@@ -106,7 +106,7 @@
                      <textarea type="text" id="cmd" rows='3' onkeyup='on_cmd_keyup(event);' onkeydown='on_cmd_keydown(event)' class="f1"></textarea>
                  </div>
                  <div class="f0 vbox">
-                 <button id="compileButton" class="f1" onclick="if (parent.app.elements.editor) parent.app.elements.editor.focus(); parent.app.compileNow();">Compile, link and run...</button>
+                 <button id="compileButton" class="f1" onclick="parent.app.compileNow();">Compile, link and run...</button>
                  </div>
                  <div class="f0 vbox">
                  <button id="postButton" class="f1" onclick="parent.app.postSample();">Share!</button>
@@ -126,19 +126,6 @@
             //node.style.textDecoration = b ? 'underline' : '';
             node.style.fontWeight = b ? 'bold' : 'normal';
             node.style.cursor = b ? 'pointer' : 'auto';
-         };
-         window.jumpToError = function(node) {
-            
-             var line = node.textContent;
-             if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
-                 var components = line.split(":");
-                 var lineno = parseInt(components[1]);
-                 var col = parseInt(components[2]) - 1;
-                 if (parent.app.elements.editor) {
-                     parent.app.elements.editor.gotoLine(lineno, col, true);
-                     parent.app.elements.editor.focus();
-                 }
-             }
          };
      </script>
  </body>
