@@ -1,0 +1,1 @@
+set +x ; g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out 2>&1 | perl -pe 's/void handle\(Method, ContentType\)//g' | perl -pe 's,\s\[.*?=\s(\w+);\s\w+\s=\s(\w+).*\],\(\1\, \2\),'
