@@ -7,9 +7,6 @@ require 'pp'
 require 'sinatra'
 
 
-# API
-
-
 get '/' do
     File.read('index.html')
 end
@@ -211,7 +208,7 @@ def set_timeout(t)
     end
 end
 
-# @param [String] cmd Command to be executed.
+
 def safe_popen(cmd)
     begin
         Timeout.timeout(get_timeout.to_i) do
@@ -235,3 +232,4 @@ def safe_popen(cmd)
         yield e.to_s
     end
 end
+
