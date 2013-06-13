@@ -211,8 +211,12 @@ def safe_popen(cmd)
     begin
         Timeout.timeout(get_timeout.to_i) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
+            count = 0
+            max_count = 128 * 1024
             until @stdout.eof?
-                yield @stdout.readline
+                count += 1
+                raise "\nError: output size exceeds #{max_count}" if count > max_count
+                yield @stdout.read(1)
             end
             Process.wait @stdout.pid
         end
