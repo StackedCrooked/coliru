@@ -126,7 +126,7 @@ window.onload = function () {
         //button.textContent = hidden ? "Show output" : "Hide output";
     };
     app.configureBuildCommand = function() {
-        app.cmd = prompt("Build command: ", app.cmd || app.defaultCmd) || app.cmd || app.defaultCmd;
+        app.cmd = prompt("Build command:", app.cmd || app.defaultCmd) || app.defaultCmd;
     };
     app.compileNow = function () {
         if (app.elements.compileButton.disabled) return;
