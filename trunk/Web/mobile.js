@@ -1,4 +1,3 @@
-window.app = { };
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-37220775-1']);
@@ -13,14 +12,6 @@ _gaq.push(['_trackPageview']);
     s.parentNode.insertBefore(ga, s);
 })();
 
-
-app.elements = {};
-
-app.samples = {
-    "Default":"#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Words = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Words & words)\n{\n    for (const auto & word : words)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Words words = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << words << std::endl;\n}\n"
-};
-
-
 // Redirect www. to host domain.
 if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^stacked/) === 0) {
     var host = window.location.hostname + "";
@@ -29,25 +20,29 @@ if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^
     window.location.hostname = host;
 }
 
-app.on_cmd_keydown = function (e) {
-    if (e.keyCode == 13) {
-        if (!e.shiftKey) {
-            app.compileNow();
-            e.stopPropagation();
-        }
-    }
-};
-
-
 window.onload = function () {
 
+    window.app = { };
+    app.elements = {};
+
+    app.samples = {
+        "Default":"#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Words = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Words & words)\n{\n    for (const auto & word : words)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Words words = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << words << std::endl;\n}\n"
+    };
+
+
+
+    app.on_cmd_keydown = function (e) {
+        if (e.keyCode == 13) {
+            if (!e.shiftKey) {
+                app.compileNow();
+                e.stopPropagation();
+            }
+        }
+    };
 
     String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, "");
     };
-    app.elements.compile = document.getElementById("compile");
-    app.elements.postButton = document.getElementById("postButton");
-    app.elements.output = document.getElementById("output");
     window.highlightError = function (node, b) {
         if (node.textContent.search(/^main.cpp:\d+:\d+/) === -1) {
             return;
@@ -70,15 +65,13 @@ window.onload = function () {
     };
 
     app.enableUI = function (value) {
-        app.elements.compile.disabled = !value;
+        console.log("app: " + app);
+        console.log("app.elements: " + app.elements);
+        console.log("app.elements.compileButton: " + app.elements.compileButton);
+        app.elements.compileButton.disabled = !value;
         app.elements.postButton.disabled = !value;
         app.elements.editor.disabled = !value;
-
-        //app.elements.fade.style.backgroundColor = value ? '#ffffff' : '#00ff00';
-        //app.elements.fade.style.zIndex = value ? 0 : 1;
-        //app.elements.fade.style.opacity = value ? "1.00" : "0.40";
     };
-    app.enableUI(true);
 
     app.send = function (location, f) {
         app.enableUI(false);
@@ -121,7 +114,7 @@ window.onload = function () {
 
     };
     app.toggleOutputWindow = function() {
-        var button = document.getElementById('toggleOutputWindowButton');
+        var button = document.getElementById('outputButton');
         var hidden = false;
         if (app.elements.output.style.display === 'inherit') {
             app.elements.output.style.display = 'none';
@@ -129,15 +122,17 @@ window.onload = function () {
         } else {
             app.elements.output.style.display = 'inherit';
         }
-        button.style.backgroundColor = hidden ? 'inherit' : '#00ffff';
+        button.style.fontWeight = hidden ? 'inherit' : 'bold';
         //button.textContent = hidden ? "Show output" : "Hide output";
     };
     app.configureBuildCommand = function() {
         app.cmd = prompt("Build command: ", app.cmd || app.defaultCmd) || app.cmd || app.defaultCmd;
     };
     app.compileNow = function () {
-        if (app.elements.compile.disabled) return;
+        if (app.elements.compileButton.disabled) return;
+        app.elements.compileButton.fontWeight = 'bold';
         app.send("compile", function (obj) {
+            app.elements.compileButton.fontWeight = 'inherit';
             app.elements.output.value = obj.output;
             app.toggleOutputWindow(); // toggle in any case
             if (app.elements.output.style.display === 'none') {
@@ -153,4 +148,9 @@ window.onload = function () {
         });
     };
     app.previousValue = "";
+
+    app.elements.compileButton = document.getElementById("compileButton");
+    app.elements.postButton = document.getElementById("postButton");
+    app.elements.output = document.getElementById("output");
+    app.enableUI(true);
 };
