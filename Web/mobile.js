@@ -17,7 +17,7 @@ _gaq.push(['_trackPageview']);
 app.elements = {};
 
 app.samples = {
-    "Default": "#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Words = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Words & words)\n{\n    for (const auto & word : words)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Words words = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << words << std::endl;\n}\n"
+    "Default":"#include <iostream>\n#include <string>\n#include <vector>\n\n\nusing Words = std::vector<std::string>;\n\n\nstd::ostream& operator<<(std::ostream& os, const Words & words)\n{\n    for (const auto & word : words)\n    {\n        os << word << \" \";\n    }\n    return os;\n}\n\n\nint main()\n{\n    Words words = { \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\" };    \n    std::cout << words << std::endl;\n}\n"
 };
 
 
@@ -29,14 +29,14 @@ if (window.location.host.search(/^www./) === 0 || window.location.host.search(/^
     window.location.hostname = host;
 }
 
-app.on_cmd_keydown = function(e) {
+app.on_cmd_keydown = function (e) {
     if (e.keyCode == 13) {
         if (!e.shiftKey) {
             app.compileNow();
             e.stopPropagation();
         }
     }
-}
+};
 
 
 window.onload = function () {
@@ -49,7 +49,7 @@ window.onload = function () {
     app.elements.postButton = document.getElementById("postButton");
     app.elements.cmd = document.getElementById("cmd");
     app.elements.output = document.getElementById("output");
-    window.highlightError = function(node, b) {
+    window.highlightError = function (node, b) {
         if (node.textContent.search(/^main.cpp:\d+:\d+/) === -1) {
             return;
         }
@@ -59,23 +59,21 @@ window.onload = function () {
     };
 
     app.editorDocument = document;
-    app.elements.editor = document.getElementById('editor');
+    app.elements.editor = document.getElemntById('editor');
     app.elements.fade = document.getElementById("fade");
 
-
-    var sourceCode = localStorage.getItem("src");
     app.elements.editor.value = localStorage.getItem("src") || app.samples["Default"];
     app.elements.cmd.value = localStorage.getItem("cmd") || "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
 
-    app.resetCommand = function() {
+    app.resetCommand = function () {
         app.elements.cmd.value = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
     };
 
-    app.resetEditor = function() {
+    app.resetEditor = function () {
         app.elements.editor.value = app.samples["Default"];
     };
 
-    app.enableUI = function(value) {
+    app.enableUI = function (value) {
         app.elements.compileButton.disabled = !value;
         app.elements.postButton.disabled = !value;
         app.elements.editor.disabled = !value;
@@ -98,13 +96,13 @@ window.onload = function () {
                 if (httpRequest.status == 200) {
                     app.enableUI(true);
                     app.lastResult = httpRequest.responseText.trim();
-                    f({src: app.elements.editor.value, cmd: app.elements.cmd.value, output: app.lastResult});
+                    f({src:app.elements.editor.value, cmd:app.elements.cmd.value, output:app.lastResult});
                 }
             }
         };
         var post_data = JSON.stringify({
-            "cmd" : app.elements.cmd.value,
-            "src" : app.elements.editor.value
+            "cmd":app.elements.cmd.value,
+            "src":app.elements.editor.value
         });
         httpRequest.send(post_data);
     };
