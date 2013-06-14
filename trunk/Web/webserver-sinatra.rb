@@ -12,6 +12,11 @@ get '/' do
 end
 
 
+get '/mobile' do |file|
+    File.read("mobile.html")
+end
+
+
 get '/*.html' do |file|
     File.read("#{file}.html")
 end
