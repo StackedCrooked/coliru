@@ -1,0 +1,16 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:2: error: invalid preprocessing directive #!
+ #!/bin/bash
+  ^
+main.cpp:2:1: error: ‘echo’ does not name a type
+ echo "100 most recent Coliru posts:"
+ ^
+main.cpp:4:26: warning: extra ‘;’ [-Wpedantic]
+ for p in ${RECENT_POSTS} ; do printf "$(date -d @$(cat /Archive/${p}/timestamp))\thttp://stacked-crooked.com/view?id=${p}/\n" ; done
+                          ^
+main.cpp:4:28: error: expected unqualified-id before ‘do’
+ for p in ${RECENT_POSTS} ; do printf "$(date -d @$(cat /Archive/${p}/timestamp))\thttp://stacked-crooked.com/view?id=${p}/\n" ; done
+                            ^
+main.cpp:4:129: error: ‘done’ does not name a type
+ for p in ${RECENT_POSTS} ; do printf "$(date -d @$(cat /Archive/${p}/timestamp))\thttp://stacked-crooked.com/view?id=${p}/\n" ; done
+                                                                                                                                 ^
