@@ -45,7 +45,7 @@ window.onload = function () {
     String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, "");
     };
-    app.elements.compileButton = document.getElementById("compileButton");
+    app.elements.compile = document.getElementById("compile");
     app.elements.postButton = document.getElementById("postButton");
     app.elements.output = document.getElementById("output");
     window.highlightError = function (node, b) {
@@ -59,7 +59,7 @@ window.onload = function () {
 
     app.editorDocument = document;
     app.elements.editor = document.getElementById("editor");
-    app.elements.fade = document.getElementById("fade");
+    ////app.elements.fade = document.getElementById("fade");
 
     app.elements.editor.value = localStorage.getItem("src") || app.samples["Default"];
     app.defaultCmd = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
@@ -70,13 +70,13 @@ window.onload = function () {
     };
 
     app.enableUI = function (value) {
-        app.elements.compileButton.disabled = !value;
+        app.elements.compile.disabled = !value;
         app.elements.postButton.disabled = !value;
         app.elements.editor.disabled = !value;
 
-        app.elements.fade.style.backgroundColor = value ? '#ffffff' : '#00ff00';
-        app.elements.fade.style.zIndex = value ? 0 : 1;
-        app.elements.fade.style.opacity = value ? "1.00" : "0.40";
+        //app.elements.fade.style.backgroundColor = value ? '#ffffff' : '#00ff00';
+        //app.elements.fade.style.zIndex = value ? 0 : 1;
+        //app.elements.fade.style.opacity = value ? "1.00" : "0.40";
     };
     app.enableUI(true);
 
@@ -120,13 +120,21 @@ window.onload = function () {
         httpRequest.send(msg);
 
     };
+    app.toggleOutputWindow = function() {
+        if (app.elements.output.style.display !== 'none') {
+            app.elements.output.style.display = 'none';
+        } else {
+            app.elements.output.style.display = 'inherit';
+        }
+    };
     app.configureBuildCommand = function() {
-        app.cmd = prompt("Build command (leave empty for default): ") || app.defaultCmd;
+        app.cmd = prompt("Build command: ", app.cmd || app.defaultCmd) || app.defaultCmd;
     };
     app.compileNow = function () {
-        if (app.elements.compileButton.disabled) return;
+        if (app.elements.compile.disabled) return;
         app.send("compile", function (obj) {
             app.elements.output.value = obj.output;
+            app.elements.output.style.display = 'inherit';
         });
     };
 
