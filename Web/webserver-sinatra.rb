@@ -12,8 +12,8 @@ get '/' do
 end
 
 
-get '/mobile' do |file|
-    File.read("mobile.html")
+get '/mobile' do |_|
+    File.read('mobile.html')
 end
 
 
@@ -46,7 +46,7 @@ get '/feedback' do
     stream do |out|
         out << '<html><body><ul>'
         $feedback_semaphore.synchronize do
-            File.readlines("feedback.txt").reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
+            File.readlines('feedback.txt').reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
         end
         out << '</ul></body></html>'
     end
@@ -95,7 +95,7 @@ end
 
 
 post '/share' do
-    result = ""
+    result = ''
     id = "#{Time.now.to_i}-#{rand(Time.now.to_i)}"
     dir = "/tmp/coliru/#{id}"
     FileUtils.mkdir_p(dir)
@@ -146,8 +146,8 @@ get '/archive' do
     get_contents = Proc.new do |name|       
         begin       
             File.read("#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}")        
-        rescue Exception => e       
-            ""      
+        rescue Exception => _
+          ''
         end     
     end     
 
@@ -162,7 +162,7 @@ end
 get '/log' do
     content_type :txt
     stream do |out|
-        safe_popen("tail -n1024 /var/log/syslog") do |line| 
+        safe_popen('tail -n1024 /var/log/syslog') do |line|
             out << line
         end
     end
@@ -171,12 +171,12 @@ end
 
 get '/random_image' do 
     content_type :jpg
-    entries = [ Dir["./images/*.jpg"], Dir["./images/*.png"] ].flatten
+    entries = [ Dir['./images/*.jpg'], Dir['./images/*.png'] ].flatten
     if entries.empty?
-        raise "not found"
+        raise 'not found'
     end
 
-    File.open(entries[rand(entries.size)], "rb") do |io|
+    File.open(entries[rand(entries.size)], 'rb') do |io|
         io.read
     end
 end
@@ -199,7 +199,7 @@ end
 def get_timeout
     begin
         [60, File.read('timeout.txt').to_i ].min.to_s
-    rescue Exception => e
+    rescue Exception => _
         20.to_s
     end
 end
