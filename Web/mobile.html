@@ -16,6 +16,11 @@
             margin: 0;
         }
 
+        div {
+            padding: 0;
+            margin: 0;
+        }
+
         .content {
             position: relative;
             font-family: monospace;
@@ -26,71 +31,45 @@
         }
 
         .hbox {
-            display: -webkit-box;
-            display: -moz-box;
-            position: relative;
-            padding: 0;
-            margin: 0;
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            -webkit-box-align: stretch;
-            -moz-box-align: stretch;
+            padding: 0; margin: 0; position: relative;
+            display: box; display: -webkit-box; display: -moz-box;
+            box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
+            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
         }
 
         .vbox {
-            display: -webkit-box;
-            display: -moz-box;
-            position: relative;
-            padding: 0;
-            margin: 0;
-            -webkit-box-orient: vertical;
-            -moz-box-orient: vertical;
-            -webkit-box-align: stretch;
-            -moz-box-align: stretch;
+            padding: 0; margin: 0; position: relative;
+            display: box; display: -webkit-box; display: -moz-box;
+            box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
+            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
         }
 
-        .f0 {
-            display: -webkit-box;
-            display: -moz-box;
-            position: relative;
-            -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
-        }
-
-        .f1 {
-            display: -webkit-box;
-            display: -moz-box;
-            position: relative;
-            -webkit-box-flex: 1.0;
-            -moz-box-flex: 1.0;
-        }
-
-        input {
-            position: relative;
-            width: 100%;
-            height: 18px;
-            border: 0;
-            margin-bottom: 0;
-            border-bottom-width: 2px;
-            border-bottom-color: #d3d3d3;
-            border-bottom-style: solid;
-            outline: 0 !important;
-        }
+        .f0 { display: box; display: -webkit-box; display: -moz-box; box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0; }
+        .f1 { display: box; display: -webkit-box; display: -moz-box; box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0; }
+        .f2 { display: box; display: -webkit-box; display: -moz-box; box-flex: 2.0; -webkit-box-flex: 2.0; -moz-box-flex: 2.0; }
+        .f3 { display: box; display: -webkit-box; display: -moz-box; box-flex: 3.0; -webkit-box-flex: 3.0; -moz-box-flex: 3.0; }
+        .f4 { display: box; display: -webkit-box; display: -moz-box; box-flex: 4.0; -webkit-box-flex: 4.0; -moz-box-flex: 4.0; }
 
         #output {
             background-color: #bbbbbb;
+            display: 'none' ;
+        }
+
+        #cmd {
+            font-weight: bold;
         }
 
         #editor {
-            position: relative;
             font-size: 16px;
-            width: 100%;
-            height: 100%;
             padding: 0;
             margin: 0;
         }
 
+        textarea { resize: none; }
+        div,textarea { outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
         div.fade {
             opacity: 0.0;
+            position: relative;
             background: #FFFF00;
             width: 100%;
             height: 100%;
@@ -100,20 +79,25 @@
             position: fixed;
         }
 
+        button {
+            margin: 2px;
+            height: 30px;
+            padding-left: 10px; padding-right: 10px;
+            font-size: inherit;
+        }
+
 
     </style>
 </head>
 
-<body>
-<div id="fade" class="fade"></div>
-<div class="content vbox f1">
-    <label for="editor"></label><textarea id="editor" class="f1" cols="80" rows="20"> </textarea>
-    <label for="output"></label><textarea readonly id="output" class="f0" rows="4" cols="20"> </textarea>
+<body class="content vbox f1">
+    <textarea id="editor" class="f1" ></textarea>
+    <textarea id="output" class="f4" readonly>  </textarea>
     <div class="hbox f0">
-        <button id="compileButton" class="f1" onclick="app.compileNow();">Run</button>
-        <button id="compileButton" class="f1" onclick="app.configureBuildCommand();">Build Command</button>
-        <button id="postButton" class="f1" onclick="app.postSample();">Share!</button>
+            <button id="configureBuildCommandButton" class="f0" onclick="app.configureBuildCommand();">Configure build command...</button>
+            <button id="toggleOutputWindowButton" class="f0" onclick="app.toggleOutputWindow();">Show/hide Output Window</button>
+            <button id="compile" class="f0" onclick="app.compileNow();">Compile, link and run...</button>
+            <button id="postButton" class="f0" onclick="app.postSample();">Share!</button>
     </div>
-</div>
 </body>
 </html>
