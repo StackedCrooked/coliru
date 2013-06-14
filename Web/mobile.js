@@ -47,7 +47,6 @@ window.onload = function () {
     };
     app.elements.compileButton = document.getElementById("compileButton");
     app.elements.postButton = document.getElementById("postButton");
-    app.elements.cmd = document.getElementById("cmd");
     app.elements.output = document.getElementById("output");
     window.highlightError = function (node, b) {
         if (node.textContent.search(/^main.cpp:\d+:\d+/) === -1) {
@@ -63,11 +62,8 @@ window.onload = function () {
     app.elements.fade = document.getElementById("fade");
 
     app.elements.editor.value = localStorage.getItem("src") || app.samples["Default"];
-    app.elements.cmd.value = localStorage.getItem("cmd") || "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
-
-    app.resetCommand = function () {
-        app.elements.cmd.value = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
-    };
+    app.defaultCmd = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+    app.cmd = localStorage.getItem("cmd") || app.defaultCmd;
 
     app.resetEditor = function () {
         app.elements.editor.value = app.samples["Default"];
@@ -77,7 +73,6 @@ window.onload = function () {
         app.elements.compileButton.disabled = !value;
         app.elements.postButton.disabled = !value;
         app.elements.editor.disabled = !value;
-        app.elements.cmd.disabled = !value;
 
         app.elements.fade.style.backgroundColor = value ? '#ffffff' : '#00ff00';
         app.elements.fade.style.zIndex = value ? 0 : 1;
@@ -88,7 +83,7 @@ window.onload = function () {
     app.send = function (location, f) {
         app.enableUI(false);
         localStorage.setItem("src", app.elements.editor.value);
-        localStorage.setItem("cmd", app.elements.cmd.value);
+        localStorage.setItem("cmd", app.cmd);
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
         httpRequest.onreadystatechange = function () {
@@ -96,14 +91,15 @@ window.onload = function () {
                 if (httpRequest.status == 200) {
                     app.enableUI(true);
                     app.lastResult = httpRequest.responseText.trim();
-                    f({src:app.elements.editor.value, cmd:app.elements.cmd.value, output:app.lastResult});
+                    f({src:app.elements.editor.value, cmd: app.cmd, output:app.lastResult});
                 }
             }
         };
         var post_data = JSON.stringify({
-            "cmd":app.elements.cmd.value,
+            "cmd":app.cmd,
             "src":app.elements.editor.value
         });
+        console.log(post_data);
         httpRequest.send(post_data);
     };
 
@@ -123,6 +119,9 @@ window.onload = function () {
         };
         httpRequest.send(msg);
 
+    };
+    app.configureBuildCommand = function() {
+        app.cmd = prompt("Build command (leave empty for default): ") || app.defaultCmd;
     };
     app.compileNow = function () {
         if (app.elements.compileButton.disabled) return;
