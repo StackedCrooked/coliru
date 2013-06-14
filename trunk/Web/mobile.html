@@ -80,10 +80,6 @@
             background-color: #bbbbbb;
         }
 
-        #cmd {
-            font-weight: bold;
-        }
-
         #editor {
             position: relative;
             font-size: 16px;
@@ -113,10 +109,9 @@
 <div class="content vbox f1">
     <label for="editor"></label><textarea id="editor" class="f1" cols="80" rows="20"> </textarea>
     <label for="output"></label><textarea readonly id="output" class="f0" rows="4" cols="20"> </textarea>
-    <label for="cmd"></label><textarea id="cmd" onkeydown="app.on_cmd_keydown(event)" class="f0" cols="80" rows="1"> </textarea>
-
     <div class="hbox f0">
-        <button id="compileButton" class="f1" onclick="app.compileNow();">Compile, link and run...</button>
+        <button id="compileButton" class="f1" onclick="app.compileNow();">Run</button>
+        <button id="compileButton" class="f1" onclick="app.configureBuildCommand();">Build Command</button>
         <button id="postButton" class="f1" onclick="app.postSample();">Share!</button>
     </div>
 </div>
