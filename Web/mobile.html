@@ -3,9 +3,8 @@
 
 <html>
 <head>
-    <meta name="viewport" content="initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Coliru</title>
-    <script src="mobile.js" type="text/javascript"></script>
     <style type="text/css">
         html, body {
             position: relative;
@@ -57,9 +56,9 @@
         }
 
         #editor {
-            font-size: 16px;
-            padding: 0;
-            margin: 0;
+            font-size: 11px;
+            padding: inherit;
+            margin: inherit;
         }
 
         textarea { resize: none; }
@@ -78,20 +77,21 @@
             position: fixed;
         }
 
-        /*button { margin: 2px; height: 30px; padding-left: 10px; padding-right: 10px; font-size: inherit; }*/
+        button { min-height: 30px; }
 
 
     </style>
 </head>
 
 <body class="content vbox f1">
-    <textarea id="editor" class="f1" ></textarea>
-    <textarea id="output" class="f4" readonly>  </textarea>
+    <textarea id="editor" class="f2" ></textarea>
+    <textarea id="output" class="f1" readonly>  </textarea>
     <div class="hbox f0">
-            <button id="configureBuildCommandButton" class="f0" onclick="app.configureBuildCommand();">Build command...</button>
-            <button id="toggleOutputWindowButton" class="f1" onclick="app.toggleOutputWindow();">Output</button>
-            <button id="compile" class="f0" onclick="app.compileNow();">Run...</button>
+            <button id="configureButoton" class="f0" onclick="app.configureBuildCommand();">Build command...</button><div class="f1"></div>
+            <button id="outputButton" class="f0" onclick="app.toggleOutputWindow();">Output</button><div class="f1"></div>
+            <button id="compileButton" class="f0" onclick="app.compileNow();">Run...</button><div class="f1"></div>
             <button id="postButton" class="f0" onclick="app.postSample();">Share!</button>
     </div>
 </body>
+<script src="mobile.js" type="text/javascript"></script>
 </html>
