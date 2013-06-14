@@ -59,7 +59,7 @@ window.onload = function () {
     };
 
     app.editorDocument = document;
-    app.elements.editor = document.getElemntById('editor');
+    app.elements.editor = document.getElementById("editor");
     app.elements.fade = document.getElementById("fade");
 
     app.elements.editor.value = localStorage.getItem("src") || app.samples["Default"];
