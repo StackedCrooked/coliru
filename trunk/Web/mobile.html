@@ -50,10 +50,7 @@
         .f3 { display: box; display: -webkit-box; display: -moz-box; box-flex: 3.0; -webkit-box-flex: 3.0; -moz-box-flex: 3.0; }
         .f4 { display: box; display: -webkit-box; display: -moz-box; box-flex: 4.0; -webkit-box-flex: 4.0; -moz-box-flex: 4.0; }
 
-        #output {
-            background-color: #bbbbbb;
-            display: 'none' ;
-        }
+        #output { background-color: #bbbbbb; display: none; }
 
         #cmd {
             font-weight: bold;
@@ -66,7 +63,9 @@
         }
 
         textarea { resize: none; }
+
         div,textarea { outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+
         div.fade {
             opacity: 0.0;
             position: relative;
@@ -79,12 +78,7 @@
             position: fixed;
         }
 
-        button {
-            margin: 2px;
-            height: 30px;
-            padding-left: 10px; padding-right: 10px;
-            font-size: inherit;
-        }
+        /*button { margin: 2px; height: 30px; padding-left: 10px; padding-right: 10px; font-size: inherit; }*/
 
 
     </style>
@@ -94,9 +88,9 @@
     <textarea id="editor" class="f1" ></textarea>
     <textarea id="output" class="f4" readonly>  </textarea>
     <div class="hbox f0">
-            <button id="configureBuildCommandButton" class="f0" onclick="app.configureBuildCommand();">Configure build command...</button>
-            <button id="toggleOutputWindowButton" class="f0" onclick="app.toggleOutputWindow();">Show/hide Output Window</button>
-            <button id="compile" class="f0" onclick="app.compileNow();">Compile, link and run...</button>
+            <button id="configureBuildCommandButton" class="f0" onclick="app.configureBuildCommand();">Build command...</button>
+            <button id="toggleOutputWindowButton" class="f1" onclick="app.toggleOutputWindow();">Output</button>
+            <button id="compile" class="f0" onclick="app.compileNow();">Run...</button>
             <button id="postButton" class="f0" onclick="app.postSample();">Share!</button>
     </div>
 </body>

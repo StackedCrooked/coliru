@@ -121,20 +121,28 @@ window.onload = function () {
 
     };
     app.toggleOutputWindow = function() {
-        if (app.elements.output.style.display !== 'none') {
+        var button = document.getElementById('toggleOutputWindowButton');
+        var hidden = false;
+        if (app.elements.output.style.display === 'inherit') {
             app.elements.output.style.display = 'none';
+            hidden = true;
         } else {
             app.elements.output.style.display = 'inherit';
         }
+        button.style.backgroundColor = hidden ? 'inherit' : '#00ffff';
+        //button.textContent = hidden ? "Show output" : "Hide output";
     };
     app.configureBuildCommand = function() {
-        app.cmd = prompt("Build command: ", app.cmd || app.defaultCmd) || app.defaultCmd;
+        app.cmd = prompt("Build command: ", app.cmd || app.defaultCmd) || app.cmd || app.defaultCmd;
     };
     app.compileNow = function () {
         if (app.elements.compile.disabled) return;
         app.send("compile", function (obj) {
             app.elements.output.value = obj.output;
-            app.elements.output.style.display = 'inherit';
+            app.toggleOutputWindow(); // toggle in any case
+            if (app.elements.output.style.display === 'none') {
+                app.toggleOutputWindow(); // undo the toggle if needed
+            }
         });
     };
 
