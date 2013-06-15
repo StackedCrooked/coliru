@@ -1,0 +1,36 @@
++ clang++ -stdlib=libc++ -std=c++0x -O2 -lldd -Wall -pthread main.cpp
+main.cpp:2:5: error: unknown type name 'ctor'
+    ctor a(bar);
+    ^
+main.cpp:2:12: error: C++ requires a type specifier for all declarations
+    ctor a(bar);
+           ^~~
+main.cpp:3:5: error: unknown type name 'ctor'
+    ctor b(qux);
+    ^
+main.cpp:3:12: error: C++ requires a type specifier for all declarations
+    ctor b(qux);
+           ^~~
+main.cpp:6:6: error: variable has incomplete type 'void'
+void emplace(lazy foo thing) {
+     ^
+main.cpp:6:14: error: use of undeclared identifier 'lazy'
+void emplace(lazy foo thing) {
+             ^
+main.cpp:6:29: error: expected ';' after top level declarator
+void emplace(lazy foo thing) {
+                            ^
+                            ;
+main.cpp:10:26: warning: trigraph converted to ']' character [-Wtrigraphs]
+void forward_to_emplace(???) {
+                         ^
+main.cpp:11:14: warning: trigraph converted to ']' character [-Wtrigraphs]
+    emplace(???);
+             ^
+main.cpp:15:25: warning: trigraph converted to ']' character [-Wtrigraphs]
+    forward_to_emplace(???);
+                        ^
+main.cpp:16:25: warning: trigraph converted to ']' character [-Wtrigraphs]
+    forward_to_emplace(???);
+                        ^
+4 warnings and 7 errors generated.
