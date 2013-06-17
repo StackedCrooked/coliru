@@ -1,0 +1,19 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:28:85: error: conversion from ‘std::_Bind_helper<false, float (MemberFunctionMe::*)(int), const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type {aka std::_Bind<std::_Mem_fn<float (MemberFunctionMe::*)(int)>(std::_Placeholder<1>, std::_Placeholder<2>)>}’ to non-scalar type ‘std::function<float(int)>’ requested
+     std::function<float( int )> f = std::bind( &MemberFunctionMe::Normalize, _1, _2 );
+                                                                                     ^
+main.cpp:29:31: error: no match for call to ‘(std::function<float(int)>) (MemberFunctionMe&, float)’
+     std::cout << f( mfm, 1.0f ) << std::endl;
+                               ^
+In file included from main.cpp:3:0:
+/usr/include/c++/4.8/functional:2170:11: note: candidate is:
+     class function<_Res(_ArgTypes...)>
+           ^
+/usr/include/c++/4.8/functional:2463:5: note: _Res std::function<_Res(_ArgTypes ...)>::operator()(_ArgTypes ...) const [with _Res = float; _ArgTypes = {int}]
+     function<_Res(_ArgTypes...)>::
+     ^
+/usr/include/c++/4.8/functional:2463:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:26:27: warning: unused variable ‘rfmt’ [-Wunused-variable]
+     RememberFunctionMeToo rfmt;
+                           ^
