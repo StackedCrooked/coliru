@@ -1,0 +1,11 @@
++ clang++ -stdlib=libc++ -std=c++0x -O2 -lldd -Wall -pthread main.cpp
+main.cpp:5:5: error: the parameter for an explicitly-defaulted copy constructor may not be volatile
+    T(T const volatile& v) = default;
+    ^
+main.cpp:11:8: error: no viable overloaded '='
+    nv = v; // nv.m_x = 0
+    ~~ ^ ~
+main.cpp:1:8: note: candidate function (the implicit copy assignment operator) not viable: 1st argument ('volatile T') would lose volatile qualifier
+struct T {
+       ^
+2 errors generated.
