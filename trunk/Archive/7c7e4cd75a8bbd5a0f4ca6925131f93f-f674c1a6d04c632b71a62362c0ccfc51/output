@@ -1,0 +1,11 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:17:36: warning: ‘auto_ptr’ is deprecated (declared at /usr/include/c++/4.8/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     std::shared_ptr<foo> sp1((std::auto_ptr<foo>)ap1);
+                                    ^
++ ./a.out
+foo::print
+ap1 pointer: 0x2194010
+foo::print
+ap1 pointer: 0
+sp1 pointer: 0x2194010
