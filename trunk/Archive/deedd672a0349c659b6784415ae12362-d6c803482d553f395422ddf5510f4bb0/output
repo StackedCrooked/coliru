@@ -1,0 +1,37 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:8:1: error: expected ‘;’ after struct definition
+ }
+ ^
+main.cpp: In function ‘void init(Z)’:
+main.cpp:11:17: error: expected primary-expression before ‘.’ token
+     create_a(*&Z.a);
+                 ^
+main.cpp:11:19: error: ‘create_a’ was not declared in this scope
+     create_a(*&Z.a);
+                   ^
+main.cpp:13:16: error: expected primary-expression before ‘.’ token
+     create_b(&Z.b_list); // this doesn't get me anything.
+                ^
+main.cpp:13:23: error: ‘create_b’ was not declared in this scope
+     create_b(&Z.b_list); // this doesn't get me anything.
+                       ^
+main.cpp: At global scope:
+main.cpp:10:6: warning: unused parameter ‘z’ [-Wunused-parameter]
+ void init(struct Z z) {
+      ^
+main.cpp: In function ‘int create_a(A*)’:
+main.cpp:18:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+main.cpp: At global scope:
+main.cpp:16:5: warning: unused parameter ‘a’ [-Wunused-parameter]
+ int create_a(struct A * a) {
+     ^
+main.cpp: In function ‘int create_b(B**)’:
+main.cpp:22:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+main.cpp: At global scope:
+main.cpp:20:5: warning: unused parameter ‘b_list’ [-Wunused-parameter]
+ int create_b(struct B ** b_list) {
+     ^
