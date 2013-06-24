@@ -1,0 +1,33 @@
++ g++-4.8 -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:3:1: warning: elaborated-type-specifier for a scoped enum must not use the ‘class’ keyword [enabled by default]
+ enum class template_line = {first,second,third};
+ ^
+main.cpp:3:12: error: use of enum ‘template_line’ without previous declaration
+ enum class template_line = {first,second,third};
+            ^
+main.cpp:3:26: error: expected unqualified-id before ‘=’ token
+ enum class template_line = {first,second,third};
+                          ^
+main.cpp:6:22: error: ‘template_line’ was not declared in this scope
+     typedef std::map<template_line, unsigned> template_line_to_val_map;
+                      ^
+main.cpp:6:45: error: template argument 1 is invalid
+     typedef std::map<template_line, unsigned> template_line_to_val_map;
+                                             ^
+main.cpp:6:45: error: template argument 3 is invalid
+main.cpp:6:45: error: template argument 4 is invalid
+main.cpp:7:13: error: ‘template_line’ does not name a type
+     typedef template_line template_id;
+             ^
+main.cpp:8:52: error: ‘template_id’ has not been declared
+     template_line_to_val_map get_printing_template(template_id const && profile_id, tag_t const & tag_) const
+                                                    ^
+main.cpp:8:85: error: ‘tag_t’ has not been declared
+     template_line_to_val_map get_printing_template(template_id const && profile_id, tag_t const & tag_) const
+                                                                                     ^
+main.cpp:8:105: error: expected ‘;’ at end of member declaration
+     template_line_to_val_map get_printing_template(template_id const && profile_id, tag_t const & tag_) const
+                                                                                                         ^
+main.cpp:11:31: error: expected initializer before ‘tag’
+ tag::template_line_to_val_map tag::get_printing_template(template_id const && profile_id, tag_t const & tag_) const
+                               ^
