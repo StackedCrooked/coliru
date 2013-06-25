@@ -1,0 +1,15 @@
++ g++-4.8 -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:6:27: error: no matching function for call to ‘std::array<int, 3ul>::array(std::initializer_list<int>&)’
+     std::array<int, 3> a(l);
+                           ^
+main.cpp:6:27: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/array:81:12: note: std::array<int, 3ul>::array()
+     struct array
+            ^
+/usr/include/c++/4.8/array:81:12: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.8/array:81:12: note: constexpr std::array<int, 3ul>::array(const std::array<int, 3ul>&)
+/usr/include/c++/4.8/array:81:12: note:   no known conversion for argument 1 from ‘std::initializer_list<int>’ to ‘const std::array<int, 3ul>&’
+/usr/include/c++/4.8/array:81:12: note: constexpr std::array<int, 3ul>::array(std::array<int, 3ul>&&)
+/usr/include/c++/4.8/array:81:12: note:   no known conversion for argument 1 from ‘std::initializer_list<int>’ to ‘std::array<int, 3ul>&&’
