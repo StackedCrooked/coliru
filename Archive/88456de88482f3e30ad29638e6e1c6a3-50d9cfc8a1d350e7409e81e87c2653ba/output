@@ -1,0 +1,10 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp:27:27: error: ‘constexpr E operator|(E, E) [with E = foo; typename std::enable_if<is_flags<E>::value, int>::type ...<anonymous> = {}]’ called in a constant expression
+ constexpr foo ab = foo::a | foo::b;
+                           ^
+main.cpp:21:13: note: ‘constexpr E operator|(E, E) [with E = foo; typename std::enable_if<is_flags<E>::value, int>::type ...<anonymous> = {}]’ is not usable as a constexpr function because:
+ constexpr E operator|(E l, E r) {
+             ^
+main.cpp:22:42: error: call to non-constexpr function ‘UnderlyingType<E> to_underlying(E) [with E = foo; UnderlyingType<E> = int]’
+     return static_cast<E>(to_underlying(l) | to_underlying(r));
+                                          ^
