@@ -23,7 +23,7 @@ mv ${CMD_FILE} ${CMD_FILE}_
 echo '#!/bin/bash' >> ${CMD_FILE}
 echo "ulimit -u ${PROCESS_COUNT}" >> ${CMD_FILE}
 echo "ulimit -t ${TIMEOUT}" >> ${CMD_FILE}
-echo "ulimit -f 1000" >> ${CMD_FILE}
+echo "ulimit -f 4000" >> ${CMD_FILE}
 echo 'cd $(dirname $0)' >> ${CMD_FILE}
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
 echo 'set -x' >> ${CMD_FILE}
