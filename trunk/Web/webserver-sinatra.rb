@@ -28,6 +28,18 @@ get '/*.js' do |file|
 end
 
 
+get '/images/*.png' do |file|
+    content_type :png
+    File.read("./images/#{file}.png")
+end
+
+
+get '/images/*.jpg' do |file|
+    content_type :jpg
+    File.read("./images/#{file}.jpg")
+end
+
+
 get '/favicon.ico' do
     File.read('favicon.ico')
 end
@@ -159,6 +171,16 @@ get '/archive' do
 end     
 
 
+get '/history' do
+    content_type :txt
+    stream do |out|
+        safe_popen('./history.sh') do |line|
+            out << line
+        end
+    end
+end
+
+
 get '/log' do
     content_type :txt
     stream do |out|
@@ -192,6 +214,7 @@ $feedback_semaphore = Mutex.new
 configure do
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
+  mime_type :png, 'image/png'
   mime_type :txt, 'text/plain'
 end
 
