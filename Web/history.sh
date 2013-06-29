@@ -39,7 +39,6 @@ print_entries() {
         export TS="$(echo $entry | cut -d '_' -f1)"
         export DATE="$(convert_epoch_to_readable_format $TS)"
         export DIR="$(echo $entry | cut -d '_' -f2)"
-        export BASE_DIR="$(basename $DIR)"
         print_entry $DIR $DATE
     done
 }
