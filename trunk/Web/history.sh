@@ -52,18 +52,16 @@ CACHE_FILE="/tmp/history${HOUR_INDEX}"
 PART_FILE="${CACHE_FILE}.part"
 
 
-{ [ -f "$CACHE_FILE" ] && {
-    printf "$CACHE_FILE does exist. Returning cached results.\n\n"
+[ -f "$CACHE_FILE" ] && {
     cat $CACHE_FILE
     exit
-} ; } || echo "$CACHE_FILE does not exist."
+}
 
 
-{ [ -f $PART_FILE ] && {
-    printf "$PART_FILE does exist. Returning partial results.\n\n"
+[ -f $PART_FILE ] && {
     cat $PART_FILE
     exit
-} ; } || echo "$PART_FILE does not exist."
+}
 
 echo "Generating history cache now. Refresh to see partial results."
 { print_entries > $PART_FILE && mv $PART_FILE $CACHE_FILE ; } & disown
