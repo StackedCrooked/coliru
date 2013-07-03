@@ -1,0 +1,1 @@
+g++ -std=c++1y -O3 -Wall -finput-charset=utf-8 -Wextra -pedantic-errors -pthread main.cpp && ./a.out

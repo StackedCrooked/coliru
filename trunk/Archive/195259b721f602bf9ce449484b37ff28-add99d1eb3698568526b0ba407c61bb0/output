@@ -1,0 +1,23 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -Wconversion -pedantic main.cpp
+main.cpp: In member function ‘RGB RGB::operator=(int)’:
+main.cpp:20:28: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         this->r = (hex>>16 & 0xFF) / 255.0f;
+                            ^
+main.cpp:21:28: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         this->g = (hex>>8  & 0xFF) / 255.0f;
+                            ^
+main.cpp:22:28: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         this->b = (hex     & 0xFF) / 255.0f;
+                            ^
+main.cpp: In member function ‘bool RGB::operator==(int)’:
+main.cpp:34:29: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         float rr = (hex>>16 & 0xFF) / 255.0f;
+                             ^
+main.cpp:35:29: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         float gg = (hex>>8  & 0xFF) / 255.0f;
+                             ^
+main.cpp:36:29: warning: conversion to ‘float’ from ‘int’ may alter its value [-Wconversion]
+         float bb = (hex     & 0xFF) / 255.0f;
+                             ^
++ ./a.out
+1

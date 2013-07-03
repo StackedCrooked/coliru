@@ -1,0 +1,6 @@
++ g++ -std=c++1y -O3 -Wall -pthread main.cpp
+main.cpp: In instantiation of ‘T& SimpleTuple<T, Ts ...>::get() [with T = double; typename enable_if<(! is_same<T, Head>::value)>::type* <anonymous> = 0u; Head = int; Tail = {double, double, char}]’:
+main.cpp:72:32:   required from here
+main.cpp:52:9: error: static assertion failed: Type not found or not unique!
+         static_assert(has_unique_type<T, SimpleTuple>::value, "Type not found or not unique!");
+         ^

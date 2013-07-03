@@ -1,0 +1,7 @@
++ g++ -std=c++1y -O2 -Wall -pthread main.cpp
+main.cpp: In instantiation of ‘bar<T>::bar(T&&) [with T = X&]’:
+main.cpp:15:34:   required from ‘auto foo(T&&) [with T = X&]’
+main.cpp:21:10:   required from here
+main.cpp:8:38: error: invalid initialization of non-const reference of type ‘X&’ from an rvalue of type ‘<brace-enclosed initializer list>’
+     bar(T&& t) : t{std::forward<T>(t)} { }
+                                      ^
