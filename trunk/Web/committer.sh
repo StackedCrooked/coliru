@@ -11,6 +11,14 @@ source coliru_env.source
 SLEEP_DURATION=3600
 
 while true ; do
+    # Update archive 
+    echo "Update the archive"
+    (cd ${COLIRU_ARCHIVE} && svn up)
+
+    # Commit archive changes
+    echo "Commit the archive"
+    (cd ${COLIRU_ARCHIVE} && svn ci -m "Archive changes.")
+
     # Add new files to subversion.
     echo "Commit any new archives."
     (cd ${COLIRU_ARCHIVE} && svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' | xargs svn add && svn ci -m "Update Archive.")
