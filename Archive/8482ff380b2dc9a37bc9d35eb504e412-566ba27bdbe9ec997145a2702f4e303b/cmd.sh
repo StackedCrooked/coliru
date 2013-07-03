@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wall -fstrict-aliasing -pedantic -pthread main.cpp && ./a.out

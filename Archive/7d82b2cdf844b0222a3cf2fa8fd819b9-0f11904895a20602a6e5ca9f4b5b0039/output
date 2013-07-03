@@ -1,0 +1,7 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:13:60: error: cannot pass objects of non-trivially-copyable type ‘std::string {aka class std::basic_string<char>}’ through ‘...’
+     printf("\n\"%s\" has %i characters.", txt, txt.length());
+                                                            ^
+main.cpp:13:60: warning: format ‘%s’ expects argument of type ‘char*’, but argument 2 has type ‘std::string {aka std::basic_string<char>}’ [-Wformat=]
+main.cpp:13:60: warning: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘std::basic_string<char>::size_type {aka long unsigned int}’ [-Wformat=]

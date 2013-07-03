@@ -1,0 +1,1 @@
+g++ -O2 -Wall -pedantic -pthread main.cpp && ./a.out 6 1203032847 2394857 -13423 9324 -192992929
