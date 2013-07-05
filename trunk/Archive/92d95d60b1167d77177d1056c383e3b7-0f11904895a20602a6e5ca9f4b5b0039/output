@@ -1,0 +1,38 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:6:1: warning: extra ‘;’ [-Wpedantic]
+ ;
+ ^
+main.cpp:12:14: warning: ISO C++ forbids declaration of ‘main’ with no type [-Wpedantic]
+         main(){char w,x,y,z,*c=calloc(1L<<32,sizeof(char));
+              ^
+main.cpp: In function ‘int main()’:
+main.cpp:12:58: error: invalid conversion from ‘void*’ to ‘char*’ [-fpermissive]
+         main(){char w,x,y,z,*c=calloc(1L<<32,sizeof(char));
+                                                          ^
+main.cpp:5:55: error: ‘sprintf’ was not declared in this scope
+ #define p(w,x,y,z) sprintf(f,"%d.%d.%d.%d.ppm",w,x,y,z);freopen(f,"w",stdout);p6
+                                                       ^
+main.cpp:24:17: note: in expansion of macro ‘p’
+                 p(w,256,256,z);for(X=-128;X<128;++X)for(Y=-128;Y<128;++Y)rgb(b(w,X,Y,z));
+                 ^
+main.cpp:5:71: error: ‘stdout’ was not declared in this scope
+ #define p(w,x,y,z) sprintf(f,"%d.%d.%d.%d.ppm",w,x,y,z);freopen(f,"w",stdout);p6
+                                                                       ^
+main.cpp:24:17: note: in expansion of macro ‘p’
+                 p(w,256,256,z);for(X=-128;X<128;++X)for(Y=-128;Y<128;++Y)rgb(b(w,X,Y,z));
+                 ^
+main.cpp:5:77: error: ‘freopen’ was not declared in this scope
+ #define p(w,x,y,z) sprintf(f,"%d.%d.%d.%d.ppm",w,x,y,z);freopen(f,"w",stdout);p6
+                                                                             ^
+main.cpp:24:17: note: in expansion of macro ‘p’
+                 p(w,256,256,z);for(X=-128;X<128;++X)for(Y=-128;Y<128;++Y)rgb(b(w,X,Y,z));
+                 ^
+main.cpp:7:35: error: ‘printf’ was not declared in this scope
+ #define p6 printf("P6 256 256 1\n"); /* http://netpbm.sf.net/doc/ppm.html */
+                                   ^
+main.cpp:5:79: note: in expansion of macro ‘p6’
+ #define p(w,x,y,z) sprintf(f,"%d.%d.%d.%d.ppm",w,x,y,z);freopen(f,"w",stdout);p6
+                                                                               ^
+main.cpp:24:17: note: in expansion of macro ‘p’
+                 p(w,256,256,z);for(X=-128;X<128;++X)for(Y=-128;Y<128;++Y)rgb(b(w,X,Y,z));
+                 ^
