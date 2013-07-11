@@ -21,7 +21,10 @@ while true ; do
 
     # Add new files to subversion.
     echo "Commit any new archives."
-    (cd ${COLIRU_ARCHIVE} && svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' | xargs svn add && svn ci -m "Update Archive.")
+    (
+        cd ${COLIRU_ARCHIVE}
+        { svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' | xargs svn add && svn ci -m "Update Archive." ; } || svn cleanup
+    )
 
     # Also commit the feedback."
     echo "Committing any new feedback..."
