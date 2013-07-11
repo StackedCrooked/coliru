@@ -1,0 +1,59 @@
++ g++ -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:38:10: warning: unused variable ‘x’ [-Wunused-variable]
+     auto x = adl_begin(c);
+          ^
+main.cpp: In instantiation of ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’:
+main.cpp:38:25:   required from here
+main.cpp:22:36: error: no matching function for call to ‘begin(legacy::Container<int>&)’
+     return begin(std::forward<C>(c)); // try to find non-member, fall back on std::
+                                    ^
+main.cpp:22:36: note: candidates are:
+In file included from /usr/include/c++/4.8/utility:74:0,
+                 from /usr/include/c++/4.8/tuple:38,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/initializer_list:89:5: note: template<class _Tp> constexpr const _Tp* std::begin(std::initializer_list<_Tp>)
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+/usr/include/c++/4.8/initializer_list:89:5: note:   template argument deduction/substitution failed:
+main.cpp:22:36: note:   ‘legacy::Container<int>’ is not derived from ‘std::initializer_list<_Tp>’
+     return begin(std::forward<C>(c)); // try to find non-member, fall back on std::
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/stdexcept:39,
+                 from /usr/include/c++/4.8/array:38,
+                 from /usr/include/c++/4.8/tuple:39,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:48:5: note: template<class _Container> decltype (__cont.begin()) std::begin(_Container&)
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:48:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of ‘template<class _Container> decltype (__cont.begin()) std::begin(_Container&) [with _Container = legacy::Container<int>]’:
+main.cpp:22:36:   required from ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’
+main.cpp:38:25:   required from here
+/usr/include/c++/4.8/bits/range_access.h:48:5: error: ‘class legacy::Container<int>’ has no member named ‘begin’
+main.cpp: In instantiation of ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’:
+main.cpp:38:25:   required from here
+/usr/include/c++/4.8/bits/range_access.h:58:5: note: template<class _Container> decltype (__cont.begin()) std::begin(const _Container&)
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:58:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/range_access.h: In substitution of ‘template<class _Container> decltype (__cont.begin()) std::begin(const _Container&) [with _Container = legacy::Container<int>]’:
+main.cpp:22:36:   required from ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’
+main.cpp:38:25:   required from here
+/usr/include/c++/4.8/bits/range_access.h:58:5: error: ‘const class legacy::Container<int>’ has no member named ‘begin’
+main.cpp: In instantiation of ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’:
+main.cpp:38:25:   required from here
+/usr/include/c++/4.8/bits/range_access.h:87:5: note: template<class _Tp, long unsigned int _Nm> _Tp* std::begin(_Tp (&)[_Nm])
+     begin(_Tp (&__arr)[_Nm])
+     ^
+/usr/include/c++/4.8/bits/range_access.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:22:36: note:   mismatched types ‘_Tp [_Nm]’ and ‘legacy::Container<int>’
+     return begin(std::forward<C>(c)); // try to find non-member, fall back on std::
+                                    ^
+main.cpp: In function ‘decltype (begin(forward<C>(c))) adl::adl_begin(C&&) [with C = legacy::Container<int>&; decltype (begin(forward<C>(c))) = legacy::Container<int>*]’:
+main.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

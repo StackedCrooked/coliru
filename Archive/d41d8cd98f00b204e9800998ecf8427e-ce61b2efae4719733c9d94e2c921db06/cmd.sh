@@ -1,0 +1,1 @@
+echo mkdir -p src{/main,/syndicate,{/route,/data,/http}}

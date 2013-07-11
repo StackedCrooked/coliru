@@ -1,0 +1,9 @@
++ g++ -O2 -Wall -Wextra -Werror -pedantic main.cpp
++ ./a.out
+create 0x7fffa4ddf450
+create 0x7fffa4ddf480
+add_proxy 0x7fffa4ddf410 (this=0x7fffa4ddf450)
+add_proxy 0x7fffa4ddf420 (this=0x7fffa4ddf480)
+remove_proxy 0x7fffa4ddf420 (this=0x7fffa4ddf450)
+a.out: main.cpp:24: void Proxiable<T>::remove_proxy(Proxy<T>*) [with T = Item]: Assertion `proxies.count(proxy) == 1' failed.
+/tmp/1373119868-763126604/cmd.sh: line 8:  6728 Aborted                 (core dumped) ./a.out
