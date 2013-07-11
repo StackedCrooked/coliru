@@ -1,0 +1,5 @@
++ g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In constructor ‘Wrap::Wrap(Wrap&&)’:
+main.cpp:18:48: error: expression list treated as compound expression in mem-initializer [-fpermissive]
+     Wrap(Wrap&& wrap) : id(destroy(id), wrap.id) { wrap.id = 0; }
+                                                ^

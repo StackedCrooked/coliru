@@ -1,0 +1,43 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:2:8: error: ‘AudioStream’ does not name a type
+ static AudioStream<input_data_t, output_data_t>
+        ^
+main.cpp:13:15: error: ‘Centurion’ has not been declared
+ auto stream = Centurion::openStream(
+               ^
+main.cpp:14:2: error: ‘boost’ has not been declared
+  boost::optional<Centurion::AudioStreamParameters<float>>(),                     // I need these explicit boost::optional constructors or else
+  ^
+main.cpp:14:18: error: ‘Centurion’ has not been declared
+  boost::optional<Centurion::AudioStreamParameters<float>>(),                     // I need these explicit boost::optional constructors or else
+                  ^
+main.cpp:14:51: error: expected primary-expression before ‘float’
+  boost::optional<Centurion::AudioStreamParameters<float>>(),                     // I need these explicit boost::optional constructors or else
+                                                   ^
+main.cpp:15:2: error: ‘boost’ has not been declared
+  boost::make_optional(Centurion::AudioStreamParameters<float>(dev, 2, 10.0)),    // I get "no matching function for call to 'openStream' "
+  ^
+main.cpp:15:23: error: ‘Centurion’ has not been declared
+  boost::make_optional(Centurion::AudioStreamParameters<float>(dev, 2, 10.0)),    // I get "no matching function for call to 'openStream' "
+                       ^
+main.cpp:15:56: error: expected primary-expression before ‘float’
+  boost::make_optional(Centurion::AudioStreamParameters<float>(dev, 2, 10.0)),    // I get "no matching function for call to 'openStream' "
+                                                        ^
+main.cpp:19:20: error: ‘SineWaveGenerator’ was not declared in this scope
+  SineWaveGenerator()                                                             //   |
+                    ^
+main.cpp:24:15: error: ‘Centurion’ has not been declared
+ auto stream = Centurion::openStream(
+               ^
+main.cpp:25:2: error: ‘boost’ has not been declared
+  boost::none,                                            // These cause it to fail 
+  ^
+main.cpp:26:2: error: ‘Centurion’ has not been declared
+  Centurion::AudioStreamParameters<float>(dev, 2, 10.0),  //
+  ^
+main.cpp:26:35: error: expected primary-expression before ‘float’
+  Centurion::AudioStreamParameters<float>(dev, 2, 10.0),  //
+                                   ^
+main.cpp:30:20: error: ‘SineWaveGenerator’ was not declared in this scope
+  SineWaveGenerator()
+                    ^

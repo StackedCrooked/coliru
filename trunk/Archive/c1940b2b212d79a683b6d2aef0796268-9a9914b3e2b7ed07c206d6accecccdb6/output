@@ -1,0 +1,27 @@
++ g++ -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+In file included from main.cpp:2:0:
+main.cpp: In instantiation of ‘static void has_bar<void(A ...), T>::apply(T&, A ...) [with T = X; A = {std::vector<boost::type_erasure::_self, std::allocator<boost::type_erasure::_self> >}]’:
+/usr/local/include/boost/type_erasure/detail/instantiate.hpp:91:9:   required from ‘static void boost::type_erasure::detail::instantiate_concept2::apply(Concept*, Map*) [with Concept = boost::mpl::vector<has_foo<void()>, has_bar<void(std::vector<boost::type_erasure::_self>)> >; Map = boost::mpl::map1<boost::mpl::pair<boost::type_erasure::_self, X> >]’
+/usr/local/include/boost/type_erasure/any.hpp:1210:13:   required from ‘boost::type_erasure::any<Concept, T&>::any(U&, typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type*) [with U = X; Concept = boost::mpl::vector<has_foo<void()>, has_bar<void(std::vector<boost::type_erasure::_self>)> >; T = boost::type_erasure::_self; typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type = void]’
+main.cpp:38:10:   required from here
+main.cpp:23:1: error: no matching function for call to ‘X::bar(std::vector<boost::type_erasure::_self>)’
+ BOOST_TYPE_ERASURE_MEMBER((has_bar), bar, 1)
+ ^
+main.cpp:23:1: note: candidate is:
+main.cpp:13:10: note: void X::bar(std::vector<X>)
+     void bar(std::vector<X>) { std::cout << "X::bar()" << std::endl; }
+          ^
+main.cpp:13:10: note:   no known conversion for argument 1 from ‘std::vector<boost::type_erasure::_self>’ to ‘std::vector<X>’
+In file included from main.cpp:2:0:
+main.cpp: In instantiation of ‘static void has_bar<void(A ...), T>::apply(T&, A ...) [with T = Y; A = {std::vector<boost::type_erasure::_self, std::allocator<boost::type_erasure::_self> >}]’:
+/usr/local/include/boost/type_erasure/detail/instantiate.hpp:91:9:   required from ‘static void boost::type_erasure::detail::instantiate_concept2::apply(Concept*, Map*) [with Concept = boost::mpl::vector<has_foo<void()>, has_bar<void(std::vector<boost::type_erasure::_self>)> >; Map = boost::mpl::map1<boost::mpl::pair<boost::type_erasure::_self, Y> >]’
+/usr/local/include/boost/type_erasure/any.hpp:1210:13:   required from ‘boost::type_erasure::any<Concept, T&>::any(U&, typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type*) [with U = Y; Concept = boost::mpl::vector<has_foo<void()>, has_bar<void(std::vector<boost::type_erasure::_self>)> >; T = boost::type_erasure::_self; typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type = void]’
+main.cpp:41:10:   required from here
+main.cpp:23:1: error: no matching function for call to ‘Y::bar(std::vector<boost::type_erasure::_self>)’
+ BOOST_TYPE_ERASURE_MEMBER((has_bar), bar, 1)
+ ^
+main.cpp:23:1: note: candidate is:
+main.cpp:19:10: note: void Y::bar(std::vector<Y>)
+     void bar(std::vector<Y>) { std::cout << "Y::bar()" << std::endl; }
+          ^
+main.cpp:19:10: note:   no known conversion for argument 1 from ‘std::vector<boost::type_erasure::_self>’ to ‘std::vector<Y>’
