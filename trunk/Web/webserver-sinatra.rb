@@ -242,7 +242,7 @@ def safe_popen(cmd)
         Timeout.timeout(get_timeout.to_i) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             count = 0
-            max_count = 512 * 1024
+            max_count = 256 * 1024
             until @stdout.eof?
                 count += 1
                 raise "\nError: output size exceeds #{max_count}" if count > max_count
@@ -252,7 +252,8 @@ def safe_popen(cmd)
         end
     rescue Timeout::Error => e
         # Kill the process group that started the sandbox
-        Process.kill(9, Process.getpgid(@stdout.pid))
+        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
+        Process.kill 9, @stdout.pid
         Process.wait @stdout.pid
         yield e.to_s
     rescue Exception => e
