@@ -1,0 +1,11 @@
++ g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function ‘int Buffered::read(const float*, long unsigned int, const PaStreamCallbackTimeInfo*, PaStreamCallbackFlags)’:
+main.cpp:15:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(auto i = 0; i != frameCount; i++) {
+                         ^
+main.cpp: In member function ‘int Buffered::write(float*, long unsigned int, const PaStreamCallbackTimeInfo*, PaStreamCallbackFlags)’:
+main.cpp:21:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(auto i = 0; i != frameCount; i++) {
+                         ^
++ ./a.out
+/tmp/1373660536-125771847/cmd.sh: line 8:  5740 Segmentation fault      (core dumped) ./a.out
