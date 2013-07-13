@@ -1,0 +1,19 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:47:1: error: expected ‘;’ after class definition
+ }
+ ^
+main.cpp: In member function ‘MyClass<T>& MyClass<T>::operator=(MyClass<T>)’:
+main.cpp:19:43: error: ‘move’ is not a member of ‘std’
+     MyClass& operator=(MyClass rhs) {swap(std::move(rhs)); return *this;}
+                                           ^
+main.cpp: In member function ‘void MyClass<T>::assign(T*, T*)’:
+main.cpp:25:18: error: ‘i’ was not declared in this scope
+             data[i] = myClass.data[i];
+                  ^
+main.cpp:25:23: error: ‘myClass’ was not declared in this scope
+             data[i] = myClass.data[i];
+                       ^
+main.cpp: In member function ‘void MyClass<T>::destroy()’:
+main.cpp:37:14: error: ‘i’ was not declared in this scope
+         for (i = 0; i<count; i++)
+              ^
