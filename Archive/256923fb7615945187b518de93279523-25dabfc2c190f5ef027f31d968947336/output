@@ -1,0 +1,41 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:11:48: error: field has incomplete type 'std::unordered_map<int, node, hash<int>, equal_to<int> >'
+        std::unordered_map<TK, node, TH, TKEq> children;
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_pair.h:102:11: note: in instantiation of member class 'unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node' requested here
+      _T2 second;                /// @c second is a copy of the second object
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:615:63: note: in instantiation of template class 'std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node>' requested here
+    template<typename _Tp, typename = decltype(declval<_Tp&>().~_Tp())>
+                                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:616:24: note: in instantiation of default argument for '__test<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> >' required here
+      static true_type __test(int);
+                       ^~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:616:24: note: while substituting deduced template arguments into function template '__test' [with _Tp = std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node>, $1 = <no value>]
+      static true_type __test(int);
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:638:14: note: in instantiation of template class 'std::__is_destructible_impl<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> >' requested here
+    : public __is_destructible_impl<typename
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:653:39: note: (skipping 9 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+    : public integral_constant<bool, (__is_destructible_safe<_Tp>::value)>
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/alloc_traits.h:541:7: note: in instantiation of template class 'std::is_copy_constructible<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> >' requested here
+    : is_copy_constructible<_Tp>
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/alloc_traits.h:560:27: note: in instantiation of template class 'std::__is_copy_insertable<std::allocator<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> > >' requested here
+      = __allow_copy_cons<__is_copy_insertable<_Alloc>::value>;
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:97:27: note: in instantiation of template type alias '__check_copy_constructible' requested here
+    class unordered_map : __check_copy_constructible<_Alloc>
+                          ^
+main.cpp:15:44: note: in instantiation of template class 'std::unordered_map<int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> > >' requested here
+    std::unordered_map<TK, node, TH, TKEq> root;
+                                           ^
+main.cpp:26:30: note: in instantiation of template class 'unordered_tree<int, int, std::hash<int>, std::equal_to<int> >' requested here
+    unordered_tree<int, int> meow;
+                             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:97:11: note: definition of 'std::unordered_map<int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, unordered_tree<int, int, std::hash<int>, std::equal_to<int> >::node> > >' is not complete until the closing '}'
+    class unordered_map : __check_copy_constructible<_Alloc>
+          ^
+1 error generated.
