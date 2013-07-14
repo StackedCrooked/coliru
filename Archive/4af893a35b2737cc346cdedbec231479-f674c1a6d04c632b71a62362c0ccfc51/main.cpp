@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <functional>
+
+struct something
+{
+      void lel(int i)
+      {
+            std::cout << "hi!\n" << i << "\n";
+      };
+};
+
+int main()
+{
+    something s;
+    
+    auto f = std::bind(&something::lel, &s);
+    f(42);
+}
