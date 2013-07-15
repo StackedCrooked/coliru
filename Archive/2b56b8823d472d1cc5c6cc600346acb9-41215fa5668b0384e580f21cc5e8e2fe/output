@@ -1,0 +1,11 @@
++ clang++ -S -std=c++11 -O2 main.cpp -o -
+main.cpp:2:16: error: constexpr variable 'y' must be initialized by a constant expression
+constexpr char y = *p1;
+               ^   ~~~
+main.cpp:2:20: note: read of non-constexpr variable 'p1' is not allowed in a constant expression
+constexpr char y = *p1;
+                   ^
+main.cpp:1:12: note: declared here
+const char p1[] = "asdf";
+           ^
+1 error generated.
