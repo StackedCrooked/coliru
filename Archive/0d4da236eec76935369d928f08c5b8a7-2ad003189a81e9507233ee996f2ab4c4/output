@@ -1,0 +1,16 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -lpthread main.cpp
+In file included from /usr/include/c++/4.8/thread:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/functional: In instantiation of ‘struct std::_Bind_simple<std::_Mem_fn<void (worker::*)(master&)const>(std::reference_wrapper<worker>, std::reference_wrapper<master>)>’:
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (worker::*)(master&)const; _Args = {std::reference_wrapper<worker>, std::reference_wrapper<master>}]’
+/usr/include/c++/4.8/ext/new_allocator.h:120:4:   required from ‘void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {void (worker::*)(master&)const, std::reference_wrapper<worker>, std::reference_wrapper<master>}; _Tp = std::thread]’
+/usr/include/c++/4.8/bits/alloc_traits.h:254:4:   required from ‘static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {void (worker::*)(master&)const, std::reference_wrapper<worker>, std::reference_wrapper<master>}; _Alloc = std::allocator<std::thread>; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]’
+/usr/include/c++/4.8/bits/alloc_traits.h:393:57:   required from ‘static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {void (worker::*)(master&)const, std::reference_wrapper<worker>, std::reference_wrapper<master>}; _Alloc = std::allocator<std::thread>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]’
+/usr/include/c++/4.8/bits/vector.tcc:97:40:   required from ‘void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {void (worker::*)(master&)const, std::reference_wrapper<worker>, std::reference_wrapper<master>}; _Tp = std::thread; _Alloc = std::allocator<std::thread>]’
+main.cpp:31:66:   required from here
+/usr/include/c++/4.8/functional:1697:61: error: no type named ‘type’ in ‘class std::result_of<std::_Mem_fn<void (worker::*)(master&)const>(std::reference_wrapper<worker>, std::reference_wrapper<master>)>’
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/include/c++/4.8/functional:1727:9: error: no type named ‘type’ in ‘class std::result_of<std::_Mem_fn<void (worker::*)(master&)const>(std::reference_wrapper<worker>, std::reference_wrapper<master>)>’
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
