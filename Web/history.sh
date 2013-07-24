@@ -47,20 +47,42 @@ print_entries() {
 # If we have a recent cache then use that.
 # Otherwise genereate the cache.
 HOUR_INDEX="$(($(date +%s) / 3600))"
-CACHE_FILE="/tmp/history${HOUR_INDEX}"
-PART_FILE="${CACHE_FILE}.part"
+HISTORY_FILE="/tmp/history${HOUR_INDEX}"
+PART_FILE="${HISTORY_FILE}.part"
 
 
-[ -f "$CACHE_FILE" ] && {
-    cat $CACHE_FILE
+[ -f "$HISTORY_FILE" ] && {
+    cat $HISTORY_FILE
     exit
 }
 
 
+print_partial_results() {
+    [ -f $PART_FILE ] && {
+        echo "Note: partial results. refresh to see more."
+        cat $PART_FILE
+    }
+}
+
+
+
+export PREVIOUS_RESULTS="$({ ls /tmp/history* -t1 | grep -v part |  head -n1 ; } 2>/dev/null)"
+if [[ "${PREVIOUS_RESULTS}" != "" ]] ; then
+    echo "Printing previous results while new results are getting generated." 
+    cat ${PREVIOUS_RESULTS}
+else
+    echo "No previous results found. Looking for partial results."
+    print_partial_results
+fi
+
+# Presence of the part file indicates that another process is already working on it.
 [ -f $PART_FILE ] && {
-    cat $PART_FILE
+    echo "Another process is already generating the new results. Exiting."
     exit
 }
 
-echo "Generating history cache now. Refresh to see partial results."
-{ print_entries > $PART_FILE && mv $PART_FILE $CACHE_FILE ; } & disown
+{
+    echo "Note: generating results. refresh to see more."
+    print_entries > $PART_FILE
+    mv $PART_FILE $HISTORY_FILE
+} & disown
