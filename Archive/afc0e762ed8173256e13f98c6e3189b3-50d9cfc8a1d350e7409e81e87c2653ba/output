@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:16:56: error: no matching function for call to ‘accumulate(std::vector<int>::iterator, std::vector<int>::iterator)’
+         std::cout << std::accumulate(v.begin(), v.end()) << "\n";
+                                                        ^
+main.cpp:16:56: note: candidates are:
+In file included from /usr/include/c++/4.8/numeric:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_numeric.h:120:5: note: template<class _InputIterator, class _Tp> _Tp std::accumulate(_InputIterator, _InputIterator, _Tp)
+     accumulate(_InputIterator __first, _InputIterator __last, _Tp __init)
+     ^
+/usr/include/c++/4.8/bits/stl_numeric.h:120:5: note:   template argument deduction/substitution failed:
+main.cpp:16:56: note:   candidate expects 3 arguments, 2 provided
+         std::cout << std::accumulate(v.begin(), v.end()) << "\n";
+                                                        ^
+In file included from /usr/include/c++/4.8/numeric:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_numeric.h:146:5: note: template<class _InputIterator, class _Tp, class _BinaryOperation> _Tp std::accumulate(_InputIterator, _InputIterator, _Tp, _BinaryOperation)
+     accumulate(_InputIterator __first, _InputIterator __last, _Tp __init,
+     ^
+/usr/include/c++/4.8/bits/stl_numeric.h:146:5: note:   template argument deduction/substitution failed:
+main.cpp:16:56: note:   candidate expects 4 arguments, 2 provided
+         std::cout << std::accumulate(v.begin(), v.end()) << "\n";
+                                                        ^
