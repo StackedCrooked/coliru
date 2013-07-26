@@ -1,0 +1,351 @@
++ g++ -std=c++11 -DA -O3 -S main.cpp -o -
++ g++ -std=c++11 -DB -O3 -S main.cpp -o -
++ diff -y a b
+	.file	"main.cpp"						.file	"main.cpp"
+	.text						      <
+	.p2align 4,,15					      <
+	.type	_ZN12_GLOBAL__N_13fibEj, @function	      <
+_ZN12_GLOBAL__N_13fibEj:				      <
+.LFB0:							      <
+	.cfi_startproc					      <
+	pushq	%r15					      <
+	.cfi_def_cfa_offset 16				      <
+	.cfi_offset 15, -16				      <
+	pushq	%r14					      <
+	.cfi_def_cfa_offset 24				      <
+	.cfi_offset 14, -24				      <
+	pushq	%r13					      <
+	.cfi_def_cfa_offset 32				      <
+	.cfi_offset 13, -32				      <
+	pushq	%r12					      <
+	.cfi_def_cfa_offset 40				      <
+	.cfi_offset 12, -40				      <
+	pushq	%rbp					      <
+	.cfi_def_cfa_offset 48				      <
+	.cfi_offset 6, -48				      <
+	pushq	%rbx					      <
+	.cfi_def_cfa_offset 56				      <
+	.cfi_offset 3, -56				      <
+	subq	$88, %rsp				      <
+	.cfi_def_cfa_offset 144				      <
+	testl	%edi, %edi				      <
+	je	.L38					      <
+	cmpl	$1, %edi				      <
+	je	.L39					      <
+	leal	-1(%rdi), %eax				      <
+	movl	$0, 8(%rsp)				      <
+	movl	%eax, 44(%rsp)				      <
+.L3:							      <
+	cmpl	$1, %eax				      <
+	je	.L40					      <
+	leal	-2(%rdi), %ecx				      <
+	movl	$0, 12(%rsp)				      <
+	movl	%ecx, 76(%rsp)				      <
+	movl	%ecx, 36(%rsp)				      <
+.L6:							      <
+	cmpl	$1, %ecx				      <
+	je	.L41					      <
+	leal	-2(%rax), %esi				      <
+	movl	$0, 16(%rsp)				      <
+	movl	%ecx, %eax				      <
+	movl	%esi, 60(%rsp)				      <
+	movl	%esi, 52(%rsp)				      <
+.L9:							      <
+	cmpl	$1, %esi				      <
+	je	.L42					      <
+	leal	-2(%rax), %ecx				      <
+	movl	$0, 20(%rsp)				      <
+	movl	%esi, %eax				      <
+	movl	%ecx, 56(%rsp)				      <
+	movl	%ecx, 40(%rsp)				      <
+.L12:							      <
+	cmpl	$1, %ecx				      <
+	je	.L43					      <
+	leal	-2(%rax), %esi				      <
+	movl	$0, 24(%rsp)				      <
+	movl	%ecx, %eax				      <
+	cmpl	$1, %esi				      <
+	movl	%esi, 64(%rsp)				      <
+	movl	%esi, 48(%rsp)				      <
+	je	.L44					      <
+.L59:							      <
+	leal	-2(%rax), %ecx				      <
+	movl	$0, 28(%rsp)				      <
+	movl	%esi, %eax				      <
+	movl	%ecx, %edx				      <
+	movl	%ecx, 68(%rsp)				      <
+	movl	%ecx, 32(%rsp)				      <
+	cmpl	$1, %edx				      <
+	je	.L45					      <
+.L56:							      <
+	leal	-2(%rax), %esi				      <
+	movl	$0, 4(%rsp)				      <
+	movl	%edx, %eax				      <
+	movl	%esi, %ebp				      <
+	movl	%esi, 72(%rsp)				      <
+	movl	%esi, (%rsp)				      <
+	cmpl	$1, %ebp				      <
+	je	.L46					      <
+.L53:							      <
+	leal	-2(%rax), %r14d				      <
+	xorl	%r13d, %r13d				      <
+	movl	%r14d, %r12d				      <
+	.p2align 4,,10					      <
+	.p2align 3					      <
+.L24:							      <
+	cmpl	$1, %r12d				      <
+	je	.L47					      <
+	movl	%r12d, %ebx				      <
+	xorl	%r15d, %r15d				      <
+	jmp	.L27					      <
+	.p2align 4,,10					      <
+	.p2align 3					      <
+.L29:							      <
+	cmpl	$1, %ebx				      <
+	je	.L50					      <
+.L27:							      <
+	leal	-1(%rbx), %edi				      <
+	call	_ZN12_GLOBAL__N_13fibEj			      <
+	addl	%eax, %r15d				      <
+	subl	$2, %ebx				      <
+	jne	.L29					      <
+.L26:							      <
+	addl	%r15d, %r13d				      <
+	subl	$2, %ebp				      <
+	je	.L23					      <
+	subl	$2, %r12d				      <
+	cmpl	$1, %ebp				      <
+	jne	.L24					      <
+	addl	$1, %r13d				      <
+.L23:							      <
+	addl	%r13d, 4(%rsp)				      <
+	testl	%r14d, %r14d				      <
+	movl	%r14d, %eax				      <
+	je	.L51					      <
+.L31:							      <
+	movl	(%rsp), %r15d				      <
+	subl	$2, %r15d				      <
+	cmpl	$1, %r14d				      <
+	je	.L52					      <
+	movl	%r15d, %ebp				      <
+	movl	%r15d, (%rsp)				      <
+	cmpl	$1, %ebp				      <
+	jne	.L53					      <
+.L46:							      <
+	leal	-2(%rax), %r14d				      <
+	movl	$1, %r13d				      <
+	addl	%r13d, 4(%rsp)				      <
+	testl	%r14d, %r14d				      <
+	movl	%r14d, %eax				      <
+	jne	.L31					      <
+.L51:							      <
+	movl	72(%rsp), %ecx				      <
+	movl	4(%rsp), %edx				      <
+	addl	%edx, 28(%rsp)				      <
+	testl	%ecx, %ecx				      <
+	movl	%ecx, %eax				      <
+	jne	.L32					      <
+.L54:							      <
+	movl	68(%rsp), %esi				      <
+	movl	28(%rsp), %edx				      <
+	addl	%edx, 24(%rsp)				      <
+	testl	%esi, %esi				      <
+	movl	%esi, %eax				      <
+	jne	.L33					      <
+.L57:							      <
+	movl	64(%rsp), %edx				      <
+	jmp	.L14					      <
+	.p2align 4,,10					      <
+	.p2align 3					      <
+.L50:							      <
+	addl	$1, %r15d				      <
+	jmp	.L26					      <
+.L47:							      <
+	movl	$1, %r15d				      <
+	jmp	.L26					      <
+.L52:							      <
+	addl	$1, 4(%rsp)				      <
+	movl	72(%rsp), %ecx				      <
+.L20:							      <
+	movl	4(%rsp), %edx				      <
+	addl	%edx, 28(%rsp)				      <
+	testl	%ecx, %ecx				      <
+	movl	%ecx, %eax				      <
+	je	.L54					      <
+.L32:							      <
+	movl	32(%rsp), %edx				      <
+	subl	$2, %edx				      <
+	cmpl	$1, 72(%rsp)				      <
+	je	.L55					      <
+	cmpl	$1, %edx				      <
+	movl	%edx, 32(%rsp)				      <
+	jne	.L56					      <
+.L45:							      <
+	subl	$2, %eax				      <
+	movl	$1, 4(%rsp)				      <
+	movl	%eax, 72(%rsp)				      <
+	movl	%eax, %ecx				      <
+	jmp	.L20					      <
+.L55:							      <
+	addl	$1, 28(%rsp)				      <
+	movl	68(%rsp), %esi				      <
+.L17:							      <
+	movl	28(%rsp), %edx				      <
+	addl	%edx, 24(%rsp)				      <
+	testl	%esi, %esi				      <
+	movl	%esi, %eax				      <
+	je	.L57					      <
+.L33:							      <
+	movl	48(%rsp), %edx				      <
+	subl	$2, %edx				      <
+	cmpl	$1, 68(%rsp)				      <
+	je	.L58					      <
+	movl	%edx, %esi				      <
+	movl	%edx, 48(%rsp)				      <
+	cmpl	$1, %esi				      <
+	jne	.L59					      <
+.L44:							      <
+	subl	$2, %eax				      <
+	movl	$1, 28(%rsp)				      <
+	movl	%eax, 68(%rsp)				      <
+	movl	%eax, %esi				      <
+	jmp	.L17					      <
+.L58:							      <
+	addl	$1, 24(%rsp)				      <
+	movl	64(%rsp), %edx				      <
+.L14:							      <
+	movl	24(%rsp), %ecx				      <
+	addl	%ecx, 20(%rsp)				      <
+	testl	%edx, %edx				      <
+	movl	%edx, %eax				      <
+	je	.L60					      <
+	movl	40(%rsp), %edx				      <
+	subl	$2, %edx				      <
+	cmpl	$1, 64(%rsp)				      <
+	je	.L61					      <
+	movl	%edx, 40(%rsp)				      <
+	movl	%edx, %ecx				      <
+	jmp	.L12					      <
+.L61:							      <
+	addl	$1, 20(%rsp)				      <
+	movl	56(%rsp), %ecx				      <
+.L11:							      <
+	movl	20(%rsp), %esi				      <
+	addl	%esi, 16(%rsp)				      <
+	testl	%ecx, %ecx				      <
+	movl	%ecx, %eax				      <
+	je	.L62					      <
+	movl	52(%rsp), %edx				      <
+	subl	$2, %edx				      <
+	cmpl	$1, 56(%rsp)				      <
+	je	.L63					      <
+	movl	%edx, 52(%rsp)				      <
+	movl	%edx, %esi				      <
+	jmp	.L9					      <
+.L60:							      <
+	movl	56(%rsp), %ecx				      <
+	jmp	.L11					      <
+.L63:							      <
+	addl	$1, 16(%rsp)				      <
+	movl	60(%rsp), %esi				      <
+.L8:							      <
+	movl	16(%rsp), %edx				      <
+	addl	%edx, 12(%rsp)				      <
+	testl	%esi, %esi				      <
+	movl	%esi, %eax				      <
+	je	.L64					      <
+	movl	36(%rsp), %edx				      <
+	subl	$2, %edx				      <
+	cmpl	$1, 60(%rsp)				      <
+	je	.L65					      <
+	movl	%edx, 36(%rsp)				      <
+	movl	%edx, %ecx				      <
+	jmp	.L6					      <
+.L62:							      <
+	movl	60(%rsp), %esi				      <
+	jmp	.L8					      <
+.L65:							      <
+	addl	$1, 12(%rsp)				      <
+	movl	76(%rsp), %eax				      <
+.L5:							      <
+	movl	12(%rsp), %ecx				      <
+	addl	%ecx, 8(%rsp)				      <
+	testl	%eax, %eax				      <
+	movl	%eax, %edi				      <
+	je	.L2					      <
+	movl	44(%rsp), %eax				      <
+	subl	$2, %eax				      <
+	cmpl	$1, 76(%rsp)				      <
+	je	.L66					      <
+	movl	%eax, 44(%rsp)				      <
+	jmp	.L3					      <
+.L64:							      <
+	movl	76(%rsp), %eax				      <
+	jmp	.L5					      <
+.L66:							      <
+	addl	$1, 8(%rsp)				      <
+.L2:							      <
+	movl	8(%rsp), %eax				      <
+	addq	$88, %rsp				      <
+	.cfi_remember_state				      <
+	.cfi_def_cfa_offset 56				      <
+	popq	%rbx					      <
+	.cfi_def_cfa_offset 48				      <
+	popq	%rbp					      <
+	.cfi_def_cfa_offset 40				      <
+	popq	%r12					      <
+	.cfi_def_cfa_offset 32				      <
+	popq	%r13					      <
+	.cfi_def_cfa_offset 24				      <
+	popq	%r14					      <
+	.cfi_def_cfa_offset 16				      <
+	popq	%r15					      <
+	.cfi_def_cfa_offset 8				      <
+	ret						      <
+.L38:							      <
+	.cfi_restore_state				      <
+	movl	$0, 8(%rsp)				      <
+	jmp	.L2					      <
+.L40:							      <
+	leal	-2(%rdi), %eax				      <
+	movl	$1, 12(%rsp)				      <
+	movl	%eax, 76(%rsp)				      <
+	jmp	.L5					      <
+.L39:							      <
+	movl	$1, 8(%rsp)				      <
+	jmp	.L2					      <
+.L43:							      <
+	subl	$2, %eax				      <
+	movl	$1, 24(%rsp)				      <
+	movl	%eax, 64(%rsp)				      <
+	movl	%eax, %edx				      <
+	jmp	.L14					      <
+.L42:							      <
+	subl	$2, %eax				      <
+	movl	$1, 20(%rsp)				      <
+	movl	%eax, 56(%rsp)				      <
+	movl	%eax, %ecx				      <
+	jmp	.L11					      <
+.L41:							      <
+	subl	$2, %eax				      <
+	movl	$1, 16(%rsp)				      <
+	movl	%eax, 60(%rsp)				      <
+	movl	%eax, %esi				      <
+	jmp	.L8					      <
+	.cfi_endproc					      <
+.LFE0:							      <
+	.size	_ZN12_GLOBAL__N_13fibEj, .-_ZN12_GLOBAL__N_13 <
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB1:								.LFB1:
+	.cfi_startproc							.cfi_startproc
+	xorl	%edi, %edi				      |		xorl	%eax, %eax
+	jmp	_ZN12_GLOBAL__N_13fibEj			      |		ret
+	.cfi_endproc							.cfi_endproc
+.LFE1:								.LFE1:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
