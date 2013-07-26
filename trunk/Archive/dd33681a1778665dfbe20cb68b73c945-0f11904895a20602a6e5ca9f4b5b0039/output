@@ -1,0 +1,68 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘auto operator&&(F, G)’:
+main.cpp:23:19: error: missing template arguments before ‘{’ token
+     return Compose{};
+                   ^
+main.cpp:23:19: error: expected ‘;’ before ‘{’ token
+main.cpp: In function ‘int main()’:
+main.cpp:45:35: error: ‘void f’ has incomplete type
+     auto f = increment{} && twice{};
+                                   ^
+In file included from /usr/include/c++/4.8/bits/basic_string.h:2815:0,
+                 from /usr/include/c++/4.8/string:52,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = char; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2825:19:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<int, int>::<anonymous enum>, bool>((std::__are_same<int, int>::._4)1u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+      && (__tmp < __numeric_traits<int>::__min
+      ^
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = char; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2830:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long int, int>::<anonymous enum>, bool>((std::__are_same<long int, int>::._3)0u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = char; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2835:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long unsigned int, int>::<anonymous enum>, bool>((std::__are_same<long unsigned int, int>::._3)0u, 1)’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = char; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2840:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long long int, int>::<anonymous enum>, bool>((std::__are_same<long long int, int>::._3)0u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = char; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2845:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long long unsigned int, int>::<anonymous enum>, bool>((std::__are_same<long long unsigned int, int>::._3)0u, 1)’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = char; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2850:72:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<float, int>::<anonymous enum>, bool>((std::__are_same<float, int>::._3)0u, ((int)((((float)__tmp) < -2.14748365e+9f) || (((float)__tmp) > 2.14748365e+9f))))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = char; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2854:72:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<double, int>::<anonymous enum>, bool>((std::__are_same<double, int>::._3)0u, ((int)((((double)__tmp) < -2.147483648e+9) || (((double)__tmp) > 2.147483647e+9))))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = char; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2858:74:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long double, int>::<anonymous enum>, bool>((std::__are_same<long double, int>::._3)0u, ((int)((((long double)__tmp) < -2.147483648e+9l) || (((long double)__tmp) > 2.147483647e+9l))))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = wchar_t; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2928:19:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<int, int>::<anonymous enum>, bool>((std::__are_same<int, int>::._4)1u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = wchar_t; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2933:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long int, int>::<anonymous enum>, bool>((std::__are_same<long int, int>::._3)0u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2938:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long unsigned int, int>::<anonymous enum>, bool>((std::__are_same<long unsigned int, int>::._3)0u, 1)’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = wchar_t; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2943:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long long int, int>::<anonymous enum>, bool>((std::__are_same<long long int, int>::._3)0u, ((((long unsigned int)__tmp) + 2147483648u) > 4294967295u))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2948:22:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long long unsigned int, int>::<anonymous enum>, bool>((std::__are_same<long long unsigned int, int>::._3)0u, 1)’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = wchar_t; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2953:72:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<float, int>::<anonymous enum>, bool>((std::__are_same<float, int>::._3)0u, ((int)((((float)__tmp) < -2.14748365e+9f) || (((float)__tmp) > 2.14748365e+9f))))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = wchar_t; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2957:72:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<double, int>::<anonymous enum>, bool>((std::__are_same<double, int>::._3)0u, ((int)((((double)__tmp) < -2.147483648e+9) || (((double)__tmp) > 2.147483647e+9))))’ from ‘void’ to ‘bool’
+/usr/include/c++/4.8/ext/string_conversions.h: In instantiation of ‘_Ret __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = wchar_t; _Base = {}; std::size_t = long unsigned int]’:
+/usr/include/c++/4.8/bits/basic_string.h:2961:74:   required from here
+/usr/include/c++/4.8/ext/string_conversions.h:68:6: error: could not convert ‘operator&&<std::__are_same<long double, int>::<anonymous enum>, bool>((std::__are_same<long double, int>::._3)0u, ((int)((((long double)__tmp) < -2.147483648e+9l) || (((long double)__tmp) > 2.147483647e+9l))))’ from ‘void’ to ‘bool’
