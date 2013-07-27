@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall main.cpp && ./a.out < ../../Archive/f8b4b0f629a0726a628945b0171cbd52-f674c1a6d04c632b71a62362c0ccfc51/main.cpp
