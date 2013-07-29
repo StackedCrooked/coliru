@@ -1,0 +1,85 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -ftrapv
+main.cpp:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+main.cpp:59:2: error: ‘lua_State’ does not name a type
+  lua_State *state() {
+  ^
+main.cpp: In constructor ‘lua::ref<State>::ref(State&, int)’:
+main.cpp:18:22: error: ‘LUA_REGISTRYINDEX’ was not declared in this scope
+   lua_rawset(state_, LUA_REGISTRYINDEX);
+                      ^
+main.cpp: In copy constructor ‘lua::ref<State>::ref(const lua::ref<State>&)’:
+main.cpp:29:22: error: ‘LUA_REGISTRYINDEX’ was not declared in this scope
+   lua_rawset(state_, LUA_REGISTRYINDEX);
+                      ^
+main.cpp: In member function ‘lua::ref<State>& lua::ref<State>::operator=(const lua::ref<State>&)’:
+main.cpp:41:22: error: ‘LUA_REGISTRYINDEX’ was not declared in this scope
+   lua_rawset(state_, LUA_REGISTRYINDEX);
+                      ^
+main.cpp: In destructor ‘lua::ref<State>::~ref()’:
+main.cpp:50:22: error: ‘LUA_REGISTRYINDEX’ was not declared in this scope
+   lua_rawset(state_, LUA_REGISTRYINDEX);
+                      ^
+main.cpp: In member function ‘int lua::ref<State>::push()’:
+main.cpp:55:22: error: ‘LUA_REGISTRYINDEX’ was not declared in this scope
+   lua_rawget(state_, LUA_REGISTRYINDEX);
+                      ^
+main.cpp: At global scope:
+main.cpp:67:2: error: ‘variant’ does not name a type
+  variant key_;
+  ^
+main.cpp:70:28: error: ‘variant’ has not been declared
+  table_proxy(Table &table, variant key)
+                            ^
+main.cpp:74:11: error: expected type-specifier before ‘variant’
+  operator variant() {
+           ^
+main.cpp:78:2: error: ‘variant’ does not name a type
+  variant &operator=(variant const& val) {
+  ^
+main.cpp: In constructor ‘lua::table_proxy<Table>::table_proxy(Table&, int)’:
+main.cpp:72:5: error: class ‘lua::table_proxy<Table>’ does not have any field named ‘key_’
+   , key_(key) {}
+     ^
+main.cpp: At global scope:
+main.cpp:85:2: error: invalid use of template-name ‘lua::ref’ without an argument list
+  ref ref_;
+  ^
+main.cpp:90:12: error: expected ‘)’ before ‘const’
+  table(ref const &ref) 
+            ^
+main.cpp:93:19: error: ‘variant’ has not been declared
+  proxy operator[](variant const &key) {
+                   ^
+main.cpp:97:11: error: ‘variant’ has not been declared
+  void set(variant const &key, variant const &value) {
+           ^
+main.cpp:97:31: error: ‘variant’ has not been declared
+  void set(variant const &key, variant const &value) {
+                               ^
+main.cpp:105:2: error: ‘variant’ does not name a type
+  variant get(variant const &key) {
+  ^
+main.cpp: In member function ‘void lua::table::set(const int&, const int&)’:
+main.cpp:98:19: error: ‘ref_’ was not declared in this scope
+   int table_idx = ref_.push();
+                   ^
+main.cpp:99:7: error: request for member ‘push’ in ‘key’, which is of non-class type ‘const int’
+   key.push();
+       ^
+main.cpp:100:9: error: request for member ‘push’ in ‘value’, which is of non-class type ‘const int’
+   value.push();
+         ^
+main.cpp:101:19: error: missing template arguments before ‘.’ token
+   lua_settable(ref.state(), table_idx);
+                   ^
+main.cpp:101:38: error: ‘lua_settable’ was not declared in this scope
+   lua_settable(ref.state(), table_idx);
+                                      ^
+main.cpp:102:14: error: missing template arguments before ‘.’ token
+   lua_pop(ref.state());
+              ^
+main.cpp:102:22: error: ‘lua_pop’ was not declared in this scope
+   lua_pop(ref.state());
+                      ^
