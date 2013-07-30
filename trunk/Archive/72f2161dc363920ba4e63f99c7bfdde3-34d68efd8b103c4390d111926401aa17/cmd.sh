@@ -1,0 +1,1 @@
+g++ -O3 -Wall -Wextra -Wno-unused-parameter -pthread main.cpp && ./a.out
