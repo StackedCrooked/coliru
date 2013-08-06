@@ -1,0 +1,16 @@
++ g++ -std=c++11 main.cpp -O3
+main.cpp:2:1: error: expected class-name before ‘{’ token
+ {
+ ^
+main.cpp: In constructor ‘Rectangle::Rectangle(double, double)’:
+main.cpp:4:49: error: class ‘Rectangle’ does not have any field named ‘Shape’
+        Rectangle(double Length, double Width) : Shape("Rectangle") { ... } 
+                                                 ^
+main.cpp:4:70: error: expected primary-expression before ‘...’ token
+        Rectangle(double Length, double Width) : Shape("Rectangle") { ... } 
+                                                                      ^
+main.cpp:4:70: error: expected ‘;’ before ‘...’ token
+main.cpp: In constructor ‘Square::Square(double)’:
+main.cpp:10:26: error: class ‘Square’ does not have any field named ‘Shape’
+    Square(double side) : Shape("Square"), Rectangle(side, side) {}
+                          ^
