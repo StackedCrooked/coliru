@@ -1,0 +1,8 @@
++ g++ -std=c++03 main.cpp
+main.cpp: In substitution of ‘template<class T2> static char (& CheckForFunc<T>::Test(CheckForFunc<T>::Sfinae<T2, (& T2:: Func)>*))[1] [with T2 = T2; T = B] [with T2 = B]’:
+main.cpp:16:42:   required from ‘const bool CheckForFunc<B>::value’
+main.cpp:24:51:   required from here
+main.cpp:14:41: error: ‘&A::Func’ is not a valid template argument for type ‘void (B::*)(int)’ because it is of type ‘void (A::*)(int)’
+     template< class T2 > static YesType Test( Sfinae<T2,&T2::Func>* );
+                                         ^
+main.cpp:14:41: note: standard conversions are not allowed in this context
