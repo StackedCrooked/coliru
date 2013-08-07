@@ -1,0 +1,29 @@
++ g++ -std=c++11 -Wall -pedantic main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:147:32: error: use of deleted function ‘get_fucked::get_fucked(get_fucked&&)’
+     maybe<get_fucked> death( 1 ); // boom
+                                ^
+main.cpp:139:3: error: declared here
+   get_fucked( get_fucked&& ) = delete;
+   ^
+main.cpp:63:14: error:   initializing argument 1 of ‘maybe< <template-parameter-1-1> >::maybe(T) [with T = get_fucked]’
+     explicit maybe(T value) noexcept: value(std::move(value)), active(true) {}
+              ^
+main.cpp: In instantiation of ‘constexpr maybe< <template-parameter-1-1> >::maybe() [with T = get_fucked]’:
+main.cpp:148:23:   required from here
+main.cpp:60:45: error: no matching function for call to ‘get_fucked::get_fucked()’
+     constexpr maybe() noexcept: active(false) {}
+                                             ^
+main.cpp:60:45: note: candidate is:
+main.cpp:138:3: note: get_fucked::get_fucked(int)
+   get_fucked( int a ) : in_the_butt( a ) { };
+   ^
+main.cpp:138:3: note:   candidate expects 1 argument, 0 provided
+main.cpp: In instantiation of ‘maybe< <template-parameter-1-1> >::maybe(T) [with T = get_fucked]’:
+main.cpp:147:32:   required from here
+main.cpp:63:75: error: use of deleted function ‘get_fucked::get_fucked(get_fucked&&)’
+     explicit maybe(T value) noexcept: value(std::move(value)), active(true) {}
+                                                                           ^
+main.cpp:139:3: error: declared here
+   get_fucked( get_fucked&& ) = delete;
+   ^
