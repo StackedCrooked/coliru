@@ -1,0 +1,1 @@
+g++ -std=c11 -O3 -march=native -Wall -Wextra -pedantic -pthread -x c main.cpp && ./a.out
