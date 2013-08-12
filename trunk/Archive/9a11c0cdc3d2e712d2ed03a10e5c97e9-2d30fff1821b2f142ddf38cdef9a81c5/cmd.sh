@@ -1,0 +1,1 @@
+gcc -x c -std=c99 -W -Wall  -pedantic main.cpp && ./a.out 
