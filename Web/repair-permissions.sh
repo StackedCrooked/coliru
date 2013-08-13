@@ -1,17 +1,17 @@
 #!/bin/bash
-echo "$0 executed by $(whoami)"
+if [ "$(whoami)" != "root" ] ; then
+    echo "$(basename $0) must be run as root." 1>&2
+    exit 1
+fi
+
 source coliru_env.source
 
-touch feedback.txt ; chown webserver:coliru feedback.txt ; chmod +w feedback.txt
 chown webserver:coliru .
 chown webserver:coliru ${COLIRU_ARCHIVE}
 chmod a+rw .
 
-#find /var/chroot/tmp -type f | xargs -I {} rm -f {} || sudo -u sandbox find /var/chroot/tmp -type f | xargs -I {} rm -f {}
-#chown -R sandbox:coliru /var/chroot & disown
-chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1 || sudo -u sandbox chmod -R a+rw /var/chroot/tmp >/dev/null 2>&1
 
-echo "Owner of /var/chroot/tmp is $(ls -alt /var/chroot/tmp | head -n2 | tail -n1)"
+# Cleanup /var/chroot/tmp and make accessible for coliru
 rm -rf /var/chroot/tmp
 mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp
@@ -19,9 +19,11 @@ chmod -R a+rw /var/chroot/tmp
 
 # Cleanup /dev
 mkdir -p /var/chroot/dev
+rm -rf /var/chroot/dev/null
 touch /var/chroot/dev/null
 
-for file in "timeout.txt output main.cpp cmd.sh timestamp.txt" ; do
+# Make certain files writeable for the webserver.
+for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp.txt" ; do
   touch $file && chown webserver:coliru $file
 done
 
