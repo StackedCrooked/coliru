@@ -1,2 +1,1 @@
-#!/bin/bash
-ps -eopgid,ppid,pid,uid,comm,args
+ps -eopgid,uid,comm,args | grep '200[12]'
