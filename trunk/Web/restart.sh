@@ -1,6 +1,14 @@
 #!/bin/bash
-set -x
+#set -x
+if [ "$(whoami)" != "root" ] ; then
+    echo "The restart script must be run as root." 1>&2
+    exit 1 
+fi
+
+
 source ./coliru_env.source
+env | grep COLIRU
+
 
 NUM_RESTART_PROCESSES=$(./ps.sh | grep $(basename $0) | awk '{print $1}' | sort | uniq | wc -l)
 if [ "$NUM_RESTART_PROCESSES" != "1" ] ; then
@@ -15,7 +23,6 @@ if [ "$NUM_RESTART_PROCESSES" != "1" ] ; then
         echo "OK. This script is not yet running."
     fi
 fi
-
 
 
 echo "SUCCESS"
