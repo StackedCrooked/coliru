@@ -1,4 +1,5 @@
 #!/bin/bash
+cd $(dirname $0)
 printf "THIS IS COLIRU\n\n"
 
 get_timestamp_files() {
@@ -51,6 +52,11 @@ HISTORY_FILE="/tmp/history${HOUR_INDEX}"
 PART_FILE="${HISTORY_FILE}.part"
 
 
+#
+# START OF PROGRAM
+#
+
+# Return cached results if available.
 [ -f "$HISTORY_FILE" ] && {
     cat $HISTORY_FILE
     exit
