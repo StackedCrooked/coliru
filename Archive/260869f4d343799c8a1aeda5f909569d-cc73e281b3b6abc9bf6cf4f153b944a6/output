@@ -1,0 +1,12 @@
++ g++ -std=c++11 main.cpp -O3
+main.cpp: In function ‘int main()’:
+main.cpp:11:13: error: call of overloaded ‘foo(A&, int)’ is ambiguous
+     foo(a, 4); //error: call of overloaded ‘foo(A&, int)’ is ambiguous
+             ^
+main.cpp:11:13: note: candidates are:
+main.cpp:6:6: note: void foo(A, A)
+ void foo(A, A) {}
+      ^
+main.cpp:7:6: note: void foo(int, int)
+ void foo(int, int) {}
+      ^
