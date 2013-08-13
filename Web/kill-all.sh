@@ -1,7 +1,5 @@
-PGID="$(ps -eopgid,ppid,pid,comm | grep 'restart.sh' | awk '{print $1}')"
-if [ "${PGID}" != "" ] ; then
-    echo "Killing pgid ${PGID}"
+#!/bin/bash
+for PGID in $(ps -eopgid,uid | grep '200[12]' | awk '{print $1}' | sort | uniq) ; do
+    echo "Killing PGID: ${PGID}"
     kill -9 -${PGID}
-else
-    echo "restart.sh does not seem to be running." 1>&2 ; exit 1
-fi
+done
