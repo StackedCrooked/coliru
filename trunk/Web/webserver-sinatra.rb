@@ -208,6 +208,7 @@ end
 
 
 set :port, ENV['COLIRU_PORT']
+puts "port: #{:port}"
 $feedback_semaphore = Mutex.new
 
 
