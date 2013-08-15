@@ -1,0 +1,30 @@
++ clang++ -std=c++11 main.cpp -pedantic
+main.cpp:39:16: error: no matching function for call to 'is_initializer_list'
+  std::cout << is_initializer_list({'a','b','c'}) << '\n';
+               ^~~~~~~~~~~~~~~~~~~
+main.cpp:24:16: note: candidate template ignored: couldn't infer template argument 'Arg'
+constexpr bool is_initializer_list(Arg x)
+               ^
+main.cpp:26:60: error: type 'const char *' cannot be used prior to '::' because it has no members
+    return std::is_same<Arg,std::initializer_list<typename Arg::value_type>>::value;
+                                                           ^
+main.cpp:40:16: note: in instantiation of function template specialization 'is_initializer_list<const char *>' requested here
+  std::cout << is_initializer_list("Hello World") << '\n';
+               ^
+main.cpp:41:16: error: no matching function for call to 'is_initializer_list'
+  std::cout << is_initializer_list({7}) << '\n';
+               ^~~~~~~~~~~~~~~~~~~
+main.cpp:24:16: note: candidate template ignored: couldn't infer template argument 'Arg'
+constexpr bool is_initializer_list(Arg x)
+               ^
+main.cpp:43:17: error: static_assert expression is not an integral constant expression
+  static_assert(is_initializer_list(e), "is_initializer_liste)");
+                ^~~~~~~~~~~~~~~~~~~~~~
+main.cpp:43:37: note: read of non-constexpr variable 'e' is not allowed in a constant expression
+  static_assert(is_initializer_list(e), "is_initializer_liste)");
+                                    ^
+main.cpp:43:37: note: in call to 'initializer_list(e)'
+main.cpp:36:8: note: declared here
+  auto e = {4,5,6};
+       ^
+4 errors generated.
