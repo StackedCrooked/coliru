@@ -1,0 +1,29 @@
++ g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.section	.text._ZN6gadget3barEv,"axG",@progbits,_ZN6gadget3barEv,comdat
+	.align 2
+	.p2align 5,,31
+	.weak	_ZN6gadget3barEv
+	.type	_ZN6gadget3barEv, @function
+_ZN6gadget3barEv:
+.LFB1:
+	.cfi_startproc
+	incl	8(%rdi)
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_ZN6gadget3barEv, .-_ZN6gadget3barEv
+	.section	.text.startup,"ax",@progbits
+	.p2align 5,,31
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	movl	$1, %eax
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
