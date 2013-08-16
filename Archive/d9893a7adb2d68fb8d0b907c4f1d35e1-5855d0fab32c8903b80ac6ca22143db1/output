@@ -1,0 +1,176 @@
++ g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.section	.text._ZN6gadget3barEv,"axG",@progbits,_ZN6gadget3barEv,comdat
+	.align 2
+	.p2align 5,,31
+	.weak	_ZN6gadget3barEv
+	.type	_ZN6gadget3barEv, @function
+_ZN6gadget3barEv:
+.LFB1:
+	.cfi_startproc
+	incl	8(%rdi)
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_ZN6gadget3barEv, .-_ZN6gadget3barEv
+	.text
+	.p2align 5,,31
+	.globl	_Z5test1v
+	.type	_Z5test1v, @function
+_Z5test1v:
+.LFB2:
+	.cfi_startproc
+	movl	$1, %eax
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	_Z5test1v, .-_Z5test1v
+	.p2align 5,,31
+	.globl	_Z5test2v
+	.type	_Z5test2v, @function
+_Z5test2v:
+.LFB9:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsp, %rdi
+	movq	$_ZTV6gadget+16, (%rsp)
+	movl	$1, 8(%rsp)
+	call	_ZN6gadget3barEv
+	movl	8(%rsp), %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE9:
+	.size	_Z5test2v, .-_Z5test2v
+	.p2align 5,,31
+	.globl	_Z5test3v
+	.type	_Z5test3v, @function
+_Z5test3v:
+.LFB10:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsp, %rdi
+	movq	$_ZTV6gadget+16, (%rsp)
+	movl	$1, 8(%rsp)
+	call	_ZN6gadget3barEv
+	movq	(%rsp), %rax
+	movq	%rsp, %rdi
+	call	*(%rax)
+	movl	8(%rsp), %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE10:
+	.size	_Z5test3v, .-_Z5test3v
+	.p2align 5,,31
+	.globl	_Z5test4v
+	.type	_Z5test4v, @function
+_Z5test4v:
+.LFB11:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsp, %rdi
+	movq	$_ZTV6gadget+16, (%rsp)
+	movl	$1, 8(%rsp)
+	call	_ZN6gadget3barEv
+	movq	(%rsp), %rax
+	movq	%rsp, %rdi
+	call	*(%rax)
+	movq	(%rsp), %rax
+	movq	%rsp, %rdi
+	call	*(%rax)
+	movl	8(%rsp), %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE11:
+	.size	_Z5test4v, .-_Z5test4v
+	.p2align 5,,31
+	.globl	_Z8testloopi
+	.type	_Z8testloopi, @function
+_Z8testloopi:
+.LFB12:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	decl	%edi
+	movq	$_ZTV6gadget+16, (%rsp)
+	movl	$0, 8(%rsp)
+	js	.L13
+	movl	%edi, %ebx
+	movl	$_ZTV6gadget+16, %eax
+	jmp	.L12
+	.p2align 5,,7
+	.p2align 3
+.L16:
+	movq	(%rsp), %rax
+.L12:
+	decl	%ebx
+	movq	%rsp, %rdi
+	call	*(%rax)
+	cmpl	$-1, %ebx
+	jne	.L16
+	movl	8(%rsp), %eax
+.L10:
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+.L13:
+	.cfi_restore_state
+	xorl	%eax, %eax
+	jmp	.L10
+	.cfi_endproc
+.LFE12:
+	.size	_Z8testloopi, .-_Z8testloopi
+	.weak	_ZTI6widget
+	.section	.rodata._ZTI6widget,"aG",@progbits,_ZTI6widget,comdat
+	.align 16
+	.type	_ZTI6widget, @object
+	.size	_ZTI6widget, 16
+_ZTI6widget:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTS6widget
+	.weak	_ZTS6widget
+	.section	.rodata._ZTS6widget,"aG",@progbits,_ZTS6widget,comdat
+	.type	_ZTS6widget, @object
+	.size	_ZTS6widget, 8
+_ZTS6widget:
+	.string	"6widget"
+	.weak	_ZTI6gadget
+	.section	.rodata._ZTI6gadget,"aG",@progbits,_ZTI6gadget,comdat
+	.align 16
+	.type	_ZTI6gadget, @object
+	.size	_ZTI6gadget, 24
+_ZTI6gadget:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTS6gadget
+	.quad	_ZTI6widget
+	.weak	_ZTS6gadget
+	.section	.rodata._ZTS6gadget,"aG",@progbits,_ZTS6gadget,comdat
+	.type	_ZTS6gadget, @object
+	.size	_ZTS6gadget, 8
+_ZTS6gadget:
+	.string	"6gadget"
+	.weak	_ZTV6gadget
+	.section	.rodata._ZTV6gadget,"aG",@progbits,_ZTV6gadget,comdat
+	.align 16
+	.type	_ZTV6gadget, @object
+	.size	_ZTV6gadget, 24
+_ZTV6gadget:
+	.quad	0
+	.quad	_ZTI6gadget
+	.quad	_ZN6gadget3barEv
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
