@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -Wall -pedantic main.cpp
+main.cpp:6:33: error: use of undeclared identifier 'std'
+        (instance.*(pmember)) = std::forward<U>(val);
+                                ^
+main.cpp:6:46: error: 'U' does not refer to a value
+        (instance.*(pmember)) = std::forward<U>(val);
+                                             ^
+main.cpp:1:26: note: declared here
+template <class C, class U, class U2 /* assignable from U*/, 
+                         ^
+2 errors generated.
