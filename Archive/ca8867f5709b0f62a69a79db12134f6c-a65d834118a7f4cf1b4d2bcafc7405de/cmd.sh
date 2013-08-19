@@ -1,0 +1,1 @@
+g++ -std=c++11 -pedantic -Wall -Wextra main.cpp && echo -ne '11101101111000101010\n01111101100000010100\n' | ./a.out
