@@ -1,0 +1,33 @@
++ g++ -std=c++11 -O3 -Wall -pedantic -pthread -m64 -march=native -S main.cpp
++ cat main.s
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	_Z11fast_or_ptrPvS_
+	.type	_Z11fast_or_ptrPvS_, @function
+_Z11fast_or_ptrPvS_:
+.LFB0:
+	.cfi_startproc
+	orq	%rsi, %rdi
+	setne	%al
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	_Z11fast_or_ptrPvS_, .-_Z11fast_or_ptrPvS_
+	.p2align 5,,31
+	.globl	_Z11slow_or_ptrPvS_
+	.type	_Z11slow_or_ptrPvS_, @function
+_Z11slow_or_ptrPvS_:
+.LFB1:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	setne	%al
+	testq	%rsi, %rsi
+	setne	%dl
+	orl	%edx, %eax
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_Z11slow_or_ptrPvS_, .-_Z11slow_or_ptrPvS_
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
