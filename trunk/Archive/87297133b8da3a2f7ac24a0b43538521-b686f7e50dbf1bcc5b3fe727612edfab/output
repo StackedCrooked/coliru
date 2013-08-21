@@ -1,0 +1,35 @@
++ clang++ -O3 -emit-llvm -S -o - main.cpp
+; ModuleID = 'main.cpp'
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.Foo = type { i8 }
+
+; Function Attrs: uwtable
+define i32 @_Z3fooP3FooMS_FiiE(%struct.Foo* %foo, i64 %ptr.coerce0, i64 %ptr.coerce1) #0 {
+  %1 = getelementptr inbounds %struct.Foo* %foo, i64 %ptr.coerce1, i32 0
+  %2 = bitcast i8* %1 to %struct.Foo*
+  %3 = and i64 %ptr.coerce0, 1
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %12, label %5
+
+; <label>:5                                       ; preds = %0
+  %6 = bitcast i8* %1 to i8**
+  %7 = load i8** %6, align 8
+  %8 = add i64 %ptr.coerce0, -1
+  %9 = getelementptr i8* %7, i64 %8
+  %10 = bitcast i8* %9 to i32 (%struct.Foo*, i32)**
+  %11 = load i32 (%struct.Foo*, i32)** %10, align 8
+  br label %14
+
+; <label>:12                                      ; preds = %0
+  %13 = inttoptr i64 %ptr.coerce0 to i32 (%struct.Foo*, i32)*
+  br label %14
+
+; <label>:14                                      ; preds = %12, %5
+  %15 = phi i32 (%struct.Foo*, i32)* [ %11, %5 ], [ %13, %12 ]
+  %16 = tail call i32 %15(%struct.Foo* %2, i32 5)
+  ret i32 %16
+}
+
+attributes #0 = { uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-frame-pointer-elim-non-leaf"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "unsafe-fp-math"="false" "use-soft-float"="false" }
