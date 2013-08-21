@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wmissing-noreturn -Wall -pthread -S -o - main.cpp && ./a.out
