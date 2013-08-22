@@ -1,7 +1,8 @@
 #!/bin/bash
 if [ "$(whoami)" != "webserver" ] ; then
-    echo "The indexer must be run by the webserver." 1>&2
-    exit 1
+    echo "Relaunch as webserver."
+    sudo -u webserver $0
+    exit
 fi
 
 cd $(dirname $0)
