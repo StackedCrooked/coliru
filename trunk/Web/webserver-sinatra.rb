@@ -66,6 +66,8 @@ end
 
 
 post '/compile' do
+    #response['Access-Control-Allow-Origin'] = '*'
+    headers( "Access-Control-Allow-Origin" => "*" )
     json_obj = JSON.parse(request.body.read)
     id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
     dir = "/tmp/coliru/#{id}"
