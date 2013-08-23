@@ -5,11 +5,10 @@ require 'net/http'
 require 'popen4'
 require 'pp'
 require 'sinatra'
+require 'sinatra/cross_origin'
 
 
 get '/' do
-    headers( "Access-Control-Allow-Origin" => "*" )
-    headers( "Access-Control-Allow-Headers" => "Origin, X-Requested-With, Content-Type, Accept" )
     File.read('index.html')
 end
 
@@ -20,15 +19,11 @@ end
 
 
 get '/*.html' do |file|
-    headers( "Access-Control-Allow-Origin" => "*" )
-    headers( "Access-Control-Allow-Headers" => "Origin, X-Requested-With, Content-Type, Accept" )
     File.read("#{file}.html")
 end
 
 
 get '/*.js' do |file|
-    headers( "Access-Control-Allow-Origin" => "*" )
-    headers( "Access-Control-Allow-Headers" => "Origin, X-Requested-With, Content-Type, Accept" )
     content_type :js
     File.read("#{file}.js")
 end
@@ -72,8 +67,6 @@ end
 
 
 post '/compile' do
-    headers( "Access-Control-Allow-Origin" => "*" )
-    headers( "Access-Control-Allow-Headers" => "Origin, X-Requested-With, Content-Type, Accept" )
     json_obj = JSON.parse(request.body.read)
     id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
     dir = "/tmp/coliru/#{id}"
@@ -225,6 +218,7 @@ end
 
 
 configure do
+  enable :cross_origin
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
   mime_type :png, 'image/png'
