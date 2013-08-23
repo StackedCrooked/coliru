@@ -1,0 +1,44 @@
++ clang++ -Wall -pedantic main.cpp
++ ./a.out
+<start>
+  <try>Func Ident{\n    Mov </try>
+  <function>
+    <try> Ident{\n    Mov name</try>
+    <gr_identifier>
+      <try> Ident{\n    Mov name</try>
+      <success>{\n    Mov name "hell</success>
+      <attributes>[]</attributes>
+    </gr_identifier>
+    <gr_instruction>
+      <try>\n    Mov name "hello</try>
+      <fail/>
+    </gr_instruction>
+    <gr_instruction>
+      <try>    Mov name "hello"</try>
+      <gr_operands>
+        <try> name "hello" \n    P</try>
+        <gr_operand>
+          <try> name "hello" \n    P</try>
+          <gr_identifier>
+            <try> name "hello" \n    P</try>
+            <success> "hello" \n    Push 5</success>
+            <attributes>[]</attributes>
+          </gr_identifier>
+          <success> "hello" \n    Push 5</success>
+          <attributes>[]</attributes>
+        </gr_operand>
+        <success> "hello" \n    Push 5</success>
+        <attributes>[]</attributes>
+      </gr_operands>
+      <success> "hello" \n    Push 5</success>
+      <attributes>[]</attributes>
+    </gr_instruction>
+    <fail/>
+  </function>
+  <fail/>
+</start>
+boost::spirit::qi::expectation_failure'"hello" 
+    Push 5
+    Exit
+}
+'
