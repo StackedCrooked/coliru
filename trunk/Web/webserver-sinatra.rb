@@ -5,7 +5,6 @@ require 'net/http'
 require 'popen4'
 require 'pp'
 require 'sinatra'
-require 'sinatra/cross_origin'
 
 
 get '/' do
@@ -226,7 +225,6 @@ end
 
 
 configure do
-  enable :cross_origin
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
   mime_type :png, 'image/png'
