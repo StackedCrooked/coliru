@@ -36,3 +36,10 @@ file /var/chroot/dev/random || {
     mknod /var/chroot/dev/random c 1 8
     chmod 666 /var/chroot/dev/random
 }
+
+
+# Create the tmp folder and set the
+# permissions for the sandbox users.
+mkdir -p ${CHROOT}/tmp
+chown -R sandbox:coliru ${CHROOT}/tmp
+
