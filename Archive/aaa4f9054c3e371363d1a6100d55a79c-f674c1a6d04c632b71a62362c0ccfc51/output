@@ -1,0 +1,13 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+Foo::Foo(): x points to 0x1700010
+Foo::~Foo(): deleting x at 0x1700010
+Foo::~Foo(): deleting x at 0x1700010
+*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x0000000001700010 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7f5d615a2b96]
+./a.out[0x400ac9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f5d6154576d]
+./a.out[0x400b31]
+======= Memory map: ========
+/tmp/1377304998-802771811/cmd.sh: line 8: 30633 Aborted                 (core dumped) ./a.out
