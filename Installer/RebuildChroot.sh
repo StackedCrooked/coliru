@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# This script sets up the choot for running user programs.
+# Running the script for a second time will repair the chroot (if needed).
+
+
 set -x
 set -e
 
