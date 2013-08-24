@@ -246,7 +246,7 @@ end
 
 def safe_popen(cmd)
     begin
-        Timeout.timeout(get_timeout.to_i) do
+        Timeout.timeout(2 * get_timeout.to_i) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             count = 0
             max_count = 256 * 1024
@@ -260,7 +260,6 @@ def safe_popen(cmd)
     rescue Timeout::Error => e
         # Kill the process group that started the sandbox
         Process.kill 9, @stdout.pid
-        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
         Process.wait @stdout.pid
         yield e.to_s
     rescue Exception => e
