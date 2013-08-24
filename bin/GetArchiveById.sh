@@ -1,1 +1,1 @@
-svn cat $(GetSVNURL.sh ../Archive)/${1}/${2}
+svn cat http://coliru.googlecode.com/svn/trunk/Archive/${1}/${2}
