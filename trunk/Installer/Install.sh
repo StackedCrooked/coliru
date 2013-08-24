@@ -9,15 +9,38 @@ if [ $(whoami) != "root" ] ; then
 fi
 
 
-if [ ! -d ${CHROOT} ] ; then
-    for dir in $(echo $(dirname $0)/../Archive /usr /bin /var /lib /lib64) ; do
+mount_dir_into_chroot() {
+    for dir in $@ ; do
         mkdir -p ${CHROOT}${dir}
         mount --bind ${dir} ${CHROOT}${dir}
         mount -o remount,ro ${CHROOT}${dir}
     done
-else
-	echo "Warning: ${CHROOT} already exists." 1>&2 || true
-fi
+}
+
+unmount_dir_from_chroot() {
+    for system_dir in $@ ; do
+        chroot_subdir="${CHROOT}${system_dir}"
+        [ -d "${chroot_subdir}" ] && {
+            echo "Unmounting and removing $system_dir"
+            for f in "$(ls ${system_dir})" ; do unmount ${CHROOT}${f} || true ; done
+            umount "${chroot_subdir}"
+            rm -rf "${chroot_subdir}"
+        } || true
+    done
+}
+
+archive="$(echo $(dirname $0)/../Archive)"
+unmount_dir_from_chroot /dev /proc
+mount_dir_into_chroot ${archive} /usr /bin /var /lib /lib64 /etc/alternatives
+
+# system support files
+# see: http://www.losurs.org/docs/howto/Chroot-BIND-2.html
+mkdir -p /var/chroot/dev
+mknod /var/chroot/dev/null c 1 3
+chmod 666 /var/chroot/dev/null
+mknod /var/chroot/dev/random c 1 8
+chmod 666 /var/chroot/dev/random
+exit
 
 
 type 'g++-4.8' || { \
