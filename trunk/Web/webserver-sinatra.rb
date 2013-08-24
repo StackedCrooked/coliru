@@ -246,7 +246,7 @@ end
 
 def safe_popen(cmd)
     begin
-        Timeout.timeout(2 * get_timeout.to_i) do
+        Timeout.timeout(get_timeout.to_i) do
             @stdout = IO.popen("#{cmd} 2>&1 ")
             count = 0
             max_count = 256 * 1024
