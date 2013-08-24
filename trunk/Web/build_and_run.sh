@@ -16,7 +16,7 @@ export CHROOT_TARGET_PATH=${CHROOT}/tmp/${COLIRU_JOBID}
 
 
 #
-# Insert set -x and ulimit
+# Enrich the user command with security settings.
 #
 CMD_FILE=${CHROOT_TARGET_PATH}/cmd.sh
 mv ${CMD_FILE} ${CMD_FILE}_
@@ -26,7 +26,6 @@ echo "ulimit -t ${TIMEOUT}" >> ${CMD_FILE}
 echo "ulimit -f 4000" >> ${CMD_FILE}
 echo 'cd $(dirname $0)' >> ${CMD_FILE}
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
-echo 'set -x' >> ${CMD_FILE}
 cat ${CMD_FILE}_ >> ${CMD_FILE}
 rm ${CMD_FILE}_
 chmod a+rx ${CMD_FILE}

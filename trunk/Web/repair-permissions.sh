@@ -17,11 +17,6 @@ mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp
 chmod -R a+rw /var/chroot/tmp
 
-# Cleanup /dev
-mkdir -p /var/chroot/dev
-rm -rf /var/chroot/dev/null
-touch /var/chroot/dev/null
-
 # Make certain files writeable for the webserver.
 for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp.txt" ; do
   touch $file && chown webserver:coliru $file
