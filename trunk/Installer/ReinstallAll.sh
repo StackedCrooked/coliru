@@ -2,8 +2,12 @@
 set -e
 set -x
 
+# Set up the chroot directory
 ./RebuildChroot.sh
 
+
+# Install g++-4.8 and related things.
+# TODO: This is a mess and needs to be cleaned up.
 type 'g++-4.8' || { \
 	apt-get install -y python-software-properties
 	add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -13,12 +17,21 @@ type 'g++-4.8' || { \
     ln -fs /usr/bin/g++-4.8 /usr/bin/g++
 }
 
+
+
+# Install dchroot and debootstrap
+# TODO: I don't remember if this was needed to run coliru.
+#       This should either be cleaned up or moved a better place.
 apt-get install -y dchroot debootstrap
 
 
+# Install ruby and rubygems.
+# TODO: This is a mess.
 apt-get install -y libcap2-bin ruby-dev rubygems lsof rsync subversion
 gem install sinatra shotgun popen4 json sinatra-cross_origin --no-ri --no-rdoc
 
+
+# Enable required capabilities for the webserver user.
 
 # Allow ruby to bind to port 80
 setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8 || true
@@ -34,12 +47,15 @@ setcap 'cap_kill=+ep' /usr/bin/pgrep
 
 
 # Create users and groups.
+# TODO: The user ids should not be hardcoded because that
+#       makes it harder to install Coliru on other machines.
 groupadd -g 2000 coliru || echo "Group coliru already exists. Continuing."
 useradd -g coliru -u 2000 coliru-launcher || echo "User coliru-launcher already exists. Continuing."
 useradd -g coliru -u 2001 webserver || echo "User webserver already exists. Continuing."
 useradd -g coliru -u 2002 sandbox || echo "User sandbox already exists. Continuing."
 
 
+# Set the securit limites for the webserver and sandbox users.
 LIMITS_ALREADY_SET=$(cat /etc/security/limits.conf | grep COLIRU | wc -l)
 echo "LIMITS_ALREADY_SET: ${LIMITS_ALREADY_SET}"
 if [ "$LIMITS_ALREADY_SET" == "0" ] ; then
@@ -58,11 +74,9 @@ if [ "$LIMITS_ALREADY_SET" == "0" ] ; then
 fi
 
 
-# Set report_crashes=false in /etc/default/whoopsie
+# Disable the annoying Whoopsie report crashes and stop the whoopsie service
 sed -i "s/\(report_crashes=\).*/\1false/" /etc/default/whoopsie
-
-# And stop the whoopsie service
-sudo service whoopsie stop || true
+sudo service whoopsie stop || echo "whoopsie was already stopped."
 
 
 # TODO: Install wheels
