@@ -258,7 +258,10 @@ def safe_popen(cmd)
             Process.wait @stdout.pid
         end
     rescue Timeout::Error => e
-        # Kill the process group that started the sandbox
+        #First kill the innermost processes
+        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
+
+        # Then we can kill the top-level process.
         Process.kill 9, @stdout.pid
         Process.wait @stdout.pid
         yield e.to_s
