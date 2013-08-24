@@ -1,6 +1,17 @@
 #!/bin/bash
+
+# Two goals of this script are:
+#  (1) Install Coliru
+#  (2) Repair Coliru 
+#
+# When running this script for a second time then it 
+# should only reinstall the parts that are missing or
+# damaged.
+
+
 set -e
 set -x
+
 
 # Set up the chroot directory
 ./RebuildChroot.sh
