@@ -11,7 +11,7 @@ get_entries_by_date() {
         for entry in $(get_timestamp_files) ; do
             printf "$(cat $entry)_$(dirname $entry)\n"
         done
-    } | sort -n -r | head -n 500
+    } | sort -n -r | head -n 100
 }
 
 convert_epoch_to_readable_format() {

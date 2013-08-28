@@ -1,0 +1,14 @@
+main.cpp: In function ‘int main()’:
+main.cpp:11:65: error: no matching function for call to ‘std::basic_ostringstream<char>::basic_ostringstream(std::remove_reference<std::basic_ostream<char>&>::type)’
+     std::ostringstream s2(std::move(std::ostringstream() << 7.1)); // OK: move ctor called
+                                                                 ^
+main.cpp:11:65: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/sstream:441:7: note: std::basic_ostringstream<_CharT, _Traits, _Alloc>::basic_ostringstream(const __string_type&, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_ostringstream<_CharT, _Traits, _Alloc>::__string_type = std::basic_string<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ostringstream(const __string_type& __str,
+       ^
+/usr/include/c++/4.8/sstream:441:7: note:   no known conversion for argument 1 from ‘std::remove_reference<std::basic_ostream<char>&>::type {aka std::basic_ostream<char>}’ to ‘const __string_type& {aka const std::basic_string<char>&}’
+/usr/include/c++/4.8/sstream:423:7: note: std::basic_ostringstream<_CharT, _Traits, _Alloc>::basic_ostringstream(std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ostringstream(ios_base::openmode __mode = ios_base::out)
+       ^
+/usr/include/c++/4.8/sstream:423:7: note:   no known conversion for argument 1 from ‘std::remove_reference<std::basic_ostream<char>&>::type {aka std::basic_ostream<char>}’ to ‘std::ios_base::openmode {aka std::_Ios_Openmode}’
