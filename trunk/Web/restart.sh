@@ -15,3 +15,14 @@ if [ "$COMMITTER_PGID" == "" ] ; then
     echo "Starting committer.sh"
     ./committer.sh & disown
 fi
+
+{ 
+    while true ; do 
+        [ "$(ps -eocomm,args | grep '^ruby' | grep 'ruby webserver-sinatra' | wc -l)" == "1" ] || {
+            echo "Restarting webserver."
+            echo ./restart.sh
+        }
+        sleep 60
+    done
+} & disown
+

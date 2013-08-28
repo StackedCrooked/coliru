@@ -1,0 +1,98 @@
+main.cpp:36:1: error: expected a class or namespace
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+^
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:65:9: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+        detail:: BOOST_PP_CAT(BOOST_PP_CAT(NAME, _impl_), N)                    \
+        ^
+main.cpp:36:1: error: reference to 'detail' is ambiguous
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+^
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:65:9: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+        detail:: BOOST_PP_CAT(BOOST_PP_CAT(NAME, _impl_), N)                    \
+        ^
+main.cpp:36:1: note: candidate found by name lookup is 'detail'
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:42:15: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+    namespace detail                                                            \
+              ^
+/usr/local/include/boost/lexical_cast.hpp:2227:15: note: candidate found by name lookup is 'boost::detail'
+    namespace detail
+              ^
+/usr/local/include/boost/spirit/home/support/iterators/detail/multi_pass.hpp:18:48: note: candidate found by name lookup is 'boost::spirit::detail'
+namespace boost { namespace spirit { namespace detail
+                                               ^
+main.cpp:36:1: error: extra qualification on member 'type'
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+^
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:66:34: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+          , BOOST_PHOENIX_A(N)>::type const                                     \
+                                 ^
+main.cpp:36:1: error: variable 'type' declared as a template
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:66:34: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+          , BOOST_PHOENIX_A(N)>::type const                                     \
+                                 ^
+main.cpp:36:1: error: expected ';' at end of declaration
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:66:39: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+          , BOOST_PHOENIX_A(N)>::type const                                     \
+                                      ^
+main.cpp:36:36: error: C++ requires a type specifier for all declarations
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:67:12: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+    inline NAME(BOOST_PHOENIX_A_const_ref_a(N))                                 \
+           ^
+main.cpp:36:1: error: 'inline' can only appear on functions
+BOOST_PHOENIX_ADAPT_FUNCTION(char, build_character_, build_character, 1)
+^
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:67:5: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+    inline NAME(BOOST_PHOENIX_A_const_ref_a(N))                                 \
+    ^
+main.cpp:36:1: error: use of undeclared identifier 'A0'
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:67:17: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+    inline NAME(BOOST_PHOENIX_A_const_ref_a(N))                                 \
+                ^
+/usr/local/include/boost/phoenix/support/detail/iterate_define.hpp:39:5: note: expanded from macro 'BOOST_PHOENIX_A_const_ref_a'
+    BOOST_PP_ENUM_BINARY_PARAMS(N, A, const& a)                                 \
+    ^
+/usr/local/include/boost/preprocessor/repetition/enum_binary_params.hpp:25:79: note: expanded from macro 'BOOST_PP_ENUM_BINARY_PARAMS'
+#    define BOOST_PP_ENUM_BINARY_PARAMS(count, p1, p2) BOOST_PP_REPEAT(count, BOOST_PP_ENUM_BINARY_PARAMS_M, (p1, p2))
+                                                                              ^
+note: (skipping 5 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/repetition/enum_binary_params.hpp:39:59: note: expanded from macro 'BOOST_PP_ENUM_BINARY_PARAMS_M_I'
+#    define BOOST_PP_ENUM_BINARY_PARAMS_M_I(z, n, p1, p2) BOOST_PP_ENUM_BINARY_PARAMS_M_II(z, n, p1, p2)
+                                                          ^
+/usr/local/include/boost/preprocessor/repetition/enum_binary_params.hpp:40:81: note: expanded from macro 'BOOST_PP_ENUM_BINARY_PARAMS_M_II'
+#    define BOOST_PP_ENUM_BINARY_PARAMS_M_II(z, n, p1, p2) BOOST_PP_COMMA_IF(n) p1 ## n p2 ## n
+                                                                                ^
+<scratch space>:109:1: note: expanded from here
+A0
+^
+main.cpp:36:1: error: expected ';' after top level declarator
+/usr/local/include/boost/phoenix/function/adapt_function.hpp:68:5: note: expanded from macro 'BOOST_PHOENIX_ADAPT_FUNCTION'
+    {                                                                           \
+    ^
+main.cpp:84:13: error: no template named 'strip_comments_tokens'; did you mean 'strip_comments_grammar'?
+    typedef strip_comments_tokens<lexer_type>::iterator_type iterator_type;
+            ^~~~~~~~~~~~~~~~~~~~~
+            strip_comments_grammar
+main.cpp:56:8: note: 'strip_comments_grammar' declared here
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+main.cpp:88:5: error: no template named 'strip_comments_tokens'; did you mean 'strip_comments_grammar'?
+    strip_comments_tokens<lexer_type> strip_comments;           // Our lexer
+    ^~~~~~~~~~~~~~~~~~~~~
+    strip_comments_grammar
+main.cpp:56:8: note: 'strip_comments_grammar' declared here
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+main.cpp:88:39: error: no matching constructor for initialization of 'strip_comments_grammar<lexer_type>'
+    strip_comments_tokens<lexer_type> strip_comments;           // Our lexer
+                                      ^
+main.cpp:59:5: note: candidate constructor template not viable: requires single argument 'tok', but no arguments were provided
+    strip_comments_grammar(TokenDef const& tok)
+    ^
+main.cpp:56:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+12 errors generated.

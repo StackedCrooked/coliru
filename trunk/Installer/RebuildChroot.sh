@@ -23,7 +23,8 @@ mount_dir_into_chroot() {
 }
 
 archive="$(echo $(dirname $0)/../Archive)"
-mount_dir_into_chroot ${archive} /usr /bin /var /lib /lib64 /etc/alternatives
+caches="$(echo $(dirname $0)/../Caches)"
+mount_dir_into_chroot  ${caches} ${archive} /usr /bin /var /lib /lib64 /etc/alternatives
 
 
 # Add /dev/null and /dev/random to the chroot
