@@ -44,7 +44,7 @@
         };
 
         var sourceCode = localStorage.getItem("src");
-        app.defaultCmd = "set -x\ng++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+        app.defaultCmd = "set -x ; g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
         app.defaultSrc = "#include <iostream>\n#include <string>\n#include <vector>\n\ntemplate<typename T>\nstd::ostream& operator<<(std::ostream& os, const std::vector<T>& vec)\n{\n    for (auto& el : vec)\n    {\n        os << el << ' ';\n    }\n    return os;\n}\n\nint main()\n{\n    std::vector<std::string> words = {\n        \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\"\n    };\n    std::cout << words << std::endl;\n}\n";
 
         app.elements.editor.getSession().setValue(localStorage.getItem("src") || app.defaultSrc);
@@ -53,7 +53,7 @@
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
         app.elements.editor.commands.addCommand({ name: 'Build and run', bindKey: {win: 'Ctrl-B',  mac: 'Command-B'}, exec: function(editor) { app.compileNow(); }, readOnly: true });
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
-        app.elements.cmd.value = localStorage.getItem("cmd") || app.defaultCmd;
+        app.elements.cmd.value = localStorage.getItem("cmd").replace('g++ ', 'g++-4.8 ') || app.defaultCmd;
 
         app.resetCommand = function() {
             app.elements.cmd.value = app.defaultCmd;
@@ -88,6 +88,7 @@
 
         app.send = function (location, f) {
             app.enableUI(false);
+            app.elements.cmd.value = app.elements.cmd.value.trim();
             localStorage.setItem("src", app.elements.editor.getValue());
             localStorage.setItem("cmd", app.elements.cmd.value);
             var httpRequest = new XMLHttpRequest();

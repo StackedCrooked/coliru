@@ -1,11 +1,12 @@
 #!/bin/bash
+source coliru_env.source
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR is not set." 1>&2 ; exit 1 ; }
 [ "$INPUT_FILES_DIR" == "." ] && { echo "INPUT_FILES_DIR is jsut a dot." 1>&2 ; exit 1 ; }
 
 export INPUT_FILES_DIR
 
 # Make the archive id
-ID="$(md5sum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f 1)"
+ID="$(./hash.sh)"
 
 # This is the only return 
 echo "${ID}"

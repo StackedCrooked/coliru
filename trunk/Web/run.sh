@@ -9,5 +9,5 @@ source coliru_env.source
 ./repair-permissions.sh
 setsid sudo -u webserver -E bash -c "
     exec > >(logger -t $0) 2>&1 
-    ruby webserver-sinatra.rb -o stacked-crooked.com
+    ruby webserver-sinatra.rb -o ${COLIRU_URL}
     "
