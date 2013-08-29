@@ -4,17 +4,13 @@ source coliru_env.source
 
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR not set." 1>&2 ; exit 1 ; }
 
-if [ -f "${INPUT_FILES_DIR}/main.cpp" ] ; then
-    ARCHIVE_ID="$(md5sum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f 1)-$(md5sum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f 1)"
-else
-    ARCHIVE_ID="$(md5sum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f 1)"
-fi
+ID="$(./hash.sh)"
 
 # 
 # Check archive for previous result.
 #
-if [ -f "${COLIRU_ARCHIVE}/${ARCHIVE_ID}/output" ] ; then
-    cat "${COLIRU_ARCHIVE}/${ARCHIVE_ID}/output"
+if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
+    cat "${COLIRU_ARCHIVE}/${ID}/output"
     exit
 fi
 

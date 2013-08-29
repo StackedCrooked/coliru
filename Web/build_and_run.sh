@@ -1,4 +1,5 @@
 #!/bin/bash
+source coliru_env.source
 ulimit -f 10000
 
 PROCESS_COUNT=16
