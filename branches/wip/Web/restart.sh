@@ -1,5 +1,6 @@
 #!/bin/bash
 #set -x
+source coliru_env.source
 if [ "$(whoami)" != "root" ] ; then
     echo "$(basename $0) must be run with root permissions." 1>&2
     exit 1
@@ -15,14 +16,4 @@ if [ "$COMMITTER_PGID" == "" ] ; then
     echo "Starting committer.sh"
     ./committer.sh & disown
 fi
-
-{ 
-    while true ; do 
-        [ "$(ps -eocomm,args | grep '^ruby' | grep 'ruby webserver-sinatra' | wc -l)" == "1" ] || {
-            echo "Restarting webserver."
-            echo ./restart.sh
-        }
-        sleep 60
-    done
-} & disown
 
