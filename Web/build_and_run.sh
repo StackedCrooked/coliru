@@ -26,6 +26,7 @@ echo "ulimit -u ${PROCESS_COUNT}" >> ${CMD_FILE}
 echo "ulimit -t ${TIMEOUT}" >> ${CMD_FILE}
 echo "ulimit -f 4000" >> ${CMD_FILE}
 echo 'cd $(dirname $0)' >> ${CMD_FILE}
+echo 'export HOME=/tmp' >> ${CMD_FILE}
 echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ${CMD_FILE}
 cat ${CMD_FILE}_ >> ${CMD_FILE}
 rm ${CMD_FILE}_
