@@ -53,7 +53,7 @@
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
         app.elements.editor.commands.addCommand({ name: 'Build and run', bindKey: {win: 'Ctrl-B',  mac: 'Command-B'}, exec: function(editor) { app.compileNow(); }, readOnly: true });
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
-        app.elements.cmd.value = localStorage.getItem("cmd") || app.defaultCmd;
+        app.elements.cmd.value = localStorage.getItem("cmd").replace('g++ ', 'g++-4.8 ') || app.defaultCmd;
 
         app.resetCommand = function() {
             app.elements.cmd.value = app.defaultCmd;

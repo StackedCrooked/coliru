@@ -4,6 +4,6 @@
 sum="$(shasum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f1)"
 [ -f main.cpp ] && {
     sum="$(shasum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f1)${sum}"
-    sum="$(echo ${sum} | shasum | cut -d ' ' -f1 | cut -c -10)"
+    sum="$(echo ${sum} | shasum | cut -d ' ' -f1)"
 }
-echo "${sum}"
+echo ${sum} | cut -c -10
