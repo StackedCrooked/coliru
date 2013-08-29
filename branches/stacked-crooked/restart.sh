@@ -1,1 +1,0 @@
-nohup ./_restart.sh &
