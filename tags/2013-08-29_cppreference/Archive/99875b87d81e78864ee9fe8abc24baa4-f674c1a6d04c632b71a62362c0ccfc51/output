@@ -1,0 +1,18 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:49:25: error: no matching function for call to ‘C<int>::C(C<int>*&)’
+     p[1]=new C<int>(p[0]);
+                         ^
+main.cpp:49:25: note: candidates are:
+main.cpp:16:5: note: C<T>::C(const C<T>&) [with T = int]
+     C(const C& c) {this->x=c.x;this->z=c.z;C<T>::msg("Class C copied object created!");};
+     ^
+main.cpp:16:5: note:   no known conversion for argument 1 from ‘C<int>*’ to ‘const C<int>&’
+main.cpp:15:5: note: C<T>::C(const T&) [with T = int] <near match>
+     C(const T& x):x(x),z(x) {C<T>::msg("Class C initialized object created!");};
+     ^
+main.cpp:15:5: note:   no known conversion for argument 1 from ‘C<int>*’ to ‘const int&’
+main.cpp:14:5: note: C<T>::C() [with T = int]
+     C():C(1) {C<T>::msg("Class C default object created!");};
+     ^
+main.cpp:14:5: note:   candidate expects 0 arguments, 1 provided

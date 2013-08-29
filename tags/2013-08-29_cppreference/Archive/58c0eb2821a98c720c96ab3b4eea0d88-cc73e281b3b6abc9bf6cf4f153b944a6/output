@@ -1,0 +1,94 @@
++ g++ -std=c++11 main.cpp -O3
+main.cpp: In function ‘std::string cannonical(std::string)’:
+main.cpp:9:5: error: expected ‘;’ before ‘return’
+     return input;
+     ^
+main.cpp: In function ‘int main()’:
+main.cpp:30:5: error: ‘unordered_set’ is not a member of ‘std’
+     std::unordered_set<std::string, std::vector<std::string>> anagrams;
+     ^
+main.cpp:30:35: error: expected primary-expression before ‘,’ token
+     std::unordered_set<std::string, std::vector<std::string>> anagrams;
+                                   ^
+main.cpp:30:60: error: expected primary-expression before ‘>’ token
+     std::unordered_set<std::string, std::vector<std::string>> anagrams;
+                                                            ^
+main.cpp:30:63: error: ‘anagrams’ was not declared in this scope
+     std::unordered_set<std::string, std::vector<std::string>> anagrams;
+                                                               ^
+main.cpp:47:28: error: unable to deduce ‘auto&&’ from ‘anagrams’
+     for(const auto& pair : anagrams) {
+                            ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:5:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of ‘void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’:
+/usr/include/c++/4.8/bits/stl_algo.h:2235:62:   required from ‘void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:5476:47:   required from ‘void std::sort(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+main.cpp:8:41:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:2166:17: error: assignment of read-only location ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const char*, std::basic_string<char> >()’
+        *__first = _GLIBCXX_MOVE(__val);
+                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algo.h:61:0,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:5:
+/usr/include/c++/4.8/bits/stl_heap.h: In instantiation of ‘void std::__pop_heap(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’:
+/usr/include/c++/4.8/bits/stl_algo.h:1960:42:   required from ‘void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:5322:51:   required from ‘void std::partial_sort(_RAIter, _RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2333:60:   required from ‘void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _Size = long int]’
+/usr/include/c++/4.8/bits/stl_algo.h:5475:36:   required from ‘void std::sort(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+main.cpp:8:41:   required from here
+/usr/include/c++/4.8/bits/stl_heap.h:262:17: error: assignment of read-only location ‘__result.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const char*, std::basic_string<char> >()’
+       *__result = _GLIBCXX_MOVE(*__first);
+                 ^
+/usr/include/c++/4.8/bits/stl_heap.h: In instantiation of ‘void std::__adjust_heap(_RandomAccessIterator, _Distance, _Distance, _Tp) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _Distance = long int; _Tp = char]’:
+/usr/include/c++/4.8/bits/stl_heap.h:407:71:   required from ‘void std::make_heap(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:1957:39:   required from ‘void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:5322:51:   required from ‘void std::partial_sort(_RAIter, _RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2333:60:   required from ‘void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _Size = long int]’
+/usr/include/c++/4.8/bits/stl_algo.h:5475:36:   required from ‘void std::sort(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+main.cpp:8:41:   required from here
+/usr/include/c++/4.8/bits/stl_heap.h:237:29: error: assignment of read-only location ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >((*(const difference_type*)(& __holeIndex))).__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const char*, std::basic_string<char> >()’
+    *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __secondChild));
+                             ^
+/usr/include/c++/4.8/bits/stl_heap.h:243:29: error: assignment of read-only location ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >((*(const difference_type*)(& __holeIndex))).__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const char*, std::basic_string<char> >()’
+    *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first
+                             ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h: In instantiation of ‘void std::swap(_Tp&, _Tp&) [with _Tp = const char]’:
+/usr/include/c++/4.8/bits/stl_algobase.h:147:22:   required from ‘void std::iter_swap(_ForwardIterator1, _ForwardIterator2) [with _ForwardIterator1 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _ForwardIterator2 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:87:29:   required from ‘void std::__move_median_first(_Iterator, _Iterator, _Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2306:60:   required from ‘_RandomAccessIterator std::__unguarded_partition_pivot(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2338:54:   required from ‘void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _Size = long int]’
+/usr/include/c++/4.8/bits/stl_algo.h:5475:36:   required from ‘void std::sort(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+main.cpp:8:41:   required from here
+/usr/include/c++/4.8/bits/move.h:176:11: error: assignment of read-only reference ‘__a’
+       __a = _GLIBCXX_MOVE(__b);
+           ^
+/usr/include/c++/4.8/bits/move.h:177:11: error: assignment of read-only reference ‘__b’
+       __b = _GLIBCXX_MOVE(__tmp);
+           ^
+In file included from /usr/include/c++/4.8/bits/char_traits.h:39:0,
+                 from /usr/include/c++/4.8/string:40,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algobase.h: In instantiation of ‘_BI2 std::__copy_move_backward_a(_BI1, _BI1, _BI2) [with bool _IsMove = true; _BI1 = const char*; _BI2 = const char*]’:
+/usr/include/c++/4.8/bits/stl_algobase.h:596:33:   required from ‘_BI2 std::__copy_move_backward_a2(_BI1, _BI1, _BI2) [with bool _IsMove = true; _BI1 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _BI2 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algobase.h:667:15:   required from ‘_BI2 std::move_backward(_BI1, _BI1, _BI2) [with _BI1 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >; _BI2 = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2165:8:   required from ‘void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:2235:62:   required from ‘void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+/usr/include/c++/4.8/bits/stl_algo.h:5476:47:   required from ‘void std::sort(_RAIter, _RAIter) [with _RAIter = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]’
+main.cpp:8:41:   required from here
+/usr/include/c++/4.8/bits/stl_algobase.h:587:18: error: no matching function for call to ‘std::__copy_move_backward<true, true, std::random_access_iterator_tag>::__copy_move_b(const char*&, const char*&, const char*&)’
+          __result);
+                  ^
+/usr/include/c++/4.8/bits/stl_algobase.h:587:18: note: candidate is:
+/usr/include/c++/4.8/bits/stl_algobase.h:563:9: note: template<class _Tp> static _Tp* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(const _Tp*, const _Tp*, _Tp*) [with _Tp = _Tp; bool _IsMove = true]
+         __copy_move_b(const _Tp* __first, const _Tp* __last, _Tp* __result)
+         ^
+/usr/include/c++/4.8/bits/stl_algobase.h:563:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/stl_algobase.h:587:18: note:   deduced conflicting types for parameter ‘_Tp’ (‘char’ and ‘const char’)
+          __result);
+                  ^

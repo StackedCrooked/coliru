@@ -1,0 +1,13 @@
+main.cpp: In instantiation of ‘static void TestRunner<T>::dispatch() [with C1 = std::list; Cs = {std::deque}; T = {int, unsigned int, double}]’:
+main.cpp:73:17:   required from ‘static void TestRunner<T>::dispatch() [with C1 = std::vector; Cs = {std::list, std::deque}; T = {int, unsigned int, double}]’
+main.cpp:85:88:   required from here
+main.cpp:73:17: error: call of overloaded ‘dispatch()’ is ambiguous
+         dispatch<Cs...>();
+                 ^
+main.cpp:73:17: note: candidates are:
+main.cpp:70:21: note: static void TestRunner<T>::dispatch() [with C1 = std::deque; Cs = {}; T = {int, unsigned int, double}]
+         static void dispatch()
+                     ^
+main.cpp:77:21: note: static void TestRunner<T>::dispatch() [with C = std::deque; T = {int, unsigned int, double}]
+         static void dispatch()
+                     ^

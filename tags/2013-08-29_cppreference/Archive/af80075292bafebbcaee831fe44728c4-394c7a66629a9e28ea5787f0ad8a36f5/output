@@ -1,0 +1,109 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+/////////////////////////////////////////////////////////
+
+Expression parser...
+
+/////////////////////////////////////////////////////////
+
+Type an expression...or [q or Q] to quit
+
+<expression>
+  <try>2^(6/2)^4+1</try>
+  <term>
+    <try>2^(6/2)^4+1</try>
+    <factor>
+      <try>2^(6/2)^4+1</try>
+      <expo>
+        <try>2^(6/2)^4+1</try>
+push 2
+        <success>^(6/2)^4+1</success>
+        <attributes>[]</attributes>
+      </expo>
+      <factor>
+        <try>(6/2)^4+1</try>
+        <expo>
+          <try>(6/2)^4+1</try>
+          <expression>
+            <try>6/2)^4+1</try>
+            <term>
+              <try>6/2)^4+1</try>
+              <factor>
+                <try>6/2)^4+1</try>
+                <expo>
+                  <try>6/2)^4+1</try>
+push 6
+                  <success>/2)^4+1</success>
+                  <attributes>[]</attributes>
+                </expo>
+                <success>/2)^4+1</success>
+                <attributes>[]</attributes>
+              </factor>
+              <factor>
+                <try>2)^4+1</try>
+                <expo>
+                  <try>2)^4+1</try>
+push 2
+                  <success>)^4+1</success>
+                  <attributes>[]</attributes>
+                </expo>
+                <success>)^4+1</success>
+                <attributes>[]</attributes>
+              </factor>
+divide
+              <success>)^4+1</success>
+              <attributes>[]</attributes>
+            </term>
+            <success>)^4+1</success>
+            <attributes>[]</attributes>
+          </expression>
+          <success>^4+1</success>
+          <attributes>[]</attributes>
+        </expo>
+        <factor>
+          <try>4+1</try>
+          <expo>
+            <try>4+1</try>
+push 4
+            <success>+1</success>
+            <attributes>[]</attributes>
+          </expo>
+          <success>+1</success>
+          <attributes>[]</attributes>
+        </factor>
+exp
+        <success>+1</success>
+        <attributes>[]</attributes>
+      </factor>
+exp
+      <success>+1</success>
+      <attributes>[]</attributes>
+    </factor>
+    <success>+1</success>
+    <attributes>[]</attributes>
+  </term>
+  <term>
+    <try>1</try>
+    <factor>
+      <try>1</try>
+      <expo>
+        <try>1</try>
+push 1
+        <success></success>
+        <attributes>[]</attributes>
+      </expo>
+      <success></success>
+      <attributes>[]</attributes>
+    </factor>
+    <success></success>
+    <attributes>[]</attributes>
+  </term>
+add
+  <success></success>
+  <attributes>[]</attributes>
+</expression>
+-------------------------
+Parsing succeeded
+-------------------------
+Bye... :-) 
+

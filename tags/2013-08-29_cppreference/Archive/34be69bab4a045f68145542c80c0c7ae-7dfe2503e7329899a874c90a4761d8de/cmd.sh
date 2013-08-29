@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -Wall -pedantic -O3 main.cpp -S -masm=intel -o - | c++filt

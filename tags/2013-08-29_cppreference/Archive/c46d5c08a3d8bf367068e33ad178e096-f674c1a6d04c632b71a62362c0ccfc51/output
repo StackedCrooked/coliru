@@ -1,0 +1,53 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:42:14: error: expected primary-expression before ‘auto’
+     decltype(auto) operator()(Args&&... args) &
+              ^
+main.cpp:42:14: error: expected ‘)’ before ‘auto’
+main.cpp:42:5: error: expected unqualified-id before ‘decltype’
+     decltype(auto) operator()(Args&&... args) &
+     ^
+main.cpp:46:14: error: expected primary-expression before ‘auto’
+     decltype(auto) operator()(Args&&... args) const&
+              ^
+main.cpp:46:14: error: expected ‘)’ before ‘auto’
+main.cpp:46:5: error: expected unqualified-id before ‘decltype’
+     decltype(auto) operator()(Args&&... args) const&
+     ^
+main.cpp:50:14: error: expected primary-expression before ‘auto’
+     decltype(auto) operator()(Args&&... args) &&
+              ^
+main.cpp:50:14: error: expected ‘)’ before ‘auto’
+main.cpp:50:5: error: expected unqualified-id before ‘decltype’
+     decltype(auto) operator()(Args&&... args) &&
+     ^
+main.cpp: In function ‘int main()’:
+main.cpp:132:23: error: parameter declared ‘auto’
+             [](auto&& selves, int n) -> bool
+                       ^
+main.cpp: In lambda function:
+main.cpp:134:36: error: ‘selves’ was not declared in this scope
+                 auto& odd = get<1>(selves);
+                                    ^
+main.cpp: In function ‘int main()’:
+main.cpp:138:23: error: parameter declared ‘auto’
+             [](auto&& selves, int n) -> bool
+                       ^
+main.cpp: In lambda function:
+main.cpp:140:37: error: ‘selves’ was not declared in this scope
+                 auto& even = get<0>(selves);
+                                     ^
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:107:
+main.cpp: In function ‘int main()’:
+main.cpp:148:20: error: no match for call to ‘(ns::fix_holder<ns::fix_type<integer_sequence<int, 0, 1>, main()::__lambda0, main()::__lambda1>, 0, main()::__lambda0>) (int)’
+     assert( even(42) );
+                    ^
+main.cpp:149:21: error: no match for call to ‘(ns::fix_holder<ns::fix_type<integer_sequence<int, 0, 1>, main()::__lambda0, main()::__lambda1>, 0, main()::__lambda0>) (int)’
+     assert( !even(43) );
+                     ^
+main.cpp:150:20: error: no match for call to ‘(ns::fix_holder<ns::fix_type<integer_sequence<int, 0, 1>, main()::__lambda0, main()::__lambda1>, 1, main()::__lambda1>) (int)’
+     assert( !odd(42) );
+                    ^
+main.cpp:151:19: error: no match for call to ‘(ns::fix_holder<ns::fix_type<integer_sequence<int, 0, 1>, main()::__lambda0, main()::__lambda1>, 1, main()::__lambda1>) (int)’
+     assert( odd(43) );
+                   ^

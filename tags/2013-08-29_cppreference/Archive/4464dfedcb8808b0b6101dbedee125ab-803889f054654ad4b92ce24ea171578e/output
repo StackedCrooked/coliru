@@ -1,0 +1,16 @@
++ g++ -O2 -Wall -pedantic -pthread -std=c++11 main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:16:26: error: no matching function for call to ‘Node<std::basic_string<char> >::Node(std::string&)’
+     Node<std::string> x(i); // ok
+                          ^
+main.cpp:16:26: note: candidates are:
+main.cpp:7:5: note: Node<T>::Node(T&&) [with T = std::basic_string<char>] <near match>
+     Node(T &&value)
+     ^
+main.cpp:7:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘std::basic_string<char>&&’
+main.cpp:4:8: note: Node<std::basic_string<char> >::Node(const Node<std::basic_string<char> >&)
+ struct Node
+        ^
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const Node<std::basic_string<char> >&’
+main.cpp:4:8: note: Node<std::basic_string<char> >::Node(Node<std::basic_string<char> >&&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘Node<std::basic_string<char> >&&’

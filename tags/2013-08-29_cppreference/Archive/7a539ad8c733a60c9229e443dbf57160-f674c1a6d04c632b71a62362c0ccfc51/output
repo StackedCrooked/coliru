@@ -1,0 +1,15 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘const T& get(const Variant<Args ...>&) [with T = int; Args = {char, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’:
+main.cpp:149:30:   required from ‘std::ostream& operator<<(std::ostream&, const Variant<T, U, V>&) [with T = char; U = int; V = std::basic_string<char>; std::ostream = std::basic_ostream<char>]’
+main.cpp:160:53:   required from here
+main.cpp:115:46: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     return *reinterpret_cast<const T*>(v.data);
+                                              ^
+main.cpp: In instantiation of ‘const T& get(const Variant<Args ...>&) [with T = std::basic_string<char>; Args = {char, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]’:
+main.cpp:153:30:   required from ‘std::ostream& operator<<(std::ostream&, const Variant<T, U, V>&) [with T = char; U = int; V = std::basic_string<char>; std::ostream = std::basic_ostream<char>]’
+main.cpp:160:53:   required from here
+main.cpp:115:46: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
++ ./a.out
+c
+42
+Hello World!

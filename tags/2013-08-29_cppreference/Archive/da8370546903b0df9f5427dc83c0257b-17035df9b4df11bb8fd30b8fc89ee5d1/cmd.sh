@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -pthread main.cpp -lboost_program_options && ./a.out -i 127.0.0.1 -p 5000

@@ -1,0 +1,45 @@
++ g++ -std=c++11 -pthread main.cpp
+main.cpp:7:14: error: ‘StringTree’ was not declared in this scope
+  std::vector<StringTree*> children;
+              ^
+main.cpp:7:25: error: template argument 1 is invalid
+  std::vector<StringTree*> children;
+                         ^
+main.cpp:7:25: error: template argument 2 is invalid
+main.cpp:10:13: error: expected initializer before ‘to_json’
+ std::string to_json(const Node& tree) {
+             ^
+main.cpp: In function ‘int main()’:
+main.cpp:38:2: error: expected ‘;’ before ‘e’
+  e.children.push_back(&f);
+  ^
+main.cpp:39:13: error: request for member ‘push_back’ in ‘e.Node::children’, which is of non-class type ‘int’
+  e.children.push_back(&g);
+             ^
+main.cpp:44:2: error: expected ‘;’ before ‘Node’
+  Node d;
+  ^
+main.cpp:45:2: error: ‘d’ was not declared in this scope
+  d.data = "d"
+  ^
+main.cpp:46:2: error: expected ‘;’ before ‘d’
+  d.children.push_back(&e);
+  ^
+main.cpp:50:2: error: expected ‘;’ before ‘a’
+  a.children.push_back(&b);
+  ^
+main.cpp:51:13: error: request for member ‘push_back’ in ‘a.Node::children’, which is of non-class type ‘int’
+  a.children.push_back(&c);
+             ^
+main.cpp:51:24: error: ‘c’ was not declared in this scope
+  a.children.push_back(&c);
+                        ^
+main.cpp:55:2: error: expected ‘;’ before ‘r’
+  r.children.push_back(&a);
+  ^
+main.cpp:56:13: error: request for member ‘push_back’ in ‘r.Node::children’, which is of non-class type ‘int’
+  r.children.push_back(&d);
+             ^
+main.cpp:58:24: error: ‘to_json’ was not declared in this scope
+  std::cout << to_json(r) << "\n=======================";
+                        ^

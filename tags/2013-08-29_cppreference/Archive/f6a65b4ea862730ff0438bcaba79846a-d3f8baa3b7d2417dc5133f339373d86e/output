@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'Locker<T> lock(Protected<T>&) [with T = Foo]':
+main.cpp:76:17:   required from here
+main.cpp:42:5: error: 'Locker< <template-parameter-1-1> >::Locker(const Locker< <template-parameter-1-1> >&) [with T = Foo]' is private
+     Locker(const Locker<T>&) = delete;
+     ^
+main.cpp:53:23: error: within this context
+     return Locker<T>(p);
+                       ^
+main.cpp:53:23: error: use of deleted function 'Locker< <template-parameter-1-1> >::Locker(const Locker< <template-parameter-1-1> >&) [with T = Foo]'
+main.cpp:42:5: error: declared here
+     Locker(const Locker<T>&) = delete;
+     ^

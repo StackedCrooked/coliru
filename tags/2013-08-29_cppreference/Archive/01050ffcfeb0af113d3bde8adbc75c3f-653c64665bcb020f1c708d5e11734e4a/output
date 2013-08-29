@@ -1,0 +1,24 @@
++ g++ -O3 -pthread main.cpp
+main.cpp:10:33: error: expected '>' before 'Call'
+ template<class A, class B, B(A) Call>
+                                 ^
+main.cpp:11:1: error: 'F' does not name a type
+ F<B> fmap(Call call, F<A> fa){ F<B> fb; for(auto&& a : fa){ fb.push_back(call(a)) } return fb; }
+ ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:29:4: error: 'F' was not declared in this scope
+    F<A,callable, callable>(cl, 
+    ^
+main.cpp:29:7: error: expected primary-expression before ',' token
+    F<A,callable, callable>(cl, 
+       ^
+main.cpp:29:16: error: expected primary-expression before ',' token
+    F<A,callable, callable>(cl, 
+                ^
+main.cpp:29:26: error: expected primary-expression before '>' token
+    F<A,callable, callable>(cl, 
+                          ^
+main.cpp:33:4: error: expected primary-expression before 'return'
+    return 0;
+    ^
+main.cpp:33:4: error: expected ')' before 'return'

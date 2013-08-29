@@ -1,0 +1,10 @@
+main.cpp:10:27: error: no matching function for call to 'select'
+    using type = decltype(select<Int<T>(), Int<Ts>()...>());
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:18:23: note: in instantiation of template class 'back<int, bool, float>' requested here
+static_assert(is_same<back<int, bool, float>::type, float(*)()>::value, "...");
+                      ^
+main.cpp:8:15: note: candidate template ignored: invalid explicitly-specified argument for 1st template parameter
+    static U* select(){}
+              ^
+1 error generated.

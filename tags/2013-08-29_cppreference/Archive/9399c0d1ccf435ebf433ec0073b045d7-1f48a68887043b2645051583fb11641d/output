@@ -1,0 +1,27 @@
+main.cpp:11:13: error: 'std::string time' redeclared as different kind of symbol
+ std::string time;
+             ^
+In file included from /usr/include/pthread.h:26:0,
+                 from /usr/local/include/c++/4.8.0/x86_64-unknown-linux-gnu/bits/gthr-default.h:35,
+                 from /usr/local/include/c++/4.8.0/x86_64-unknown-linux-gnu/bits/gthr.h:148,
+                 from /usr/local/include/c++/4.8.0/ext/atomicity.h:33,
+                 from /usr/local/include/c++/4.8.0/bits/ios_base.h:39,
+                 from /usr/local/include/c++/4.8.0/ios:42,
+                 from /usr/local/include/c++/4.8.0/ostream:38,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/include/time.h:186:15: error: previous declaration of 'time_t time(time_t*)'
+ extern time_t time (time_t *__timer) __THROW;
+               ^
+main.cpp:14:26: error: variable 'std::stringstream ss' has initializer but incomplete type
+ std::stringstream ss(time);
+                          ^
+main.cpp:16:1: error: expected unqualified-id before 'while'
+ while(std::getline(ss, single, ':'))
+ ^
+main.cpp:22:17: error: expected constructor, destructor, or type conversion before '(' token
+   std::transform(split.begin(),
+                 ^
+main.cpp:25:78: error: expected unqualified-id before ')' token
+      [](std::string str) -> int { return !str.empty() ? std::stoi(str) : 0; });
+                                                                              ^

@@ -1,0 +1,153 @@
+GENERAL HTTP SERVER
+===================
+- Goal: a simple file-system based HTTP server.
+- URLs are mapped to the file system.
+  	GET  abc matches abc.GET
+  	POST abc matches abc.POST
+  	PUT  abc matches abc.PUT
+
+- Symbolic links make life easy:
+  	ln -s resouces/icons/favicon.ico web/favicon.GET
+     
+- POST
+  	requires $TARGET to be executable
+    dumps form data to $TARGET.form-data prior to invoking $TARGET
+  	runs $TARGET and send std-out to client
+     
+- GET
+  	runs $TARGET if executable
+  	returns $TARGET contents if not executable
+     
+- URL parameters
+  	are passed as environment variables
+  	  	id=123&fmt=json -> URL_ID=123 URL_FMT=json
+          
+- HTTP headers
+  	are passed as environment variables
+  	  	- prepend with HEADER_
+  	  	- change name to upper case
+  	  	- replace dashes with underscores
+  	"Accept: text/plain" -> HEADER_ACCEPT="text/plain"
+
+
+COLIRU CODE PASTES
+==================
+- Files must be stored.
+- Retrieval must be fast.
+- Avoid to have thousands of files or directories in one flat directory.
+	- Maybe use Year/Month/Day structure.
+- Hit count.
+- Search code paste by tag or list by most recent.
+- Caching: MD5(file_contents)/MD5(build_command)
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/main.cpp: source code.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/build_command: build command
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/output: contains output from standard output.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/error: contains output from standard error.
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/tags: one tag per line
+- Year/Month/Day/MD5(file_contents)/MD5(build_command)/hitcount: one timestamp per line for each hit
+- Save std-out and std-err in separate files and prepend each message with time-stamp so that they can be interleaved afterwards?
+- Separation storage and source code.
+- Design a general REST-based archiving service?
+- Use github API? Google drive API? Ubuntu one API? Etc..?
+
+
+TAGS
+====
+- User can add tags when sharing a code paste.
+- Tags are stored in a global dir: tags/$TAGNAME
+- tags/constexpr
+- Tags have their own file:
+    $ ls tags
+  	constexpr
+    test
+    friday-code
+
+- Tag file contains paste ids:
+    $ cat tags/constexpr
+    dda0a6e4968619c0091baac944a8f5b4
+    2882aad1d39c2be95d37b0e3227a2f43
+    4633d518288e35624d6f150e16b1c044
+    abfbad24c369a8ab018ca7f5e1a10937
+    bf68bbd38997006ab03d591a378e412c
+
+- Each paste id has a tag file:
+    $ cat archive/dda0a6e4968619c0091baac944a8f5b4/tags
+    StackedCrooked
+    friday-code
+    constexpr
+
+
+
+
+Foundation
+----------
+- Escaping.
+- Concurrent requests.
+- Command line.
+- Bash.
+
+Todo
+----
+- Definitely get grsec.
+- Add a "Clone" button to the archive page.
+- Make the archive view less crappy. Replace the read-only editor and textarea with "plain html".
+- Compiler options.
+- Author name, notes.
+- Clear cache button.
+- Replace "Compile automatically" with "Compile now" button.
+
+Bookmarklet
+-----------
+javascript:(function(){var%20e={};e.getOffset=function(e,t){return(e-t)/2};e.getClientPos=function(e,t,n,r){return[getOffset(e,n),getOffset(t,r)]};e.getWindowWidth=function(){return%20document.documentElement.clientWidth};e.getWindowHeight=function(){return%20document.documentElement.clientHeight};e.getString=function(t,n){var%20r=e.getWindowWidth();var%20i=window.screenX+e.getOffset(r,t);var%20s=window.screenY+e.getOffset(e.getWindowHeight(),n);return"scrollbars=0,resizable=1,target=_blank,left="+i+",top="+s+",width="+t+",height="+n};var%20t=e.getString(600,600);window.open("http://www.stacked-crooked.com","Coliru",t);})();
+
+
+Brainstorm
+----------
+- Browse archive
+- Files have ancestry. Clone function, using file system, etc...
+- Build command modifiable.
+- Compilation command out of chroot.
+- Compiler modes:
+    . compile only, e.g: g++ -fsyntax-only ${OPTIONS} main.cpp
+    . compile and link, e..g: g++ ${OPTIONS} main.cp
+    . compile, link and run
+    . custom build command, e.g: g++ -o pp.out -E main.cpp && cat pp.out | tail -n 50
+        . requires full of both the compiler and application
+
+- "Installer" to install the application on your own computer
+    . better performance
+    . localhost:port
+    . basically deploying a prebuilt VM
+
+- Sharing options
+    . Require username for each snippit.
+    . '+1' or 'Like!' button
+    . Comments
+
+- UI design
+    v Try using frames like TBB docs
+    v Box layout
+
+
+
+
+
+General
+-------
+9 Bookmarking, sharing files.
+9 Warning options configurable.
+7 Allow std::thread.
+5 Multiple files
+4 Compiler errors should be clickable.
+4 Optionally disable auto-compile.
+4 Ctrl-Shift-B for recompile.
+4 Ctrl-S for saving
+v Server: Don't run subprocess as admin. OK:
+
+Notes
+-----
+To allow non-root to listen to port 80:
+    apt-get install libcap2-bin
+    setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.8
+    setcap 'cap_kill=+ep' /usr/bin/killall
+    setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot

@@ -1,0 +1,36 @@
+main.cpp:22:48: error: too many template arguments for class template 'iterator_range'
+void build_paren(boost::fusion::vector3<boost::iterator_range<std::string::iterator, char, boost::iterator_range<std::string::iterator>> vec)
+                                               ^                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/iostreams/detail/is_iterator_range.hpp:24:7: note: template is declared here
+class iterator_range;
+      ^
+main.cpp:28:1: error: expected ')'
+struct strip_comments_tokens : lex::lexer<Lexer>
+^
+main.cpp:22:17: note: to match this '('
+void build_paren(boost::fusion::vector3<boost::iterator_range<std::string::iterator, char, boost::iterator_range<std::string::iterator>> vec)
+                ^
+main.cpp:73:13: error: no template named 'strip_comments_tokens'; did you mean 'strip_comments_grammar'?
+    typedef strip_comments_tokens<lexer_type>::iterator_type iterator_type;
+            ^~~~~~~~~~~~~~~~~~~~~
+            strip_comments_grammar
+main.cpp:45:8: note: 'strip_comments_grammar' declared here
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+main.cpp:77:5: error: no template named 'strip_comments_tokens'; did you mean 'strip_comments_grammar'?
+    strip_comments_tokens<lexer_type> strip_comments;           // Our lexer
+    ^~~~~~~~~~~~~~~~~~~~~
+    strip_comments_grammar
+main.cpp:45:8: note: 'strip_comments_grammar' declared here
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+main.cpp:77:39: error: no matching constructor for initialization of 'strip_comments_grammar<lexer_type>'
+    strip_comments_tokens<lexer_type> strip_comments;           // Our lexer
+                                      ^
+main.cpp:48:5: note: candidate constructor template not viable: requires single argument 'tok', but no arguments were provided
+    strip_comments_grammar(TokenDef const& tok)
+    ^
+main.cpp:45:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+struct strip_comments_grammar : qi::grammar<Iterator>
+       ^
+5 errors generated.

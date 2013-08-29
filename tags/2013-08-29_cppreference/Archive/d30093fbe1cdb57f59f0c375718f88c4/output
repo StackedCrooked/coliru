@@ -1,0 +1,29 @@
+---------- Pushing data on vector ----------
+
+StringHolder(const char*) constructor, init string: charstr
+StringHolder (*MOVE*) Constructor called, now owning: charstr
+~StringHolder ~destructor~, string contents: 
+
+------ Now invoking initializer_list insertion ------
+
+StringHolder(const char*) constructor, init string: str1
+StringHolder(const char*) constructor, init string: str2
+StringHolder (*COPY*) Constructor called, made COPY of: str1
+StringHolder (*COPY*) Constructor called, made COPY of: str2
+~StringHolder ~destructor~, string contents: str2
+~StringHolder ~destructor~, string contents: str1
+
+------ Now invoking initializer_list proxy ------
+
+StringHolder(const char*) constructor, init string: str4
+StringHolder(const char*) constructor, init string: str5
+StringHolder(const char*) constructor, init string: str6
+
+---------- Vector Destruction looming ----------
+
+~StringHolder ~destructor~, string contents: charstr
+~StringHolder ~destructor~, string contents: str1
+~StringHolder ~destructor~, string contents: str2
+~StringHolder ~destructor~, string contents: str4
+~StringHolder ~destructor~, string contents: str5
+~StringHolder ~destructor~, string contents: str6

@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O3 main.cpp
+main.cpp:10:34: error: arithmetic on a pointer to void
+    auto bar(A a, B b, decltype(a+b)*) -> decltype(a+b)
+                                 ^~
+main.cpp:23:21: note: in instantiation of template class 'Eval<int, void *>' requested here
+    Eval<int,void*> eiv;
+                    ^
+1 error generated.

@@ -1,0 +1,13 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:40:13: error: no match for ‘operator+=’ (operand types are ‘C’ and ‘C’)
+     makeC() += c;
+             ^
+main.cpp:40:13: note: candidate is:
+main.cpp:8:8: note: C& C::operator+=(const C&) &
+     C& operator+=(const C& that)&
+        ^
+main.cpp:8:8: note:   no known conversion for implicit ‘this’ parameter from ‘C’ to ‘C&’
+main.cpp:41:18: error: ‘x’ was not declared in this scope
+     std::cout << x.i << std::endl;
+                  ^

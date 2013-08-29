@@ -1,0 +1,67 @@
++ clang++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.text
+	.globl	_Z5test1v
+	.align	16, 0x90
+	.type	_Z5test1v,@function
+_Z5test1v:                              # @_Z5test1v
+	.cfi_startproc
+# BB#0:
+	movl	$1, %eax
+	ret
+.Ltmp0:
+	.size	_Z5test1v, .Ltmp0-_Z5test1v
+	.cfi_endproc
+
+	.globl	_Z5test2v
+	.align	16, 0x90
+	.type	_Z5test2v,@function
+_Z5test2v:                              # @_Z5test2v
+	.cfi_startproc
+# BB#0:
+	movl	$2, %eax
+	ret
+.Ltmp1:
+	.size	_Z5test2v, .Ltmp1-_Z5test2v
+	.cfi_endproc
+
+	.globl	_Z5test3v
+	.align	16, 0x90
+	.type	_Z5test3v,@function
+_Z5test3v:                              # @_Z5test3v
+	.cfi_startproc
+# BB#0:
+	movl	$3, %eax
+	ret
+.Ltmp2:
+	.size	_Z5test3v, .Ltmp2-_Z5test3v
+	.cfi_endproc
+
+	.globl	_Z5test4v
+	.align	16, 0x90
+	.type	_Z5test4v,@function
+_Z5test4v:                              # @_Z5test4v
+	.cfi_startproc
+# BB#0:
+	movl	$4, %eax
+	ret
+.Ltmp3:
+	.size	_Z5test4v, .Ltmp3-_Z5test4v
+	.cfi_endproc
+
+	.globl	_Z8testloopi
+	.align	16, 0x90
+	.type	_Z8testloopi,@function
+_Z8testloopi:                           # @_Z8testloopi
+	.cfi_startproc
+# BB#0:                                 # %.lr.ph
+	xorl	%eax, %eax
+	testl	%edi, %edi
+	cmovnsl	%edi, %eax
+	ret
+.Ltmp4:
+	.size	_Z8testloopi, .Ltmp4-_Z8testloopi
+	.cfi_endproc
+
+
+	.section	".note.GNU-stack","",@progbits

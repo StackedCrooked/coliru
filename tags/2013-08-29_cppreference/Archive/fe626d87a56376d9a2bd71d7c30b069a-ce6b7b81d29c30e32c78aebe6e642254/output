@@ -1,0 +1,16 @@
+main.cpp:5:27: error: no viable conversion from 'int' to 'std::function<void ()>'
+    std::function<void()> f = 17;
+                          ^   ~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2210:7: note: candidate constructor not viable: no known conversion from 'int' to 'nullptr_t' for 1st argument
+      function(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2221:7: note: candidate constructor not viable: no known conversion from 'int' to 'const std::function<void ()> &' for 1st argument
+      function(const function& __x);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2230:7: note: candidate constructor not viable: no known conversion from 'int' to 'std::function<void ()> &&' for 1st argument
+      function(function&& __x) : _Function_base()
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2255:2: note: candidate template ignored: couldn't infer template argument ''
+        function(_Functor);
+        ^
+1 error generated.

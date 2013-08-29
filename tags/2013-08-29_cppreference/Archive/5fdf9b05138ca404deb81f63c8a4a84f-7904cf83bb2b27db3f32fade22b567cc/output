@@ -1,0 +1,13 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In constructor ‘C::C(int, int)’:
+main.cpp:8:12: warning: ‘C::b_’ will be initialized after [-Wreorder]
+     int a_,b_;
+            ^
+main.cpp:7:12: warning:   ‘int C::n [5]’ [-Wreorder]
+     int n[5];
+            ^
+main.cpp:6:5: warning:   when initialized here [-Wreorder]
+     C(int a = 1, int b = 2) : a_{a}, b_{b}, n{0,1,2,3,4} {};
+     ^
++ ./a.out
+1  2

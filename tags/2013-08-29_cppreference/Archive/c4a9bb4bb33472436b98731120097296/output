@@ -1,0 +1,26 @@
+main.cpp: In instantiation of ‘std::shared_ptr<_Tp> share(T&&) [with T = Point]’:
+main.cpp:28:53:   required from here
+main.cpp:22:49: error: no matching function for call to ‘forward(Point&)’
+main.cpp:22:49: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_pair.h:61:0,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/move.h:77:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&)
+/usr/include/c++/4.7/bits/move.h:77:5: note:   template argument deduction/substitution failed:
+main.cpp:22:49: note:   couldn't deduce template parameter ‘_Tp’
+In file included from /usr/include/c++/4.7/bits/stl_pair.h:61:0,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/move.h:88:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&&)
+/usr/include/c++/4.7/bits/move.h:88:5: note:   template argument deduction/substitution failed:
+main.cpp:22:49: note:   couldn't deduce template parameter ‘_Tp’
+main.cpp: In function ‘std::shared_ptr<_Tp> share(T&&) [with T = Point]’:
+main.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]

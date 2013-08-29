@@ -1,0 +1,24 @@
+main.cpp:5:9: warning: unused parameter ‘size’ [-Wunused-parameter]
+main.cpp:7:9: warning: unused parameter ‘other’ [-Wunused-parameter]
+main.cpp:10:15: warning: unused parameter ‘rhs’ [-Wunused-parameter]
+main.cpp: In instantiation of ‘std::size_t ConcatenationExpressionBase<Derived>::size() const [with Derived = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>; std::size_t = long unsigned int]’:
+main.cpp:67:5:   required from ‘std::ostream& operator<<(std::ostream&, const ConcatenationExpressionBase<LHS>&) [with T = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>; std::ostream = std::basic_ostream<char>]’
+main.cpp:72:58:   required from here
+main.cpp:17:49: error: no matching function for call to ‘ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>::ConcatResult(const ConcatenationExpressionBase<ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString> >* const)’
+main.cpp:17:49: note: candidates are:
+main.cpp:41:5: note: ConcatResult<LHS, RHS>::ConcatResult(const ConcatResult<LHS, RHS>&) [with LHS = ConcatResult<ConcatenateString, ConcatenateString>; RHS = ConcatenateString; ConcatResult<LHS, RHS> = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>]
+main.cpp:41:5: note:   no known conversion for argument 1 from ‘const ConcatenationExpressionBase<ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString> >* const’ to ‘const ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>&’
+main.cpp:39:5: note: ConcatResult<LHS, RHS>::ConcatResult(LHS, RHS) [with LHS = ConcatResult<ConcatenateString, ConcatenateString>; RHS = ConcatenateString]
+main.cpp:39:5: note:   candidate expects 2 arguments, 1 provided
+main.cpp: In instantiation of ‘void ConcatenationExpressionBase<Derived>::add_to_string(our_string&) const [with Derived = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>]’:
+main.cpp:68:5:   required from ‘std::ostream& operator<<(std::ostream&, const ConcatenationExpressionBase<LHS>&) [with T = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>; std::ostream = std::basic_ostream<char>]’
+main.cpp:72:58:   required from here
+main.cpp:20:64: error: no matching function for call to ‘ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>::ConcatResult(const ConcatenationExpressionBase<ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString> >* const)’
+main.cpp:20:64: note: candidates are:
+main.cpp:41:5: note: ConcatResult<LHS, RHS>::ConcatResult(const ConcatResult<LHS, RHS>&) [with LHS = ConcatResult<ConcatenateString, ConcatenateString>; RHS = ConcatenateString; ConcatResult<LHS, RHS> = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>]
+main.cpp:41:5: note:   no known conversion for argument 1 from ‘const ConcatenationExpressionBase<ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString> >* const’ to ‘const ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>&’
+main.cpp:39:5: note: ConcatResult<LHS, RHS>::ConcatResult(LHS, RHS) [with LHS = ConcatResult<ConcatenateString, ConcatenateString>; RHS = ConcatenateString]
+main.cpp:39:5: note:   candidate expects 2 arguments, 1 provided
+main.cpp:20:64: error: return-statement with a value, in function returning 'void' [-fpermissive]
+main.cpp: In member function ‘std::size_t ConcatenationExpressionBase<Derived>::size() const [with Derived = ConcatResult<ConcatResult<ConcatenateString, ConcatenateString>, ConcatenateString>; std::size_t = long unsigned int]’:
+main.cpp:18:5: warning: control reaches end of non-void function [-Wreturn-type]

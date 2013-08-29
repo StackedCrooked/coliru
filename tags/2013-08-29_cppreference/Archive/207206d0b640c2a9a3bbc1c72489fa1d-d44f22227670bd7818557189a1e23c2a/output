@@ -1,0 +1,71 @@
++ g++ -Wall -pedantic main.cpp
+main.cpp:7:50: error: default template arguments may not be used in function templates without -std=c++11 or -std=gnu++11
+ void Merge_Sort(It begin, It end, Cmp cmp = Cmp()) {
+                                                  ^
+main.cpp: In function ‘void Merge_Sort(It, It, Cmp)’:
+main.cpp:13:5: warning: ‘auto’ changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto pivot = std::next(begin, mid);
+     ^
+main.cpp:13:10: error: ‘pivot’ does not name a type
+     auto pivot = std::next(begin, mid);
+          ^
+main.cpp:15:23: error: ‘pivot’ was not declared in this scope
+     Merge_Sort(begin, pivot, cmp);
+                       ^
+main.cpp: In function ‘int main()’:
+main.cpp:24:22: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     std::vector<int> v { 1,3,7,-3,4,99,-13 };
+                      ^
+main.cpp:24:44: error: in C++98 ‘v’ must be initialized by constructor, not by ‘{...}’
+     std::vector<int> v { 1,3,7,-3,4,99,-13 };
+                                            ^
+main.cpp:24:44: error: no matching function for call to ‘std::vector<int>::vector(<brace-enclosed initializer list>)’
+main.cpp:24:44: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note: template<class _InputIterator> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note:   template argument deduction/substitution failed:
+main.cpp:24:44: note:   cannot convert ‘7’ (type ‘int’) to type ‘const allocator_type& {aka const std::allocator<int>&}’
+     std::vector<int> v { 1,3,7,-3,4,99,-13 };
+                                            ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = int; _Alloc = std::allocator<int>]
+       vector(const vector& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note:   candidate expects 1 argument, 7 provided
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int>]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note:   candidate expects 3 arguments, 7 provided
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int>]
+       vector(const allocator_type& __a)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note:   candidate expects 1 argument, 7 provided
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note: std::vector<_Tp, _Alloc>::vector() [with _Tp = int; _Alloc = std::allocator<int>]
+       vector()
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note:   candidate expects 0 arguments, 7 provided
+main.cpp:26:23: error: ‘begin’ was not declared in this scope
+     Merge_Sort(begin(v), end(v), std::greater<int>());
+                       ^
+main.cpp:26:31: error: ‘end’ was not declared in this scope
+     Merge_Sort(begin(v), end(v), std::greater<int>());
+                               ^
+main.cpp:28:9: warning: ‘auto’ changes meaning in C++11; please remove it [-Wc++0x-compat]
+     for(auto i : v)
+         ^
+main.cpp:28:14: error: ‘i’ does not name a type
+     for(auto i : v)
+              ^
+main.cpp:30:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^
+main.cpp:30:1: error: expected primary-expression before ‘}’ token
+main.cpp:30:1: error: expected ‘;’ before ‘}’ token
+main.cpp:30:1: error: expected primary-expression before ‘}’ token
+main.cpp:30:1: error: expected ‘)’ before ‘}’ token
+main.cpp:30:1: error: expected primary-expression before ‘}’ token
+main.cpp:30:1: error: expected ‘;’ before ‘}’ token

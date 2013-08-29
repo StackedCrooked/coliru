@@ -1,0 +1,20 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:7:8: error: no match for ‘operator=’ (operand types are ‘std::map<const int, int>’ and ‘std::map<int, int>’)
+     m1 = m2;
+        ^
+main.cpp:7:8: note: candidates are:
+In file included from /usr/include/c++/4.8/map:61:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_map.h:264:7: note: std::map<_Key, _Tp, _Compare, _Alloc>& std::map<_Key, _Tp, _Compare, _Alloc>::operator=(const std::map<_Key, _Tp, _Compare, _Alloc>&) [with _Key = const int; _Tp = int; _Compare = std::less<const int>; _Alloc = std::allocator<std::pair<const int, int> >]
+       operator=(const map& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:264:7: note:   no known conversion for argument 1 from ‘std::map<int, int>’ to ‘const std::map<const int, int>&’
+/usr/include/c++/4.8/bits/stl_map.h:279:7: note: std::map<_Key, _Tp, _Compare, _Alloc>& std::map<_Key, _Tp, _Compare, _Alloc>::operator=(std::map<_Key, _Tp, _Compare, _Alloc>&&) [with _Key = const int; _Tp = int; _Compare = std::less<const int>; _Alloc = std::allocator<std::pair<const int, int> >]
+       operator=(map&& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:279:7: note:   no known conversion for argument 1 from ‘std::map<int, int>’ to ‘std::map<const int, int>&&’
+/usr/include/c++/4.8/bits/stl_map.h:300:7: note: std::map<_Key, _Tp, _Compare, _Alloc>& std::map<_Key, _Tp, _Compare, _Alloc>::operator=(std::initializer_list<std::pair<const _Key, _Tp> >) [with _Key = const int; _Tp = int; _Compare = std::less<const int>; _Alloc = std::allocator<std::pair<const int, int> >]
+       operator=(initializer_list<value_type> __l)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:300:7: note:   no known conversion for argument 1 from ‘std::map<int, int>’ to ‘std::initializer_list<std::pair<const int, int> >’

@@ -1,0 +1,43 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:4:5: error: 'ptr' does not name a type
+     ptr<T> make_ptr(std::false_type, Tn&&... argn) {
+     ^
+main.cpp:9:2: error: 'ptr' does not name a type
+  ptr<T> make_ptr(std::true_type, Tn&&... argn) {
+  ^
+main.cpp:18:2: error: 'ptr' does not name a type
+  ptr<T> make_ptr( Tn&&... argn ) {
+  ^
+main.cpp:23:66: error: ISO C++ forbids declaration of 'cascading_construct' with no type [-fpermissive]
+  cascading_construct ( std::size_t count, TAlloc&& alloc, T* ptr ) {
+                                                                  ^
+main.cpp: In function 'int cascading_construct(std::size_t, TAlloc&&, T*)':
+main.cpp:25:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: At global scope:
+main.cpp:28:81: error: expected ',' or '...' before '.' token
+  cascading_construct ( std::size_t count, TAlloc&& alloc, T* ptr, T0&& arg, Tn&&.. argn ) {
+                                                                                 ^
+main.cpp:28:89: error: ISO C++ forbids declaration of 'cascading_construct' with no type [-fpermissive]
+  cascading_construct ( std::size_t count, TAlloc&& alloc, T* ptr, T0&& arg, Tn&&.. argn ) {
+                                                                                         ^
+main.cpp:28:89: error: parameter packs not expanded with '...':
+main.cpp:28:89: note:         'Tn'
+main.cpp: In function 'int cascading_construct(std::size_t, TAlloc&&, T*, T0&&, <type error>)':
+main.cpp:30:92: error: 'argn' was not declared in this scope
+   cascading_construct<n>( ++count, std::forward<TAlloc>( alloc ), ++ptr, std::forward<Tn>( argn )... );
+                                                                                            ^
+main.cpp:31:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: At global scope:
+main.cpp:34:2: error: 'ptr' does not name a type
+  ptr<T, allocator_deleter<TAlloc>> make_ptr_deleter(std::false_type, TAlloc&& alloc, Tn&&... argn) {
+  ^
+main.cpp:41:2: error: 'ptr' does not name a type
+  ptr<T, allocator_deleter<TAlloc>> make_ptr_deleter(std::true_type, TAlloc&& alloc, Tn&&... argn) {
+  ^
+main.cpp:52:2: error: 'ptr' does not name a type
+  ptr<T, allocator_deleter<TAlloc>> make_ptr_deleter( Tn&&... argn ) {
+  ^

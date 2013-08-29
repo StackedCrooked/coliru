@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<std::future<void> > > >]':
+main.cpp:21:154:   required from here
+main.cpp:15:29: error: could not convert 'flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<void> > >]()' from 'std::future<std::future<std::future<std::future<void> > > >' to 'std::future<std::future<std::future<std::future<std::future<void> > > > >'
+     return flatten(fut.get());
+                             ^
+main.cpp: In instantiation of 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<void> > >]':
+main.cpp:15:29:   required from 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<std::future<void> > > >]'
+main.cpp:21:154:   required from here
+main.cpp:15:29: error: could not convert 'flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<void> >]()' from 'std::future<std::future<std::future<void> > >' to 'std::future<std::future<std::future<std::future<void> > > >'
+main.cpp: In instantiation of 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<void> >]':
+main.cpp:15:29:   recursively required from 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<void> > >]'
+main.cpp:15:29:   required from 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<std::future<void> > > >]'
+main.cpp:21:154:   required from here
+main.cpp:15:29: error: could not convert 'flatten(std::future<std::future<_Res> >&&) [with T = std::future<void>]()' from 'std::future<std::future<void> >' to 'std::future<std::future<std::future<void> > >'
+main.cpp: In instantiation of 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<void>]':
+main.cpp:15:29:   recursively required from 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<void> > >]'
+main.cpp:15:29:   required from 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<std::future<void> > > >]'
+main.cpp:21:154:   required from here
+main.cpp:15:29: error: could not convert 'flatten(std::future<std::future<_Res> >&&) [with T = void]()' from 'std::future<void>' to 'std::future<std::future<void> >'
+main.cpp: In function 'std::future<_Res> flatten(std::future<std::future<_Res> >&&) [with T = std::future<std::future<std::future<std::future<void> > > >]':
+main.cpp:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

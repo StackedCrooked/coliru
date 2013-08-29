@@ -1,0 +1,29 @@
+main.cpp: In instantiation of 'struct callable_traits<look_i_said_it_is_impossible_and_you_need_to_change_your_requirements>':
+main.cpp:38:1:   required by substitution of 'template<class Func> typename callable_traits<C>::type make_function(const Func&) [with Func = look_i_said_it_is_impossible_and_you_need_to_change_your_requirements]'
+main.cpp:65:103:   required from here
+main.cpp:27:88: error: decltype cannot resolve address of overloaded function
+     typedef typename pointer_to_member_function_traits<decltype(&C::operator())>::type type;
+                                                                                        ^
+main.cpp: In function 'int main()':
+main.cpp:65:103: error: no matching function for call to 'make_function(look_i_said_it_is_impossible_and_you_need_to_change_your_requirements)'
+     auto func4 = make_function(look_i_said_it_is_impossible_and_you_need_to_change_your_requirements()); // function object
+                                                                                                       ^
+main.cpp:65:103: note: candidate is:
+main.cpp:38:1: note: template<class Func> typename callable_traits<C>::type make_function(const Func&)
+ make_function(const Func &func) {
+ ^
+main.cpp:38:1: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp: In instantiation of 'struct callable_traits<here_is_another_good_luck_finding_the_types>':
+main.cpp:38:1:   required by substitution of 'template<class Func> typename callable_traits<C>::type make_function(const Func&) [with Func = here_is_another_good_luck_finding_the_types]'
+main.cpp:66:77:   required from here
+main.cpp:27:88: error: decltype cannot resolve address of overloaded function
+     typedef typename pointer_to_member_function_traits<decltype(&C::operator())>::type type;
+                                                                                        ^
+main.cpp:66:77: error: no matching function for call to 'make_function(here_is_another_good_luck_finding_the_types)'
+     auto func5 = make_function(here_is_another_good_luck_finding_the_types()); // function object
+                                                                             ^
+main.cpp:66:77: note: candidate is:
+main.cpp:38:1: note: template<class Func> typename callable_traits<C>::type make_function(const Func&)
+ make_function(const Func &func) {
+ ^
+main.cpp:38:1: note:   substitution of deduced template arguments resulted in errors seen above

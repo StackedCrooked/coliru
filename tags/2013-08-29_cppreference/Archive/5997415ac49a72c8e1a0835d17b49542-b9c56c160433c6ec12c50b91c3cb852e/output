@@ -1,0 +1,20 @@
++ g++ -std=c++1y -O3 -Wall -Wextra -Woverloaded-virtual -pedantic-errors -pthread main.cpp
+main.cpp: In lambda function:
+main.cpp:9:38: error: parameter packs not expanded with ‘...’:
+     auto x = [&,this](int i){ bar(i,(args)...); }; 
+                                      ^
+main.cpp:9:38: note:         ‘args’
+main.cpp:9:43: error: expansion pattern ‘args’ contains no argument packs
+     auto x = [&,this](int i){ bar(i,(args)...); }; 
+                                           ^
+main.cpp: In instantiation of ‘struct foo::invoke(int, Args&& ...) [with Args = {int}]::__lambda0’:
+main.cpp:9:49:   required from ‘void foo::invoke(int, Args&& ...) [with Args = {int}]’
+main.cpp:21:14:   required from here
+main.cpp:9:38: error: using invalid field ‘foo::invoke(int, Args&& ...)::__lambda0::__args’
+     auto x = [&,this](int i){ bar(i,(args)...); }; 
+                                      ^
+main.cpp: In instantiation of ‘void foo::invoke(int, Args&& ...) [with Args = {int}]’:
+main.cpp:21:14:   required from here
+main.cpp:8:8: warning: unused parameter ‘n’ [-Wunused-parameter]
+   void invoke(int n, Args&&... args) {
+        ^

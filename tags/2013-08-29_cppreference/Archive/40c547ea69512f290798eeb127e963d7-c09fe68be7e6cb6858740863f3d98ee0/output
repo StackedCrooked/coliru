@@ -1,0 +1,275 @@
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -S main.cpp -o -
++ c++filt
+	.file	"main.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 48
+	call	get_runtime_value()
+	testb	$1, %al
+	movb	$0, (%rsp)
+	leaq	16(%rsp), %rdi
+	jne	.L36
+	testb	$2, %al
+	jne	.L37
+	testb	$4, %al
+	jne	.L38
+	testb	$8, %al
+	.p2align 4,,5
+	jne	.L39
+	testb	$16, %al
+	.p2align 4,,5
+	jne	.L40
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<0u> >(receive<0u>)
+	.p2align 4,,6
+	jmp	.L7
+.L37:
+	testb	$4, %al
+	.p2align 4,,6
+	jne	.L41
+	testb	$8, %al
+	.p2align 4,,7
+	jne	.L42
+	testb	$16, %al
+	.p2align 4,,5
+	jne	.L43
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<2u> >(receive<2u>)
+	.p2align 4,,6
+	jmp	.L7
+.L36:
+	testb	$2, %al
+	.p2align 4,,6
+	jne	.L44
+	testb	$4, %al
+	.p2align 4,,7
+	jne	.L45
+	testb	$8, %al
+	.p2align 4,,5
+	jne	.L46
+	testb	$16, %al
+	.p2align 4,,5
+	jne	.L47
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<1u> >(receive<1u>)
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L45:
+	.cfi_restore_state
+	testb	$8, %al
+	jne	.L48
+	testb	$16, %al
+	.p2align 4,,2
+	jne	.L49
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<5u> >(receive<5u>)
+	.p2align 4,,6
+	jmp	.L7
+.L41:
+	testb	$8, %al
+	.p2align 4,,6
+	jne	.L50
+	testb	$16, %al
+	.p2align 4,,7
+	jne	.L51
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<6u> >(receive<6u>)
+	.p2align 4,,6
+	jmp	.L7
+.L39:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L52
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<8u> >(receive<8u>)
+	.p2align 4,,6
+	jmp	.L7
+.L44:
+	testb	$4, %al
+	.p2align 4,,6
+	jne	.L53
+	testb	$8, %al
+	.p2align 4,,7
+	jne	.L54
+	testb	$16, %al
+	.p2align 4,,5
+	jne	.L55
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<3u> >(receive<3u>)
+	.p2align 4,,6
+	jmp	.L7
+.L38:
+	testb	$8, %al
+	.p2align 4,,6
+	jne	.L56
+	testb	$16, %al
+	.p2align 4,,7
+	jne	.L57
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<4u> >(receive<4u>)
+	.p2align 4,,6
+	jmp	.L7
+.L53:
+	testb	$8, %al
+	.p2align 4,,6
+	jne	.L58
+	testb	$16, %al
+	.p2align 4,,7
+	jne	.L59
+	.p2align 4,,7
+	call	void state_machine_type::process_event<receive<7u> >(receive<7u>)
+	.p2align 4,,6
+	jmp	.L7
+.L42:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L60
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<10u> >(receive<10u>)
+	.p2align 4,,6
+	jmp	.L7
+.L46:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L61
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<9u> >(receive<9u>)
+	.p2align 4,,6
+	jmp	.L7
+.L56:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L62
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<12u> >(receive<12u>)
+	.p2align 4,,6
+	jmp	.L7
+.L40:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<16u> >(receive<16u>)
+	.p2align 4,,8
+	jmp	.L7
+.L58:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L63
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<15u> >(receive<15u>)
+	.p2align 4,,6
+	jmp	.L7
+.L62:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<28u> >(receive<28u>)
+	.p2align 4,,8
+	jmp	.L7
+.L61:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<25u> >(receive<25u>)
+	.p2align 4,,8
+	jmp	.L7
+.L60:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<26u> >(receive<26u>)
+	.p2align 4,,8
+	jmp	.L7
+.L55:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<19u> >(receive<19u>)
+	.p2align 4,,8
+	jmp	.L7
+.L51:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<22u> >(receive<22u>)
+	.p2align 4,,8
+	jmp	.L7
+.L49:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<21u> >(receive<21u>)
+	.p2align 4,,8
+	jmp	.L7
+.L48:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L64
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<13u> >(receive<13u>)
+	.p2align 4,,6
+	jmp	.L7
+.L50:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L65
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<14u> >(receive<14u>)
+	.p2align 4,,6
+	jmp	.L7
+.L54:
+	testb	$16, %al
+	.p2align 4,,6
+	jne	.L66
+	.p2align 4,,9
+	call	void state_machine_type::process_event<receive<11u> >(receive<11u>)
+	.p2align 4,,6
+	jmp	.L7
+.L57:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<20u> >(receive<20u>)
+	.p2align 4,,8
+	jmp	.L7
+.L43:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<18u> >(receive<18u>)
+	.p2align 4,,8
+	jmp	.L7
+.L47:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<17u> >(receive<17u>)
+	.p2align 4,,8
+	jmp	.L7
+.L52:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<24u> >(receive<24u>)
+	.p2align 4,,8
+	jmp	.L7
+.L65:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<30u> >(receive<30u>)
+	.p2align 4,,8
+	jmp	.L7
+.L59:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<23u> >(receive<23u>)
+	.p2align 4,,8
+	jmp	.L7
+.L64:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<29u> >(receive<29u>)
+	.p2align 4,,8
+	jmp	.L7
+.L66:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<27u> >(receive<27u>)
+	.p2align 4,,8
+	jmp	.L7
+.L63:
+	.p2align 4,,8
+	call	void state_machine_type::process_event<receive<31u> >(receive<31u>)
+	.p2align 4,,8
+	jmp	.L7
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.8.0-3ubuntu3~12.04) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits

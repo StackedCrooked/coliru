@@ -1,0 +1,118 @@
+main.cpp:7:43: error: 'declval' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                           ^
+main.cpp:7:43: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:1869:5: note:   'std::declval'
+     declval() noexcept
+     ^
+main.cpp:7:43: error: 'declval' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                           ^
+main.cpp:7:43: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:1869:5: note:   'std::declval'
+     declval() noexcept
+     ^
+main.cpp:7:52: error: expected primary-expression before '*' token
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                    ^
+main.cpp:7:53: error: expected primary-expression before '>' token
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                     ^
+main.cpp:7:55: error: expected primary-expression before ')' token
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                       ^
+main.cpp:7:59: error: 'true_type' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                           ^
+main.cpp:7:59: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:69:45: note:   'std::true_type'
+   typedef integral_constant<bool, true>     true_type;
+                                             ^
+main.cpp:7:68: error: expected ')' before '{' token
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                                    ^
+main.cpp:7:43: error: 'declval' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                           ^
+main.cpp:7:43: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:1869:5: note:   'std::declval'
+     declval() noexcept
+     ^
+main.cpp:7:43: error: 'declval' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                           ^
+main.cpp:7:43: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:1869:5: note:   'std::declval'
+     declval() noexcept
+     ^
+main.cpp:7:59: error: 'true_type' was not declared in this scope
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                           ^
+main.cpp:7:59: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/type_traits:69:45: note:   'std::true_type'
+   typedef integral_constant<bool, true>     true_type;
+                                             ^
+main.cpp:7:30: error: expected type-specifier before 'decltype'
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                              ^
+main.cpp:7:30: error: expected initializer before 'decltype'
+main.cpp:7:70: error: expected unqualified-id before ')' token
+     static auto test(int) -> decltype(foo(declval<F*>()), true_type{});
+                                                                      ^
+main.cpp:9:30: error: expected type-specifier before 'false_type'
+     static auto test(...) -> false_type;
+                              ^
+main.cpp:9:30: error: expected initializer before 'false_type'
+main.cpp:11:44: error: 'test' was not declared in this scope
+     static constexpr bool value = decltype(test<Class>(0))();
+                                            ^
+main.cpp:11:44: error: 'test' was not declared in this scope
+main.cpp:11:35: error: expected primary-expression before 'decltype'
+     static constexpr bool value = decltype(test<Class>(0))();
+                                   ^
+main.cpp:11:33: error: expected ';' at end of member declaration
+     static constexpr bool value = decltype(test<Class>(0))();
+                                 ^
+main.cpp:11:60: error: expected unqualified-id before ')' token
+     static constexpr bool value = decltype(test<Class>(0))();
+                                                            ^
+main.cpp:19:1: error: static assertion failed: B is a private base of A
+ static_assert(std::is_base_of<B,A>(), "B is a private base of A");
+ ^
+main.cpp:20:1: error: static assertion failed: C is a virtual base of A
+ static_assert(std::is_base_of<C,A>(), "C is a virtual base of A");
+ ^
+main.cpp: In instantiation of 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = B; Class = A]':
+main.cpp:22:61:   required from here
+main.cpp:12:47: error: body of constexpr function 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = B; Class = A]' not a return-statement
+     constexpr operator bool() { return value; }
+                                               ^
+main.cpp:22:1: error: non-constant condition for static assertion
+ static_assert(is_base_of<B,A>(), "B is a private base of A");
+ ^
+main.cpp:22:61: error: 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = B; Class = A]' called in a constant expression
+ static_assert(is_base_of<B,A>(), "B is a private base of A");
+                                                             ^
+main.cpp:12:15: note: 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = B; Class = A]' is not usable as a constexpr function because:
+     constexpr operator bool() { return value; }
+               ^
+main.cpp: In instantiation of 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = C; Class = A]':
+main.cpp:23:61:   required from here
+main.cpp:12:47: error: body of constexpr function 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = C; Class = A]' not a return-statement
+     constexpr operator bool() { return value; }
+                                               ^
+main.cpp:23:1: error: non-constant condition for static assertion
+ static_assert(is_base_of<C,A>(), "C is a virtual base of A");
+ ^
+main.cpp:23:61: error: 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = C; Class = A]' called in a constant expression
+ static_assert(is_base_of<C,A>(), "C is a virtual base of A");
+                                                             ^
+main.cpp:12:15: note: 'constexpr is_base_of<Base, Class>::operator bool() const [with Base = C; Class = A]' is not usable as a constexpr function because:
+     constexpr operator bool() { return value; }
+               ^

@@ -1,0 +1,47 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:12:5: error: ‘my’ has not been declared
+     my::map<mystruct> map;
+     ^
+main.cpp:12:21: error: expected primary-expression before ‘>’ token
+     my::map<mystruct> map;
+                     ^
+main.cpp:12:23: error: ‘map’ was not declared in this scope
+     my::map<mystruct> map;
+                       ^
+main.cpp:13:27: error: no matching function for call to ‘mystruct::mystruct(const char [4])’
+     map.add(mystruct("abc"));
+                           ^
+main.cpp:13:27: note: candidates are:
+main.cpp:4:8: note: mystruct::mystruct()
+ struct mystruct {
+        ^
+main.cpp:4:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:4:8: note: mystruct::mystruct(const mystruct&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘const mystruct&’
+main.cpp:4:8: note: mystruct::mystruct(mystruct&&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘mystruct&&’
+main.cpp:14:27: error: no matching function for call to ‘mystruct::mystruct(const char [4])’
+     map.add(mystruct("def"));
+                           ^
+main.cpp:14:27: note: candidates are:
+main.cpp:4:8: note: mystruct::mystruct()
+ struct mystruct {
+        ^
+main.cpp:4:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:4:8: note: mystruct::mystruct(const mystruct&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘const mystruct&’
+main.cpp:4:8: note: mystruct::mystruct(mystruct&&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘mystruct&&’
+main.cpp:15:27: error: no matching function for call to ‘mystruct::mystruct(const char [4])’
+     map.add(mystruct("ghi"));
+                           ^
+main.cpp:15:27: note: candidates are:
+main.cpp:4:8: note: mystruct::mystruct()
+ struct mystruct {
+        ^
+main.cpp:4:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:4:8: note: mystruct::mystruct(const mystruct&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘const mystruct&’
+main.cpp:4:8: note: mystruct::mystruct(mystruct&&)
+main.cpp:4:8: note:   no known conversion for argument 1 from ‘const char [4]’ to ‘mystruct&&’

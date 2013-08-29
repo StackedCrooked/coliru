@@ -1,0 +1,42 @@
++ clang++ -stdlib=libc++ -std=c++0x -O2 -Wall -pthread main.cpp
+0  clang           0x00000000018ffc1f
+1  clang           0x0000000001900014
+2  libpthread.so.0 0x00007fdd03d88cb0
+3  clang           0x000000000079e22c clang::CodeGen::CodeGenFunction::EmitLValue(clang::Expr const*) + 572
+4  clang           0x00000000007a4f0c clang::CodeGen::CodeGenFunction::EmitCastLValue(clang::CastExpr const*) + 284
+5  clang           0x000000000079e032 clang::CodeGen::CodeGenFunction::EmitLValue(clang::Expr const*) + 66
+6  clang           0x00000000007b474a clang::CodeGen::CodeGenFunction::EmitCXXOperatorMemberCallExpr(clang::CXXOperatorCallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot) + 58
+7  clang           0x00000000007a92da clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) + 602
+8  clang           0x00000000007ca9a8
+9  clang           0x00000000007c5169 clang::CodeGen::CodeGenFunction::EmitScalarExpr(clang::Expr const*, bool) + 73
+10 clang           0x000000000079dfa4 clang::CodeGen::CodeGenFunction::EmitAnyExpr(clang::Expr const*, clang::CodeGen::AggValueSlot, bool) + 116
+11 clang           0x000000000079df29 clang::CodeGen::CodeGenFunction::EmitIgnoredExpr(clang::Expr const*) + 57
+12 clang           0x000000000081ae0a clang::CodeGen::CodeGenFunction::EmitStmt(clang::Stmt const*) + 298
+13 clang           0x00000000008206dc clang::CodeGen::CodeGenFunction::EmitCompoundStmt(clang::CompoundStmt const&, bool, clang::CodeGen::AggValueSlot) + 236
+14 clang           0x000000000081b20b clang::CodeGen::CodeGenFunction::EmitSimpleStmt(clang::Stmt const*) + 315
+15 clang           0x000000000081acf6 clang::CodeGen::CodeGenFunction::EmitStmt(clang::Stmt const*) + 22
+16 clang           0x000000000082931f clang::CodeGen::CodeGenFunction::GenerateCode(clang::GlobalDecl, llvm::Function*, clang::CodeGen::CGFunctionInfo const&) + 799
+17 clang           0x00000000007434fc clang::CodeGen::CodeGenModule::EmitGlobalFunctionDefinition(clang::GlobalDecl) + 2428
+18 clang           0x0000000000740e37 clang::CodeGen::CodeGenModule::EmitGlobalDefinition(clang::GlobalDecl) + 391
+19 clang           0x000000000073ec9d clang::CodeGen::CodeGenModule::EmitDeferred() + 189
+20 clang           0x000000000073eadd clang::CodeGen::CodeGenModule::Release() + 13
+21 clang           0x000000000073b8bc
+22 clang           0x0000000000845fa5 clang::ParseAST(clang::Sema&, bool, bool) + 389
+23 clang           0x000000000073ac79 clang::CodeGenAction::ExecuteAction() + 73
+24 clang           0x000000000061ec2d clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 845
+25 clang           0x0000000000609415 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 3237
+26 clang           0x00000000005fef99 cc1_main(char const**, char const**, char const*, void*) + 665
+27 clang           0x0000000000605dc9 main + 3033
+28 libc.so.6       0x00007fdd02fc176d __libc_start_main + 237
+29 clang           0x00000000005fec3d
+Stack dump:
+0.	Program arguments: /usr/local/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -resource-dir /usr/local/bin/../lib/clang/3.1 -fmodule-cache-path /var/tmp/clang-module-cache -internal-isystem /usr/include/c++/v1 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wall -std=c++0x -fdeprecated-macro -fdebug-compilation-dir /tmp/1371759514-472946142 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fgnu-runtime -fobjc-runtime-has-arc -fobjc-runtime-has-weak -fobjc-fragile-abi -fcxx-exceptions -fexceptions -fdiagnostics-show-option -o /tmp/main-4JCVZv.o -x c++ main.cpp 
+1.	<eof> parser at end of file
+2.	Per-file LLVM IR generation
+3.	main.cpp:43:25: Generating code for declaration 'reaver::_detail::_static_for<0, 256, foo, less, increment, true>::exec'
+4.	main.cpp:44:13: LLVM IR generation of compound statement ('{}')
+clang: error: unable to execute command: Segmentation fault (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang: note: diagnostic msg: Please submit a bug report to http://llvm.org/bugs/ and include command line arguments and all diagnostic information.
+clang: error: unable to execute command: Program could not be executed
+clang: note: diagnostic msg: Error generating preprocessed source(s).

@@ -1,0 +1,7 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:7:16: error: invalid use of template-name ‘A<T1>::B’ without an argument list
+         static A<T1>::B f;
+                ^
+main.cpp:19:1: error: need ‘typename’ before ‘A<T1>::B’ because ‘A<T1>’ is a dependent scope
+ A<T1>::B // clang/gcc accept, msvc rejects missing typename
+ ^

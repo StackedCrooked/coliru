@@ -1,0 +1,1 @@
+g++ -std=c++11 -E main.cpp -o file.cpp ; astyle file.cpp >null ; cat file.cpp ; g++ -std=c++11 -c file.cpp

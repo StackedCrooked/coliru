@@ -1,0 +1,34 @@
+main.cpp: In instantiation of ‘struct min_arity<X, int>’:
+main.cpp:58:36:   required from here
+main.cpp:45:8: error: no matching function for call to ‘invoke_test::eval(int, Uint<0u>)’
+main.cpp:45:8: note: candidates are:
+main.cpp:39:15: note: template<class F, class T, class ... Args, unsigned int I> static decltype (((void)(declval<F>()((declval<Args>)()...)), c)) invoke_test::eval(int, Uint<I>)
+main.cpp:39:15: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class F, class T, class ... Args, unsigned int I> static decltype (((void)(declval<F>()((declval<Args>)()...)), c)) invoke_test::eval(int, Uint<I>) [with F = X; T = int; Args = {}; unsigned int I = 0u]’:
+main.cpp:45:8:   required from ‘struct min_arity<X, int>’
+main.cpp:58:36:   required from here
+main.cpp:39:15: error: no match for call to ‘(X) ()’
+main.cpp:51:8: note: candidate is:
+main.cpp:52:8: note: void X::operator()(int, int, int)
+main.cpp:52:8: note:   candidate expects 3 arguments, 0 provided
+main.cpp: In instantiation of ‘struct min_arity<X, int>’:
+main.cpp:58:36:   required from here
+main.cpp:41:15: note: template<class F, class T, class ... Args, unsigned int I> static decltype (eval<F, T, Args ..., T>(0, Uint<(I + 1)>{})) invoke_test::eval(long int, Uint<I>)
+main.cpp:41:15: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class F, class T, class ... Args, unsigned int I> static decltype (eval<F, T, Args ..., T>(0, Uint<(I + 1)>{})) invoke_test::eval(long int, Uint<I>) [with F = X; T = int; Args = {}; unsigned int I = 0u]’:
+main.cpp:45:8:   required from ‘struct min_arity<X, int>’
+main.cpp:58:36:   required from here
+main.cpp:41:15: error: no matching function for call to ‘invoke_test::eval(int, Uint<1u>)’
+main.cpp:41:15: note: candidate is:
+main.cpp:39:15: note: template<class F, class T, class ... Args, unsigned int I> static decltype (((void)(declval<F>()((declval<Args>)()...)), c)) invoke_test::eval(int, Uint<I>)
+main.cpp:39:15: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class F, class T, class ... Args, unsigned int I> static decltype (((void)(declval<F>()((declval<Args>)()...)), c)) invoke_test::eval(int, Uint<I>) [with F = X; T = int; Args = {int}; unsigned int I = 1u]’:
+main.cpp:41:15:   required by substitution of ‘template<class F, class T, class ... Args, unsigned int I> static decltype (eval<F, T, Args ..., T>(0, Uint<(I + 1)>{})) invoke_test::eval(long int, Uint<I>) [with F = X; T = int; Args = {}; unsigned int I = 0u]’
+main.cpp:45:8:   required from ‘struct min_arity<X, int>’
+main.cpp:58:36:   required from here
+main.cpp:39:15: error: no match for call to ‘(X) (int)’
+main.cpp:51:8: note: candidate is:
+main.cpp:52:8: note: void X::operator()(int, int, int)
+main.cpp:52:8: note:   candidate expects 3 arguments, 1 provided
+main.cpp: In function ‘int main()’:
+main.cpp:58:19: error: ‘value’ is not a member of ‘min_arity<X, int>’

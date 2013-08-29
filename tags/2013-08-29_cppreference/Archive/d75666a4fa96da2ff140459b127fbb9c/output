@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:12:13: error: no matching function for call to 'func(int*&)'
+main.cpp:12:13: note: candidate is:
+main.cpp:4:6: note: template<int len> void func(int (&)[len])
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:12:13: note:   mismatched types 'int [len]' and 'int*'
+main.cpp: In instantiation of 'void func(int (&)[len]) [with int len = 3]':
+main.cpp:10:15:   required from here
+main.cpp:4:6: warning: unused parameter 'array' [-Wunused-parameter]

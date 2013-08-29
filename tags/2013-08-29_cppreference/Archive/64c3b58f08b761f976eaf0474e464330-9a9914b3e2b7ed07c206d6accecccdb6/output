@@ -1,0 +1,50 @@
++ g++ -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+main.cpp:31:6: warning: unused parameter ‘awf’ [-Wunused-parameter]
+ void bar(bte::any<reqs, bte::_self&> awf)
+      ^
+In file included from /usr/local/include/boost/type_erasure/builtin.hpp:17:0,
+                 from /usr/local/include/boost/type_erasure/detail/normalize.hpp:34,
+                 from /usr/local/include/boost/type_erasure/any.hpp:36,
+                 from main.cpp:1:
+/usr/local/include/boost/type_erasure/constructible.hpp: In instantiation of ‘static boost::type_erasure::detail::storage boost::type_erasure::constructible<R(T ...)>::apply(T ...) [with R = X; T = {const std::vector<boost::type_erasure::_self, std::allocator<boost::type_erasure::_self> >&}]’:
+/usr/local/include/boost/type_erasure/detail/instantiate.hpp:91:9:   required from ‘static void boost::type_erasure::detail::instantiate_concept1::apply(Concept*, Map*) [with Concept = boost::mpl::vector<boost::type_erasure::constructible<boost::type_erasure::_self(const std::vector<boost::type_erasure::_self>&)> >; Map = boost::mpl::map1<boost::mpl::pair<boost::type_erasure::_self, X> >]’
+/usr/local/include/boost/type_erasure/any.hpp:1210:13:   required from ‘boost::type_erasure::any<Concept, T&>::any(U&, typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type*) [with U = X; Concept = boost::mpl::vector<boost::type_erasure::constructible<boost::type_erasure::_self(const std::vector<boost::type_erasure::_self>&)> >; T = boost::type_erasure::_self; typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type = void]’
+main.cpp:39:10:   required from here
+/usr/local/include/boost/type_erasure/constructible.hpp:72:21: error: no matching function for call to ‘X::X(const std::vector<boost::type_erasure::_self>&)’
+         result.data = new R(::std::forward<T>(arg)...);
+                     ^
+/usr/local/include/boost/type_erasure/constructible.hpp:72:21: note: candidates are:
+main.cpp:13:5: note: X::X(const std::vector<X>&)
+     X(std::vector<X> const&);
+     ^
+main.cpp:13:5: note:   no known conversion for argument 1 from ‘const std::vector<boost::type_erasure::_self>’ to ‘const std::vector<X>&’
+main.cpp:12:5: note: constexpr X::X()
+     X() = default;
+     ^
+main.cpp:12:5: note:   candidate expects 0 arguments, 1 provided
+main.cpp:10:8: note: constexpr X::X(const X&)
+ struct X
+        ^
+main.cpp:10:8: note:   no known conversion for argument 1 from ‘const std::vector<boost::type_erasure::_self>’ to ‘const X&’
+main.cpp:10:8: note: constexpr X::X(X&&)
+main.cpp:10:8: note:   no known conversion for argument 1 from ‘const std::vector<boost::type_erasure::_self>’ to ‘X&&’
+In file included from /usr/local/include/boost/type_erasure/builtin.hpp:17:0,
+                 from /usr/local/include/boost/type_erasure/detail/normalize.hpp:34,
+                 from /usr/local/include/boost/type_erasure/any.hpp:36,
+                 from main.cpp:1:
+/usr/local/include/boost/type_erasure/constructible.hpp: In instantiation of ‘static boost::type_erasure::detail::storage boost::type_erasure::constructible<R(T ...)>::apply(T ...) [with R = Y; T = {const std::vector<boost::type_erasure::_self, std::allocator<boost::type_erasure::_self> >&}]’:
+/usr/local/include/boost/type_erasure/detail/instantiate.hpp:91:9:   required from ‘static void boost::type_erasure::detail::instantiate_concept1::apply(Concept*, Map*) [with Concept = boost::mpl::vector<boost::type_erasure::constructible<boost::type_erasure::_self(const std::vector<boost::type_erasure::_self>&)> >; Map = boost::mpl::map1<boost::mpl::pair<boost::type_erasure::_self, Y> >]’
+/usr/local/include/boost/type_erasure/any.hpp:1210:13:   required from ‘boost::type_erasure::any<Concept, T&>::any(U&, typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type*) [with U = Y; Concept = boost::mpl::vector<boost::type_erasure::constructible<boost::type_erasure::_self(const std::vector<boost::type_erasure::_self>&)> >; T = boost::type_erasure::_self; typename boost::disable_if<boost::mpl::or_<boost::is_const<U>, boost::type_erasure::detail::is_any<U> > >::type = void]’
+main.cpp:42:10:   required from here
+/usr/local/include/boost/type_erasure/constructible.hpp:72:21: error: no matching function for call to ‘Y::Y(const std::vector<boost::type_erasure::_self>&)’
+         result.data = new R(::std::forward<T>(arg)...);
+                     ^
+/usr/local/include/boost/type_erasure/constructible.hpp:72:21: note: candidates are:
+main.cpp:18:8: note: constexpr Y::Y()
+ struct Y
+        ^
+main.cpp:18:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:18:8: note: constexpr Y::Y(const Y&)
+main.cpp:18:8: note:   no known conversion for argument 1 from ‘const std::vector<boost::type_erasure::_self>’ to ‘const Y&’
+main.cpp:18:8: note: constexpr Y::Y(Y&&)
+main.cpp:18:8: note:   no known conversion for argument 1 from ‘const std::vector<boost::type_erasure::_self>’ to ‘Y&&’

@@ -1,0 +1,1 @@
+clang++ -stdlib=libc++ -std=c++0x -O2 -lldd -Wall -pthread main.cpp && ./a.out

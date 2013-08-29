@@ -1,0 +1,23 @@
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = std::packaged_task<unsigned int()>; std::false_type = std::integral_constant<bool, false>]':
+/usr/include/c++/4.7/functional:1800:8:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = std::packaged_task<unsigned int()>]'
+/usr/include/c++/4.7/functional:2299:6:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = std::packaged_task<unsigned int()>; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]'
+main.cpp:43:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]'
+main.cpp:86:68:   required from here
+/usr/include/c++/4.7/functional:1764:4: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = unsigned int; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<unsigned int()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = std::packaged_task<int()>; std::false_type = std::integral_constant<bool, false>]':
+/usr/include/c++/4.7/functional:1800:8:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = std::packaged_task<int()>]'
+/usr/include/c++/4.7/functional:2299:6:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = std::packaged_task<int()>; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]'
+main.cpp:43:9:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]'
+main.cpp:30:9:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:85:17:   required from here
+/usr/include/c++/4.7/functional:1764:4: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = int; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<int()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here

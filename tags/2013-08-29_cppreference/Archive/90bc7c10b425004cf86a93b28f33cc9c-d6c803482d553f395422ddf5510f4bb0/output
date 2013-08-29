@@ -1,0 +1,18 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘struct Arf<int>’:
+main.cpp:21:14:   required from here
+main.cpp:13:10: error: ‘void Arf<T>::Woof(T) [with T = int]’ cannot be overloaded
+     void Woof ( T a ) {
+          ^
+main.cpp:9:10: error: with ‘void Arf<T>::Woof(special_t) [with T = int; special_t = int]’
+     void Woof ( special_t a ) {
+          ^
+main.cpp: In function ‘int main()’:
+main.cpp:21:14: warning: unused variable ‘ohno’ [-Wunused-variable]
+     Arf<int> ohno; // :C
+              ^
+main.cpp: In instantiation of ‘void Arf<T>::Woof(special_t) [with T = short int; special_t = int]’:
+main.cpp:20:17:   required from here
+main.cpp:9:10: warning: unused parameter ‘a’ [-Wunused-parameter]
+     void Woof ( special_t a ) {
+          ^

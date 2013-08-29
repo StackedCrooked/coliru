@@ -1,0 +1,22 @@
++ g++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:19:16: error: call of overloaded ‘foo()’ is ambiguous
+   foo<myChar> ();
+                ^
+main.cpp:19:16: note: candidates are:
+main.cpp:7:22: note: void foo() [with int T = 42]
+ template<int T> void foo()
+                      ^
+main.cpp:12:26: note: void foo() [with unsigned char T = 42u]
+ template<uint8_t T> void foo()
+                          ^
+main.cpp:20:14: error: call of overloaded ‘foo()’ is ambiguous
+   foo<myInt>();
+              ^
+main.cpp:20:14: note: candidates are:
+main.cpp:7:22: note: void foo() [with int T = 42]
+ template<int T> void foo()
+                      ^
+main.cpp:12:26: note: void foo() [with unsigned char T = 42u]
+ template<uint8_t T> void foo()
+                          ^

@@ -1,0 +1,62 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	_Z10is_allowed8LogLevel					.globl	_Z10is_allowed8LogLevel
+	.type	_Z10is_allowed8LogLevel, @function			.type	_Z10is_allowed8LogLevel, @function
+_Z10is_allowed8LogLevel:					_Z10is_allowed8LogLevel:
+.LFB1250:							.LFB1250:
+	.cfi_startproc							.cfi_startproc
+	testl	%edi, %edi						testl	%edi, %edi
+	setg	%al							setg	%al
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE1250:							.LFE1250:
+	.size	_Z10is_allowed8LogLevel, .-_Z10is_allowed8Log		.size	_Z10is_allowed8LogLevel, .-_Z10is_allowed8Log
+							      >		.section	.rodata.str1.1,"aMS",@progbits,1
+							      >	.LC0:
+							      >		.string	"Just a test."
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB1254:							.LFB1254:
+	.cfi_startproc							.cfi_startproc
+							      >		subq	$8, %rsp
+							      >		.cfi_def_cfa_offset 16
+							      >		movl	$.LC0, %esi
+							      >		movl	$_ZSt4cout, %edi
+							      >		call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamI
+	xorl	%eax, %eax						xorl	%eax, %eax
+							      >		addq	$8, %rsp
+							      >		.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE1254:							.LFE1254:
+	.size	main, .-main						.size	main, .-main
+	.p2align 4,,15							.p2align 4,,15
+	.type	_GLOBAL__sub_I__Z10is_allowed8LogLevel, @func		.type	_GLOBAL__sub_I__Z10is_allowed8LogLevel, @func
+_GLOBAL__sub_I__Z10is_allowed8LogLevel:				_GLOBAL__sub_I__Z10is_allowed8LogLevel:
+.LFB1405:							.LFB1405:
+	.cfi_startproc							.cfi_startproc
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi					movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev					call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx					movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi					movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi				movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit						jmp	__cxa_atexit
+	.cfi_endproc							.cfi_endproc
+.LFE1405:							.LFE1405:
+	.size	_GLOBAL__sub_I__Z10is_allowed8LogLevel, .-_GL		.size	_GLOBAL__sub_I__Z10is_allowed8LogLevel, .-_GL
+	.section	.init_array,"aw"				.section	.init_array,"aw"
+	.align 8							.align 8
+	.quad	_GLOBAL__sub_I__Z10is_allowed8LogLevel			.quad	_GLOBAL__sub_I__Z10is_allowed8LogLevel
+	.local	_ZStL8__ioinit						.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1					.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle						.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits

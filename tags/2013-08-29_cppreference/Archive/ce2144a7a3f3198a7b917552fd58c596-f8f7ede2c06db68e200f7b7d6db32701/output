@@ -1,0 +1,151 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.section	.text._ZNSt6vectorIcSaIcEEC2EmRKS0_," |		.section	.text.startup,"ax",@progbits
+	.align 2					      <
+	.p2align 4,,15							.p2align 4,,15
+	.weak	_ZNSt6vectorIcSaIcEEC2EmRKS0_		      |		.globl	main
+	.type	_ZNSt6vectorIcSaIcEEC2EmRKS0_, @function      |		.type	main, @function
+_ZNSt6vectorIcSaIcEEC2EmRKS0_:				      |	main:
+.LFB701:						      |	.LFB689:
+	.cfi_startproc							.cfi_startproc
+							      >		.cfi_personality 0x3,__gxx_personality_v0
+							      >		.cfi_lsda 0x3,.LLSDA689
+	pushq	%rbp							pushq	%rbp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16						.cfi_offset 6, -16
+	xorl	%eax, %eax				      |		movl	$100, %edi
+	movq	%rsi, %rbp				      <
+	pushq	%rbx							pushq	%rbx
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24						.cfi_offset 3, -24
+	movq	%rdi, %rbx				      <
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	movq	$0, (%rdi)				      |	.LEHB0:
+	movq	$0, 8(%rdi)				      <
+	movq	$0, 16(%rdi)				      <
+	xorl	%edi, %edi				      <
+	testq	%rsi, %rsi				      <
+	je	.L2					      <
+	movq	%rsi, %rdi				      <
+	call	_Znwm							call	_Znwm
+							      >	.LEHE0:
+							      >		movl	$100, %edx
+	movq	%rax, %rdi						movq	%rax, %rdi
+.L2:							      <
+	leaq	(%rdi,%rbp), %rdx			      <
+	movq	%rdi, (%rbx)				      <
+	movq	%rdi, 8(%rbx)				      <
+	xorl	%esi, %esi						xorl	%esi, %esi
+	movq	%rdx, 16(%rbx)				      |		movq	%rax, %rbx
+	subq	%rax, %rdx				      <
+	call	memset							call	memset
+	movq	16(%rbx), %rax				      |		movl	$100, %edi
+	movq	%rax, 8(%rbx)				      <
+	addq	$8, %rsp				      <
+	.cfi_def_cfa_offset 24				      <
+	popq	%rbx					      <
+	.cfi_def_cfa_offset 16				      <
+	popq	%rbp					      <
+	.cfi_def_cfa_offset 8				      <
+	ret						      <
+	.cfi_endproc					      <
+.LFE701:						      <
+	.size	_ZNSt6vectorIcSaIcEEC2EmRKS0_, .-_ZNSt6vector <
+	.weak	_ZNSt6vectorIcSaIcEEC1EmRKS0_		      <
+	.set	_ZNSt6vectorIcSaIcEEC1EmRKS0_,_ZNSt6vectorIcS <
+	.section	.text.startup,"ax",@progbits	      <
+	.p2align 4,,15					      <
+	.globl	main					      <
+	.type	main, @function				      <
+main:							      <
+.LFB689:						      <
+	.cfi_startproc					      <
+	.cfi_personality 0x3,__gxx_personality_v0	      <
+	.cfi_lsda 0x3,.LLSDA689				      <
+	pushq	%rbx					      <
+	.cfi_def_cfa_offset 16				      <
+	.cfi_offset 3, -16				      <
+	movl	$100, %esi				      <
+	subq	$80, %rsp				      <
+	.cfi_def_cfa_offset 96				      <
+	leaq	48(%rsp), %rdx				      <
+	leaq	16(%rsp), %rdi				      <
+.LEHB0:							      <
+	call	_ZNSt6vectorIcSaIcEEC1EmRKS0_		      <
+.LEHE0:							      <
+	movq	24(%rsp), %rsi				      <
+	subq	16(%rsp), %rsi				      <
+	leaq	15(%rsp), %rdx				      <
+	leaq	48(%rsp), %rdi				      <
+.LEHB1:								.LEHB1:
+	call	_ZNSt6vectorIcSaIcEEC1EmRKS0_		      |		call	_Znwm
+.LEHE1:								.LEHE1:
+	movq	16(%rsp), %rsi				      |		xorl	%esi, %esi
+	movq	24(%rsp), %rdx				      |		movl	$100, %edx
+	movq	48(%rsp), %rdi				      |		movq	%rax, %rdi
+	subq	%rsi, %rdx				      |		call	memset
+							      >		movl	$100, %edx
+							      >		movq	%rbx, %rsi
+							      >		movq	%rax, %rdi
+	call	memcpy							call	memcpy
+	movq	48(%rsp), %rdi				      |		testq	%rax, %rax
+	testq	%rdi, %rdi				      |		je	.L3
+	je	.L8					      |		movq	%rax, %rdi
+	call	_ZdlPv							call	_ZdlPv
+.L8:							      |	.L3:
+	movq	16(%rsp), %rdi				      |		testq	%rbx, %rbx
+	testq	%rdi, %rdi				      |		je	.L11
+	je	.L16					      |		movq	%rbx, %rdi
+	call	_ZdlPv							call	_ZdlPv
+.L16:							      |	.L11:
+	addq	$80, %rsp				      |		addq	$8, %rsp
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 16				      |		.cfi_def_cfa_offset 24
+	xorl	%eax, %eax						xorl	%eax, %eax
+	popq	%rbx							popq	%rbx
+							      >		.cfi_def_cfa_offset 16
+							      >		popq	%rbp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+.L12:							      |	.L7:
+	.cfi_restore_state						.cfi_restore_state
+	movq	16(%rsp), %rdi				      |		testq	%rbx, %rbx
+	movq	%rax, %rbx				      |		movq	%rax, %rbp
+	testq	%rdi, %rdi				      |		je	.L6
+	je	.L11					      <
+	call	_ZdlPv					      <
+.L11:							      <
+	movq	%rbx, %rdi						movq	%rbx, %rdi
+							      >		call	_ZdlPv
+							      >	.L6:
+							      >		movq	%rbp, %rdi
+.LEHB2:								.LEHB2:
+	call	_Unwind_Resume						call	_Unwind_Resume
+.LEHE2:								.LEHE2:
+	.cfi_endproc							.cfi_endproc
+.LFE689:							.LFE689:
+	.globl	__gxx_personality_v0					.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits			.section	.gcc_except_table,"a",@progbits
+.LLSDA689:							.LLSDA689:
+	.byte	0xff							.byte	0xff
+	.byte	0xff							.byte	0xff
+	.byte	0x1							.byte	0x1
+	.uleb128 .LLSDACSE689-.LLSDACSB689				.uleb128 .LLSDACSE689-.LLSDACSB689
+.LLSDACSB689:							.LLSDACSB689:
+	.uleb128 .LEHB0-.LFB689						.uleb128 .LEHB0-.LFB689
+	.uleb128 .LEHE0-.LEHB0						.uleb128 .LEHE0-.LEHB0
+	.uleb128 0							.uleb128 0
+	.uleb128 0							.uleb128 0
+	.uleb128 .LEHB1-.LFB689						.uleb128 .LEHB1-.LFB689
+	.uleb128 .LEHE1-.LEHB1						.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L12-.LFB689				      |		.uleb128 .L7-.LFB689
+	.uleb128 0							.uleb128 0
+	.uleb128 .LEHB2-.LFB689						.uleb128 .LEHB2-.LFB689
+	.uleb128 .LEHE2-.LEHB2						.uleb128 .LEHE2-.LEHB2
+	.uleb128 0							.uleb128 0
+	.uleb128 0							.uleb128 0
+.LLSDACSE689:							.LLSDACSE689:
+	.section	.text.startup					.section	.text.startup
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits

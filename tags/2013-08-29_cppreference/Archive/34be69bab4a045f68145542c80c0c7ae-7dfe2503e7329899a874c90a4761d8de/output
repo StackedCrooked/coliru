@@ -1,0 +1,78 @@
++ g++-4.8 -std=c++11 -Wall -pedantic -O3 main.cpp -S -masm=intel -o -
++ c++filt
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	push	rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	ebp, -1840700269
+	push	rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	mov	ebx, 1000
+	sub	rsp, 8
+	.cfi_def_cfa_offset 32
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	call	mystery_read()
+	xor	edi, edi
+	test	al, 1
+	mov	ecx, eax
+	je	.L2
+	mov	edi, 1431655766
+	mov	esi, ecx
+	imul	edi
+	sar	esi, 31
+	mov	edi, edx
+	sub	edi, esi
+	lea	eax, [rdi+rdi*2]
+	mov	edi, ecx
+	sub	edi, eax
+	je	.L2
+	mov	edi, 1717986919
+	mov	eax, ecx
+	imul	edi
+	mov	edi, edx
+	sar	edi
+	sub	edi, esi
+	lea	eax, [rdi+rdi*4]
+	mov	edi, ecx
+	sub	edi, eax
+	je	.L2
+	mov	eax, ecx
+	xor	edi, edi
+	imul	ebp
+	add	edx, ecx
+	sar	edx, 2
+	sub	edx, esi
+	lea	eax, [0+rdx*8]
+	sub	eax, edx
+	cmp	ecx, eax
+	setne	dil
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	call	mystery_write(int)
+	sub	ebx, 1
+	jne	.L4
+	add	rsp, 8
+	.cfi_def_cfa_offset 24
+	xor	eax, eax
+	pop	rbx
+	.cfi_def_cfa_offset 16
+	pop	rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits

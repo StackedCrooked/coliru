@@ -1,0 +1,31 @@
++ clang++ -v -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+clang version 3.4 (trunk 184460)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -v -resource-dir /usr/local/bin/../lib/clang/3.4 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.4/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wall -pedantic -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1375699924-871696144 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fobjc-default-synthesize-properties -fcxx-exceptions -fexceptions -fdiagnostics-show-option -backend-option -vectorize-loops -o /tmp/main-laxxdb.o -x c++ main.cpp
+clang -cc1 version 3.4 based upon LLVM 3.4svn default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.4/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+main.cpp:5:5: error: no matching function for call to 'g'
+    g(sizeof(int) - sizeof(int)); // ok, evaluates to 0
+    ^
+main.cpp:1:6: note: candidate function not viable: no known conversion from 'unsigned long' to 'int *' for 1st argument
+void g(int*) {}
+     ^
+main.cpp:13:9: error: no matching function for call to 'g'
+        g(sizeof(T) - sizeof(T)); // error: no matching function
+        ^
+main.cpp:1:6: note: candidate function not viable: no known conversion from 'unsigned long' to 'int *' for 1st argument
+void g(int*) {}
+     ^
+2 errors generated.

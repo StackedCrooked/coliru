@@ -1,0 +1,261 @@
+main.cpp: In function 'int main()':
+main.cpp:11:36: error: no matching function for call to 'derived_string::derived_string(std::string)'
+     derived_string d2(std::string{}); // not ok    
+                                    ^
+main.cpp:11:36: note: candidates are:
+main.cpp:3:8: note: derived_string::derived_string()
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::allocator<char>&)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:11:36: note:   candidate expects 3 arguments, 1 provided
+     derived_string d2(std::string{}); // not ok    
+                                    ^
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:11:36: note:   candidate expects 2 arguments, 1 provided
+     derived_string d2(std::string{}); // not ok    
+                                    ^
+main.cpp:3:8: note: derived_string::derived_string(const derived_string&)
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const derived_string&'
+main.cpp:3:8: note: derived_string::derived_string(derived_string&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'derived_string&&'
+main.cpp:12:36: error: no matching function for call to 'derived_string::derived_string(<brace-enclosed initializer list>)'
+     derived_string d3{std::string()}; // not ok
+                                    ^
+main.cpp:12:36: note: candidates are:
+main.cpp:3:8: note: derived_string::derived_string()
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::allocator<char>&)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:12:36: note:   candidate expects 3 arguments, 1 provided
+     derived_string d3{std::string()}; // not ok
+                                    ^
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:12:36: note:   candidate expects 2 arguments, 1 provided
+     derived_string d3{std::string()}; // not ok
+                                    ^
+main.cpp:3:8: note: derived_string::derived_string(const derived_string&)
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const derived_string&'
+main.cpp:3:8: note: derived_string::derived_string(derived_string&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'derived_string&&'
+main.cpp:13:36: error: no matching function for call to 'derived_string::derived_string(<brace-enclosed initializer list>)'
+     derived_string d4{std::string{}}; // not ok
+                                    ^
+main.cpp:13:36: note: candidates are:
+main.cpp:3:8: note: derived_string::derived_string()
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::allocator<char>&)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:13:36: note:   candidate expects 3 arguments, 1 provided
+     derived_string d4{std::string{}}; // not ok
+                                    ^
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:13:36: note:   candidate expects 2 arguments, 1 provided
+     derived_string d4{std::string{}}; // not ok
+                                    ^
+main.cpp:3:8: note: derived_string::derived_string(const derived_string&)
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const derived_string&'
+main.cpp:3:8: note: derived_string::derived_string(derived_string&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'derived_string&&'
+main.cpp:16:26: error: no matching function for call to 'derived_string::derived_string(std::string&)'
+     derived_string d5(str); // not ok
+                          ^
+main.cpp:16:26: note: candidates are:
+main.cpp:3:8: note: derived_string::derived_string()
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::allocator<char>&)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:16:26: note:   candidate expects 3 arguments, 1 provided
+     derived_string d5(str); // not ok
+                          ^
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:16:26: note:   candidate expects 2 arguments, 1 provided
+     derived_string d5(str); // not ok
+                          ^
+main.cpp:3:8: note: derived_string::derived_string(const derived_string&)
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const derived_string&'
+main.cpp:3:8: note: derived_string::derived_string(derived_string&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'derived_string&&'
+main.cpp:17:26: error: no matching function for call to 'derived_string::derived_string(<brace-enclosed initializer list>)'
+     derived_string d6{str}; // not ok
+                          ^
+main.cpp:17:26: note: candidates are:
+main.cpp:3:8: note: derived_string::derived_string()
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::allocator<char>&)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::allocator<char>&'
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const std::basic_string<char>&, std::basic_string<char>::size_type, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 4 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, std::basic_string<char>::size_type)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(const char*)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 3 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::basic_string<char>::size_type, char)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>, const std::allocator<char>&)
+main.cpp:5:24: note:   candidate expects 2 arguments, 1 provided
+main.cpp:5:24: note: derived_string::derived_string(std::initializer_list<char>)
+main.cpp:5:24: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::initializer_list<char>'
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator, const std::allocator<char>&)
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   candidate expects 3 arguments, 1 provided
+     derived_string d6{str}; // not ok
+                          ^
+main.cpp:5:24: note: template<class _InputIterator> derived_string::derived_string(_InputIterator, _InputIterator)
+     using std::string::string;    
+                        ^
+main.cpp:5:24: note:   template argument deduction/substitution failed:
+main.cpp:17:26: note:   candidate expects 2 arguments, 1 provided
+     derived_string d6{str}; // not ok
+                          ^
+main.cpp:3:8: note: derived_string::derived_string(const derived_string&)
+ struct derived_string : std::string
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const derived_string&'
+main.cpp:3:8: note: derived_string::derived_string(derived_string&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'derived_string&&'
