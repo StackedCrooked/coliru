@@ -13,10 +13,6 @@ set -e
 set -x
 
 
-# Set up the chroot directory
-./RebuildChroot.sh
-
-
 # Install g++-4.8 and related things.
 # TODO: This is a mess and needs to be cleaned up.
 type 'g++-4.8' || { \
@@ -88,6 +84,15 @@ fi
 # Disable the annoying Whoopsie report crashes and stop the whoopsie service
 sed -i "s/\(report_crashes=\).*/\1false/" /etc/default/whoopsie
 sudo service whoopsie stop || echo "whoopsie was already stopped."
+
+
+# Set up the chroot directory
+./RebuildChroot.sh
+
+echo "TODO: Add this line to visudo"
+echo " * Add this line to visudo"
+echo "   webserver  ALL=(sandbox) NOPASSWD: ALL"
+echo " * Set COLIRU_URL and COLIRU_PORT"
 
 
 # TODO: Install wheels
