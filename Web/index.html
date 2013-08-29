@@ -88,6 +88,7 @@
 
         app.send = function (location, f) {
             app.enableUI(false);
+            app.elements.cmd.value = app.elements.cmd.value.trim();
             localStorage.setItem("src", app.elements.editor.getValue());
             localStorage.setItem("cmd", app.elements.cmd.value);
             var httpRequest = new XMLHttpRequest();

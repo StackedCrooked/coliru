@@ -34,4 +34,4 @@ chmod a+rx ${CMD_FILE}
 
 chmod -R a+w ${CHROOT_TARGET_PATH}
 
-setsid sudo -u sandbox chroot "${CHROOT}" /tmp/${COLIRU_JOBID}/cmd.sh
+setsid sudo -u sandbox chroot "${CHROOT}" bash -c "cd /tmp/${COLIRU_JOBID} && ./cmd.sh"
