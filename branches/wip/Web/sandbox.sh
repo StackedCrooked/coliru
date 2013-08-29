@@ -10,7 +10,7 @@ ID="$(./hash.sh)"
 # Check archive for previous result.
 #
 if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
-    cat "${COLIRU_ARCHIVE}/${ID}/output"
+    printf "$(cat "${COLIRU_ARCHIVE}/${ID}/output")\n(cached)\n"
     exit
 fi
 
