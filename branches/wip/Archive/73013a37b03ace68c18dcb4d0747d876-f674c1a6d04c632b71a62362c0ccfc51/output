@@ -1,0 +1,24 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h: In instantiation of ‘struct std::pair<const char, unordered_tree<char, int>::node>’:
+/usr/include/c++/4.8/type_traits:615:28:   required from ‘struct std::__is_destructible_impl<std::pair<const char, unordered_tree<char, int>::node> >’
+/usr/include/c++/4.8/type_traits:637:12:   required from ‘struct std::__is_destructible_safe<std::pair<const char, unordered_tree<char, int>::node>, false, false>’
+/usr/include/c++/4.8/type_traits:652:12:   required from ‘struct std::is_destructible<std::pair<const char, unordered_tree<char, int>::node> >’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_destructible<std::pair<const char, unordered_tree<char, int>::node> >, std::__is_direct_constructible_impl<std::pair<const char, unordered_tree<char, int>::node>, const std::pair<const char, unordered_tree<char, int>::node>&> >’
+/usr/include/c++/4.8/type_traits:817:12:   required from ‘struct std::__is_direct_constructible_new_safe<std::pair<const char, unordered_tree<char, int>::node>, const std::pair<const char, unordered_tree<char, int>::node>&>’
+/usr/include/c++/4.8/type_traits:895:12:   [ skipping 6 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/bits/alloc_traits.h:540:12:   required from ‘struct std::__is_copy_insertable<std::allocator<std::pair<const char, unordered_tree<char, int>::node> > >’
+/usr/include/c++/4.8/bits/alloc_traits.h:560:63:   required by substitution of ‘template<class _Alloc> using __check_copy_constructible = std::__allow_copy_cons<std::__is_copy_insertable<_Alloc>::value> [with _Alloc = std::allocator<std::pair<const char, unordered_tree<char, int>::node> >]’
+/usr/include/c++/4.8/bits/unordered_map.h:97:11:   required from ‘class std::unordered_map<char, unordered_tree<char, int>::node, std::hash<char>, std::equal_to<char>, std::allocator<std::pair<const char, unordered_tree<char, int>::node> > >’
+main.cpp:22:38:   required from ‘struct unordered_tree<char, int>::node’
+main.cpp:25:10:   required from ‘class unordered_tree<char, int>’
+main.cpp:30:31:   required from here
+/usr/include/c++/4.8/bits/stl_pair.h:102:11: error: ‘std::pair<_T1, _T2>::second’ has incomplete type
+       _T2 second;                /// @c second is a copy of the second object
+           ^
+main.cpp:20:12: error: declaration of ‘struct unordered_tree<char, int>::node’
+     struct node {
+            ^

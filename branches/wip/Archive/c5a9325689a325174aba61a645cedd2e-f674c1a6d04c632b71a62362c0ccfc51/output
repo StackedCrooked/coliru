@@ -1,0 +1,17 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:12:3: warning: statement is a reference, not call, to function ‘pr’ [-Waddress]
+ pr;
+   ^
+main.cpp:12:3: warning: statement has no effect [-Wunused-value]
+main.cpp:13:9: warning: the address of ‘void pr()’ will always evaluate as ‘true’ [-Waddress]
+ cout << pr;  // output: 1
+         ^
+main.cpp:14:10: warning: the address of ‘void pr()’ will always evaluate as ‘true’ [-Waddress]
+ cout << *pr; // output: 1
+          ^
+main.cpp:15:10: warning: the address of ‘void pr()’ will always evaluate as ‘true’ [-Waddress]
+ cout << &pr; // output: 1
+          ^
++ ./a.out
+111

@@ -1,0 +1,74 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from /usr/include/c++/4.7/stdexcept:40,
+                 from /usr/include/tbb/internal/../tbb_exception.h:40,
+                 from /usr/include/tbb/internal/_concurrent_queue_impl.h:41,
+                 from /usr/include/tbb/concurrent_queue.h:32,
+                 from main.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<unsigned int()>&}; _Tp = std::__future_base::_Task_state<void()>]':
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<unsigned int()>&}; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   required from 'static void std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<unsigned int()>&}; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >]'
+/usr/include/c++/4.7/bits/shared_ptr_base.h:402:4:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::packaged_task<unsigned int()>&}; _Tp = std::__future_base::_Task_state<void()>; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/include/c++/4.7/ext/new_allocator.h:110:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::__future_base::_Task_state<void()> >, std::packaged_task<unsigned int()>&}; _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>]'
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::__future_base::_Task_state<void()> >, std::packaged_task<unsigned int()>&}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u> >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   [ skipping 3 instantiation contexts ]
+/usr/include/c++/4.7/bits/shared_ptr.h:317:64:   required from 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; _Args = {std::packaged_task<unsigned int()>&}; _Tp = std::__future_base::_Task_state<void()>]'
+/usr/include/c++/4.7/bits/shared_ptr.h:599:39:   required from 'std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; _Args = {std::packaged_task<unsigned int()>&}]'
+/usr/include/c++/4.7/bits/shared_ptr.h:615:42:   required from 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<unsigned int()>&}]'
+/usr/include/c++/4.7/future:1316:74:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(_Fn&&) [with _Fn = std::packaged_task<unsigned int()>&; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:43:17:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]'
+main.cpp:87:68:   required from here
+/usr/include/c++/4.7/ext/new_allocator.h:110:4: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = unsigned int; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<unsigned int()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional:2287:7: error:   initializing argument 1 of 'std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = std::packaged_task<unsigned int()>; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]'
+In file included from /usr/include/x86_64-linux-gnu/c++/4.7/./bits/c++allocator.h:34:0,
+                 from /usr/include/c++/4.7/bits/allocator.h:48,
+                 from /usr/include/c++/4.7/string:43,
+                 from /usr/include/c++/4.7/stdexcept:40,
+                 from /usr/include/tbb/internal/../tbb_exception.h:40,
+                 from /usr/include/tbb/internal/_concurrent_queue_impl.h:41,
+                 from /usr/include/tbb/concurrent_queue.h:32,
+                 from main.cpp:1:
+/usr/include/c++/4.7/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<int()>&}; _Tp = std::__future_base::_Task_state<void()>]':
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<int()>&}; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   required from 'static void std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<int()>&}; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >]'
+/usr/include/c++/4.7/bits/shared_ptr_base.h:402:4:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::packaged_task<int()>&}; _Tp = std::__future_base::_Task_state<void()>; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/include/c++/4.7/ext/new_allocator.h:110:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::__future_base::_Task_state<void()> >, std::packaged_task<int()>&}; _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>]'
+/usr/include/c++/4.7/bits/alloc_traits.h:253:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::__future_base::_Task_state<void()> >, std::packaged_task<int()>&}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::__future_base::_Task_state<void()>, std::allocator<std::__future_base::_Task_state<void()> >, (__gnu_cxx::_Lock_policy)2u> >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.7/bits/alloc_traits.h:390:4:   [ skipping 4 instantiation contexts ]
+/usr/include/c++/4.7/bits/shared_ptr.h:599:39:   required from 'std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Alloc = std::allocator<std::__future_base::_Task_state<void()> >; _Args = {std::packaged_task<int()>&}]'
+/usr/include/c++/4.7/bits/shared_ptr.h:615:42:   required from 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = std::__future_base::_Task_state<void()>; _Args = {std::packaged_task<int()>&}]'
+/usr/include/c++/4.7/future:1316:74:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(_Fn&&) [with _Fn = std::packaged_task<int()>&; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:43:17:   required from 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]'
+main.cpp:30:9:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:86:17:   required from here
+/usr/include/c++/4.7/ext/new_allocator.h:110:4: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = int; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<int()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional:2287:7: error:   initializing argument 1 of 'std::function<_Res(_ArgTypes ...)>::function(_Functor, typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type) [with _Functor = std::packaged_task<int()>; _Res = void; _ArgTypes = {}; typename std::enable_if<(! std::is_integral<_Functor>::value), std::function<_Res(_ArgTypes ...)>::_Useless>::type = std::function<void()>::_Useless]'
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::copy_item(tbb::internal::concurrent_queue_base_v3::page&, std::size_t, const void*) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:91:1:   required from here
+/usr/include/tbb/concurrent_queue.h:189:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::assign_and_destroy_item(void*, tbb::internal::concurrent_queue_base_v3::page&, std::size_t) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:91:1:   required from here
+/usr/include/tbb/concurrent_queue.h:199:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>& std::packaged_task<_Res(_ArgTypes ...)>::operator=(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1335:22: error: declared here
+In file included from main.cpp:1:0:
+/usr/include/tbb/concurrent_queue.h: In instantiation of 'void tbb::concurrent_bounded_queue<T, A>::copy_page_item(tbb::internal::concurrent_queue_base_v3::page&, std::size_t, const tbb::internal::concurrent_queue_base_v3::page&, std::size_t) [with T = std::packaged_task<void()>; A = tbb::cache_aligned_allocator<std::packaged_task<void()> >; std::size_t = long unsigned int]':
+main.cpp:91:1:   required from here
+/usr/include/tbb/concurrent_queue.h:193:9: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}; std::packaged_task<_Res(_ArgTypes ...)> = std::packaged_task<void()>]'
+In file included from main.cpp:5:0:
+/usr/include/c++/4.7/future:1334:7: error: declared here

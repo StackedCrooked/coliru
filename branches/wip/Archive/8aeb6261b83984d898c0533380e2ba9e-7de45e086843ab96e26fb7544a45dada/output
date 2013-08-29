@@ -1,0 +1,9 @@
++ cat cmd.sh
+#!/bin/bash
+ulimit -u 16
+ulimit -t 20
+ulimit -f 4000
+cd $(dirname $0)
+export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
+set -x
+cat cmd.sh

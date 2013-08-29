@@ -1,0 +1,14 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread -fopenmp main.cpp -S -ftree-vectorize -march=corei7-avx -mtune=corei7-avx
++ cat main.s
++ grep -C 5 mulpd
+	vmovapd	.LC1(%rip), %ymm1
+.L11:
+	vmovupd	(%r8,%rcx), %xmm0
+	addq	$1, %r10
+	vinsertf128	$0x1, 16(%r8,%rcx), %ymm0, %ymm0
+	vmulpd	%ymm2, %ymm0, %ymm0
+	vaddpd	%ymm1, %ymm0, %ymm0
+	vmovupd	%xmm0, (%r9,%rcx)
+	vextractf128	$0x1, %ymm0, 16(%r9,%rcx)
+	addq	$32, %rcx
+	cmpq	%r10, %r12

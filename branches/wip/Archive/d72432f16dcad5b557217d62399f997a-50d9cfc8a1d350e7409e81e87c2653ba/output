@@ -1,0 +1,47 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:250:17: error: no matching function for call to 'handle<int>::handle()'
+     handle<int> x;
+                 ^
+main.cpp:250:17: note: candidates are:
+main.cpp:126:2: note: handle<T, TDx>::handle(handle<T, TDx>&&) [with T = int; TDx = default_handle_deleter<int>]
+  handle ( handle&& mov )
+  ^
+main.cpp:126:2: note:   candidate expects 1 argument, 0 provided
+main.cpp:122:2: note: template<class ... Dx> handle<T, TDx>::handle(std::nullptr_t, Dx&& ..., handle<T, TDx>::handle_type)
+  handle ( std::nullptr_t, Dx&&... dx, handle_type nil = default_handle_null<handle_type>::value )
+  ^
+main.cpp:122:2: note:   template argument deduction/substitution failed:
+main.cpp:250:17: note:   candidate expects 3 arguments, 0 provided
+     handle<int> x;
+                 ^
+main.cpp:117:2: note: template<class ... Dx> handle<T, TDx>::handle(handle<T, TDx>::handle_type, Dx&& ..., handle<T, TDx>::handle_type)
+  handle ( handle_type h, Dx&&... dx, handle_type nil = default_handle_null<handle_type>::value )
+  ^
+main.cpp:117:2: note:   template argument deduction/substitution failed:
+main.cpp:250:17: note:   candidate expects 3 arguments, 0 provided
+     handle<int> x;
+                 ^
+main.cpp:112:2: note: handle<T, TDx>::handle(std::nullptr_t, handle<T, TDx>::deleter_type&&, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; std::nullptr_t = std::nullptr_t; handle<T, TDx>::deleter_type = default_handle_deleter<int>; handle<T, TDx>::handle_type = int]
+  handle ( std::nullptr_t, deleter_type&& d, handle_type nil = default_handle_null<handle_type>::value ) 
+  ^
+main.cpp:112:2: note:   candidate expects 3 arguments, 0 provided
+main.cpp:108:2: note: handle<T, TDx>::handle(handle<T, TDx>::handle_type, handle<T, TDx>::deleter_type&&, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; handle<T, TDx>::handle_type = int; handle<T, TDx>::deleter_type = default_handle_deleter<int>]
+  handle ( handle_type h, deleter_type&& d, handle_type nil = default_handle_null<handle_type>::value ) 
+  ^
+main.cpp:108:2: note:   candidate expects 3 arguments, 0 provided
+main.cpp:104:2: note: handle<T, TDx>::handle(std::nullptr_t, const deleter_type&, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; std::nullptr_t = std::nullptr_t; handle<T, TDx>::deleter_type = default_handle_deleter<int>; handle<T, TDx>::handle_type = int]
+  handle ( std::nullptr_t, const deleter_type& d, handle_type nil = default_handle_null<handle_type>::value )
+  ^
+main.cpp:104:2: note:   candidate expects 3 arguments, 0 provided
+main.cpp:100:2: note: handle<T, TDx>::handle(handle<T, TDx>::handle_type, const deleter_type&, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; handle<T, TDx>::handle_type = int; handle<T, TDx>::deleter_type = default_handle_deleter<int>]
+  handle ( handle_type h, const deleter_type& d, handle_type nil = default_handle_null<handle_type>::value )
+  ^
+main.cpp:100:2: note:   candidate expects 3 arguments, 0 provided
+main.cpp:96:2: note: handle<T, TDx>::handle(std::nullptr_t, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; std::nullptr_t = std::nullptr_t; handle<T, TDx>::handle_type = int]
+  handle ( std::nullptr_t, handle_type nil = default_handle_null<handle_type>::value ) 
+  ^
+main.cpp:96:2: note:   candidate expects 2 arguments, 0 provided
+main.cpp:92:2: note: handle<T, TDx>::handle(handle<T, TDx>::handle_type, handle<T, TDx>::handle_type) [with T = int; TDx = default_handle_deleter<int>; handle<T, TDx>::handle_type = int]
+  handle ( handle_type h, handle_type nil = default_handle_null<handle_type>::value )
+  ^
+main.cpp:92:2: note:   candidate expects 2 arguments, 0 provided

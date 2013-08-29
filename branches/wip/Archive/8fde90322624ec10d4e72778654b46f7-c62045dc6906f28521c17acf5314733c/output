@@ -1,0 +1,10 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In lambda function:
+main.cpp:15:46: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     auto loop = [=]{ for (auto i = 0UL; i != threadMax; ++i) { ++Id; } };
+                                              ^
++ ./a.out 1 2 3 4
+argc: 5
+Id=1600000
+Max=2000000
+Difference: -400000 (-19%)

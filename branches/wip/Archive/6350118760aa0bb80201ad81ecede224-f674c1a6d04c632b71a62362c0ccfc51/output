@@ -1,0 +1,65 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:7:19: error: ‘tuple’ in namespace ‘std’ does not name a type
+ auto unhide(const std::tuple<Args>&& args...)
+                   ^
+main.cpp:7:24: error: ISO C++ forbids declaration of ‘parameter’ with no type [-fpermissive]
+ auto unhide(const std::tuple<Args>&& args...)
+                        ^
+main.cpp:7:29: error: expected ‘,’ or ‘...’ before ‘<’ token
+ auto unhide(const std::tuple<Args>&& args...)
+                             ^
+main.cpp:7:45: warning: ‘unhide’ function uses ‘auto’ type specifier without trailing return type [enabled by default]
+ auto unhide(const std::tuple<Args>&& args...)
+                                             ^
+main.cpp: In function ‘auto unhide(int)’:
+main.cpp:9:17: error: ‘args’ was not declared in this scope
+     return head(args...) + unhide(N - 1, tail(args...));
+                 ^
+main.cpp:9:24: error: there are no arguments to ‘head’ that depend on a template parameter, so a declaration of ‘head’ must be available [-fpermissive]
+     return head(args...) + unhide(N - 1, tail(args...));
+                        ^
+main.cpp:9:24: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:9:51: error: expansion pattern ‘args’ contains no argument packs
+     return head(args...) + unhide(N - 1, tail(args...));
+                                                   ^
+main.cpp:9:54: error: there are no arguments to ‘tail’ that depend on a template parameter, so a declaration of ‘tail’ must be available [-fpermissive]
+     return head(args...) + unhide(N - 1, tail(args...));
+                                                      ^
+main.cpp: At global scope:
+main.cpp:14:31: error: ‘tuple’ in namespace ‘std’ does not name a type
+ auto unhide<0, Args...>(const std::tuple<Args>&& args...)
+                               ^
+main.cpp:14:36: error: ISO C++ forbids declaration of ‘parameter’ with no type [-fpermissive]
+ auto unhide<0, Args...>(const std::tuple<Args>&& args...)
+                                    ^
+main.cpp:14:41: error: expected ‘,’ or ‘...’ before ‘<’ token
+ auto unhide<0, Args...>(const std::tuple<Args>&& args...)
+                                         ^
+main.cpp:14:57: warning: ‘unhide’ function uses ‘auto’ type specifier without trailing return type [enabled by default]
+ auto unhide<0, Args...>(const std::tuple<Args>&& args...)
+                                                         ^
+main.cpp:14:57: error: function template partial specialization ‘unhide<0, Args ...>’ is not allowed
+main.cpp: In function ‘auto unhide(int)’:
+main.cpp:16:24: error: ‘args’ was not declared in this scope
+     return unhide(head(args)) + tail(args...);
+                        ^
+main.cpp:16:28: error: there are no arguments to ‘head’ that depend on a template parameter, so a declaration of ‘head’ must be available [-fpermissive]
+     return unhide(head(args)) + tail(args...);
+                            ^
+main.cpp:16:42: error: expansion pattern ‘args’ contains no argument packs
+     return unhide(head(args)) + tail(args...);
+                                          ^
+main.cpp:16:45: error: there are no arguments to ‘tail’ that depend on a template parameter, so a declaration of ‘tail’ must be available [-fpermissive]
+     return unhide(head(args)) + tail(args...);
+                                             ^
+main.cpp: At global scope:
+main.cpp:21:13: error: template declaration of ‘auto unhide’
+ auto unhide(hidden<T> t)
+             ^
+main.cpp:21:13: error: ‘hidden’ was not declared in this scope
+main.cpp:21:21: error: expected primary-expression before ‘>’ token
+ auto unhide(hidden<T> t)
+                     ^
+main.cpp:21:23: error: ‘t’ was not declared in this scope
+ auto unhide(hidden<T> t)
+                       ^

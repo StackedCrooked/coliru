@@ -1,0 +1,170 @@
+main.cpp:1:45: error: expected type-specifier
+ template <typename T, typename TContainer = std::vector<T>>
+                                             ^
+main.cpp:1:45: error: expected '>'
+main.cpp:4:10: error: 'lock_guard' in namespace 'std' does not name a type
+  typedef std::lock_guard<std::mutex> TLockGuard;
+          ^
+main.cpp:6:2: error: 'mutex' in namespace 'std' does not name a type
+  std::mutex op;
+  ^
+main.cpp:7:2: error: 'Threading' does not name a type
+  Threading::AutoResetEvent qblock;
+  ^
+main.cpp:8:2: error: 'queue' in namespace 'std' does not name a type
+  std::queue<T, TContainer> q;
+  ^
+main.cpp:27:12: error: declaration of 'class ... T'
+  template <typename ...T>
+            ^
+main.cpp:1:11: error:  shadows template parm 'class T'
+ template <typename T, typename TContainer = std::vector<T>>
+           ^
+main.cpp: In constructor 'BlockingQueue<T, TContainer>::BlockingQueue(BlockingQueue<T, TContainer>&&)':
+main.cpp:16:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( mov.op );
+   ^
+main.cpp:16:14: error: expected ';' before 'guard'
+   TLockGuard guard( mov.op );
+              ^
+main.cpp:17:3: error: 'qblock' was not declared in this scope
+   qblock = std::move( mov.qblock );
+   ^
+main.cpp:17:12: error: 'move' is not a member of 'std'
+   qblock = std::move( mov.qblock );
+            ^
+main.cpp:18:3: error: 'q' was not declared in this scope
+   q = std::move( mov.q );
+   ^
+main.cpp:18:7: error: 'move' is not a member of 'std'
+   q = std::move( mov.q );
+       ^
+main.cpp: In member function 'BlockingQueue<T, TContainer>& BlockingQueue<T, TContainer>::operator=(BlockingQueue<T, TContainer>&&)':
+main.cpp:22:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( mov.op );
+   ^
+main.cpp:22:14: error: expected ';' before 'guard'
+   TLockGuard guard( mov.op );
+              ^
+main.cpp:23:3: error: 'qblock' was not declared in this scope
+   qblock = std::move( mov.qblock );
+   ^
+main.cpp:23:12: error: 'move' is not a member of 'std'
+   qblock = std::move( mov.qblock );
+            ^
+main.cpp:24:3: error: 'q' was not declared in this scope
+   q = std::move( mov.q );
+   ^
+main.cpp:24:7: error: 'move' is not a member of 'std'
+   q = std::move( mov.q );
+       ^
+main.cpp: In member function 'void BlockingQueue<T, TContainer>::Emplace(T&& ...)':
+main.cpp:29:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:29:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:30:3: error: 'q' was not declared in this scope
+   q.emplace( std::forward<T>( args )... );
+   ^
+main.cpp:30:14: error: 'forward' is not a member of 'std'
+   q.emplace( std::forward<T>( args )... );
+              ^
+main.cpp:30:28: error: expected primary-expression before '>' token
+   q.emplace( std::forward<T>( args )... );
+                            ^
+main.cpp:31:3: error: 'qblock' was not declared in this scope
+   qblock.Set();
+   ^
+main.cpp: In member function 'void BlockingQueue<T, TContainer>::Emplace(T0&&)':
+main.cpp:36:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:36:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:37:3: error: 'q' was not declared in this scope
+   q.emplace( std::forward<T0>( arg0 ) );
+   ^
+main.cpp:37:14: error: 'forward' is not a member of 'std'
+   q.emplace( std::forward<T0>( arg0 ) );
+              ^
+main.cpp:37:29: error: expected primary-expression before '>' token
+   q.emplace( std::forward<T0>( arg0 ) );
+                             ^
+main.cpp:38:3: error: 'qblock' was not declared in this scope
+   qblock.Set();
+   ^
+main.cpp: In member function 'void BlockingQueue<T, TContainer>::Push(const T&)':
+main.cpp:42:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:42:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:43:3: error: 'q' was not declared in this scope
+   q.push( item );
+   ^
+main.cpp:44:3: error: 'qblock' was not declared in this scope
+   qblock.Set();
+   ^
+main.cpp: In member function 'void BlockingQueue<T, TContainer>::Push(T&&)':
+main.cpp:48:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:48:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:49:3: error: 'q' was not declared in this scope
+   q.push( item );
+   ^
+main.cpp:50:3: error: 'qblock' was not declared in this scope
+   qblock.Set();
+   ^
+main.cpp: In member function 'void BlockingQueue<T, TContainer>::Pop()':
+main.cpp:54:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:54:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:55:3: error: 'q' was not declared in this scope
+   q.pop();
+   ^
+main.cpp: In member function 'T& BlockingQueue<T, TContainer>::Top()':
+main.cpp:60:4: error: 'qblock' was not declared in this scope
+    qblock.Wait( );
+    ^
+main.cpp:62:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:62:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:63:10: error: 'q' was not declared in this scope
+   return q.top();
+          ^
+main.cpp: In member function 'const T& BlockingQueue<T, TContainer>::Top() const':
+main.cpp:68:4: error: 'qblock' was not declared in this scope
+    qblock.Wait( );
+    ^
+main.cpp:70:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:70:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:71:10: error: 'q' was not declared in this scope
+   return q.top();
+          ^
+main.cpp: In member function 'bool BlockingQueue<T, TContainer>::Empty() const':
+main.cpp:75:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( op );
+   ^
+main.cpp:75:14: error: expected ';' before 'guard'
+   TLockGuard guard( op );
+              ^
+main.cpp:76:10: error: 'q' was not declared in this scope
+   return q.empty();
+          ^

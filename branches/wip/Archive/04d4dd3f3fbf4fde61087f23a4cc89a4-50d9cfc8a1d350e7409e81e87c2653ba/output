@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:25:14: error: no matching function for call to 'C::C(<brace-enclosed initializer list>)'
+     C c3{{c2}};
+              ^
+main.cpp:25:14: note: candidates are:
+main.cpp:18:5: note: C::C(const C&)
+     C(const C&) { cout << "C(const C&)" << endl; }
+     ^
+main.cpp:18:5: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const C&'
+main.cpp:17:5: note: C::C(B)
+     C(B) { cout << "C(B)" << endl; }
+     ^
+main.cpp:17:5: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'B'

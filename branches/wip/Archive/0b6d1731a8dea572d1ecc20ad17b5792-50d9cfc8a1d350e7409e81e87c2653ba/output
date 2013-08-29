@@ -1,0 +1,10 @@
+main.cpp:56:19: error: could not convert '{{1, 2}, 3}' from '<brace-enclosed initializer list>' to 'A'
+   A m_a4{{1, 2}, 3};       // InitializerList_t(InitializerList_t(1, 2), 3)                       => each element is copy initialized:
+                   ^
+main.cpp:58:15: error: array must be initialized with a brace-enclosed initializer
+   A m_a5[2] = m_a1;        // m_a1                                                                => ill-formed; array initialization requires curly braces
+               ^
+main.cpp: In constructor 'X::X(int)':
+main.cpp:39:21: error: invalid initializer for array member 'A X::m_a3 [2]'
+     , m_a6{{1, 2}, 3}   // InitializerList_t(InitializerList_t(1, 2), 3)                       => each element is copy initialized:
+                     ^

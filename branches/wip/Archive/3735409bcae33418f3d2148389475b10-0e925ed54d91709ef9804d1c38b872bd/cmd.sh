@@ -1,0 +1,1 @@
+clang++ -Wall -depantic main.cpp && ./a.out

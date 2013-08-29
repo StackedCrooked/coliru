@@ -1,0 +1,16 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of ‘void std::_Construct(_T1*, _Args&& ...) [with _T1 = value; _Args = {value}]’:
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from ‘static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<value*>; _ForwardIterator = value*; bool _TrivialValueTypes = false]’
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<value*>; _ForwardIterator = value*]’
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<value*>; _ForwardIterator = value*; _Tp = value]’
+/usr/include/c++/4.8/bits/stl_vector.h:1142:29:   required from ‘std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_M_allocate_and_copy(std::vector<_Tp, _Alloc>::size_type, _ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::move_iterator<value*>; _Tp = value; _Alloc = std::allocator<value>; std::vector<_Tp, _Alloc>::pointer = value*; std::vector<_Tp, _Alloc>::size_type = long unsigned int]’
+/usr/include/c++/4.8/bits/vector.tcc:75:70:   required from ‘void std::vector<_Tp, _Alloc>::reserve(std::vector<_Tp, _Alloc>::size_type) [with _Tp = value; _Alloc = std::allocator<value>; std::vector<_Tp, _Alloc>::size_type = long unsigned int]’
+main.cpp:24:17:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: error: use of deleted function ‘value::value(const value&)’
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+main.cpp:11:5: error: declared here
+     value(value const&) = delete;
+     ^

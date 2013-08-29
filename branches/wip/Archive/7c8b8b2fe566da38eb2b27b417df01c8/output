@@ -1,0 +1,19 @@
+void pop(std::pair<Payload, EthernetFrame>)
+void pop(std::pair<Payload, std::pair<IPPacket, Tail> >) [with Tail = EthernetFrame]
+void pop(std::pair<Payload, std::pair<ICMPMessage, Tail> >) [with Tail = std::pair<IPPacket, EthernetFrame>]
+void push(Packet&, Payload)
+void push(Packet&, Header) [with Header = ICMPMessage]
+=== Begin ICMPMessage ===
+Reply
+=== End ICMPMessage ===
+void push(Packet&, Header) [with Header = IPPacket]
+=== Begin IPPacket ===
+SourceIP: 0.0.0.0
+TargetIP: 0.0.0.0
+=== End IPPacket ===
+void push(Packet&, Header) [with Header = EthernetFrame]
+=== Begin EthernetFrame ===
+Destination: 00:00:00:00:00:00
+Source: 00:00:00:00:00:00
+EtherType: 0
+=== End EthernetFrame ===

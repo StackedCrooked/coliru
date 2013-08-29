@@ -1,0 +1,14 @@
++ g++-4.8 -c -std=c++11 -O2 -Wall -pedantic main.cpp
+main.cpp: In function 'std::future<std::basic_string<char> > get_resource(const string&)':
+main.cpp:12:16: error: could not convert 'cached_result' from 'std::string {aka std::basic_string<char>}' to 'std::future<std::basic_string<char> >'
+         return cached_result; // how to wrap in std::future?
+                ^
+main.cpp:15:30: error: too few arguments to function 'std::future<std::basic_string<char> > get_resource_impl(const string&)'
+     return get_resource_impl();
+                              ^
+main.cpp:3:26: note: declared here
+ std::future<std::string> get_resource_impl(const std::string& name);
+                          ^
+main.cpp:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

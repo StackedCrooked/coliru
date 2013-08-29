@@ -1,0 +1,15 @@
+main.cpp:17:18: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+   int m_b5[3]{m_a};          // ill-formed
+                  ^
+main.cpp:18:17: error: array must be initialized with a brace-enclosed initializer
+   int m_b6[3] = m_a;       // ill-formed
+                 ^
+main.cpp: In constructor 'X::X(int (&)[3])':
+main.cpp:8:25: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+   X(int (&a)[3]) : m_a{a} {} // ill-formed; however, compiler-generated copy constructors may do this; see ConstructorPrologProcessor::BaseOrMemberProcessor::Process
+                         ^
+main.cpp: In constructor 'X::X(int)':
+main.cpp:9:23: error: expression list treated as compound expression in mem-initializer [-fpermissive]
+   X(int) : m_a(1, 2, 3) {}   // ill-formed
+                       ^
+main.cpp:9:23: error: incompatible types in assignment of 'int' to 'int [3]'

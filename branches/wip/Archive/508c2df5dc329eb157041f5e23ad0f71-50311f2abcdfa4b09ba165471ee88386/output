@@ -1,0 +1,128 @@
++ clang++ -std=c++11 -O0 main.cpp
+main.cpp:198:2: error: expected '}'
+}
+ ^
+main.cpp:121:1: note: to match this '{'
+{
+^
+main.cpp:122:34: error: use of undeclared identifier 'start'
+    parser() : parser::base_type(start)
+                                 ^
+main.cpp:127:9: error: use of undeclared identifier 'property_'
+        property_  = alpha >> *alnum;
+        ^
+main.cpp:128:9: error: use of undeclared identifier 'strlit_'
+        strlit_    = '"' >> *(  (lit('\\') >> char_) | ~char_('"') ) > '"';
+        ^
+main.cpp:128:70: warning: overloaded operator >> has lower precedence than comparison operator [-Woverloaded-shift-op-parentheses]
+        strlit_    = '"' >> *(  (lit('\\') >> char_) | ~char_('"') ) > '"';
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~
+main.cpp:128:26: note: place parentheses around the '>>' expression to silence this warning
+        strlit_    = '"' >> *(  (lit('\\') >> char_) | ~char_('"') ) > '"';
+                         ^
+                     (                                              )
+main.cpp:128:70: note: place parentheses around comparison expression to evaluate it first
+        strlit_    = '"' >> *(  (lit('\\') >> char_) | ~char_('"') ) > '"';
+                                                                     ^
+                            (                                             )
+main.cpp:131:9: error: use of undeclared identifier 'regex_'
+        regex_     = strlit_ [ _val = phx::construct<regex>(_1) ];
+        ^
+main.cpp:131:22: error: use of undeclared identifier 'strlit_'
+        regex_     = strlit_ [ _val = phx::construct<regex>(_1) ];
+                     ^
+main.cpp:132:9: error: use of undeclared identifier 'value_'; did you mean 'false_'?
+        value_     = double_ | int_ | strlit_;
+        ^~~~~~
+        false_
+/usr/local/include/boost/spirit/home/support/common_terminals.hpp:80:11: note: 'false_' declared here
+        ( false_, false_type )
+          ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:612:46: note: expanded from macro 'BOOST_SPIRIT_DEFINE_TERMINALS_NAME'
+        BOOST_PP_CAT(BOOST_SPIRIT_TERMINAL_X seq, 0))                           \
+                                             ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:577:41: note: expanded from macro 'BOOST_SPIRIT_TERMINAL_Y'
+#define BOOST_SPIRIT_TERMINAL_Y(x, y) ((x, y)) BOOST_SPIRIT_TERMINAL_X
+                                        ^
+/usr/local/include/boost/preprocessor/cat.hpp:22:47: note: expanded from macro 'BOOST_PP_CAT'
+#    define BOOST_PP_CAT(a, b) BOOST_PP_CAT_I(a, b)
+                                              ^
+note: (skipping 82 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:48:42: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_I'
+#        define BOOST_PP_TUPLE_ELEM_I(x) x
+                                         ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:114:345: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_0'
+#    define BOOST_PP_TUPLE_ELEM_0(e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e30, e31, e32, e33, e34, e35, e36, e37, e38, e39, e40, e41, e42, e43, e44, e45, e46, e47, e48, e49, e50, e51, e52, e53, e54, e55, e56, e57, e58, e59, e60, e61, e62, e63) e0
+                                                                                                                                                                                                                                                                                                                                                        ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:586:21: note: expanded from macro 'BOOST_SPIRIT_TERMINAL_NAME'
+    type_name const name = {{}};                                                \
+                    ^
+main.cpp:132:39: error: use of undeclared identifier 'strlit_'
+        value_     = double_ | int_ | strlit_;
+                                      ^
+main.cpp:133:9: error: use of undeclared identifier 'condition_'; did you mean 'std::conditional'?
+        condition_ = (no_case["NOT"] >> attr(true) | attr(false)) 
+        ^~~~~~~~~~
+        std::conditional
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:1780:12: note: 'std::conditional' declared here
+    struct conditional
+           ^
+main.cpp:133:9: error: unknown type name 'condition_'; did you mean 'condition'?
+        condition_ = (no_case["NOT"] >> attr(true) | attr(false)) 
+        ^~~~~~~~~~
+        condition
+main.cpp:22:8: note: 'condition' declared here
+struct condition
+       ^
+main.cpp:133:20: error: expected unqualified-id
+        condition_ = (no_case["NOT"] >> attr(true) | attr(false)) 
+                   ^
+main.cpp:139:9: error: use of undeclared identifier 'print_'
+        print_   = no_case["PRINT"] >> property_ % ',';
+        ^
+main.cpp:139:40: error: use of undeclared identifier 'property_'
+        print_   = no_case["PRINT"] >> property_ % ',';
+                                       ^
+main.cpp:140:9: error: use of undeclared identifier 'set_'
+        set_     = no_case["SET"] >> (property_ >> '=' >> value_) % ',';
+        ^
+main.cpp:140:39: error: use of undeclared identifier 'property_'
+        set_     = no_case["SET"] >> (property_ >> '=' >> value_) % ',';
+                                      ^
+main.cpp:140:59: error: use of undeclared identifier 'value_'; did you mean 'false_'?
+        set_     = no_case["SET"] >> (property_ >> '=' >> value_) % ',';
+                                                          ^~~~~~
+                                                          false_
+/usr/local/include/boost/spirit/home/support/common_terminals.hpp:80:11: note: 'false_' declared here
+        ( false_, false_type )
+          ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:612:46: note: expanded from macro 'BOOST_SPIRIT_DEFINE_TERMINALS_NAME'
+        BOOST_PP_CAT(BOOST_SPIRIT_TERMINAL_X seq, 0))                           \
+                                             ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:577:41: note: expanded from macro 'BOOST_SPIRIT_TERMINAL_Y'
+#define BOOST_SPIRIT_TERMINAL_Y(x, y) ((x, y)) BOOST_SPIRIT_TERMINAL_X
+                                        ^
+/usr/local/include/boost/preprocessor/cat.hpp:22:47: note: expanded from macro 'BOOST_PP_CAT'
+#    define BOOST_PP_CAT(a, b) BOOST_PP_CAT_I(a, b)
+                                              ^
+note: (skipping 82 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:48:42: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_I'
+#        define BOOST_PP_TUPLE_ELEM_I(x) x
+                                         ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:114:345: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_0'
+#    define BOOST_PP_TUPLE_ELEM_0(e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e30, e31, e32, e33, e34, e35, e36, e37, e38, e39, e40, e41, e42, e43, e44, e45, e46, e47, e48, e49, e50, e51, e52, e53, e54, e55, e56, e57, e58, e59, e60, e61, e62, e63) e0
+                                                                                                                                                                                                                                                                                                                                                        ^
+/usr/local/include/boost/spirit/home/support/terminal.hpp:586:21: note: expanded from macro 'BOOST_SPIRIT_TERMINAL_NAME'
+    type_name const name = {{}};                                                \
+                    ^
+main.cpp:141:9: error: use of undeclared identifier 'command_'
+        command_ = print_ | set_;
+        ^
+main.cpp:141:20: error: use of undeclared identifier 'print_'
+        command_ = print_ | set_;
+                   ^
+main.cpp:141:29: error: use of undeclared identifier 'set_'
+        command_ = print_ | set_;
+                            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.

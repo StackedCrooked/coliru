@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -pthread main.cpp
+main.cpp: In instantiation of 'struct repeat_helper<double, 1u, std::tuple, std::tuple<double, double, double, double> >':
+main.cpp:15:68:   recursively required from 'struct repeat_helper<double, 4u, std::tuple, std::tuple<double> >'
+main.cpp:15:68:   required from 'struct repeat_helper<double, 5u, std::tuple, std::tuple<> >'
+main.cpp:21:60:   required from 'struct repeat<double, 5u>'
+main.cpp:26:22:   required from here
+main.cpp:15:68: error: ambiguous class template instantiation for 'struct repeat_helper<double, 0u, std::tuple, std::tuple<double, double, double, double, double> >'
+     typedef typename repeat_helper<T, n-1, M, M<Args..., T>>::type type;
+                                                                    ^
+main.cpp:7:8: error: candidates are: struct repeat_helper<T, 0u, M, M<Args ...> >
+ struct repeat_helper<T, 0, M, M<Args...>>
+        ^
+main.cpp:13:8: error:                 struct repeat_helper<T, n, M, M<Args ...> >
+ struct repeat_helper<T, n, M, M<Args...>>
+        ^
+main.cpp:15:68: error: invalid use of incomplete type 'struct repeat_helper<double, 0u, std::tuple, std::tuple<double, double, double, double, double> >'
+     typedef typename repeat_helper<T, n-1, M, M<Args..., T>>::type type;
+                                                                    ^
+main.cpp:4:8: error: declaration of 'struct repeat_helper<double, 0u, std::tuple, std::tuple<double, double, double, double, double> >'
+ struct repeat_helper;
+        ^

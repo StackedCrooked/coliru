@@ -1,0 +1,8 @@
++ g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘const size_t Index<char, std::tuple<long int> >::value’:
+main.cpp:16:40:   recursively required from ‘const size_t Index<char, std::tuple<char*, int, long int> >::value’
+main.cpp:16:40:   required from ‘const size_t Index<char, std::tuple<int, char*, int, long int> >::value’
+main.cpp:22:65:   required from here
+main.cpp:16:40: error: incomplete type ‘Index<char, std::tuple<> >’ used in nested name specifier
+     static const std::size_t value = 1 + Index<T, std::tuple<Types...>>::value;
+                                        ^

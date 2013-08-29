@@ -1,0 +1,2 @@
+echo '<>'
+cat main.cpp

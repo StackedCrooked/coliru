@@ -1,0 +1,38 @@
+main.cpp:1:9: warning: #pragma once in main file [enabled by default]
+main.cpp: In member function ‘any& any::operator=(T)’:
+main.cpp:34:32: error: no matching function for call to ‘swap(any&, any)’
+main.cpp:34:32: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_pair.h:61:0,
+                 from /usr/include/c++/4.7/utility:72,
+                 from /usr/include/c++/4.7/tuple:38,
+                 from /usr/include/c++/4.7/functional:56,
+                 from main.cpp:3:
+/usr/include/c++/4.7/bits/move.h:167:5: note: void std::swap(_Tp&, _Tp&) [with _Tp = any]
+/usr/include/c++/4.7/bits/move.h:167:5: note:   no known conversion for argument 2 from ‘any’ to ‘any&’
+/usr/include/c++/4.7/bits/move.h:186:5: note: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
+/usr/include/c++/4.7/bits/move.h:186:5: note:   template argument deduction/substitution failed:
+main.cpp:34:32: note:   mismatched types ‘_Tp [_Nm]’ and ‘any’
+In file included from /usr/include/c++/4.7/utility:72:0,
+                 from /usr/include/c++/4.7/tuple:38,
+                 from /usr/include/c++/4.7/functional:56,
+                 from main.cpp:3:
+/usr/include/c++/4.7/bits/stl_pair.h:246:5: note: template<class _T1, class _T2> void std::swap(std::pair<_T1, _T2>&, std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:246:5: note:   template argument deduction/substitution failed:
+main.cpp:34:32: note:   ‘any’ is not derived from ‘std::pair<_T1, _T2>’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from main.cpp:3:
+/usr/include/c++/4.7/tuple:1043:5: note: template<class ... _Elements> void std::swap(std::tuple<_Elements ...>&, std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:1043:5: note:   template argument deduction/substitution failed:
+main.cpp:34:32: note:   ‘any’ is not derived from ‘std::tuple<_Elements ...>’
+In file included from main.cpp:3:0:
+/usr/include/c++/4.7/functional:2412:5: note: template<class _Res, class ... _Args> void std::swap(std::function<_Res(_ArgTypes ...)>&, std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2412:5: note:   template argument deduction/substitution failed:
+main.cpp:34:32: note:   ‘any’ is not derived from ‘std::function<_Res(_ArgTypes ...)>’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/stdexcept:40,
+                 from main.cpp:4:
+/usr/include/c++/4.7/bits/basic_string.h:2714:5: note: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2714:5: note:   template argument deduction/substitution failed:
+main.cpp:34:32: note:   ‘any’ is not derived from ‘std::basic_string<_CharT, _Traits, _Alloc>’
+main.cpp:82:17: note: void swap(any&, any&)
+main.cpp:82:17: note:   no known conversion for argument 2 from ‘any’ to ‘any&’

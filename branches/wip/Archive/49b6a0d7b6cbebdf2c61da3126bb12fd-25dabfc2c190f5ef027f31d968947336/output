@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/algorithm:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:4949:12: error: assigning to 'double' from incompatible type 'const __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >'
+        *__result = __unary_op(*__first);
+                  ^ ~~~~~~~~~~~~~~~~~~~~
+main.cpp:52:14: note: in instantiation of function template specialization 'std::transform<__gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, <lambda at main.cpp:52:44> >' requested here
+        std::transform(first, last, first, [&](Rank const&){ return m; }); 
+             ^
+main.cpp:91:9: note: in instantiation of function template specialization 'tie_break::max::operator()<__gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, double>' requested here
+        TieBreak()(tied.first, tied.second);
+        ^
+main.cpp:102:5: note: in instantiation of function template specialization 'rank_n<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, long, __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, tie_break::max, std::less<int>, double>' requested here
+    rank_n(first1, std::distance(first1, last1), first2, first3, cmp);
+    ^
+main.cpp:124:5: note: in instantiation of function template specialization 'rank<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, __gnu_cxx::__normal_iterator<double *, std::vector<double, std::allocator<double> > >, std::less<int> >' requested here
+    rank(begin(src), end(src), begin(ord), begin(rnk));
+    ^
+1 error generated.

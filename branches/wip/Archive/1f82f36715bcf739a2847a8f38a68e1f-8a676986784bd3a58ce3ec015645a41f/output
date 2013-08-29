@@ -1,0 +1,12 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:12:9: error: 'template<class T> void check::foo()' cannot be overloaded
+    auto foo() -> void
+         ^
+main.cpp:6:9: error: with 'template<class T> void check::foo()'
+    void foo()
+         ^
+main.cpp: In instantiation of 'void check::foo() [with T = main()::apple]':
+main.cpp:25:19:   required from here
+main.cpp:8:31: error: 'struct main()::apple' has no member named 'value'
+       static_assert(T{}.value == 10, "Incorrect value");
+                               ^

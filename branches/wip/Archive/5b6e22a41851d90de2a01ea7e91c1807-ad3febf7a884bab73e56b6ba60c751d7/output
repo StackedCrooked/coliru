@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:6:44: error: invalid initialization of non-const reference of type ‘int&’ from an rvalue of type ‘int’
+     int& i_ref = [](int& n) { return n; }(i);
+                                            ^
+main.cpp:6:10: warning: unused variable ‘i_ref’ [-Wunused-variable]
+     int& i_ref = [](int& n) { return n; }(i);
+          ^

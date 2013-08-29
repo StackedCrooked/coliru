@@ -1,0 +1,1 @@
+du -sh /Archive/42aed8e7834110632cd950a88922bfdb-f674c1a6d04c632b71a62362c0ccfc51/output

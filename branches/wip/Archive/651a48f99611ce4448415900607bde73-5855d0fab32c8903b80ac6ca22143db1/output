@@ -1,0 +1,56 @@
++ g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	_Z7thread1v
+	.type	_Z7thread1v, @function
+_Z7thread1v:
+.LFB332:
+	.cfi_startproc
+	movl	$1, x(%rip)
+	movl	y(%rip), %eax
+	movl	%eax, r1(%rip)
+	ret
+	.cfi_endproc
+.LFE332:
+	.size	_Z7thread1v, .-_Z7thread1v
+	.p2align 5,,31
+	.globl	_Z7thread2v
+	.type	_Z7thread2v, @function
+_Z7thread2v:
+.LFB333:
+	.cfi_startproc
+	movl	$1, y(%rip)
+	movl	x(%rip), %eax
+	movl	%eax, r2(%rip)
+	ret
+	.cfi_endproc
+.LFE333:
+	.size	_Z7thread2v, .-_Z7thread2v
+	.globl	r2
+	.bss
+	.align 4
+	.type	r2, @object
+	.size	r2, 4
+r2:
+	.zero	4
+	.globl	r1
+	.align 4
+	.type	r1, @object
+	.size	r1, 4
+r1:
+	.zero	4
+	.globl	y
+	.align 4
+	.type	y, @object
+	.size	y, 4
+y:
+	.zero	4
+	.globl	x
+	.align 4
+	.type	x, @object
+	.size	x, 4
+x:
+	.zero	4
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits

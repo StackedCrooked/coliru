@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -Wextra -Werror -pedantic-errors -g -S main.cpp -o - | grep -C6 DEBUG

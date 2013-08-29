@@ -1,0 +1,11 @@
++ g++ -std=c++11 main.cpp -O3
+main.cpp: In member function ‘B::operator A()’:
+main.cpp:7:18: error: return type ‘class A’ is incomplete
+     operator A() {std::cout << "conversion operator called\n"; return A();}
+                  ^
+main.cpp:7:73: error: invalid use of incomplete type ‘class A’
+     operator A() {std::cout << "conversion operator called\n"; return A();}
+                                                                         ^
+main.cpp:3:7: error: forward declaration of ‘class A’
+ class A;
+       ^

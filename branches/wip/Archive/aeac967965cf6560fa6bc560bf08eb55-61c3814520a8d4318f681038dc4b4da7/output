@@ -1,0 +1,135 @@
+main.cpp:1:6: error: 'FileSystemWatcherUser' has not been declared
+ void FileSystemWatcherUser::ThreadedScan() {
+      ^
+main.cpp: In function 'void ThreadedScan()':
+main.cpp:2:2: error: 'threaddone' was not declared in this scope
+  threaddone = false;
+  ^
+main.cpp:4:17: error: 'UpdateWatches' was not declared in this scope
+   UpdateWatches();
+                 ^
+main.cpp:7:8: error: 'activewatches' was not declared in this scope
+   if ( activewatches.size() < 1 ) {
+        ^
+main.cpp:11:4: error: 'TLockGuard' was not declared in this scope
+    TLockGuard guard ( scanmutex );
+    ^
+main.cpp:11:15: error: expected ';' before 'guard'
+    TLockGuard guard ( scanmutex );
+               ^
+main.cpp:15:24: error: unable to deduce 'auto&&' from 'activewatches'
+    for ( auto& watch : activewatches ) {
+                        ^
+main.cpp: At global scope:
+main.cpp:23:6: error: 'FileSystemWatcherUser' has not been declared
+ void FileSystemWatcherUser::UpdateWatches() {
+      ^
+main.cpp: In function 'void UpdateWatches()':
+main.cpp:26:11: error: 'changes' was not declared in this scope
+     if ( !changes )
+           ^
+main.cpp:29:2: error: 'vector' is not a member of 'std'
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+  ^
+main.cpp:29:14: error: 'FileSystemWatcherUser' was not declared in this scope
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+              ^
+main.cpp:29:36: error: expected primary-expression before '>' token
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+                                    ^
+main.cpp:29:38: error: 'add' was not declared in this scope
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+                                      ^
+main.cpp:29:43: error: 'vector' is not a member of 'std'
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+                                           ^
+main.cpp:29:55: error: 'FileSystemWatcherUser' is not a class, namespace, or enumeration
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+                                                       ^
+main.cpp:29:87: error: 'remove' was not declared in this scope
+  std::vector<FileSystemWatcherUser*> add; std::vector<FileSystemWatcherUser::Removal> remove; 
+                                                                                       ^
+main.cpp:31:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard guard( pendingmutex );
+   ^
+main.cpp:31:14: error: expected ';' before 'guard'
+   TLockGuard guard( pendingmutex );
+              ^
+main.cpp:32:9: error: 'move' is not a member of 'std'
+   add = std::move( pendingadditions );
+         ^
+main.cpp:32:20: error: 'pendingadditions' was not declared in this scope
+   add = std::move( pendingadditions );
+                    ^
+main.cpp:33:12: error: 'move' is not a member of 'std'
+   remove = std::move( pendingremovals );
+            ^
+main.cpp:33:23: error: 'pendingremovals' was not declared in this scope
+   remove = std::move( pendingremovals );
+                       ^
+main.cpp:39:3: error: 'TLockGuard' was not declared in this scope
+   TLockGuard scanguard( scanmutex );
+   ^
+main.cpp:39:14: error: expected ';' before 'scanguard'
+   TLockGuard scanguard( scanmutex );
+              ^
+main.cpp:40:27: error: unable to deduce 'auto&&' from 'add'
+   for ( auto&& addition : add ) {
+                           ^
+main.cpp:41:22: error: 'drives' was not declared in this scope
+    auto drivecatch = drives.find( addition->drive );
+                      ^
+main.cpp:43:38: error: 'make_tuple' is not a member of 'std'
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                      ^
+main.cpp:43:54: error: 'ptr' was not declared in this scope
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                      ^
+main.cpp:43:58: error: expected primary-expression before 'void'
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                          ^
+main.cpp:43:64: error: 'ReleaseHandle' was not declared in this scope
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                ^
+main.cpp:43:78: error: expected primary-expression before ',' token
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                              ^
+main.cpp:43:84: error: expected primary-expression before 'void'
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                                    ^
+main.cpp:43:104: error: expected primary-expression before ',' token
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                                                        ^
+main.cpp:43:106: error: 'lword' was not declared in this scope
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                                                          ^
+main.cpp:43:114: error: 'null' was not declared in this scope
+     drives.emplace( addition->drive, std::make_tuple<ptr<void, ReleaseHandle>, ptr<void, ReleaseHandle>, lword>( null, null, 1 ) );
+                                                                                                                  ^
+main.cpp:46:7: error: 'get' is not a member of 'std'
+     ++std::get<2>( drivecatch->second );
+       ^
+main.cpp:48:4: error: 'activewatches' was not declared in this scope
+    activewatches.emplace_back( addition );
+    ^
+main.cpp:51:26: error: unable to deduce 'auto&&' from 'remove'
+   for ( auto&& removal : remove ) {
+                          ^
+main.cpp:52:22: error: 'drives' was not declared in this scope
+    auto drivecatch = drives.find( removal.drive );
+                      ^
+main.cpp:54:7: error: 'get' is not a member of 'std'
+     --std::get<2>( drivecatch->second );
+       ^
+main.cpp:55:10: error: 'get' is not a member of 'std'
+     if ( std::get<2>( drivecatch->second ) < 1 )
+          ^
+main.cpp:58:4: error: 'activewatches' was not declared in this scope
+    activewatches.erase( std::find( activewatches.begin(), activewatches.end(), removal.destructedelement ) );
+    ^
+main.cpp:58:25: error: 'find' is not a member of 'std'
+    activewatches.erase( std::find( activewatches.begin(), activewatches.end(), removal.destructedelement ) );
+                         ^
+main.cpp:61:2: error: 'changes' was not declared in this scope
+  changes = false;
+  ^

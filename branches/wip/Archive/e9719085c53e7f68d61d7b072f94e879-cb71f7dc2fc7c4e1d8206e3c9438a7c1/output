@@ -1,0 +1,33 @@
++ coliru_split.sh
++ cat a.cpp a.h cmd.sh main.cpp
+#include "a.h"
+
+int sum(int a, int b)
+{
+    return a + b;
+}
+
+
+#ifndef A_H_INCLUDED
+#define A_H_INCLUDED
+
+int sum(int, int);
+
+#endif // A_H_INCLUDED
+
+
+#!/bin/bash
+ulimit -u 16
+ulimit -t 20
+ulimit -f 100
+cd $(dirname $0)
+export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
+set -x
+coliru_split.sh
+cat *#include "a.h"
+#include <iostream>
+
+int main()
+{
+    std::cout << sum(3, 4) << std::endl;
+}

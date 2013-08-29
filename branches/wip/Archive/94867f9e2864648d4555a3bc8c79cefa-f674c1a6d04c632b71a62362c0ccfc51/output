@@ -1,0 +1,9 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘void TopSM<StateBase, States>::DoIt() [with StateBase = Base; States = {State1, State2}]’:
+main.cpp:44:13:   required from here
+main.cpp:36:84: error: invalid operands of types ‘<unresolved overloaded function type>’ and ‘int’ to binary ‘operator<’
+             int nextState = this->template SM< StateBase, States...>::GetNextState <1>( 1 );
+                                                                                    ^
+main.cpp:36:17: warning: unused variable ‘nextState’ [-Wunused-variable]
+             int nextState = this->template SM< StateBase, States...>::GetNextState <1>( 1 );
+                 ^

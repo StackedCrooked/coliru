@@ -1,0 +1,17 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function 'Info& Info::write(const T&)':
+main.cpp:9:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: In function 'int main()':
+main.cpp:20:12: error: no match for 'operator<<' (operand types are 'Info' and 'const char [6]')
+     Info() << "hello";
+            ^
+main.cpp:20:12: note: candidate is:
+main.cpp:13:7: note: template<class T> Info& operator<<(Info&, const T&)
+ Info& operator<<(Info& info, const T& t)
+       ^
+main.cpp:13:7: note:   template argument deduction/substitution failed:
+main.cpp:20:15: note:   cannot convert 'Info()' (type 'Info') to type 'Info&'
+     Info() << "hello";
+               ^

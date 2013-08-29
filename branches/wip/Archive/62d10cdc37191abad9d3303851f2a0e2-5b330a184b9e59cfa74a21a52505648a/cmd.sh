@@ -1,0 +1,1 @@
+mv main.cpp main.c && clang main.c -lm -O3 -S && cat main.s

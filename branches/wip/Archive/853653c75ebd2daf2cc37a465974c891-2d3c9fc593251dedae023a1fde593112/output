@@ -1,0 +1,43 @@
++ g++ -std=c11 -O2 -Wall -Wextra -pedantic -pthread -x c main.cpp -S -o -
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	fact
+	.type	fact, @function
+fact:
+.LFB0:
+	.cfi_startproc
+	cmpl	$1, %edi
+	movq	result.1593(%rip), %rax
+	jle	.L5
+	leal	-2(%rdi), %esi
+	movq	result.1593(%rip), %rcx
+	xorl	%edx, %edx
+	movslq	%edi, %rdi
+	addq	$1, %rsi
+	jmp	.L4
+	.p2align 4,,10
+	.p2align 3
+.L8:
+	movq	%rax, %rcx
+.L4:
+	movq	%rdi, %rax
+	subq	%rdx, %rax
+	addq	$1, %rdx
+	imulq	%rcx, %rax
+	cmpq	%rsi, %rdx
+	jne	.L8
+.L5:
+	movq	$1, result.1593(%rip)
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	fact, .-fact
+	.data
+	.align 8
+	.type	result.1593, @object
+	.size	result.1593, 8
+result.1593:
+	.quad	1
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits

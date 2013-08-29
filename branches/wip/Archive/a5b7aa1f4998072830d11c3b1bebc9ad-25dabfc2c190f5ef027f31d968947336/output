@@ -1,0 +1,15 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:16:7: warning: unused variable 'aa' [-Wunused-variable]
+    A aa{ construct(10) }; // main.cpp:10: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned int' in initializer list [-Wc++11-narrowing]
+      ^
+main.cpp:10:15: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned int' in initializer list [-Wc++11-narrowing]
+    return A{ std::forward<Args>(args)... };
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:16:11: note: in instantiation of function template specialization 'construct<int>' requested here
+    A aa{ construct(10) }; // main.cpp:10: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned int' in initializer list [-Wc++11-narrowing]
+          ^
+main.cpp:10:15: note: override this message by inserting an explicit cast
+    return A{ std::forward<Args>(args)... };
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+              static_cast<unsigned int>( )
+1 warning and 1 error generated.

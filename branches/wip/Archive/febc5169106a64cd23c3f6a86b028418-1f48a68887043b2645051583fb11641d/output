@@ -1,0 +1,16 @@
+In file included from /usr/local/include/c++/4.8.0/iterator:66:0,
+                 from main.cpp:6:
+/usr/local/include/c++/4.8.0/bits/stream_iterator.h: In instantiation of 'std::ostream_iterator<_Tp, _CharT, _Traits>& std::ostream_iterator<_Tp, _CharT, _Traits>::operator=(const _Tp&) [with _Tp = std::pair<const int, std::basic_string<char> >; _CharT = char; _Traits = std::char_traits<char>]':
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:305:16:   required from 'static _OI std::__copy_move<<anonymous>, <anonymous>, <template-parameter-1-3> >::__copy_m(_II, _II, _OI) [with _II = std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >; _OI = std::ostream_iterator<std::pair<const int, std::basic_string<char> > >; bool <anonymous> = false; bool <anonymous> = false; <template-parameter-1-3> = std::bidirectional_iterator_tag]'
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:390:70:   required from '_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >; _OI = std::ostream_iterator<std::pair<const int, std::basic_string<char> > >]'
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:428:38:   required from '_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >; _OI = std::ostream_iterator<std::pair<const int, std::basic_string<char> > >]'
+/usr/local/include/c++/4.8.0/bits/stl_algobase.h:460:17:   required from '_OI std::copy(_II, _II, _OI) [with _II = std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >; _OI = std::ostream_iterator<std::pair<const int, std::basic_string<char> > >]'
+main.cpp:22:114:   required from here
+/usr/local/include/c++/4.8.0/bits/stream_iterator.h:198:13: error: cannot bind 'std::ostream_iterator<std::pair<const int, std::basic_string<char> > >::ostream_type {aka std::basic_ostream<char>}' lvalue to 'std::basic_ostream<char>&&'
+  *_M_stream << __value;
+             ^
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:602:5: error:   initializing argument 1 of 'std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = std::pair<const int, std::basic_string<char> >]'
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^

@@ -1,0 +1,15 @@
+main.cpp:4:42: error: template argument 1 is invalid
+ void myfunc(std::function<R(P...) const &func) {}
+                                          ^
+main.cpp: In function 'int main()':
+main.cpp:7:18: error: no matching function for call to 'myfunc(main()::__lambda0)'
+     myfunc([](){});
+                  ^
+main.cpp:7:18: note: candidate is:
+main.cpp:4:6: note: template<class R, class ... P> void myfunc(int)
+ void myfunc(std::function<R(P...) const &func) {}
+      ^
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:7:18: note:   cannot convert '<lambda closure object>main()::__lambda0{}' (type 'main()::__lambda0') to type 'int'
+     myfunc([](){});
+                  ^

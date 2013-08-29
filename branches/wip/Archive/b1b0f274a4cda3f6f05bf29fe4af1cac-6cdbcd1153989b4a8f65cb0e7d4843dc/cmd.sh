@@ -1,0 +1,1 @@
+clang++ -o test -std=c++11 -stdlib=libstdc++ -isystem /usr/include/x86_64-linux-gnu/c++/4.7 -Werror -Wall -Wextra -pedantic-errors -O2 -pthread main.cpp && ./test

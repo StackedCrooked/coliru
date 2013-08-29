@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -Wall -pedantic main.cpp
+main.cpp:29:31: error: use of undeclared identifier 'z'
+        return std::to_string(z);
+                              ^
+main.cpp:34:18: error: no matching function for call to 'compose'
+    std::cout << compose(f4, f3, f2, f)();
+                 ^~~~~~~
+main.cpp:14:48: note: candidate template ignored: substitution failure [with Head = <lambda at main.cpp:31:15> &, Tail = <<lambda at main.cpp:28:15> &, <lambda at main.cpp:25:15> &, <lambda at main.cpp:22:14> &>]: use of undeclared identifier 'compose'
+template<typename Head, typename... Tail> auto compose(Head&& head, Tail&&... tail) -> composer<typename std::decay<Head>::type, decltype(compose(std::forward<Tail>(tail)...))> {
+                                               ^                                                                                          ~~~~~~~
+main.cpp:17:30: note: candidate function template not viable: requires single argument 'head', but 4 arguments were provided
+template<typename Head> auto compose(Head&& head) -> typename std::decay<Head>::type {
+                             ^
+2 errors generated.
