@@ -1,0 +1,76 @@
+main.cpp:29:20: error: 'CNTR' was not declared in this scope
+         enum{ Id = CNTR };
+                    ^
+main.cpp:33:32: error: wrong number of template arguments (2, should be 3)
+     struct RecTypes<Empty,Empty>
+                                ^
+main.cpp:25:12: error: provided for 'template<class DEF, int NUM, class TAIL> struct Impl::RecTypes'
+     struct RecTypes
+            ^
+main.cpp:44:53: error: wrong number of template arguments (1, should be 3)
+         typedef RecTypes< Head, CNTR, RecTypes<Tail > RecType;
+                                                     ^
+main.cpp:25:12: error: provided for 'template<class DEF, int NUM, class TAIL> struct Impl::RecTypes'
+     struct RecTypes
+            ^
+main.cpp:44:55: error: template argument 3 is invalid
+         typedef RecTypes< Head, CNTR, RecTypes<Tail > RecType;
+                                                       ^
+main.cpp:44:17: warning: 'typedef' was ignored in this declaration [enabled by default]
+         typedef RecTypes< Head, CNTR, RecTypes<Tail > RecType;
+                 ^
+main.cpp:46:66: error: type/value mismatch at argument 2 in template parameter list for 'template<class LIST, class PREVSEL, int CNTR> struct Impl::Selector'
+         typedef typename Selector< typename LIST::Tail, CNTR + 1 >::Type PrevType;
+                                                                  ^
+main.cpp:46:66: error:   expected a type, got '(CNTR + 1)'
+main.cpp:50:42: error: type/value mismatch at argument 2 in template parameter list for 'template<class LIST, class PREVSEL, int CNTR> struct Impl::Selector'
+     struct Selector< EmptyTypeList, CNTR >
+                                          ^
+main.cpp:50:42: error:   expected a type, got 'CNTR'
+main.cpp:79:13: error: 'Builder' in namespace 'Impl' does not name a type
+     typedef Impl::Builder< Head, Tail >                 Builder;
+             ^
+main.cpp:90:50: error: wrong number of template arguments (2, should be 3)
+     typedef Impl::RecTypes< Empty, EmptyTypeList >      RecTypes;
+                                                  ^
+main.cpp:25:12: error: provided for 'template<class DEF, int NUM, class TAIL> struct Impl::RecTypes'
+     struct RecTypes
+            ^
+main.cpp: In static member function 'static void Impl::AllTypesImpl<LIST, FTOR>::Run(FTOR&)':
+main.cpp:133:13: error: 'EntryInfo' was not declared in this scope
+             EntryInfo< typename LIST::Head, 0, typename LIST::Tail > entry;
+             ^
+main.cpp:133:43: error: expected '(' before ',' token
+             EntryInfo< typename LIST::Head, 0, typename LIST::Tail > entry;
+                                           ^
+main.cpp:133:68: error: expected '(' before '>' token
+             EntryInfo< typename LIST::Head, 0, typename LIST::Tail > entry;
+                                                                    ^
+main.cpp:133:70: error: 'entry' was not declared in this scope
+             EntryInfo< typename LIST::Head, 0, typename LIST::Tail > entry;
+                                                                      ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:168:26: error: 'Check' was not declared in this scope
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                          ^
+main.cpp:168:32: error: 'A' was not declared in this scope
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                ^
+main.cpp:168:34: error: '::value' has not been declared
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                  ^
+main.cpp:168:60: error: 'B' was not declared in this scope
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                                            ^
+main.cpp:168:62: error: '::value' has not been declared
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                                              ^
+main.cpp:168:88: error: 'C' was not declared in this scope
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                                                                        ^
+main.cpp:168:90: error: '::value' has not been declared
+     std::cout << "A=" << Check<A>::value << " B=" << Check<B>::value << " C=" << Check<C>::value << std::endl;
+                                                                                          ^
+main.cpp:171:34: error: '::valueT' has not been declared
+     std::cout << "B=" << Check<B>::valueT << std::endl;
+                                  ^
