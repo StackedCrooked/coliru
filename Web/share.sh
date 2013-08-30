@@ -8,28 +8,31 @@ export INPUT_FILES_DIR
 # Make the archive id
 id="$(./hash.sh)"
 
-# This is the only return 
+# The first line of output determines the archive id.
 echo "${id}"
+{
+    exec 1> >(logger -t "$0 stdout")
+    exec 2> >(logger -t "$0 stderr")
+    set -x
 
+    # If the id already existed then simply return.
+    # We don't have to compile anymore.
+    [ -d "${COLIRU_ARCHIVE}/${id}" ] && exit
+    [ -d "${COLIRU_ARCHIVE_RECENT}/${id}" ] && exit
 
-# If the id already existed then simply return.
-# We don't have to compile anymore.
-if [ -d "${COLIRU_ARCHIVE}/${id}" ] ; then
-    exit
-fi
+    # The archive directory for the ide.
+    export archive_dir="${COLIRU_ARCHIVE_RECENT}/${id}"
+    mkdir ${archive_dir}
 
-# The archive directory for the ide.
-export dir="${COLIRU_ARCHIVE}/${id}"
-mkdir ${dir}
+    chmod 755 ${INPUT_FILES_DIR}/cmd.sh
+    cat ${INPUT_FILES_DIR}/main.cpp > ${archive_dir}/main.cpp
+    cat ${INPUT_FILES_DIR}/cmd.sh > ${archive_dir}/cmd.sh
+    date '+%s' > ${archive_dir}/timestamp
 
-chmod 755 ${INPUT_FILES_DIR}/cmd.sh
-cat ${INPUT_FILES_DIR}/main.cpp > ${dir}/main.cpp
-cat ${INPUT_FILES_DIR}/cmd.sh > ${dir}/cmd.sh
-date '+%s' > ${dir}/timestamp
+    # Build and run it.
+    ./build_and_run.sh >${archive_dir}/output 2>&1
 
+    # Add to svn
+    svn add ${archive_dir}
 
-# Build and run it.
-./build_and_run.sh >${dir}/output 2>&1
-
-# Add the results to svn
-svn add ${dir} >/dev/null 2>&1 & disown
+}

@@ -144,6 +144,8 @@ get '/Archive/*' do |file|
     content_type :txt
     begin
         real_file = "#{ENV['COLIRU_ARCHIVE']}/#{file}"
+        real_file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{file}" unless File.exist?(real_file)
+
         if File.directory? real_file
             Dir.entries(real_file).join("\n").to_s
         else
@@ -158,7 +160,9 @@ end
 get '/archive' do       
     get_contents = Proc.new do |name|       
         begin       
-            File.read("#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}")        
+            file = "#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}"
+            file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{params[:id]}/#{name}" unless File.exist?(file)
+            File.read(file)
         rescue Exception => _
           ''
         end     
