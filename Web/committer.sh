@@ -4,7 +4,7 @@
     exit 1
 }
 
-pgids="$(ps -eopgid,ppid,pid,uid,comm | grep 'committer.sh' | GetColumn.sh 1 | sort -n | uniq)"
+pgids="$(ps -eopgid,ppid,pid,uid,comm | grep 'committer.sh' | awk '{print $1}' | sort -n | uniq)"
 [ "$(echo "${pgids}" | wc -l)" == 1 ] || {
     echo "Committer is already running" 1>&2
     exit 1
