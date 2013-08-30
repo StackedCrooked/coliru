@@ -4,6 +4,7 @@ if [ "$(whoami)" != "root" ] ; then
     exit 1
 fi
 
+chmod a+rw /var/log/syslog
 source coliru_env.source
 
 chown -R webserver:coliru ..
