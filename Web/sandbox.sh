@@ -6,18 +6,9 @@ source coliru_env.source
 
 ID="$(./hash.sh)"
 
-# 
 # Check archive for previous result.
-#
-if [ -f "${COLIRU_ARCHIVE}/${ID}/output" ] ; then
-    cat "${COLIRU_ARCHIVE}/${ID}/output"
-    exit
-fi
+[ -f "${COLIRU_ARCHIVE}/${ID}/output" ] && cat ${COLIRU_ARCHIVE}/${ID}/output && exit
+[ -f "${COLIRU_ARCHIVE_RECENT}/${ID}/output" ] && cat ${COLIRU_ARCHIVE}/${ID}/output && exit
 
-#
-# Reset the timeout to 20 seconds after this script exits.
-#
-trap "echo 20 > timeout.txt ; exit" INT TERM EXIT
-
-
+# Launch the chroot
 ./build_and_run.sh
