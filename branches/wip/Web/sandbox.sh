@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Enforce sequential access to the sandbox.
+while  ! mkdir $0.lock 2>/dev/null ; do sleep 1 ; done
+trap 'rm -rf "$0.lock"' EXIT
+
 set -e
 source coliru_env.source
 
