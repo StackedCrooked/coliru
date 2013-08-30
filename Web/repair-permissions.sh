@@ -6,8 +6,7 @@ fi
 
 source coliru_env.source
 
-chown webserver:coliru .
-chown webserver:coliru ${COLIRU_ARCHIVE}
+chown -R webserver:coliru ..
 chmod a+rw .
 
 
