@@ -6,26 +6,30 @@ source coliru_env.source
 export INPUT_FILES_DIR
 
 # Make the archive id
-ID="$(./hash.sh)"
+id="$(./hash.sh)"
 
 # This is the only return 
-echo "${ID}"
+echo "${id}"
 
 
 # If the id already existed then simply return.
 # We don't have to compile anymore.
-if [ -d "${COLIRU_ARCHIVE}/${ID}" ] ; then
+if [ -d "${COLIRU_ARCHIVE}/${id}" ] ; then
     exit
 fi
 
 # The archive directory for the ide.
-export DIR=${COLIRU_ARCHIVE}/${ID}
-mkdir ${DIR}
+export dir="${COLIRU_ARCHIVE}/${id}"
+mkdir ${dir}
 
 chmod 755 ${INPUT_FILES_DIR}/cmd.sh
-cat ${INPUT_FILES_DIR}/main.cpp > ${DIR}/main.cpp
-cat ${INPUT_FILES_DIR}/cmd.sh > ${DIR}/cmd.sh
-date '+%s' > ${DIR}/timestamp
+cat ${INPUT_FILES_DIR}/main.cpp > ${dir}/main.cpp
+cat ${INPUT_FILES_DIR}/cmd.sh > ${dir}/cmd.sh
+date '+%s' > ${dir}/timestamp
 
 
-./build_and_run.sh >${DIR}/output 2>&1 || true
+# Build and run it.
+./build_and_run.sh >${dir}/output 2>&1
+
+# Add the results to svn
+svn add ${dir} >/dev/null 2>&1 & disown
