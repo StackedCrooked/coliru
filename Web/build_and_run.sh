@@ -9,7 +9,7 @@ chmod -R a+w ${jobdir}
 
 # Prepare the command.
 CMD="set -e
-ulimit -u 16
+ulimit -u 32
 ulimit -f 4000
 export LD_LIBRARY_PATH=/usr/local/lib
 cd /tmp/${jobid}
