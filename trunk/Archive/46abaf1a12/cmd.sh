@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall -Wextra -pedantic-errors -Wno-missing-field-initializers main.cpp && echo "1 10 5" > test.txt && ./a.out
