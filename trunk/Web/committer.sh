@@ -1,41 +1,43 @@
 #!/bin/bash
-#set -x
-if [ "$(whoami)" != "root" ] ; then
+[ "$(whoami)" == "root" ] || {
     echo "$(basename $0) must be run with root permissions." 1>&2
     exit 1
-fi
-cd $(dirname $0)
+}
+
+pgids="$(ps -eopgid,ppid,pid,uid,comm | grep 'committer.sh' | awk '{print $1}' | sort -n | uniq)"
+[ "$(echo "${pgids}" | wc -l)" == 1 ] || {
+    echo "Committer is already running" 1>&2
+    exit 1
+}
+
 exec 1> >(logger -t "$0 stdout")
 exec 2> >(logger -t "$0 stderr")
-echo "Starting the committer."
-echo "Loading the environment variables."
-source coliru_env.source
-[ -z ${COLIRU_ARCHIVE} ] && { echo "COLIRU_ARCHIVE variable must be set." && exit 1; }
-[ -d ${COLIRU_ARCHIVE} ] || { echo "${COLIRU_ARCHIVE} does not exist. Exiting." && exit 1 ; }
 
-SLEEP_DURATION=3600
+set -x
+source coliru_env.source
+[ -z ${COLIRU_ARCHIVE_RECENT} ] && { echo "COLIRU_ARCHIVE_RECENT variable must be set." && exit 1; }
+[ -d ${COLIRU_ARCHIVE_RECENT} ] || { echo "${COLIRU_ARCHIVE_RECENT} does not exist. Exiting." && exit 1 ; }
 
 while true ; do
-    # Update archive 
-    echo "Update the archive"
-    (cd ${COLIRU_ARCHIVE} && svn up)
 
-    # Commit archive changes
-    echo "Commit the archive"
-    (cd ${COLIRU_ARCHIVE} && svn ci -m "Archive changes.")
-
-    # Add new files to subversion.
-    echo "Commit any new archives."
     (
-        cd ${COLIRU_ARCHIVE}
-        { svn st --no-ignore | grep -e ^[I?] | sed 's_^[?I][ ]*__' | xargs svn add && svn ci -m "Update Archive." ; } || svn cleanup
-    )
+        cd ${COLIRU_ARCHIVE_RECENT}
 
-    # Also commit the feedback."
-    echo "Committing any new feedback..."
-    svn ci feedback.txt -m "Update feedback." || echo "...but there is no new feedback."
+        for d in $(ls) ; do 
+            [ -d $d ] && {
+                # Commit new
+                svn ci $d -m "Update archive."
+                [ "$(svn st $d 2>&1)" == "" ] && {
+                    (cd ${COLIRU_ARCHIVE} && svn up $d) && rm -rf $d && svn cleanup && svn up
+                } || {
+                    echo "$d seems to have a problem $(svn st $d 2>&1)" 1>&2
+                }
+            } || {
+                echo "$d is not a directory." 1>&2
+            }
+        done
+    ) 
 
     # Repeat later. 
-    echo "Sleeping for ${SLEEP_DURATION} seconds until retry."
-    sleep ${SLEEP_DURATION}
+    sleep 3600
 done
