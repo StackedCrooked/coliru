@@ -1,17 +1,11 @@
 #!/bin/bash
+[ "$#" != "1" ] && {
+    echo "Usage: $(basename $0) id" 1>&2
+    exit 1
+}
+
 set -e
+source coliru_env.source
 
-COLIRU_ARCHIVE="../Archive"
-COLIRU_ARCHIVE2="../Archive2"
-
-# search in old archive
-old="${COLIRU_ARCHIVE}/${1}"
-#echo "old: ${old}"
-[ -d ${old} ] && { echo "${old}" ; exit ; }
-
-# search in new archive
 id="$(./pathify-id.sh $1)"
-new="${COLIRU_ARCHIVE2}/${id}"
-#echo "new: ${new}"
-[ -d "${new}" ] && { echo "${new}" ; exit ; }
-
+echo "${COLIRU_ARCHIVE2}/${id}"
