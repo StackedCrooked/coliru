@@ -6,4 +6,4 @@ sum="$(shasum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f1)"
     sum="$(shasum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f1)${sum}"
     sum="$(echo ${sum} | shasum | cut -d ' ' -f1)"
 }
-echo ${sum} | cut -c -10
+ruby -e "require 'rubygems' ; require 'base62' ; puts Integer('$sum', 16).base62_encode" | cut -c -12
