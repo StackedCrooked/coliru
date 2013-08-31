@@ -164,8 +164,7 @@ end
 get '/Archive/*' do |file|
     content_type :txt
     begin
-        real_file = "#{ENV['COLIRU_ARCHIVE']}/#{file}"
-        real_file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{file}" unless File.exist?(real_file)
+        real_file = "#{ENV['COLIRU_ARCHIVE2']}/#{file}"
 
         if File.directory? real_file
             Dir.entries(real_file).join("\n").to_s
@@ -179,21 +178,22 @@ end
 
 
 get '/archive' do       
-    get_contents = Proc.new do |name|       
+    get_contents = Proc.new do |path, name|       
         begin       
-            id = "#{params[:id]}"
-            file = "#{ENV['COLIRU_ARCHIVE']}/#{id}/#{name}"
-            file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{id}/#{name}" unless File.exist?(file)
+            file = "#{path}/#{name}"
             File.read(file)
-        rescue Exception => _
-          ''
+        rescue Exception => e
+          e.to_s
         end     
     end     
 
+
+    id = "#{params[:id]}"
+    path = IO.popen("./id2existingpath.sh #{id}").read.strip
     {       
-        :cmd => get_contents.call('cmd.sh'),        
-        :src => get_contents.call('main.cpp'),      
-        :output => get_contents.call('output')      
+        :cmd => get_contents.call(path, 'cmd.sh'),        
+        :src => get_contents.call(path, 'main.cpp'),      
+        :output => get_contents.call(path, 'output')      
     }.to_json       
 end     
 
