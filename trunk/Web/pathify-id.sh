@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 [ "$#" == "1" ] || {
     echo "Usage $(basename $0) Id" 1>&2
