@@ -6,4 +6,5 @@ sum="$(shasum ${INPUT_FILES_DIR}/cmd.sh | cut -d ' ' -f1)"
     sum="$(shasum ${INPUT_FILES_DIR}/main.cpp | cut -d ' ' -f1)${sum}"
     sum="$(echo ${sum} | shasum | cut -d ' ' -f1)"
 }
-ruby -e "require 'rubygems' ; puts '$sum'.to_i(16).to_s(32)" | cut -c -12
+HASH="$(ruby -e "require 'rubygems' ; puts '$sum'.to_i(16).to_s(32)" | cut -c -12)"
+echo $(echo "${HASH}" | cut -c -2)/$(echo "${HASH:2}")
