@@ -124,7 +124,12 @@
 
 
     var app = {};
-    app.id = "" + window.location.href.split("?")[1].split('=')[1];
+    var url = "" + window.location.href;
+    if (url.search(/\?/) !== -1) {
+        app.id = url.split("?")[1].split('=')[1];
+    } else {
+        app.id = url.split('/A/')[1];
+    }
     app.editor = editor;
     app.output = document.getElementById("output");
     app.output.readOnly = true;

@@ -143,6 +143,11 @@ post '/share' do
 end
 
 
+get '/A/*' do
+    File.read('view.html')
+end
+
+
 get '/view' do
     File.read('view.html')
 end
@@ -176,8 +181,9 @@ end
 get '/archive' do       
     get_contents = Proc.new do |name|       
         begin       
-            file = "#{ENV['COLIRU_ARCHIVE']}/#{params[:id]}/#{name}"
-            file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{params[:id]}/#{name}" unless File.exist?(file)
+            id = "#{params[:id]}"
+            file = "#{ENV['COLIRU_ARCHIVE']}/#{id}/#{name}"
+            file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{id}/#{name}" unless File.exist?(file)
             File.read(file)
         rescue Exception => _
           ''
