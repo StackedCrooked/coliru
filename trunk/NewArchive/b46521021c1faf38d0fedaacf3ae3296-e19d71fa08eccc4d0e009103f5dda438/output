@@ -1,0 +1,11 @@
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, const std::tuple<_Args1 ...>&)':
+main.cpp:53:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+main.cpp: In instantiation of 'std::ostream& operator<<(std::ostream&, const std::vector<T>&) [with T = PersonId; std::ostream = std::basic_ostream<char>]':
+main.cpp:89:1:   required from here
+main.cpp:11:23: warning: unused variable 't' [-Wunused-variable]
+     for (const auto & t : vec) os << vec << " ";
+                       ^
+void check() [with T = std::tuple<PersonId, FirstName, LastName, Address, Birthday, Parents, Children>]
+./cmd.sh: line 1:  8582 Segmentation fault      (core dumped) ./a.out

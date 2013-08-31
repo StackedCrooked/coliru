@@ -1,0 +1,41 @@
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F)':
+main.cpp:37:66: error: expected unqualified-id before '>' token
+main.cpp:38:23: error: 'Promise' was not declared in this scope
+main.cpp:38:30: error: template argument 1 is invalid
+main.cpp:38:36: error: invalid type in declaration before '(' token
+main.cpp:38:41: error: expected type-specifier before 'Promise'
+main.cpp:38:41: error: expected ')' before 'Promise'
+main.cpp:39:19: error: 'p' was not declared in this scope
+main.cpp:39:28: error: request for member 'get' in 'prom', which is of non-class type 'int'
+main.cpp: In lambda function:
+main.cpp:42:21: error: base operand of '->' is not a pointer
+main.cpp:48:21: error: base operand of '->' is not a pointer
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:93:68:   required from here
+main.cpp:38:48: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:94:68:   required from here
+main.cpp:38:48: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:95:68:   required from here
+main.cpp:38:48: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+main.cpp: In instantiation of 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]':
+main.cpp:30:9:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:92:17:   required from here
+main.cpp:38:48: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+In file included from /usr/include/c++/4.7/mutex:43:0,
+                 from /usr/include/c++/4.7/condition_variable:39,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional: At global scope:
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]::<lambda()>', is used but never defined [-fpermissive]
+/usr/include/c++/4.7/functional:1521:5: error: 'typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>; _BoundArgs = {}; typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type = std::_Bind<Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>()>]', declared using local type 'Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]::<lambda()>', is used but never defined [-fpermissive]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:52:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:52:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = main()::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = unsigned int]':
+main.cpp:52:5: warning: control reaches end of non-void function [-Wreturn-type]
+main.cpp: In member function 'std::future<typename std::result_of<F(T&)>::type> Shared<T>::execute(F) [with F = Shared<T>::~Shared() [with T = Car]::<lambda(Car&)>; T = Car; typename std::result_of<F(T&)>::type = int]':
+main.cpp:52:5: warning: control reaches end of non-void function [-Wreturn-type]

@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O2 -pthread -lboost_filesystem -lboost_system main.cpp && ./a.out

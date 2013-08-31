@@ -1,0 +1,17 @@
+++ clang++ -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:29:9: error: static_assert failed "!"
+        static_assert(has_value<T>::value, "!");
+        ^             ~~~~~~~~~~~~~~~~~~~
+main.cpp:34:21: note: in instantiation of template class 'check_has_value<D>' requested here
+        auto l = { (check_has_value<Args>(), 0)... };
+                    ^
+main.cpp:50:9: note: in instantiation of function template specialization 'foo<A, B, C, D>' requested here
+        foo<A, B, C, D>(); // where A, B, C, D are classes
+        ^
+main.cpp:35:20: error: no member named 'value' in 'D'
+        fun({Args::value...});
+             ~~~~~~^
+main.cpp:50:9: note: in instantiation of function template specialization 'foo<A, B, C, D>' requested here
+        foo<A, B, C, D>(); // where A, B, C, D are classes
+        ^
+2 errors generated.

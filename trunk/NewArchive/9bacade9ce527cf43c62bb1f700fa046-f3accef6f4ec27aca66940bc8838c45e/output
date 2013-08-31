@@ -1,0 +1,123 @@
+main.cpp:6:7: error: expected nested-name-specifier before 'Sentence'
+ using Sentence = std::vector<std::string>;
+       ^
+main.cpp:6:7: error: 'Sentence' has not been declared
+main.cpp:6:16: error: expected ';' before '=' token
+ using Sentence = std::vector<std::string>;
+                ^
+main.cpp:6:16: error: expected unqualified-id before '=' token
+main.cpp:9:50: error: 'Sentence' does not name a type
+ std::ostream& operator<<(std::ostream& os, const Sentence & sentence)
+                                                  ^
+main.cpp:9:61: error: ISO C++ forbids declaration of 'sentence' with no type [-fpermissive]
+ std::ostream& operator<<(std::ostream& os, const Sentence & sentence)
+                                                             ^
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, const int&)':
+main.cpp:11:23: error: ISO C++ forbids declaration of 'word' with no type [-fpermissive]
+     for (const auto & word : sentence)
+                       ^
+main.cpp:11:30: error: range-based 'for' loops are not allowed in C++98 mode
+     for (const auto & word : sentence)
+                              ^
+main.cpp:13:12: error: ambiguous overload for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'const int')
+         os << word << " ";
+            ^
+main.cpp:13:12: note: candidates are:
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>] <near match>
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.8.0/ostream:108:7: note:   no known conversion for argument 1 from 'const int' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/local/include/c++/4.8.0/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>] <near match>
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.8.0/ostream:117:7: note:   no known conversion for argument 1 from 'const int' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/local/include/c++/4.8.0/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>] <near match>
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.8.0/ostream:127:7: note:   no known conversion for argument 1 from 'const int' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/local/include/c++/4.8.0/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/local/include/c++/4.8.0/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/local/include/c++/4.8.0/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+In file included from /usr/local/include/c++/4.8.0/ostream:609:0,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+In file included from /usr/local/include/c++/4.8.0/ostream:609:0,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/local/include/c++/4.8.0/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/local/include/c++/4.8.0/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/local/include/c++/4.8.0/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/local/include/c++/4.8.0/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/local/include/c++/4.8.0/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/local/include/c++/4.8.0/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>] <near match>
+       operator<<(const void* __p)
+       ^
+/usr/local/include/c++/4.8.0/ostream:245:7: note:   no known conversion for argument 1 from 'const int' to 'const void*'
+In file included from /usr/local/include/c++/4.8.0/ostream:609:0,
+                 from /usr/local/include/c++/4.8.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>] <near match>
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.8.0/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'const int' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+main.cpp:9:15: note: std::ostream& operator<<(std::ostream&, const int&)
+ std::ostream& operator<<(std::ostream& os, const Sentence & sentence)
+               ^
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:493:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.8.0/ostream:488:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.8.0/ostream:482:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.8.0/ostream:476:5: note: std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char) [with _CharT = char; _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+main.cpp: In function 'int main()':
+main.cpp:21:5: error: 'Sentence' was not declared in this scope
+     Sentence sentence = { "Hello", "from", "GCC", __VERSION__, "!" };    
+     ^
+main.cpp:21:14: error: expected ';' before 'sentence'
+     Sentence sentence = { "Hello", "from", "GCC", __VERSION__, "!" };    
+              ^
+main.cpp:22:18: error: 'sentence' was not declared in this scope
+     std::cout << sentence << std::endl;
+                  ^

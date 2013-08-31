@@ -1,0 +1,10 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:23:65: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     vector.insert(std::pair<char*,int(*)(int, int)>("Func",&summ));
+                                                                 ^
+main.cpp:24:39: warning: deprecated conversion from string constant to ‘std::map<char*, int (*)(int, int)>::key_type {aka char*}’ [-Wwrite-strings]
+     printf("summ %d", vector.at("Func")(1,2));
+                                       ^
++ ./a.out
+summ 3

@@ -1,0 +1,36 @@
+++ FILE=/Archive/a848bc486ba7bf212a0418f852468e33-2363d320710392186e30fe4a9f9f25ef/main.cpp
+++ g++-4.8 -std=c++11 -O3 -DINLINE=inline /Archive/a848bc486ba7bf212a0418f852468e33-2363d320710392186e30fe4a9f9f25ef/main.cpp -S -o -
+	.file	"main.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB27:
+	.cfi_startproc
+	subq	$152, %rsp
+	.cfi_def_cfa_offset 160
+	movq	%rsp, %rdi
+	movq	%fs:40, %rax
+	movq	%rax, 136(%rsp)
+	xorl	%eax, %eax
+	call	_Z22__Ext__get_blob__Ext__v
+	movq	%rsp, %rdi
+	movl	$42, 4(%rsp)
+	call	_Z22__Ext__set_blob__Ext__RK4Blob
+	xorl	%eax, %eax
+	movq	136(%rsp), %rdx
+	xorq	%fs:40, %rdx
+	jne	.L5
+	addq	$152, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L5:
+	.cfi_restore_state
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE27:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.8.0-3ubuntu3~12.04) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits

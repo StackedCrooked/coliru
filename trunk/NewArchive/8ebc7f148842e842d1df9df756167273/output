@@ -1,0 +1,31 @@
+main.cpp: In instantiation of 'Wrap<T, <anonymous> >::Wrap(Args&& ...) [with Args = {Wrap<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, 0u>&}; T = std::basic_string<char>; unsigned int <anonymous> = 1u]':
+main.cpp:16:12:   required from here
+main.cpp:7:61: error: no matching function for call to 'std::basic_string<char>::basic_string(Wrap<std::basic_string<char>, 0u>&)'
+main.cpp:7:61: note: candidates are:
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:529:9: note: template<class _InputIterator> std::basic_string::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+/usr/include/c++/4.7/bits/basic_string.h:529:9: note:   template argument deduction/substitution failed:
+main.cpp:7:61: note:   candidate expects 3 arguments, 1 provided
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/basic_string.h:519:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_CharT>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+/usr/include/c++/4.7/bits/basic_string.h:519:7: note:   no known conversion for argument 1 from 'Wrap<std::basic_string<char>, 0u>' to 'std::initializer_list<char>'
+/usr/include/c++/4.7/bits/basic_string.h:504:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc> = std::basic_string<char>]
+/usr/include/c++/4.7/bits/basic_string.h:504:7: note:   no known conversion for argument 1 from 'Wrap<std::basic_string<char>, 0u>' to 'std::basic_string<char>&&'
+/usr/include/c++/4.7/bits/basic_string.h:494:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+/usr/include/c++/4.7/bits/basic_string.h:494:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.7/bits/basic_string.h:487:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+/usr/include/c++/4.7/bits/basic_string.h:487:7: note:   no known conversion for argument 1 from 'Wrap<std::basic_string<char>, 0u>' to 'const char*'
+/usr/include/c++/4.7/bits/basic_string.h:480:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+/usr/include/c++/4.7/bits/basic_string.h:480:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.7/bits/basic_string.h:468:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc> = std::basic_string<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+/usr/include/c++/4.7/bits/basic_string.h:468:7: note:   candidate expects 4 arguments, 1 provided
+/usr/include/c++/4.7/bits/basic_string.h:459:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc> = std::basic_string<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+/usr/include/c++/4.7/bits/basic_string.h:459:7: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.7/bits/basic_string.h:452:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc> = std::basic_string<char>]
+/usr/include/c++/4.7/bits/basic_string.h:452:7: note:   no known conversion for argument 1 from 'Wrap<std::basic_string<char>, 0u>' to 'const std::basic_string<char>&'
+/usr/include/c++/4.7/bits/basic_string.h:445:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+/usr/include/c++/4.7/bits/basic_string.h:445:7: note:   no known conversion for argument 1 from 'Wrap<std::basic_string<char>, 0u>' to 'const std::allocator<char>&'
+/usr/include/c++/4.7/bits/basic_string.h:434:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+/usr/include/c++/4.7/bits/basic_string.h:434:7: note:   candidate expects 0 arguments, 1 provided

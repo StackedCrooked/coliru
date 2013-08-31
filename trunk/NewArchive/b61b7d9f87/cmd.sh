@@ -1,0 +1,1 @@
+g++-4.8 -std=c++1y -O3 -Wall -pedantic -S -o- main.cpp | sed '/^\s*\./d'

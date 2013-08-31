@@ -1,0 +1,13 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:18:47: error: no matching function for call to ‘name_of(<unresolved overloaded function type>)’
+     std::cout << name_of(name_of<name_of<int>>) << std::endl;
+                                               ^
+main.cpp:18:47: note: candidate is:
+main.cpp:6:20: note: template<class T> const string& name_of(T&&)
+ const std::string& name_of(T&& t = T())
+                    ^
+main.cpp:6:20: note:   template argument deduction/substitution failed:
+main.cpp:18:47: note:   couldn't deduce template parameter ‘T’
+     std::cout << name_of(name_of<name_of<int>>) << std::endl;
+                                               ^

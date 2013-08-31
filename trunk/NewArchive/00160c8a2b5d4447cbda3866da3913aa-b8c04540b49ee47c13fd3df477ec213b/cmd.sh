@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O1 -Wall -Werror main.cpp && ./a.out | wc

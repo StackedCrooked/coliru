@@ -1,0 +1,10 @@
++ g++ -std=c++1y -O2 -Wall -pthread main.cpp
+main.cpp: In instantiation of ‘struct bar<foo<int> >’:
+main.cpp:23:21:   required from here
+main.cpp:18:3: error: static assertion failed: failure
+   static_assert(is_instantiation_of<foo_alt,FooType>::value, "failure"); //fail
+   ^
+main.cpp: In function ‘int main(int, const char**)’:
+main.cpp:23:21: warning: unused variable ‘b’ [-Wunused-variable]
+   bar<foo_alt<int>> b;
+                     ^

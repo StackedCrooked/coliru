@@ -1,0 +1,16 @@
+main.cpp:18:6: error: overload resolution selected deleted operator '='
+ A() = A(); // error
+ ~~~ ^ ~~~
+main.cpp:3:10: note: candidate function has been explicitly deleted
+    void operator=(A&&) && = delete; // no op= for rvalues
+         ^
+main.cpp:2:10: note: candidate function has been explicitly deleted
+    void operator=(A const&) && = delete; // no op= for rvalues
+         ^
+main.cpp:11:8: note: candidate function not viable: no known conversion from 'A' to 'A' for object argument
+    A& operator=(A&&) & = default;
+       ^
+main.cpp:12:8: note: candidate function not viable: no known conversion from 'A' to 'A' for object argument
+    A& operator=(A const&) & = default;
+       ^
+1 error generated.

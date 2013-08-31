@@ -1,0 +1,34 @@
+main.cpp: In member function 'int A::Z(memFun, memFun)':
+main.cpp:15:19: error: must use '.*' or '->*' to call pointer-to-member function in 'f1 (...)', e.g. '(... ->* f1) (...)'
+         return f1() + f2(); //HERE
+                   ^
+main.cpp:15:26: error: must use '.*' or '->*' to call pointer-to-member function in 'f2 (...)', e.g. '(... ->* f2) (...)'
+         return f1() + f2(); //HERE
+                          ^
+main.cpp: In member function 'int A::run()':
+main.cpp:23:18: error: no matching function for call to 'A::Z(<unresolved overloaded function type>, <unresolved overloaded function type>)'
+     return Z(P, Q);
+                  ^
+main.cpp:23:18: note: candidate is:
+main.cpp:13:9: note: int A::Z(memFun, memFun)
+     int Z(memFun f1, memFun f2)
+         ^
+main.cpp:13:9: note:   no known conversion for argument 1 from '<unresolved overloaded function type>' to 'memFun {aka int (A::*)()}'
+main.cpp: In function 'int main()':
+main.cpp:29:5: error: 'cout' was not declared in this scope
+     cout << a.run() << endl;
+     ^
+main.cpp:29:5: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.8.0/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+main.cpp:29:24: error: 'endl' was not declared in this scope
+     cout << a.run() << endl;
+                        ^
+main.cpp:29:24: note: suggested alternative:
+In file included from /usr/local/include/c++/4.8.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.0/ostream:564:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^

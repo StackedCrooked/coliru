@@ -1,0 +1,29 @@
+main.cpp: In function 'int main()':
+main.cpp:35:27: error: no matching function for call to 'sum(int, int, int)'
+     std::cout << sum(1,2,3);  // Here is the issue. This works with the commented sum.
+                           ^
+main.cpp:35:27: note: candidates are:
+main.cpp:12:3: note: template<class T> T sum(const T&)
+ T sum(const T& v) {
+   ^
+main.cpp:12:3: note:   template argument deduction/substitution failed:
+main.cpp:35:27: note:   candidate expects 1 argument, 3 provided
+     std::cout << sum(1,2,3);  // Here is the issue. This works with the commented sum.
+                           ^
+main.cpp:18:6: note: template<class T1, class ... Ts> decltype ((v1 + sum(sum::rest ...))) sum(const T1&, const Ts& ...)
+ auto sum(const T1& v1, const Ts&... rest) -> decltype( v1 + sum(rest...) ) {
+      ^
+main.cpp:18:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T1, class ... Ts> decltype ((v1 + sum(sum::rest ...))) sum(const T1&, const Ts& ...) [with T1 = int; Ts = {int, int}]':
+main.cpp:35:27:   required from here
+main.cpp:18:72: error: no matching function for call to 'sum(const int&, const int&)'
+ auto sum(const T1& v1, const Ts&... rest) -> decltype( v1 + sum(rest...) ) {
+                                                                        ^
+main.cpp:18:72: note: candidate is:
+main.cpp:12:3: note: template<class T> T sum(const T&)
+ T sum(const T& v) {
+   ^
+main.cpp:12:3: note:   template argument deduction/substitution failed:
+main.cpp:18:72: note:   candidate expects 1 argument, 2 provided
+ auto sum(const T1& v1, const Ts&... rest) -> decltype( v1 + sum(rest...) ) {
+                                                                        ^

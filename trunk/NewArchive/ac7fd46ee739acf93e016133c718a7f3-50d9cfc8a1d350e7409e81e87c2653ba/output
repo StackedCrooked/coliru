@@ -1,0 +1,18 @@
+main.cpp: In instantiation of 'struct trait_of<has_arithmetic_type_test, foo>':
+main.cpp:16:8:   required from 'struct has_arithmetic_type<foo>'
+main.cpp:21:39:   required from here
+main.cpp:4:54: error: cannot call member function 'std::is_arithmetic<typename T::type> has_arithmetic_type_test::test(int) [with T = foo; typename T::type = int]' without object
+ struct trait_of : decltype(Test::template test<Arg>(0)) {};
+                                                      ^
+main.cpp:21:15: error: 'value' is not a member of 'has_arithmetic_type<foo>'
+ static_assert(has_arithmetic_type<foo>::value, "yay");
+               ^
+main.cpp: In instantiation of 'struct trait_of<has_arithmetic_type_test, int>':
+main.cpp:16:8:   required from 'struct has_arithmetic_type<int>'
+main.cpp:22:40:   required from here
+main.cpp:4:54: error: cannot call member function 'std::false_type has_arithmetic_type_test::test(...) [with <template-parameter-1-1> = int; std::false_type = std::integral_constant<bool, false>]' without object
+ struct trait_of : decltype(Test::template test<Arg>(0)) {};
+                                                      ^
+main.cpp:22:16: error: 'value' is not a member of 'has_arithmetic_type<int>'
+ static_assert(!has_arithmetic_type<int>::value, "yay");
+                ^

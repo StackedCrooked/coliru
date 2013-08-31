@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -std=c++11 -fconstexpr-depth=9300 && ./a.out

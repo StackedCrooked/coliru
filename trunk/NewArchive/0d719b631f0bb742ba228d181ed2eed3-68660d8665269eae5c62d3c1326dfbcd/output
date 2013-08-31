@@ -1,0 +1,263 @@
++ echo 'check ulimits'
+check ulimits
++ ulimit
+10000
++ cat cmd.sh
++ grep ulimit
+ulimit -u 20
+ulimit -t 60
+echo 'check ulimits'
+ulimit
+cat cmd.sh | grep ulimit
++ echo compiling...
+compiling...
++ g++ -std=c++11 -O2 -Wall -Wextra -Werror -pedantic-errors main.cpp -ltbb
+
+real	0m2.229s
+user	0m1.884s
+sys	0m0.336s
++ echo running...
+running...
++ ./a.out
+main.cpp:31	actor<T>::~actor() [with T = int]
+main.cpp:23	actor<T>::actor(F) [with F = main()::__lambda1; T = int]::__lambda0
+main.cpp:23	actor<T>::actor(F) [with F = main()::__lambda1::__lambda2; T = std::basic_string<char>]::__lambda0
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:23	actor<T>::actor(F) [with F = main()::__lambda1::__lambda3; T = std::tuple<actor<int>*, int, int>]::__lambda0
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+0
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+9
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+8
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+8
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+7
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+5
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+2
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+8
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+7
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:37	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:87	main()::__lambda1
+main.cpp:43	T actor<T>::receive() [with T = int]
+main.cpp:45	T actor<T>::receive() [with T = int]
+main.cpp:47	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:78	main()::__lambda1::__lambda3
+main.cpp:37	void actor<T>::send(const T&) [with T = int]
+main.cpp:39	void actor<T>::send(const T&) [with T = int]
+main.cpp:80	main()::__lambda1::__lambda3
+main.cpp:75	main()::__lambda1::__lambda3
+main.cpp:43	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:45	T actor<T>::receive() [with T = std::tuple<actor<int>*, int, int>]
+main.cpp:47	T actor<T>::receive() [with T = int]
+main.cpp:89	main()::__lambda1
+main.cpp:37	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:39	void actor<T>::send(const T&) [with T = std::basic_string<char>]
+main.cpp:91	main()::__lambda1
+main.cpp:47	T actor<T>::receive() [with T = std::basic_string<char>]
+5
+main.cpp:66	main()::__lambda1::__lambda2
+main.cpp:43	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:45	T actor<T>::receive() [with T = std::basic_string<char>]
+main.cpp:93	main()::__lambda1
+main.cpp:31	actor<T>::~actor() [with T = std::tuple<actor<int>*, int, int>]

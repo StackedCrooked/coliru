@@ -1,0 +1,17 @@
+main.cpp:7:12: error: parameter packs not expanded with ‘...’:
+main.cpp:7:12: note:         ‘Args’
+main.cpp:7:40: error: parameter packs not expanded with ‘...’:
+main.cpp:7:40: note:         ‘Args’
+main.cpp: In function ‘int main()’:
+main.cpp:20:19: error: no matching function for call to ‘foo(main()::<lambda(int)>)’
+main.cpp:20:19: note: candidates are:
+main.cpp:11:39: note: template<class Func> typename my::result_of<Func&()>::type foo(Func)
+main.cpp:11:39: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class Func> typename my::result_of<Func&()>::type foo(Func) [with Func = main()::<lambda(int)>]’:
+main.cpp:20:19:   required from here
+main.cpp:11:39: error: no type named ‘type’ in ‘struct my::result_of<main()::<lambda(int)>&()>’
+main.cpp:15:42: note: template<class Func> typename my::result_of<Func&(int)>::type foo(Func)
+main.cpp:15:42: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class Func> typename my::result_of<Func&(int)>::type foo(Func) [with Func = main()::<lambda(int)>]’:
+main.cpp:20:19:   required from here
+main.cpp:15:42: error: no type named ‘type’ in ‘struct my::result_of<main()::<lambda(int)>&(int)>’

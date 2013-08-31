@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:22:12: error: no match for 'operator<<' (operand types are 'Info' and 'const char [6]')
+     Info() << "hello";
+            ^
+main.cpp:22:12: note: candidate is:
+main.cpp:15:7: note: template<class T> Info& operator<<(Info&, const T&)
+ Info& operator<<(Info& info, const T& t)
+       ^
+main.cpp:15:7: note:   template argument deduction/substitution failed:
+main.cpp:22:15: note:   cannot convert 'Info()' (type 'Info') to type 'Info&'
+     Info() << "hello";
+               ^

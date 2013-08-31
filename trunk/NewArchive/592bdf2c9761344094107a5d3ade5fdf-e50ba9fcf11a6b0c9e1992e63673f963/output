@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -pedantic main.cpp
+main.cpp:6:20: warning: overloaded operator << has lower precedence than comparison operator [-Woverloaded-shift-op-parentheses]
+    std::cout << a < " ";
+    ~~~~~~~~~~~~~~ ^ ~~~
+main.cpp:6:15: note: place parentheses around the '<<' expression to silence this warning
+    std::cout << a < " ";
+              ^
+    (             )
+main.cpp:6:20: note: place parentheses around comparison expression to evaluate it first
+    std::cout << a < " ";
+                   ^
+                 (      )
+main.cpp:6:20: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    std::cout << a < " ";
+                   ^ ~~~
+main.cpp:6:20: error: invalid operands to binary expression ('std::__1::basic_ostream<char>' and 'const char *')
+    std::cout << a < " ";
+    ~~~~~~~~~~~~~~ ^ ~~~
+2 warnings and 1 error generated.

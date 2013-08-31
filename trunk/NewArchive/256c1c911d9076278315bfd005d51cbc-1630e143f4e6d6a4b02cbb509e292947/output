@@ -1,0 +1,11 @@
++ g++-4.8 -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:22:8: error: request for member 'foo' is ambiguous
+     ab.foo();
+        ^
+main.cpp:10:18: note: candidates are: virtual void B::foo()
+     virtual void foo() {}
+                  ^
+main.cpp:5:18: note:                 virtual void A::foo()
+     virtual void foo() {}
+                  ^

@@ -1,0 +1,11 @@
+In file included from /usr/local/include/boost/range/iterator.hpp:23:0,
+                 from /usr/local/include/boost/range/begin.hpp:24,
+                 from /usr/local/include/boost/range/functions.hpp:18,
+                 from /usr/local/include/boost/range.hpp:26,
+                 from main.cpp:4:
+/usr/local/include/boost/mpl/eval_if.hpp: In instantiation of 'struct boost::mpl::eval_if_c<false, boost::range_const_iterator<int>, boost::range_mutable_iterator<int> >':
+/usr/local/include/boost/range/iterator.hpp:63:63:   required from 'struct boost::range_iterator<int>'
+/usr/local/include/boost/range/value_type.hpp:30:12:   required from 'struct boost::range_value<int>'
+main.cpp:20:5:   required by substitution of 'template<class R, class C> typename std::enable_if<std::is_same<typename boost::range_value<R>::type, typename boost::range_value<C>::type>::value, C>::type concat(C, const R&) [with R = int; C = std::vector<int>]'
+main.cpp:33:41:   required from here
+/usr/local/include/boost/mpl/eval_if.hpp:60:31: error: no type named 'type' in 'boost::mpl::eval_if_c<false, boost::range_const_iterator<int>, boost::range_mutable_iterator<int> >::f_ {aka struct boost::range_mutable_iterator<int>}'

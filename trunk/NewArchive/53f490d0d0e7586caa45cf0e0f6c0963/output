@@ -1,0 +1,28 @@
+main.cpp: In instantiation of 'claw::poly_val<B, Cloner, Deleter>::poly_val(const claw::poly_val<B, Cloner, Deleter>&) [with B = B; Cloner = claw::default_clone<B>; Deleter = std::default_delete<B>; claw::poly_val<B, Cloner, Deleter> = claw::poly_val<B>]':
+main.cpp:143:27:   required from here
+main.cpp:27:34: error: no matching function for call to 'std::unique_ptr<B, std::default_delete<B> >::unique_ptr(<brace-enclosed initializer list>)'
+main.cpp:27:34: note: candidates are:
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/unique_ptr.h:164:2: note: template<class _Up, class> std::unique_ptr::unique_ptr(std::auto_ptr<_Up>&&)
+/usr/include/c++/4.7/bits/unique_ptr.h:164:2: note:   template argument deduction/substitution failed:
+main.cpp:27:34: note:   mismatched types 'std::auto_ptr<_Up>' and 'B*'
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/unique_ptr.h:155:2: note: template<class _Up, class _Ep, class> std::unique_ptr::unique_ptr(std::unique_ptr<_Up, _Ep>&&)
+/usr/include/c++/4.7/bits/unique_ptr.h:155:2: note:   template argument deduction/substitution failed:
+main.cpp:27:34: note:   mismatched types 'std::unique_ptr<_Up, _Ep>' and 'B*'
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/unique_ptr.h:142:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>&&) [with _Tp = B; _Dp = std::default_delete<B>; std::unique_ptr<_Tp, _Dp> = std::unique_ptr<B, std::default_delete<B> >]
+/usr/include/c++/4.7/bits/unique_ptr.h:142:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.7/bits/unique_ptr.h:136:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr(std::nullptr_t) [with _Tp = B; _Dp = std::default_delete<B>; std::nullptr_t = std::nullptr_t]
+/usr/include/c++/4.7/bits/unique_ptr.h:136:17: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.7/bits/unique_ptr.h:130:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::remove_reference<_To>::type&&) [with _Tp = B; _Dp = std::default_delete<B>; std::unique_ptr<_Tp, _Dp>::pointer = B*; typename std::remove_reference<_To>::type = std::default_delete<B>]
+/usr/include/c++/4.7/bits/unique_ptr.h:130:7: note:   no known conversion for argument 2 from 'const claw::default_clone<B>' to 'std::remove_reference<std::default_delete<B> >::type&& {aka std::default_delete<B>&&}'
+/usr/include/c++/4.7/bits/unique_ptr.h:125:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type) [with _Tp = B; _Dp = std::default_delete<B>; std::unique_ptr<_Tp, _Dp>::pointer = B*; typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type = const std::default_delete<B>&]
+/usr/include/c++/4.7/bits/unique_ptr.h:125:7: note:   no known conversion for argument 2 from 'const claw::default_clone<B>' to 'std::conditional<false, std::default_delete<B>, const std::default_delete<B>&>::type {aka const std::default_delete<B>&}'
+/usr/include/c++/4.7/bits/unique_ptr.h:120:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Tp = B; _Dp = std::default_delete<B>; std::unique_ptr<_Tp, _Dp>::pointer = B*]
+/usr/include/c++/4.7/bits/unique_ptr.h:120:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.7/bits/unique_ptr.h:114:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr() [with _Tp = B; _Dp = std::default_delete<B>]
+/usr/include/c++/4.7/bits/unique_ptr.h:114:17: note:   candidate expects 0 arguments, 2 provided

@@ -1,0 +1,13 @@
+main.cpp: In member function 'TaggedValue<T, tag_to> tagged_caster<tag_to, tag_from, T>::operator()(const TaggedValue<T, tag_from>&)':
+main.cpp:37:3: error: static assertion failed: There is no conversion for these tagged types
+   static_assert( false, "There is no conversion for these tagged types" );
+   ^
+main.cpp: In instantiation of 'TaggedValue<T, tag> tagged_caster<tag, tag, T>::operator()(const TaggedValue<T, tag>&) [with tag = radians_tag; T = double]':
+main.cpp:55:46:   required from 'TaggedValue<T, tag> tagged_cast(const TaggedValue<T, tag>&) [with tag = radians_tag; T = double]'
+main.cpp:83:46:   required from here
+main.cpp:44:10: error: use of deleted function 'constexpr TaggedValue<double, radians_tag>::TaggedValue(const TaggedValue<double, radians_tag>&)'
+   return castee;
+          ^
+main.cpp:5:8: note: 'constexpr TaggedValue<double, radians_tag>::TaggedValue(const TaggedValue<double, radians_tag>&)' is implicitly declared as deleted because 'TaggedValue<double, radians_tag>' declares a move constructor or move assignment operator
+ struct TaggedValue {
+        ^

@@ -1,0 +1,14 @@
+main.cpp:15:27: error: expansion pattern ‘Argss&&’ contains no argument packs
+main.cpp: In constructor ‘Arguments<Args>::Arguments()’:
+main.cpp:15:61: error: ‘args’ was not declared in this scope
+main.cpp:15:66: error: expansion pattern ‘forward<Argss>(<expression error>)’ contains no argument packs
+main.cpp: In function ‘int main()’:
+main.cpp:27:39: error: no matching function for call to ‘Arguments<int, int>::Arguments(int&, int)’
+main.cpp:27:39: note: candidates are:
+main.cpp:15:5: note: template<class Argss> Arguments::Arguments()
+main.cpp:15:5: note:   template argument deduction/substitution failed:
+main.cpp:27:39: note:   candidate expects 0 arguments, 2 provided
+main.cpp:6:7: note: constexpr Arguments<int, int>::Arguments(const Arguments<int, int>&)
+main.cpp:6:7: note:   candidate expects 1 argument, 2 provided
+main.cpp:6:7: note: constexpr Arguments<int, int>::Arguments(Arguments<int, int>&&)
+main.cpp:6:7: note:   candidate expects 1 argument, 2 provided

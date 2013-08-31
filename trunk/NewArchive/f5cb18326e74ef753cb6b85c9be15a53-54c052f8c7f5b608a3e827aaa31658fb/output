@@ -1,0 +1,52 @@
+formatted  /tmp/file.cpp
+    ;
+    template<typename... _Types, typename _Alloc>
+struct uses_allocator<tuple<_Types...>, _Alloc> : true_type { }
+    ;
+    template<class _T1, class _T2>
+    template<typename... _Args1, typename... _Args2>
+    inline
+    pair<_T1, _T2>::
+    pair(piecewise_construct_t,
+         tuple<_Args1...> __first, tuple<_Args2...> __second)
+        : pair(__first, __second,
+               typename _Build_index_tuple<sizeof...(_Args1)>::__type(),
+               typename _Build_index_tuple<sizeof...(_Args2)>::__type())
+    { }
+
+    template<class _T1, class _T2>
+    template<typename... _Args1, std::size_t... _Indexes1,
+             typename... _Args2, std::size_t... _Indexes2>
+             inline
+             pair<_T1, _T2>::
+             pair(tuple<_Args1...>& __tuple1, tuple<_Args2...>& __tuple2,
+                  _Index_tuple<_Indexes1...>, _Index_tuple<_Indexes2...>)
+                 : first(std::forward<_Args1>(std::get<_Indexes1>(__tuple1))...),
+                   second(std::forward<_Args2>(std::get<_Indexes2>(__tuple2))...)
+    { }
+
+}
+
+typedef int X;
+typedef int Y;
+typedef int Z;
+struct Point : std::tuple< X , Y , Z > {
+    Point(const X & x , const Y & y , const Z & z ) : std::tuple< X , Y , Z >(x , y , z ) {}
+const X & get_x () const {
+    return std::get< 0 >(*this);
+}
+const Y & get_y () const {
+    return std::get< 1 >(*this);
+}
+const Z & get_z () const {
+    return std::get< 2 >(*this);
+}
+}
+;
+int main()
+{
+    Point p(1, 2, 3);
+    std::cout << p.get_x() << p.get_y() << p.get_z();
+}
+
+123

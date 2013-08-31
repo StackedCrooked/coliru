@@ -1,0 +1,1 @@
+printf "abc\n\n\ndef"

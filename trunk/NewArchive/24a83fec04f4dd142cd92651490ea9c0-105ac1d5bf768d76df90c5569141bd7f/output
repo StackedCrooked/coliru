@@ -1,0 +1,12 @@
++ g++ --std=c++11 -O2 -Wall -pedantic -pthread main.cpp -Weffc++
+main.cpp:11:8: warning: base class ‘struct Parent’ has a non-virtual destructor [-Weffc++]
+ struct Child1 : public Parent{
+        ^
+main.cpp:17:8: warning: base class ‘struct Parent’ has a non-virtual destructor [-Weffc++]
+ struct Child2 : public Parent{
+        ^
++ ./a.out
+Child1 constructor: one
+Child2 constructor: two
+Child1 constructor: one
+Child2 constructor: two

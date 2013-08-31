@@ -1,0 +1,25 @@
+main.cpp: In function 'int main()':
+main.cpp:74:14: error: no match for call to '(composer<composed_t<void (*)(int), composer<void (*)()> > >) (int)'
+     comp3( 3 );
+              ^
+main.cpp:31:8: note: candidate is:
+ struct composer{
+        ^
+main.cpp:38:10: note: template<class ... Ts> decltype (((composer<L>*)this)->composer<L>::l((forward<Ts>)(composer::operator()::vs)...)) composer<L>::operator()(Ts&& ...) [with Ts = {Ts ...}; L = composed_t<void (*)(int), composer<void (*)()> >]
+     auto operator()(Ts&&... vs) -> decltype(l(std::forward<Ts>(vs)...))
+          ^
+main.cpp:38:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class ... Ts> decltype (((composer<L>*)this)->composer<L>::l((forward<Ts>)(composer::operator()::vs)...)) composer<L>::operator()(Ts&& ...) [with Ts = {Ts ...}; L = composed_t<void (*)(int), composer<void (*)()> >] [with Ts = {int}]':
+main.cpp:74:14:   required from here
+main.cpp:38:10: error: no match for call to '(composed_t<void (*)(int), composer<void (*)()> >) (int)'
+main.cpp:5:8: note: candidate is:
+ struct composed_t {
+        ^
+main.cpp:23:10: note: template<class ... Ts> decltype (((composed_t<L, R>*)this)->composed_t<L, R>::r(((composed_t<L, R>*)this)->composed_t<L, R>::l((forward<Ts>)(composed_t::operator()::vs)...))) composed_t<L, R>::operator()(Ts&& ...) [with Ts = {Ts ...}; L = void (*)(int); R = composer<void (*)()>]
+     auto operator()(Ts&&... vs) -> decltype(r(l(std::forward<Ts>(vs)...))) { 
+          ^
+main.cpp:23:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class ... Ts> decltype (((composed_t<L, R>*)this)->composed_t<L, R>::r(((composed_t<L, R>*)this)->composed_t<L, R>::l((forward<Ts>)(composed_t::operator()::vs)...))) composed_t<L, R>::operator()(Ts&& ...) [with Ts = {Ts ...}; L = void (*)(int); R = composer<void (*)()>] [with Ts = {int}]':
+main.cpp:38:10:   required by substitution of 'template<class ... Ts> decltype (((composer<L>*)this)->composer<L>::l((forward<Ts>)(composer::operator()::vs)...)) composer<L>::operator()(Ts&& ...) [with Ts = {Ts ...}; L = composed_t<void (*)(int), composer<void (*)()> >] [with Ts = {int}]'
+main.cpp:74:14:   required from here
+main.cpp:23:10: error: invalid use of void expression

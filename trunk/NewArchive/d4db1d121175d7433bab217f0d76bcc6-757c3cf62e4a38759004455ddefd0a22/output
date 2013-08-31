@@ -1,0 +1,27 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -Werror -pedantic-errors -g -S main.cpp -o -
++ grep -C6 DEBUG
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+.Lfunc_begin0:
+	.loc	1 25 0                  # main.cpp:25:0
+# BB#0:
+	#DEBUG_VALUE: last_of<bool, float, char [2], int, int>:ts <- 0
+	#DEBUG_VALUE: exec:ts <- 1.000000e+02
+	#DEBUG_VALUE: last_of<bool, float, char [2], int, int>:ts <- 1.000000e+02
+	#DEBUG_VALUE: exec:ts <- -9
+	#DEBUG_VALUE: exec:ts <- -9
+	#DEBUG_VALUE: exec:ts <- -9
+	#DEBUG_VALUE: last_of<bool, float, char [2], int, int>:ts <- -9
+	#DEBUG_VALUE: exec:v <- 42
+	#DEBUG_VALUE: exec:ts <- 42
+	#DEBUG_VALUE: exec:ts <- 42
+	#DEBUG_VALUE: exec:ts <- 42
+	#DEBUG_VALUE: exec:ts <- 42
+	#DEBUG_VALUE: last_of<bool, float, char [2], int, int>:ts <- 42
+	movl	$42, %eax
+	.loc	1 26 0 prologue_end     # main.cpp:26:0
+.Ltmp0:
+	ret
+.Ltmp1:
+.Ltmp2:

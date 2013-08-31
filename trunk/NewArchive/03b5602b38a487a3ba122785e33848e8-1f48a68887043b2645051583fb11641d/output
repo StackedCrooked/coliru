@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:7:18: error: no matching function for call to 'myfunc(main()::__lambda0)'
+     myfunc([](){});
+                  ^
+main.cpp:7:18: note: candidate is:
+main.cpp:4:6: note: template<class R, class ... P> void myfunc(const std::function<_Res(_ArgTypes ...)>&)
+ void myfunc(std::function<R(P...)> const &func) {}
+      ^
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:7:18: note:   'main()::__lambda0' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+     myfunc([](){});
+                  ^

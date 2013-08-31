@@ -1,0 +1,1 @@
+gcc -std=c89 -O2 -Wall -ansi -pedantic -pthread main.cpp && ./a.out

@@ -1,0 +1,20 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:23:21: error: too many arguments to function ‘void countFlags()’
+     countFlags(foo_a);
+                     ^
+main.cpp:12:6: note: declared here
+ void countFlags(/* want to take a unkown number of 'foo<>' here, and of any type of foo too */){
+      ^
+main.cpp:24:28: error: too many arguments to function ‘void countFlags()’
+     countFlags(foo_a, foo_b);
+                            ^
+main.cpp:12:6: note: declared here
+ void countFlags(/* want to take a unkown number of 'foo<>' here, and of any type of foo too */){
+      ^
+main.cpp:25:42: error: too many arguments to function ‘void countFlags()’
+     countFlags(foo_a, foo_b, foo_c, foo_d);
+                                          ^
+main.cpp:12:6: note: declared here
+ void countFlags(/* want to take a unkown number of 'foo<>' here, and of any type of foo too */){
+      ^

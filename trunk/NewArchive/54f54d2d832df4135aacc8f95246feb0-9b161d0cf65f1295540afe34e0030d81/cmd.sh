@@ -1,0 +1,1 @@
+g++ -E main.cpp 2>&1 | grep -v ^$ | grep -v ^\#

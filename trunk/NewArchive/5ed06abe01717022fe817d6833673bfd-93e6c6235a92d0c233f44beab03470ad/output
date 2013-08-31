@@ -1,0 +1,63 @@
++ clang++ -std=c++11 -Wall -pedantic main.cpp
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/unordered_map:47:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable.h:854:20: error: no matching function for call to '__distance_fw'
+        auto __nb_elems = __detail::__distance_fw(__f, __l);
+                          ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable.h:406:4: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable<int>' requested here
+        : _Hashtable(__f, __l, __n, __hf, __detail::_Mod_range_hashing(),
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:164:4: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable<int>' requested here
+        : _M_h(__f, __l, __n, __hf, __eql, __a)
+          ^
+main.cpp:11:18: note: in instantiation of function template specialization 'std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > >::unordered_map<int>' requested here
+    A<int> a = { {1, 1}, {2, 2}, {3, 3} };
+                 ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:76:5: note: candidate template ignored: substitution failure [with _Iterator = int]: no type named 'difference_type' in 'std::iterator_traits<int>'
+    __distance_fw(_Iterator __first, _Iterator __last)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:64:5: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+    __distance_fw(_Iterator __first, _Iterator __last,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:70:5: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+    __distance_fw(_Iterator __first, _Iterator __last,
+    ^
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/unordered_map:47:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable.h:864:21: error: indirection requires pointer operand ('int' invalid)
+              this->insert(*__f);
+                           ^~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable.h:864:14: error: no matching member function for call to 'insert'
+              this->insert(*__f);
+              ~~~~~~^~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable.h:406:4: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable<const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > > *>' requested here
+        : _Hashtable(__f, __l, __n, __hf, __detail::_Mod_range_hashing(),
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:164:4: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable<const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > > *>' requested here
+        : _M_h(__f, __l, __n, __hf, __eql, __a)
+          ^
+main.cpp:7:63: note: in instantiation of function template specialization 'std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > >::unordered_map<const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > > *>' requested here
+    A(std::initializer_list<std::unordered_map<Key, int>> l): stuff(l.begin(), l.end()) {}
+                                                              ^
+main.cpp:11:16: note: in instantiation of member function 'A<int>::A' requested here
+    A<int> a = { {1, 1}, {2, 2}, {3, 3} };
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:601:7: note: candidate function not viable: no known conversion from 'const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > >' to 'const value_type' (aka 'const std::pair<const int, int>') for 1st argument
+      insert(const value_type& __v)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:612:7: note: candidate function not viable: no known conversion from 'const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > >' to 'initializer_list<value_type>' for 1st argument
+      insert(initializer_list<value_type> __l)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:766:2: note: candidate template ignored: couldn't infer template argument ''
+        insert(_Pair&& __v)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:617:2: note: candidate function template not viable: requires 2 arguments, but 1 was provided
+        insert(_InputIterator __first, _InputIterator __last);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:774:2: note: candidate function template not viable: requires 2 arguments, but 1 was provided
+        insert(const_iterator, _Pair&& __v)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/hashtable_policy.h:608:7: note: candidate function not viable: requires 2 arguments, but 1 was provided
+      insert(const_iterator, const value_type& __v)
+      ^
+3 errors generated.

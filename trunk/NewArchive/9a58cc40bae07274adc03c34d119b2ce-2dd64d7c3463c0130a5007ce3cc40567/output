@@ -1,0 +1,13 @@
+++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:5:24: error: 'MyApplication_XY123' does not name a type
+ #define PRODUCT CONCAT(MyApplication_,VERSION)
+                        ^
+main.cpp:1:22: note: in definition of macro 'CONCAT2'
+ #define CONCAT2(a,b) a##b
+                      ^
+main.cpp:5:17: note: in expansion of macro 'CONCAT'
+ #define PRODUCT CONCAT(MyApplication_,VERSION)
+                 ^
+main.cpp:7:1: note: in expansion of macro 'PRODUCT'
+ PRODUCT a;
+ ^

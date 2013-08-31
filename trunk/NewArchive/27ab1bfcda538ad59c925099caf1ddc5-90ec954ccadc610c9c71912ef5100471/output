@@ -1,0 +1,27 @@
++ clang++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:1:1: error: unknown type name 'string'
+string itos(int i)
+^
+main.cpp:3:26: error: cannot initialize return object of type 'int' with an lvalue of type 'const char [2]'
+    if (i == 0) { return "0"; }
+                         ^~~
+main.cpp:4:29: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if (i < 0) { return "-" + itos(-i); }
+                        ~~~~^~~~~~~~~~
+main.cpp:4:29: note: use array indexing to silence this warning
+    if (i < 0) { return "-" + itos(-i); }
+                            ^
+                        &   [         ]
+main.cpp:4:25: error: cannot initialize return object of type 'int' with an rvalue of type 'const char *'
+    if (i < 0) { return "-" + itos(-i); }
+                        ^~~~~~~~~~~~~~
+main.cpp:6:20: error: use of undeclared identifier 'log10'
+    int size = int(log10(i)) + 1;
+                   ^
+main.cpp:7:5: error: unknown type name 'string'
+    string l; // start with empty string
+    ^
+main.cpp:10:39: error: use of undeclared identifier 'pow'
+        l.push_back((char) ( (int(i / pow(10, (size - j - 1))) % 10) + '0'));
+                                      ^
+1 warning and 6 errors generated.

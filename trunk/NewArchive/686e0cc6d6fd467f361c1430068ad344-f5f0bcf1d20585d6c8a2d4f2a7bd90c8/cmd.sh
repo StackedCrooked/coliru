@@ -1,0 +1,1 @@
+run() { g++ -o test -std=c++11 -DTHROW_SPEC="$1" -O1 main.cpp ; ./test ; } ; run '/**/' ; run 'throw()' ; run 'noexcept'

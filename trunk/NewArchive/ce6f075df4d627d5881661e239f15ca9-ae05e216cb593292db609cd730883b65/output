@@ -1,0 +1,65 @@
++ clang++ -std=c++11 -O0 main.cpp
+main.cpp:1:1: error: unknown type name 'See'
+See http://liveworkspace.org/code/3HUzjS for a proof of concept.
+^
+main.cpp:1:9: error: expected ';' after top level declarator
+See http://liveworkspace.org/code/3HUzjS for a proof of concept.
+        ^
+        ;
+main.cpp:3:1: error: unknown type name 'What'
+What I usually do first, is imagine how I'd like to store the parsed data.
+^
+main.cpp:3:7: error: expected ';' after top level declarator
+What I usually do first, is imagine how I'd like to store the parsed data.
+      ^
+      ;
+main.cpp:3:42: warning: missing terminating ' character [-Winvalid-pp-token]
+What I usually do first, is imagine how I'd like to store the parsed data.
+                                         ^
+main.cpp:14:13: error: use of undeclared identifier 'boost'
+    typedef boost::variant<double, int, std::string, regex> value;
+            ^
+main.cpp:14:27: error: expected unqualified-id
+    typedef boost::variant<double, int, std::string, regex> value;
+                          ^
+main.cpp:20:9: error: use of undeclared identifier 'std'
+        std::string   _propertyname;
+        ^
+main.cpp:21:9: error: unknown type name 'value'
+        value         _operand;      // value or regex
+        ^
+main.cpp:30:17: error: use of undeclared identifier 'std'
+        typedef std::list<std::pair<std::string, value> > pairs;
+                ^
+main.cpp:30:26: error: expected member name or ';' after declaration specifiers
+        typedef std::list<std::pair<std::string, value> > pairs;
+        ~~~~~~~~~~~~~~~~~^
+main.cpp:31:9: error: unknown type name 'pairs'
+        pairs _propvals;
+        ^
+main.cpp:35:9: error: use of undeclared identifier 'std'
+        std::vector<std::string> _propnames;
+        ^
+main.cpp:35:20: error: expected member name or ';' after declaration specifiers
+        std::vector<std::string> _propnames;
+        ~~~~~~~~~~~^
+main.cpp:38:13: error: use of undeclared identifier 'boost'
+    typedef boost::variant<printcommand, setcommand> command;
+            ^
+main.cpp:38:27: error: expected unqualified-id
+    typedef boost::variant<printcommand, setcommand> command;
+                          ^
+main.cpp:41:9: error: use of undeclared identifier 'std'
+        std::vector<filter> _filters;
+        ^
+main.cpp:41:20: error: expected member name or ';' after declaration specifiers
+        std::vector<filter> _filters;
+        ~~~~~~~~~~~^
+main.cpp:42:9: error: unknown type name 'command'
+        command             _command;
+        ^
+main.cpp:45:1: error: unknown type name 'Notes'
+Notes:
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.

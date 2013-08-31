@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out

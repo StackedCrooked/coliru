@@ -1,0 +1,1 @@
+find /usr/bin -type f

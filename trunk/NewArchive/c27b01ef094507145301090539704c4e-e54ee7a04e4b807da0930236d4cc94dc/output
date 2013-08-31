@@ -1,0 +1,14 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:11:16: warning: attempt to free a non-heap object 's_str' [-Wfree-nonheap-object]
+     free(p_str);
+                ^
++ ./a.out
+*** glibc detected *** ./a.out: double free or corruption (out): 0x00007fff29b82470 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7f6abdfc9b96]
+./a.out[0x400964]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f6abdf6c76d]
+./a.out[0x4009f1]
+======= Memory map: ========
+Hello World Hello World/tmp/1370374159-355967566/cmd.sh: line 7:  2039 Aborted                 (core dumped) ./a.out

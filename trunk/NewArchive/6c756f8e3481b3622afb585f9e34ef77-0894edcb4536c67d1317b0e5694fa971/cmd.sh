@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O1 -Wall -Werror main.cpp && for a in {1..5}; do ./a.out; done

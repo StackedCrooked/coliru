@@ -1,0 +1,15 @@
+main.cpp: In function ‘void transaction()’:
+main.cpp:33:15: error: expected primary-expression before ‘)’ token
+main.cpp:33:15: error: there are no arguments to ‘process’ that depend on a template parameter, so a declaration of ‘process’ must be available [-fpermissive]
+main.cpp:33:15: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function ‘int main()’:
+main.cpp:39:24: error: no matching function for call to ‘transaction(Foo::IdType)’
+main.cpp:39:24: note: candidate is:
+main.cpp:30:6: note: template<class Id> void transaction()
+main.cpp:30:6: note:   template argument deduction/substitution failed:
+main.cpp:39:24: note:   candidate expects 0 arguments, 1 provided
+main.cpp:40:24: error: no matching function for call to ‘transaction(Bar::IdType)’
+main.cpp:40:24: note: candidate is:
+main.cpp:30:6: note: template<class Id> void transaction()
+main.cpp:30:6: note:   template argument deduction/substitution failed:
+main.cpp:40:24: note:   candidate expects 0 arguments, 1 provided

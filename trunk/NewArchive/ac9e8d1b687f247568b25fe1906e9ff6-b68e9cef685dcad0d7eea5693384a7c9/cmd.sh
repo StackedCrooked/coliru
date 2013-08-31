@@ -1,0 +1,1 @@
+gcc-4.7 -E main.cpp | grep -v ^$ | grep -v ^\#

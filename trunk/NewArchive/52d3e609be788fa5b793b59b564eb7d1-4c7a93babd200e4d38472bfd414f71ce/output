@@ -1,0 +1,15 @@
++ clang++ -std=c++1y -O2 -Wall -pthread main.cpp
+main.cpp:16:9: error: use of undeclared identifier 'str'; did you mean 'std'?
+        str = "Lala";
+        ^~~
+        std
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iostream:42:11: note: 'std' declared here
+namespace std _GLIBCXX_VISIBILITY(default)
+          ^
+main.cpp:16:9: error: unexpected namespace name 'std': expected expression
+        str = "Lala";
+        ^
+main.cpp:17:17: error: use of undeclared identifier 'str'
+        cout << str << endl;
+                ^
+3 errors generated.
