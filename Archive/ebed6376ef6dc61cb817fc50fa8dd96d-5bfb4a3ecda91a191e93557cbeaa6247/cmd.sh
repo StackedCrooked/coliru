@@ -1,1 +1,0 @@
-g++-4.8 -std=c++1y -O3 -Wno-missing-field-initializers -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out 

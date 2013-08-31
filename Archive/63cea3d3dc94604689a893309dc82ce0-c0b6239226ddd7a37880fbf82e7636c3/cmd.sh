@@ -1,1 +1,0 @@
-gcc  -x c -std=c99 -W -Wall -O3 -Wstrict-aliasing=2 -pedantic main.cpp && ./a.out 

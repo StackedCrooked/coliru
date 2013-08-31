@@ -1,3 +1,0 @@
-int main () {
-    U"foo";
-}

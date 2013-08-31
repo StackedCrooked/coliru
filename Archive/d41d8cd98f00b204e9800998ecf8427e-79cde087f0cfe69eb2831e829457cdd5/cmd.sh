@@ -1,1 +1,0 @@
-ls `echo $PATH | sed 's/:/ /g'`

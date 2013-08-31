@@ -1,1 +1,0 @@
-gcc -O2 -Wall -Wextra main.cpp && ./a.out

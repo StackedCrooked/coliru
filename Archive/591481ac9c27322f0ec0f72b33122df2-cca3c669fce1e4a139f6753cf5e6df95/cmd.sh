@@ -1,1 +1,0 @@
-clang++ main.cpp -S -emit-llvm -o out.ll && cat out.ll

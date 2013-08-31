@@ -1,1 +1,0 @@
-nyaha usin up ur hard drive space

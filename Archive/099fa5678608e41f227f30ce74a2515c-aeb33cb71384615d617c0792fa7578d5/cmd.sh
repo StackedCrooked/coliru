@@ -1,1 +1,0 @@
-g++ -E main.cpp -o - | grep -v ^\# > file.cpp ; astyle file.cpp >null ; cat file.cpp

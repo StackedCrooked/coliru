@@ -1,1 +1,0 @@
-find /usr | grep '+' | xargs -I {} basename {} | grep '+' | sort | uniq
