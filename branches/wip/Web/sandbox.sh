@@ -3,8 +3,10 @@
 set -e
 source coliru_env.source
 
+# check if INPUT_FILES_DIR is set.
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR not set." 1>&2 ; exit 1 ; }
 
+# get the id (a on hash of main.cpp and cmd.sh)
 id="$(./hash.sh)"
 
 # search for previous result in the old archive
