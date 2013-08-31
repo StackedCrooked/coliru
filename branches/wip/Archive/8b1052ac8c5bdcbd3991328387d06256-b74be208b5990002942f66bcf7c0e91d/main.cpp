@@ -1,1 +1,0 @@
-for i in $(find /Archive -name timestamp | head -n10) ; do echo "$i -> $(cat $i)" ; done

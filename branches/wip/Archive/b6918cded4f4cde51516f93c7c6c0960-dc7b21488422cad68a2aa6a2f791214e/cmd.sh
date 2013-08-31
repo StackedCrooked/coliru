@@ -1,1 +1,0 @@
-ls -alt /tmp

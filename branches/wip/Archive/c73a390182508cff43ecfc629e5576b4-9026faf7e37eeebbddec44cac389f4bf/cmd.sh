@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread  main.cpp /usr/lib/libboost_regex.so.1.46.1 && ./a.out

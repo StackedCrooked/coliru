@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && echo -e "10\n20.1" > tmp.txt && cat tmp.txt | ./a.out

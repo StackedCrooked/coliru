@@ -1,1 +1,0 @@
-g++ -std=c++11 main.cpp && ./a.out -k -k | c++filt -t

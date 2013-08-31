@@ -1,1 +1,0 @@
-echo "Run it locally!"
