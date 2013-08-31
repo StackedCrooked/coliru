@@ -47,36 +47,44 @@ end
 
 
 post '/feedback' do
-    $feedback_semaphore.synchronize do
-        File.open('feedback.txt', 'a') do |file|
-            file.puts(request.body.read)
+    Thread.new do
+        $mutex.synchronize do
+            File.open('feedback.txt', 'a') do |file|
+                file.puts(request.body.read)
+            end
         end
-    end
+    end.join
 end
 
 
 get '/feedback' do
-    stream do |out|
-        out << '<html><body><ul>'
-        $feedback_semaphore.synchronize do
-            File.readlines('feedback.txt').reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
+    Thread.new do
+        stream do |out|
+            out << '<html><body><ul>'
+            $mutex.synchronize do
+                File.readlines('feedback.txt').reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
+            end
+            out << '</ul></body></html>'
         end
-        out << '</ul></body></html>'
-    end
+    end.join
 end
 
 
 post '/compile' do
-    json_obj = JSON.parse(request.body.read)
-    id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-    dir = "/tmp/coliru/#{id}"
-    FileUtils.mkdir_p(dir)
+    Thread.new do 
+        $mutex.synchronize do
+            json_obj = JSON.parse(request.body.read)
+            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
 
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-    File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-    stream do |out|
-        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-    end
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            stream do |out|
+                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+            end
+        end
+    end.join
 end
 
 
@@ -108,22 +116,26 @@ end
 
 
 post '/share' do
-    result = ''
-    id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-    dir = "/tmp/coliru/#{id}"
-    FileUtils.mkdir_p(dir)
+    Thread.new do
+        $mutex.synchronize do
+            result = ''
+            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
 
-    json_obj = JSON.parse(request.body.read)
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-    File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            json_obj = JSON.parse(request.body.read)
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-    skip = false
-    safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |b|
-        next if skip
-        skip = (b == '\n')
-        result += b
+            skip = false
+            safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |b|
+                next if skip
+                skip = (b == '\n')
+                result += b
+            end
+            stream { |out| out << result }
+        end
     end
-    stream { |out| out << result }
 end
 
 
@@ -214,7 +226,7 @@ end
 
 set :port, ENV['COLIRU_PORT']
 puts "port: #{:port}"
-$feedback_semaphore = Mutex.new
+$mutex = Mutex.new
 
 options '/*' do
   response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
