@@ -16,7 +16,7 @@ chmod a+rw .
 # Cleanup /var/chroot/tmp and make accessible for coliru
 rm -rf /var/chroot/tmp
 mkdir -p /var/chroot/tmp
-chown -R webserver:coliru /var/chroot/tmp
+chown -R webserver:coliru /var/chroot/tmp & disown
 chmod -R a+rw /var/chroot/tmp
 
 # Make certain files writeable for the webserver.

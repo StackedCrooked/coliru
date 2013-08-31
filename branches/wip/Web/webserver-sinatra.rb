@@ -94,13 +94,17 @@ end
 
 
 post '/sh' do
-    id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-    dir = "/tmp/coliru/#{id}"
-    FileUtils.mkdir_p(dir)
-    File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
-    stream do |out|
-        safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-    end
+    Thread.new do 
+        $mutex.synchronize do
+            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
+            stream do |out|
+                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+            end
+        end
+    end.join
 end
 
 
