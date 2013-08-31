@@ -1,0 +1,22 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘struct unordered_tree<int, int>::node’:
+/usr/include/c++/4.8/bits/stl_pair.h:102:11:   required from ‘struct std::pair<const int, unordered_tree<int, int>::node>’
+/usr/include/c++/4.8/type_traits:615:28:   required from ‘struct std::__is_destructible_impl<std::pair<const int, unordered_tree<int, int>::node> >’
+/usr/include/c++/4.8/type_traits:637:12:   required from ‘struct std::__is_destructible_safe<std::pair<const int, unordered_tree<int, int>::node>, false, false>’
+/usr/include/c++/4.8/type_traits:652:12:   required from ‘struct std::is_destructible<std::pair<const int, unordered_tree<int, int>::node> >’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_destructible<std::pair<const int, unordered_tree<int, int>::node> >, std::__is_direct_constructible_impl<std::pair<const int, unordered_tree<int, int>::node>, const std::pair<const int, unordered_tree<int, int>::node>&> >’
+/usr/include/c++/4.8/type_traits:817:12:   [ skipping 6 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/type_traits:974:12:   required from ‘struct std::is_copy_constructible<std::pair<const int, unordered_tree<int, int>::node> >’
+/usr/include/c++/4.8/bits/alloc_traits.h:540:12:   required from ‘struct std::__is_copy_insertable<std::allocator<std::pair<const int, unordered_tree<int, int>::node> > >’
+/usr/include/c++/4.8/bits/alloc_traits.h:560:63:   required by substitution of ‘template<class _Alloc> using __check_copy_constructible = std::__allow_copy_cons<std::__is_copy_insertable<_Alloc>::value> [with _Alloc = std::allocator<std::pair<const int, unordered_tree<int, int>::node> >]’
+/usr/include/c++/4.8/bits/unordered_map.h:97:11:   required from ‘class std::unordered_map<int, unordered_tree<int, int>::node, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, unordered_tree<int, int>::node> > >’
+main.cpp:18:44:   required from ‘class unordered_tree<int, int>’
+main.cpp:29:30:   required from here
+main.cpp:14:48: error: ‘unordered_tree<TK, TV>::node::children’ has incomplete type
+         std::unordered_map<TK, node, TH, TKEq> children;
+                                                ^
+In file included from /usr/include/c++/4.8/unordered_map:48:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/unordered_map.h:97:11: error: declaration of ‘class std::unordered_map<int, unordered_tree<int, int>::node, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, unordered_tree<int, int>::node> > >’
+     class unordered_map : __check_copy_constructible<_Alloc>
+           ^

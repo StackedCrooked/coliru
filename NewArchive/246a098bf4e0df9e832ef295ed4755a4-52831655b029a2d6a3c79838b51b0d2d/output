@@ -1,0 +1,9 @@
++ g++-4.8 -std=c++11 main.cpp
+main.cpp: In instantiation of 'void func(T) [with T = int]':
+main.cpp:10:11:   required from here
+main.cpp:5:27: error: 'do_func' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+ void func(T t) { do_func(t); }
+                           ^
+main.cpp:14:6: note: 'void do_func(int)' declared here, later in the translation unit
+ void do_func(int) { std::cout << "do_func(int)\n"; }
+      ^

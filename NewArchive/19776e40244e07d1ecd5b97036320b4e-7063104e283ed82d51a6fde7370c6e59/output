@@ -1,0 +1,35 @@
+main.cpp: In instantiation of 'struct disable<std::is_same<std::tuple<int, int, int, int>, disambiguator_t>, int>':
+main.cpp:51:154:   required from here
+main.cpp:27:62: error: no type named 'type' in 'struct std::enable_if<false, int>'
+  typedef typename std::enable_if<TCondition::value, T>::type type;
+                                                              ^
+main.cpp: In instantiation of 'struct disable<std::is_same<int, disambiguator_t>, int>':
+main.cpp:51:154:   required from 'void cleave_tuple(compiler_indices<I ...>, std::tuple<_Elements ...>, Vs&& ...) [with Ts = {int, int, int, int}; Vs = {int, int, int}; unsigned int ...I = {0u, 1u, 2u, 3u}]'
+main.cpp:66:82:   required from 'void cleave(std::tuple<_Elements ...>, Vs&& ...) [with Ts = {int, int, int, int}; Vs = {int, int, int}]'
+main.cpp:71:21:   required from here
+main.cpp:27:62: error: no type named 'type' in 'struct std::enable_if<false, int>'
+main.cpp: In instantiation of 'void cleave_tuple(compiler_indices<I ...>, std::tuple<_Elements ...>, Vs&& ...) [with Ts = {int, int, int, int}; Vs = {int, int, int}; unsigned int ...I = {0u, 1u, 2u, 3u}]':
+main.cpp:66:82:   required from 'void cleave(std::tuple<_Elements ...>, Vs&& ...) [with Ts = {int, int, int, int}; Vs = {int, int, int}]'
+main.cpp:71:21:   required from here
+main.cpp:58:113: error: no matching function for call to 'cleave(int, int, int, int, const disambiguator_t&, int, int, int)'
+  cleave<Ts..., const disambiguator_t&>( std::forward<Ts>( std::get<I>( ts ) )..., split, std::forward<Vs>(vs)...);
+                                                                                                                 ^
+main.cpp:58:113: note: candidates are:
+main.cpp:43:6: note: template<class ... Ts, class ... Vs> void cleave(Ts&& ..., const disambiguator_t&, Vs&& ...)
+ void cleave(Ts&&... ts, disambiguator_t const&, Vs&&... vs){
+      ^
+main.cpp:43:6: note:   template argument deduction/substitution failed:
+main.cpp:58:113: note:   cannot convert 'std::forward<int>((* & vs#0))' (type 'int') to type 'const disambiguator_t&'
+  cleave<Ts..., const disambiguator_t&>( std::forward<Ts>( std::get<I>( ts ) )..., split, std::forward<Vs>(vs)...);
+                                                                                                                 ^
+main.cpp:52:6: note: template<class ... Ts, class U, class ... Vs, typename disable<std::is_same<typename std::decay<U>::type, disambiguator_t>, int>::type <anonymous> > void cleave(Ts&& ..., U&&, Vs&& ...)
+ void cleave(Ts&&... ts, U&& u, Vs&&... vs){
+      ^
+main.cpp:52:6: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:62:6: note: template<class ... Ts, class ... Vs> void cleave(std::tuple<_Elements ...>, Vs&& ...)
+ void cleave( std::tuple<Ts...> ts, Vs&&... vs ){
+      ^
+main.cpp:62:6: note:   template argument deduction/substitution failed:
+main.cpp:58:113: note:   mismatched types 'std::tuple<_Elements ...>' and 'int'
+  cleave<Ts..., const disambiguator_t&>( std::forward<Ts>( std::get<I>( ts ) )..., split, std::forward<Vs>(vs)...);
+                                                                                                                 ^

@@ -1,0 +1,13 @@
+main.cpp:32:5: error: static assertion failed: Not standard layout
+     static_assert(std::is_standard_layout<type>(), "Not standard layout");
+     ^
+In file included from /usr/include/c++/4.8/cstddef:42:0,
+                 from main.cpp:1:
+main.cpp:33:34: warning: invalid access to non-static data member 'oslash::object::isa'  of NULL object [-Winvalid-offsetof]
+     static_assert(offsetof(type, isa) == 0, "Offset is incorrect");
+                                  ^
+main.cpp:33:34: warning: (perhaps the 'offsetof' macro was used incorrectly) [-Winvalid-offsetof]
+main.cpp:34:34: warning: invalid access to non-static data member 'oslash::type::methods'  of NULL object [-Winvalid-offsetof]
+     static_assert(offsetof(type, methods) == 8, "Offset is incorrect");
+                                  ^
+main.cpp:34:34: warning: (perhaps the 'offsetof' macro was used incorrectly) [-Winvalid-offsetof]

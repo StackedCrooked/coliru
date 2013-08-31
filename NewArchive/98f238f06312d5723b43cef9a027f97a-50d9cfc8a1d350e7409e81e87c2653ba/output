@@ -1,0 +1,27 @@
+main.cpp: In function 'void assert(const char*)':
+main.cpp:33:11: error: 'runtime_error' is not a member of 'std'
+     throw std::runtime_error();
+           ^
+main.cpp: At global scope:
+main.cpp:58:64: error: expected type-specifier
+     template<typename T> auto numerical_range(T min, T max) -> std::function<std::optional<T>()>
+                                                                ^
+main.cpp:58:64: error: expected initializer
+main.cpp: In function 'int main()':
+main.cpp:67:5: error: 'cout' is not a member of 'std'
+     std::cout << [curr = 0] { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+     ^
+main.cpp: In lambda function:
+main.cpp:67:54: error: 'optional' is not a member of 'std'
+     std::cout << [curr = 0] { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                      ^
+main.cpp:67:68: error: expected primary-expression before 'int'
+     std::cout << [curr = 0] { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                                    ^
+main.cpp:67:68: error: expected ';' before 'int'
+main.cpp:67:71: error: expected unqualified-id before '>' token
+     std::cout << [curr = 0] { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                                       ^
+main.cpp:67:89: error: 'nullopt' is not a member of 'std'
+     std::cout << [curr = 0] { if (curr < 100) return std::optional<int>(curr++); return std::nullopt; } | range::fold([](int lhs, int rhs) { return lhs + rhs; });
+                                                                                         ^

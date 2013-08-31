@@ -1,0 +1,39 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main(int, char**)':
+main.cpp:38:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "test";
+               ^
+main.cpp:40:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "./test";
+               ^
+main.cpp:42:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "./bin/test";
+               ^
+main.cpp:44:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "/bin/test";
+               ^
+main.cpp:46:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "/";
+               ^
+main.cpp:48:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "/test/";
+               ^
+main.cpp:50:15: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     values[0] = "";
+               ^
++ ./a.out
+'./a.out' => 'a.out'
+'./a.out' => 'my-default-program-name'
+'test' => 'test'
+'./test' => 'test'
+'./bin/test' => 'test'
+'/bin/test' => 'test'
+'/' => '/'
+'/test/' => '/test/'
+'' => ''
+'test' => 'test'
+'./test' => 'test'
+'./bin/test' => 'test'
+'/bin/test' => 'test'
+'/' => ''
+'/test/' => ''

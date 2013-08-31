@@ -1,0 +1,13 @@
++ g++ -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:20:10: error: 'void Derived::method(int)' marked override, but does not override
+     void method(int) override
+          ^
+main.cpp: In function 'int main()':
+main.cpp:31:17: error: no matching function for call to 'Derived::method()'
+     d -> method();
+                 ^
+main.cpp:31:17: note: candidate is:
+main.cpp:20:10: note: void Derived::method(int)
+     void method(int) override
+          ^
+main.cpp:20:10: note:   candidate expects 1 argument, 0 provided

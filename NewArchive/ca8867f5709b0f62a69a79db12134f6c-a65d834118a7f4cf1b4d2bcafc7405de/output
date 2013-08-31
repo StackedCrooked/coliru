@@ -1,0 +1,32 @@
++ g++ -std=c++11 -pedantic -Wall -Wextra main.cpp
+main.cpp:89:150: warning: unused parameter ‘windowSize’ [-Wunused-parameter]
+     bool changed = iterate(upper, lower, 1, true, [&step] (bool& swapUpperWindow, bool& swapLowerWindow, const int windowColumn, const int windowSize) {
+                                                                                                                                                      ^
++ echo -ne '11101101111000101010\n01111101100000010100\n'
++ ./a.out
+11101101111000101010
+01111101100000010100
+
+#1: Toggling column 7
+#2: Toggling column 16
+#3: Toggling column 18
+11101111111000111110
+01111111100000000000
+
+#4: Toggling 3 lamp(s) in upper row starting from column 1
+00001111111000111110
+01111111100000000000
+
+#5: Toggling 5 lamp(s) in upper row starting from column 15
+00001111111000000000
+01111111100000000000
+
+#6: Toggling 7 lamp(s) in upper row starting from column 5
+00000000000000000000
+01111111100000000000
+
+#7: Toggling 8 lamp(s) in lower row starting from column 2
+00000000000000000000
+00000000000000000000
+
+Completed in 7 step(s)

@@ -1,0 +1,10 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:2:1: error: static assertion failed: Not a const pointer.
+ static_assert(std::is_same<int[1], int * const>::value, "Not a const pointer.");
+ ^
+main.cpp:3:1: error: static assertion failed: Not a pointer to const.
+ static_assert(std::is_same<int[1], const int *>::value, "Not a pointer to const.");
+ ^
+main.cpp:4:1: error: static assertion failed: Not a const pointer to const.
+ static_assert(std::is_same<int[1], const int * const>::value, "Not a const pointer to const.");
+ ^

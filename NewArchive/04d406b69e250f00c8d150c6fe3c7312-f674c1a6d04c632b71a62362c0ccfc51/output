@@ -1,0 +1,26 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/memory:62,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h: In instantiation of ‘void std::swap(_Tp&, _Tp&) [with _Tp = __lambda0]’:
+/usr/include/c++/4.8/tuple:381:36:   required from ‘void std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_swap(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 1ul; _Head = __lambda0; _Tail = {}]’
+/usr/include/c++/4.8/tuple:382:35:   required from ‘void std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_swap(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = addrinfo*; _Tail = {__lambda0}]’
+/usr/include/c++/4.8/tuple:667:33:   required from ‘void std::tuple<_T1, _T2>::swap(std::tuple<_T1, _T2>&) [with _T1 = addrinfo*; _T2 = __lambda0]’
+/usr/include/c++/4.8/tuple:1050:7:   required from ‘void std::swap(std::tuple<_Elements ...>&, std::tuple<_Elements ...>&) [with _Elements = {addrinfo*, __lambda0}]’
+/usr/include/c++/4.8/bits/unique_ptr.h:269:21:   required from ‘void std::unique_ptr<_Tp, _Dp>::swap(std::unique_ptr<_Tp, _Dp>&) [with _Tp = addrinfo; _Dp = __lambda0]’
+/usr/include/c++/4.8/bits/unique_ptr.h:484:7:   required from ‘void std::swap(std::unique_ptr<_Tp, _Dp>&, std::unique_ptr<_Tp, _Dp>&) [with _Tp = addrinfo; _Dp = __lambda0]’
+main.cpp:21:29:   required from here
+/usr/include/c++/4.8/bits/move.h:176:11: error: use of deleted function ‘__lambda0& __lambda0::operator=(const __lambda0&)’
+       __a = _GLIBCXX_MOVE(__b);
+           ^
+main.cpp:8:17: note: a lambda closure type has a deleted copy assignment operator
+ auto deleter = [](struct addrinfo* ptr) {
+                 ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/memory:62,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:177:11: error: use of deleted function ‘__lambda0& __lambda0::operator=(const __lambda0&)’
+       __b = _GLIBCXX_MOVE(__tmp);
+           ^

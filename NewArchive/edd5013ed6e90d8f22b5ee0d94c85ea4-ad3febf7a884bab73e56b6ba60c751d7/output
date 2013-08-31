@@ -1,0 +1,46 @@
++ g++-4.8 -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:33:26: error: no matching function for call to ‘call_<int>::then(main()::__lambda5&)’
+     call(inc, 1).then(inc).then(inc);
+                          ^
+main.cpp:33:26: note: candidate is:
+main.cpp:12:10: note: template<class F> std::future<decltype (f())> call_<T>::then(F) [with F = F; T = int]
+     auto then(F f) -> std::future<decltype(f())>
+          ^
+main.cpp:12:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class F> std::future<decltype (f())> call_<T>::then(F) [with F = F; T = int] [with F = main()::__lambda5]’:
+main.cpp:33:26:   required from here
+main.cpp:12:46: error: no match for call to ‘(main()::__lambda5) ()’
+     auto then(F f) -> std::future<decltype(f())>
+                                              ^
+main.cpp:32:17: note: candidates are:
+     auto inc = [](int n) { return n + 1; };
+                 ^
+main.cpp:12:46: note: int (*)(int) <conversion>
+     auto then(F f) -> std::future<decltype(f())>
+                                              ^
+main.cpp:12:46: note:   candidate expects 2 arguments, 1 provided
+main.cpp:32:24: note: main()::__lambda5
+     auto inc = [](int n) { return n + 1; };
+                        ^
+main.cpp:32:24: note:   candidate expects 1 argument, 0 provided
+main.cpp: In instantiation of ‘call_<decltype (f((declval<Args>)()...))> call(F, Args&& ...) [with F = main()::__lambda5; Args = {int}; decltype (f((declval<Args>)()...)) = int]’:
+main.cpp:33:16:   required from here
+main.cpp:25:63: error: no matching function for call to ‘call_<int>::call_(std::future<int>)’
+     return call_<R>(std::async(f, std::forward<Args>(args)...));
+                                                               ^
+main.cpp:25:63: note: candidates are:
+main.cpp:9:5: note: call_<T>::call_(std::future<_Res>&) [with T = int]
+     call_(std::future<T>& f) : fut(f) {}
+     ^
+main.cpp:9:5: note:   no known conversion for argument 1 from ‘std::future<int>’ to ‘std::future<int>&’
+main.cpp:7:8: note: call_<int>::call_(const call_<int>&)
+ struct call_
+        ^
+main.cpp:7:8: note:   no known conversion for argument 1 from ‘std::future<int>’ to ‘const call_<int>&’
+main.cpp:7:8: note: call_<int>::call_(call_<int>&&)
+main.cpp:7:8: note:   no known conversion for argument 1 from ‘std::future<int>’ to ‘call_<int>&&’
+main.cpp: In function ‘call_<decltype (f((declval<Args>)()...))> call(F, Args&& ...) [with F = main()::__lambda5; Args = {int}; decltype (f((declval<Args>)()...)) = int]’:
+main.cpp:26:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

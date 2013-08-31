@@ -1,0 +1,27 @@
++ coliru_split.sh
++ cat a.h
+#ifndef A_H_INCLUDED
+#define A_H_INCLUDED
+
+int sum(int, int);
+
+#endif // A_H_INCLUDED
+
+
++ cat a.cpp
+#include "a.h"
+
+int sum(int a, int b)
+{
+    return a + b;
+}
+
+
++ cat main.cpp
+#include "a.h"
+#include <iostream>
+
+int main()
+{
+    std::cout << sum(3, 4) << std::endl;
+}

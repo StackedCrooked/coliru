@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3  -pthread main.cpp && cat main.cpp | ./a.out

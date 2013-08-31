@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'constexpr typename function_traits<Type>::FuncPtr wrap(Type) [with Type = void (bar::*)(); typename function_traits<Type>::FuncPtr = void (*)(const void*)]':
+main.cpp:34:28:   required from here
+main.cpp:29:59: error: no matches converting function 'wrapper' to type 'function_traits<void (bar::*)()>::FuncPtr {aka void (*)(const void*)}'
+main.cpp:19:23: error: candidate is: template<void (bar::* mf)()> static ReturnType function_traits<ReturnType (Class::*)(ArgumentTypes ...)>::wrapper(const void*, ArgumentTypes&& ...) [with ReturnType (Class::* mf)(ArgumentTypes ...) = mf; ReturnType = void; Class = bar; ArgumentTypes = {}]
+main.cpp:30:1: error: body of constexpr function 'constexpr typename function_traits<Type>::FuncPtr wrap(Type) [with Type = void (bar::*)(); typename function_traits<Type>::FuncPtr = void (*)(const void*)]' not a return-statement
+main.cpp:27:16: warning: unused parameter 'p' [-Wunused-parameter]
+main.cpp: In function 'int main()':
+main.cpp:34:10: warning: unused variable 'v' [-Wunused-variable]
+main.cpp: In function 'constexpr typename function_traits<Type>::FuncPtr wrap(Type) [with Type = void (bar::*)(); typename function_traits<Type>::FuncPtr = void (*)(const void*)]':
+main.cpp:30:1: warning: control reaches end of non-void function [-Wreturn-type]

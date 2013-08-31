@@ -1,0 +1,38 @@
+main.cpp: In instantiation of 'decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = std::basic_string<char>; T2 = const char (&)[8]; Ts = {const char (&)[5], const char (&)[5], const char (&)[6]}; decltype (f(forward<T1>(v1), forward<T2>(v2))) = std::basic_string<char>]':
+main.cpp:18:89:   required from 'decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = const char (&)[1]; T2 = const char (&)[8]; Ts = {const char (&)[8], const char (&)[5], const char (&)[5], const char (&)[6]}; decltype (f(forward<T1>(v1), forward<T2>(v2))) = <type error>]'
+main.cpp:23:97:   required from here
+main.cpp:18:89: error: no matching function for call to 'foldl(std::plus<std::basic_string<char> >&, std::basic_string<char>, const char [5], const char [5], const char [6])'
+main.cpp:18:89: note: candidates are:
+main.cpp:8:6: note: template<class F, class T1, class T2> decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&)
+main.cpp:8:6: note:   template argument deduction/substitution failed:
+main.cpp:18:89: note:   candidate expects 3 arguments, 5 provided
+main.cpp:15:6: note: template<class F, class T1, class T2, class ... Ts> decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...)
+main.cpp:15:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F, class T1, class T2, class ... Ts> decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = std::basic_string<char>; T2 = const char (&)[5]; Ts = {const char (&)[5], const char (&)[6]}]':
+main.cpp:18:89:   recursively required from 'decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = std::basic_string<char>; T2 = const char (&)[8]; Ts = {const char (&)[5], const char (&)[5], const char (&)[6]}; decltype (f(forward<T1>(v1), forward<T2>(v2))) = std::basic_string<char>]'
+main.cpp:18:89:   required from 'decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = const char (&)[1]; T2 = const char (&)[8]; Ts = {const char (&)[8], const char (&)[5], const char (&)[5], const char (&)[6]}; decltype (f(forward<T1>(v1), forward<T2>(v2))) = <type error>]'
+main.cpp:23:97:   required from here
+main.cpp:15:6: error: no matching function for call to 'forward(const char [8])'
+main.cpp:15:6: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_pair.h:61:0,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/move.h:77:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&)
+/usr/include/c++/4.7/bits/move.h:77:5: note:   template argument deduction/substitution failed:
+main.cpp:15:6: note:   cannot convert 'v2' (type 'const char [8]') to type 'const char (&)[5]'
+In file included from /usr/include/c++/4.7/bits/stl_pair.h:61:0,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/move.h:88:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&&)
+/usr/include/c++/4.7/bits/move.h:88:5: note:   template argument deduction/substitution failed:
+main.cpp:15:6: note:   cannot convert 'v2' (type 'const char [8]') to type 'const char (&&)[5]'
+main.cpp: In function 'decltype (f(forward<T1>(v1), forward<T2>(v2))) foldl(F, T1&&, T2&&, Ts&& ...) [with F = std::plus<std::basic_string<char> >; T1 = std::basic_string<char>; T2 = const char (&)[8]; Ts = {const char (&)[5], const char (&)[5], const char (&)[6]}; decltype (f(forward<T1>(v1), forward<T2>(v2))) = std::basic_string<char>]':
+main.cpp:19:1: warning: control reaches end of non-void function [-Wreturn-type]

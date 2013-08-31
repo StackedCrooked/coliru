@@ -1,0 +1,52 @@
++ mv main.cpp main.c
++ clang main.c -lm -O3 -S
+clang: warning: -lm: 'linker' input unused
++ cat main.s
+	.file	"main.c"
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align	8
+.LCPI0_0:
+	.quad	4746794007244308480     # double 2147483647
+.LCPI0_1:
+	.quad	4613937818241073152     # double 3
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	callq	rand
+	cvtsi2sdl	%eax, %xmm1
+	divsd	.LCPI0_0(%rip), %xmm1
+	movsd	%xmm1, (%rsp)           # 8-byte Spill
+	movaps	%xmm1, %xmm0
+	mulsd	%xmm0, %xmm0
+	mulsd	%xmm1, %xmm0
+	movl	$.L.str, %edi
+	movb	$1, %al
+	callq	printf
+	movsd	.LCPI0_1(%rip), %xmm1
+	movsd	(%rsp), %xmm0           # 8-byte Reload
+	callq	pow
+	movl	$.L.str, %edi
+	movb	$1, %al
+	callq	printf
+	xorl	%eax, %eax
+	popq	%rdx
+	ret
+.Ltmp2:
+	.size	main, .Ltmp2-main
+	.cfi_endproc
+
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	 "%f\n"
+	.size	.L.str, 4
+
+
+	.section	".note.GNU-stack","",@progbits

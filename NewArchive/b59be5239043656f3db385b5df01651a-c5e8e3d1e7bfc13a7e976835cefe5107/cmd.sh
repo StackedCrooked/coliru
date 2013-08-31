@@ -1,0 +1,1 @@
+g++ -std=c++11 main.cpp -o test && ./test <<<"/Archive/b59be5239043656f3db385b5df01651a-68f0765793e7437fec7300eb944c0be8/main.cpp"

@@ -1,0 +1,16 @@
++ g++ -O2 -Wall -pedantic -pthread -std=c++11 main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:14:30: error: no matching function for call to ‘NodeBase<std::basic_string<char> >::NodeBase(std::string&)’
+     NodeBase<std::string> n(s);
+                              ^
+main.cpp:14:30: note: candidates are:
+main.cpp:8:5: note: NodeBase<T>::NodeBase(T&&) [with T = std::basic_string<char>] <near match>
+     NodeBase(T &&value)
+     ^
+main.cpp:8:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘std::basic_string<char>&&’
+main.cpp:5:8: note: NodeBase<std::basic_string<char> >::NodeBase(const NodeBase<std::basic_string<char> >&)
+ struct NodeBase
+        ^
+main.cpp:5:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const NodeBase<std::basic_string<char> >&’
+main.cpp:5:8: note: NodeBase<std::basic_string<char> >::NodeBase(NodeBase<std::basic_string<char> >&&)
+main.cpp:5:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘NodeBase<std::basic_string<char> >&&’

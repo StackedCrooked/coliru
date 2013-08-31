@@ -1,0 +1,46 @@
++ g++ main.cpp -std=c++11 -ltbb -g
++ printf 'run\nbt\n'
++ gdb ./a.out
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /tmp/1368839138-1270009334/a.out...done.
+(gdb) Starting program: /tmp/1368839138-1270009334/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6bb6700 (LWP 19684)]
+[New Thread 0x7ffff5f93700 (LWP 19685)]
+[New Thread 0x7ffff5792700 (LWP 19686)]
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7ffff5792700 (LWP 19686)]
+0x00007ffff7bb9850 in tbb::internal::concurrent_queue_base_v3::internal_push(void const*) () from /usr/lib/libtbb.so.2
+(gdb) #0  0x00007ffff7bb9850 in tbb::internal::concurrent_queue_base_v3::internal_push(void const*) () from /usr/lib/libtbb.so.2
+#1  0x0000000000405c63 in _ZN3tbb24concurrent_bounded_queueISt5tupleIJP5actorIiEiiEENS_23cache_aligned_allocatorIS5_EEE4pushERKS5_ ()
+    at /usr/include/tbb/concurrent_queue.h:263
+#2  0x0000000000405699 in _ZN5actorISt5tupleIJPS_IiEiiEEE4sendERKS3_ ()
+    at main.cpp:19
+#3  0x0000000000401d59 in main::{lambda(actor<int>&)#3}::operator()(actor<int>&) const () at main.cpp:58
+#4  0x000000000040201c in actor<int>::actor<main::{lambda(actor<int>&)#3}>(main::{lambda(actor<int>&)#3})::{lambda()#1}::operator()() const () at main.cpp:11
+#5  0x0000000000404ba2 in void std::_Bind_simple<actor<int>::actor<main::{lambda(actor<int>&)#3}>(main::{lambda(actor<int>&)#3})::{lambda()#1} ()>::_M_invoke<>(std::_Index_tuple<>) () at /usr/include/c++/4.8/functional:1732
+#6  0x0000000000404a0b in std::_Bind_simple<actor<int>::actor<main::{lambda(actor<int>&)#3}>(main::{lambda(actor<int>&)#3})::{lambda()#1} ()>::operator()() ()
+    at /usr/include/c++/4.8/functional:1720
+#7  0x00000000004048d4 in std::thread::_Impl<std::_Bind_simple<actor<int>::actor<main::{lambda(actor<int>&)#3}>(main::{lambda(actor<int>&)#3})::{lambda()#1} ()> >::_M_run() () at /usr/include/c++/4.8/thread:115
+#8  0x00007ffff795aa10 in ?? () from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#9  0x00007ffff70bee9a in start_thread (arg=0x7ffff5792700)
+    at pthread_create.c:308
+#10 0x00007ffff73c7ccd in clone ()
+    at ../sysdeps/unix/sysv/linux/x86_64/clone.S:112
+#11 0x0000000000000000 in ?? ()
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 19681] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]

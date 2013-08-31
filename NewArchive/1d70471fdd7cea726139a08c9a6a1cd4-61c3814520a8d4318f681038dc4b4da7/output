@@ -1,0 +1,14 @@
+main.cpp: In function 'TaggedValue<T, tag_to> tagged_cast(const TaggedValue<T, tag_from>&)':
+main.cpp:36:5: error: static assertion failed: There is no tag conversion for these types
+     static_assert( false, "There is no tag conversion for these types" );
+     ^
+main.cpp: At global scope:
+main.cpp:40:82: error: function template partial specialization 'tagged_cast<tag, tag, T>' is not allowed
+ TaggedValue<T, tag> tagged_cast<tag, tag, T> ( const TaggedValue<T, tag>& castee ) {
+                                                                                  ^
+main.cpp:48:114: error: function template partial specialization 'tagged_cast<radians_tag, degrees_tag, T>' is not allowed
+ TaggedValue<T, radians_tag> tagged_cast<radians_tag, degrees_tag, T> ( const TaggedValue<T, degrees_tag>& castee ) {
+                                                                                                                  ^
+main.cpp:53:114: error: function template partial specialization 'tagged_cast<degrees_tag, radians_tag, T>' is not allowed
+ TaggedValue<T, degrees_tag> tagged_cast<degrees_tag, radians_tag, T> ( const TaggedValue<T, radians_tag>& castee ) {
+                                                                                                                  ^

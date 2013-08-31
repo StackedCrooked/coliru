@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread -fno-elide-constructors main.cpp
+main.cpp:20:23: error: implicit instantiation of undefined template 'num_args<void (<lambda at main.cpp:19:18>::*)(int, int) const>'
+        static_assert(num_args<decltype(&decltype(l)::operator())>::value == 2, "!");
+                      ^
+main.cpp:4:12: note: template is declared here
+    struct num_args;
+           ^
+1 error generated.

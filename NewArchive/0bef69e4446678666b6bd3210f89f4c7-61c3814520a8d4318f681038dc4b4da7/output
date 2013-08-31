@@ -1,0 +1,53 @@
+main.cpp: In function 'void init_draw_data()':
+main.cpp:8:17: error: 'vector' is not a member of 'std'
+  auto shaders = std::vector<Jellyot::Shader>();
+                 ^
+main.cpp:8:29: error: 'Jellyot' has not been declared
+  auto shaders = std::vector<Jellyot::Shader>();
+                             ^
+main.cpp:8:46: error: expected primary-expression before ')' token
+  auto shaders = std::vector<Jellyot::Shader>();
+                                              ^
+main.cpp:9:23: error: 'Jellyot' has not been declared
+  shaders.emplace_back(Jellyot::ShaderType::Vertex, strVertexShader);
+                       ^
+main.cpp:9:52: error: 'strVertexShader' was not declared in this scope
+  shaders.emplace_back(Jellyot::ShaderType::Vertex, strVertexShader);
+                                                    ^
+main.cpp:10:23: error: 'Jellyot' has not been declared
+  shaders.emplace_back(Jellyot::ShaderType::Fragment, strFragmentShader);
+                       ^
+main.cpp:10:54: error: 'strFragmentShader' was not declared in this scope
+  shaders.emplace_back(Jellyot::ShaderType::Fragment, strFragmentShader);
+                                                      ^
+main.cpp:12:2: error: 'myproggy' was not declared in this scope
+  myproggy = new Jellyot::Program(shaders.begin(), shaders.end());
+  ^
+main.cpp:12:17: error: expected type-specifier before 'Jellyot'
+  myproggy = new Jellyot::Program(shaders.begin(), shaders.end());
+                 ^
+main.cpp:12:17: error: expected ';' before 'Jellyot'
+main.cpp:13:2: error: 'theProgram' was not declared in this scope
+  theProgram = myproggy->GetHandle();
+  ^
+main.cpp:15:19: error: 'positionBufferObject' was not declared in this scope
+  glGenBuffers(1, &positionBufferObject); //Construct the buffer
+                   ^
+main.cpp:15:39: error: 'glGenBuffers' was not declared in this scope
+  glGenBuffers(1, &positionBufferObject); //Construct the buffer
+                                       ^
+main.cpp:17:15: error: 'GL_ARRAY_BUFFER' was not declared in this scope
+  glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject); //Set buffer pointer to positionBufferObject
+               ^
+main.cpp:17:52: error: 'glBindBuffer' was not declared in this scope
+  glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject); //Set buffer pointer to positionBufferObject
+                                                    ^
+main.cpp:18:39: error: 'vertexPositions' was not declared in this scope
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW); //Set data
+                                       ^
+main.cpp:18:74: error: 'GL_STATIC_DRAW' was not declared in this scope
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW); //Set data
+                                                                          ^
+main.cpp:18:88: error: 'glBufferData' was not declared in this scope
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW); //Set data
+                                                                                        ^

@@ -1,0 +1,14 @@
+In file included from /usr/local/include/c++/4.8.0/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.0/bits/stl_algo.h: In instantiation of '_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = __gnu_cxx::__normal_iterator<MyClass*, std::vector<MyClass> >; _Funct = f]':
+main.cpp:20:39:   required from here
+/usr/local/include/c++/4.8.0/bits/stl_algo.h:4440:14: error: no match for call to '(f) (MyClass&)'
+  __f(*__first);
+              ^
+main.cpp:11:8: note: candidate is:
+ struct f{
+        ^
+main.cpp:12:8: note: void f::operator()(MyClass&, int)
+   void operator()(MyClass& x, int val) {
+        ^
+main.cpp:12:8: note:   candidate expects 2 arguments, 1 provided

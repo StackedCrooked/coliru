@@ -1,0 +1,1 @@
+mv main.cpp main.c && clang main.c -std=c89 -pedantic-errors && ./a.out

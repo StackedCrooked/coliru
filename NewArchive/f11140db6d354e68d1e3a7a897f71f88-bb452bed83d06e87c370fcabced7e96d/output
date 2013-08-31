@@ -1,0 +1,12 @@
++ clang++ -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp:22:1: error: missing 'typename' prior to dependent type name 'myClass<i>::myVector_t'
+myClass<i>::myVector_t  myClass<i>::myFunc()        //<----- Line 10
+^~~~~~~~~~~~~~~~~~~~~~
+typename 
+main.cpp:29:5: error: use of class template 'myClass' requires template arguments
+    myClass o;
+    ^
+main.cpp:6:24: note: template is declared here
+template <int i> class myClass
+~~~~~~~~~~~~~~~~       ^
+2 errors generated.

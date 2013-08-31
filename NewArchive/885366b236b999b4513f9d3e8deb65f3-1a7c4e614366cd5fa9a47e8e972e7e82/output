@@ -1,0 +1,30 @@
++ clang++ -S -std=c++11 -O2 -pthread main.cpp -o main.S
++ cat main.S
+	.file	"main.cpp"
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align	8
+.LCPI0_0:
+	.quad	4487126258331716666     # double 1.0E-8
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	movl	$1, -4(%rsp)
+	movl	$0, -8(%rsp)
+	cvtsi2sdl	-4(%rsp), %xmm0
+	cvtsi2sdl	-8(%rsp), %xmm1
+	addsd	.LCPI0_0(%rip), %xmm1
+	divsd	%xmm1, %xmm0
+	cvttsd2si	%xmm0, %eax
+	movl	%eax, -12(%rsp)
+	movl	-12(%rsp), %eax
+	ret
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+
+	.section	".note.GNU-stack","",@progbits

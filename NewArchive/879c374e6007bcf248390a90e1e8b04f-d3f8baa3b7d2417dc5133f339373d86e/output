@@ -1,0 +1,25 @@
+main.cpp: In function 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> async(Function&&, Args&& ...)':
+main.cpp:7:5: error: 'packged_task' is not a member of 'std'
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+     ^
+main.cpp:7:29: error: expected primary-expression before '...' token
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+                             ^
+main.cpp:7:32: error: there are no arguments to 'F' that depend on a template parameter, so a declaration of 'F' must be available [-fpermissive]
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+                                ^
+main.cpp:7:32: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:7:53: error: 'F' was not declared in this scope
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+                                                     ^
+main.cpp:8:16: error: 'task' was not declared in this scope
+     auto ret = task.get_future();
+                ^
+main.cpp: In instantiation of 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> async(Function&&, Args&& ...) [with Function = main()::__lambda4; Args = {}; typename std::result_of<_Functor(_ArgTypes ...)>::type = void]':
+main.cpp:16:15:   required from here
+main.cpp:7:87: error: 'task' was not declared in this scope
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+                                                                                       ^
+main.cpp:7:32: error: 'F' was not declared in this scope
+     std::packged_task<F(Args...)> task(std::forward<F>(f), std::forward<Args>(args)...);
+                                ^

@@ -1,0 +1,28 @@
+main.cpp: In function 'int main()':
+main.cpp:18:27: error: no match for 'operator|' (operand types are 'sum_t' and 'std::vector<int>')
+     auto result = sum_t{} | r;
+                           ^
+main.cpp:18:27: note: candidates are:
+main.cpp:12:50: note: template<class Container, typename std::enable_if<std::is_class<_Sseq>::value, void>::type <anonymous> > typename std::decay<_Tp>::type::value_type operator|(const sum_t&, Container&&)
+ typename std::decay<Container>::type::value_type operator|(const sum_t& sum_f, Container&& container) {
+                                                  ^
+main.cpp:12:50: note:   template argument deduction/substitution failed:
+main.cpp:18:29: note:   couldn't deduce template parameter '<anonymous>'
+     auto result = sum_t{} | r;
+                             ^
+In file included from /usr/include/c++/4.8/ios:42:0,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/ios_base.h:157:3: note: constexpr std::_Ios_Iostate std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+   operator|(_Ios_Iostate __a, _Ios_Iostate __b)
+   ^
+/usr/include/c++/4.8/bits/ios_base.h:157:3: note:   no known conversion for argument 1 from 'sum_t' to 'std::_Ios_Iostate'
+/usr/include/c++/4.8/bits/ios_base.h:119:3: note: constexpr std::_Ios_Openmode std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+   operator|(_Ios_Openmode __a, _Ios_Openmode __b)
+   ^
+/usr/include/c++/4.8/bits/ios_base.h:119:3: note:   no known conversion for argument 1 from 'sum_t' to 'std::_Ios_Openmode'
+/usr/include/c++/4.8/bits/ios_base.h:79:3: note: constexpr std::_Ios_Fmtflags std::operator|(std::_Ios_Fmtflags, std::_Ios_Fmtflags)
+   operator|(_Ios_Fmtflags __a, _Ios_Fmtflags __b)
+   ^
+/usr/include/c++/4.8/bits/ios_base.h:79:3: note:   no known conversion for argument 1 from 'sum_t' to 'std::_Ios_Fmtflags'

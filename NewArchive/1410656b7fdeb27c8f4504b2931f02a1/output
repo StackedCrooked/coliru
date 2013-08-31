@@ -1,0 +1,30 @@
+main.cpp: In instantiation of ‘std::unique_ptr<T> create(T&&) [with T = Point]’:
+main.cpp:47:60:   required from here
+main.cpp:22:34: error: no matching function for call to ‘std::unique_ptr<Point>::unique_ptr(Point&)’
+main.cpp:22:34: note: candidates are:
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/bits/unique_ptr.h:164:2: note: template<class _Up, class> std::unique_ptr::unique_ptr(std::auto_ptr<_Up>&&)
+/usr/include/c++/4.7/bits/unique_ptr.h:164:2: note:   template argument deduction/substitution failed:
+main.cpp:22:34: note:   ‘Point’ is not derived from ‘std::auto_ptr<_Up>’
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/bits/unique_ptr.h:155:2: note: template<class _Up, class _Ep, class> std::unique_ptr::unique_ptr(std::unique_ptr<_Up, _Ep>&&)
+/usr/include/c++/4.7/bits/unique_ptr.h:155:2: note:   template argument deduction/substitution failed:
+main.cpp:22:34: note:   ‘Point’ is not derived from ‘std::unique_ptr<_Up, _Ep>’
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/bits/unique_ptr.h:142:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>&&) [with _Tp = Point; _Dp = std::default_delete<Point>; std::unique_ptr<_Tp, _Dp> = std::unique_ptr<Point>]
+/usr/include/c++/4.7/bits/unique_ptr.h:142:7: note:   no known conversion for argument 1 from ‘Point’ to ‘std::unique_ptr<Point>&&’
+/usr/include/c++/4.7/bits/unique_ptr.h:136:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr(std::nullptr_t) [with _Tp = Point; _Dp = std::default_delete<Point>; std::nullptr_t = std::nullptr_t]
+/usr/include/c++/4.7/bits/unique_ptr.h:136:17: note:   no known conversion for argument 1 from ‘Point’ to ‘std::nullptr_t’
+/usr/include/c++/4.7/bits/unique_ptr.h:130:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::remove_reference<_To>::type&&) [with _Tp = Point; _Dp = std::default_delete<Point>; std::unique_ptr<_Tp, _Dp>::pointer = Point*; typename std::remove_reference<_To>::type = std::default_delete<Point>]
+/usr/include/c++/4.7/bits/unique_ptr.h:130:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.7/bits/unique_ptr.h:125:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type) [with _Tp = Point; _Dp = std::default_delete<Point>; std::unique_ptr<_Tp, _Dp>::pointer = Point*; typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type = const std::default_delete<Point>&]
+/usr/include/c++/4.7/bits/unique_ptr.h:125:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.7/bits/unique_ptr.h:120:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Tp = Point; _Dp = std::default_delete<Point>; std::unique_ptr<_Tp, _Dp>::pointer = Point*]
+/usr/include/c++/4.7/bits/unique_ptr.h:120:7: note:   no known conversion for argument 1 from ‘Point’ to ‘std::unique_ptr<Point>::pointer {aka Point*}’
+/usr/include/c++/4.7/bits/unique_ptr.h:114:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr() [with _Tp = Point; _Dp = std::default_delete<Point>]
+/usr/include/c++/4.7/bits/unique_ptr.h:114:17: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In function ‘std::unique_ptr<T> create(T&&) [with T = Point]’:
+main.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]

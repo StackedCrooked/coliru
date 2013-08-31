@@ -1,0 +1,66 @@
+main.cpp:1:13: error: ISO C++ forbids declaration of 'ThreadPool' with no type [-fpermissive]
+ ThreadPool () {
+             ^
+main.cpp: In function 'int ThreadPool()':
+main.cpp:2:2: error: 'ulword' was not declared in this scope
+  ulword startcount = std::thread::hardware_concurrency();
+  ^
+main.cpp:2:9: error: expected ';' before 'startcount'
+  ulword startcount = std::thread::hardware_concurrency();
+         ^
+main.cpp:5:15: error: expected ';' before 'i'
+  for ( ulword i = 0; i < startcount; ++i ) {
+               ^
+main.cpp:5:22: error: 'i' was not declared in this scope
+  for ( ulword i = 0; i < startcount; ++i ) {
+                      ^
+main.cpp:5:26: error: 'startcount' was not declared in this scope
+  for ( ulword i = 0; i < startcount; ++i ) {
+                          ^
+main.cpp:6:3: error: 'threadwork' was not declared in this scope
+   threadwork.emplace_back( );
+   ^
+main.cpp:7:3: error: 'threadpriorities' was not declared in this scope
+   threadpriorities.emplace( TThreadCost( i, 0 ) );
+   ^
+main.cpp:7:47: error: 'TThreadCost' was not declared in this scope
+   threadpriorities.emplace( TThreadCost( i, 0 ) );
+                                               ^
+main.cpp:8:3: error: 'threads' was not declared in this scope
+   threads.emplace_back( 
+   ^
+main.cpp:9:8: error: 'ThreadPool' is not a type
+    []( ThreadPool& pool, ulword i ){ 
+        ^
+main.cpp:9:26: error: 'ulword' is not a type
+    []( ThreadPool& pool, ulword i ){ 
+                          ^
+main.cpp: In lambda function:
+main.cpp:10:5: error: 'ulword' is not captured
+     ulword index = i;
+     ^
+main.cpp:10:12: error: expected ';' before 'index'
+     ulword index = i;
+            ^
+main.cpp:13:7: error: 'TWork' was not declared in this scope
+       TWork work = pool.threadwork[ index ].Pop();
+       ^
+main.cpp:13:13: error: expected ';' before 'work'
+       TWork work = pool.threadwork[ index ].Pop();
+             ^
+main.cpp:14:13: error: 'work' was not declared in this scope
+       work( );
+             ^
+main.cpp:17:7: error: 'cout' is not a member of 'std'
+       std::cout << "WHAT THE SHIT THREADPOOL EXPLOSION!" << std::endl;
+       ^
+main.cpp:17:61: error: 'endl' is not a member of 'std'
+       std::cout << "WHAT THE SHIT THREADPOOL EXPLOSION!" << std::endl;
+                                                             ^
+main.cpp: In function 'int ThreadPool()':
+main.cpp:21:4: error: 'ref' is not a member of 'std'
+    std::ref( *this ), i
+    ^
+main.cpp:21:15: error: invalid use of 'this' in non-member function
+    std::ref( *this ), i
+               ^

@@ -1,0 +1,1 @@
+g++ -std=c++11 -E main.cpp -o - | grep -v ^\# | grep -v ^$ | perl -p -e 's,},}\n,g' > f.cpp ; cat f.cpp | perl -p -e 's,^(\S),    \1,g' > file.cpp ; astyle file.cpp ; cat file.cpp | tail -n50 ; g++ -std=c++11 file.cpp && ./a.out

@@ -1,0 +1,163 @@
+main.cpp:10:27: error: expected type-specifier
+     using argument_type = std::tuple<Args...>;
+                           ^
+main.cpp:28:31: error: 'std::function' has not been declared
+     void registerCommand(std::function<typename CommandType::result_type(typename CommandType::argument_type)> func)
+                               ^
+main.cpp:28:39: error: expected ',' or '...' before '<' token
+     void registerCommand(std::function<typename CommandType::result_type(typename CommandType::argument_type)> func)
+                                       ^
+main.cpp:35:32: error: 'socket' has not been declared
+     void handleIncomingMessage(socket& sock, const std::string& msg)
+                                ^
+main.cpp:35:52: error: 'string' in namespace 'std' does not name a type
+     void handleIncomingMessage(socket& sock, const std::string& msg)
+                                                    ^
+main.cpp:35:65: error: ISO C++ forbids declaration of 'msg' with no type [-fpermissive]
+     void handleIncomingMessage(socket& sock, const std::string& msg)
+                                                                 ^
+main.cpp:41:1: error: expected ';' after struct definition
+ }
+ ^
+main.cpp: In member function 'void Server::registerCommand(int)':
+main.cpp:30:9: error: 'functions_' was not declared in this scope
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+         ^
+main.cpp:30:27: error: 'make_pair' is not a member of 'std'
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+                           ^
+main.cpp:30:42: error: 'Demangle' was not declared in this scope
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+                                          ^
+main.cpp:30:62: error: expected primary-expression before '>' token
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+                                                              ^
+main.cpp:30:64: error: expected primary-expression before ')' token
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+                                                                ^
+main.cpp:30:77: error: 'string' in namespace 'std' does not name a type
+         functions_.insert(std::make_pair(Demangle<CommandType>(), [=](const std::string& str) {
+                                                                             ^
+main.cpp:32:9: error: ISO C++ forbids declaration of 'parameter' with no type [-fpermissive]
+         }));            
+         ^
+main.cpp: In lambda function:
+main.cpp:32:11: error: expected '{' before ')' token
+         }));            
+           ^
+main.cpp: In member function 'void Server::handleIncomingMessage(int&, const int&)':
+main.cpp:37:17: error: 'pair' in namespace 'std' does not name a type
+         typedef std::pair<std::string, std::string> NameAndArgs;
+                 ^
+main.cpp:38:28: error: 'deserialize' was not declared in this scope
+         auto nameAndArgs = deserialize<NameAndArgs>(msg);
+                            ^
+main.cpp:38:40: error: 'NameAndArgs' was not declared in this scope
+         auto nameAndArgs = deserialize<NameAndArgs>(msg);
+                                        ^
+main.cpp:39:14: error: request for member 'write' in 'sock', which is of non-class type 'int'
+         sock.write(functions_[nameAndArgs.first](nameAndArgs.second));
+              ^
+main.cpp:39:20: error: 'functions_' was not declared in this scope
+         sock.write(functions_[nameAndArgs.first](nameAndArgs.second));
+                    ^
+main.cpp: In lambda function:
+main.cpp:51:9: error: 'Sleeper' was not declared in this scope
+         Sleeper& sleeper = server.addSleeper();
+         ^
+main.cpp:51:18: error: 'sleeper' was not declared in this scope
+         Sleeper& sleeper = server.addSleeper();
+                  ^
+main.cpp:51:28: error: 'server' is not captured
+         Sleeper& sleeper = server.addSleeper();
+                            ^
+main.cpp: In function 'void test_server()':
+main.cpp:53:6: error: no matching function for call to 'Server::registerCommand(test_server()::__lambda1)'
+     });
+      ^
+main.cpp:53:6: note: candidate is:
+main.cpp:28:10: note: template<class CommandType> void Server::registerCommand(int)
+     void registerCommand(std::function<typename CommandType::result_type(typename CommandType::argument_type)> func)
+          ^
+main.cpp:28:10: note:   template argument deduction/substitution failed:
+main.cpp:53:6: note:   cannot convert '<lambda closure object>test_server()::__lambda1{}' (type 'test_server()::__lambda1') to type 'int'
+     });
+      ^
+main.cpp: In lambda function:
+main.cpp:56:25: error: 'Sleeper' has not been declared
+         auto& sleeper = Sleeper::GetById(id);
+                         ^
+main.cpp: In function 'void test_server()':
+main.cpp:58:6: error: expected ')' before ';' token
+     };
+      ^
+main.cpp: In lambda function:
+main.cpp:61:25: error: 'Sleeper' has not been declared
+         auto& sleeper = Sleeper::GetById(id);
+                         ^
+main.cpp: In function 'void test_server()':
+main.cpp:63:6: error: expected ')' before ';' token
+     };
+      ^
+main.cpp: At global scope:
+main.cpp:64:2: error: expected unqualified-id before ')' token
+ });
+  ^
+main.cpp: In function 'void test_client()':
+main.cpp:70:5: error: 'Client' was not declared in this scope
+     Client client;
+     ^
+main.cpp:70:12: error: expected ';' before 'client'
+     Client client;
+            ^
+main.cpp:72:19: error: 'client' was not declared in this scope
+     Id sleeper1 = client.send<CreateSleeper>();
+                   ^
+main.cpp:72:44: error: expected primary-expression before '>' token
+     Id sleeper1 = client.send<CreateSleeper>();
+                                            ^
+main.cpp:72:46: error: expected primary-expression before ')' token
+     Id sleeper1 = client.send<CreateSleeper>();
+                                              ^
+main.cpp:73:44: error: expected primary-expression before '>' token
+     Id sleeper2 = client.send<CreateSleeper>();
+                                            ^
+main.cpp:73:46: error: expected primary-expression before ')' token
+     Id sleeper2 = client.send<CreateSleeper>();
+                                              ^
+main.cpp:74:44: error: expected primary-expression before '>' token
+     Id sleeper3 = client.send<CreateSleeper>();
+                                            ^
+main.cpp:74:46: error: expected primary-expression before ')' token
+     Id sleeper3 = client.send<CreateSleeper>();
+                                              ^
+main.cpp:76:5: error: 'future' is not a member of 'std'
+     std::future<void> fut1 = client.async_send<StartSleeper>(sleeper1, 3);
+     ^
+main.cpp:76:17: error: expected primary-expression before 'void'
+     std::future<void> fut1 = client.async_send<StartSleeper>(sleeper1, 3);
+                 ^
+main.cpp:76:17: error: expected ';' before 'void'
+main.cpp:77:5: error: 'future' is not a member of 'std'
+     std::future<void> fut2 = client.async_send<StartSleeper>(sleeper2, 5);
+     ^
+main.cpp:77:17: error: expected primary-expression before 'void'
+     std::future<void> fut2 = client.async_send<StartSleeper>(sleeper2, 5);
+                 ^
+main.cpp:77:17: error: expected ';' before 'void'
+main.cpp:78:5: error: 'future' is not a member of 'std'
+     std::future<void> fut3 = client.async_send<StartSleeper>(sleeper3, 1);
+     ^
+main.cpp:78:17: error: expected primary-expression before 'void'
+     std::future<void> fut3 = client.async_send<StartSleeper>(sleeper3, 1);
+                 ^
+main.cpp:78:17: error: expected ';' before 'void'
+main.cpp:80:5: error: 'fut1' was not declared in this scope
+     fut1.get();
+     ^
+main.cpp:81:5: error: 'fut2' was not declared in this scope
+     fut2.get();
+     ^
+main.cpp:82:5: error: 'fut3' was not declared in this scope
+     fut3.get();   
+     ^

@@ -1,0 +1,99 @@
+  * pointer *                                                  * iterator *
+	.file	"main.cpp"						.file	"main.cpp"
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	_Z7processPiS_				      |		.globl	_Z7process4WrapS_
+	.type	_Z7processPiS_, @function		      |		.type	_Z7process4WrapS_, @function
+_Z7processPiS_:						      |	_Z7process4WrapS_:
+.LFB0:							      |	.LFB7:
+	.cfi_startproc							.cfi_startproc
+	pushq	%rbp							pushq	%rbp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16						.cfi_offset 6, -16
+	movq	%rsi, %rbp						movq	%rsi, %rbp
+	pushq	%rbx							pushq	%rbx
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24						.cfi_offset 3, -24
+	movq	%rdi, %rbx						movq	%rdi, %rbx
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 32						.cfi_def_cfa_offset 32
+	call	_Z19____ASM__MARKER____0				call	_Z19____ASM__MARKER____0
+	jmp	.L2							jmp	.L2
+	.p2align 4,,10							.p2align 4,,10
+	.p2align 3							.p2align 3
+.L3:								.L3:
+	call	_Z19____ASM__MARKER____3				call	_Z19____ASM__MARKER____3
+	movl	(%rbx), %edi						movl	(%rbx), %edi
+	addq	$4, %rbx						addq	$4, %rbx
+	call	_Z9disappeari						call	_Z9disappeari
+	call	_Z19____ASM__MARKER____2				call	_Z19____ASM__MARKER____2
+.L2:								.L2:
+	call	_Z19____ASM__MARKER____1				call	_Z19____ASM__MARKER____1
+	cmpq	%rbp, %rbx						cmpq	%rbp, %rbx
+	.p2align 4,,2							.p2align 4,,2
+	jne	.L3							jne	.L3
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 24						.cfi_def_cfa_offset 24
+	popq	%rbx							popq	%rbx
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	popq	%rbp							popq	%rbp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	jmp	_Z19____ASM__MARKER____4				jmp	_Z19____ASM__MARKER____4
+	.cfi_endproc							.cfi_endproc
+.LFE0:							      |	.LFE7:
+	.size	_Z7processPiS_, .-_Z7processPiS_	      |		.size	_Z7process4WrapS_, .-_Z7process4WrapS_
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB1:							      |	.LFB8:
+	.cfi_startproc							.cfi_startproc
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	movslq	length(%rip), %rax					movslq	length(%rip), %rax
+	movq	a(%rip), %rdi						movq	a(%rip), %rdi
+	leaq	(%rdi,%rax,4), %rsi					leaq	(%rdi,%rax,4), %rsi
+	call	_Z7processPiS_				      |		call	_Z7process4WrapS_
+	xorl	%eax, %eax						xorl	%eax, %eax
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE1:							      |	.LFE8:
+	.size	main, .-main						.size	main, .-main
+	.p2align 4,,15							.p2align 4,,15
+	.type	_GLOBAL__sub_I_a, @function				.type	_GLOBAL__sub_I_a, @function
+_GLOBAL__sub_I_a:						_GLOBAL__sub_I_a:
+.LFB3:							      |	.LFB10:
+	.cfi_startproc							.cfi_startproc
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	call	_Z8get_datav						call	_Z8get_datav
+	movq	%rax, a(%rip)						movq	%rax, a(%rip)
+	call	_Z10get_lengthv						call	_Z10get_lengthv
+	movl	%eax, length(%rip)					movl	%eax, length(%rip)
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE3:							      |	.LFE10:
+	.size	_GLOBAL__sub_I_a, .-_GLOBAL__sub_I_a			.size	_GLOBAL__sub_I_a, .-_GLOBAL__sub_I_a
+	.section	.init_array,"aw"				.section	.init_array,"aw"
+	.align 8							.align 8
+	.quad	_GLOBAL__sub_I_a					.quad	_GLOBAL__sub_I_a
+	.globl	length							.globl	length
+	.bss								.bss
+	.align 16							.align 16
+	.type	length, @object						.type	length, @object
+	.size	length, 4						.size	length, 4
+length:								length:
+	.zero	4							.zero	4
+	.globl	a							.globl	a
+	.align 16							.align 16
+	.type	a, @object						.type	a, @object
+	.size	a, 8							.size	a, 8
+a:								a:
+	.zero	8							.zero	8
+	.ident	"GCC: (GNU) 4.8.0"					.ident	"GCC: (GNU) 4.8.0"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits

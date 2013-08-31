@@ -1,0 +1,24 @@
+<line>
+  <command>g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp</command>
+  <output></output>
+</line>
+<line>
+  <command>echo a && b</command>
+  <output>a
+./cmd.sh: line 12: b: command not found</output>
+</line>
+<line>
+  <command>./a.out</command>
+  <output>Hello from GCC 4.8.1 ! </output>
+</line>
+
+Or:
+cmd=g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+out=
+err=
+cmd=echo a && b
+out=a
+err=./cmd.sh: line 14: b: command not found
+cmd=./a.out
+out=Hello from GCC 4.8.1 ! 
+err=

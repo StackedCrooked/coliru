@@ -1,0 +1,28 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:11:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i=0;i<nbr.size();i++){
+                            ^
+main.cpp:12:14: error: redeclaration of ‘info i’
+         info i = nbr.at(i);
+              ^
+main.cpp:11:13: error: ‘int i’ previously declared here
+     for(int i=0;i<nbr.size();i++){
+             ^
+main.cpp:12:26: error: no matching function for call to ‘std::vector<info>::at(info&)’
+         info i = nbr.at(i);
+                          ^
+main.cpp:12:26: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:810:7: note: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::at(std::vector<_Tp, _Alloc>::size_type) [with _Tp = info; _Alloc = std::allocator<info>; std::vector<_Tp, _Alloc>::reference = info&; std::vector<_Tp, _Alloc>::size_type = long unsigned int]
+       at(size_type __n)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:810:7: note:   no known conversion for argument 1 from ‘info’ to ‘std::vector<info>::size_type {aka long unsigned int}’
+/usr/include/c++/4.8/bits/stl_vector.h:828:7: note: std::vector<_Tp, _Alloc>::const_reference std::vector<_Tp, _Alloc>::at(std::vector<_Tp, _Alloc>::size_type) const [with _Tp = info; _Alloc = std::allocator<info>; std::vector<_Tp, _Alloc>::const_reference = const info&; std::vector<_Tp, _Alloc>::size_type = long unsigned int]
+       at(size_type __n) const
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:828:7: note:   no known conversion for argument 1 from ‘info’ to ‘std::vector<info>::size_type {aka long unsigned int}’
+main.cpp:15:9: error: ‘tb’ was not declared in this scope
+         tb[i.num] = v;
+         ^

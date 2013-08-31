@@ -1,0 +1,26 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:2:40: error: ‘charcodepoint’ has not been declared
+ TIterator DecodeOne ( TIterator bytes, charcodepoint& c ) const {
+                                        ^
+main.cpp:2:59: error: non-member function ‘TIterator DecodeOne(TIterator, int&)’ cannot have cv-qualifier
+ TIterator DecodeOne ( TIterator bytes, charcodepoint& c ) const {
+                                                           ^
+main.cpp: In function ‘TIterator DecodeOne(TIterator, int&)’:
+main.cpp:3:2: error: ‘uint16’ was not declared in this scope
+  uint16 c0, c1;
+  ^
+main.cpp:3:9: error: expected ‘;’ before ‘c0’
+  uint16 c0, c1;
+         ^
+main.cpp:5:2: error: ‘c0’ was not declared in this scope
+  c0 = *bytes++;
+  ^
+main.cpp:7:6: error: ‘TEndian’ has not been declared
+  c = TEndian::Value( c0 );
+      ^
+main.cpp:10:3: error: ‘c1’ was not declared in this scope
+   c1 = *bytes++;
+   ^
+main.cpp:13:9: error: ‘TEndian’ has not been declared
+    c1 = TEndian::Value( c1 );
+         ^

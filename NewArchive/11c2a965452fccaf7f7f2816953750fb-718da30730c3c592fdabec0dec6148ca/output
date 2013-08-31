@@ -1,0 +1,60 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align	4
+.LCPI0_0:
+	.long	3204448256              # float -0.5
+.LCPI0_1:
+	.long	1069547520              # float 1.5
+	.text
+	.globl	_Z18InverseSquare_castf
+	.align	16, 0x90
+	.type	_Z18InverseSquare_castf,@function
+_Z18InverseSquare_castf:                # @_Z18InverseSquare_castf
+	.cfi_startproc
+# BB#0:
+	movd	%xmm0, %eax
+	sarl	%eax
+	movl	$1597463007, %ecx       # imm = 0x5F3759DF
+	subl	%eax, %ecx
+	movd	%ecx, %xmm1
+	mulss	.LCPI0_0(%rip), %xmm0
+	mulss	%xmm1, %xmm0
+	mulss	%xmm1, %xmm0
+	addss	.LCPI0_1(%rip), %xmm0
+	mulss	%xmm1, %xmm0
+	ret
+.Ltmp0:
+	.size	_Z18InverseSquare_castf, .Ltmp0-_Z18InverseSquare_castf
+	.cfi_endproc
+
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align	4
+.LCPI1_0:
+	.long	3204448256              # float -0.5
+.LCPI1_1:
+	.long	1069547520              # float 1.5
+	.text
+	.globl	_Z20InverseSquare_memcpyf
+	.align	16, 0x90
+	.type	_Z20InverseSquare_memcpyf,@function
+_Z20InverseSquare_memcpyf:              # @_Z20InverseSquare_memcpyf
+	.cfi_startproc
+# BB#0:
+	movd	%xmm0, %eax
+	sarl	%eax
+	movl	$1597463007, %ecx       # imm = 0x5F3759DF
+	subl	%eax, %ecx
+	movd	%ecx, %xmm1
+	mulss	.LCPI1_0(%rip), %xmm0
+	mulss	%xmm1, %xmm0
+	mulss	%xmm1, %xmm0
+	addss	.LCPI1_1(%rip), %xmm0
+	mulss	%xmm1, %xmm0
+	ret
+.Ltmp1:
+	.size	_Z20InverseSquare_memcpyf, .Ltmp1-_Z20InverseSquare_memcpyf
+	.cfi_endproc
+
+
+	.section	".note.GNU-stack","",@progbits

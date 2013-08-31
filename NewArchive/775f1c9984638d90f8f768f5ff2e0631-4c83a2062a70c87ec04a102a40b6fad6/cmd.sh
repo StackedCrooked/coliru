@@ -1,0 +1,1 @@
+g++ -std=c++11 -S main.cpp && cat main.s

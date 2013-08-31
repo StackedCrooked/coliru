@@ -1,0 +1,21 @@
+main.cpp:4:48: error: 'Args' was not declared in this scope
+ struct trait_of : decltype(Test::template test<Args>(0)) {};
+                                                ^
+main.cpp: In instantiation of 'struct trait_of<has_arithmetic_type_test, foo>':
+main.cpp:16:8:   required from 'struct has_arithmetic_type<foo>'
+main.cpp:21:39:   required from here
+main.cpp:4:55: error: 'test<<expression error> >' is not a member of 'has_arithmetic_type_test'
+ struct trait_of : decltype(Test::template test<Args>(0)) {};
+                                                       ^
+main.cpp:21:15: error: 'value' is not a member of 'has_arithmetic_type<foo>'
+ static_assert(has_arithmetic_type<foo>::value, "yay");
+               ^
+main.cpp: In instantiation of 'struct trait_of<has_arithmetic_type_test, int>':
+main.cpp:16:8:   required from 'struct has_arithmetic_type<int>'
+main.cpp:22:40:   required from here
+main.cpp:4:55: error: 'test<<expression error> >' is not a member of 'has_arithmetic_type_test'
+ struct trait_of : decltype(Test::template test<Args>(0)) {};
+                                                       ^
+main.cpp:22:16: error: 'value' is not a member of 'has_arithmetic_type<int>'
+ static_assert(!has_arithmetic_type<int>::value, "yay");
+                ^

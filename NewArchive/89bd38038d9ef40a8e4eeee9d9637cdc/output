@@ -1,0 +1,24 @@
+main.cpp: In function 'constexpr EtherType operator++(EtherType&)':
+main.cpp:34:1: error: expression '(eth = ((eth != (EtherType)2054u) ? ((eth == (EtherType)2048u) ? (EtherType)34525u : (EtherType)0u) : (EtherType)2048u))' is not a constant-expression
+main.cpp: In function 'int main()':
+main.cpp:73:5: error: non-constant condition for static assertion
+main.cpp:73:36:   in constexpr expansion of 'operator+((EtherType)2054u, 1u)'
+main.cpp:38:30: error: 'constexpr EtherType operator++(EtherType&)' called in a constant expression
+main.cpp:74:5: error: non-constant condition for static assertion
+main.cpp:74:36:   in constexpr expansion of 'operator+((EtherType)2048u, 1u)'
+main.cpp:38:30: error: 'constexpr EtherType operator++(EtherType&)' called in a constant expression
+main.cpp:75:5: error: non-constant condition for static assertion
+main.cpp:75:36:   in constexpr expansion of 'operator+((EtherType)34525u, 1u)'
+main.cpp:38:30: error: 'constexpr EtherType operator++(EtherType&)' called in a constant expression
+main.cpp:77:32: error: no match for 'operator++' in '++(EtherType)2054u'
+main.cpp:77:32: note: candidate is:
+main.cpp:29:21: note: constexpr EtherType operator++(EtherType&)
+main.cpp:29:21: note:   no known conversion for argument 1 from 'EtherType' to 'EtherType&'
+main.cpp:78:32: error: no match for 'operator++' in '++(EtherType)2048u'
+main.cpp:78:32: note: candidate is:
+main.cpp:29:21: note: constexpr EtherType operator++(EtherType&)
+main.cpp:29:21: note:   no known conversion for argument 1 from 'EtherType' to 'EtherType&'
+main.cpp:79:32: error: no match for 'operator++' in '++(EtherType)34525u'
+main.cpp:79:32: note: candidate is:
+main.cpp:29:21: note: constexpr EtherType operator++(EtherType&)
+main.cpp:29:21: note:   no known conversion for argument 1 from 'EtherType' to 'EtherType&'

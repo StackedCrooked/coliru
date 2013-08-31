@@ -1,0 +1,10 @@
+++ clang++ -std=c++11 -O2 -Wall -pthread main.cpp
+main.cpp:34:14: warning: unused variable 'l' [-Wunused-variable]
+        auto l = { (check_has_value<Args>(), 0)... };
+             ^
+main.cpp:50:9: note: in instantiation of function template specialization 'foo<A, B, C, D>' requested here
+        foo<A, B, C, D>(); // where A, B, C, D are classes
+        ^
+1 warning generated.
+++ ./a.out
+Hello World of Variadic Templates 

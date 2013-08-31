@@ -1,0 +1,17 @@
+main.cpp: In function 'int main()':
+main.cpp:13:39: error: no matching function for call to 'std::deque<std::packaged_task<void()> >::push_back(std::remove_reference<std::packaged_task<int()>&>::type)'
+main.cpp:13:39: note: candidates are:
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/stl_deque.h:1371:7: note: void std::deque<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::packaged_task<void()>; _Alloc = std::allocator<std::packaged_task<void()> >; std::deque<_Tp, _Alloc>::value_type = std::packaged_task<void()>]
+/usr/include/c++/4.7/bits/stl_deque.h:1371:7: note:   no known conversion for argument 1 from 'std::remove_reference<std::packaged_task<int()>&>::type {aka std::packaged_task<int()>}' to 'const value_type& {aka const std::packaged_task<void()>&}'
+/usr/include/c++/4.7/bits/stl_deque.h:1385:7: note: void std::deque<_Tp, _Alloc>::push_back(std::deque<_Tp, _Alloc>::value_type&&) [with _Tp = std::packaged_task<void()>; _Alloc = std::allocator<std::packaged_task<void()> >; std::deque<_Tp, _Alloc>::value_type = std::packaged_task<void()>]
+/usr/include/c++/4.7/bits/stl_deque.h:1385:7: note:   no known conversion for argument 1 from 'std::remove_reference<std::packaged_task<int()>&>::type {aka std::packaged_task<int()>}' to 'std::deque<std::packaged_task<void()> >::value_type&& {aka std::packaged_task<void()>&&}'
+main.cpp:18:39: error: no matching function for call to 'std::deque<std::packaged_task<void()> >::push_back(std::remove_reference<std::packaged_task<bool()>&>::type)'
+main.cpp:18:39: note: candidates are:
+In file included from /usr/include/c++/4.7/deque:65:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/stl_deque.h:1371:7: note: void std::deque<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::packaged_task<void()>; _Alloc = std::allocator<std::packaged_task<void()> >; std::deque<_Tp, _Alloc>::value_type = std::packaged_task<void()>]
+/usr/include/c++/4.7/bits/stl_deque.h:1371:7: note:   no known conversion for argument 1 from 'std::remove_reference<std::packaged_task<bool()>&>::type {aka std::packaged_task<bool()>}' to 'const value_type& {aka const std::packaged_task<void()>&}'
+/usr/include/c++/4.7/bits/stl_deque.h:1385:7: note: void std::deque<_Tp, _Alloc>::push_back(std::deque<_Tp, _Alloc>::value_type&&) [with _Tp = std::packaged_task<void()>; _Alloc = std::allocator<std::packaged_task<void()> >; std::deque<_Tp, _Alloc>::value_type = std::packaged_task<void()>]
+/usr/include/c++/4.7/bits/stl_deque.h:1385:7: note:   no known conversion for argument 1 from 'std::remove_reference<std::packaged_task<bool()>&>::type {aka std::packaged_task<bool()>}' to 'std::deque<std::packaged_task<void()> >::value_type&& {aka std::packaged_task<void()>&&}'

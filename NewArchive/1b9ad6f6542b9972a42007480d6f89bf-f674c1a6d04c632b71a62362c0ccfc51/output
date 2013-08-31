@@ -1,0 +1,11 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:9:19: warning: left operand of comma operator has no effect [-Wunused-value]
+     func( 10, (20,30) ) ;
+                   ^
+main.cpp:10:22: error: too many arguments to function ‘void func(int, int)’
+     func( 10, 20 ,30 ) ;
+                      ^
+main.cpp:3:6: note: declared here
+ void func( int x, int y )
+      ^

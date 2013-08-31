@@ -1,0 +1,28 @@
++ g++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In constructor ‘Monsters::Monsters(int, int, int, int)’:
+main.cpp:39:13: warning: ‘Monsters::MonsterHp’ will be initialized after [-Wreorder]
+         int MonsterHp;
+             ^
+main.cpp:38:13: warning:   ‘int Monsters::Monsterlevel’ [-Wreorder]
+         int Monsterlevel;
+             ^
+main.cpp:100:5: warning:   when initialized here [-Wreorder]
+     Monsters::Monsters(int newHp, int newLevel, int newAttack, int newDef)
+     ^
++ ./a.out 6 1203032847 2394857 -13423 9324 -192992929
+Hero created using Overloaded function!
+Hp is: 100
+level is: 20
+Attack is: 30
+Defense is: 40
+Monster created using Overloaded function!
+Hp is: 100
+level is: 16
+Attack is: 18
+Defense is: 20
+
+test1
+
+Monster DestroyedCharacter has been destroyed!
+Hero destroyed!
+Character has been destroyed!

@@ -1,0 +1,16 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:18:106: error: 'std::enable_if<std::is_convertible<U, T>::value, char*>::type' is not a type
+ template<class T, class U> T maybe_convert(U&& p, std::enable_if<std::is_convertible<U,T>::value,char*>::type=0)
+                                                                                                          ^
+main.cpp: In instantiation of 'void foo_function(Ts ...) [with Ts = foo_t, foo_t, int]':
+main.cpp:29:39:   required from here
+main.cpp:24:66: error: call of overloaded 'maybe_convert(foo_t)' is ambiguous
+     foo_function_helper(maybe_convert<foo_t>(std::forward<Ts>(Vs))...);
+                                                                  ^
+main.cpp:24:66: note: candidates are:
+main.cpp:17:23: note: T&& maybe_convert(T&&) [with T = foo_t]
+ template<class T> T&& maybe_convert(T&& p) {return std::move(p);}
+                       ^
+main.cpp:18:30: note: T maybe_convert(U&&, int) [with T = foo_t; U = foo_t]
+ template<class T, class U> T maybe_convert(U&& p, std::enable_if<std::is_convertible<U,T>::value,char*>::type=0)
+                              ^

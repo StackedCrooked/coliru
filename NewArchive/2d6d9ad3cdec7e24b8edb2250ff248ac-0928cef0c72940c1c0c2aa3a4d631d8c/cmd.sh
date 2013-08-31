@@ -1,0 +1,1 @@
+clang++ -std=c++11 main.cpp && ./a.out -20 100 float

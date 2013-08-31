@@ -1,0 +1,78 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:29:42: error: no match for ‘operator*’ (operand types are ‘std::complex<double>’ and ‘matrix<std::complex<double> >’)
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                          ^
+main.cpp:29:42: note: candidates are:
+main.cpp:8:6: note: template<class T, class U, class V> decltype ((declval<T>() * declval<U>())) operator*(T, matrix<U>)
+ auto operator*(const T a, const matrix<U> A) -> decltype(std::declval<T>()*std::declval<U>())
+      ^
+main.cpp:8:6: note:   template argument deduction/substitution failed:
+main.cpp:29:43: note:   couldn't deduce template parameter ‘V’
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:402:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const _Tp&, const std::complex<_Tp>&)
+     operator*(const _Tp& __x, const complex<_Tp>& __y)
+     ^
+/usr/include/c++/4.8/complex:402:5: note:   template argument deduction/substitution failed:
+main.cpp:29:43: note:   ‘matrix<std::complex<double> >’ is not derived from ‘const std::complex<_Tp>’
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:393:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const _Tp&)
+     operator*(const complex<_Tp>& __x, const _Tp& __y)
+     ^
+/usr/include/c++/4.8/complex:393:5: note:   template argument deduction/substitution failed:
+main.cpp:29:43: note:   deduced conflicting types for parameter ‘const _Tp’ (‘double’ and ‘matrix<std::complex<double> >’)
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:384:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const std::complex<_Tp>&)
+     operator*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+     ^
+/usr/include/c++/4.8/complex:384:5: note:   template argument deduction/substitution failed:
+main.cpp:29:43: note:   ‘matrix<std::complex<double> >’ is not derived from ‘const std::complex<_Tp>’
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                           ^
+main.cpp:30:42: error: no match for ‘operator*’ (operand types are ‘double’ and ‘matrix<std::complex<double> >’)
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                          ^
+main.cpp:30:42: note: candidates are:
+main.cpp:8:6: note: template<class T, class U, class V> decltype ((declval<T>() * declval<U>())) operator*(T, matrix<U>)
+ auto operator*(const T a, const matrix<U> A) -> decltype(std::declval<T>()*std::declval<U>())
+      ^
+main.cpp:8:6: note:   template argument deduction/substitution failed:
+main.cpp:30:43: note:   couldn't deduce template parameter ‘V’
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:402:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const _Tp&, const std::complex<_Tp>&)
+     operator*(const _Tp& __x, const complex<_Tp>& __y)
+     ^
+/usr/include/c++/4.8/complex:402:5: note:   template argument deduction/substitution failed:
+main.cpp:30:43: note:   ‘matrix<std::complex<double> >’ is not derived from ‘const std::complex<_Tp>’
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:393:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const _Tp&)
+     operator*(const complex<_Tp>& __x, const _Tp& __y)
+     ^
+/usr/include/c++/4.8/complex:393:5: note:   template argument deduction/substitution failed:
+main.cpp:30:43: note:   mismatched types ‘const std::complex<_Tp>’ and ‘double’
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/complex:384:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const std::complex<_Tp>&)
+     operator*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+     ^
+/usr/include/c++/4.8/complex:384:5: note:   template argument deduction/substitution failed:
+main.cpp:30:43: note:   mismatched types ‘const std::complex<_Tp>’ and ‘double’
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                           ^
+main.cpp:29:35: warning: unused variable ‘B1’ [-Wunused-variable]
+     matrix<std::complex<double> > B1 = a1*A1; // Compiler error
+                                   ^
+main.cpp:30:35: warning: unused variable ‘B2’ [-Wunused-variable]
+     matrix<std::complex<double> > B2 = a2*A2; // Compiles and runs fine.
+                                   ^

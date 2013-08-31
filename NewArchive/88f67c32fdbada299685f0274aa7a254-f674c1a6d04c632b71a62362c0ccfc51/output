@@ -1,0 +1,24 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:49:80: error: no matching function for call to ‘map_tie(int&, int&, std::string)’
+ #define MAP_TIE(...) ::detail::map_tie(__VA_ARGS__, ::std::string(#__VA_ARGS__))
+                                                                                ^
+main.cpp:59:5: note: in expansion of macro ‘MAP_TIE’
+     MAP_TIE(b, c) = map;
+     ^
+main.cpp:49:80: note: candidate is:
+ #define MAP_TIE(...) ::detail::map_tie(__VA_ARGS__, ::std::string(#__VA_ARGS__))
+                                                                                ^
+main.cpp:59:5: note: in expansion of macro ‘MAP_TIE’
+     MAP_TIE(b, c) = map;
+     ^
+main.cpp:38:55: note: template<class ... Ts> detail::map_tie_t<typename std::common_type<_Tp>::type> detail::map_tie(Ts& ..., const string&)
+     map_tie_t<typename std::common_type<Ts...>::type> map_tie(Ts&... variables, std::string const& csnames) {
+                                                       ^
+main.cpp:38:55: note:   template argument deduction/substitution failed:
+main.cpp:49:80: note:   cannot convert ‘b’ (type ‘int’) to type ‘const string& {aka const std::basic_string<char>&}’
+ #define MAP_TIE(...) ::detail::map_tie(__VA_ARGS__, ::std::string(#__VA_ARGS__))
+                                                                                ^
+main.cpp:59:5: note: in expansion of macro ‘MAP_TIE’
+     MAP_TIE(b, c) = map;
+     ^

@@ -1,0 +1,12 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:28:19: error: call of overloaded 'foo()' is ambiguous
+    var.foo<apple>();
+                   ^
+main.cpp:28:19: note: candidates are:
+main.cpp:7:46: note: decltype ((declval<T>().value, void())) check::foo() [with T = main()::apple; decltype ((declval<T>().value, void())) = void]
+    decltype(std::declval<T>().value, void()) foo()
+                                              ^
+main.cpp:13:9: note: decltype ((declval<T>(), void())) check::foo() [with T = main()::apple; decltype ((declval<T>(), void())) = void]
+    auto foo() -> decltype(std::declval<T>(), void())
+         ^
