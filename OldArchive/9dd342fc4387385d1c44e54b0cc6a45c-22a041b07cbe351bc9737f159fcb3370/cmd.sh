@@ -1,1 +1,0 @@
-g++ -S -O3 -Wall main.cpp -o -

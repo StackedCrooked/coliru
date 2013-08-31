@@ -1,1 +1,0 @@
-When building a game, you have to know how to break it down into segments.

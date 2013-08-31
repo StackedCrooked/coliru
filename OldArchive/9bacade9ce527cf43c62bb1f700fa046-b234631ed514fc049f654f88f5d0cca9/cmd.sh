@@ -1,1 +1,0 @@
-printf "abc\n\n\n\ndef"

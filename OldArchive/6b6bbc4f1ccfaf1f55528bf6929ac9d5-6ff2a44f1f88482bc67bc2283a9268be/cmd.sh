@@ -1,1 +1,0 @@
-g++ -o test -std=c++11 -fpermissive main.cpp && ./test 42

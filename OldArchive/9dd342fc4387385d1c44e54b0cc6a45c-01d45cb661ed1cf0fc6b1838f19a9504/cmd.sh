@@ -1,1 +1,0 @@
-clang -S -O3 -emit-llvm -Wall main.cpp -o -

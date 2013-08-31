@@ -1,1 +1,0 @@
-du -sh main.cpp

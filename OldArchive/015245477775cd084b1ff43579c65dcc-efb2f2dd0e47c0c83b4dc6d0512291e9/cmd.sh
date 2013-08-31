@@ -1,1 +1,0 @@
-find /Archive -type f -name main.cpp | xargs -I {} bash -c "echo {} ; grep StackedCrooked {}"

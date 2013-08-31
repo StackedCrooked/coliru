@@ -1,1 +1,0 @@
-clang++ -std=c++11 --stdlib=libc++  -O2 -Wall -Wextra -L/usr/lib/x86_64-linux-gnu -lstdc++ -lc++ -lsupc++ && ./a.out

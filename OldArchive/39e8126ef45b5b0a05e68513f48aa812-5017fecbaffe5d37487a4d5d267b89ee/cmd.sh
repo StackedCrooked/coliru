@@ -1,1 +1,0 @@
-cp main.cpp main.c && gcc -o main -O2 main.c && ./main

@@ -1,6 +1,0 @@
-#include <memory>
-
-int main()
-{
-    
-}

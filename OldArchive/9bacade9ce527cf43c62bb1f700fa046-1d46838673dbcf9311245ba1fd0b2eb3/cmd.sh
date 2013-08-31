@@ -1,1 +1,0 @@
-echo "<html><body><ul>$(seq 10 | xargs -I {} echo {} >> file ; tac file | xargs -I {} bash -c "echo \<li\>{}\</li\>")</ul></body></html>"
