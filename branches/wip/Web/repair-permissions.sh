@@ -8,8 +8,8 @@ chmod a+rw /var/log/syslog
 source coliru_env.source
 
 chown webserver:coliru ${COLIRU_ARCHIVE}
-chown webserver:coliru ${COLIRU_ARCHIVE_RECENT}
-chown -R webserver:coliru .. & disown
+chown webserver:coliru ${COLIRU_ARCHIVE2}
+#chown -R webserver:coliru .. & disown
 chmod a+rw .
 
 
