@@ -211,7 +211,7 @@ end
 get '/log' do
     content_type :txt
     stream do |out|
-        safe_popen('tail -n1024 /var/log/syslog') do |line|
+        safe_popen('tail -n200 /var/log/syslog') do |line|
             out << line
         end
     end
@@ -245,6 +245,7 @@ end
 
 configure do
   enable :cross_origin
+  disable :protection
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
   mime_type :png, 'image/png'
