@@ -1,1 +1,0 @@
-clang++ -O0  main.cpp -std=c++11 && ./a.out  

@@ -1,1 +1,0 @@
-g++ -o test -std=c++11  -pedantic-errors -O2 -pthread main.cpp && ./test

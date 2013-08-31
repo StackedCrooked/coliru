@@ -1,1 +1,0 @@
-gcc -std=gnu89 -O3 -march=native -Wall -Wextra -pthread -x c main.cpp && ./a.out

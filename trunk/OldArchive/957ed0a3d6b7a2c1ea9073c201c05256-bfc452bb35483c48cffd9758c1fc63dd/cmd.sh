@@ -1,1 +1,0 @@
-g++ -std=c++11 -E main.cpp -o - | grep -v ^\# | grep -v ^$

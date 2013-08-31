@@ -1,2 +1,0 @@
-printf "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp\n./a.out\n" > commands
-while read line ; do printf "<line>\n  <command>$line</command>\n  <output>$($line)</output>\n</line>\n" ; done <commands

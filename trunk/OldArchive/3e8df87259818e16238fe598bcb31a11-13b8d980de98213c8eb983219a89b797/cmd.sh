@@ -1,1 +1,0 @@
-echo all asserts pass

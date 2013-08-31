@@ -1,1 +1,0 @@
-cat `which zoidberg`

@@ -1,1 +1,0 @@
-cat `which coliru_split.sh`

@@ -1,1 +1,0 @@
-gcc -std=c99 -O2 -Wall -x c main.cpp

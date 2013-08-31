@@ -1,2 +1,0 @@
-set -x
-clang -v

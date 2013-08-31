@@ -1,1 +1,0 @@
-{ g++ -c -Wall -Wextra -Weffc++ -Werror main.cpp && echo Dammit ; } || echo Yay

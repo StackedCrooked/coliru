@@ -1,1 +1,0 @@
-g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp && (echo "0X1.921FB54442D18P+1" | ./a.out)

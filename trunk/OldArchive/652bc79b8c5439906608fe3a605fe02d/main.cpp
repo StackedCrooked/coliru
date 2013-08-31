@@ -1,5 +1,0 @@
-#include <cstdlib>
-
-int main()
-{
-}

@@ -1,1 +1,0 @@
-echo out ; echo err 1>&2 
