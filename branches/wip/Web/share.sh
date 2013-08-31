@@ -22,7 +22,7 @@ echo "${id}"
 
     # The archive directory for the ide.
     export archive_dir="${COLIRU_ARCHIVE_RECENT}/${id}"
-    mkdir ${archive_dir}
+    mkdir -p ${archive_dir}
 
     chmod 755 ${INPUT_FILES_DIR}/cmd.sh
     cat ${INPUT_FILES_DIR}/main.cpp > ${archive_dir}/main.cpp
@@ -33,5 +33,6 @@ echo "${id}"
     ./build_and_run.sh >${archive_dir}/output 2>&1
 
     # Add to svn
+    svn add $(dirname ${archive_dir}) || true
     svn add ${archive_dir}
 }
