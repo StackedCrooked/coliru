@@ -135,7 +135,7 @@ post '/share' do
             end
             stream { |out| out << result }
         end
-    end
+    end.join
 end
 
 
