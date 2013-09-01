@@ -143,6 +143,11 @@ post '/share' do
 end
 
 
+get '/a/*' do
+    File.read('view.html')
+end
+
+
 get '/A/*' do
     File.read('view.html')
 end
