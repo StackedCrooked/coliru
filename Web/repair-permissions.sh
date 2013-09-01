@@ -13,7 +13,12 @@ chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown
 chmod a+rw .
 
 
+# Cleanup temporary files
+rm -rf /tmp/coliru/* & disown
+
+
 # Cleanup /var/chroot/tmp and make accessible for coliru
+rm -rf /var/chroot/tmp/* & disown
 mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp & disown
 chmod -R a+rw /var/chroot/tmp
