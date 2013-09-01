@@ -24,11 +24,10 @@ while true ; do
         for d in $(ls) ; do 
             [ -d $d ] && {
                 # Commit new
-                svn ci $d -m "Update archive."
-                [ "$(svn st $d 2>&1)" == "" ] && {
-                    (cd ${COLIRU_ARCHIVE2} && svn up $d) && rm -rf $d && svn cleanup && svn up
-                } || {
-                    echo "$d seems to have a problem $(svn st $d 2>&1)" 1>&2
+                svn ci $d -m "Update archive." || {
+                    svn cleanup 
+                    svn up 
+                    svn ci $d -m "Update archive after cleaning and updating it."
                 }
             } || {
                 echo "$d is not a directory." 1>&2
