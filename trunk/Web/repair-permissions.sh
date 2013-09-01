@@ -27,3 +27,5 @@ chmod -R a+rw /var/chroot/tmp
 for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp" ; do
   touch $file && chown webserver:coliru $file
 done
+
+(cd ../Installer && ./RebuildChroot.sh)
