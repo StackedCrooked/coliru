@@ -189,7 +189,9 @@ get '/archive' do
 
 
     id = "#{params[:id]}"
-    path = IO.popen("./id2existingpath.sh #{id}").read.strip
+    stdout = IO.popen("./id2existingpath.sh #{id}")
+    path = stdout.read.strip
+    Process.wait stdout.pid
     {       
         :cmd => get_contents.call(path, 'cmd.sh'),        
         :src => get_contents.call(path, 'main.cpp'),      
