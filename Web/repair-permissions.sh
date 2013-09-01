@@ -4,10 +4,12 @@ if [ "$(whoami)" != "root" ] ; then
     exit 1
 fi
 
+
 chmod a+rw /var/log/syslog
 source coliru_env.source
 
-chown webserver:coliru ${COLIRU_ARCHIVE2}
+# The webserver needs write access to the archive.
+chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown
 chmod a+rw .
 
 
