@@ -129,6 +129,9 @@
         app.id = url.split("?")[1].split('=')[1];
     } else {
         app.id = url.split('/A/')[1];
+        if (app.id === undefined) {
+            app.id = url.split('/a/')[1];
+        }
     }
     app.editor = editor;
     app.output = document.getElementById("output");
