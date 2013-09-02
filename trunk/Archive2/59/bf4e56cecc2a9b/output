@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function ‘void A::foo()’:
+main.cpp:10:24: error: no matching function for call to ‘A::size(B&)’
+         return size( b );   // No, not argument-dependent lookup here.
+                        ^
+main.cpp:10:24: note: candidate is:
+main.cpp:6:10: note: void A::size() const
+     void size() const {}
+          ^
+main.cpp:6:10: note:   candidate expects 0 arguments, 1 provided
+main.cpp:10:24: error: return-statement with a value, in function returning 'void' [-fpermissive]
+         return size( b );   // No, not argument-dependent lookup here.
+                        ^
