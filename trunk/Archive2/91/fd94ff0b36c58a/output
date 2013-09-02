@@ -1,0 +1,33 @@
++ g++-4.8 -std=c++11 -c -O3 main.cpp -S -o -
++ c++filt
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	test(int)
+	.type	test(int), @function
+test(int):
+.LFB0:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	%edi, %ebx
+	jmp	.L3
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	subl	$1, %ebx
+.L3:
+	movl	%ebx, %edi
+	call	foo(int)
+	testl	%ebx, %ebx
+	jne	.L6
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	test(int), .-test(int)
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
