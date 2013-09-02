@@ -1,0 +1,20 @@
+main.cpp: In function ‘int main()’:
+main.cpp:16:23: error: no matching function for call to ‘NonDefault::NonDefault()’
+   decltype(NonDefault().foo()) n2 = n1; // will not compile
+                       ^
+main.cpp:16:23: note: candidate is:
+main.cpp:9:5: note: NonDefault::NonDefault(const NonDefault&)
+     NonDefault(const NonDefault&) {}
+     ^
+main.cpp:9:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:16:23: error: no matching function for call to ‘NonDefault::NonDefault()’
+   decltype(NonDefault().foo()) n2 = n1; // will not compile
+                       ^
+main.cpp:16:23: note: candidate is:
+main.cpp:9:5: note: NonDefault::NonDefault(const NonDefault&)
+     NonDefault(const NonDefault&) {}
+     ^
+main.cpp:9:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:16:35: error: invalid type in declaration before ‘=’ token
+   decltype(NonDefault().foo()) n2 = n1; // will not compile
+                                   ^
