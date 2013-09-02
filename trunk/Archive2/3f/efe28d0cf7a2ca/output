@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:28:88: error: use of deleted function ‘gen<>::gen(gen<>&&)’
+     std::generate_n(std::ostream_iterator<std::uint32_t>(std::cout, "\n"), 100, gen<>());
+                                                                                        ^
+main.cpp:8:7: note: ‘gen<>::gen(gen<>&&)’ is implicitly deleted because the default definition would be ill-formed:
+ class gen
+       ^
+main.cpp:8:7: error: use of deleted function ‘std::random_device::random_device(const std::random_device&)’
+In file included from /usr/include/c++/4.8/random:50:0,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/random.h:1627:5: error: declared here
+     random_device(const random_device&) = delete;
+     ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algo.h:5102:5: error:   initializing argument 3 of ‘_OIter std::generate_n(_OIter, _Size, _Generator) [with _OIter = std::ostream_iterator<unsigned int>; _Size = int; _Generator = gen<>]’
+     generate_n(_OutputIterator __first, _Size __n, _Generator __gen)
+     ^
