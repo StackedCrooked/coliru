@@ -1,0 +1,17 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘Pixel<T1>::Pixel(T1) [with T1 = Gray]’:
+main.cpp:15:21:   required from here
+main.cpp:8:16: error: no matching function for call to ‘Gray::Gray()’
+     Pixel(T1 i){ foo=i; }
+                ^
+main.cpp:8:16: note: candidates are:
+main.cpp:3:5: note: Gray::Gray(int)
+     Gray(int x){}
+     ^
+main.cpp:3:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:2:8: note: constexpr Gray::Gray(const Gray&)
+ struct Gray{
+        ^
+main.cpp:2:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:2:8: note: constexpr Gray::Gray(Gray&&)
+main.cpp:2:8: note:   candidate expects 1 argument, 0 provided
