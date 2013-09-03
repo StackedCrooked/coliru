@@ -1,0 +1,42 @@
+<map_rule>
+  <try>{A [B C] -> F [D E],</try>
+  <keys_rule>
+    <try>A [B C] -> F [D E], </try>
+    <success>-> F [D E], C ->E,B-</success>
+    <attributes>[[[A], [B,  , C]]]</attributes>
+  </keys_rule>
+  <values_rule>
+    <try> F [D E], C ->E,B->Z</try>
+    <success>, C ->E,B->Z}</success>
+    <attributes>[[[F], [D,  , E]]]</attributes>
+  </values_rule>
+  <keys_rule>
+    <try> C ->E,B->Z}</try>
+    <success>->E,B->Z}</success>
+    <attributes>[[[C]]]</attributes>
+  </keys_rule>
+  <values_rule>
+    <try>E,B->Z}</try>
+    <success>,B->Z}</success>
+    <attributes>[[[E]]]</attributes>
+  </values_rule>
+  <keys_rule>
+    <try>B->Z}</try>
+    <success>->Z}</success>
+    <attributes>[[[B]]]</attributes>
+  </keys_rule>
+  <values_rule>
+    <try>Z}</try>
+    <success>}</success>
+    <attributes>[[[Z]]]</attributes>
+  </values_rule>
+  <success></success>
+  <attributes>[[[[[[A], [B,  , C]], [[F], [D,  , E]]], [[[C]], [[E]]], [[[B]], [[Z]]]]]]</attributes>
+</map_rule>
+Parsing succeeded!
+A: F
+A: D E
+B: Z
+B C: F
+B C: D E
+C: E
