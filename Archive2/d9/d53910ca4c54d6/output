@@ -1,0 +1,7 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘static constexpr bool CopyConstructible<T>::check() [with T = f]’:
+main.cpp:19:33:   required from ‘void g(T&&) [with T = f]’
+main.cpp:24:21:   required from here
+main.cpp:7:9: error: static assertion failed: Concept Violation: Not CopyConstructible
+         static_assert(std::is_copy_constructible<T>(), "Concept Violation: Not CopyConstructible");
+         ^
