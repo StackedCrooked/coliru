@@ -1,0 +1,17 @@
+main.cpp: In function 'int main()':
+main.cpp:8:10: error: expected unqualified-id before 'int'
+     std::int bin = {'1', '2', '3', '4'};
+          ^
+main.cpp:8:10: error: expected ';' before 'int'
+main.cpp:9:5: error: 'isintstream' is not a member of 'std'
+     std::isintstream raw(bin);
+     ^
+main.cpp:9:22: error: expected ';' before 'raw'
+     std::isintstream raw(bin);
+                      ^
+main.cpp:11:5: error: 'raw' was not declared in this scope
+     raw.read(reinterpret_cast<char*>(&n), sizeof n);
+     ^
+main.cpp:12:30: error: expected primary-expression before '<<' token
+     std::cout << std::string << std::showbase << n << '\n';
+                              ^
