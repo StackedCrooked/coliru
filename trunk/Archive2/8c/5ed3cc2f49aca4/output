@@ -1,0 +1,177 @@
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'struct requires<std::is_integral<a> >':
+main.cpp:17:6:   required by substitution of 'template<class T, typename requires<std::is_integral<_Tp> >::type ...<anonymous> > void f(T) [with T = a; typename requires<std::is_integral<_Tp> >::type ...<anonymous> = {}]'
+main.cpp:26:10:   required from here
+main.cpp:9:5: error: static assertion failed: Check failed
+     static_assert(T::value, "Check failed");
+     ^
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h: In instantiation of 'bool std::less<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = a]':
+/usr/include/c++/4.8/bits/stl_tree.h:1321:11:   required from 'std::pair<std::_Rb_tree_node_base*, std::_Rb_tree_node_base*> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_insert_unique_pos(const key_type&) [with _Key = a; _Val = a; _KeyOfValue = std::_Identity<a>; _Compare = std::less<a>; _Alloc = std::allocator<a>; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::key_type = a]'
+/usr/include/c++/4.8/bits/stl_tree.h:1374:47:   required from 'std::pair<std::_Rb_tree_iterator<_Val>, bool> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique(_Arg&&) [with _Arg = const a&; _Key = a; _Val = a; _KeyOfValue = std::_Identity<a>; _Compare = std::less<a>; _Alloc = std::allocator<a>]'
+/usr/include/c++/4.8/bits/stl_set.h:463:29:   required from 'std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(const value_type&) [with _Key = a; _Compare = std::less<a>; _Alloc = std::allocator<a>; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<a>; std::set<_Key, _Compare, _Alloc>::value_type = a]'
+main.cpp:20:5:   required from 'void f(T) [with T = a; typename requires<std::is_integral<_Tp> >::type ...<anonymous> = {}]'
+main.cpp:26:10:   required from here
+/usr/include/c++/4.8/bits/stl_function.h:235:20: error: no match for 'operator<' (operand types are 'const a' and 'const a')
+       { return __x < __y; }
+                    ^
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/stl_tree.h:61,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_pair.h:220:5: note: template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_pair.h:220:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::pair<_T1, _T2>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/stl_tree.h:61,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:297:5: note: template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator<(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:297:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::reverse_iterator<_Iterator>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/stl_tree.h:61,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:347:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator<(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:347:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::reverse_iterator<_Iterator>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/stl_tree.h:61,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:1055:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator<(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1055:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::move_iterator<_Iterator>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/stl_tree.h:61,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_iterator.h:1061:5: note: template<class _Iterator> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator<(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1061:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::move_iterator<_Iterator>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:914:5: note: template<class _Key, class _Val, class _KeyOfValue, class _Compare, class _Alloc> bool std::operator<(const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&, const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&)
+     operator<(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_tree.h:914:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:61:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_set.h:769:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator<(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)
+     operator<(const set<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_set.h:769:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::set<_Key, _Compare, _Alloc>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_multiset.h:754:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator<(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)
+     operator<(const multiset<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_multiset.h:754:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::multiset<_Key, _Compare, _Alloc>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.h:2569:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2569:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.h:2581:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2581:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   'const a' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.h:2593:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2593:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/bits/stl_tree.h:63:0,
+                 from /usr/include/c++/4.8/set:60,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   mismatched types 'const _CharT*' and 'a'
+       { return __x < __y; }
+                    ^
