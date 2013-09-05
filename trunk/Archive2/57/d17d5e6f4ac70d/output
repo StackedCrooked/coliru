@@ -1,0 +1,12 @@
+main.cpp: In function ‘int main()’:
+main.cpp:26:27: error: no matching function for call to ‘strict_move(const string&)’
+     dest = strict_move(src);
+                           ^
+main.cpp:26:27: note: candidate is:
+main.cpp:18:1: note: template<class T> constexpr typename std::enable_if<(! std::is_const<typename std::remove_reference< <template-parameter-1-1> >::type>::value), typename std::remove_reference< <template-parameter-1-1> >::type&&>::type strict_move(T&&)
+ strict_move(T&& x)
+ ^
+main.cpp:18:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class T> constexpr typename std::enable_if<(! std::is_const<typename std::remove_reference< <template-parameter-1-1> >::type>::value), typename std::remove_reference< <template-parameter-1-1> >::type&&>::type strict_move(T&&) [with T = const std::basic_string<char>&]’:
+main.cpp:26:27:   required from here
+main.cpp:18:1: error: no type named ‘type’ in ‘struct std::enable_if<false, const std::basic_string<char>&&>’
