@@ -1,0 +1,75 @@
++ g++-4.8 -std=c++11 -O3 -S -masm=intel main.cpp -o -
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.text
+	.p2align 4,,15
+	.globl	_Z5test1bbb
+	.type	_Z5test1bbb, @function
+_Z5test1bbb:
+.LFB1264:
+	.cfi_startproc
+	mov	eax, edx
+	or	eax, esi
+	or	eax, edi
+	ret
+	.cfi_endproc
+.LFE1264:
+	.size	_Z5test1bbb, .-_Z5test1bbb
+	.p2align 4,,15
+	.globl	_Z5test2bbb
+	.type	_Z5test2bbb, @function
+_Z5test2bbb:
+.LFB1265:
+	.cfi_startproc
+	test	dil, dil
+	jne	.L6
+	test	sil, sil
+	mov	eax, edx
+	jne	.L6
+	rep; ret
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	mov	eax, 1
+	ret
+	.cfi_endproc
+.LFE1265:
+	.size	_Z5test2bbb, .-_Z5test2bbb
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1266:
+	.cfi_startproc
+	xor	eax, eax
+	ret
+	.cfi_endproc
+.LFE1266:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I__Z5test1bbb, @function
+_GLOBAL__sub_I__Z5test1bbb:
+.LFB1414:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	mov	edi, OFFSET FLAT:_ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	mov	edx, OFFSET FLAT:__dso_handle
+	mov	esi, OFFSET FLAT:_ZStL8__ioinit
+	mov	edi, OFFSET FLAT:_ZNSt8ios_base4InitD1Ev
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1414:
+	.size	_GLOBAL__sub_I__Z5test1bbb, .-_GLOBAL__sub_I__Z5test1bbb
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__Z5test1bbb
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
