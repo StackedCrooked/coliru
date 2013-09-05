@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11  -O2 -Wall -Wextra -pedantic -pthread main.cpp && echo -e "a\nb\n3" | ./a.out
