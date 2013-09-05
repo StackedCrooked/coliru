@@ -1,0 +1,7 @@
+main.cpp:3:23: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+constexpr std::size_t get_id_direct(void * ptr)
+                      ^
+main.cpp:5:10: note: reinterpret_cast is not allowed in a constant expression
+ return (reinterpret_cast<std::size_t>(ptr));    
+         ^
+1 error generated.
