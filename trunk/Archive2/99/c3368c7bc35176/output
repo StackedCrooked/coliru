@@ -1,0 +1,21 @@
+main.cpp: In function ‘int main()’:
+main.cpp:20:19: error: conversion from ‘const char [3]’ to non-scalar type ‘const A’ requested
+     const A src = "HI";
+                   ^
+main.cpp:21:7: error: no matching function for call to ‘A::A()’
+     A dest;
+       ^
+main.cpp:21:7: note: candidates are:
+main.cpp:7:5: note: A::A(A&&)
+     A(A&&) {std::cout << "mctr\n";}
+     ^
+main.cpp:7:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:6:5: note: A::A(const A&)
+     A(const A&) {std::cout << "cctr\n";}
+     ^
+main.cpp:6:5: note:   candidate expects 1 argument, 0 provided
+main.cpp: In instantiation of ‘T&& strict_move(T&) [with T = const A]’:
+main.cpp:22:27:   required from here
+main.cpp:15:5: error: static assertion failed: parameter is const, would be copied instead of moved
+     static_assert(!std::is_const<T>::value, "parameter is const, would be copied instead of moved");
+     ^
