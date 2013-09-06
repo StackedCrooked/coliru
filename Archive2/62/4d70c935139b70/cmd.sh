@@ -1,0 +1,1 @@
+g++-4.7 -v -std=c++0x -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
