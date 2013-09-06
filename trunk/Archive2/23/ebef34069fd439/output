@@ -1,0 +1,16 @@
+main.cpp:7:1: error: ‘mutex’ in namespace ‘std’ does not name a type
+ std::mutex iomutex;
+ ^
+main.cpp: In function ‘void f(int)’:
+main.cpp:15:4: error: ‘lock_guard’ is not a member of ‘std’
+    std::lock_guard<std::mutex> lk(iomutex);
+    ^
+main.cpp:15:20: error: ‘mutex’ is not a member of ‘std’
+    std::lock_guard<std::mutex> lk(iomutex);
+                    ^
+main.cpp:15:35: error: ‘iomutex’ was not declared in this scope
+    std::lock_guard<std::mutex> lk(iomutex);
+                                   ^
+main.cpp:15:42: error: ‘lk’ was not declared in this scope
+    std::lock_guard<std::mutex> lk(iomutex);
+                                          ^
