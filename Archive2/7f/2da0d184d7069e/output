@@ -1,0 +1,13 @@
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:108:
+main.cpp: In function ‘int main()’:
+main.cpp:126:18: error: call of overloaded ‘foo(int*&)’ is ambiguous
+     assert( foo(q) == -1 );
+                  ^
+main.cpp:126:18: note: candidates are:
+main.cpp:112:5: note: int foo(P&) [with P = int*; typename std::enable_if<NullablePointer<P>::value, int>::type ...<anonymous> = {}]
+ int foo(P&) { return 0; }
+     ^
+main.cpp:115:5: note: int foo(It&) [with It = int*; typename std::enable_if<Iterator<It>::value, int>::type ...<anonymous> = {}]
+ int foo(It&) { return 1; }
+     ^
