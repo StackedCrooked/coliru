@@ -1,0 +1,11 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘std::ostream& operator<<(std::ostream&, const IEEEF32&)’:
+main.cpp:18:30: error: ‘const union IEEEF32’ has no member named ‘sign’
+   os << n.v << " sign " << n.sign << " exp " << n.exponent << " frac " << n.fraction;
+                              ^
+main.cpp:18:51: error: ‘const union IEEEF32’ has no member named ‘exponent’
+   os << n.v << " sign " << n.sign << " exp " << n.exponent << " frac " << n.fraction;
+                                                   ^
+main.cpp:18:77: error: ‘const union IEEEF32’ has no member named ‘fraction’
+   os << n.v << " sign " << n.sign << " exp " << n.exponent << " frac " << n.fraction;
+                                                                             ^
