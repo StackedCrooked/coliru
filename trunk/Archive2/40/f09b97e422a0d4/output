@@ -1,0 +1,25 @@
+main.cpp:7:67: warning: reference to stack memory associated with local variable 't' returned [-Wreturn-stack-address]
+constexpr auto cmin(T t, U u) -> decltype( t<u?t:u ) { return t<u?t:u; }
+                                                                  ^
+main.cpp:55:38: note: in instantiation of function template specialization 'cmin<long, long>' requested here
+        using type = ranged_integer< cmin(minT, minU), (std::intmax_t)cmax(maxT, maxU) +1 >;
+                                     ^
+main.cpp:55:38: error: non-type template argument is not a constant expression
+        using type = ranged_integer< cmin(minT, minU), (std::intmax_t)cmax(maxT, maxU) +1 >;
+                                     ^~~~~~~~~~~~~~~~
+main.cpp:59:27: note: in instantiation of template class 'common_type<short, unsigned short>::helper<true, void>' requested here
+    using type = typename helper<>::type;
+                          ^
+main.cpp:66:1: note: in instantiation of template class 'common_type<short, unsigned short>' requested here
+using check_result = std::is_same < Result, typename common_type<Args...>::type >;
+^
+main.cpp:71:19: note: in instantiation of template type alias 'check_result' requested here
+    static_assert(check_result<ranged_integer<SHRT_MIN, SHRT_MAX+1>, signed short, unsigned short>{}, "r_i<..> <- signed, unsigned");
+                  ^
+main.cpp:55:38: note: read of variable whose lifetime has ended
+        using type = ranged_integer< cmin(minT, minU), (std::intmax_t)cmax(maxT, maxU) +1 >;
+                                     ^
+main.cpp:7:23: note: declared here
+constexpr auto cmin(T t, U u) -> decltype( t<u?t:u ) { return t<u?t:u; }
+                      ^
+1 warning and 1 error generated.
