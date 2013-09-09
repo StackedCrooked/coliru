@@ -1,0 +1,1 @@
+set -x; mv main.{cpp,c}; cc main.c && ./a.out
