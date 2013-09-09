@@ -1,0 +1,11 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:18:46: error: incomplete type ‘VertexData’ used in nested name specifier
+ struct VertexData: public Adder<VertexData, &VertexData::x>
+                                              ^
+main.cpp:18:59: error: template argument 2 is invalid
+ struct VertexData: public Adder<VertexData, &VertexData::x>
+                                                           ^
+main.cpp: In function ‘int main()’:
+main.cpp:30:9: error: no match for ‘operator+’ (operand types are ‘VertexData’ and ‘VertexData’)
+     vd1 + vd2;
+         ^
