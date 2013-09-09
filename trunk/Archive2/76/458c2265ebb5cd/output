@@ -1,0 +1,49 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:4:56: error: expected ‘class’ before ‘std’
+ template< typename T, template<typename U, typename V> std::tuple<U, V> >
+                                                        ^
+main.cpp:4:59: error: expected ‘>’ before ‘::’ token
+ template< typename T, template<typename U, typename V> std::tuple<U, V> >
+                                                           ^
+main.cpp:7:12: error: wrong number of template arguments (1, should be 2)
+     Adder<T> operator+(Adder<T>& rhs)
+            ^
+main.cpp:5:8: error: provided for ‘template<class T, template<class U, class V> class std> struct Adder’
+ struct Adder
+        ^
+main.cpp:7:31: error: wrong number of template arguments (1, should be 2)
+     Adder<T> operator+(Adder<T>& rhs)
+                               ^
+main.cpp:5:8: error: provided for ‘template<class T, template<class U, class V> class std> struct Adder’
+ struct Adder
+        ^
+main.cpp: In member function ‘int Adder<T, std>::operator+(int&)’:
+main.cpp:9:25: error: request for member ‘U’ in ‘rhs’, which is of non-class type ‘int’
+         (*this).U + rhs.U;
+                         ^
+main.cpp:10:25: error: request for member ‘V’ in ‘rhs’, which is of non-class type ‘int’
+         (*this).V + rhs.V;
+                         ^
+main.cpp:11:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: At global scope:
+main.cpp:18:20: error: incomplete type ‘VertexData’ used in nested name specifier
+         std::tuple<VertexData::x, VertexData::y>>
+                    ^
+main.cpp:18:20: error: incomplete type ‘VertexData’ used in nested name specifier
+main.cpp:18:35: error: incomplete type ‘VertexData’ used in nested name specifier
+         std::tuple<VertexData::x, VertexData::y>>
+                                   ^
+main.cpp:18:35: error: incomplete type ‘VertexData’ used in nested name specifier
+main.cpp:18:47: error: template argument 1 is invalid
+         std::tuple<VertexData::x, VertexData::y>>
+                                               ^
+main.cpp:18:47: error: template argument 2 is invalid
+main.cpp:18:48: error: template argument 2 is invalid
+         std::tuple<VertexData::x, VertexData::y>>
+                                                ^
+main.cpp: In function ‘int main()’:
+main.cpp:30:9: error: no match for ‘operator+’ (operand types are ‘VertexData’ and ‘VertexData’)
+     vd1 + vd2;
+         ^
