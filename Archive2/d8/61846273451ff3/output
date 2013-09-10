@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+main.cpp:14:10: error: ‘boo’ has not been declared
+     void boo::somemethod()
+          ^
+main.cpp: In function ‘int main()’:
+main.cpp:22:5: error: ‘boo’ was not declared in this scope
+     boo b;
+     ^
+main.cpp:22:5: note: suggested alternative:
+main.cpp:6:11: note:   ‘foo::boo’
+     class boo
+           ^
+main.cpp:22:9: error: expected ‘;’ before ‘b’
+     boo b;
+         ^
+main.cpp:23:5: error: ‘b’ was not declared in this scope
+     b.somethod();
+     ^
