@@ -83,6 +83,7 @@ post '/compile' do
             stream do |out|
                 safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
             end
+            safe_popen("rm -rf ${CHROOT}/tmp/* & disown") { |line| puts line }
         end
     end.join
 end
