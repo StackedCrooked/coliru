@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, true>::_Head_base(const _Head&) [with long unsigned int _Idx = 0ul; _Head = test]’:
+/usr/include/c++/4.8/tuple:255:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = test; _Tail = {}]’
+/usr/include/c++/4.8/tuple:398:33:   required from ‘constexpr std::tuple< <template-parameter-1-1> >::tuple(const _Elements& ...) [with _Elements = {test}]’
+/usr/include/c++/4.8/tuple:862:62:   required from ‘constexpr std::tuple<typename std::__decay_and_strip<_Elements>::__type ...> std::make_tuple(_Elements&& ...) [with _Elements = {test}]’
+main.cpp:16:19:   required from here
+/usr/include/c++/4.8/tuple:89:18: error: use of deleted function ‘test::test(const test&)’
+       : _Head(__h) { }
+                  ^
+main.cpp:8:12: error: declared here
+   explicit test(test const&) = delete;
+            ^
