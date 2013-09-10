@@ -80,10 +80,12 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            stream do |out|
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-            end
+            result = ""
+            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
             safe_popen("rm -rf ${CHROOT}/tmp/* & disown") { |line| puts line }
+            stream do |out|
+                out << result
+            end
         end
     end.join
 end
