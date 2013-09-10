@@ -262,7 +262,9 @@ end
 
 def get_timeout
     begin
-        [60, File.read('timeout.txt').to_i ].min.to_s
+        result = [60, File.read('timeout.txt').to_i ].min.to_s
+        File.open('timeout.txt', 'w') { |f| f << 20 }
+        return result
     rescue Exception => _
         20.to_s
     end
