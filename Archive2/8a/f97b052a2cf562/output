@@ -1,0 +1,8 @@
++ clang++ -std=c++1y -Wall -pedantic main.cpp
+main.cpp:33:5: error: no matching function for call to object of type 'overloaded<<lambda at main.cpp:30:23>, <lambda at main.cpp:30:34> >'
+    o("yay");
+    ^
+main.cpp:20:10: note: candidate template ignored: substitution failure [with T = const char *]: no matching function for call to object of type '<lambda at main.cpp:30:23>'
+    auto operator()(T v) -> decltype(f(v)){ return f(v); }
+         ^                           ~
+1 error generated.
