@@ -4,31 +4,28 @@ if [ "$(whoami)" != "root" ] ; then
     exit 1
 fi
 
+
 chmod a+rw /var/log/syslog
 source coliru_env.source
 
-chown webserver:coliru ${COLIRU_ARCHIVE}
-chown webserver:coliru ${COLIRU_ARCHIVE2}
-#chown -R webserver:coliru .. & disown
+# The webserver needs write access to the archive.
+chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown
 chmod a+rw .
 
 
+# Cleanup temporary files
+rm -rf /tmp/coliru/* & disown
+
+
 # Cleanup /var/chroot/tmp and make accessible for coliru
-rm -rf /var/chroot/tmp
+rm -rf /var/chroot/tmp/* & disown
 mkdir -p /var/chroot/tmp
 chown -R webserver:coliru /var/chroot/tmp & disown
 chmod -R a+rw /var/chroot/tmp
 
 # Make certain files writeable for the webserver.
-for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp.txt" ; do
+for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp" ; do
   touch $file && chown webserver:coliru $file
 done
 
-
-# Mount the chroot directories
-for dir in $(echo /usr /bin /lib /lib64) ; do
-    { mkdir -p ${CHROOT}${dir} && mount --bind ${dir} ${CHROOT}${dir} && mount -o remount,ro ${CHROOT}${dir} ; } || true
-done
-
-# Mount the Archive
-{ mkdir -p ${CHROOT}/Archive && mount --bind ../Archive ${CHROOT}/Archive && mount -o remount,ro ${CHROOT}/Archive ; } || true
+(cd ../Installer && ./RebuildChroot.sh)

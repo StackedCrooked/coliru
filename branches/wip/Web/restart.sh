@@ -17,3 +17,6 @@ if [ "$COMMITTER_PGID" == "" ] ; then
     ./committer.sh & disown
 fi
 
+
+# Clean the chroot tmp folder every 1000 seconds.
+{ while true ; do rm -rf /var/chroot/tmp/* ; sleep 1000 ; done ; } & disown

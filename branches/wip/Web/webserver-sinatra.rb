@@ -80,8 +80,11 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            result = ""
+            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+            safe_popen("rm -rf ${CHROOT}/tmp/* & disown") { |line| puts line }
             stream do |out|
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+                out << result
             end
         end
     end.join
@@ -143,6 +146,11 @@ post '/share' do
 end
 
 
+get '/a/*' do
+    File.read('view.html')
+end
+
+
 get '/A/*' do
     File.read('view.html')
 end
@@ -164,8 +172,7 @@ end
 get '/Archive/*' do |file|
     content_type :txt
     begin
-        real_file = "#{ENV['COLIRU_ARCHIVE']}/#{file}"
-        real_file = "#{ENV['COLIRU_ARCHIVE_RECENT']}/#{file}" unless File.exist?(real_file)
+        real_file = "#{ENV['COLIRU_ARCHIVE2']}/#{file}"
 
         if File.directory? real_file
             Dir.entries(real_file).join("\n").to_s
@@ -190,7 +197,9 @@ get '/archive' do
 
 
     id = "#{params[:id]}"
-    path = IO.popen("./id2existingpath.sh #{id}").read.strip
+    stdout = IO.popen("./id2existingpath.sh #{id}")
+    path = stdout.read.strip
+    Process.wait stdout.pid
     {       
         :cmd => get_contents.call(path, 'cmd.sh'),        
         :src => get_contents.call(path, 'main.cpp'),      
@@ -212,7 +221,7 @@ end
 get '/log' do
     content_type :txt
     stream do |out|
-        safe_popen('tail -n1024 /var/log/syslog') do |line|
+        safe_popen('tail -n200 /var/log/syslog') do |line|
             out << line
         end
     end
@@ -246,6 +255,7 @@ end
 
 configure do
   enable :cross_origin
+  disable :protection
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
   mime_type :png, 'image/png'
@@ -255,7 +265,9 @@ end
 
 def get_timeout
     begin
-        [60, File.read('timeout.txt').to_i ].min.to_s
+        result = [60, File.read('timeout.txt').to_i ].min.to_s
+        File.open('timeout.txt', 'w') { |f| f << 20 }
+        return result
     rescue Exception => _
         20.to_s
     end

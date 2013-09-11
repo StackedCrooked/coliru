@@ -15,22 +15,19 @@ exec 2> >(logger -t "$0 stderr")
 
 set -x
 source coliru_env.source
-[ -z ${COLIRU_ARCHIVE_RECENT} ] && { echo "COLIRU_ARCHIVE_RECENT variable must be set." && exit 1; }
-[ -d ${COLIRU_ARCHIVE_RECENT} ] || { echo "${COLIRU_ARCHIVE_RECENT} does not exist. Exiting." && exit 1 ; }
 
 while true ; do
 
     (
-        cd ${COLIRU_ARCHIVE_RECENT}
+        cd "${COLIRU_ARCHIVE2}"
 
         for d in $(ls) ; do 
             [ -d $d ] && {
                 # Commit new
-                svn ci $d -m "Update archive."
-                [ "$(svn st $d 2>&1)" == "" ] && {
-                    (cd ${COLIRU_ARCHIVE} && svn up $d) && rm -rf $d && svn cleanup && svn up
-                } || {
-                    echo "$d seems to have a problem $(svn st $d 2>&1)" 1>&2
+                svn ci $d -m "Update archive." || {
+                    svn cleanup 
+                    svn up 
+                    svn ci $d -m "Update archive after cleaning and updating it."
                 }
             } || {
                 echo "$d is not a directory." 1>&2

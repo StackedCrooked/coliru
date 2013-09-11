@@ -22,7 +22,6 @@ echo "${id}" | sed 's,/,,'
     # If the id already existed then simply return.
     # We don't have to compile anymore.
     [ -d "${COLIRU_ARCHIVE}/${id}" ] && exit
-    [ -d "${COLIRU_ARCHIVE_RECENT}/${id}" ] && exit
 
     # The archive directory for the ide.
     mkdir -p ${path}
