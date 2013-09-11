@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 source coliru_env.source
 
 # check if INPUT_FILES_DIR is set.
