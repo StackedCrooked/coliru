@@ -23,8 +23,7 @@ mount_dir_into_chroot() {
 }
 
 archive="$(echo $(dirname $0)/../Archive)"
-caches="$(echo $(dirname $0)/../Caches)"
-mount_dir_into_chroot  ${caches} ${archive} /usr /bin /var /lib /lib64 /etc/alternatives
+mount_dir_into_chroot ${archive} /usr /bin /var /lib /lib64 /etc/alternatives
 
 
 # Add /dev/null and /dev/random to the chroot
@@ -37,6 +36,13 @@ file /var/chroot/dev/null || {
     mknod /var/chroot/dev/null c 1 3  
     chmod 666 /var/chroot/dev/null
 }
+
+
+file /var/chroot/dev/urandom || {
+    mknod /var/chroot/dev/urandom c 1 9
+    chmod 666 /var/chroot/dev/urandom
+}
+
 
 file /var/chroot/dev/random || {
     mknod /var/chroot/dev/random c 1 8
