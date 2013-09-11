@@ -33,4 +33,4 @@ pathifiedId="$(./pathify-id.sh ${id})"
 
 # no previous result found => compile it and print the output
 mkdir -p ${COLIRU_COMPILE_ARCHIVE}/${id}
-{ ./build_and_run.sh >"${COLIRU_COMPILE_ARCHIVE}/${id}/output" 2>&1 && cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" ; } 2>&1
+./build_and_run.sh >"${COLIRU_COMPILE_ARCHIVE}/${id}/output" 2>&1 && cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output"
