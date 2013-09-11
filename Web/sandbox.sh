@@ -12,7 +12,7 @@ id="$(./hash.sh)"
 # search for previous result in the old archive
 [ -d ${COLIRU_ARCHIVE}/${id} ] && {
     cat "${COLIRU_ARCHIVE}/${id}/output"
-    echo "(found in old archive)"
+    #echo "(found in old archive)" 1>&2
     exit
 }
 
@@ -20,7 +20,7 @@ id="$(./hash.sh)"
 pathifiedId="$(./pathify-id.sh ${id})"
 [ -d "${COLIRU_ARCHIVE2}/${pathifiedId}" ] && {
     cat "${COLIRU_ARCHIVE2}/${pathifiedId}/output"
-    echo "(found in new archive)"
+    #echo "(found in new archive)" 1>&2
     exit
 }
 
