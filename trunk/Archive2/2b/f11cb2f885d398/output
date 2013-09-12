@@ -1,0 +1,17 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:32:7: error: use of deleted function ‘main()::<anonymous union>::<constructor>()’
+     } x, y;
+       ^
+main.cpp:28:11: note: ‘main()::<anonymous union>::<constructor>()’ is implicitly deleted because the default definition would be ill-formed:
+     union {
+           ^
+main.cpp:29:13: error: union member ‘main()::<anonymous union>::dummy0’ with non-trivial ‘constexpr foo::foo()’
+         foo dummy0;
+             ^
+main.cpp:30:13: error: union member ‘main()::<anonymous union>::dummy1’ with non-trivial ‘constexpr bar::bar()’
+         bar dummy1;
+             ^
+main.cpp:32:10: error: use of deleted function ‘main()::<anonymous union>::<constructor>()’
+     } x, y;
+          ^
