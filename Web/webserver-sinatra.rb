@@ -221,10 +221,12 @@ end
 
 
 get '/log' do
+    count = "#{params[:count] || 200}"
     content_type :txt
+    p = IO.popen("tail -n#{count} /var/log/syslog 2>&1")
     stream do |out|
-        safe_popen('tail -n200 /var/log/syslog') do |line|
-            out << line
+        until p.eof
+            out << p.readline
         end
     end
 end
