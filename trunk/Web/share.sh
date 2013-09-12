@@ -34,7 +34,8 @@ echo "${id}" | sed 's,/,,'
     # Create the output file so that it's added to
     # svn regardless of whether or not the script
     # succeeds or timeouts
-    touch ${path}/output
+    # Note: using echo to ensure creation of text file
+    echo > ${path}/output
 
     # Create the timestamp file.
     date '+%s' > ${path}/timestamp
