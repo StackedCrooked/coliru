@@ -7,48 +7,42 @@ export INPUT_FILES_DIR
 # Make the archive id
 id="$(./hash.sh)"
 path="$(./id2path.sh ${id})"
-[ -d "${path}" ] && {
-    echo "${id}" | sed 's,/,,'
-    exit
-}
 
-# The first line of output determines the archive id.
+# print the archive id to stdout
+# this is used for share URL
 echo "${id}" | sed 's,/,,'
+
+# block to prevent accidental writes to stdout or stderr
 {
-    exec 1> >(logger -t "$0 stdout")
-    exec 2> >(logger -t "$0 stderr")
-    set -x
+    # redirect all output to logger because we don't 
+    # want to pollute the outputted id with other stuff
+    source logger.source
 
-    # If the id already existed then simply return.
-    # We don't have to compile anymore.
-    [ -d "${COLIRU_ARCHIVE}/${id}" ] && exit
+    # if archive already exists then we can exit
+    [ -d "${path}" ] && exit
 
-    # The archive directory for the ide.
+    # create the archive directory and add the files
+    # an empty output file is also added here
     mkdir -p ${path}
-
-    # Copy the input files to the archive directory
-    chmod 755 ${INPUT_FILES_DIR}/cmd.sh
     cat ${INPUT_FILES_DIR}/main.cpp > ${path}/main.cpp
     cat ${INPUT_FILES_DIR}/cmd.sh > ${path}/cmd.sh
-
-    # Create the output file so that it's added to
-    # svn regardless of whether or not the script
-    # succeeds or timeouts
-    # Note: using echo to ensure creation of text file
     echo > ${path}/output
-
-    # Create the timestamp file.
     date '+%s' > ${path}/timestamp
 
-    # Add the directory and all files (cmd.sh, main.cpp, output, timestamp)
-    # to svn. Note: we need to do this before running the script because
-    # this process might get killed in case of timeout
-    svn add ${path}
+    # perform svn add BEFORE running the script
+    # because we can get killed during run
+    svn add --force ${path}
 
-    # Use cached output if available otherwise run the program.
+    # use output of compile cache if available
+    # note that this does not remove the need
+    # for svn add. 
     [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
         cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" >"${path}/output"
-    } || {
-        ./build_and_run.sh >${path}/output 2>&1
+        exit
     }
-}
+
+    # run program, writing to output file in the archive
+    ./build_and_run.sh >${path}/output 2>&1
+
+} >/dev/null 2>&1
+
