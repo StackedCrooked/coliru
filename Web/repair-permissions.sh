@@ -25,8 +25,9 @@ chown -R webserver:coliru /var/chroot/tmp & disown
 chmod -R a+rw /var/chroot/tmp
 
 # Make certain files writeable for the webserver.
-for file in "feedback.txt timeout.txt output main.cpp cmd.sh timestamp" ; do
-  touch $file && chown webserver:coliru $file
+for file in $(echo feedback.txt timeout.txt output main.cpp cmd.sh timestamp) ; do
+  [ -f ${file} ] || echo >${file}
+  chown webserver:coliru ${file}
 done
 
 (cd ../Installer && ./RebuildChroot.sh)
