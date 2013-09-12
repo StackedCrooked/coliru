@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -Wall -pedantic main.cpp
+main.cpp:57:18: error: no matching function for call to object of type 'Overload<<lambda at main.cpp:51:9>, <lambda at main.cpp:52:9>, <lambda at main.cpp:53:9> >'
+    std::cout << overload("yay for c++11") << "\n";
+                 ^~~~~~~~
+main.cpp:30:10: note: candidate template ignored: substitution failure [with Args = <char const (&)[14]>]: no matching function for call to object of type '<lambda at main.cpp:51:9>'
+    auto operator()(Args&&... args) const 
+         ^
+main.cpp:58:18: error: no matching function for call to object of type 'Overload<<lambda at main.cpp:51:9>, <lambda at main.cpp:52:9>, <lambda at main.cpp:53:9> >'
+    std::cout << overload()                << "\n";
+                 ^~~~~~~~
+main.cpp:30:10: note: candidate template ignored: substitution failure [with Args = <>]: no matching function for call to object of type '<lambda at main.cpp:51:9>'
+    auto operator()(Args&&... args) const 
+         ^
+2 errors generated.

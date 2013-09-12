@@ -1,0 +1,22 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:10:35: error: expected class-name before ‘{’ token
+ struct _impl_detail : public Init {}
+                                   ^
+main.cpp:11:8: error: expected unqualified-id before ‘template’
+ static template _impl_detail<int> t;
+        ^
+main.cpp:17:6: error: ISO C++ forbids declaration of ‘Init’ with no type [-fpermissive]
+ Init() {}
+      ^
+main.cpp: In function ‘int Init()’:
+main.cpp:17:9: warning: no return statement in function returning non-void [-Wreturn-type]
+ Init() {}
+         ^
+main.cpp: In constructor ‘my_global::my_global()’:
+main.cpp:22:9: error: ‘cout’ is not a member of ‘std’
+         std::cout << "TOTALLY SAFE YO\n";
+         ^
+main.cpp:22:9: note: suggested alternative:
+main.cpp:16:10: note:   ‘cout’
+ iostream cout;
+          ^
