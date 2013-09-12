@@ -26,13 +26,19 @@ echo "${id}" | sed 's,/,,'
     # The archive directory for the ide.
     mkdir -p ${path}
 
+    # Copy the input files to the archive directory
     chmod 755 ${INPUT_FILES_DIR}/cmd.sh
     cat ${INPUT_FILES_DIR}/main.cpp > ${path}/main.cpp
     cat ${INPUT_FILES_DIR}/cmd.sh > ${path}/cmd.sh
     date '+%s' > ${path}/timestamp
 
-    # Build and run it.
-    ./build_and_run.sh >${path}/output 2>&1
+    # check if output already is in compile cache
+    [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
+        cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" >"${path}/output"
+    } || {
+        # no cached output found => build it
+        ./build_and_run.sh >${path}/output 2>&1
+    }
 
     # Add to svn
     svn add ${path}
