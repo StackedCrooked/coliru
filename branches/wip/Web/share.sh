@@ -12,6 +12,7 @@ path="$(./id2path.sh ${id})"
     exit
 }
 
+
 # The first line of output determines the archive id.
 echo "${id}" | sed 's,/,,'
 {
@@ -43,7 +44,10 @@ echo "${id}" | sed 's,/,,'
     # Add the directory and all files (cmd.sh, main.cpp, output, timestamp)
     # to svn. Note: we need to do this before running the script because
     # this process might get killed in case of timeout
-    svn add ${path}
+    mkdir svn_lock && {
+        trap 'rm -f svn_lock' EXIT
+        svn add ${1}
+    }
 
     # Use cached output if available otherwise run the program.
     [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
