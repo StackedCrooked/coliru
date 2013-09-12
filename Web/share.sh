@@ -26,14 +26,29 @@ echo "${id}" | sed 's,/,,'
     # The archive directory for the ide.
     mkdir -p ${path}
 
+    # Copy the input files to the archive directory
     chmod 755 ${INPUT_FILES_DIR}/cmd.sh
     cat ${INPUT_FILES_DIR}/main.cpp > ${path}/main.cpp
     cat ${INPUT_FILES_DIR}/cmd.sh > ${path}/cmd.sh
+
+    # Create the output file so that it's added to
+    # svn regardless of whether or not the script
+    # succeeds or timeouts
+    # Note: using echo to ensure creation of text file
+    echo > ${path}/output
+
+    # Create the timestamp file.
     date '+%s' > ${path}/timestamp
 
-    # Build and run it.
-    ./build_and_run.sh >${path}/output 2>&1
-
-    # Add to svn
+    # Add the directory and all files (cmd.sh, main.cpp, output, timestamp)
+    # to svn. Note: we need to do this before running the script because
+    # this process might get killed in case of timeout
     svn add ${path}
+
+    # Use cached output if available otherwise run the program.
+    [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
+        cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" >"${path}/output"
+    } || {
+        ./build_and_run.sh >${path}/output 2>&1
+    }
 }

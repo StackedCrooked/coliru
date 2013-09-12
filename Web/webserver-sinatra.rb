@@ -72,6 +72,7 @@ end
 
 post '/compile' do
     Thread.new do 
+        result = ""
         $mutex.synchronize do
             json_obj = JSON.parse(request.body.read)
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
@@ -80,12 +81,11 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            result = ""
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
             safe_popen("rm -rf ${CHROOT}/tmp/* & disown") { |line| puts line }
-            stream do |out|
-                out << result
-            end
+        end
+        stream do |out|
+            out << result
         end
     end.join
 end
@@ -98,14 +98,16 @@ end
 
 post '/sh' do
     Thread.new do 
+        id = ""
+        dir = ""
         $mutex.synchronize do
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
             dir = "/tmp/coliru/#{id}"
             FileUtils.mkdir_p(dir)
             File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
-            stream do |out|
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
-            end
+        end
+        stream do |out|
+            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
         end
     end.join
 end
@@ -124,8 +126,8 @@ end
 
 post '/share' do
     Thread.new do
+        result = ''
         $mutex.synchronize do
-            result = ''
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
             dir = "/tmp/coliru/#{id}"
             FileUtils.mkdir_p(dir)
@@ -140,8 +142,8 @@ post '/share' do
                 skip = (b == '\n')
                 result += b
             end
-            stream { |out| out << result }
         end
+        stream { |out| out << result }
     end.join
 end
 
@@ -245,7 +247,7 @@ end
 
 
 set :port, ENV['COLIRU_PORT']
-puts "port: #{:port}"
+set :lock, true
 $mutex = Mutex.new
 
 options '/*' do
