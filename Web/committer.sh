@@ -10,8 +10,7 @@ echo "Committer is already running" 1>&2
 exit 1
 }
 
-exec 1> >(logger -t "$0 stdout")
-exec 2> >(logger -t "$0 stderr")
+source logger.source
 
 set -x
 source coliru_env.source
@@ -25,6 +24,8 @@ while true ; do (
             continue
         fi
     done
+
+    mka
 
     if ! { mkdir svn_lock && trap 'rm -f svn_lock' EXIT ; } ; then
         # another script is using svn return later
