@@ -1,5 +1,25 @@
 #!/bin/bash
-#set -x
+
+let comments=
+(
+    Restart Procedure
+    -----------------
+    - kills webserver and any user scripts
+    - starts webserver
+
+    Issues
+    ------
+    - repair-permissions.sh
+        - permissions errors are a frequent problem
+        - construction == reconstruction
+        - convenient
+        - sloppy
+        - repair archive permissions is slow
+    - committer.sh
+        - kinda sloppy
+    - run.sh
+)
+
 source coliru_env.source
 if [ "$(whoami)" != "root" ] ; then
     echo "$(basename $0) must be run with root permissions." 1>&2
