@@ -1,0 +1,12 @@
+main.cpp:57:70: error: default argument for template parameter for class enclosing ‘PowersOfThreeSeq<Sequence, N, Idxs>::sequenceValues’
+ const std::array<int, N + 1> PowersOfThreeSeq<Sequence, N, Idxs...>::sequenceValues = { PowersOfThree<Idxs>::value... };
+                                                                      ^
+main.cpp: In instantiation of ‘const int PowersOfThree<20>::value’:
+main.cpp:32:19:   recursively required from ‘const int MaxSequenceIndex<1, PowersOfThree, void>::value’
+main.cpp:32:19:   required from ‘const int MaxSequenceIndex<0, PowersOfThree, void>::value’
+main.cpp:70:31:   required from here
+main.cpp:47:22: error: non-constant in-class initialization invalid for static member ‘PowersOfThree<20>::value’
+     static const int value = Pow<3, N>::value;
+                      ^
+main.cpp:47:22: error: (an out of class initialization is required)
+main.cpp:47:22: error: ‘PowersOfThree<20>::value’ cannot be initialized by a non-constant expression when being declared
