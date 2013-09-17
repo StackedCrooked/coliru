@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:12:1: error: extraneous closing brace ('}')
+}
+^
+main.cpp:22:25: error: expected a class or namespace
+  auto my_a_generator = rcg::rcg<A>{};
+                        ^
+main.cpp:23:33: error: expected '(' for function-style cast or type construction
+  auto my_a = my_a_generator<int>(); 
+                             ~~~^
+main.cpp:23:35: error: expected expression
+  auto my_a = my_a_generator<int>(); 
+                                  ^
+4 errors generated.
