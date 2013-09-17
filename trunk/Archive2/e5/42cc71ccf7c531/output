@@ -1,0 +1,52 @@
++ git init .
+Initialized empty Git repository in /tmp/1379054655-1033744725/.git/
++ touch {a..z}
++ git add {a..z}
++ git commit -m added {a..z}
+fatal: You don't exist. Go away!
++ git tag RELEASE_A HEAD~10
+fatal: Failed to resolve 'HEAD~10' as a valid ref.
++ git rev-list --grep=[htpw] RELEASE_A..HEAD
+fatal: ambiguous argument 'RELEASE_A..HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions
++ culprits=
++ git revert --no-edit
+usage: git revert [options] <commit-ish>
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+
++ git tag RELEASE_B
+fatal: Failed to resolve 'HEAD' as a valid ref.
++ git cherry-pick
+usage: git cherry-pick [options] <commit-ish>
+   or: git cherry-pick <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <n>    parent number
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -x                    append commit name
+    --ff                  allow fast-forward
+
++ git log --decorate --oneline
+fatal: bad default revision 'HEAD'
