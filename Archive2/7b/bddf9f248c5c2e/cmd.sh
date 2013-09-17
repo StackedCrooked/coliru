@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -Wall -O3 main.cpp ; du -b a.out ; ./a.out
