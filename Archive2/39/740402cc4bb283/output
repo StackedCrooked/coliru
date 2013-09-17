@@ -1,0 +1,48 @@
+In file included from /usr/local/include/boost/assert.hpp:50:0,
+                 from /usr/local/include/boost/multi_array/copy_array.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:23,
+                 from main.cpp:1:
+/usr/local/include/boost/multi_array/multi_array_ref.hpp: In instantiation of 'void boost::const_multi_array_ref<T, NumDims, TPtr>::reshape(const SizeList&) [with SizeList = boost::detail::multi_array::extent_gen<2ul>; T = double; long unsigned int NumDims = 2ul; TPtr = double*]':
+main.cpp:10:45:   required from here
+/usr/local/include/boost/multi_array/multi_array_ref.hpp:168:5: error: 'const class boost::detail::multi_array::extent_gen<2ul>' has no member named 'begin'
+     BOOST_ASSERT(num_elements_ ==
+     ^
+/usr/local/include/boost/multi_array/multi_array_ref.hpp:168:5: error: 'const class boost::detail::multi_array::extent_gen<2ul>' has no member named 'end'
+In file included from /usr/local/include/boost/multi_array.hpp:26:0,
+                 from main.cpp:1:
+/usr/local/include/boost/multi_array/multi_array_ref.hpp:172:65: error: 'const class boost::detail::multi_array::extent_gen<2ul>' has no member named 'begin'
+     std::copy(extents.begin(),extents.end(),extent_list_.begin());
+                                                                 ^
+/usr/local/include/boost/multi_array/multi_array_ref.hpp:172:65: error: 'const class boost::detail::multi_array::extent_gen<2ul>' has no member named 'end'
+In file included from /usr/local/include/boost/multi_array/concept_checks.hpp:21:0,
+                 from /usr/local/include/boost/multi_array/base.hpp:28,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:1:
+/usr/local/include/boost/concept_check.hpp: In instantiation of 'struct boost::Collection<boost::detail::multi_array::extent_gen<2ul> >':
+/usr/local/include/boost/concept_check.hpp:1042:3:   required from 'struct boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> >'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:32:62:   required by substitution of 'template<class Model> boost::concepts::detail::yes boost::concepts::detail::has_constraints_(Model*, boost::concepts::detail::wrap_constraints<Model, (& Model:: constraints)>*) [with Model = boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> >]'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:42:5:   required from 'const bool boost::concepts::not_satisfied<boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> > >::value'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:45:31:   required from 'struct boost::concepts::not_satisfied<boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> > >'
+/usr/local/include/boost/mpl/if.hpp:67:11:   required from 'struct boost::mpl::if_<boost::concepts::not_satisfied<boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> > >, boost::concepts::constraint<boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> > >, boost::concepts::requirement<boost::concepts::failed************ boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> >::************> >'
+/usr/local/include/boost/concept/detail/general.hpp:50:8:   required from 'struct boost::concepts::requirement_<void (*)(boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> >)>'
+/usr/local/include/boost/concept_check.hpp:45:7:   required from 'void boost::function_requires(Model*) [with Model = boost::CollectionConcept<boost::detail::multi_array::extent_gen<2ul> >]'
+/usr/local/include/boost/multi_array/multi_array_ref.hpp:167:37:   required from 'void boost::const_multi_array_ref<T, NumDims, TPtr>::reshape(const SizeList&) [with SizeList = boost::detail::multi_array::extent_gen<2ul>; T = double; long unsigned int NumDims = 2ul; TPtr = double*]'
+main.cpp:10:45:   required from here
+/usr/local/include/boost/concept_check.hpp:1063:38: error: no type named 'value_type' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::value_type value_type;
+                                      ^
+/usr/local/include/boost/concept_check.hpp:1064:36: error: no type named 'iterator' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::iterator iterator;
+                                    ^
+/usr/local/include/boost/concept_check.hpp:1065:42: error: no type named 'const_iterator' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::const_iterator const_iterator;
+                                          ^
+/usr/local/include/boost/concept_check.hpp:1066:37: error: no type named 'reference' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::reference reference;
+                                     ^
+/usr/local/include/boost/concept_check.hpp:1067:43: error: no type named 'const_reference' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::const_reference const_reference;
+                                           ^
+/usr/local/include/boost/concept_check.hpp:1069:43: error: no type named 'difference_type' in 'class boost::detail::multi_array::extent_gen<2ul>'
+       typedef typename C::difference_type difference_type;
+                                           ^
