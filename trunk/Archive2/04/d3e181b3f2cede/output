@@ -1,0 +1,226 @@
++ git init .
+Initialized empty Git repository in /tmp/1379055171-165625826/.git/
++ git config user.name demo
++ git config user.email demo.example.com
++ echo ##############################################
+##############################################
++ echo # create 26 commits
+# create 26 commits
++ touch a
++ git add a
++ git commit -m added a
+[master (root-commit) 296e1a3] added a
+ 0 files changed
+ create mode 100644 a
++ touch b
++ git add b
++ git commit -m added b
+[master a1ea3f1] added b
+ 0 files changed
+ create mode 100644 b
++ touch c
++ git add c
++ git commit -m added c
+[master f8d8f0a] added c
+ 0 files changed
+ create mode 100644 c
++ touch d
++ git add d
++ git commit -m added d
+[master 56b155d] added d
+ 0 files changed
+ create mode 100644 d
++ touch e
++ git add e
++ git commit -m added e
+[master f1b98ea] added e
+ 0 files changed
+ create mode 100644 e
++ touch f
++ git add f
++ git commit -m added f
+[master 8148c53] added f
+ 0 files changed
+ create mode 100644 f
++ touch g
++ git add g
++ git commit -m added g
+[master d9abc98] added g
+ 0 files changed
+ create mode 100644 g
++ touch h
++ git add h
++ git commit -m added h
+[master ef275ca] added h
+ 0 files changed
+ create mode 100644 h
++ touch i
++ git add i
++ git commit -m added i
+[master 620152b] added i
+ 0 files changed
+ create mode 100644 i
++ touch j
++ git add j
++ git commit -m added j
+[master d1e6fc2] added j
+ 0 files changed
+ create mode 100644 j
++ touch k
++ git add k
++ git commit -m added k
+[master 2d83e88] added k
+ 0 files changed
+ create mode 100644 k
++ touch l
++ git add l
++ git commit -m added l
+[master ab2648e] added l
+ 0 files changed
+ create mode 100644 l
++ touch m
++ git add m
++ git commit -m added m
+[master 4c93cd4] added m
+ 0 files changed
+ create mode 100644 m
++ touch n
++ git add n
++ git commit -m added n
+[master d367086] added n
+ 0 files changed
+ create mode 100644 n
++ touch o
++ git add o
++ git commit -m added o
+[master 7ebc484] added o
+ 0 files changed
+ create mode 100644 o
++ touch p
++ git add p
++ git commit -m added p
+[master 413d2cc] added p
+ 0 files changed
+ create mode 100644 p
++ touch q
++ git add q
++ git commit -m added q
+[master 1c9f22a] added q
+ 0 files changed
+ create mode 100644 q
++ touch r
++ git add r
++ git commit -m added r
+[master a3ae7b3] added r
+ 0 files changed
+ create mode 100644 r
++ touch s
++ git add s
++ git commit -m added s
+[master 4de8a3f] added s
+ 0 files changed
+ create mode 100644 s
++ touch t
++ git add t
++ git commit -m added t
+[master 437fe37] added t
+ 0 files changed
+ create mode 100644 t
++ touch u
++ git add u
++ git commit -m added u
+[master dbffaca] added u
+ 0 files changed
+ create mode 100644 u
++ touch v
++ git add v
++ git commit -m added v
+[master 2becd30] added v
+ 0 files changed
+ create mode 100644 v
++ touch w
++ git add w
++ git commit -m added w
+[master c4ef11d] added w
+ 0 files changed
+ create mode 100644 w
++ touch x
++ git add x
++ git commit -m added x
+[master 077dafd] added x
+ 0 files changed
+ create mode 100644 x
++ touch y
++ git add y
++ git commit -m added y
+[master 5329210] added y
+ 0 files changed
+ create mode 100644 y
++ touch z
++ git add z
++ git commit -m added z
+[master 5ac719d] added z
+ 0 files changed
+ create mode 100644 z
++ echo tag (commit 'p') one as our previous RELEASE_A
+tag (commit 'p') one as our previous RELEASE_A
++ git tag RELEASE_A HEAD~10
++ echo ##############################################
+##############################################
++ echo # now we do a release without patches h, t, p, and w:
+# now we do a release without patches h, t, p, and w:
++ git rev-list --grep=[htpw] RELEASE_A..HEAD
++ culprits=c4ef11db77f6278ad960d71e42fc2d0822074488
+437fe37e540acb41c5975458885617ab266e9ee1
++ git revert --no-edit c4ef11db77f6278ad960d71e42fc2d0822074488 437fe37e540acb41c5975458885617ab266e9ee1
+[master c9b86f7] Revert "added w"
+ 0 files changed
+ delete mode 100644 w
+[master 70642e7] Revert "added t"
+ 0 files changed
+ delete mode 100644 t
++ git tag RELEASE_B
++ echo # re-apply the culprits:
+# re-apply the culprits:
++ git cherry-pick c4ef11db77f6278ad960d71e42fc2d0822074488 437fe37e540acb41c5975458885617ab266e9ee1
+[master 53b3268] added t
+ 0 files changed
+ create mode 100644 t
+[master 387359c] added w
+ 0 files changed
+ create mode 100644 w
++ echo ##############################################
+##############################################
++ echo # end result:
+# end result:
++ git log --decorate --oneline
+387359c (HEAD, master) added w
+53b3268 added t
+70642e7 (tag: RELEASE_B) Revert "added t"
+c9b86f7 Revert "added w"
+5ac719d added z
+5329210 added y
+077dafd added x
+c4ef11d added w
+2becd30 added v
+dbffaca added u
+437fe37 added t
+4de8a3f added s
+a3ae7b3 added r
+1c9f22a added q
+413d2cc (tag: RELEASE_A) added p
+7ebc484 added o
+d367086 added n
+4c93cd4 added m
+ab2648e added l
+2d83e88 added k
+d1e6fc2 added j
+620152b added i
+ef275ca added h
+d9abc98 added g
+8148c53 added f
+f1b98ea added e
+56b155d added d
+f8d8f0a added c
+a1ea3f1 added b
+296e1a3 added a
