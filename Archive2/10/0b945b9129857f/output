@@ -1,0 +1,16 @@
+main.cpp:6:17: error: too few arguments to function call, at least argument 'self' must be specified
+    void B() {C();}
+              ~ ^
+main.cpp:10:5: note: 'C' declared here
+    static args C(A& self, args a=args()) {
+    ^
+main.cpp:11:21: error: use of undeclared identifier 'std'
+        self.C_impl(std::move(a));
+                    ^
+main.cpp:20:15: error: non-const lvalue reference to type 'A' cannot bind to a value of unrelated type 'A *'
+            C(next, a);
+              ^~~~
+main.cpp:10:22: note: passing argument to parameter 'self' here
+    static args C(A& self, args a=args()) {
+                     ^
+3 errors generated.
