@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:16:6: error: call of overloaded 'Y(X&)' is ambiguous
+ Y y(x); 
+      ^
+main.cpp:16:6: note: candidates are:
+main.cpp:4:18: note: Y::Y(int)
+         explicit Y(int) {}
+                  ^
+main.cpp:2:8: note: constexpr Y::Y(const Y&)
+ struct Y {
+        ^
+main.cpp:2:8: note: constexpr Y::Y(Y&&)
