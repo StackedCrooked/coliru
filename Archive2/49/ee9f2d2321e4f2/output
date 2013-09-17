@@ -1,0 +1,73 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:2:2: error: invalid preprocessing directive #version
+ #version 330
+  ^
+main.cpp:14:2: error: invalid preprocessing directive #version
+ #version 330
+  ^
+main.cpp:3:1: error: 'uniform' does not name a type
+ uniform mat4 model;
+ ^
+main.cpp:4:1: error: 'uniform' does not name a type
+ uniform mat4 view;
+ ^
+main.cpp:5:1: error: 'uniform' does not name a type
+ uniform mat4 perspective;
+ ^
+main.cpp:6:1: error: 'in' does not name a type
+ in vec3 Position;
+ ^
+main.cpp:7:1: error: 'out' does not name a type
+ out vec3 newPosition;
+ ^
+main.cpp:8:11: error: '::main' must return 'int'
+ void main() {
+           ^
+main.cpp: In function 'int main()':
+main.cpp:9:5: error: 'newPosition' was not declared in this scope
+     newPosition = Position;
+     ^
+main.cpp:9:19: error: 'Position' was not declared in this scope
+     newPosition = Position;
+                   ^
+main.cpp:10:2: error: 'gl_Position' was not declared in this scope
+  gl_Position = perspective * view * model * vec4(Position, 1.0);
+  ^
+main.cpp:10:16: error: 'perspective' was not declared in this scope
+  gl_Position = perspective * view * model * vec4(Position, 1.0);
+                ^
+main.cpp:10:30: error: 'view' was not declared in this scope
+  gl_Position = perspective * view * model * vec4(Position, 1.0);
+                              ^
+main.cpp:10:37: error: 'model' was not declared in this scope
+  gl_Position = perspective * view * model * vec4(Position, 1.0);
+                                     ^
+main.cpp:10:63: error: 'vec4' was not declared in this scope
+  gl_Position = perspective * view * model * vec4(Position, 1.0);
+                                                               ^
+main.cpp: At global scope:
+main.cpp:15:1: error: 'in' does not name a type
+ in vec3 newPosition;
+ ^
+main.cpp:16:1: error: 'out' does not name a type
+ out vec4 fragColor;
+ ^
+main.cpp:17:11: error: '::main' must return 'int'
+ void main() {
+           ^
+main.cpp: In function 'int main()':
+main.cpp:17:6: error: redefinition of 'int main()'
+ void main() {
+      ^
+main.cpp:8:6: error: 'int main()' previously defined here
+ void main() {
+      ^
+main.cpp:19:2: error: 'fragColor' was not declared in this scope
+  fragColor = vec4(newPosition, 1.0);
+  ^
+main.cpp:19:19: error: 'newPosition' was not declared in this scope
+  fragColor = vec4(newPosition, 1.0);
+                   ^
+main.cpp:19:35: error: 'vec4' was not declared in this scope
+  fragColor = vec4(newPosition, 1.0);
+                                   ^
