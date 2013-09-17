@@ -1,0 +1,23 @@
++ clang++ -std=c++11 -Wall -O3 main.cpp
++ du -b a.out
+23359	a.out
++ ./a.out
+--- First Event
+ |- Dispatch to callbacks
+ |--(ev): <anonymous> received event: an event (redirect, inject) 
+ |      |--(ev): Listener::OnEvent() received event: an event
+ |        <anonymous> adding intruder
+ |--(ev): func_callback() received event: an event
+ |--(ev): Listener::OnEvent() received event: an event
+ |- Dispatch to listeners
+ |--(ev): Listener::OnEvent() received event: an event
+ |--(ev): Intruder::OnEvent() received event: an event
+ \- done.
+
+--- Second Event
+ |- Dispatch to callbacks
+ |- Dispatch to listeners
+ |--(ev): Listener::OnEvent() received event: an event
+ |--(ev): Intruder::OnEvent() received event: an event
+ \- done.
+
