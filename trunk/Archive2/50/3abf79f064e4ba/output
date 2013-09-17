@@ -1,0 +1,210 @@
++ git init .
+Initialized empty Git repository in /tmp/1379055042-220329493/.git/
++ git config user.name demo
++ git config user.email demo.example.com
++ touch a
++ git add a
++ git commit -m added a
+[master (root-commit) f2762cb] added a
+ 0 files changed
+ create mode 100644 a
++ touch b
++ git add b
++ git commit -m added b
+[master 3d3e62c] added b
+ 0 files changed
+ create mode 100644 b
++ touch c
++ git add c
++ git commit -m added c
+[master 8de4a3d] added c
+ 0 files changed
+ create mode 100644 c
++ touch d
++ git add d
++ git commit -m added d
+[master aa7e33c] added d
+ 0 files changed
+ create mode 100644 d
++ touch e
++ git add e
++ git commit -m added e
+[master e1e6484] added e
+ 0 files changed
+ create mode 100644 e
++ touch f
++ git add f
++ git commit -m added f
+[master 6afdbda] added f
+ 0 files changed
+ create mode 100644 f
++ touch g
++ git add g
++ git commit -m added g
+[master 28f1b68] added g
+ 0 files changed
+ create mode 100644 g
++ touch h
++ git add h
++ git commit -m added h
+[master ae8fb06] added h
+ 0 files changed
+ create mode 100644 h
++ touch i
++ git add i
++ git commit -m added i
+[master 7de83b1] added i
+ 0 files changed
+ create mode 100644 i
++ touch j
++ git add j
++ git commit -m added j
+[master 9ea3fbc] added j
+ 0 files changed
+ create mode 100644 j
++ touch k
++ git add k
++ git commit -m added k
+[master 5f49deb] added k
+ 0 files changed
+ create mode 100644 k
++ touch l
++ git add l
++ git commit -m added l
+[master 660f274] added l
+ 0 files changed
+ create mode 100644 l
++ touch m
++ git add m
++ git commit -m added m
+[master 7add6a9] added m
+ 0 files changed
+ create mode 100644 m
++ touch n
++ git add n
++ git commit -m added n
+[master 8bfab67] added n
+ 0 files changed
+ create mode 100644 n
++ touch o
++ git add o
++ git commit -m added o
+[master 6637320] added o
+ 0 files changed
+ create mode 100644 o
++ touch p
++ git add p
++ git commit -m added p
+[master b986262] added p
+ 0 files changed
+ create mode 100644 p
++ touch q
++ git add q
++ git commit -m added q
+[master 84dc042] added q
+ 0 files changed
+ create mode 100644 q
++ touch r
++ git add r
++ git commit -m added r
+[master 3e19191] added r
+ 0 files changed
+ create mode 100644 r
++ touch s
++ git add s
++ git commit -m added s
+[master e1759f2] added s
+ 0 files changed
+ create mode 100644 s
++ touch t
++ git add t
++ git commit -m added t
+[master 58a61b2] added t
+ 0 files changed
+ create mode 100644 t
++ touch u
++ git add u
++ git commit -m added u
+[master a57ba87] added u
+ 0 files changed
+ create mode 100644 u
++ touch v
++ git add v
++ git commit -m added v
+[master 065a866] added v
+ 0 files changed
+ create mode 100644 v
++ touch w
++ git add w
++ git commit -m added w
+[master c380a99] added w
+ 0 files changed
+ create mode 100644 w
++ touch x
++ git add x
++ git commit -m added x
+[master 239ab46] added x
+ 0 files changed
+ create mode 100644 x
++ touch y
++ git add y
++ git commit -m added y
+[master 892be3c] added y
+ 0 files changed
+ create mode 100644 y
++ touch z
++ git add z
++ git commit -m added z
+[master ce3f8b1] added z
+ 0 files changed
+ create mode 100644 z
++ git tag RELEASE_A HEAD~10
++ git rev-list --grep=[htpw] RELEASE_A..HEAD
++ culprits=c380a9959bd057a3e7935a318eb13d6ffb219ae5
+58a61b29cdd65de960dea727165c36ca12002c06
++ git revert --no-edit c380a9959bd057a3e7935a318eb13d6ffb219ae5 58a61b29cdd65de960dea727165c36ca12002c06
+[master 6d22ee7] Revert "added w"
+ 0 files changed
+ delete mode 100644 w
+[master b988570] Revert "added t"
+ 0 files changed
+ delete mode 100644 t
++ git tag RELEASE_B
++ git cherry-pick c380a9959bd057a3e7935a318eb13d6ffb219ae5 58a61b29cdd65de960dea727165c36ca12002c06
+[master 24bf949] added t
+ 0 files changed
+ create mode 100644 t
+[master dfa3e92] added w
+ 0 files changed
+ create mode 100644 w
++ git log --decorate --oneline
+dfa3e92 (HEAD, master) added w
+24bf949 added t
+b988570 (tag: RELEASE_B) Revert "added t"
+6d22ee7 Revert "added w"
+ce3f8b1 added z
+892be3c added y
+239ab46 added x
+c380a99 added w
+065a866 added v
+a57ba87 added u
+58a61b2 added t
+e1759f2 added s
+3e19191 added r
+84dc042 added q
+b986262 (tag: RELEASE_A) added p
+6637320 added o
+8bfab67 added n
+7add6a9 added m
+660f274 added l
+5f49deb added k
+9ea3fbc added j
+7de83b1 added i
+ae8fb06 added h
+28f1b68 added g
+6afdbda added f
+e1e6484 added e
+aa7e33c added d
+8de4a3d added c
+3d3e62c added b
+f2762cb added a
