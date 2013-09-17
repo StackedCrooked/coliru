@@ -1,0 +1,1 @@
+echo  {WHY,HOW,}_{YOU,}_{ALWAYS,NEVER,}_{SAME,MY,}_{HATE,LOVE}_{NOT,}_{SELFISH,CARING}_{NOT,}_{SEE,LEAVE}___  | perl -pe 's,__,\n,g' | perl -pe 's,_,,g' | perl -pe 's,^(\s+),,g' | sort | uniq | sort --random-sort
