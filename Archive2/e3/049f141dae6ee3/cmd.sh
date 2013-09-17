@@ -1,0 +1,1 @@
+g++ -std=c++11 -O1 -Wall -pthread main.cpp && ./a.out
