@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:7: error: no viable conversion from 'int' to 'A'
+    A a = 1;
+      ^   ~
+main.cpp:1:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'int' to 'const A &' for 1st argument
+struct A
+       ^
+main.cpp:1:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'int' to 'A &&' for 1st argument
+struct A
+       ^
+1 error generated.
