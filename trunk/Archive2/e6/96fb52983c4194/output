@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:22:16: error: ambiguous partial specializations of 'foo<0, int *>'
+  std::cout << foo<0, int*>::bar() << std::endl;
+               ^
+main.cpp:8:8: note: partial specialization matches [with Index = 0]
+struct foo<Index, int*> {
+       ^
+main.cpp:15:8: note: partial specialization matches [with Index = 0]
+struct foo<Index, int*> {
+       ^
+1 error generated.

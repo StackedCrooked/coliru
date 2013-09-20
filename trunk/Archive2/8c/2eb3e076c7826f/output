@@ -1,0 +1,23 @@
+main.cpp:4:3: warning: identifier 'noexcept' is a keyword in C++11 [-Wc++0x-compat]
+   void foo() noexcept(noexcept(T())) 
+   ^
+main.cpp:4:14: error: expected initializer before 'noexcept'
+   void foo() noexcept(noexcept(T())) 
+              ^
+main.cpp:7:12: error: expected initializer before 'noexcept'
+ void baz() noexcept { throw 42; }  // noexcept is the same as noexcept(true)
+            ^
+main.cpp: In function 'int main()':
+main.cpp:11:5: error: 'foo' was not declared in this scope
+     foo<int>();  // noexcept(noexcept(int())) => noexcept(true), so this is fine
+     ^
+main.cpp:11:9: error: expected primary-expression before 'int'
+     foo<int>();  // noexcept(noexcept(int())) => noexcept(true), so this is fine
+         ^
+main.cpp:11:9: error: expected ';' before 'int'
+main.cpp:13:9: error: 'bar' was not declared in this scope
+     bar();  // fine
+         ^
+main.cpp:14:9: error: 'baz' was not declared in this scope
+     baz();  // compiles, but at runtime this calls std::terminate
+         ^

@@ -1,0 +1,1 @@
+set -x ; g++ -Wall -Wextra main.cpp && ./a.out

@@ -1,0 +1,1 @@
+g++ -std=c++11 -O1 -pedantic -Wall -Wconversion -Wsign-conversion -Wsign-promo -O1 -pthread main.cpp && ./a.out

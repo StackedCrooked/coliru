@@ -1,0 +1,19 @@
+main.cpp:8:14: error: no matching constructor for initialization of 'H' (aka 'unordered_map<int, int, std::hash<int>, std::equal_to<int>, A>')
+    auto h = H{A()}; // should call H::H(const A&)
+             ^~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:138:7: note: candidate constructor not viable: no known conversion from 'A' (aka 'allocator<std::pair<const int, int> >') to 'size_type' (aka 'unsigned long') for 1st argument
+      unordered_map(size_type __n = 10,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:168:7: note: candidate constructor not viable: no known conversion from 'A' (aka 'allocator<std::pair<const int, int> >') to 'const std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > > &' for 1st argument
+      unordered_map(const unordered_map&) = default;
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:171:7: note: candidate constructor not viable: no known conversion from 'A' (aka 'allocator<std::pair<const int, int> >') to 'std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, int> > > &&' for 1st argument
+      unordered_map(unordered_map&&) = default;
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:184:7: note: candidate constructor not viable: no known conversion from 'A' (aka 'allocator<std::pair<const int, int> >') to 'initializer_list<value_type>' for 1st argument
+      unordered_map(initializer_list<value_type> __l,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unordered_map.h:159:2: note: candidate constructor template not viable: requires at least 2 arguments, but 1 was provided
+        unordered_map(_InputIterator __f, _InputIterator __l,
+        ^
+1 error generated.

@@ -1,0 +1,30 @@
++ clang++ -std=c++11 -pthread main.cpp
+main.cpp:17:11: error: expected ';' after top level declarator
+"\xcd\x80"              /* int     $0x80                  */
+          ^
+          ;
+main.cpp:24:1: error: 'main' must return 'int'
+void main(int argc, char **argv)
+^~~~
+int
+main.cpp:44:37: warning: format specifies type 'unsigned int' but the argument has type 'unsigned long' [-Wformat]
+    printf("Return Address: 0x%x\n",get_sp());
+                              ~~    ^~~~~~~~
+                              %lx
+main.cpp:45:30: warning: format specifies type 'unsigned int' but the argument has type 'long' [-Wformat]
+    printf("Address: 0x%x\n",ret);
+                       ~~    ^~~
+                       %lx
+main.cpp:66:2: error: expected '}'
+}
+ ^
+main.cpp:57:5: note: to match this '{'
+    {
+    ^
+main.cpp:66:2: error: expected '}'
+}
+ ^
+main.cpp:25:1: note: to match this '{'
+{
+^
+2 warnings and 4 errors generated.
