@@ -12,14 +12,12 @@ id="$(./hash.sh)"
 # search for previous result in the compile cache
 [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
     cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output"
-    echo "(cached)" 1>&2
     exit
 }
 
 # search for previous result in the old archive
 [ -d ${COLIRU_ARCHIVE}/${id} ] && {
     cat "${COLIRU_ARCHIVE}/${id}/output"
-    echo "(archived)" 1>&2
     exit
 }
 
@@ -27,7 +25,6 @@ id="$(./hash.sh)"
 pathifiedId="$(./pathify-id.sh ${id})"
 [ -d "${COLIRU_ARCHIVE2}/${pathifiedId}" ] && {
     cat "${COLIRU_ARCHIVE2}/${pathifiedId}/output"
-    echo "(archived)" 1>&2
     exit
 }
 
