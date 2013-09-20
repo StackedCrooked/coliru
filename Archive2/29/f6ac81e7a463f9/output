@@ -1,0 +1,32 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -Weffc++ -Wextra main.cpp
+main.cpp: In constructor 'tree_node::tree_node()':
+main.cpp:20:8: warning: 'tree_node::name' should be initialized in the member initialization list [-Weffc++]
+ struct tree_node
+        ^
+main.cpp:20:8: warning: 'tree_node::value' should be initialized in the member initialization list [-Weffc++]
+main.cpp:20:8: warning: 'tree_node::children_' should be initialized in the member initialization list [-Weffc++]
+main.cpp: In function 'int main()':
+main.cpp:37:14: note: synthesized method 'tree_node::tree_node()' first required here 
+    tree_node root;
+              ^
+main.cpp: In instantiation of 'static void boost::container::allocator_traits<Alloc>::priv_construct_dispatch2(boost::false_type, Alloc&, T*, Args&& ...) [with T = data; Args = {}; Alloc = std::allocator<boost::container::stable_vector_detail::node<void*, data> >; boost::false_type = boost::integral_constant<bool, false>]':
+/usr/local/include/boost/container/allocator_traits.hpp:330:96:   required from 'static void boost::container::allocator_traits<Alloc>::priv_construct(boost::true_type, Alloc&, T*, Args&& ...) [with T = data; Args = {}; Alloc = std::allocator<boost::container::stable_vector_detail::node<void*, data> >; boost::true_type = boost::integral_constant<bool, true>]'
+/usr/local/include/boost/container/allocator_traits.hpp:284:86:   required from 'static void boost::container::allocator_traits<Alloc>::construct(Alloc&, T*, Args&& ...) [with T = data; Args = {}; Alloc = std::allocator<boost::container::stable_vector_detail::node<void*, data> >]'
+/usr/local/include/boost/container/detail/algorithms.hpp:69:60:   required from 'void boost::container::construct_in_place(A&, T*, boost::container::default_construct_iterator<U, D>) [with A = std::allocator<boost::container::stable_vector_detail::node<void*, data> >; T = data; U = data; D = long int]'
+/usr/local/include/boost/container/stable_vector.hpp:1703:14:   required from 'void boost::container::stable_vector<T, Allocator>::priv_build_node_from_it(const node_ptr&, const index_iterator&, const Iterator&) [with Iterator = boost::container::default_construct_iterator<data, long int>; T = data; Allocator = std::allocator<data>; boost::container::stable_vector<T, Allocator>::node_ptr = boost::container::stable_vector_detail::node<void*, data>*; boost::container::stable_vector<T, Allocator>::index_iterator = boost::container::container_detail::vector_iterator<boost::container::stable_vector_detail::node_base<void*>**>]'
+/usr/local/include/boost/container/stable_vector.hpp:1381:16:   required from 'boost::container::stable_vector<T, Allocator>::iterator boost::container::stable_vector<T, Allocator>::insert(boost::container::stable_vector<T, Allocator>::const_iterator, FwdIt, FwdIt, typename boost::container::container_detail::enable_if_c<((! boost::container::container_detail::is_convertible<InIt, typename boost::container::allocator_traits<A>::size_type>::value) && (! boost::container::container_detail::is_input_iterator<InIt>::value))>::type*) [with FwdIt = boost::container::default_construct_iterator<data, long int>; T = data; Allocator = std::allocator<data>; boost::container::stable_vector<T, Allocator>::iterator = boost::container::stable_vector_detail::iterator<data, data&, data*>; typename boost::container::allocator_traits<A>::pointer = data*; typename boost::container::allocator_traits<A>::reference = data&; boost::container::stable_vector<T, Allocator>::const_iterator = boost::container::stable_vector_detail::iterator<data, const data&, const data*>; typename boost::container::allocator_traits<A>::const_pointer = const data*; typename boost::container::allocator_traits<A>::const_reference = const data&; typename boost::container::container_detail::enable_if_c<((! boost::container::container_detail::is_convertible<InIt, typename boost::container::allocator_traits<A>::size_type>::value) && (! boost::container::container_detail::is_input_iterator<InIt>::value))>::type = void]'
+/usr/local/include/boost/container/stable_vector.hpp:971:10:   required from 'void boost::container::stable_vector<T, Allocator>::resize(boost::container::stable_vector<T, Allocator>::size_type) [with T = data; Allocator = std::allocator<data>; boost::container::stable_vector<T, Allocator>::size_type = long unsigned int]'
+main.cpp:33:17:   required from here
+main.cpp:9:8: warning: 'data::i_' should be initialized in the member initialization list [-Weffc++]
+ struct data
+        ^
+main.cpp:9:8: warning: 'data::v_' should be initialized in the member initialization list [-Weffc++]
+main.cpp:9:8: warning: 'data::l_' should be initialized in the member initialization list [-Weffc++]
+main.cpp:9:8: warning: 'data::m_' should be initialized in the member initialization list [-Weffc++]
+In file included from /usr/local/include/boost/container/detail/utilities.hpp:28:0,
+                 from /usr/local/include/boost/container/vector.hpp:37,
+                 from main.cpp:1:
+/usr/local/include/boost/container/allocator_traits.hpp:339:13: note: synthesized method 'data::data()' first required here 
+          {  ::new((void*)p) T(::boost::forward<Args>(args)...); }
+             ^
++ ./a.out

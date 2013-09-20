@@ -1,0 +1,44 @@
+main.cpp: In lambda function:
+main.cpp:17:46: warning: format '%i' expects a matching 'int' argument [-Wformat=]
+     for_each_my([](int i){ printf("Value: %i"); }, v.cbegin(), v.cend());
+                                              ^
+main.cpp: In instantiation of 'void for_each_my(UnaryOperator&&, InputIterator&&, InputIterator&&) [with UnaryOperator = main()::__lambda0; InputIterator = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >]':
+main.cpp:17:72:   required from here
+main.cpp:7:38: error: no matching function for call to 'forward(main()::__lambda0&)'
+     UnaryOperator uoo{std::forward(uo)};
+                                      ^
+main.cpp:7:38: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:7:38: note:   couldn't deduce template parameter '_Tp'
+     UnaryOperator uoo{std::forward(uo)};
+                                      ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/string:40,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:7:38: note:   couldn't deduce template parameter '_Tp'
+     UnaryOperator uoo{std::forward(uo)};
+                                      ^
+main.cpp:7:39: error: no matching function for call to 'main()::__lambda0::__lambda0(<brace-enclosed initializer list>)'
+     UnaryOperator uoo{std::forward(uo)};
+                                       ^
+main.cpp:7:39: note: candidates are:
+main.cpp:17:18: note: constexpr main()::__lambda0::<lambda>(const main()::__lambda0&)
+     for_each_my([](int i){ printf("Value: %i"); }, v.cbegin(), v.cend());
+                  ^
+main.cpp:17:18: note:   no known conversion for argument 1 from '<type error>' to 'const main()::__lambda0&'
+main.cpp:17:18: note: constexpr main()::__lambda0::<lambda>(main()::__lambda0&&)
+main.cpp:17:18: note:   no known conversion for argument 1 from '<type error>' to 'main()::__lambda0&&'
