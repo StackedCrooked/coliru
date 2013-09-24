@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:14:36: error: invalid initialization of non-const reference of type 'char*&' from an rvalue of type 'char*'
+     call(&buffer[0], [](char*&) { });
+                                    ^
+main.cpp:6:20: error: in passing argument 1 of 'decltype (function(it)) call(Iterator&, Function) [with Iterator = char*; Function = main()::__lambda0; decltype (function(it)) = void]'
+ static inline auto call(Iterator& it, Function function) -> decltype(function(it))
+                    ^

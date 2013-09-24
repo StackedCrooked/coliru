@@ -1,0 +1,96 @@
+	.file	"main.cpp"
+	.section	.rodata
+.LC0:
+	.string	"enter your array elements"
+.LC1:
+	.string	"%d"
+	.text
+	.globl	_Z5read1Pii
+	.type	_Z5read1Pii, @function
+_Z5read1Pii:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movq	%rdi, -8(%rbp)
+	movl	%esi, -12(%rbp)
+	movl	$.LC0, %edi
+	call	puts
+	jmp	.L2
+.L3:
+	movq	-8(%rbp), %rax
+	movq	%rax, %rsi
+	movl	$.LC1, %edi
+	movl	$0, %eax
+	call	scanf
+	addq	$4, -8(%rbp)
+	subl	$1, -12(%rbp)
+.L2:
+	cmpl	$-1, -12(%rbp)
+	jne	.L3
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	_Z5read1Pii, .-_Z5read1Pii
+	.globl	_Z5read2Pii
+	.type	_Z5read2Pii, @function
+_Z5read2Pii:
+.LFB1:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movq	%rdi, -8(%rbp)
+	movl	%esi, -12(%rbp)
+	cmpl	$-1, -12(%rbp)
+	je	.L5
+	movq	-8(%rbp), %rax
+	movq	%rax, %rsi
+	movl	$.LC1, %edi
+	movl	$0, %eax
+	call	scanf
+	subl	$1, -12(%rbp)
+	addq	$4, -8(%rbp)
+	movl	-12(%rbp), %edx
+	movq	-8(%rbp), %rax
+	movl	%edx, %esi
+	movq	%rax, %rdi
+	call	_Z5read2Pii
+	jmp	.L4
+.L5:
+	nop
+.L4:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_Z5read2Pii, .-_Z5read2Pii
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
