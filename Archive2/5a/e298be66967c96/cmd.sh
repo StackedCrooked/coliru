@@ -1,0 +1,1 @@
+g++ -Wall -Wextra -pedantic -Werror -std=c++11 -o program main.cpp && ./program

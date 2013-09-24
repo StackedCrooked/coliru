@@ -1,0 +1,17 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:14:18: error: invalid use of incomplete type 'class std::result_of<main()::__lambda0>'
+     call([]() { });
+                  ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/type_traits:1878:11: error: declaration of 'class std::result_of<main()::__lambda0>'
+     class result_of;
+           ^
+main.cpp:13:10: warning: unused variable 'a' [-Wunused-variable]
+     char a[] = { 1, 2, 3 };
+          ^
+main.cpp: In instantiation of 'std::result_of<Function> call(Function) [with Function = main()::__lambda0]':
+main.cpp:14:18:   required from here
+main.cpp:6:20: error: return type 'class std::result_of<main()::__lambda0>' is incomplete
+ static inline auto call(Function function) -> typename std::result_of<Function>
+                    ^

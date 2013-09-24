@@ -1,0 +1,13 @@
+main.cpp:6:50: error: non-static data member declared 'auto'
+     friend auto operator==(A const& L, A const& R) 
+                                                  ^
+main.cpp:16:50: error: non-static data member declared 'auto'
+     friend auto operator==(B const& L, B const& R) 
+                                                  ^
+main.cpp: In function 'int main()':
+main.cpp:26:24: error: no match for 'operator==' (operand types are 'A' and 'A')
+     std::cout << (A{1} == A{2}) << "\n";    // OK for Clang, ERROR for g++
+                        ^
+main.cpp:27:25: error: no match for 'operator==' (operand types are 'BI {aka B<int>}' and 'BI {aka B<int>}')
+     std::cout << (BI{1} == BI{2}) << "\n";  // ERROR for both Clang and g++
+                         ^

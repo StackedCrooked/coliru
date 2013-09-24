@@ -1,0 +1,23 @@
++ clang++ -isystem -std=c++11 -O2 -Wall -pedantic main.cpp
+main.cpp:14:9: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    for(auto const& entry : c)
+        ^
+main.cpp:14:27: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+    for(auto const& entry : c)
+                          ^
+main.cpp:38:14: error: no matching constructor for initialization of 'ifstream' (aka 'basic_ifstream<char>')
+    ifstream in_file(file_name);
+             ^       ~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/fstream:467:7: note: candidate constructor not viable: no known conversion from 'string' (aka 'basic_string<char>') to 'const char *' for 1st argument
+      basic_ifstream(const char* __s, ios_base::openmode __mode = ios_base::in)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/fstream.tcc:967:25: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'string' (aka 'basic_string<char>') to 'const std::basic_ifstream<char>' for 1st argument
+  extern template class basic_ifstream<char>;
+                        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/fstream:453:7: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      basic_ifstream() : __istream_type(), _M_filebuf()
+      ^
+main.cpp:42:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto concordance = build_list(in_file);
+    ^
+3 warnings and 1 error generated.

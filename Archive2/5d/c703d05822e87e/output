@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:19:1: error: no matching function for call to object of type 'bar_t'
+b( foo_t() ); 
+^
+main.cpp:9:36: note: candidate template ignored: substitution failure [with value_type = foo_t]: no type named 'decl_type' in 'foo_t'
+    typename value_type::decl_type operator()( value_type && rref ) 
+                         ~~~~~~~~~ ^
+1 error generated.
