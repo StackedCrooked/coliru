@@ -17,7 +17,14 @@ echo "Killing any previously running instances..."
 
 
 echo "Starting new instance..."
-./run.sh & disown
+(
+    source logger.source
+    while true ; do
+        ./run.sh && echo "*** WEBSERVER QUIT! *** " || echo "*** WEBSERVER CRASHED! ***" 1>&2
+        sleep 5
+        echo "Restarting webserver."
+    done
+) & disown
 
 
 
