@@ -38,5 +38,8 @@ if [ "$COMMITTER_PGID" == "" ] ; then
 fi
 
 
-# Clean the chroot tmp folder every 1000 seconds.
+# Clean the chroot tmp folder every 7000 seconds.
 { while true ; do rm -rf /var/chroot/tmp/* ; sleep 1000 ; done ; } & disown
+
+# Clear the coliru temp dir every 7000 seconds 
+{ while true ; do rm -rf /tmp/coliru/* ; sleep 1000 ; done ; } & disown
