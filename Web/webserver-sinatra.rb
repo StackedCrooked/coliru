@@ -82,7 +82,6 @@ post '/compile' do
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-            safe_popen("rm -rf ${CHROOT}/tmp/* & disown") { |line| puts line }
         end
         stream do |out|
             out << result
@@ -233,19 +232,6 @@ get '/log' do
                 out << line
             end
         end
-    end
-end
-
-
-get '/random_image' do 
-    content_type :jpg
-    entries = [ Dir['./images/*.jpg'], Dir['./images/*.png'] ].flatten
-    if entries.empty?
-        raise 'not found'
-    end
-
-    File.open(entries[rand(entries.size)], 'rb') do |io|
-        io.read
     end
 end
 
