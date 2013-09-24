@@ -10,44 +10,52 @@ echo "Committer is already running" 1>&2
 exit 1
 }
 
+# Output to log files.
+source coliru_env.source
 source logger.source
 
-set -x
-source coliru_env.source
+# First remove all svn locks.
+(
+    cd ${COLIRU_ARCHIVE2}
+
+    ls | grep svn_lock | xargs rm -rf
+
+    # Cleanup svn
+    svn up
+    svn cleanup
+    svn up
+)
+ 
+commit() {
+    svn ci $d -m "Updating archive." || sleep 1
+}
 
 while true ; do (
     cd "${COLIRU_ARCHIVE2}"
-    for d in $(ls) ; do 
-        # Check if it's a directory (it could be junk)
-        if [ ! -d "$d" ] ; then 
-            echo "$(pwd) has junk file: $d" 1>&2
-            continue
-        fi
+
+    # get day counter
+    epoch_days="$(($(date +%s) / (3600 * 24)))"
+
+    # clear any old locks
+    for obsolete_lock in $(ls | grep svn_lock | grep -v $epoch_days) ; do
+        rm -r $obsolete_lock
     done
 
-    mka
+    # try to create today's lock
+    svn_lock="svn_lock_${epoch_days}"
+    mkdir $svn_lock && {
+        # we got the lock, ensure it's destroyed on exit
+        trap "rm -r $svn_lock" EXIT
 
-    if ! { mkdir svn_lock && trap 'rm -f svn_lock' EXIT ; } ; then
-        # another script is using svn return later
-        exit 1
-    fi
+        echo "obtained $svn_lock"
 
-    # we got the lock, ensured it's destroyed on exit
+        set +x
+        for d in $(echo {0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}) ; do
+            commit $d || echo "Failed to commit $d" 2>&1
+        done
+        set -x
 
-    svn add --force $d >/dev/null 2>&1
-    if ! svn ci $d -m "Update archive." ; then 
-        # commit failed!
-        # => update, cleanup and update again
-        svn up
-        svn cleanup $d
-        svn up
-
-        # svn add will be retried later
-        continue
-
-    fi
-done) 
-
-# Repeat later. 
-sleep 3600
-done
+        rm -r $svn_lock
+    } || echo "Failed to create the lock $svn_lock"
+    sleep 3600
+) done 
