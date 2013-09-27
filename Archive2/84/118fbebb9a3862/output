@@ -1,0 +1,65 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:25:18: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ #define UTMP_LOG "/var/run/utmp"
+                  ^
+main.cpp:217:18: note: in expansion of macro ‘UTMP_LOG’
+  char  *utmp_f = UTMP_LOG, *wtmp_f = WTMP_LOG, *last_f = LAST_LOG;
+                  ^
+main.cpp:26:18: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ #define WTMP_LOG "/var/log/wtmp"
+                  ^
+main.cpp:217:38: note: in expansion of macro ‘WTMP_LOG’
+  char  *utmp_f = UTMP_LOG, *wtmp_f = WTMP_LOG, *last_f = LAST_LOG;
+                                      ^
+main.cpp:27:18: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+ #define LAST_LOG "/var/log/lastlog"
+                  ^
+main.cpp:217:58: note: in expansion of macro ‘LAST_LOG’
+  char  *utmp_f = UTMP_LOG, *wtmp_f = WTMP_LOG, *last_f = LAST_LOG;
+                                                          ^
+main.cpp:311:76: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     err("You must specify what do you want to do (e.g. <-m>, <-R> or <-r>)");
+                                                                            ^
+main.cpp:324:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     err("Opened files not found");
+                                 ^
+main.cpp:327:49: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     err("Cannot use <-m>, <-R> or <-r> together");
+                                                 ^
+main.cpp:353:91: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 8 has type ‘int32_t {aka int}’ [-Wformat=]
+                            ut_read.ut_pid, ut_read.ut_type, ut_read.ut_time, ut_read.ut_id);
+                                                                                           ^
+main.cpp:363:104: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘int32_t {aka int}’ [-Wformat=]
+              printf("dev: %s, host: %s, time: %ld\n", ll_read.ll_line, ll_read.ll_host, ll_read.ll_time);
+                                                                                                        ^
+main.cpp: In function ‘void ut_remove(int, utmp, size_t)’:
+main.cpp:188:36: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+           write(fd, &tmp, UTMPSIZE);
+                                    ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:389:61: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+                    write(filedestab[n], &ut_write, UTMPSIZE);
+                                                             ^
+main.cpp:406:61: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+                    write(filedestab[n], &ll_write, LASTSIZE);
+                                                             ^
++ ./a.out
+Linux Log Cleaner - written by Scarab (scarab@go2.pl)
+Usage:
+ ./a.out <[-r][-R][-m]> <Options(1)> <Options(2)> <Options(3)>
+  -r - read files
+  -R - remove
+  -m - modify
+Options(1):
+  -u - path to utmp file (as default /var/run/utmp)
+  -w - path to wtmp file (as default /var/log/wtmp)
+  -l - path to lastlog file (as default /var/log/lastlog)
+Options(2):
+ Search:
+  [-N login_type], [-P pid], [-D tty], [-I term ID],
+  [-T login time], [-E username], [-H host], [-A ip address]
+Options(3):
+ Modify to:
+  [-n login_type], [-p pid], [-d tty], [-i term ID],
+  [-t login time], [-e username], [-h host], [-a ip address]
