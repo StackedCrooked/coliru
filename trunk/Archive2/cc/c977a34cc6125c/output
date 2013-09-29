@@ -1,0 +1,28 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘perm_ins(I, I, F) [with I = char*; F = main()::__lambda2]::__lambda0’:
+main.cpp:17:35:   required from ‘struct perm_ins(I, I, F) [with I = char*; F = main()::__lambda2]::__lambda0’
+main.cpp:28:6:   required from ‘void perm_ins(I, I, F) [with I = char*; F = main()::__lambda2]’
+main.cpp:74:77:   required from here
+main.cpp:19:15: error: no match for call to ‘(const main()::__lambda2) ()’
+         visit();
+               ^
+main.cpp:74:31: note: candidate is:
+     perm_ins(pp, pp+4, [i, &pp]() mutable { printf("%02d: %s\n", ++i, pp); });
+                               ^
+main.cpp:74:35: note: main()::__lambda2 <near match>
+     perm_ins(pp, pp+4, [i, &pp]() mutable { printf("%02d: %s\n", ++i, pp); });
+                                   ^
+main.cpp:74:35: note:   no known conversion for implicit ‘this’ parameter from ‘const main()::__lambda2*’ to ‘main()::__lambda2*’
+main.cpp:24:19: error: no match for call to ‘(const main()::__lambda2) ()’
+             visit();
+                   ^
+main.cpp:74:31: note: candidate is:
+     perm_ins(pp, pp+4, [i, &pp]() mutable { printf("%02d: %s\n", ++i, pp); });
+                               ^
+main.cpp:74:35: note: main()::__lambda2 <near match>
+     perm_ins(pp, pp+4, [i, &pp]() mutable { printf("%02d: %s\n", ++i, pp); });
+                                   ^
+main.cpp:74:35: note:   no known conversion for implicit ‘this’ parameter from ‘const main()::__lambda2*’ to ‘main()::__lambda2*’
+main.cpp:9:40: error: ‘void perm_ins(I, I, F) [with I = char*; F = perm_ins(I, I, F) [with I = char*; F = main()::__lambda2]::__lambda0]’, declared using local type ‘perm_ins(I, I, F) [with I = char*; F = main()::__lambda2]::__lambda0’, is used but never defined [-fpermissive]
+ template <typename I, typename F> void perm_ins(I pb, I pe, F visit)
+                                        ^
