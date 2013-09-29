@@ -1,0 +1,39 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp
+main.cpp: In instantiation of ‘Out tokenize(const Input&, const Delimiters&, Out, tokenize_options) [with Input = std::basic_string<char>; Delimiters = char [4]; Out = std::ostream_iterator<std::basic_string<char> >]’:
+main.cpp:80:27:   required from here
+main.cpp:47:61: error: call of overloaded ‘end(const char [4])’ is ambiguous
+         if (find(begin(delim), end(delim), *it) == end(delim))
+                                                             ^
+main.cpp:47:61: note: candidates are:
+main.cpp:11:36: note: T* end(T (&)[N]) [with T = const char; long unsigned int N = 4ul]
+ template <typename T, size_t N> T* end  (T(&p)[N]) { return p+N; } 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:97:5: note: _Tp* std::end(_Tp (&)[_Nm]) [with _Tp = const char; long unsigned int _Nm = 4ul]
+     end(_Tp (&__arr)[_Nm])
+     ^
+main.cpp:47:29: error: call of overloaded ‘begin(const char [4])’ is ambiguous
+         if (find(begin(delim), end(delim), *it) == end(delim))
+                             ^
+main.cpp:47:29: note: candidates are:
+main.cpp:10:36: note: T* begin(T (&)[N]) [with T = const char; long unsigned int N = 4ul]
+ template <typename T, size_t N> T* begin(T(&p)[N]) { return p;   } 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:87:5: note: _Tp* std::begin(_Tp (&)[_Nm]) [with _Tp = const char; long unsigned int _Nm = 4ul]
+     begin(_Tp (&__arr)[_Nm])
+     ^
+main.cpp:47:41: error: call of overloaded ‘end(const char [4])’ is ambiguous
+         if (find(begin(delim), end(delim), *it) == end(delim))
+                                         ^
+main.cpp:47:41: note: candidates are:
+main.cpp:11:36: note: T* end(T (&)[N]) [with T = const char; long unsigned int N = 4ul]
+ template <typename T, size_t N> T* end  (T(&p)[N]) { return p+N; } 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/range_access.h:97:5: note: _Tp* std::end(_Tp (&)[_Nm]) [with _Tp = const char; long unsigned int _Nm = 4ul]
+     end(_Tp (&__arr)[_Nm])
+     ^
