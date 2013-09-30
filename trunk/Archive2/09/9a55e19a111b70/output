@@ -1,0 +1,7 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:11:26: warning: unsequenced modification and access to 'i' [-Wunsequenced]
+    int res = i + array[i++] + array[i++] *2  + array[i++] *4;
+              ~          ^
+1 warning generated.
++ ./a.out
+res 17
