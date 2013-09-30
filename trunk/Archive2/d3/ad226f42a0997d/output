@@ -1,0 +1,9 @@
+In file included from main.cpp:15:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/memory:82:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr.h:79:14: error: static_cast from 'void *' to 'void (*)(some_type *)' is not allowed
+      return static_cast<_Del*>(__p._M_get_deleter(typeid(_Del)));
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:35:39: note: in instantiation of function template specialization 'std::get_deleter<void (some_type *), int, 2>' requested here
+                  << (nullptr == std::get_deleter<decltype(my_deleter)>(pm))
+                                      ^
+1 error generated.
