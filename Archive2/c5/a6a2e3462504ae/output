@@ -1,0 +1,17 @@
+main.cpp:7:17: error: non-constant-expression cannot be narrowed from type 'double' to 'float' in initializer list [-Wc++11-narrowing]
+    float z = { sin(  y ) } ;
+                ^~~~~~~~~
+main.cpp:7:17: note: override this message by inserting an explicit cast
+    float z = { sin(  y ) } ;
+                ^~~~~~~~~
+                static_cast<float>( )
+main.cpp:7:17: warning: implicit conversion loses floating-point precision: 'double' to 'float' [-Wconversion]
+    float z = { sin(  y ) } ;
+              ~ ^~~~~~~~~
+main.cpp:6:11: warning: unused variable 'x' [-Wunused-variable]
+    float x = { std::sin(  y ) } ;
+          ^
+main.cpp:7:11: warning: unused variable 'z' [-Wunused-variable]
+    float z = { sin(  y ) } ;
+          ^
+3 warnings and 1 error generated.
