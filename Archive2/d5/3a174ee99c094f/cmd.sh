@@ -1,0 +1,1 @@
+set -x ; gcc -x c -std=c99 -Wall main.cpp && ./a.out
