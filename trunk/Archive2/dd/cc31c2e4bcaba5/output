@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++1y main.cpp -ldl
++ ./a.out
+dlopen("libm.so") -> 0x7f7dfad3d9f0
+sym_fun("cos")
+cos(2.0): -0.416147
+dlclose(0x7f7dfad3d9f0)
+dlopen("barf.so") -> 0
+dlclose(0)
+barf.so: cannot open shared object file: No such file or directory
+dlopen("libm.so") -> 0x7f7dfad3d9f0
+sym_fun("barf")
+dlclose(0x7f7dfad3d9f0)
+/lib/x86_64-linux-gnu/libm.so.6: undefined symbol: barf
