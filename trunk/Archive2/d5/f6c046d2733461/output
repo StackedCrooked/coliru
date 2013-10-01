@@ -1,0 +1,20 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:21:25: error: unknown type name 'MWeather'; did you mean 'Mweather'?
+double lowestTempOfYear(MWeather data[12]){
+                        ^~~~~~~~
+                        Mweather
+main.cpp:7:8: note: 'Mweather' declared here
+struct Mweather {
+       ^
+main.cpp:28:12: error: function definition is not allowed here
+int main() {
+           ^
+main.cpp:30:2: error: expected ';' at end of declaration
+}
+ ^
+ ;
+main.cpp:30:2: error: expected '}'
+main.cpp:21:43: note: to match this '{'
+double lowestTempOfYear(MWeather data[12]){
+                                          ^
+4 errors generated.
