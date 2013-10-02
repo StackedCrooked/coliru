@@ -1,0 +1,58 @@
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -pedantic main.cpp
+In file included from main.cpp:1:
+/usr/include/c++/v1/vector:573:67: error: no member named 'value' in 'std::__1::is_nothrow_move_constructible<std::__1::allocator<std::__1::basic_string<char> > >'
+        _NOEXCEPT_(is_nothrow_move_constructible<allocator_type>::value);
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+/usr/include/c++/v1/__config:310:34: note: expanded from macro '_NOEXCEPT_'
+#  define _NOEXCEPT_(x) noexcept(x)
+                                 ^
+main.cpp:18:29: note: in instantiation of exception specification for 'vector' requested here
+   std::vector<std::string> vectorFoo_;
+                            ^
+/usr/include/c++/v1/type_traits:2526:53: note: in instantiation of template class 'std::__1::add_rvalue_reference<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+    : public is_nothrow_constructible<_Tp, typename add_rvalue_reference<_Tp>::type>
+                                                    ^
+/usr/include/c++/v1/vector:573:20: note: in instantiation of template class 'std::__1::is_nothrow_move_constructible<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+        _NOEXCEPT_(is_nothrow_move_constructible<allocator_type>::value);
+                   ^
+/usr/include/c++/v1/__config:310:34: note: expanded from macro '_NOEXCEPT_'
+#  define _NOEXCEPT_(x) noexcept(x)
+                                 ^
+main.cpp:18:29: note: in instantiation of exception specification for 'vector' requested here
+   std::vector<std::string> vectorFoo_;
+                            ^
+In file included from main.cpp:1:
+/usr/include/c++/v1/vector:580:58: error: no member named 'value' in 'std::__1::is_nothrow_move_assignable<std::__1::allocator<std::__1::basic_string<char> > >'
+             is_nothrow_move_assignable<allocator_type>::value);
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+/usr/include/c++/v1/__config:310:34: note: expanded from macro '_NOEXCEPT_'
+#  define _NOEXCEPT_(x) noexcept(x)
+                                 ^
+main.cpp:18:29: note: in instantiation of exception specification for 'operator=' requested here
+   std::vector<std::string> vectorFoo_;
+                            ^
+/usr/include/c++/v1/type_traits:2610:45: note: in instantiation of template class 'std::__1::add_lvalue_reference<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+    : public is_nothrow_assignable<typename add_lvalue_reference<_Tp>::type,
+                                            ^
+/usr/include/c++/v1/vector:580:14: note: in instantiation of template class 'std::__1::is_nothrow_move_assignable<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+             is_nothrow_move_assignable<allocator_type>::value);
+             ^
+/usr/include/c++/v1/__config:310:34: note: expanded from macro '_NOEXCEPT_'
+#  define _NOEXCEPT_(x) noexcept(x)
+                                 ^
+main.cpp:18:29: note: in instantiation of exception specification for 'operator=' requested here
+   std::vector<std::string> vectorFoo_;
+                            ^
+/usr/include/c++/v1/type_traits:2526:53: note: in instantiation of template class 'std::__1::add_rvalue_reference<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+    : public is_nothrow_constructible<_Tp, typename add_rvalue_reference<_Tp>::type>
+                                                    ^
+/usr/include/c++/v1/vector:573:20: note: in instantiation of template class 'std::__1::is_nothrow_move_constructible<std::__1::allocator<std::__1::basic_string<char> > >' requested here
+        _NOEXCEPT_(is_nothrow_move_constructible<allocator_type>::value);
+                   ^
+/usr/include/c++/v1/__config:310:34: note: expanded from macro '_NOEXCEPT_'
+#  define _NOEXCEPT_(x) noexcept(x)
+                                 ^
+main.cpp:18:29: note: in instantiation of exception specification for 'vector' requested here
+   std::vector<std::string> vectorFoo_;
+                            ^
+2 errors generated.
