@@ -1,0 +1,50 @@
++ gcc -x c -std=c99 -S -Wall -pedantic -pthread main.cpp
++ cat main.s
+	.file	"main.cpp"
+	.section	.rodata
+.LC1:
+	.string	"%d\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	movl	$2, -8(%rbp)
+	cvtsi2sd	-8(%rbp), %xmm0
+	movsd	.LC0(%rip), %xmm2
+	movapd	%xmm0, %xmm1
+	movapd	%xmm2, %xmm0
+	call	pow
+	movsd	%xmm0, -24(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -24(%rbp)
+	movsd	-24(%rbp), %xmm0
+	cvttsd2si	%xmm0, %eax
+	movl	%eax, -4(%rbp)
+	movl	$.LC1, %eax
+	movl	-4(%rbp), %edx
+	movl	%edx, %esi
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC0:
+	.long	0
+	.long	1076101120
+	.ident	"GCC: (Ubuntu/Linaro 4.6.4-1ubuntu1~12.04) 4.6.4"
+	.section	.note.GNU-stack,"",@progbits

@@ -1,0 +1,1 @@
+set -x ; gcc -x c -std=c99 -S -Wall -pedantic -pthread main.cpp && cat main.s
