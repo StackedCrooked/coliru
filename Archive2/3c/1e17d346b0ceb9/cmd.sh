@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++11 -O2 -Wall -Wextra -pedantic-errors -lboost_filesystem -lboost_system -L/usr/lib/boost main.cpp && ./a.out
