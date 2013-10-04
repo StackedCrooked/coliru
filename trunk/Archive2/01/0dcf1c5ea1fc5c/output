@@ -1,0 +1,20 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘unsigned int bit_sizeof(T) [with T = int*]’:
+main.cpp:27:42:   required from here
+main.cpp:7:6: error: invalid operands of types ‘int*’ and ‘int*’ to binary ‘operator^’
+     x^=x;
+      ^
+main.cpp:7:6: error:   in evaluation of ‘operator^=(int*, int*)’
+main.cpp:8:6: error: invalid operands of types ‘int*’ and ‘int’ to binary ‘operator|’
+     x|=1;
+      ^
+main.cpp:8:6: error:   in evaluation of ‘operator|=(int*, int)’
+main.cpp:9:10: error: invalid conversion from ‘int*’ to ‘long long int’ [-fpermissive]
+     a=b=c=x;
+          ^
+main.cpp:12:6: error: invalid conversion from ‘long long int’ to ‘int*’ [-fpermissive]
+     x=b;
+      ^
+main.cpp:17:10: error: invalid conversion from ‘long long int’ to ‘int*’ [-fpermissive]
+         x=b;
+          ^
