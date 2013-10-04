@@ -1,0 +1,39 @@
++ g++-4.8 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent1*, bool, int)]’:
+main.cpp:212:134:   required from here
+main.cpp:163:30: warning: variable ‘newComponentAndCallbackPair’ set but not used [-Wunused-but-set-variable]
+     ComponentAndCallbackPair newComponentAndCallbackPair   = std::make_pair( pComponentThatOwnsFunction, pCallbackFunction );
+                              ^
+main.cpp: In instantiation of ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, bool, int)]’:
+main.cpp:242:134:   required from here
+main.cpp:163:30: warning: variable ‘newComponentAndCallbackPair’ set but not used [-Wunused-but-set-variable]
+main.cpp: In instantiation of ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, float)]’:
+main.cpp:243:134:   required from here
+main.cpp:163:30: warning: variable ‘newComponentAndCallbackPair’ set but not used [-Wunused-but-set-variable]
+main.cpp: In instantiation of ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, float*)]’:
+main.cpp:244:91:   required from here
+main.cpp:163:30: warning: variable ‘newComponentAndCallbackPair’ set but not used [-Wunused-but-set-variable]
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h: In instantiation of ‘std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&) [with _U1 = Component*; _U2 = void (*)(SampleComponent1*, bool, int); _T1 = Component*; _T2 = BaseFunctionPointerHolder*]’:
+main.cpp:163:124:   required from ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent1*, bool, int)]’
+main.cpp:212:134:   required from here
+/usr/include/c++/4.8/bits/stl_pair.h:119:39: error: cannot convert ‘void (* const)(SampleComponent1*, bool, int)’ to ‘BaseFunctionPointerHolder*’ in initialization
+  : first(__p.first), second(__p.second) { }
+                                       ^
+/usr/include/c++/4.8/bits/stl_pair.h: In instantiation of ‘std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&) [with _U1 = Component*; _U2 = void (*)(SampleComponent2*, bool, int); _T1 = Component*; _T2 = BaseFunctionPointerHolder*]’:
+main.cpp:163:124:   required from ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, bool, int)]’
+main.cpp:242:134:   required from here
+/usr/include/c++/4.8/bits/stl_pair.h:119:39: error: cannot convert ‘void (* const)(SampleComponent2*, bool, int)’ to ‘BaseFunctionPointerHolder*’ in initialization
+/usr/include/c++/4.8/bits/stl_pair.h: In instantiation of ‘std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&) [with _U1 = Component*; _U2 = void (*)(SampleComponent2*, float); _T1 = Component*; _T2 = BaseFunctionPointerHolder*]’:
+main.cpp:163:124:   required from ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, float)]’
+main.cpp:243:134:   required from here
+/usr/include/c++/4.8/bits/stl_pair.h:119:39: error: cannot convert ‘void (* const)(SampleComponent2*, float)’ to ‘BaseFunctionPointerHolder*’ in initialization
+/usr/include/c++/4.8/bits/stl_pair.h: In instantiation of ‘std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&) [with _U1 = Component*; _U2 = void (*)(SampleComponent2*, float*); _T1 = Component*; _T2 = BaseFunctionPointerHolder*]’:
+main.cpp:163:124:   required from ‘void GameObject::RegisterCallbackFunction(GameObjectFunctionId, Component*, FunctionType) [with FunctionType = void (*)(SampleComponent2*, float*)]’
+main.cpp:244:91:   required from here
+/usr/include/c++/4.8/bits/stl_pair.h:119:39: error: cannot convert ‘void (* const)(SampleComponent2*, float*)’ to ‘BaseFunctionPointerHolder*’ in initialization
