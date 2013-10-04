@@ -1,0 +1,1 @@
+set -x ; clang -xc -Wall -pedantic -pthread main.cpp && ./a.out
