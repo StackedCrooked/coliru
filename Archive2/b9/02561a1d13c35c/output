@@ -1,0 +1,38 @@
++ gcc -x c -std=c99 -O0 -Wall -pedantic -pthread -S main.cpp
+main.cpp: In function ‘main’:
+main.cpp:7:12: warning: variable ‘input’ set but not used [-Wunused-but-set-variable]
++ cat main.s
+	.file	"main.cpp"
+	.section	.rodata
+.LC2:
+	.string	"sine=%f\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movabsq	$4618760047542080111, %rax
+	movq	%rax, -16(%rbp)
+	movabsq	$-4672403384643380243, %rax
+	movq	%rax, -8(%rbp)
+	movl	$.LC2, %eax
+	movsd	-8(%rbp), %xmm0
+	movq	%rax, %rdi
+	movl	$1, %eax
+	call	printf
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.4-1ubuntu1~12.04) 4.6.4"
+	.section	.note.GNU-stack,"",@progbits
