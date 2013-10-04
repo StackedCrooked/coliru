@@ -1,0 +1,114 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:123:87: error: no matching function for call to ‘deduce_func_types(break_hopes_and_dreams)’
+     using hopes_and_dreams_types = decltype(deduce_func_types(break_hopes_and_dreams()));
+                                                                                       ^
+main.cpp:123:87: note: candidates are:
+main.cpp:70:6: note: template<class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_func_types(ret_type (*)(arg_types ...))
+ auto deduce_func_types(ret_type(*)(arg_types...)) -> type_list<ret_type, arg_types...> {
+      ^
+main.cpp:70:6: note:   template argument deduction/substitution failed:
+main.cpp:123:87: note:   mismatched types ‘ret_type (*)(arg_types ...)’ and ‘break_hopes_and_dreams’
+     using hopes_and_dreams_types = decltype(deduce_func_types(break_hopes_and_dreams()));
+                                                                                       ^
+main.cpp:83:6: note: template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type)
+ auto deduce_func_types(functor_type functor)
+      ^
+main.cpp:83:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type) [with functor_type = break_hopes_and_dreams]’:
+main.cpp:123:87:   required from here
+main.cpp:84:72: error: no matching function for call to ‘deduce_functor_types(break_hopes_and_dreams&, <unresolved overloaded function type>)’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:84:72: note: candidate is:
+main.cpp:76:6: note: template<class functor_type, class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_functor_types(functor_type, ret_type (functor_type::*)(arg_types ...))
+ auto deduce_functor_types(functor_type functor, ret_type(functor_type::*)(arg_types...))
+      ^
+main.cpp:76:6: note:   template argument deduction/substitution failed:
+main.cpp:84:72: note:   couldn't deduce template parameter ‘ret_type’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:123:87: error: no matching function for call to ‘deduce_func_types(break_hopes_and_dreams)’
+     using hopes_and_dreams_types = decltype(deduce_func_types(break_hopes_and_dreams()));
+                                                                                       ^
+main.cpp:123:87: note: candidates are:
+main.cpp:70:6: note: template<class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_func_types(ret_type (*)(arg_types ...))
+ auto deduce_func_types(ret_type(*)(arg_types...)) -> type_list<ret_type, arg_types...> {
+      ^
+main.cpp:70:6: note:   template argument deduction/substitution failed:
+main.cpp:123:87: note:   mismatched types ‘ret_type (*)(arg_types ...)’ and ‘break_hopes_and_dreams’
+     using hopes_and_dreams_types = decltype(deduce_func_types(break_hopes_and_dreams()));
+                                                                                       ^
+main.cpp:83:6: note: template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type)
+ auto deduce_func_types(functor_type functor)
+      ^
+main.cpp:83:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type) [with functor_type = break_hopes_and_dreams]’:
+main.cpp:123:87:   required from here
+main.cpp:84:72: error: no matching function for call to ‘deduce_functor_types(break_hopes_and_dreams&, <unresolved overloaded function type>)’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:84:72: note: candidate is:
+main.cpp:76:6: note: template<class functor_type, class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_functor_types(functor_type, ret_type (functor_type::*)(arg_types ...))
+ auto deduce_functor_types(functor_type functor, ret_type(functor_type::*)(arg_types...))
+      ^
+main.cpp:76:6: note:   template argument deduction/substitution failed:
+main.cpp:84:72: note:   couldn't deduce template parameter ‘ret_type’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:124:83: error: no matching function for call to ‘deduce_func_types(break_another_dream)’
+     using another_dream_breaker = decltype(deduce_func_types(break_another_dream()));
+                                                                                   ^
+main.cpp:124:83: note: candidates are:
+main.cpp:70:6: note: template<class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_func_types(ret_type (*)(arg_types ...))
+ auto deduce_func_types(ret_type(*)(arg_types...)) -> type_list<ret_type, arg_types...> {
+      ^
+main.cpp:70:6: note:   template argument deduction/substitution failed:
+main.cpp:124:83: note:   mismatched types ‘ret_type (*)(arg_types ...)’ and ‘break_another_dream’
+     using another_dream_breaker = decltype(deduce_func_types(break_another_dream()));
+                                                                                   ^
+main.cpp:83:6: note: template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type)
+ auto deduce_func_types(functor_type functor)
+      ^
+main.cpp:83:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type) [with functor_type = break_another_dream]’:
+main.cpp:124:83:   required from here
+main.cpp:84:72: error: no matching function for call to ‘deduce_functor_types(break_another_dream&, <unresolved overloaded function type>)’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:84:72: note: candidate is:
+main.cpp:76:6: note: template<class functor_type, class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_functor_types(functor_type, ret_type (functor_type::*)(arg_types ...))
+ auto deduce_functor_types(functor_type functor, ret_type(functor_type::*)(arg_types...))
+      ^
+main.cpp:76:6: note:   template argument deduction/substitution failed:
+main.cpp:84:72: note:   couldn't deduce template parameter ‘ret_type’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:124:83: error: no matching function for call to ‘deduce_func_types(break_another_dream)’
+     using another_dream_breaker = decltype(deduce_func_types(break_another_dream()));
+                                                                                   ^
+main.cpp:124:83: note: candidates are:
+main.cpp:70:6: note: template<class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_func_types(ret_type (*)(arg_types ...))
+ auto deduce_func_types(ret_type(*)(arg_types...)) -> type_list<ret_type, arg_types...> {
+      ^
+main.cpp:70:6: note:   template argument deduction/substitution failed:
+main.cpp:124:83: note:   mismatched types ‘ret_type (*)(arg_types ...)’ and ‘break_another_dream’
+     using another_dream_breaker = decltype(deduce_func_types(break_another_dream()));
+                                                                                   ^
+main.cpp:83:6: note: template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type)
+ auto deduce_func_types(functor_type functor)
+      ^
+main.cpp:83:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class functor_type> decltype (deduce_functor_types(functor, (& functor_type:: operator()))) deduce_func_types(functor_type) [with functor_type = break_another_dream]’:
+main.cpp:124:83:   required from here
+main.cpp:84:72: error: no matching function for call to ‘deduce_functor_types(break_another_dream&, <unresolved overloaded function type>)’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
+main.cpp:84:72: note: candidate is:
+main.cpp:76:6: note: template<class functor_type, class ret_type, class ... arg_types> type_list<ret_type, arg_types ...> deduce_functor_types(functor_type, ret_type (functor_type::*)(arg_types ...))
+ auto deduce_functor_types(functor_type functor, ret_type(functor_type::*)(arg_types...))
+      ^
+main.cpp:76:6: note:   template argument deduction/substitution failed:
+main.cpp:84:72: note:   couldn't deduce template parameter ‘ret_type’
+     -> decltype(deduce_functor_types(functor, &functor_type::operator())) {
+                                                                        ^
