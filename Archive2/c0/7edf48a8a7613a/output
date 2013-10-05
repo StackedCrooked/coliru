@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -pedantic main.cpp
+main.cpp:42:9: error: static_assert failed "missing argument to named parameters"
+        static_assert(depend<Us...>(false), "missing argument to named parameters");
+        ^             ~~~~~~~~~~~~~~~~~~~~
+main.cpp:87:9: note: in instantiation of function template specialization 'foo_params<seq<0, 1, 2>, assigned<int>, assigned<float>, assigned<bool> >::foo_params<assigned<int>, missing<float>, assigned<bool> >' requested here
+    foo(FooArgs{}.flipped(true).size(10));
+        ^
+1 error generated.
