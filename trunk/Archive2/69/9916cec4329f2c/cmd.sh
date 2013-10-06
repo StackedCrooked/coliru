@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++1y -O0 -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out
