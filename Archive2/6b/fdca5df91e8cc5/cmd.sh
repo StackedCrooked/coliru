@@ -1,0 +1,1 @@
+set -x ; g++ -std=c++11 -O0 -Wall -pedantic -pthread main.cpp && ./a.out && c++filt -t 1a F1avE
