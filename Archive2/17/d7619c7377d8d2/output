@@ -1,0 +1,12 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:9:29: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    std::vector<int> numbers(std::istream_iterator<int>(is), std::istream_iterator<int>());
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:9:30: note: add a pair of parentheses to declare a variable
+    std::vector<int> numbers(std::istream_iterator<int>(is), std::istream_iterator<int>());
+                             ^
+                             (                             )
+main.cpp:10:22: error: member reference base type 'std::vector<int> (std::istream_iterator<int>, std::istream_iterator<int> (*)())' is not a structure or union
+    std::copy(numbers.begin(), numbers.end(),
+              ~~~~~~~^~~~~~
+1 warning and 1 error generated.
