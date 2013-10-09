@@ -119,7 +119,6 @@ end
 
 post '/timeout' do
     set_timeout(request.body.read.to_i)
-    get_timeout
 end
 
 
@@ -261,7 +260,6 @@ end
 def get_timeout
     begin
         result = [60, File.read('timeout.txt').to_i ].min.to_s
-        File.open('timeout.txt', 'w') { |f| f << 20 }
         return result
     rescue Exception => _
         20.to_s
@@ -281,6 +279,7 @@ end
 def safe_popen(cmd)
     begin
         Timeout.timeout(get_timeout.to_i) do
+            set_timeout(20)
             @stdout = IO.popen("#{cmd} 2>&1 ")
             count = 0
             max_count = 256 * 1024
