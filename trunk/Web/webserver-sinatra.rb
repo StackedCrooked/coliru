@@ -113,12 +113,13 @@ end
 
 
 get '/timeout' do
-    get_timeout
+    return "#{get_timeout}\n"
 end
 
 
 post '/timeout' do
     set_timeout(request.body.read.to_i)
+    return "Timeout is now #{get_timeout} seconds\n"
 end
 
 
