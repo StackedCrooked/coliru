@@ -1,0 +1,23 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:19:48: error: ‘CHAR_BIT’ was not declared in this scope
+  static const int NumBits = sizeof(MaskType) * CHAR_BIT;
+                                                ^
+main.cpp: In member function ‘FlagSet<AccessType>::MaskType FlagSet<AccessType>::getMask() const’:
+main.cpp:8:42: error: request for member ‘to_ulong’ in ‘((const FlagSet<AccessType>*)this)->FlagSet<AccessType>::flags’, which is of non-class type ‘const int’
+  MaskType getMask() const { return flags.to_ulong(); }
+                                          ^
+main.cpp: In member function ‘bool FlagSet<AccessType>::getFlag(AccessType)’:
+main.cpp:12:47: error: request for member ‘at’ in ‘((FlagSet<AccessType>*)this)->FlagSet<AccessType>::flags’, which is of non-class type ‘int’
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                               ^
+main.cpp: In member function ‘void FlagSet<AccessType>::setFlag(AccessType, bool)’:
+main.cpp:15:9: error: request for member ‘set’ in ‘((FlagSet<AccessType>*)this)->FlagSet<AccessType>::flags’, which is of non-class type ‘int’
+   flags.set(static_cast<size_t>(flag), newValue);
+         ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:42:2: error: ‘cout’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+  ^
+main.cpp:42:48: error: ‘endl’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+                                                ^

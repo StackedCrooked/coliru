@@ -1,0 +1,12 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:28:1: error: expected unqualified-id before ‘{’ token
+ {
+ ^
+main.cpp: In function ‘int main()’:
+main.cpp:37:36: error: ‘get_impl’ was not declared in this scope
+     service_impl* impl = get_impl(s);
+                                    ^
+main.cpp:37:36: note: suggested alternative:
+main.cpp:27:15: note:   ‘detail::get_impl’
+ service_impl* get_impl(service &s);
+               ^

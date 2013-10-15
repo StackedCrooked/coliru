@@ -1,0 +1,72 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:9: warning: #pragma once in main file [enabled by default]
+ #pragma once
+         ^
+main.cpp:7:13: error: need ‘typename’ before ‘std::underlying_type<AccessType>::type’ because ‘std::underlying_type<AccessType>’ is a dependent scope
+     typedef std::underlying_type<AccessType>::type MaskType;
+             ^
+main.cpp:9:2: error: ‘MaskType’ does not name a type
+  MaskType getMask() const { return flags.to_ulong(); }
+  ^
+main.cpp:11:15: error: ‘MaskType’ has not been declared
+  void setMask(MaskType newMask) {
+               ^
+main.cpp:24:26: error: ‘MaskType’ was not declared in this scope
+  enum { NumBits = sizeof(MaskType)  * CHAR_BIT; };
+                          ^
+main.cpp:24:39: error: ‘CHAR_BIT’ was not declared in this scope
+  enum { NumBits = sizeof(MaskType)  * CHAR_BIT; };
+                                       ^
+main.cpp:24:47: error: expected ‘}’ before ‘;’ token
+  enum { NumBits = sizeof(MaskType)  * CHAR_BIT; };
+                                               ^
+main.cpp: In member function ‘void FlagSet<AccessType>::setMask(int)’:
+main.cpp:12:3: error: ‘flags’ was not declared in this scope
+   flags = std::bitset<NumBits> pattern(newMask);
+   ^
+main.cpp:12:11: error: ‘bitset’ is not a member of ‘std’
+   flags = std::bitset<NumBits> pattern(newMask);
+           ^
+main.cpp:12:47: error: there are no arguments to ‘pattern’ that depend on a template parameter, so a declaration of ‘pattern’ must be available [-fpermissive]
+   flags = std::bitset<NumBits> pattern(newMask);
+                                               ^
+main.cpp:12:47: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In member function ‘bool FlagSet<AccessType>::getFlag(AccessType)’:
+main.cpp:16:10: error: ‘flags’ was not declared in this scope
+   return flags.at(static_cast<size_t>(flag));
+          ^
+main.cpp:16:31: error: expected type-specifier before ‘size_t’
+   return flags.at(static_cast<size_t>(flag));
+                               ^
+main.cpp:16:31: error: expected ‘>’ before ‘size_t’
+main.cpp:16:31: error: expected ‘(’ before ‘size_t’
+main.cpp:16:31: error: ‘size_t’ was not declared in this scope
+main.cpp:16:31: note: suggested alternative:
+In file included from /usr/include/c++/4.8/type_traits:38:0,
+                 from main.cpp:3:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:180:26: note:   ‘std::size_t’
+   typedef __SIZE_TYPE__  size_t;
+                          ^
+main.cpp: In member function ‘void FlagSet<AccessType>::setFlag(AccessType, bool)’:
+main.cpp:20:3: error: ‘flags’ was not declared in this scope
+   flags.at(static_cast<size_t>(flag), newValue);
+   ^
+main.cpp:20:24: error: expected type-specifier before ‘size_t’
+   flags.at(static_cast<size_t>(flag), newValue);
+                        ^
+main.cpp:20:24: error: expected ‘>’ before ‘size_t’
+main.cpp:20:24: error: expected ‘(’ before ‘size_t’
+main.cpp:20:24: error: ‘size_t’ was not declared in this scope
+main.cpp:20:24: note: suggested alternative:
+In file included from /usr/include/c++/4.8/type_traits:38:0,
+                 from main.cpp:3:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:180:26: note:   ‘std::size_t’
+   typedef __SIZE_TYPE__  size_t;
+                          ^
+main.cpp: At global scope:
+main.cpp:25:2: error: ‘bitset’ in namespace ‘std’ does not name a type
+  std::bitset<NumBits> flags;
+  ^
+main.cpp:26:1: error: expected declaration before ‘}’ token
+ };
+ ^

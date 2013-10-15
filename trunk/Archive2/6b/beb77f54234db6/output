@@ -1,0 +1,31 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -ltbb
++ ./a.out
+
+
+*** test_with_futures ***
+Stack::Stack()
+std::future<Protocol&> Stack::addProtocol()
+Protocol& Stack::addProtocol(Internal)
+Protocol::Protocol(Internal, Stack&)
+std::future<Session&> Protocol::addSession()
+Session& Protocol::addSession(Internal)
+Session::Session(Internal, Protocol&)
+std::future<bool> Session::start()
+bool Session::start(Internal)
+std::future<bool> Session::stop()
+bool Session::stop(Internal)
+Stack::~Stack()
+std::future<bool> Stack::stop_all()
+
+
+*** test_with_callback ***
+Stack::Stack()
+std::future<decltype (f(declval<Internal>(), declval<Protocol&>()))> Stack::addProtocol(F&&) [with F = test_with_callback()::__lambda14; decltype (f(declval<Internal>(), declval<Protocol&>())) = bool]
+Protocol& Stack::addProtocol(Internal)
+Protocol::Protocol(Internal, Stack&)
+Session& Protocol::addSession(Internal)
+Session::Session(Internal, Protocol&)
+bool Session::start(Internal)
+bool Session::stop(Internal)
+Stack::~Stack()
+std::future<bool> Stack::stop_all()

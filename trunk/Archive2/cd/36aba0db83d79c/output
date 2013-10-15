@@ -1,0 +1,21 @@
++ clang++ -std=c++11 -O0 -Wall -Wextra -pedantic main.cpp
+main.cpp:8:20: error: no matching member function for call to 'reset'
+    auto y = [p]{p.reset();}
+                 ~~^~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr_base.h:910:7: note: candidate function not viable: no known conversion from 'const std::shared_ptr<int>' to 'std::__shared_ptr<int, 2>' for object argument
+      reset() noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr_base.h:915:2: note: candidate function template not viable: requires single argument '__p', but no arguments were provided
+        reset(_Tp1* __p) // _Tp1 must be complete.
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr_base.h:924:2: note: candidate function template not viable: requires 2 arguments, but 0 were provided
+        reset(_Tp1* __p, _Deleter __d)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr_base.h:929:9: note: candidate function template not viable: requires 3 arguments, but 0 were provided
+        reset(_Tp1* __p, _Deleter __d, _Alloc __a)
+        ^
+main.cpp:8:29: error: expected ';' at end of declaration
+    auto y = [p]{p.reset();}
+                            ^
+                            ;
+2 errors generated.

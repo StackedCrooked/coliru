@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -pedantic main.cpp
+main.cpp:1:27: error: C++ requires a type specifier for all declarations
+namespace N { struct S{}; bar(S&) { } }
+                          ^~~
+main.cpp:2:45: error: no matching function for call to 'bar'
+template<typename T> void foo(T const& x) { bar(x); }
+                                            ^~~
+main.cpp:3:12: note: in instantiation of function template specialization 'foo<N::S>' requested here
+int main(){foo(N::S{});return 0;}
+           ^
+main.cpp:1:27: note: candidate function not viable: 1st argument ('const N::S') would lose const qualifier
+namespace N { struct S{}; bar(S&) { } }
+                          ^
+2 errors generated.

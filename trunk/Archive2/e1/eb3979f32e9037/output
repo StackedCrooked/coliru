@@ -1,0 +1,77 @@
+main.cpp: In function ‘void task_bind()’:
+main.cpp:21:61: error: no matching function for call to ‘bind(<unresolved overloaded function type>, int, int)’
+     std::packaged_task<int()> task(std::bind(std::pow, 2, 11));
+                                                             ^
+main.cpp:21:61: note: candidates are:
+In file included from /usr/include/c++/4.8/thread:39:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/functional:1655:5: note: template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__or_<std::is_integral<typename std::decay<_Tp>::type>, std::is_enum<typename std::decay<_Tp>::type> >::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/include/c++/4.8/functional:1655:5: note:   template argument deduction/substitution failed:
+main.cpp:21:61: note:   couldn't deduce template parameter ‘_Func’
+     std::packaged_task<int()> task(std::bind(std::pow, 2, 11));
+                                                             ^
+In file included from /usr/include/c++/4.8/thread:39:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/functional:1682:5: note: template<class _Result, class _Func, class ... _BoundArgs> typename std::_Bindres_helper<_Result, _Func, _BoundArgs>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/include/c++/4.8/functional:1682:5: note:   template argument deduction/substitution failed:
+main.cpp:21:61: note:   couldn't deduce template parameter ‘_Result’
+     std::packaged_task<int()> task(std::bind(std::pow, 2, 11));
+                                                             ^
+main.cpp: In function ‘void task_thread()’:
+main.cpp:31:51: error: no matching function for call to ‘std::packaged_task<int(int, int)>::packaged_task(<unresolved overloaded function type>)’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+main.cpp:31:51: note: candidates are:
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1379:2: note: template<class _Allocator> std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Allocator&, std::packaged_task<_Res(_ArgTypes ...)>&&)
+  packaged_task(allocator_arg_t, const _Allocator&,
+  ^
+/usr/include/c++/4.8/future:1379:2: note:   template argument deduction/substitution failed:
+main.cpp:31:51: note:   cannot convert ‘std::pow’ (type ‘<unresolved overloaded function type>’) to type ‘std::allocator_arg_t’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1375:7: note: std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::packaged_task<_Res(_ArgTypes ...)>&&) [with _Res = int; _ArgTypes = {int, int}]
+       packaged_task(packaged_task&& __other) noexcept
+       ^
+/usr/include/c++/4.8/future:1375:7: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘std::packaged_task<int(int, int)>&&’
+/usr/include/c++/4.8/future:1371:2: note: template<class _Allocator> std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Allocator&, const std::packaged_task<_Res(_ArgTypes ...)>&) <deleted>
+  packaged_task(allocator_arg_t, const _Allocator&,
+  ^
+/usr/include/c++/4.8/future:1371:2: note:   template argument deduction/substitution failed:
+main.cpp:31:51: note:   cannot convert ‘std::pow’ (type ‘<unresolved overloaded function type>’) to type ‘std::allocator_arg_t’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1355:2: note: template<class _Fn, class _Alloc, class> std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Alloc&, _Fn&&)
+  packaged_task(allocator_arg_t, const _Alloc& __a, _Fn&& __fn)
+  ^
+/usr/include/c++/4.8/future:1355:2: note:   template argument deduction/substitution failed:
+main.cpp:31:51: note:   cannot convert ‘std::pow’ (type ‘<unresolved overloaded function type>’) to type ‘std::allocator_arg_t’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1346:2: note: template<class _Fn, class> std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(_Fn&&)
+  packaged_task(_Fn&& __fn)
+  ^
+/usr/include/c++/4.8/future:1346:2: note:   template argument deduction/substitution failed:
+main.cpp:31:51: note:   couldn't deduce template parameter ‘_Fn’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1340:2: note: template<class _Allocator> std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Allocator&)
+  packaged_task(allocator_arg_t, const _Allocator& __a) noexcept
+  ^
+/usr/include/c++/4.8/future:1340:2: note:   template argument deduction/substitution failed:
+main.cpp:31:51: note:   cannot convert ‘std::pow’ (type ‘<unresolved overloaded function type>’) to type ‘std::allocator_arg_t’
+     std::packaged_task<int(int,int)> task(std::pow);
+                                                   ^
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/future:1335:7: note: std::packaged_task<_Res(_ArgTypes ...)>::packaged_task() [with _Res = int; _ArgTypes = {int, int}]
+       packaged_task() noexcept { }
+       ^
+/usr/include/c++/4.8/future:1335:7: note:   candidate expects 0 arguments, 1 provided

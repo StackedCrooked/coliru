@@ -1,0 +1,18 @@
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of ‘void std::_Construct(_T1*, _Args&& ...) [with _T1 = President; _Args = {President}]’:
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from ‘static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<President*>; _ForwardIterator = President*; bool _TrivialValueTypes = false]’
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<President*>; _ForwardIterator = President*]’
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<President*>; _ForwardIterator = President*; _Tp = President]’
+/usr/include/c++/4.8/bits/stl_uninitialized.h:281:69:   required from ‘_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = President*; _ForwardIterator = President*; _Allocator = std::allocator<President>]’
+/usr/include/c++/4.8/bits/vector.tcc:415:43:   required from ‘void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {const char (&)[15], const char (&)[13], int}; _Tp = President; _Alloc = std::allocator<President>]’
+/usr/include/c++/4.8/bits/vector.tcc:101:54:   required from ‘void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {const char (&)[15], const char (&)[13], int}; _Tp = President; _Alloc = std::allocator<President>]’
+main.cpp:23:66:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: error: no matching function for call to ‘President::President(President)’
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: note: candidate is:
+main.cpp:11:5: note: President::President(std::string, std::string, int)
+     President(std::string p_name, std::string p_country, int p_year)
+     ^
+main.cpp:11:5: note:   candidate expects 3 arguments, 1 provided

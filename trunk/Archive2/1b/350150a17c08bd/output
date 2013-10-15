@@ -1,0 +1,150 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:63:33: error: converting to ‘std::thread’ from initializer list would use explicit constructor ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+                                 };
+                                 ^
+main.cpp:63:33: error: converting to ‘std::thread’ from initializer list would use explicit constructor ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33: error: converting to ‘std::thread’ from initializer list would use explicit constructor ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33: error: converting to ‘std::thread’ from initializer list would use explicit constructor ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33: error: converting to ‘std::thread’ from initializer list would use explicit constructor ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+In file included from /usr/include/c++/4.8/thread:39:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/functional: In instantiation of ‘struct std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>’:
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/functional:1697:61: error: no type named ‘type’ in ‘class std::result_of<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>’
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/include/c++/4.8/functional:1727:9: error: no type named ‘type’ in ‘class std::result_of<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>’
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = std::__atomic_base<int>; <template-parameter-2-2> = void; long unsigned int _Idx = 5ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:271:42:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 5ul; _Head = std::__atomic_base<int>; _Tail = {}]’
+/usr/include/c++/4.8/type_traits:801:43:   required from ‘struct std::__is_direct_constructible_impl<std::_Tuple_impl<5ul, std::__atomic_base<int> >, std::_Tuple_impl<5ul, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_destructible<std::_Tuple_impl<5ul, std::__atomic_base<int> > >, std::__is_direct_constructible_impl<std::_Tuple_impl<5ul, std::__atomic_base<int> >, std::_Tuple_impl<5ul, std::__atomic_base<int> >&&> >’
+/usr/include/c++/4.8/type_traits:817:12:   required from ‘struct std::__is_direct_constructible_new_safe<std::_Tuple_impl<5ul, std::__atomic_base<int> >, std::_Tuple_impl<5ul, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:895:12:   required from ‘struct std::__is_direct_constructible_new<std::_Tuple_impl<5ul, std::__atomic_base<int> >, std::_Tuple_impl<5ul, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:903:12:   [ skipping 33 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/type_traits:1072:12:   required from ‘struct std::__is_nothrow_move_constructible_impl<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, false>’
+/usr/include/c++/4.8/type_traits:1078:12:   required from ‘struct std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > >’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_nothrow_move_constructible<void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>, std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > > >’
+/usr/include/c++/4.8/tuple:267:7:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:140:42: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+  : _M_head_impl(std::forward<_UHead>(__h)) { }
+                                          ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = std::__atomic_base<int>; <template-parameter-2-2> = void; long unsigned int _Idx = 3ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:271:42:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 2ul; _Head = std::__atomic_base<int>; _Tail = {std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/type_traits:801:43:   required from ‘struct std::__is_direct_constructible_impl<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_destructible<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > >, std::__is_direct_constructible_impl<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&> >’
+/usr/include/c++/4.8/type_traits:817:12:   required from ‘struct std::__is_direct_constructible_new_safe<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:895:12:   [ skipping 19 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/type_traits:1072:12:   required from ‘struct std::__is_nothrow_move_constructible_impl<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, false>’
+/usr/include/c++/4.8/type_traits:1078:12:   required from ‘struct std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > >’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_nothrow_move_constructible<void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>, std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > > >’
+/usr/include/c++/4.8/tuple:267:7:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:140:42: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+  : _M_head_impl(std::forward<_UHead>(__h)) { }
+                                          ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = std::__atomic_base<int>; <template-parameter-2-2> = void; long unsigned int _Idx = 2ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:271:42:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 2ul; _Head = std::__atomic_base<int>; _Tail = {std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/type_traits:801:43:   required from ‘struct std::__is_direct_constructible_impl<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_destructible<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > >, std::__is_direct_constructible_impl<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&> >’
+/usr/include/c++/4.8/type_traits:817:12:   required from ‘struct std::__is_direct_constructible_new_safe<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:895:12:   required from ‘struct std::__is_direct_constructible_new<std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >, std::_Tuple_impl<2ul, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> >&&>’
+/usr/include/c++/4.8/type_traits:903:12:   [ skipping 19 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/type_traits:1078:12:   required from ‘struct std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > >’
+/usr/include/c++/4.8/type_traits:116:12:   required from ‘struct std::__and_<std::is_nothrow_move_constructible<void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>, std::is_nothrow_move_constructible<std::_Tuple_impl<1ul, int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int> > > >’
+/usr/include/c++/4.8/tuple:267:7:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:140:42: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+  : _M_head_impl(std::forward<_UHead>(__h)) { }
+                                          ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 5ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:255:44:   recursively required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 1ul; _Head = int; _Tail = {std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:255:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:398:33:   required from ‘constexpr std::tuple< <template-parameter-1-1> >::tuple(const _Elements& ...) [with _Elements = {void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&), int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1710:74:   required from ‘std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; <template-parameter-2-2> = void; _Callable = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:134:25: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+       : _M_head_impl(__h) { }
+                         ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 3ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:255:44:   recursively required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 1ul; _Head = int; _Tail = {std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:255:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:398:33:   required from ‘constexpr std::tuple< <template-parameter-1-1> >::tuple(const _Elements& ...) [with _Elements = {void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&), int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1710:74:   required from ‘std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; <template-parameter-2-2> = void; _Callable = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:134:25: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+       : _M_head_impl(__h) { }
+                         ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:3:
+/usr/include/c++/4.8/tuple: In instantiation of ‘constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 2ul; _Head = std::__atomic_base<int>]’:
+/usr/include/c++/4.8/tuple:255:44:   recursively required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 1ul; _Head = int; _Tail = {std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:255:44:   required from ‘constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Tail = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/tuple:398:33:   required from ‘constexpr std::tuple< <template-parameter-1-1> >::tuple(const _Elements& ...) [with _Elements = {void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&), int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1710:74:   required from ‘std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; <template-parameter-2-2> = void; _Callable = void (*)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>}]’
+/usr/include/c++/4.8/functional:1759:41:   required from ‘typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(int, std::__atomic_base<int>, std::__atomic_base<int>, int, std::__atomic_base<int>))(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&)>]’
+/usr/include/c++/4.8/thread:137:47:   required from ‘std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(int, volatile std::__atomic_base<int>&, volatile std::__atomic_base<int>&, int&, volatile std::__atomic_base<int>&); _Args = {int, std::__atomic_base<int>&, std::__atomic_base<int>&, int&, std::__atomic_base<int>&}]’
+main.cpp:63:33:   required from here
+/usr/include/c++/4.8/tuple:134:25: error: use of deleted function ‘std::__atomic_base<_IntTp>::__atomic_base(const std::__atomic_base<_IntTp>&) [with _ITp = int]’
+       : _M_head_impl(__h) { }
+                         ^
+In file included from /usr/include/c++/4.8/atomic:41:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/atomic_base.h:359:7: error: declared here
+       __atomic_base(const __atomic_base&) = delete;
+       ^

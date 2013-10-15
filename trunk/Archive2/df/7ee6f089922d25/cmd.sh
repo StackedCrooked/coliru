@@ -1,0 +1,1 @@
+g++ -std=c++1y -Wall -pedantic main.cpp -O4 && ./a.out

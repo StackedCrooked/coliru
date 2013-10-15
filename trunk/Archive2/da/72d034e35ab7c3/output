@@ -1,0 +1,141 @@
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h: In instantiation of 'std::_Rb_tree_node<_Val>::_Rb_tree_node(_Args&& ...) [with _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Val = std::pair<const int, std::basic_string<char> >]':
+/usr/include/c++/4.8/ext/new_allocator.h:120:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > >; _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Tp = std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > >]'
+/usr/include/c++/4.8/bits/alloc_traits.h:254:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > >; _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Alloc = std::allocator<std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > > >; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.8/bits/alloc_traits.h:393:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > >; _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Alloc = std::allocator<std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > > >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/include/c++/4.8/bits/stl_tree.h:408:36:   required from 'std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_create_node(_Args&& ...) [with _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Key = int; _Val = std::pair<const int, std::basic_string<char> >; _KeyOfValue = std::_Select1st<std::pair<const int, std::basic_string<char> > >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::basic_string<char> > >; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type = std::_Rb_tree_node<std::pair<const int, std::basic_string<char> > >*]'
+/usr/include/c++/4.8/bits/stl_tree.h:1619:64:   required from 'std::pair<std::_Rb_tree_iterator<_Val>, bool> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_emplace_unique(_Args&& ...) [with _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Key = int; _Val = std::pair<const int, std::basic_string<char> >; _KeyOfValue = std::_Select1st<std::pair<const int, std::basic_string<char> > >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::basic_string<char> > >]'
+/usr/include/c++/4.8/bits/stl_map.h:541:64:   required from 'std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::emplace(_Args&& ...) [with _Args = {std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>}; _Key = int; _Tp = std::basic_string<char>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::basic_string<char> > >; typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator = std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >]'
+main.cpp:10:62:   required from here
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: error: no matching function for call to 'std::pair<const int, std::basic_string<char> >::pair(std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>)'
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:206:9: note: template<class ... _Args1, long unsigned int ..._Indexes1, class ... _Args2, long unsigned int ..._Indexes2> std::pair<_T1, _T2>::pair(std::tuple<_Args1 ...>&, std::tuple<_Args2 ...>&, std::_Index_tuple<_Indexes1 ...>, std::_Index_tuple<_Indexes2 ...>)
+         pair(tuple<_Args1...>&, tuple<_Args2...>&,
+         ^
+/usr/include/c++/4.8/bits/stl_pair.h:206:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   candidate expects 4 arguments, 1 provided
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:155:9: note: template<class ... _Args1, class ... _Args2> std::pair<_T1, _T2>::pair(std::piecewise_construct_t, std::tuple<_Args1 ...>, std::tuple<_Args2 ...>)
+         pair(piecewise_construct_t, tuple<_Args1...>, tuple<_Args2...>);
+         ^
+/usr/include/c++/4.8/bits/stl_pair.h:155:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   cannot convert 'std::forward<std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&> >((* & __args#0))' (type 'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>') to type 'std::piecewise_construct_t'
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:150:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(std::pair<_U1, _U2>&&)
+  constexpr pair(pair<_U1, _U2>&& __p)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:150:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>' is not derived from 'std::pair<_T1, _T2>'
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:144:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&)
+  constexpr pair(_U1&& __x, _U2&& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:144:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   candidate expects 2 arguments, 1 provided
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:138:12: note: template<class _U2, class> constexpr std::pair<_T1, _T2>::pair(const _T1&, _U2&&)
+  constexpr pair(const _T1& __x, _U2&& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:138:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   cannot convert 'std::forward<std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&> >((* & __args#0))' (type 'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>') to type 'const int&'
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:133:12: note: template<class _U1, class> constexpr std::pair<_T1, _T2>::pair(_U1&&, const _T2&)
+  constexpr pair(_U1&& __x, const _T2& __y)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:133:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   candidate expects 2 arguments, 1 provided
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:128:17: note: constexpr std::pair<_T1, _T2>::pair(std::pair<_T1, _T2>&&) [with _T1 = const int; _T2 = std::basic_string<char>]
+       constexpr pair(pair&&) = default;
+                 ^
+/usr/include/c++/4.8/bits/stl_pair.h:128:17: note:   no known conversion for argument 1 from 'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>' to 'std::pair<const int, std::basic_string<char> >&&'
+/usr/include/c++/4.8/bits/stl_pair.h:127:17: note: constexpr std::pair<_T1, _T2>::pair(const std::pair<_T1, _T2>&) [with _T1 = const int; _T2 = std::basic_string<char>]
+       constexpr pair(const pair&) = default;
+                 ^
+/usr/include/c++/4.8/bits/stl_pair.h:127:17: note:   no known conversion for argument 1 from 'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>' to 'const std::pair<const int, std::basic_string<char> >&'
+/usr/include/c++/4.8/bits/stl_pair.h:124:12: note: template<class _U1, class _U2, class> constexpr std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&)
+  constexpr pair(const pair<_U1, _U2>& __p)
+            ^
+/usr/include/c++/4.8/bits/stl_pair.h:124:12: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_tree.h:140:49: note:   'std::tuple<int&&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&&>' is not derived from 'const std::pair<_T1, _T2>'
+    _M_value_field(std::forward<_Args>(__args)...) { }
+                                                 ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:112:26: note: constexpr std::pair<_T1, _T2>::pair(const _T1&, const _T2&) [with _T1 = const int; _T2 = std::basic_string<char>]
+       _GLIBCXX_CONSTEXPR pair(const _T1& __a, const _T2& __b)
+                          ^
+/usr/include/c++/4.8/bits/stl_pair.h:112:26: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.8/bits/stl_pair.h:108:26: note: constexpr std::pair<_T1, _T2>::pair() [with _T1 = const int; _T2 = std::basic_string<char>]
+       _GLIBCXX_CONSTEXPR pair()
+                          ^
+/usr/include/c++/4.8/bits/stl_pair.h:108:26: note:   candidate expects 0 arguments, 1 provided

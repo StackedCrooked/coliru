@@ -1,0 +1,14 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int* foo()':
+main.cpp:6:9: warning: address of local variable 'y' returned [-Wreturn-local-addr]
+     int y=12;
+         ^
+main.cpp: In function 'int main()':
+main.cpp:25:19: warning: 'y' is used uninitialized in this function [-Wuninitialized]
+     std::cout << *xp << std::endl;
+                   ^
++ ./a.out
+101
+101
+100
+0

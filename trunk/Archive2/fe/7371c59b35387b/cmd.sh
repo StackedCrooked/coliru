@@ -1,0 +1,1 @@
+g++-4.6 -std=c++0x -static -O3 main.cpp && ./a.out

@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:16: error: no viable overloaded '='
+  std::tie(i,j)=t;
+  ~~~~~~~~~~~~~^~
+/usr/include/c++/v1/tuple:536:24: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'A' to 'const std::__1::tuple<int &, double &>' for 1st argument
+class _LIBCPP_TYPE_VIS tuple
+                       ^
+/usr/include/c++/v1/tuple:712:9: note: candidate template ignored: couldn't infer template argument ''
+        operator=(_Tuple&& __t) _NOEXCEPT_((is_nothrow_assignable<base&, _Tuple>::value))
+        ^
+1 error generated.

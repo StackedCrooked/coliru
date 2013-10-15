@@ -1,0 +1,20 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:37:14: error: no viable constructor copying variable of type 'BoxedInt'
+    BoxedInt TempInt = 1;
+             ^         ~
+main.cpp:22:5: note: candidate constructor not viable: expects an l-value for 1st argument
+    BoxedInt(BoxedInt& val)
+    ^
+main.cpp:44:14: error: no viable constructor copying variable of type 'BoxedInt'
+    BoxedInt test1 = 1;
+             ^       ~
+main.cpp:22:5: note: candidate constructor not viable: expects an l-value for 1st argument
+    BoxedInt(BoxedInt& val)
+    ^
+main.cpp:41:14: warning: unused parameter 'argc' [-Wunused-parameter]
+int main(int argc, char* argv[])
+             ^
+main.cpp:41:26: warning: unused parameter 'argv' [-Wunused-parameter]
+int main(int argc, char* argv[])
+                         ^
+2 warnings and 2 errors generated.
