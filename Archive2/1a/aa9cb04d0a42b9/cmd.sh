@@ -1,0 +1,1 @@
+set -x ; g++ -std=c++11 -O0 -Wall main.cpp && ./a.out
