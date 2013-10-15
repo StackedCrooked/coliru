@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -lboost_system
+main.cpp:11:7: error: 'm' is a private member of 'templ<const int>'
+    c.m = 42;
+      ^
+main.cpp:23:5: note: in instantiation of function template specialization 'foo<int>' requested here
+    foo<int>();
+    ^
+main.cpp:18:9: note: implicitly declared private here
+    int m;
+        ^
+1 error generated.

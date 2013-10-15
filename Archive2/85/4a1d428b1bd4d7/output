@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int_type parse_int_le()’:
+main.cpp:5:5: error: ‘array’ is not a member of ‘std’
+     std::array<char, sizeof(int_type)> bytes;
+     ^
+main.cpp:5:16: error: expected primary-expression before ‘char’
+     std::array<char, sizeof(int_type)> bytes;
+                ^
+main.cpp:5:16: error: expected ‘;’ before ‘char’
+main.cpp:6:5: error: ‘copy_n’ is not a member of ‘std’
+     std::copy_n(i, sizeof(bytes), std::begin(bytes));
+     ^
+main.cpp:6:17: error: ‘i’ was not declared in this scope
+     std::copy_n(i, sizeof(bytes), std::begin(bytes));
+                 ^
+main.cpp:6:27: error: ‘bytes’ was not declared in this scope
+     std::copy_n(i, sizeof(bytes), std::begin(bytes));
+                           ^
+main.cpp:6:35: error: ‘begin’ is not a member of ‘std’
+     std::copy_n(i, sizeof(bytes), std::begin(bytes));
+                                   ^
+main.cpp:10:54: error: ‘bits_per_byte’ was not declared in this scope
+         value |= bytes[byte_offset] << byte_offset * bits_per_byte;
+                                                      ^

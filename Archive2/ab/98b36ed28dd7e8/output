@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:24:45: warning: 'auto_ptr' is deprecated (declared at /usr/include/c++/4.8/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     auto_ptr<vector<ContainedType> > new_vec( const_cast<vector<ContainedType>* >(closed_vec)); 
+                                             ^
+main.cpp:24:93: error: invalid const_cast from type 'std::auto_ptr<const std::vector<int> >' to type 'std::vector<int>*'
+     auto_ptr<vector<ContainedType> > new_vec( const_cast<vector<ContainedType>* >(closed_vec)); 
+                                                                                             ^

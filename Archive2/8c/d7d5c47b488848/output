@@ -1,0 +1,13 @@
+main.cpp:2:19: error: use of undeclared identifier 'std'
+struct B { void f(std::string); };
+                  ^
+main.cpp:9:7: error: member 'f' found in multiple base classes of different types
+    c.f(0);
+      ^
+main.cpp:1:17: note: member found by ambiguous name lookup
+struct A { void f(int); };
+                ^
+main.cpp:2:17: note: member found by ambiguous name lookup
+struct B { void f(std::string); };
+                ^
+2 errors generated.

@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -pedantic main.cpp
+main.cpp:8:5: error: no matching function for call to 'bar'
+    bar(x);
+    ^~~
+main.cpp:12:5: note: in instantiation of function template specialization 'foo<N::S>' requested here
+    foo(N::S{});
+    ^
+main.cpp:3:10: note: candidate function not viable: 1st argument ('const N::S') would lose const qualifier
+    void bar(S&) { }
+         ^
+1 error generated.

@@ -1,0 +1,10 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘bool FlagSet<AccessType>::getFlag(AccessType) [with AccessType = SomeFlags]’:
+main.cpp:44:43:   required from here
+main.cpp:14:75: error: ‘class std::bitset<16ul>’ has no member named ‘at’
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                                                           ^
+main.cpp: In member function ‘bool FlagSet<AccessType>::getFlag(AccessType) [with AccessType = SomeFlags]’:
+main.cpp:14:78: warning: control reaches end of non-void function [-Wreturn-type]
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                                                              ^

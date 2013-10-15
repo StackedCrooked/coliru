@@ -1,0 +1,57 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:18:48: error: ‘CHAR_BIT’ was not declared in this scope
+  static const int NumBits = sizeof(MaskType) * CHAR_BIT;
+                                                ^
+main.cpp:19:2: error: ‘bitset’ in namespace ‘std’ does not name a type
+  std::bitset<NumBits> flags;
+  ^
+main.cpp: In member function ‘FlagSet<AccessType>::MaskType FlagSet<AccessType>::getMask() const’:
+main.cpp:7:36: error: ‘flags’ was not declared in this scope
+  MaskType getMask() const { return flags.to_ulong(); }
+                                    ^
+main.cpp: In member function ‘void FlagSet<AccessType>::setMask(FlagSet<AccessType>::MaskType)’:
+main.cpp:9:35: error: ‘flags’ was not declared in this scope
+  void setMask(MaskType newMask) { flags = std::bitset<NumBits>(newMask); }
+                                   ^
+main.cpp:9:43: error: ‘bitset’ is not a member of ‘std’
+  void setMask(MaskType newMask) { flags = std::bitset<NumBits>(newMask); }
+                                           ^
+main.cpp: In member function ‘bool FlagSet<AccessType>::getFlag(AccessType)’:
+main.cpp:11:41: error: ‘flags’ was not declared in this scope
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                         ^
+main.cpp:11:62: error: expected type-specifier before ‘size_t’
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                                              ^
+main.cpp:11:62: error: expected ‘>’ before ‘size_t’
+main.cpp:11:62: error: expected ‘(’ before ‘size_t’
+main.cpp:11:62: error: ‘size_t’ was not declared in this scope
+main.cpp:11:62: note: suggested alternative:
+In file included from /usr/include/c++/4.8/type_traits:38:0,
+                 from main.cpp:1:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:180:26: note:   ‘std::size_t’
+   typedef __SIZE_TYPE__  size_t;
+                          ^
+main.cpp: In member function ‘void FlagSet<AccessType>::setFlag(AccessType, bool)’:
+main.cpp:14:3: error: ‘flags’ was not declared in this scope
+   flags.set(static_cast<size_t>(flag), newValue);
+   ^
+main.cpp:14:25: error: expected type-specifier before ‘size_t’
+   flags.set(static_cast<size_t>(flag), newValue);
+                         ^
+main.cpp:14:25: error: expected ‘>’ before ‘size_t’
+main.cpp:14:25: error: expected ‘(’ before ‘size_t’
+main.cpp:14:25: error: ‘size_t’ was not declared in this scope
+main.cpp:14:25: note: suggested alternative:
+In file included from /usr/include/c++/4.8/type_traits:38:0,
+                 from main.cpp:1:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:180:26: note:   ‘std::size_t’
+   typedef __SIZE_TYPE__  size_t;
+                          ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:41:2: error: ‘cout’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+  ^
+main.cpp:41:48: error: ‘endl’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+                                                ^

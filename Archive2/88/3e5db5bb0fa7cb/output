@@ -1,0 +1,46 @@
+main.cpp: In function 'int main()':
+main.cpp:27:19: warning: unused variable 'cv' [-Wunused-variable]
+     volatile int& cv{n}; // any initializer syntax can be used
+                   ^
+main.cpp:28:10: warning: unused variable 'r2' [-Wunused-variable]
+     int& r2 = r1; // another lvalue reference to the object n
+          ^
+main.cpp:30:10: warning: unused variable 'r3' [-Wunused-variable]
+     int& r3 = const_cast<int&>(cr); // const_cast is needed
+          ^
+main.cpp:32:12: warning: unused variable 'rf' [-Wunused-variable]
+     void (&rf)(int) = foo; // lvalue reference to function
+            ^
+main.cpp:34:11: warning: unused variable 'ra' [-Wunused-variable]
+     int (&ra)[3] = ar; // lvalue reference to array
+           ^
+main.cpp:37:8: warning: unused variable 'base_ref' [-Wunused-variable]
+     A& base_ref = b; // reference to base subobject
+        ^
+main.cpp:38:10: warning: unused variable 'converted_ref' [-Wunused-variable]
+     int& converted_ref = b; // reference to the result of a conversion
+          ^
+main.cpp:42:16: warning: unused variable 'cref' [-Wunused-variable]
+     const int& cref = 1; // bound to rvalue
+                ^
+main.cpp:43:11: warning: unused variable 'rref' [-Wunused-variable]
+     int&& rref = 1; // bound to rvalue
+           ^
+main.cpp:45:14: warning: unused variable 'cref2' [-Wunused-variable]
+     const A& cref2 = bar(); // reference to A subobject of B temporary
+              ^
+main.cpp:46:9: warning: unused variable 'rref2' [-Wunused-variable]
+     A&& rref2 = bar();      // same
+         ^
+main.cpp:48:11: warning: unused variable 'xref' [-Wunused-variable]
+     int&& xref = static_cast<int&&>(n); // bind directly to n
+           ^
+main.cpp:50:14: warning: unused variable 'copy_ref' [-Wunused-variable]
+     double&& copy_ref = n; // bind to an rvalue temporary with value 1.0
+              ^
+main.cpp:53:19: warning: unused variable 'buf_ref' [-Wunused-variable]
+     std::ostream& buf_ref = std::ostringstream() << 'a'; // the ostringstream temporary
+                   ^
+main.cpp:57:7: warning: unused variable 'a' [-Wunused-variable]
+     S a { 1, {2,3} }; // temporary pair {2,3} bound to the reference member
+       ^

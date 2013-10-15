@@ -1,0 +1,22 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:29:40: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   error("ERROR, no parametres provided");
+                                        ^
+main.cpp:22:18: warning: unused variable ‘clientInfo’ [-Wunused-variable]
+  struct hostent *clientInfo;
+                  ^
+main.cpp: In function ‘int createSocket(const char*, const char*)’:
+main.cpp:73:47: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   error( "ERROR, impossible to create socket" );
+                                               ^
+main.cpp:105:47: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   error( "ERROR, impossible to create socket" );
+                                               ^
+main.cpp:101:45: warning: ‘sock_type’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  _socket = socket( _af_domen, sock_type, 0 );
+                                             ^
+/tmp/ccjtAX30.o: In function `createSocket(char const*, char const*)':
+main.cpp:(.text+0xca): undefined reference to `error(char*)'
+main.cpp:(.text+0xe6): undefined reference to `error(char*)'
+collect2: error: ld returned 1 exit status

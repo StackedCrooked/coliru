@@ -1,0 +1,23 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
+main.cpp:8:3: error: variable type 'const class <anonymous class at main.cpp:5:7>' is an abstract class
+} constClass = {};
+  ^
+main.cpp:7:18: note: unimplemented pure virtual method 'test' in ''
+    virtual void test() = 0;
+                 ^
+main.cpp:10:23: error: template parameter pack must be the last template parameter
+template <typename... Args, typename T>
+                      ^
+main.cpp:11:33: error: expected class name
+class VariadicTemplate : public constClass {
+                                ^
+main.cpp:22:5: error: use of undeclared identifier 'intVariadic'
+    intVariadic<int,int,int> container;
+    ^
+main.cpp:22:20: error: expected '(' for function-style cast or type construction
+    intVariadic<int,int,int> container;
+                ~~~^
+main.cpp:23:18: error: use of undeclared identifier 'container'
+    std::cout << container.theSize;
+                 ^
+6 errors generated.

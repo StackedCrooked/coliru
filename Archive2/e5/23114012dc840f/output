@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:43:2: error: ‘cout’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+  ^
+main.cpp:43:48: error: ‘endl’ is not a member of ‘std’
+  std::cout << ss.getFlag(SomeFlags::Flag_C) << std::endl;
+                                                ^
+main.cpp: In instantiation of ‘bool FlagSet<AccessType>::getFlag(AccessType) [with AccessType = SomeFlags]’:
+main.cpp:43:43:   required from here
+main.cpp:13:75: error: ‘class std::bitset<16ul>’ has no member named ‘at’
+  bool getFlag(AccessType flag) { return flags.at(static_cast<size_t>(flag)); }
+                                                                           ^
