@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:12:7: error: template template argument has different template parameters than its corresponding template template parameter
+    C<A> c;
+      ^
+main.cpp:1:1: note: too few template parameters in template template argument
+template<class>
+^~~~~~~~~~~~~~~
+main.cpp:7:10: note: previous template template parameter is here
+template<template<class, class=void> class>
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
