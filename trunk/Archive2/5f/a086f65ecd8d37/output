@@ -1,0 +1,14 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:39:26: error: could not convert ‘(const char*)"test"’ from ‘const char*’ to ‘testa<const char>’
+     aggregate agg1{"test"};
+                          ^
+main.cpp:40:29: error: could not convert ‘(const char*)"test"’ from ‘const char*’ to ‘testa<const char>’
+     aggregate agg2 = {"test"};
+                             ^
+main.cpp:39:15: warning: unused variable ‘agg1’ [-Wunused-variable]
+     aggregate agg1{"test"};
+               ^
+main.cpp:40:15: warning: unused variable ‘agg2’ [-Wunused-variable]
+     aggregate agg2 = {"test"};
+               ^
