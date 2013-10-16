@@ -1,0 +1,20 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:30:67: error: use of deleted function ‘OperationFailedBecauseFileDoesNotExistError::OperationFailedBecauseFileDoesNotExistError(const char*)’
+     OperationFailedBecauseFileDoesNotExistError e("Hello world!\n");
+                                                                   ^
+main.cpp:26:26: note: ‘OperationFailedBecauseFileDoesNotExistError::OperationFailedBecauseFileDoesNotExistError(const char*)’ is implicitly deleted because the default definition would be ill-formed:
+     using ExceptionBase::ExceptionBase;
+                          ^
+main.cpp:26:26: error: no matching function for call to ‘ExceptionBase::ExceptionBase()’
+main.cpp:26:26: note: candidates are:
+main.cpp:6:5: note: ExceptionBase::ExceptionBase(const char*)
+     ExceptionBase( const char * msg ) : std::runtime_error(msg) {}
+     ^
+main.cpp:6:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:4:7: note: ExceptionBase::ExceptionBase(const ExceptionBase&)
+ class ExceptionBase : public std::runtime_error {
+       ^
+main.cpp:4:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:4:7: note: ExceptionBase::ExceptionBase(ExceptionBase&&)
+main.cpp:4:7: note:   candidate expects 1 argument, 0 provided
