@@ -1,0 +1,15 @@
+main.cpp: In function ‘bool big_odd_exists(std::vector<int>::iterator, std::vector<int>::iterator)’:
+main.cpp:67:57: error: no matching function for call to ‘And(bool (&)(const int&), bool (&)(const int&))’
+     return any_of( first, last, And( is_odd_2, is_big_2 ) );  // won't compile
+                                                         ^
+main.cpp:67:57: note: candidate is:
+main.cpp:32:8: note: template<class T> AND<T> And(std::function<bool(const T&)>, std::function<bool(const T&)>)
+ AND<T> And(function<bool (const T&)> xx, function<bool (const T&)> yy)
+        ^
+main.cpp:32:8: note:   template argument deduction/substitution failed:
+main.cpp:67:57: note:   mismatched types ‘std::function<bool(const T&)>’ and ‘bool (*)(const int&)’
+     return any_of( first, last, And( is_odd_2, is_big_2 ) );  // won't compile
+                                                         ^
+main.cpp:68:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
