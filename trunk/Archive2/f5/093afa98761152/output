@@ -1,0 +1,19 @@
++ g++ -std=c++11 -O0 -Wall main.cpp
+In file included from /usr/local/include/boost/multi_array.hpp:24:0,
+                 from main.cpp:1:
+/usr/local/include/boost/multi_array/iterator.hpp: In instantiation of ‘struct boost::detail::multi_array::operator_arrow_proxy<std::pair<double, unsigned int>&>’:
+main.cpp:10:5:   required from here
+/usr/local/include/boost/multi_array/iterator.hpp:40:6: error: forming pointer to reference type ‘std::pair<double, unsigned int>&’
+   T* operator->() const { return &value_; }
+      ^
+/usr/local/include/boost/multi_array/iterator.hpp:43:3: error: forming pointer to reference type ‘std::pair<double, unsigned int>&’
+   operator T*() const { return &value_; }
+   ^
+In file included from /usr/local/include/boost/assert.hpp:50:0,
+                 from /usr/local/include/boost/multi_array/copy_array.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:23,
+                 from main.cpp:1:
+main.cpp: In function ‘int main()’:
+main.cpp:10:28: error: result of ‘operator->()’ yields non-pointer result
+     assert( (ix[0].begin() -> second) == object_identifier_t(42) ); // <-- Error steams from here 
+                            ^
