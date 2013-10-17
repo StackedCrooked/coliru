@@ -1,0 +1,74 @@
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:35:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support for the \
+ ^
+main.cpp:6:15: error: no template named 'enable_if' in namespace 'std'; did you mean '__gnu_cxx::__enable_if'?
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+         ~~~~~^~~~~~~~~
+         __gnu_cxx::__enable_if
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/type_traits.h:43:12: note: '__gnu_cxx::__enable_if' declared here
+    struct __enable_if 
+           ^
+main.cpp:6:30: error: no member named 'is_floating_point' in namespace 'std'
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+                        ~~~~~^
+main.cpp:6:48: error: 'T' does not refer to a value
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+                                               ^
+main.cpp:5:16: note: declared here
+template<class T>
+               ^
+main.cpp:6:52: error: extra qualification on member 'value'
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+                                                 ~~^
+main.cpp:6:52: error: variable 'value' declared as a template
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+                                                   ^
+main.cpp:6:57: error: a template declaration can only declare a single entity
+typename std::enable_if<std::is_floating_point<T>::value, T>::type 
+                                                        ^
+main.cpp:41:26: error: no template named 'enable_if' in namespace 'std'; did you mean '__gnu_cxx::__enable_if'?
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                    ~~~~~^~~~~~~~~
+                    __gnu_cxx::__enable_if
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/type_traits.h:43:12: note: '__gnu_cxx::__enable_if' declared here
+    struct __enable_if 
+           ^
+main.cpp:41:41: error: no member named 'is_floating_point' in namespace 'std'
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                   ~~~~~^
+main.cpp:41:59: error: 'T' does not refer to a value
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                                          ^
+main.cpp:40:16: note: declared here
+template<class T>
+               ^
+main.cpp:41:63: error: no type named 'value' in the global namespace
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                                            ~~^
+main.cpp:41:7: error: explicit specialization of non-template class 'A'
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+      ^
+main.cpp:41:72: error: extra qualification on member 'type'
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                                                     ~~^
+main.cpp:41:72: error: variable 'type' declared as a template
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                                                       ^
+main.cpp:41:76: error: expected ';' at end of declaration
+class A<T, typename std::enable_if<std::is_floating_point<T>::value >::type> {
+                                                                           ^
+                                                                           ;
+main.cpp:41:76: error: expected unqualified-id
+main.cpp:46:5: error: use of undeclared identifier 'foo1'
+    foo1(1.2); // OK, calls the first version of foo1()
+    ^
+main.cpp:47:5: error: use of undeclared identifier 'foo1'
+    foo1(10); // OK, calls the second version of foo1()
+    ^
+main.cpp:50:5: error: use of undeclared identifier 'foo2'
+    foo2(7); // OK
+    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
