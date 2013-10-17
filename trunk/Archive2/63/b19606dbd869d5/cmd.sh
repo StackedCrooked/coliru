@@ -1,0 +1,1 @@
+g++-4.8 -fdump-class-hierarchy main.cpp && more main.cpp.002t.class
