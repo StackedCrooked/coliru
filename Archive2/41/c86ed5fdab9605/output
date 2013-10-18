@@ -1,0 +1,51 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:11:9: error: ‘boost’ does not name a type
+         boost::shared_ptr<Node> operator()(cfgdb::NameValueList::Ptr nvl)
+         ^
+main.cpp:44:5: error: ‘BarMObj’ does not name a type
+     BarMObj::Manager::Ptr m_pBarMgr;
+     ^
+main.cpp:45:5: error: ‘BazMObj’ does not name a type
+     BazMObj::Manager::Ptr m_pBazMgr;
+     ^
+main.cpp:46:5: error: ‘QuxMObj’ does not name a type
+     QuxMObj::Manager::Ptr m_pQuxMgr;
+     ^
+main.cpp:47:5: error: ‘QuuxMObj’ does not name a type
+     QuuxMObj::Manager::Ptr m_pQuuxMgr;
+     ^
+main.cpp:48:5: error: ‘CorgeMObj’ does not name a type
+     CorgeMObj::Manager::Ptr m_pCorgeMgr;
+     ^
+main.cpp:49:5: error: ‘GraultMObj’ does not name a type
+     GraultMObj::Manager::Ptr m_pGraultMgr;
+     ^
+main.cpp:50:5: error: ‘GarplyMObj’ does not name a type
+     GarplyMObj::Manager::Ptr m_pGarplyMgr;
+     ^
+main.cpp:51:5: error: ‘WaldoMObj’ does not name a type
+     WaldoMObj::Manager::Ptr m_pWaldoMgr;
+     ^
+main.cpp:52:5: error: ‘FredMObj’ does not name a type
+     FredMObj::Manager::Ptr m_pFredMgr;
+     ^
+main.cpp:53:5: error: ‘NodeMObj’ does not name a type
+     NodeMObj::Manager::Ptr m_pNodeManager // <- the troublemaker, depends on all of the above mgrs
+     ^
+main.cpp: In constructor ‘NodeManagerService::NodeManagerService()’:
+main.cpp:27:9: error: class ‘NodeManagerService’ does not have any field named ‘m_pFooMgr’
+         m_pFooMgr(mostore.getManager<FooMObj>(...)),
+         ^
+main.cpp:27:19: error: ‘mostore’ was not declared in this scope
+         m_pFooMgr(mostore.getManager<FooMObj>(...)),
+                   ^
+main.cpp:27:38: error: ‘FooMObj’ was not declared in this scope
+         m_pFooMgr(mostore.getManager<FooMObj>(...)),
+                                      ^
+main.cpp:27:47: error: expected primary-expression before ‘...’ token
+         m_pFooMgr(mostore.getManager<FooMObj>(...)),
+                                               ^
+main.cpp:27:47: error: expected ‘)’ before ‘...’ token
+main.cpp:43:27: error: expected ‘{’ at end of input
+     FooMObj::Manager::Ptr m_pFooMgr;
+                           ^
