@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:13:58: error: 'm' is a private member of 'R<int>'
+template<> void N::test<R<int>>(const R<int>& rec) { rec.m; }
+                                                         ^
+main.cpp:10:9: note: implicitly declared private here
+    int m;
+        ^
+main.cpp:13:58: warning: expression result unused [-Wunused-value]
+template<> void N::test<R<int>>(const R<int>& rec) { rec.m; }
+                                                     ~~~ ^
+1 warning and 1 error generated.
