@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘void M<T>::f() [with T = A]’:
+main.cpp:22:9:   required from here
+main.cpp:17:22: error: ‘func’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     void f(){ func(pt); } // Ошибка. Имя func не найдется
+                      ^
+main.cpp:17:22: note: declarations in dependent base ‘C<A>’ are not found by unqualified lookup
+main.cpp:17:22: note: use ‘this->func’ instead
