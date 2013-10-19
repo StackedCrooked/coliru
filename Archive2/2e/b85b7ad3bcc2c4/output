@@ -1,0 +1,20 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:6:30: error: duplicate case value '1'
+        case 1: case 2: case 1: printf("Case 1 is executed");
+                             ^
+main.cpp:6:14: note: previous case defined here
+        case 1: case 2: case 1: printf("Case 1 is executed");
+             ^
+main.cpp:8:30: error: duplicate case value '1'
+        case 2: case 3: case 1: printf("Case 2 is executed");
+                             ^
+main.cpp:6:30: note: previous case defined here
+        case 1: case 2: case 1: printf("Case 1 is executed");
+                             ^
+main.cpp:8:14: error: duplicate case value '2'
+        case 2: case 3: case 1: printf("Case 2 is executed");
+             ^
+main.cpp:6:22: note: previous case defined here
+        case 1: case 2: case 1: printf("Case 1 is executed");
+                     ^
+3 errors generated.
