@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:20: error: no matching function found in local scope
+    friend void N::test(const R&);  // 8
+                   ^~~~
+main.cpp:12:48: warning: expression result unused [-Wunused-value]
+template<> void N::test<R>(const R& rec) { rec.m; }
+                                           ~~~ ^
+1 warning and 1 error generated.
