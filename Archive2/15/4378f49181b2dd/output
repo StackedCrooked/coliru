@@ -1,0 +1,20 @@
+main.cpp: In function ‘int main()’:
+main.cpp:10:85: warning: lambda expressions only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     int num_items1 = std::count_if(v.begin(), v.end(), [](int i) {return i % 3 == 0;});
+                                                                                     ^
+main.cpp:10:86: error: no matching function for call to ‘count_if(std::vector<int>::iterator, std::vector<int>::iterator, main()::__lambda0)’
+     int num_items1 = std::count_if(v.begin(), v.end(), [](int i) {return i % 3 == 0;});
+                                                                                      ^
+main.cpp:10:86: note: candidate is:
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algo.h:4670:5: note: template<class _IIter, class _Predicate> typename std::iterator_traits<_Iterator>::difference_type std::count_if(_IIter, _IIter, _Predicate)
+     count_if(_InputIterator __first, _InputIterator __last, _Predicate __pred)
+     ^
+/usr/include/c++/4.8/bits/stl_algo.h:4670:5: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class _IIter, class _Predicate> typename std::iterator_traits<_Iterator>::difference_type std::count_if(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = main()::__lambda0]’:
+main.cpp:10:86:   required from here
+main.cpp:10:86: error: template argument for ‘template<class _IIter, class _Predicate> typename std::iterator_traits<_Iterator>::difference_type std::count_if(_IIter, _IIter, _Predicate)’ uses local type ‘main()::__lambda0’
+     int num_items1 = std::count_if(v.begin(), v.end(), [](int i) {return i % 3 == 0;});
+                                                                                      ^
+main.cpp:10:86: error:   trying to instantiate ‘template<class _IIter, class _Predicate> typename std::iterator_traits<_Iterator>::difference_type std::count_if(_IIter, _IIter, _Predicate)’
