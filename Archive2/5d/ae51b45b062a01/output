@@ -1,0 +1,22 @@
+main.cpp:4:15: error: variable or field ‘foo’ declared void
+ void foo(std::shared_ptr<int> i)
+               ^
+main.cpp:4:10: error: ‘shared_ptr’ is not a member of ‘std’
+ void foo(std::shared_ptr<int> i)
+          ^
+main.cpp:4:26: error: expected primary-expression before ‘int’
+ void foo(std::shared_ptr<int> i)
+                          ^
+main.cpp: In function ‘int main()’:
+main.cpp:11:5: warning: ‘auto’ changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto sp = std::make_shared<int>(10);
+     ^
+main.cpp:11:10: error: ‘sp’ does not name a type
+     auto sp = std::make_shared<int>(10);
+          ^
+main.cpp:12:9: error: ‘sp’ was not declared in this scope
+     foo(sp);
+         ^
+main.cpp:12:11: error: ‘foo’ was not declared in this scope
+     foo(sp);
+           ^
