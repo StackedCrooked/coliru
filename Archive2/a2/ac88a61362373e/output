@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function ‘virtual void B::call_me()’:
+main.cpp:4:18: error: ‘virtual void A::call_me()’ is protected
+     virtual void call_me() = 0;
+                  ^
+main.cpp:17:34: error: within this context
+   static_cast<A*>(this)->call_me();       // -> error: `virtual void A::call_me()` is protected
+                                  ^
