@@ -1,0 +1,8 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:20:30: error: use of deleted function ‘std::integral_constant<int, 100> C::func(int, float, std::basic_string<char>)’
+   C {}.func (1, 2.3f, "world"); /* <- deleted! */
+                              ^
+main.cpp:11:33: error: declared here
+   decltype(hck(&B::func))::type func = delete;
+                                 ^
