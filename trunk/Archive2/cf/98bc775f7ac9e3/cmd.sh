@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp && echo -e "4 4\n1 2\n2 3\n3 4\n4 1\n" |  ./a.out
