@@ -1,0 +1,101 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int doItAll()’:
+main.cpp:3:3: error: ‘screen’ was not declared in this scope
+   screen->print( "Initialse" );
+   ^
+main.cpp:4:24: error: ‘Clss_CoreInit_Entry’ was not declared in this scope
+   Clss_CoreInit_Entry( );
+                        ^
+main.cpp:21:3: error: ‘Clss_PreProcInfo’ was not declared in this scope
+   Clss_PreProcInfo cppi;
+   ^
+main.cpp:21:20: error: expected ‘;’ before ‘cppi’
+   Clss_PreProcInfo cppi;
+                    ^
+main.cpp:22:12: error: ‘cppi’ was not declared in this scope
+   memset( &cppi, 0, sizeof ( cppi ) );
+            ^
+main.cpp:22:37: error: ‘memset’ was not declared in this scope
+   memset( &cppi, 0, sizeof ( cppi ) );
+                                     ^
+main.cpp:27:52: error: ‘memcpy’ was not declared in this scope
+   memcpy( cppi.aucReaderTTQ, "\xA0\x00\x00\x00", 4 );
+                                                    ^
+main.cpp:42:68: error: ‘PART_MATCH’ was not declared in this scope
+     retval = Clss_AddAidList_Entry( ( unsigned char* )AID[ i ], 7, PART_MATCH, KERNTYPE_DEF );
+                                                                    ^
+main.cpp:42:80: error: ‘KERNTYPE_DEF’ was not declared in this scope
+     retval = Clss_AddAidList_Entry( ( unsigned char* )AID[ i ], 7, PART_MATCH, KERNTYPE_DEF );
+                                                                                ^
+main.cpp:42:93: error: ‘Clss_AddAidList_Entry’ was not declared in this scope
+     retval = Clss_AddAidList_Entry( ( unsigned char* )AID[ i ], 7, PART_MATCH, KERNTYPE_DEF );
+                                                                                             ^
+main.cpp:43:20: error: ‘EMV_OK’ was not declared in this scope
+     if ( retval != EMV_OK )
+                    ^
+main.cpp:51:47: error: ‘Clss_SetPreProcInfo_Entry’ was not declared in this scope
+     retval = Clss_SetPreProcInfo_Entry( &cppi );
+                                               ^
+main.cpp:52:20: error: ‘EMV_OK’ was not declared in this scope
+     if ( retval != EMV_OK )
+                    ^
+main.cpp:61:3: error: ‘Clss_TransParam’ was not declared in this scope
+   Clss_TransParam ctp;
+   ^
+main.cpp:61:19: error: expected ‘;’ before ‘ctp’
+   Clss_TransParam ctp;
+                   ^
+main.cpp:62:11: error: ‘ctp’ was not declared in this scope
+   memcpy( ctp.aucTransDate, "\x13\x10\x21\x00", 5 );
+           ^
+main.cpp:70:33: error: ‘Clss_PreTransProc_Entry’ was not declared in this scope
+   Clss_PreTransProc_Entry( &ctp );
+                                 ^
+main.cpp:76:16: error: ‘OsPiccOpen’ was not declared in this scope
+   OsPiccOpen(  );
+                ^
+main.cpp:79:27: error: ‘type’ was not declared in this scope
+     retval = OsPiccPoll( &type, atq );
+                           ^
+main.cpp:79:33: error: ‘atq’ was not declared in this scope
+     retval = OsPiccPoll( &type, atq );
+                                 ^
+main.cpp:79:37: error: ‘OsPiccPoll’ was not declared in this scope
+     retval = OsPiccPoll( &type, atq );
+                                     ^
+main.cpp:85:27: error: ‘type’ was not declared in this scope
+   retval = OsPiccAntiSel( type, UID, atq[ 0 ], SAK );
+                           ^
+main.cpp:85:38: error: ‘atq’ was not declared in this scope
+   retval = OsPiccAntiSel( type, UID, atq[ 0 ], SAK );
+                                      ^
+main.cpp:85:52: error: ‘OsPiccAntiSel’ was not declared in this scope
+   retval = OsPiccAntiSel( type, UID, atq[ 0 ], SAK );
+                                                    ^
+main.cpp:87:18: error: ‘EMV_OK’ was not declared in this scope
+   if ( retval != EMV_OK )
+                  ^
+main.cpp:95:37: error: ‘OsPiccActive’ was not declared in this scope
+   retval = OsPiccActive( type, rats );
+                                     ^
+main.cpp:97:18: error: ‘EMV_OK’ was not declared in this scope
+   if ( retval != EMV_OK )
+                  ^
+main.cpp:105:36: error: ‘Clss_AppSlt_Entry’ was not declared in this scope
+   retval = Clss_AppSlt_Entry( 0, 0 ); // Fails with EMV_NO_APP_PPSE_ERR
+                                    ^
+main.cpp:107:18: error: ‘EMV_OK’ was not declared in this scope
+   if ( retval != EMV_OK )
+                  ^
+main.cpp:115:60: error: ‘Clss_FinalSelect_Entry’ was not declared in this scope
+   retval = Clss_FinalSelect_Entry( &kernType, aid, &length );
+                                                            ^
+main.cpp:117:18: error: ‘EMV_OK’ was not declared in this scope
+   if ( retval != EMV_OK )
+                  ^
+main.cpp:122:12: error: ‘GetKey’ was not declared in this scope
+   GetKey(  );
+            ^
+main.cpp:123:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
