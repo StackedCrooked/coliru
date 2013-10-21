@@ -1,0 +1,18 @@
+main.cpp: In function ‘int main()’:
+main.cpp:16:7: error: no matching function for call to ‘B::B()’
+     B b;
+       ^
+main.cpp:16:7: note: candidates are:
+main.cpp:6:5: note: B::B(A)
+     B(A) {}
+     ^
+main.cpp:6:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr B::B(const B&)
+ struct B {
+        ^
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr B::B(B&&)
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:17:7: error: no match for ‘operator==’ (operand types are ‘A’ and ‘B’)
+     a == b;
+       ^
