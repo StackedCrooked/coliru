@@ -1,0 +1,15 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
+main.cpp:18:8: error: no member named 'copy_n' in namespace 'std'; did you mean 'copy'?
+  std::copy_n(it, 35, std::ostream_iterator<char>(std::cout, ";"));
+  ~~~~~^~~~~~
+       copy
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:450:5: note: 'copy' declared here
+    copy(_II __first, _II __last, _OI __result)
+    ^
+main.cpp:18:3: error: no matching function for call to 'copy'
+  std::copy_n(it, 35, std::ostream_iterator<char>(std::cout, ";"));
+  ^~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:450:5: note: candidate template ignored: deduced conflicting types for parameter '_II' ('boost::generator_iterator<std::function<char ()> >' vs. 'int')
+    copy(_II __first, _II __last, _OI __result)
+    ^
+2 errors generated.
