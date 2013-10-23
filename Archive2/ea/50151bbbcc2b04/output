@@ -1,0 +1,17 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:24:51: error: 'secret' is a private member of 'FactoryImpl<void>'
+    virtual void _not_allowed (FactoryImpl<void>::secret) { };
+                                                  ^
+main.cpp:15:47: note: in instantiation of member function 'FactoryImpl<Derived>::_not_allowed' requested here
+      return std::unique_ptr<class Base> (new FactoryImpl (std::forward<Args> (args) ...));
+                                              ^
+main.cpp:37:26: note: in instantiation of function template specialization 'FactoryImpl<Derived>::create<>' requested here
+  return FactoryImpl<T>::create (std::forward<Args> (args) ...);
+                         ^
+main.cpp:50:3: note: in instantiation of function template specialization 'factory<Derived, >' requested here
+  factory<Derived> ();
+  ^
+main.cpp:6:10: note: implicitly declared private here
+  struct secret { };
+         ^
+1 error generated.
