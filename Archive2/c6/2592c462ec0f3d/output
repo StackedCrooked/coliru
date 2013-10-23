@@ -1,0 +1,19 @@
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp
+main.cpp:8:77: warning: equality comparison result unused [-Wunused-comparison]
+    auto operator()(const T &t, const T2 &t2) -> decltype(std::declval<T>() == std::declval<T2>(), std::declval<bool>()) {
+                                                          ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+main.cpp:39:25: note: in instantiation of function template specialization 'AllTrue<true, equal_to>::operator()<S, int, S>' requested here
+        std::cout << (all_equal(S(), 4, S())) << '\n';
+                               ^
+main.cpp:9:16: warning: returning reference to local temporary object [-Wreturn-stack-address]
+        return t == t2;
+               ^~~~~~~
+main.cpp:27:16: note: in instantiation of function template specialization 'equal_to::operator()<S, int>' requested here
+        return F()(head, head2) && (*this)(std::forward<Tail>(tail)...);
+               ^
+main.cpp:39:25: note: in instantiation of function template specialization 'AllTrue<true, equal_to>::operator()<S, int, S>' requested here
+        std::cout << (all_equal(S(), 4, S())) << '\n';
+                               ^
+2 warnings generated.
++ ./a.out
+1
