@@ -1,0 +1,34 @@
+main.cpp: In function ‘int main()’:
+main.cpp:10:87: error: no matching function for call to ‘std::function<int(int)>::function(<unresolved overloaded function type>)’
+     std::transform(s.begin(), s.end(), s.begin(), std::function<int(int)>(std::toupper));
+                                                                                       ^
+main.cpp:10:87: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_algo.h:66:0,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/functional:2255:2: note: template<class _Functor, class> std::function<_Res(_ArgTypes ...)>::function(_Functor)
+  function(_Functor);
+  ^
+/usr/include/c++/4.8/functional:2255:2: note:   template argument deduction/substitution failed:
+main.cpp:10:87: note:   couldn't deduce template parameter ‘_Functor’
+     std::transform(s.begin(), s.end(), s.begin(), std::function<int(int)>(std::toupper));
+                                                                                       ^
+In file included from /usr/include/c++/4.8/bits/stl_algo.h:66:0,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/functional:2230:7: note: std::function<_Res(_ArgTypes ...)>::function(std::function<_Res(_ArgTypes ...)>&&) [with _Res = int; _ArgTypes = {int}]
+       function(function&& __x) : _Function_base()
+       ^
+/usr/include/c++/4.8/functional:2230:7: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘std::function<int(int)>&&’
+/usr/include/c++/4.8/functional:2433:5: note: std::function<_Res(_ArgTypes ...)>::function(const std::function<_Res(_ArgTypes ...)>&) [with _Res = int; _ArgTypes = {int}]
+     function<_Res(_ArgTypes...)>::
+     ^
+/usr/include/c++/4.8/functional:2433:5: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘const std::function<int(int)>&’
+/usr/include/c++/4.8/functional:2210:7: note: std::function<_Res(_ArgTypes ...)>::function(std::nullptr_t) [with _Res = int; _ArgTypes = {int}; std::nullptr_t = std::nullptr_t]
+       function(nullptr_t) noexcept
+       ^
+/usr/include/c++/4.8/functional:2210:7: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘std::nullptr_t’
+/usr/include/c++/4.8/functional:2203:7: note: std::function<_Res(_ArgTypes ...)>::function() [with _Res = int; _ArgTypes = {int}]
+       function() noexcept
+       ^
+/usr/include/c++/4.8/functional:2203:7: note:   candidate expects 0 arguments, 1 provided
