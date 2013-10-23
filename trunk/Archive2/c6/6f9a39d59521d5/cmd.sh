@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp && (echo "1 3 5 2 3" |./a.out)
