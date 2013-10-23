@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of ‘struct C<int>’:
+main.cpp:12:12:   required from here
+main.cpp:5:24: error: ‘typedef int C<void>::type’ is private
+   private: typedef int type;
+                        ^
+main.cpp:9:40: error: within this context
+ struct C       { using type = C<void>::type; };
+                                        ^
+main.cpp: In function ‘int main()’:
+main.cpp:12:12: warning: unused variable ‘c’ [-Wunused-variable]
+     C<int> c;
+            ^
