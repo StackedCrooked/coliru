@@ -18,7 +18,7 @@ set -x
 chmod -s /usr/bin/newgrp
 chmod -s /usr/bin/gpasswd
 chmod -s /usr/bin/mtr
-chmod -s /usr/bin/ping
+chmod -s /bin/ping
 #chmod -s /usr/bin/sudoedit
 chmod -s /usr/bin/at
 #chmod -s /usr/bin/chsh
