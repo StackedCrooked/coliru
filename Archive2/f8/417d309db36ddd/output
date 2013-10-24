@@ -1,0 +1,23 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:24:9: error: ‘istream_iterator’ is not a member of ‘std’
+     bar(std::istream_iterator<double>(cin));
+         ^
+main.cpp:24:31: error: expected primary-expression before ‘double’
+     bar(std::istream_iterator<double>(cin));
+                               ^
+main.cpp:25:5: error: ‘vector’ was not declared in this scope
+     vector<double> x;
+     ^
+main.cpp:25:12: error: expected primary-expression before ‘double’
+     vector<double> x;
+            ^
+main.cpp:25:12: error: expected ‘;’ before ‘double’
+main.cpp:26:9: error: ‘x’ was not declared in this scope
+     bar(x.begin());
+         ^
+main.cpp: In instantiation of ‘void bar(T*) [with T = double]’:
+main.cpp:27:11:   required from here
+main.cpp:14:7: warning: unused variable ‘v’ [-Wunused-variable]
+     T v = *arg++;
+       ^
