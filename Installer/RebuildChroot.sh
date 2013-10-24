@@ -22,8 +22,8 @@ mount_dir_into_chroot() {
     done
 }
 
-archive="$(echo $(dirname $0)/../Archive)"
-archive2="$(echo $(dirname $0)/../Archive2)"
+archive="/Archive"
+archive2="/Archive2"
 mount_dir_into_chroot ${archive} ${archive2} /usr /bin /var /lib /lib64 /etc/alternatives
 
 
