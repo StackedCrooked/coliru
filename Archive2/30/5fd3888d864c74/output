@@ -1,0 +1,24 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:91:14: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+            return {*beg};
+                    ^~~~
+                    {   }
+main.cpp:73:37: note: in instantiation of function template specialization 'helper<1>::merge_sort<const int *>' requested here
+            return c_merge(helper<dist/2>::merge_sort(beg, beg+dist/2), helper<dist-dist/2>::merge_sort(beg+dist/2, end));
+                                           ^
+main.cpp:73:37: note: in instantiation of function template specialization 'helper<2>::merge_sort<const int *>' requested here
+            return c_merge(helper<dist/2>::merge_sort(beg, beg+dist/2), helper<dist-dist/2>::merge_sort(beg+dist/2, end));
+                                           ^
+main.cpp:73:37: note: in instantiation of function template specialization 'helper<5>::merge_sort<const int *>' requested here
+            return c_merge(helper<dist/2>::merge_sort(beg, beg+dist/2), helper<dist-dist/2>::merge_sort(beg+dist/2, end));
+                                           ^
+main.cpp:98:23: note: in instantiation of function template specialization 'helper<11>::merge_sort<const int *>' requested here
+        return helper<dist>::merge_sort(beg, end);
+                             ^
+main.cpp:119:25: note: in instantiation of function template specialization 'merge_sort<11, const int *>' requested here
+constexpr auto sorted = merge_sort<array_size(unsorted)>(c_begin(unsorted), c_end(unsorted));
+                        ^
+1 warning generated.
++ ./a.out
+unsorted: 5, 7, 3, 4, 1, 8, 2, 9, 0, 6, 10, 
+sorted: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
