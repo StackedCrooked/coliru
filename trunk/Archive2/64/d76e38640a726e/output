@@ -1,0 +1,57 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:11: warning: zero size arrays are an extension [-Wzero-length-array]
+    T arr[N];
+          ^
+main.cpp:58:16: note: in instantiation of template class 'c_array<const int, 0>' requested here
+constexpr auto merge_sort(It beg, It end) -> c_array<rem_ref<decltype(*beg)>, dist>
+               ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<0, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<1, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<2, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<5, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:71:25: note: in instantiation of function template specialization 'merge_sort<11, const int *>' requested here
+constexpr auto sorted = merge_sort<array_size(unsorted)>(std::begin(unsorted), std::end(unsorted));
+                        ^
+main.cpp:34:17: fatal error: recursive template instantiation exceeded maximum depth of 256
+c_array<T, N+1> append(c_array<T, N> const& p, U const& e)
+                ^
+main.cpp:43:24: note: in instantiation of function template specialization 'c_merge<0, const int, const int *, 250>' requested here
+        beg0 == end0 ? c_merge<Res>(beg0  , end0, beg1+1, end1, append(accum, *beg1)) :
+                       ^
+main.cpp:43:24: note: in instantiation of function template specialization 'c_merge<0, const int, const int *, 249>' requested here
+        beg0 == end0 ? c_merge<Res>(beg0  , end0, beg1+1, end1, append(accum, *beg1)) :
+                       ^
+main.cpp:43:24: note: in instantiation of function template specialization 'c_merge<0, const int, const int *, 248>' requested here
+        beg0 == end0 ? c_merge<Res>(beg0  , end0, beg1+1, end1, append(accum, *beg1)) :
+                       ^
+main.cpp:43:24: note: in instantiation of function template specialization 'c_merge<0, const int, const int *, 247>' requested here
+        beg0 == end0 ? c_merge<Res>(beg0  , end0, beg1+1, end1, append(accum, *beg1)) :
+                       ^
+main.cpp:43:24: note: in instantiation of function template specialization 'c_merge<0, const int, const int *, 246>' requested here
+        beg0 == end0 ? c_merge<Res>(beg0  , end0, beg1+1, end1, append(accum, *beg1)) :
+                       ^
+main.cpp:43:24: note: (skipping 247 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<0, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<1, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<2, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:60:20: note: in instantiation of function template specialization 'merge_sort<5, const int *>' requested here
+    return c_merge(merge_sort<dist/2>(beg, beg+dist/2), merge_sort<dist-dist/2>(beg+dist/2, end));
+                   ^
+main.cpp:71:25: note: in instantiation of function template specialization 'merge_sort<11, const int *>' requested here
+constexpr auto sorted = merge_sort<array_size(unsorted)>(std::begin(unsorted), std::end(unsorted));
+                        ^
+1 warning and 1 error generated.
