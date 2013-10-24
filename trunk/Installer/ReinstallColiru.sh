@@ -13,6 +13,24 @@ set -e
 set -x
 
 
+# Remote setuid root from programs
+#chmod -s /bin/fusermount
+chmod -s /usr/bin/newgrp
+chmod -s /usr/bin/gpasswd
+chmod -s /usr/bin/mtr
+chmod -s /usr/bin/ping
+#chmod -s /usr/bin/sudoedit
+chmod -s /usr/bin/at
+#chmod -s /usr/bin/chsh
+#chmod -s /usr/bin/chfn
+#chmod -s /usr/bin/sudo
+#chmod -s /usr/bin/passwd
+#chmod -s /usr/sbin/uuidd
+#chmod -s /usr/sbin/pppd
+
+
+
+
 # Install g++-4.8 and related things.
 # TODO: This is a mess and needs to be cleaned up.
 type 'g++-4.8' || { \
