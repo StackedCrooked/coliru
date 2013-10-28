@@ -1,0 +1,36 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.section	.rodata						.section	.rodata
+.LC0:								.LC0:
+	.string	"%d"							.string	"%d"
+	.text								.text
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB0:								.LFB0:
+	.cfi_startproc							.cfi_startproc
+	pushq	%rbp							pushq	%rbp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16						.cfi_offset 6, -16
+	movq	%rsp, %rbp						movq	%rsp, %rbp
+	.cfi_def_cfa_register 6						.cfi_def_cfa_register 6
+	subq	$16, %rsp						subq	$16, %rsp
+	movl	$5, -4(%rbp)						movl	$5, -4(%rbp)
+	movl	-4(%rbp), %eax						movl	-4(%rbp), %eax
+							      >		cltd
+							      >		shrl	$31, %edx
+							      >		addl	%edx, %eax
+	andl	$1, %eax						andl	$1, %eax
+							      >		subl	%edx, %eax
+	movl	%eax, %esi						movl	%eax, %esi
+	movl	$.LC0, %edi						movl	$.LC0, %edi
+	movl	$0, %eax						movl	$0, %eax
+	call	printf							call	printf
+	movl	$0, %eax						movl	$0, %eax
+	leave								leave
+	.cfi_def_cfa 7, 8						.cfi_def_cfa 7, 8
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE0:								.LFE0:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
