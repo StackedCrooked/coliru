@@ -1,0 +1,14 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:18:43: error: no matching function for call to 'Value::Value(int*, int)'
+     values.push_back(Value(new int(10), 20));
+                                           ^
+main.cpp:18:43: note: candidates are:
+main.cpp:8:8: note: Value::Value()
+ struct Value
+        ^
+main.cpp:8:8: note:   candidate expects 0 arguments, 2 provided
+main.cpp:8:8: note: constexpr Value::Value(const Value&)
+main.cpp:8:8: note:   candidate expects 1 argument, 2 provided
+main.cpp:8:8: note: constexpr Value::Value(Value&&)
+main.cpp:8:8: note:   candidate expects 1 argument, 2 provided
