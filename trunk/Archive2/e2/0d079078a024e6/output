@@ -1,0 +1,10 @@
+main.cpp:4:38: error: type 'int' cannot be used prior to '::' because it has no members
+    void f() { using type = typename T::type; }
+                                     ^
+main.cpp:6:24: note: in instantiation of member function 'A<int>::f' requested here
+    virtual void g() { f(); }    
+                       ^
+main.cpp:11:12: note: in instantiation of member function 'A<int>::g' requested here
+    A<int> a;
+           ^
+1 error generated.
