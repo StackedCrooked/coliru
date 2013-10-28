@@ -1,0 +1,22 @@
+g++ (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp: In constructor 'Foo< <template-parameter-1-1> >::Foo()':
+main.cpp:6:20: error: default argument for template parameter for class enclosing 'int t(int (*)())'
+         int t(int()); // Error
+                    ^
+main.cpp: In function 'int main()':
+main.cpp:13:9: error: wrong number of template arguments (0, should be 1)
+     Foo<> a; // Error
+         ^
+main.cpp:2:8: error: provided for 'template<class> struct Foo'
+ struct Foo
+        ^
+main.cpp:13:12: error: invalid type in declaration before ';' token
+     Foo<> a; // Error
+            ^
+main.cpp:13:11: warning: unused variable 'a' [-Wunused-variable]
+     Foo<> a; // Error
+           ^
