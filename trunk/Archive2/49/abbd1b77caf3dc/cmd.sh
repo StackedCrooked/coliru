@@ -1,0 +1,1 @@
+g++-4.8 main.cpp -S -DAND -o main1 && g++-4.8 main.cpp -S -DMOD -o main2 && diff --side-by-side -s main1 main2
