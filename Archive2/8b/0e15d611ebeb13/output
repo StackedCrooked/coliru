@@ -1,0 +1,25 @@
++ clang++ -O0 main.cpp
++ ./a.out
++ c++filt -t
+
+annotating ast::Identifier 'FuncName_1'
+
+annotating ast::Identifier 'Var_1'
+
+annotating ast::VarAssignment 'var Var_1 = 3;
+ '
+
+annotating ast::Identifier 'Var_2'
+
+annotating ast::VarAssignment 'var  Var_2 = 4; '
+
+annotating ast::SourceCode 'function FuncName_1 {
+ var Var_1 = 3;
+ var  Var_2 = 4; }'
+ok  : true
+full: true
+OK: Parsing fully succeeded
+
+Function name: FuncName_1 (see L1:1:56)
+variable Var_1 assigned value 3 at L2:3:16
+variable Var_2 assigned value 4 at L3:3:16
