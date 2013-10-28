@@ -1,0 +1,62 @@
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
++ ./a.out
+----------------------------------------------------------------------
+signed char conversion (size = 8 bits) - Generation took 0.0414727 seconds
+----------------------------------------------------------------------
+  stringstream: FAILURE
+        sscanf: 0.0227423 seconds
+          stoi: 0.00394179 seconds
+        strtol: 0.00431082 seconds
+          stol: 0.00397545 seconds
+       strtoll: 0.00386097 seconds
+         stoll: 0.00400435 seconds
+     handcoded: 0.00261517 seconds
+        hybrid: 0.00417176 seconds
+----------------------------------------------------------------------
+short conversion (size = 16 bits) - Generation took 0.0338389 seconds
+----------------------------------------------------------------------
+  stringstream: 0.0925973 seconds
+        sscanf: 0.0251358 seconds
+          stoi: 0.0053655 seconds
+        strtol: 0.00562241 seconds
+          stol: 0.00520163 seconds
+       strtoll: 0.00509835 seconds
+         stoll: 0.005306 seconds
+     handcoded: 0.00330278 seconds
+        hybrid: 0.00505098 seconds
+----------------------------------------------------------------------
+int conversion (size = 32 bits) - Generation took 0.0509041 seconds
+----------------------------------------------------------------------
+  stringstream: 0.0970119 seconds
+        sscanf: 0.030787 seconds
+          stoi: 0.00828471 seconds
+        strtol: 0.00875196 seconds
+          stol: 0.00794139 seconds
+       strtoll: 0.00786017 seconds
+         stoll: 0.00776701 seconds
+     handcoded: 0.00516772 seconds
+        hybrid: 0.00970784 seconds
+----------------------------------------------------------------------
+long conversion (size = 64 bits) - Generation took 0.0555237 seconds
+----------------------------------------------------------------------
+  stringstream: 0.113563 seconds
+        sscanf: 0.0421834 seconds
+          stoi: SKIPPED
+        strtol: 0.0140435 seconds
+          stol: 0.0134442 seconds
+       strtoll: 0.0144084 seconds
+         stoll: 0.0139736 seconds
+     handcoded: 0.00830375 seconds
+        hybrid: 0.0137989 seconds
+----------------------------------------------------------------------
+long long conversion (size = 64 bits) - Generation took 0.0555437 seconds
+----------------------------------------------------------------------
+  stringstream: 0.106344 seconds
+        sscanf: 0.0415671 seconds
+          stoi: SKIPPED
+        strtol: 0.0142906 seconds
+          stol: 0.0134438 seconds
+       strtoll: 0.0132305 seconds
+         stoll: 0.0134017 seconds
+     handcoded: 0.00835167 seconds
+        hybrid: 0.0137759 seconds
