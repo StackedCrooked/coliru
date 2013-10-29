@@ -1,0 +1,47 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
++ ./a.out
+Give a number from 1-26: 1 or 0: + cat coded.txt
+#\aV_hWX <\bfgeXT`>
+#\aV_hWX <YfgeXT`>
+hf\aZ aT`XfcTVX fgW;
+
+\ag V[bbfX>Xl() {
+    Vbhg << ":\iX T ah`UXe Yeb` 1-26: ";
+    \ag ^Xl_ah`UXe;
+    j[\_X((!(V\a >> ^Xl_ah`UXe)) || (^Xl_ah`UXe < 1 || ^Xl_ah`UXe > 26)) {
+        Vbhg << "Lbhe ah`UXe [TiX gb UX Yeb` 1-26 (" << ^Xl_ah`UXe << "). EXgel: ";
+        V\a.V_XTe();
+    }
+    eXghea ^Xl_ah`UXe;
+}
+
+gX`c_TgX <glcXaT`X <a<g, glcXaT`X Bhg<g>
+ib\W XaVelcg\ba(<a<g Y, <a<g _, Bhg<g bhg, \ag ^Xl) {
+    Ybe (<a<g cgX`c = Y; cgX`c != _; ++cgX`c)
+    {
+        \Y(\fT_c[T(*cgX`c))
+        {
+            V[Te UTfX = \f_bjXe(*cgX`c)? 'T' : '4';
+            *bhg++ = UTfX + (*cgX`c - UTfX + ^Xl) % 26;
+        } X_fX
+            *bhg++ = *cgX`c;
+    }
+}
+
+ib\W 6TXfTe(Vbafg V[Te *\achg9\_X, Vbafg V[Te *bhgchg9\_X, \ag ^Xl, \ag `bWX) {
+    \YfgeXT` \achg(\achg9\_X);
+    bYfgeXT` bhgchg(bhgchg9\_X);
+
+    \fgeXT`UhY_\gXeTgbe<V[Te> \a\g(\achg), XaW;
+    bfgeXT`UhY_\gXeTgbe<V[Te> bhg\g(bhgchg);
+
+    XaVelcg\ba(\a\g, XaW, bhg\g, `bWX? ^Xl : -^Xl);
+}
+
+\ag `T\a() {
+    \ag ^Xl, `bWX;
+    ^Xl = V[bbfX>Xl();
+    Vbhg << "1 be 0: ";
+    V\a >> `bWX;
+    6TXfTe("`T\a.Vcc", "VbWXW.gkg", ^Xl, `bWX);
+}
