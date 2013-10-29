@@ -1,0 +1,84 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:1111:144: warning: suggest parentheses around arithmetic in operand of '|' [-Wparentheses]
+  std::clog << "Bound tuple test: " << ("ABCDEFG"_cset && ("HIJKLMN"_cset && "1234567"_cset) | "abcdefg"_cset | "hijklmn"_cset & "opqrstu"_cset & "vwxyz"_cset) << std::endl;
+                                                                                                                                                ^
++ ./a.out
+Creating parser rule: second
+Creating parser rule: first
+Trying parse rule: second
+Trying parse rule: second
+Creating parser rule: fourth
+Trying parse rule: fourth
+Creating parser rule: third
+Unrecoverable parse error: Parse rule not defined
+T<...> convertible to T<> false
+T<...> derived from T<> false
+T<...> is tuple true
+tail test: 
+< 2.71, 0, a, I am the very model of a modern major general, Rule > 
+Tail<3> test: 
+< a, 
+|_< @<4>, W<Parse rule not defined>, E<Parse rule not defined> >,
+|_I am the very model of a modern major general, Rule > 
+Tail of <1> test: 
+< asdf > 
+Tail of <2> test: 
+< asdf > 
+Tail of <3> test: 
+< asdf, z > 
+Head<3> test: 
+< 3.14, 2.71, 0 > 
+Max tuple: 
+< 1, 2, 3, 4, 5, 6 > 
+Min tuple: 
+< 1, 2, 3 > 
+Max size tuple: 
+< 1, 2, 3 > 
+Min size tuple: 
+< 1, 2, 3, 4, 5 > 
+TMap test: 
+< 3.14, 2.71, 0, a, 
+|_< Hydrogen, Helium, Lithium, Berylium, 
+| |_< H, He, Li, Be > >,
+|_I am the very model of a modern major general, 
+|_< Boron, Carbon, 
+| |_< < 1, 1, 2, 3, 5, 8 >,
+| | |_B, C, N, O >,
+| |_Nitrogen, Oxygen >,
+|_Rule > 
+Bound tuple test: 
+< & =>, 
+|_< [ =>, ABCDEFG >,
+|_< | =>, 
+| |_< & =>, 
+| | |_< [ =>, HIJKLMN >,
+| | |_< [ =>, 1234567 > >,
+| |_< [ =>, abcdefg >,
+| |_< & =>, 
+| | |_< [ =>, hijklmn >,
+| | |_< [ =>, opqrstu >,
+| | |_< [ =>, vwxyz > > > > 
+Bound tuple test2: 
+< ~, & =>, 
+|_< [ =>, ABCDEFG >,
+|_< [ =>, HIJKLMN >,
+|_< & =>, 
+| |_< & =>, 
+| | |_< ~, [ =>, 1234567 >,
+| | |_E<Parse rule not defined> >,
+| |_W<Parse rule not defined> >,
+|_@<2>, 
+|_< [ =>, abcdefg >,
+|_< [ =>, hijklmn >,
+|_< ?, [ =>, opqrstu >,
+|_< [ =>, vwxyz > > 
+
+< & =>, 
+|_< | =>, 
+| |_< ~, = =>, template >,
+| |_< ?, & =>, 
+| | |_< = =>, qwerty >,
+| | |_< [ =>, asdf > > >,
+|_@<2>, 
+|_< = =>,  > > 
