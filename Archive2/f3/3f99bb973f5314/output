@@ -1,0 +1,47 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
++ ./a.out
+Give a number from 1-26: 1 or 0: + cat coded.txt
+#wbqzirs <wcghfsoa>
+#wbqzirs <tghfsoa>
+igwbu boasgdoqs ghr;
+
+wbh qvccgsYsm() {
+    qcih << "Uwjs o biapsf tfca 1-26: ";
+    wbh ysm_biapsf;
+    kvwzs((!(qwb >> ysm_biapsf)) || (ysm_biapsf < 1 || ysm_biapsf > 26)) {
+        qcih << "Mcif biapsf vojs hc ps tfca 1-26 (" << ysm_biapsf << "). Fshfm: ";
+        qwb.qzsof();
+    }
+    fshifb ysm_biapsf;
+}
+
+hsadzohs <hmdsboas WbWh, hmdsboas CihWh>
+jcwr sbqfmdhwcb(WbWh t, WbWh z, CihWh cih, wbh ysm) {
+    tcf (WbWh dhsad = t; dhsad != z; ++dhsad)
+    {
+        wt(wgozdvo(*dhsad))
+        {
+            qvof pogs = wgzcksf(*dhsad)? 'o' : 'O';
+            *cih++ = pogs + (*dhsad - pogs + ysm) % 26;
+        } szgs
+            *cih++ = *dhsad;
+    }
+}
+
+jcwr Qosgof(qcbgh qvof *wbdihTwzs, qcbgh qvof *cihdihTwzs, wbh ysm, wbh acrs) {
+    wtghfsoa wbdih(wbdihTwzs);
+    ctghfsoa cihdih(cihdihTwzs);
+
+    wghfsoapit_whsfohcf<qvof> wbwh(wbdih), sbr;
+    cghfsoapit_whsfohcf<qvof> cihwh(cihdih);
+
+    sbqfmdhwcb(wbwh, sbr, cihwh, acrs? ysm : -ysm);
+}
+
+wbh aowb() {
+    wbh ysm, acrs;
+    ysm = qvccgsYsm();
+    qcih << "1 cf 0: ";
+    qwb >> acrs;
+    Qosgof("aowb.qdd", "qcrsr.hlh", ysm, acrs);
+}
