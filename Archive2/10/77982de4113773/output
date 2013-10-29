@@ -1,0 +1,15 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:25:36: warning: narrowing conversion of '-1' from 'int' to 'unsigned int' inside { } [-Wnarrowing]
+     unsigned int k[] = {-1,-2,-3,-4};
+                                    ^
+main.cpp:25:36: warning: narrowing conversion of '-2' from 'int' to 'unsigned int' inside { } [-Wnarrowing]
+main.cpp:25:36: warning: narrowing conversion of '-3' from 'int' to 'unsigned int' inside { } [-Wnarrowing]
+main.cpp:25:36: warning: narrowing conversion of '-4' from 'int' to 'unsigned int' inside { } [-Wnarrowing]
++ ./a.out
+i: 1, 2, 3, 4
+k: 4294967295, 4294967294, 4294967293, 4294967292
+i: 9, 8, 7, 6
+k: 9, 8, 7, 6
+i: -9, -8, -7, -6
+k: 4294967287, 4294967288, 4294967289, 4294967290
