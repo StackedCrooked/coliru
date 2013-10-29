@@ -1,0 +1,1 @@
+g++-4.8 -O3 -std=c++11 -pedantic -Wall -pthread -Wextra -S main.cpp && cat main.s
