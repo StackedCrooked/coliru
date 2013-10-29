@@ -1,0 +1,28 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:19:36: warning: 'AnInt' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         cout << "value_type = " << AnInt << endl;
+                                    ^
++ ./a.out
+--- Member Types ---
+
+value_type = 0
+--- Member Functions ---
+
+size of vector = 5
+capacity of vector = 8
+max_size = 4611686018427387903
+Empty = 0
+
+--vector shrink to fit--
+size of vector = 5
+capacity of vector = 5
+
+--vector got resized--
+size of vector = 10
+capacity of vector = 10
+
+--vector reserved memory--
+size of vector = 10
+capacity of vector = 20
+
