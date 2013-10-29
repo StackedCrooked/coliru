@@ -1,0 +1,9 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
++ ./a.out
++ c++filt -t
+7.5*[someAlphanumStr] -> (7.5 someAlphanumStr)
+7.5[someAlphanumStr] -> (7.5 someAlphanumStr)
+[someAlphanumStr]*7.4 -> (7.4 someAlphanumStr)
+[someAlphanumStr]5 -> (5 someAlphanumStr)
+7.4 -> (7.4 )
+[someAlphanumStr] -> (0 someAlphanumStr)
