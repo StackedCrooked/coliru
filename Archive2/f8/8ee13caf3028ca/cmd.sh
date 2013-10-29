@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp && echo "1 42 2 43 3 44 4 44 5 45 6 46" | ./a.out
