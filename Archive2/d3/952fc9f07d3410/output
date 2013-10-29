@@ -1,0 +1,48 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
++ ./a.out
+Give a number from 1-26: 1 or 0: + cat coded.txt
+#vapyhqr <vbfgernz>
+#vapyhqr <sfgernz>
+hfvat anzrfcnpr fgq;
+
+vag pubbfrXrl() {
+    pbhg << "Tvir n ahzore sebz 1-26: ";
+    vag xrl_ahzore;
+    juvyr((!(pva >> xrl_ahzore)) || (xrl_ahzore < 1 || xrl_ahzore > 26)) {
+        pbhg << "Lbhe ahzore unir gb or sebz 1-26 (" << xrl_ahzore << "). Ergel: ";
+        pva.pyrne();
+    }
+    erghea xrl_ahzore-1;
+}
+
+grzcyngr <glcranzr VaVg, glcranzr BhgVg>
+ibvq rapelcgvba(VaVg s, VaVg y, BhgVg bhg, vag xrl) {
+    sbe (VaVg cgrzc = s; cgrzc != y; ++cgrzc)
+    {
+        vs(vfnycun(*cgrzc))
+        {
+            pune onfr = vfybjre(*cgrzc)? 'n' : 'N';
+            *bhg++ = onfr + (*cgrzc - onfr + xrl) % 26;
+        } ryfr
+            *bhg++ = *cgrzc;
+    }
+}
+
+ibvq Pnrfne(pbafg pune *vachgSvyr, pbafg pune *bhgchgSvyr, vag xrl, vag zbqr) {
+    vsfgernz vachg(vachgSvyr);
+    bsfgernz bhgchg(bhgchgSvyr);
+
+    vfgernzohs_vgrengbe<pune> vavg(vachg), raq;
+    bfgernzohs_vgrengbe<pune> bhgvg(bhgchg);
+
+    rapelcgvba(vavg, raq, bhgvg, zbqr? xrl : 26-xrl);
+}
+
+vag znva() {
+    vag xrl, zbqr;
+    xrl = pubbfrXrl();
+    pbhg << "1 be 0: ";
+    pva >> zbqr;
+    Pnrfne("znva.pcc", "pbqrq.gkg", xrl, zbqr);
+}
+
