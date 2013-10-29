@@ -1,0 +1,37 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:20:49: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         char* command[] = {"cat", "input.txt", 0};
+                                                 ^
+main.cpp:20:49: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+main.cpp:27:15: error: jump to case label [-fpermissive]
+         case -1:
+               ^
+main.cpp:20:15: error:   crosses initialization of 'char* command [3]'
+         char* command[] = {"cat", "input.txt", 0};
+               ^
+main.cpp:41:42: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         char* command[] = {"grep", "1", 0};
+                                          ^
+main.cpp:41:42: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+main.cpp:47:15: error: jump to case label [-fpermissive]
+         case -1:
+               ^
+main.cpp:41:15: error:   crosses initialization of 'char* command [3]'
+         char* command[] = {"grep", "1", 0};
+               ^
+main.cpp:52:9: error: jump to case label [-fpermissive]
+         default:
+         ^
+main.cpp:41:15: error:   crosses initialization of 'char* command [3]'
+         char* command[] = {"grep", "1", 0};
+               ^
+main.cpp:58:26: error: 'waitpid' was not declared in this scope
+     waitpid(pid1, NULL, 0);
+                          ^
+main.cpp:8:16: warning: unused variable 'nbytes' [-Wunused-variable]
+     int fd[2], nbytes, status;
+                ^
+main.cpp:11:13: warning: ignoring return value of 'int pipe(int*)', declared with attribute warn_unused_result [-Wunused-result]
+     pipe(fd);
+             ^
