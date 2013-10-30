@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread -lboost_iostreams -lz main.cpp && ./a.out
