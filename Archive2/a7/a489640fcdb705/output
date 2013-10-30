@@ -1,0 +1,16 @@
+main.cpp: In function 'void f3(char*, char)':
+main.cpp:20:22: error: no matching function for call to 'f1(char*&, f3(char*, char)::__lambda0&)'
+     f1(str, fn_filter); // error C2784
+                      ^
+main.cpp:20:22: note: candidate is:
+main.cpp:6:6: note: template<class CharType> void f1(CharType*, std::function<bool(CharType)>)
+ void f1(CharType* str, function<bool(CharType)> fn_filter)
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp:20:22: note:   'f3(char*, char)::__lambda0' is not derived from 'std::function<bool(CharType)>'
+     f1(str, fn_filter); // error C2784
+                      ^
+main.cpp: In function 'int main()':
+main.cpp:26:17: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     f3("ok", 'k');
+                 ^
