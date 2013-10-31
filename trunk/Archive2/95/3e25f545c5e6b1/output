@@ -1,0 +1,42 @@
+main.cpp:27:5: error: 'boost' does not name a type
+     boost::shared_ptr<OtherClass> inst;
+     ^
+main.cpp:28:1: error: expected ';' after class definition
+ }
+ ^
+main.cpp: In member function 'void MyClass::start()':
+main.cpp:12:13: error: 'inst' was not declared in this scope
+         if (inst)
+             ^
+main.cpp:13:19: error: 'logic_error' is not a member of 'std'
+             throw std::logic_error;
+                   ^
+main.cpp:15:9: error: 'inst' was not declared in this scope
+         inst.reset(new OtherClass);
+         ^
+main.cpp:15:24: error: expected type-specifier before 'OtherClass'
+         inst.reset(new OtherClass);
+                        ^
+main.cpp: In member function 'void MyClass::stop()':
+main.cpp:20:14: error: 'inst' was not declared in this scope
+         if (!inst)
+              ^
+main.cpp:21:19: error: 'logic_error' is not a member of 'std'
+             throw std::logic_error;
+                   ^
+main.cpp:23:9: error: 'inst' was not declared in this scope
+         inst.reset();  // this throw an exception
+         ^
+main.cpp: In function 'int main()':
+main.cpp:10:10: error: 'void MyClass::start()' is private
+     void start()
+          ^
+main.cpp:34:13: error: within this context
+     a.start();
+             ^
+main.cpp:18:10: error: 'void MyClass::stop()' is private
+     void stop()
+          ^
+main.cpp:35:12: error: within this context
+     a.stop();
+            ^
