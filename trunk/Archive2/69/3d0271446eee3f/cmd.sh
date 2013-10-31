@@ -1,0 +1,1 @@
+set -x ; g++  -O3 -Wall  -pedantic -march=native main.cpp -ftree-vectorizer-verbose=1 && ./a.out
