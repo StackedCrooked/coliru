@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:31:9: warning: unused variable 'x' [-Wunused-variable]
+  float& x = int_if_addable<X>(0);
+         ^
+main.cpp:32:7: warning: unused variable 'y' [-Wunused-variable]
+  int& y = int_if_addable<Y>(0);
+       ^
+main.cpp:33:9: warning: unused variable 'z' [-Wunused-variable]
+  float& z = int_if_addable<Z>(0);
+         ^
+main.cpp:35:9: warning: unused variable 'a' [-Wunused-variable]
+  float& a = B<X>::int_if_addable();
+         ^
+main.cpp:36:7: warning: unused variable 'b' [-Wunused-variable]
+  int& b = B<Y>::int_if_addable();
+       ^
+main.cpp:37:9: warning: unused variable 'c' [-Wunused-variable]
+  float& c = B<Z>::int_if_addable();
+         ^
+/tmp/ccYo39wX.o: In function `main':
+main.cpp:(.text.startup+0x9): undefined reference to `float& int_if_addable<X>(...)'
+main.cpp:(.text.startup+0x10): undefined reference to `int& int_if_addable<Y>(A<sizeof (((Y)())+((Y)()))>*)'
+main.cpp:(.text.startup+0x19): undefined reference to `float& int_if_addable<Z>(...)'
+main.cpp:(.text.startup+0x1e): undefined reference to `B<X, decltype(nullptr)>::int_if_addable()'
+main.cpp:(.text.startup+0x23): undefined reference to `B<Y, decltype(nullptr)>::int_if_addable()'
+main.cpp:(.text.startup+0x28): undefined reference to `B<Z, decltype(nullptr)>::int_if_addable()'
+collect2: error: ld returned 1 exit status
