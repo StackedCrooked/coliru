@@ -1,0 +1,33 @@
++ g++ -O3 -Wall -pedantic -march=native main.cpp -ftree-vectorizer-verbose=1
+main.cpp:26:0: warning: ignoring #pragma ivdep  [-Wunknown-pragmas]
+     #pragma ivdep
+ ^
+
+Analyzing loop at main.cpp:20
+
+
+Vectorizing loop at main.cpp:20
+
+main.cpp:20: note: create runtime check for data references *_11 and *_9
+main.cpp:20: note: created 1 versioning for alias checks.
+
+main.cpp:20: note: === vect_do_peeling_for_loop_bound ===Setting upper bound of nb iterations for epilogue loop to 2
+
+main.cpp:20: note: LOOP VECTORIZED.
+main.cpp:19: note: vectorized 1 loops in function.
+
+main.cpp:20: note: Completely unroll loop 2 times
+
+Analyzing loop at main.cpp:27
+
+main.cpp:25: note: vectorized 0 loops in function.
+
+Analyzing loop at main.cpp:20
+
+
+Vectorizing loop at main.cpp:20
+
+main.cpp:20: note: LOOP VECTORIZED.
+main.cpp:34: note: vectorized 1 loops in function.
++ ./a.out
+error
