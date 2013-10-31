@@ -1,0 +1,38 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
+0  clang           0x0000000001fcd3a2 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  clang           0x0000000001fcd001
+2  libpthread.so.0 0x00007f646300ecb0
+3  libpthread.so.0 0x00007f646300dcb0 write + 16
+4  clang           0x0000000001fe3ba3 llvm::raw_fd_ostream::write_impl(char const*, unsigned long) + 67
+5  clang           0x0000000001fe4641 llvm::raw_ostream::write(char const*, unsigned long) + 209
+6  clang           0x0000000001fbc351 llvm::formatted_raw_ostream::write_impl(char const*, unsigned long) + 33
+7  clang           0x0000000001fe4614 llvm::raw_ostream::write(char const*, unsigned long) + 164
+8  clang           0x0000000001e49ec4
+9  clang           0x0000000001e50bbf
+10 clang           0x0000000001e67dfb llvm::MCAssembler::Finish() + 747
+11 clang           0x000000000195fad8 llvm::AsmPrinter::doFinalization(llvm::Module&) + 984
+12 clang           0x0000000001f688f5 llvm::FPPassManager::doFinalization(llvm::Module&) + 69
+13 clang           0x0000000001f71215 llvm::MPPassManager::runOnModule(llvm::Module&) + 613
+14 clang           0x0000000001f7132c llvm::PassManagerImpl::run(llvm::Module&) + 188
+15 clang           0x00000000008c146c clang::EmitBackendOutput(clang::DiagnosticsEngine&, clang::CodeGenOptions const&, clang::TargetOptions const&, clang::LangOptions const&, llvm::Module*, clang::BackendAction, llvm::raw_ostream*) + 2204
+16 clang           0x00000000008bf3f7
+17 clang           0x0000000000a2375b clang::ParseAST(clang::Sema&, bool, bool) + 507
+18 clang           0x0000000000771969 clang::FrontendAction::Execute() + 169
+19 clang           0x00000000007517b5 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 293
+20 clang           0x000000000073c3f7 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 1671
+21 clang           0x00000000007372d8 cc1_main(char const**, char const**, char const*, void*) + 1224
+22 clang           0x000000000071b3db main + 7995
+23 libc.so.6       0x00007f646224776d __libc_start_main + 237
+24 clang           0x00000000007362ad
+Stack dump:
+0.	Program arguments: /usr/local/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -resource-dir /usr/local/bin/../lib/clang/3.4 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.4/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -Wall -pedantic -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1383252401-1172874949 -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fobjc-default-synthesize-properties -fcxx-exceptions -fexceptions -fdiagnostics-show-option -backend-option -vectorize-loops -o /tmp/main-tRc9Au.o -x c++ main.cpp 
+1.	<eof> parser at end of file
+2.	Code generation
+clang: error: unable to execute command: File size limit exceeded (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 3.4 (trunk 184460)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+clang: note: diagnostic msg: PLEASE submit a bug report to http://llvm.org/bugs/ and include the crash backtrace, preprocessed source, and associated run script.
+clang: error: unable to execute command: File size limit exceeded (core dumped)
+clang: note: diagnostic msg: Error generating preprocessed source(s).
