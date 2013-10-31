@@ -1,0 +1,1 @@
+echo "aaa" > a ; echo "aba" > b ; diff  -y a b | pygmentize -l diff -f html -O full
