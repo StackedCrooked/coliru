@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+/tmp/ccRoTy64.o: In function `_ZN5boost9iostreams6detail22zlib_decompressor_implISaIcEE6filterERPKcS6_RPcS8_b.isra.101':
+main.cpp:(.text+0x54): undefined reference to `boost::iostreams::detail::zlib_base::before(char const*&, char const*, char*&, char*)'
+main.cpp:(.text+0x5a): undefined reference to `boost::iostreams::zlib::sync_flush'
+main.cpp:(.text+0x62): undefined reference to `boost::iostreams::detail::zlib_base::xinflate(int)'
+main.cpp:(.text+0x74): undefined reference to `boost::iostreams::detail::zlib_base::after(char const*&, char*&, bool)'
+main.cpp:(.text+0x7b): undefined reference to `boost::iostreams::zlib_error::check(int)'
+main.cpp:(.text+0x81): undefined reference to `boost::iostreams::zlib::stream_end'
+/tmp/ccRoTy64.o: In function `boost::iostreams::detail::zlib_decompressor_impl<std::allocator<char> >::~zlib_decompressor_impl()':
+main.cpp:(.text._ZN5boost9iostreams6detail22zlib_decompressor_implISaIcEED2Ev[_ZN5boost9iostreams6detail22zlib_decompressor_implISaIcEED5Ev]+0x9): undefined reference to `boost::iostreams::detail::zlib_base::reset(bool, bool)'
+main.cpp:(.text._ZN5boost9iostreams6detail22zlib_decompressor_implISaIcEED2Ev[_ZN5boost9iostreams6detail22zlib_decompressor_implISaIcEED5Ev]+0x12): undefined reference to `boost::iostreams::detail::zlib_base::~zlib_base()'
+/tmp/ccRoTy64.o: In function `main':
+main.cpp:(.text.startup+0x10d): undefined reference to `boost::iostreams::detail::zlib_base::zlib_base()'
+main.cpp:(.text.startup+0x113): undefined reference to `boost::iostreams::zlib::default_compression'
+main.cpp:(.text.startup+0x13f): undefined reference to `boost::iostreams::zlib::deflated'
+main.cpp:(.text.startup+0x153): undefined reference to `boost::iostreams::zlib::default_strategy'
+main.cpp:(.text.startup+0x15c): undefined reference to `boost::iostreams::detail::zlib_base::do_init(boost::iostreams::zlib_params const&, bool, void* (*)(void*, unsigned int, unsigned int), void (*)(void*, void*), void*)'
+main.cpp:(.text.startup+0x329): undefined reference to `boost::iostreams::detail::zlib_base::~zlib_base()'
+/tmp/ccRoTy64.o: In function `boost::iostreams::symmetric_filter<boost::iostreams::detail::zlib_decompressor_impl<std::allocator<char> >, std::allocator<char> >::close_impl()':
+main.cpp:(.text._ZN5boost9iostreams16symmetric_filterINS0_6detail22zlib_decompressor_implISaIcEEES4_E10close_implEv[_ZN5boost9iostreams16symmetric_filterINS0_6detail22zlib_decompressor_implISaIcEEES4_E10close_implEv]+0x27): undefined reference to `boost::iostreams::detail::zlib_base::reset(bool, bool)'
+collect2: error: ld returned 1 exit status

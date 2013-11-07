@@ -1,0 +1,30 @@
+main.cpp:3:32: error: template declaration of ‘Container loadFileContent’
+ Container loadFileContent(std::string filename)
+                                ^
+main.cpp:3:27: error: ‘string’ is not a member of ‘std’
+ Container loadFileContent(std::string filename)
+                           ^
+main.cpp:19:8: error: ‘Texture’ does not name a type
+ static Texture createTextureFromWebpFile(std::string filepath)
+        ^
+main.cpp:31:1: error: ‘ifstream’ in namespace ‘std’ does not name a type
+ std::ifstream webpImageFile(filepath, std::ios_base::binary);
+ ^
+main.cpp:32:1: error: ‘istream_iterator’ in namespace ‘std’ does not name a type
+ std::istream_iterator<uint8_t> begin(webpImageFile), end;
+ ^
+main.cpp:33:1: error: ‘vector’ in namespace ‘std’ does not name a type
+ std::vector<uint8_t> rawData(begin, end);
+ ^
+main.cpp:37:25: error: ‘rawData’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                         ^
+main.cpp:37:41: error: ‘rawData’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                         ^
+main.cpp:37:65: error: ‘uint8_t’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                                                 ^
+main.cpp:37:90: error: ‘WebPGetInfo’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                                                                          ^

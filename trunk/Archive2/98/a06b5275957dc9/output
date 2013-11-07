@@ -1,0 +1,20 @@
+; ModuleID = 'main.cpp'						; ModuleID = 'main.cpp'
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32	target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32
+target triple = "x86_64-unknown-linux-gnu"			target triple = "x86_64-unknown-linux-gnu"
+
+@_ZN1A1tE = external constant i32			      |	; Function Attrs: nounwind readnone uwtable
+							      |	define void @_Z3useRKi(i32* nocapture) #0 {
+; Function Attrs: nounwind uwtable			      <
+define void @_Z3useRKi(i32*) #0 {			      <
+  %2 = alloca i32*, align 8				      <
+  store i32* %0, i32** %2, align 8			      <
+  ret void							  ret void
+}								}
+
+; Function Attrs: nounwind uwtable			      |	; Function Attrs: nounwind readnone uwtable
+define i32 @main() #0 {						define i32 @main() #0 {
+  call void @_Z3useRKi(i32* @_ZN1A1tE)			      <
+  ret i32 0							  ret i32 0
+}								}
+
+attributes #0 = { nounwind uwtable "less-precise-fpmad"="fals |	attributes #0 = { nounwind readnone uwtable "less-precise-fpm

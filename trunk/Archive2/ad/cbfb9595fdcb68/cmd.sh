@@ -1,0 +1,1 @@
+g++ -std=c++03 -O2 -Wall -pthread main.cpp && ./a.out

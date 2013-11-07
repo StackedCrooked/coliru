@@ -1,0 +1,16 @@
+main.cpp: In instantiation of ‘struct foo_argument<derived>’:
+main.cpp:43:47:   required from here
+main.cpp:9:50: error: no matching function for call to ‘foo_argument<derived>::test(<unresolved overloaded function type>)’
+     using type = decltype(test(&T::template foo<>));
+                                                  ^
+main.cpp:9:50: note: candidate is:
+main.cpp:7:16: note: template<class Ret, class C, class Arg> static Arg foo_argument<T>::test(Ret (C::*)(Arg)) [with Ret = Ret; C = C; Arg = Arg; T = derived]
+     static Arg test(Ret (C::*)(Arg));
+                ^
+main.cpp:7:16: note:   template argument deduction/substitution failed:
+main.cpp:35:9: error: ‘int derived::foo_impl(int)’ is private
+     int foo_impl(int i)
+         ^
+main.cpp:9:50: error: within this context
+     using type = decltype(test(&T::template foo<>));
+                                                  ^

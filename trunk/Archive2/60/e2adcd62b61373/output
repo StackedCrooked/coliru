@@ -1,0 +1,37 @@
++ clang -x c -std=c99 -O0 -std=c99 -pedantic-errors -Wall -pthread main.cpp
+main.cpp:4:11: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ static   st;
+ ~~~~~~   ^
+main.cpp:5:11: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ auto     au;
+ ~~~~     ^
+main.cpp:6:11: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ register reg;
+ ~~~~~~~~ ^
+main.cpp:7:11: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ volatile vl;
+ ~~~~~~~~ ^
+main.cpp:8:11: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ const    cn;
+ ~~~~~    ^
+main.cpp:10:36: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+ printf( "done %zu\n", sizeof(const)) ;
+                              ~~~~~^
+main.cpp:4:11: warning: unused variable 'st' [-Wunused-variable]
+ static   st;
+          ^
+main.cpp:5:11: warning: unused variable 'au' [-Wunused-variable]
+ auto     au;
+          ^
+main.cpp:6:11: warning: unused variable 'reg' [-Wunused-variable]
+ register reg;
+          ^
+main.cpp:7:11: warning: unused variable 'vl' [-Wunused-variable]
+ volatile vl;
+          ^
+main.cpp:8:11: warning: unused variable 'cn' [-Wunused-variable]
+ const    cn;
+          ^
+11 warnings generated.
++ ./a.out
+done 4

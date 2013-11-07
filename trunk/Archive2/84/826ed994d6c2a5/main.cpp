@@ -1,0 +1,1 @@
+ CopyFile(PChar('C:\Datei.dat'), PChar('\\127.45.122.1\Freigabename der Platte\Datei.dat'), true);

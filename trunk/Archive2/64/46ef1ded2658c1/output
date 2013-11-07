@@ -1,0 +1,10 @@
+main.cpp:25:39: error: reference to overloaded function could not be resolved; did you mean to call it?
+    : public function_traits<decltype(&CALLABLE::template operator()<Args...>)>
+                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:101:37: note: in instantiation of template class 'function_traits<PolyStruct, int (int)>' requested here
+    static_assert(std::is_same<int, traits2::return_type>::value, "magic");
+                                    ^
+main.cpp:102:46: error: no member named 'arg' in 'function_traits<PolyStruct, int (int)>'
+    static_assert(std::is_same<int, traits2::arg<0>::type>::value, "magic");
+                                    ~~~~~~~~~^
+2 errors generated.

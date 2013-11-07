@@ -1,0 +1,18 @@
+main.cpp:19:13: warning: binary constants are a GCC extension [enabled by default]
+             0b01001001, 0xB8 + 7, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+             ^
+main.cpp:20:13: warning: binary constants are a GCC extension [enabled by default]
+             0b01001001, 0xB8 + 6, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+             ^
+main.cpp:21:19: warning: binary constants are a GCC extension [enabled by default]
+             0xFF, 0b11100110,
+                   ^
+main.cpp: In instantiation of ‘bound_function<R, Args>::operator alias<R (*)(Args ...)>() [with R = void; Args = {}; alias<R (*)(Args ...)> = void (*)()]’:
+main.cpp:61:21:   required from here
+main.cpp:31:65: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+         std::memcpy(data + 12, reinterpret_cast<void*>(&call), 8);
+                                                                 ^
+main.cpp:33:54: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+         auto f = reinterpret_cast<R(*)(Args...)>(data);
+                                                      ^
+bash: line 7:  8105 Segmentation fault      (core dumped) ./a.out

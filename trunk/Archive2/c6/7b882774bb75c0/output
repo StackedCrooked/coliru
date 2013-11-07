@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:37:13: error: no function template matches function template specialization 'foo'
+std::string foo()
+            ^
+main.cpp:47:21: error: no matching function for call to 'foo'
+    std::string s = foo<std::string>();
+                    ^~~~~~~~~~~~~~~~
+main.cpp:28:3: note: candidate template ignored: substitution failure [with T = std::basic_string<char>]: no type named 'type' in 'robor::enable_if_t<std::is_trivial<std::basic_string<char> > >'
+T foo()
+  ^
+2 errors generated.
