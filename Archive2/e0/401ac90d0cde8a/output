@@ -1,0 +1,7 @@
++ g++-4.8 -std=c++11 -O2 -Wall -Wextra -Werror -pedantic -pthread main.cpp
+main.cpp:10:38: error: use of deleted function ‘foo& foo::operator=(const foo&)’
+ wrapper<decltype(std::declval<foo>() = std::declval<foo>())> x;
+                                      ^
+main.cpp:4:10: error: declared here
+     foo& operator=(foo const&) = delete;
+          ^

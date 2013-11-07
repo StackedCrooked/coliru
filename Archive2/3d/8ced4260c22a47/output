@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic main.cpp
++ ./a.out
+<Module>
+  <try>import \r\n\r\nfoobar\r\n\r</try>
+  <Identifier>
+    <try>foobar\r\n\r\n all; bogu</try>
+    <success>\r\n\r\n all; bogus</success>
+    <attributes>[]</attributes>
+  </Identifier>
+  <success> bogus</success>
+  <attributes>[]</attributes>
+</Module>
+ok   : true
+full : false
+-------------------------
+ERROR: Parsing failed or not complete
+stopped at: 3:8
+remaining: 'bogus'
+-------------------------

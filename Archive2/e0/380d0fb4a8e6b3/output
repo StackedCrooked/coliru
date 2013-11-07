@@ -1,0 +1,22 @@
+main.cpp: In function ‘int main()’:
+main.cpp:3:5: error: ‘async’ is not a member of ‘std’
+     std::async(std::launch::async, []{ f(); });
+     ^
+main.cpp:3:21: error: ‘std::launch’ has not been declared
+     std::async(std::launch::async, []{ f(); });
+                     ^
+main.cpp: In lambda function:
+main.cpp:3:42: error: ‘f’ was not declared in this scope
+     std::async(std::launch::async, []{ f(); });
+                                          ^
+main.cpp: In function ‘int main()’:
+main.cpp:4:5: error: ‘async’ is not a member of ‘std’
+     std::async(std::launch::async, []{ g(); });  // does not run until f() completes
+     ^
+main.cpp:4:21: error: ‘std::launch’ has not been declared
+     std::async(std::launch::async, []{ g(); });  // does not run until f() completes
+                     ^
+main.cpp: In lambda function:
+main.cpp:4:42: error: ‘g’ was not declared in this scope
+     std::async(std::launch::async, []{ g(); });  // does not run until f() completes
+                                          ^

@@ -1,0 +1,22 @@
++ clang++ -Os -std=c++11 -Wall -pedantic main.cpp
++ ./a.out
+<gr_problem>
+  <try>foo goo(hoo)</try>
+  <gr_identifier>
+    <try>foo goo(hoo)</try>
+    <success> goo(hoo)</success>
+    <attributes>[foo]</attributes>
+  </gr_identifier>
+  <gr_identifier>
+    <try>goo(hoo)</try>
+    <success>(hoo)</success>
+    <attributes>[goo]</attributes>
+  </gr_identifier>
+  <gr_identifier>
+    <try>hoo)</try>
+    <success>)</success>
+    <attributes>[hoo]</attributes>
+  </gr_identifier>
+  <success></success>
+  <attributes>[[foo, goo, hoo]]</attributes>
+</gr_problem>

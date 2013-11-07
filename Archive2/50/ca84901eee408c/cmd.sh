@@ -1,0 +1,1 @@
+g++ main.cpp -Wall --std=c++11 -Weffc++ && ./a.out

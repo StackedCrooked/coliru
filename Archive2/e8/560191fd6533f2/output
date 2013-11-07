@@ -1,0 +1,24 @@
+main.cpp:1:1: error: ‘ifstream’ in namespace ‘std’ does not name a type
+ std::ifstream webpImageFile(filepath, std::ios_base::binary);
+ ^
+main.cpp:2:1: error: ‘istream_iterator’ in namespace ‘std’ does not name a type
+ std::istream_iterator<uint8_t> begin(webpImageFile), end;
+ ^
+main.cpp:3:1: error: ‘vector’ in namespace ‘std’ does not name a type
+ std::vector<uint8_t> rawData(begin, end);
+ ^
+main.cpp:7:25: error: ‘rawData’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                         ^
+main.cpp:7:41: error: ‘rawData’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                         ^
+main.cpp:7:65: error: ‘uint8_t’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                                                 ^
+main.cpp:7:90: error: ‘WebPGetInfo’ was not declared in this scope
+ int error = WebPGetInfo(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height);
+                                                                                          ^
+main.cpp:9:1: error: ‘unique_ptr’ in namespace ‘std’ does not name a type
+ std::unique_ptr<unsigned char> imageData(WebPDecodeRGBA(rawData.data(), rawData.size() * sizeof(uint8_t), &width, &height));
+ ^

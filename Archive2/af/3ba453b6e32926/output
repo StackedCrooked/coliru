@@ -1,0 +1,12 @@
+main.cpp: In function ‘int main()’:
+main.cpp:10:15: error: no matching function for call to ‘foo(int, int)’
+     foo(42, 42);
+               ^
+main.cpp:10:15: note: candidate is:
+main.cpp:7:6: note: template<class T> void foo(T, X<T>)
+ void foo(T, X<T>){}
+      ^
+main.cpp:7:6: note:   template argument deduction/substitution failed:
+main.cpp:10:15: note:   mismatched types ‘X<T>’ and ‘int’
+     foo(42, 42);
+               ^

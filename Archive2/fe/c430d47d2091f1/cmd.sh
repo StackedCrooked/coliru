@@ -1,0 +1,1 @@
+set -x ; clang++ -Os -std=c++11 -Wall -pedantic main.cpp  && ./a.out

@@ -1,0 +1,28 @@
+main.cpp: In constructor ‘MemoryBlock::MemoryBlock(MemoryBlock&&)’:
+main.cpp:117:9: warning: ‘MemoryBlock::_data’ will be initialized after [-Wreorder]
+    int* _data; // The resource.
+         ^
+main.cpp:116:11: warning:   ‘size_t MemoryBlock::_length’ [-Wreorder]
+    size_t _length; // The length of the resource.
+           ^
+main.cpp:73:1: warning:   when initialized here [-Wreorder]
+ MemoryBlock(MemoryBlock&& other)
+ ^
+In MemoryBlock(size_t). length = 25.
+In MemoryBlock(MemoryBlock&&). length = 25. Moving resource.
+In ~MemoryBlock(). length = 0.
+In MemoryBlock(size_t). length = 75.
+In MemoryBlock(MemoryBlock&&). length = 75. Moving resource.
+In MemoryBlock(const MemoryBlock&). length = 25. Copying resource.
+In ~MemoryBlock(). length = 25. Deleting resource.
+In ~MemoryBlock(). length = 0.
+In MemoryBlock(size_t). length = 50.
+In MemoryBlock(MemoryBlock&&). length = 50. Moving resource.
+In MemoryBlock(const MemoryBlock&). length = 25. Copying resource.
+In MemoryBlock(const MemoryBlock&). length = 75. Copying resource.
+In ~MemoryBlock(). length = 25. Deleting resource.
+In ~MemoryBlock(). length = 75. Deleting resource.
+In ~MemoryBlock(). length = 0.
+In ~MemoryBlock(). length = 25. Deleting resource.
+In ~MemoryBlock(). length = 50. Deleting resource.
+In ~MemoryBlock(). length = 75. Deleting resource.

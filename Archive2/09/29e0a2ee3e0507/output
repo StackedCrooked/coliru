@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O0 -Wall -pedantic -pthread main.cpp
+main.cpp:10:9: error: overload resolution selected deleted operator '='
+    a+b = a;
+    ~~~ ^ ~
+main.cpp:3:12: note: candidate function has been explicitly deleted
+    Point& operator=( Point const & ) && = delete;
+           ^
+main.cpp:2:12: note: candidate function not viable: no known conversion from 'Point' to 'Point' for object argument
+    Point& operator=( Point const & ) & = default;
+           ^
+1 error generated.

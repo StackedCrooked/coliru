@@ -1,0 +1,17 @@
++ clang -O2 -pthread main.cpp
+main.cpp:6:16: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while (*d++=*c++);
+           ~~~~^~~~~
+main.cpp:6:16: note: place parentheses around the assignment to silence this warning
+    while (*d++=*c++);
+               ^
+           (        )
+main.cpp:6:16: note: use '==' to turn this assignment into an equality comparison
+    while (*d++=*c++);
+               ^
+               ==
+1 warning generated.
++ ./a.out
+text1:	Hello, World!
+text2:	Hello, World!
+text3:	Hello, World!

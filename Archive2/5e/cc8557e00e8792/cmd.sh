@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++11 -O2 -pthread main.cpp -lboost_thread -lboost_system -lboost_iostreams && ./a.out

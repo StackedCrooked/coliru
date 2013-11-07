@@ -1,0 +1,27 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:63:28: warning: value computed is not used [-Wunused-value]
+     call_back(function, 1) == 1;
+                            ^
+main.cpp:64:28: warning: value computed is not used [-Wunused-value]
+     call_back(function, 2) == 3;
+                            ^
+main.cpp:65:28: warning: value computed is not used [-Wunused-value]
+     call_back(function, 3) == 6;
+                            ^
+main.cpp:66:28: warning: value computed is not used [-Wunused-value]
+     call_back(function, 4) == 10;
+                            ^
+main.cpp: In instantiation of ‘bound_function<R(Args ...), F>::operator bound_function<R(Args ...), F>::fptr_t() [with R = int; Args = {int}; F = main()::__lambda0; bound_function<R(Args ...), F>::fptr_t = int (*)(int)]’:
+main.cpp:63:26:   required from here
+main.cpp:34:53: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+         return reinterpret_cast<R(*)(Args...)>(thunk);
+                                                     ^
+main.cpp: In instantiation of ‘bound_function<R(Args ...), F>::bound_function(F) [with R = int; Args = {int}; F = main()::__lambda0]’:
+main.cpp:52:54:   required from ‘bound_function<Sig, F> make_bound_function(F) [with Sig = int(int); F = main()::__lambda0]’
+main.cpp:61:81:   required from here
+main.cpp:22:70: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+         std::memcpy(thunk, reinterpret_cast<void*>(&call), thunk_size);
+                                                                      ^
++ ./a.out
+bash: line 7: 26921 Segmentation fault      (core dumped) ./a.out
