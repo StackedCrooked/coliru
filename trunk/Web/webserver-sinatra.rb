@@ -147,6 +147,14 @@ post '/share' do
 end
 
 
+get '/a/:id/:file' do
+    id = params[:id]
+    file = params[:file]
+    File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
+end
+
+
+
 get '/a/*' do
     File.read('view.html')
 end
