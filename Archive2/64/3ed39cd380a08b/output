@@ -1,0 +1,18 @@
+main.cpp: In member function 'O& O::operator=(const O&)':
+main.cpp:20:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: In function 'int main()':
+main.cpp:43:16: warning: unused variable 'a' [-Wunused-variable]
+         auto&& a = wrapper{O()};
+                ^
+case 1-----------
+DEFAULT
+end-scope
+~wrapper()
+~O()
+case 2-----------
+DEFAULT
+~O()
+end-scope
+~wrapper()
