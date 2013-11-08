@@ -1,0 +1,24 @@
+main.cpp: In function 'int main()':
+main.cpp:21:35: error: no matching function for call to 'TemplatedClass<DerivedClass*>::TemplatedClass()'
+     TemplatedClass<DerivedClass*> a;
+                                   ^
+main.cpp:21:35: note: candidates are:
+main.cpp:13:5: note: template<class P> TemplatedClass<T>::TemplatedClass(const TemplatedClass<P>&)
+     TemplatedClass(TemplatedClass<P> const& other) {
+     ^
+main.cpp:13:5: note:   template argument deduction/substitution failed:
+main.cpp:21:35: note:   candidate expects 1 argument, 0 provided
+     TemplatedClass<DerivedClass*> a;
+                                   ^
+main.cpp:11:27: note: constexpr TemplatedClass<DerivedClass*>::TemplatedClass(const TemplatedClass<DerivedClass*>&)
+ template <class T> struct TemplatedClass {
+                           ^
+main.cpp:11:27: note:   candidate expects 1 argument, 0 provided
+main.cpp:11:27: note: constexpr TemplatedClass<DerivedClass*>::TemplatedClass(TemplatedClass<DerivedClass*>&&)
+main.cpp:11:27: note:   candidate expects 1 argument, 0 provided
+main.cpp: In instantiation of 'TemplatedClass<T>::TemplatedClass(const TemplatedClass<P>&) [with P = DerivedClass*; T = BaseClass*]':
+main.cpp:24:18:   required from here
+main.cpp:13:5: error: unused parameter 'other' [-Werror=unused-parameter]
+     TemplatedClass(TemplatedClass<P> const& other) {
+     ^
+cc1plus: all warnings being treated as errors
