@@ -1,0 +1,37 @@
+main.cpp: In member function 'std::future<_Res> task_pool::push(R, Args&& ...)':
+main.cpp:41:19: error: 'class std::queue<generic_task>' has no member named 'push_back'
+             tasks.push_back(task);
+                   ^
+main.cpp: In lambda function:
+main.cpp:55:41: error: 'this' was not captured for this lambda function
+                 cv.wait(lk, [] {return !tasks.empty();});
+                                         ^
+main.cpp: In member function 'void task_pool::run()':
+main.cpp:58:37: error: cannot allocate an object of abstract type 'generic_task'
+             auto task = tasks.front();
+                                     ^
+main.cpp:12:7: note:   because the following virtual functions are pure within 'generic_task':
+ class generic_task
+       ^
+main.cpp:15:18: note: 	virtual void generic_task::operator()()
+     virtual void operator()() = 0;
+                  ^
+main.cpp:58:18: error: cannot declare variable 'task' to be of abstract type 'generic_task'
+             auto task = tasks.front();
+                  ^
+main.cpp:12:7: note:   since type 'generic_task' has pure virtual functions
+ class generic_task
+       ^
+main.cpp:59:18: error: 'class generic_task' has no member named 'pop_front'
+             task.pop_front();
+                  ^
+In file included from /usr/include/c++/4.8/future:41:0,
+                 from main.cpp:8:
+/usr/include/c++/4.8/condition_variable: In instantiation of 'void std::condition_variable::wait(std::unique_lock<std::mutex>&, _Predicate) [with _Predicate = task_pool::run()::__lambda4]':
+main.cpp:55:56:   required from here
+/usr/include/c++/4.8/condition_variable:92:14: error: could not convert '__p.task_pool::run()::__lambda4()' from 'void' to 'bool'
+  while (!__p())
+              ^
+/usr/include/c++/4.8/condition_variable:92:9: error: in argument to unary !
+  while (!__p())
+         ^
