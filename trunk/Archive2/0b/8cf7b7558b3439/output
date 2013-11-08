@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:84:50: error: no matching function for call to 'task_pool::push(int (&)(int), int)'
+     std::future<int> f1 = pool.push(factorial, 30);
+                                                  ^
+main.cpp:84:50: note: candidate is:
+main.cpp:21:27: note: template<class R, class F, class ... Args> std::future<_Res> task_pool::push(F, Args&& ...)
+     inline std::future<R> push(F func, Args&&... args)
+                           ^
+main.cpp:21:27: note:   template argument deduction/substitution failed:
+main.cpp:84:50: note:   couldn't deduce template parameter 'R'
+     std::future<int> f1 = pool.push(factorial, 30);
+                                                  ^
