@@ -1,0 +1,70 @@
+main.cpp:19:50: error: argument to decltype must be an expression
+     inline std::future< std::result_of<decltype(T)(args)...> > add(T func, Args&&... args) {
+                                                  ^
+main.cpp:19:52: error: 'args' was not declared in this scope
+     inline std::future< std::result_of<decltype(T)(args)...> > add(T func, Args&&... args) {
+                                                    ^
+main.cpp:19:57: error: expected parameter pack before '...'
+     inline std::future< std::result_of<decltype(T)(args)...> > add(T func, Args&&... args) {
+                                                         ^
+main.cpp:19:60: error: template argument 1 is invalid
+     inline std::future< std::result_of<decltype(T)(args)...> > add(T func, Args&&... args) {
+                                                            ^
+main.cpp:19:62: error: template argument 1 is invalid
+     inline std::future< std::result_of<decltype(T)(args)...> > add(T func, Args&&... args) {
+                                                              ^
+main.cpp:31:10: error: extra qualification 'TaskPool::' on member 'run' [-fpermissive]
+     void TaskPool::run()
+          ^
+main.cpp: In destructor 'TaskPool::~TaskPool()':
+main.cpp:16:19: error: only constructors take member initializers
+     ~TaskPool() : { noExit = false; m_thread.join(); }
+                   ^
+main.cpp:16:19: error: expected identifier before '{' token
+main.cpp: In member function 'int TaskPool::add(T, Args&& ...)':
+main.cpp:20:53: error: argument to decltype must be an expression
+         std::packaged_task<std::result_of<decltype(T)(args)...>()> task(std::bind( func(args)... ));
+                                                     ^
+main.cpp:20:60: error: expected parameter pack before '...'
+         std::packaged_task<std::result_of<decltype(T)(args)...>()> task(std::bind( func(args)... ));
+                                                            ^
+main.cpp:20:63: error: template argument 1 is invalid
+         std::packaged_task<std::result_of<decltype(T)(args)...>()> task(std::bind( func(args)... ));
+                                                               ^
+main.cpp:20:66: error: template argument 1 is invalid
+         std::packaged_task<std::result_of<decltype(T)(args)...>()> task(std::bind( func(args)... ));
+                                                                  ^
+main.cpp:20:72: error: invalid type in declaration before '(' token
+         std::packaged_task<std::result_of<decltype(T)(args)...>()> task(std::bind( func(args)... ));
+                                                                        ^
+main.cpp:21:28: error: request for member 'get_future' in 'task', which is of non-class type 'int'
+         auto future = task.get_future();
+                            ^
+main.cpp:24:19: error: 'class std::queue<std::packaged_task<void()> >' has no member named 'push_back'
+             tasks.push_back(std::move(task));
+                   ^
+main.cpp: In lambda function:
+main.cpp:38:41: error: 'this' was not captured for this lambda function
+                 cv.wait(lk, [] {return !tasks.empty();});
+                                         ^
+main.cpp: In member function 'void TaskPool::run()':
+main.cpp:41:37: error: use of deleted function 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(const std::packaged_task<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}]'
+             auto task = tasks.front();
+                                     ^
+In file included from main.cpp:8:0:
+/usr/include/c++/4.8/future:1367:7: error: declared here
+       packaged_task(const packaged_task&) = delete;
+       ^
+main.cpp:42:18: error: 'class std::packaged_task<void()>' has no member named 'pop_front'
+             task.pop_front();
+                  ^
+In file included from /usr/include/c++/4.8/future:41:0,
+                 from main.cpp:8:
+/usr/include/c++/4.8/condition_variable: In instantiation of 'void std::condition_variable::wait(std::unique_lock<std::mutex>&, _Predicate) [with _Predicate = TaskPool::run()::__lambda4]':
+main.cpp:38:56:   required from here
+/usr/include/c++/4.8/condition_variable:92:14: error: could not convert '__p.TaskPool::run()::__lambda4()' from 'void' to 'bool'
+  while (!__p())
+              ^
+/usr/include/c++/4.8/condition_variable:92:9: error: in argument to unary !
+  while (!__p())
+         ^
