@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:13:26: error: reference to local variable 'x' declared in enclosing function 'main'
+        int f() { return x + y; };
+                         ^
+main.cpp:6:9: note: 'x' declared here
+    int x = 0;
+        ^
+1 error generated.
