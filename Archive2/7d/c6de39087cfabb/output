@@ -1,0 +1,9 @@
++ clang++ -std=c++03 -W -Wall -Wextra -Wconversion -pedantic -O2 main.cpp
+main.cpp:4:32: warning: multiple unsequenced modifications to 'count' [-Wunsequenced]
+        int arrInt[2] = { count++, count++ } ;
+                               ^        ~~
+main.cpp:4:13: warning: unused variable 'arrInt' [-Wunused-variable]
+        int arrInt[2] = { count++, count++ } ;
+            ^
+2 warnings generated.
++ ./a.out
