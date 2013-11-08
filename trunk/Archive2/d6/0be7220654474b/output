@@ -1,0 +1,30 @@
+main.cpp: In function 'int main()':
+main.cpp:84:50: error: conversion from 'std::future<int (*)(int)>' to non-scalar type 'std::future<int>' requested
+     std::future<int> f1 = pool.push(factorial, 30);
+                                                  ^
+main.cpp: In instantiation of 'struct task_pool::concrete_task<int (*(int))(int)>':
+main.cpp:23:64:   required from 'std::future<_Res> task_pool::push(R, Args&& ...) [with R = int (*)(int); Args = {int}]'
+main.cpp:84:50:   required from here
+main.cpp:44:40: error: wrong number of template arguments (0, should be 1)
+         std::packaged_task<R(Args)...> packaged;
+                                        ^
+In file included from main.cpp:8:0:
+/usr/include/c++/4.8/future:119:11: error: provided for 'template<class _Signature> class std::packaged_task'
+     class packaged_task;
+           ^
+main.cpp: In instantiation of 'std::future<_Res> task_pool::push(R, Args&& ...) [with R = int (*)(int); Args = {int}]':
+main.cpp:84:50:   required from here
+main.cpp:23:64: error: no matching function for call to 'task_pool::concrete_task<int (*(int))(int)>::concrete_task(int (*&)(int), int&)'
+         auto task = new concrete_task<R(Args)...>(ret, args... );
+                                                                ^
+main.cpp:23:64: note: candidates are:
+main.cpp:46:9: note: task_pool::concrete_task<R, Args>::concrete_task(R, Args&& ...) [with R = int (*(int))(int); Args = {}]
+         concrete_task(R ret, Args&&... args) : packaged(ret, args...) {}
+         ^
+main.cpp:46:9: note:   candidate expects 1 argument, 2 provided
+main.cpp:42:12: note: constexpr task_pool::concrete_task<int (*(int))(int)>::concrete_task(const task_pool::concrete_task<int (*(int))(int)>&)
+     struct concrete_task : public generic_task
+            ^
+main.cpp:42:12: note:   candidate expects 1 argument, 2 provided
+main.cpp:42:12: note: constexpr task_pool::concrete_task<int (*(int))(int)>::concrete_task(task_pool::concrete_task<int (*(int))(int)>&&)
+main.cpp:42:12: note:   candidate expects 1 argument, 2 provided
