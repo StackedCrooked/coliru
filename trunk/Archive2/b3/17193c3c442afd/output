@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:31:9: error: use of overloaded operator '=' is ambiguous (with operand types 'string' and 'void')
+    str = {};
+    ~~~ ^ ~~
+main.cpp:12:13: note: candidate function
+    string& operator=(char)
+            ^
+main.cpp:17:13: note: candidate function
+    string& operator=(char const*)
+            ^
+main.cpp:7:13: note: candidate function
+    string& operator=(string const&)
+            ^
+1 error generated.
