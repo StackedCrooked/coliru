@@ -1,0 +1,11 @@
+main.cpp:11:1: error: 'main' must return 'int'
+void main()
+^~~~
+int
+main.cpp:14:3: error: no matching function for call to 'func2'
+  func2(STRUCT(65)); // OK: anonymous object is created then assigned to a reference
+  ^~~~~
+main.cpp:7:6: note: candidate function not viable: expects an l-value for 1st argument
+void func2(STRUCT& s){}
+     ^
+2 errors generated.
