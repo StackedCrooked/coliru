@@ -1,0 +1,10 @@
+main.cpp:11:11: error: '::main' must return 'int'
+ void main()
+           ^
+main.cpp: In function 'int main()':
+main.cpp:14:19: error: invalid initialization of non-const reference of type 'STRUCT&' from an rvalue of type 'STRUCT'
+   func2(STRUCT(65)); // OK: anonymous object is created then assigned to a reference
+                   ^
+main.cpp:7:6: error: in passing argument 1 of 'void func2(STRUCT&)'
+ void func2(STRUCT& s){}
+      ^
