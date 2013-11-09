@@ -1,0 +1,26 @@
+main.cpp: In function 'int main()':
+main.cpp:47:16: warning: unused variable 'a' [-Wunused-variable]
+         auto&& a = wrapper{O()};
+                ^
+main.cpp:57:16: warning: unused variable 'a' [-Wunused-variable]
+         auto&& a = wrapper{f(O())};
+                ^
+main.cpp:62:16: warning: unused variable 'a' [-Wunused-variable]
+         auto&& a = wrapperEx{O()};
+                ^
+case 1-----------
+end-scope
+~wrapper()
+~O()
+case 2-----------
+~O()
+end-scope
+~wrapper()
+case 3-----------
+~O()
+end-scope
+~wrapper()
+case Ex-----------
+~O()
+end-scope
+~wrapperEx()
