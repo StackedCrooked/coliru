@@ -1,0 +1,31 @@
+g++ (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	.p2align 3
+.L16:
+	leaq	(%r12,%rdx), %r15
+.LEHB1:
+	call	_Z10asm_markerILi3333EEvv
+	movl	(%r15), %r15d
+	call	_Z10asm_markerILi4444EEvv
+.LEHE1:
+	addl	$4, %ebx
+	addl	%r15d, 0(%rbp)
+	movl	%ebx, %edx
+--
+	.p2align 3
+.L39:
+	leaq	(%r12,%rsi), %r15
+.LEHB4:
+	call	_Z10asm_markerILi1111EEvv
+	movl	$4, %edx
+	movq	%r15, %rsi
+	leaq	16(%rsp), %rdi
+	call	memcpy
+	call	_Z10asm_markerILi2222EEvv
+.LEHE4:
+	addl	$4, %ebx
+	movl	16(%rsp), %eax
+	addl	%eax, 0(%rbp)
