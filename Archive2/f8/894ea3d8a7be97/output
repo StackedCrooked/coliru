@@ -1,0 +1,13 @@
+main.cpp:10:19: error: call to implicitly-deleted copy constructor of 'std::ifstream' (aka 'basic_ifstream<char>')
+    std::ifstream f3(std::move(f1));
+                  ^  ~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/fstream:427:28: note: copy constructor of 'basic_ifstream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_istream<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_ifstream : public basic_istream<_CharT, _Traits>
+                           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/istream:58:27: note: copy constructor of 'basic_istream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ios<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_istream : virtual public basic_ios<_CharT, _Traits>
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_ios.h:66:23: note: copy constructor of 'basic_ios<char, std::char_traits<char> >' is implicitly deleted because base class 'std::ios_base' has an inaccessible copy constructor
+    class basic_ios : public ios_base
+                      ^
+1 error generated.
