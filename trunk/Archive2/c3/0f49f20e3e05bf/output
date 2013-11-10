@@ -1,0 +1,12 @@
++ g++ -Os -std=c++11 -Wall -pedantic main.cpp
+main.cpp: In function 'int main()':
+main.cpp:26:22: error: call of overloaded 'f(Z<N::Y<M::X> >)' is ambiguous
+     f(Z<N::Y<M::X>>());
+                      ^
+main.cpp:26:22: note: candidates are:
+main.cpp:20:10: note: void N::f(Z<T>) [with T = N::Y<M::X>]
+     void f(Z<T>) {
+          ^
+main.cpp:10:10: note: void M::f(Z<T>) [with T = N::Y<M::X>]
+     void f(Z<T>) {
+          ^
