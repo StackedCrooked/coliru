@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:6:54: error: no member named 'foo_impl' in 'Derived'
+    auto foo() -> decltype( std::declval<Derived&>().foo_impl() )
+                            ~~~~~~~~~~~~~~~~~~~~~~~~ ^
+main.cpp:13:12: note: in instantiation of template class 'Base<Derived>' requested here
+    public Base<Derived>
+           ^
+main.cpp:25:15: error: no member named 'foo' in 'Derived'
+    int i = b.foo();
+            ~ ^
+2 errors generated.
