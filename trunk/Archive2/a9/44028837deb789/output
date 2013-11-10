@@ -1,0 +1,17 @@
++ g++ -Os -std=c++11 -Wall -pedantic main.cpp
+main.cpp: In function 'int main()':
+main.cpp:25:22: error: no matching function for call to 'f(Z<N::Y<M::X> >)'
+     f(Z<N::Y<M::X>>());
+                      ^
+main.cpp:25:22: note: candidates are:
+main.cpp:16:10: note: template<class T> void N::f(N::Y<T>)
+     void f(Y<T>) {
+          ^
+main.cpp:16:10: note:   template argument deduction/substitution failed:
+main.cpp:25:22: note:   'Z<N::Y<M::X> >' is not derived from 'N::Y<T>'
+     f(Z<N::Y<M::X>>());
+                      ^
+main.cpp:6:10: note: void M::f(M::X)
+     void f(X) {
+          ^
+main.cpp:6:10: note:   no known conversion for argument 1 from 'Z<N::Y<M::X> >' to 'M::X'
