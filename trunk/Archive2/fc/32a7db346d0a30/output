@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:9:37: error: no matching function for call to 'make_array(int, int, int, int)'
+     auto arr = make_array(1, 2, 3, 5);
+                                     ^
+main.cpp:9:37: note: candidate is:
+main.cpp:4:69: note: template<class ret, class ... T> std::array<ret, sizeof (T ...)> make_array(T&& ...)
+ template<typename ret, typename... T> std::array<ret, sizeof...(T)> make_array(T&&... refs) {
+                                                                     ^
+main.cpp:4:69: note:   template argument deduction/substitution failed:
+main.cpp:9:37: note:   couldn't deduce template parameter 'ret'
+     auto arr = make_array(1, 2, 3, 5);
+                                     ^
+main.cpp:10:25: error: unable to deduce 'auto&&' from 'arr'
+     for (const auto i : arr) std::cout << i << '\n';
+                         ^
