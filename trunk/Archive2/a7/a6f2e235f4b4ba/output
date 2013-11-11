@@ -1,0 +1,13 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread -c main.cpp
+main.cpp:2:38: error: 'implementation_detail_t' was not declared in this scope
+ class X : Allocator::template rebind<implementation_detail_t>::other {
+                                      ^
+main.cpp:8:46: error: 'implementation_detail_t' was not declared in this scope
+  typedef typename Allocator::template rebind<implementation_detail_t>::other allocator_type;
+                                              ^
+main.cpp:8:78: error: redeclaration of 'typedef typename Allocator::rebind<<expression error> >::other X<Allocator>::allocator_type'
+  typedef typename Allocator::template rebind<implementation_detail_t>::other allocator_type;
+                                                                              ^
+main.cpp:5:20: note: previous declaration 'typedef Allocator X<Allocator>::allocator_type'
+  typedef Allocator allocator_type;
+                    ^
