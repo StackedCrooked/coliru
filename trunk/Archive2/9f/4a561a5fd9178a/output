@@ -1,0 +1,20 @@
+main.cpp: In function 'constexpr double gun(std::initializer_list<double>)':
+main.cpp:7:5: error: non-constant condition for static assertion
+     static_assert(init.size() == 2, ""); // not ok, "init is not a constant expression
+     ^
+main.cpp:7:29:   in constexpr expansion of 'init.std::initializer_list<_E>::size<double>()'
+main.cpp:7:5: error: 'init' is not a constant expression
+main.cpp: At global scope:
+main.cpp:10:62: error: a parameter cannot be declared 'constexpr'
+ constexpr double hun(constexpr std::initializer_list<double> init){ // not ok, "a parameter canot be declared constexpr
+                                                              ^
+main.cpp: In function 'constexpr double hun(std::initializer_list<double>)':
+main.cpp:11:5: error: non-constant condition for static assertion
+     static_assert(init.size() == 2, "");
+     ^
+main.cpp:11:29:   in constexpr expansion of 'init.std::initializer_list<_E>::size<double>()'
+main.cpp:11:5: error: 'init' is not a constant expression
+main.cpp: In function 'int main()':
+main.cpp:21:5: error: static assertion failed: 
+     static_assert(fun({1.,2.,3.})==2.2222, ""); // ok, compile time fail
+     ^
