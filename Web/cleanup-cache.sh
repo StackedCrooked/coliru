@@ -1,12 +1,13 @@
 #!/bin/bash
 cache_size () 
 { 
-    ls --color=auto ../CompileArchive | wc -l
+    ls  ../CompileArchive | wc -l
 }
 
 random_cache_entry () 
 { 
-    ls --color=auto ../CompileArchive/ | head -n1
+    random_index="$(($RANDOM % $(cache_size)))"
+    ls ../CompileArchive | head -n $random_index | tail -n1
 }
 
 
