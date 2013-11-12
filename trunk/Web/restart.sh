@@ -44,12 +44,5 @@ fi
 # Clear the coliru temp dir every 7000 seconds 
 { while true ; do sleep 7000 ; rm -rf /tmp/coliru/* ; done ; } & disown
 
-# Clear the compilation cache every week
-{
-    while true ; do
-        sleep $((7 * 24 * 3600))
-        mv ../CompileArchive _
-        mkdir ../CompileArchive 
-        rm -rf _
-    done
-} & disown
+# Start cache-cleanup script
+./cleanup-cache.sh & disown
