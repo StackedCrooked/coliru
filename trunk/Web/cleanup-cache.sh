@@ -21,5 +21,5 @@ while true ; do
     } || {
         echo "$0: $(cache_size) <= $max. Ok allow cache to grow."
     }
-    sleep 1
+    sleep 10
 done
