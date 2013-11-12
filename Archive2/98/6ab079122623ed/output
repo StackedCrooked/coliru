@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:31:29: error: no matching function for call to 'make_foo(int (*)(int))'
+     auto var = make_foo(&foo);
+                             ^
+main.cpp:31:29: note: candidate is:
+main.cpp:17:6: note: template<class Ret, class ... Args> Foo<Ret, Args ...> make_foo(const std::function<_Res(_ArgTypes ...)>&)
+ auto make_foo(const std::function<Ret(Args...)>& func)
+      ^
+main.cpp:17:6: note:   template argument deduction/substitution failed:
+main.cpp:31:29: note:   mismatched types 'const std::function<_Res(_ArgTypes ...)>' and 'int (*)(int)'
+     auto var = make_foo(&foo);
+                             ^
