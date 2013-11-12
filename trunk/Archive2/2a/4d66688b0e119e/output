@@ -1,0 +1,12 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp
+main.cpp: In lambda function:
+main.cpp:26:40: error: 'arg1' was not declared in this scope
+ function<void(Mine &arg1)> f1 = []() { arg1.doIt1(); }
+                                        ^
+main.cpp: At global scope:
+main.cpp:26:54: error: conversion from '__lambda1' to non-scalar type 'std::function<void(Mine&)>' requested
+ function<void(Mine &arg1)> f1 = []() { arg1.doIt1(); }
+                                                      ^
+main.cpp:28:1: error: expected ',' or ';' before 'int'
+ int main()
+ ^
