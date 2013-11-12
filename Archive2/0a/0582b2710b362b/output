@@ -1,0 +1,19 @@
+main.cpp:5:30: error: no matching function for call to 'begin'
+using Value_Type = decltype(*std::begin(std::declval<C>()));
+                             ^~~~~~~~~~
+main.cpp:11:5: note: in instantiation of template type alias 'Value_Type' requested here
+    Value_Type<decltype(arr)> value = 42;
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/range_access.h:87:5: note: candidate function [with _Tp = int, _Nm = 5] not viable: expects an l-value for 1st argument
+    begin(_Tp (&__arr)[_Nm])
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/range_access.h:48:5: note: candidate template ignored: substitution failure [with _Container = int [5]]: member reference base type 'int [5]' is not a structure or union
+    begin(_Container& __cont) -> decltype(__cont.begin())
+    ^                                           ~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/range_access.h:58:5: note: candidate template ignored: substitution failure [with _Container = int [5]]: member reference base type 'int const[5]' is not a structure or union
+    begin(const _Container& __cont) -> decltype(__cont.begin())
+    ^                                                 ~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/initializer_list:89:5: note: candidate template ignored: could not match 'initializer_list<type-parameter-0-0>' against 'int *'
+    begin(initializer_list<_Tp> __ils) noexcept
+    ^
+1 error generated.
