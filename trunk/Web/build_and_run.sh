@@ -7,6 +7,17 @@ mkdir -p ${jobdir}
 cp ${INPUT_FILES_DIR}/main.cpp ${jobdir}/main.cpp
 chmod -R a+w ${jobdir}
 
+
+# Cleanup temp files from previous job
+[ ! -f /tmp/cleanup ] || {
+    bash /tmp/cleanup
+    rm -f /tmp/cleanup
+}
+
+# Schedule cleanup of temp files for this job.
+echo "rm -rf ${INPUT_FILES_DIR}" >> /tmp/cleanup
+echo "rm -rf ${jobdir}" >> /tmp/cleanup
+
 # Prepare the command.
 CMD="set -e
 ulimit -u 16
