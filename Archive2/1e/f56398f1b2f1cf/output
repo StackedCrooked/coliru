@@ -1,0 +1,22 @@
++ g++-4.8 -std=c++11 -O3 main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:41:32: error: no matching function for call to ‘make_X(X<2ul, Y>&)’
+     auto someX3 = make_X(someX2);
+                                ^
+main.cpp:41:32: note: candidates are:
+main.cpp:17:11: note: template<long unsigned int Dim, template<long unsigned int <anonymous>, class ...> class N, class ... Rest> X<Dim, N> make_X(N<Dim, Rest ...>&&)
+ X<Dim, N> make_X(N<Dim, Rest...>&& n)
+           ^
+main.cpp:17:11: note:   template argument deduction/substitution failed:
+main.cpp:41:32: error: type/value mismatch at argument 2 in template parameter list for ‘template<long unsigned int <anonymous>, class ...> class N’
+     auto someX3 = make_X(someX2);
+                                ^
+main.cpp:41:32: error:   expected a type, got ‘Y’
+main.cpp:22:11: note: template<long unsigned int Dim, template<long unsigned int <anonymous>, class ...> class N, class ... Rest> X<Dim, N> make_X(const N<Dim, Rest ...>&)
+ X<Dim, N> make_X(const N<Dim, Rest...>& n)
+           ^
+main.cpp:22:11: note:   template argument deduction/substitution failed:
+main.cpp:41:32: error: type/value mismatch at argument 2 in template parameter list for ‘template<long unsigned int <anonymous>, class ...> class N’
+     auto someX3 = make_X(someX2);
+                                ^
+main.cpp:41:32: error:   expected a type, got ‘Y’
