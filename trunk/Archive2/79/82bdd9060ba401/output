@@ -1,0 +1,22 @@
+main.cpp: In lambda function:
+main.cpp:154:21: error: ISO C++ forbids declaration of ‘args’ with no type [-fpermissive]
+         const &args(env.nested("__args"));
+                     ^
+main.cpp:154:41: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘DynamicVariant’
+         const &args(env.nested("__args"));
+                                         ^
+main.cpp:156:35: error: request for member ‘at’ in ‘args’, which is of non-class type ‘const int’
+         const auto &fullname(args.at<std::string>("first") + " " + args.at<std::string>("last"));
+                                   ^
+main.cpp:156:49: error: expected primary-expression before ‘>’ token
+         const auto &fullname(args.at<std::string>("first") + " " + args.at<std::string>("last"));
+                                                 ^
+main.cpp:156:62: error: invalid operands of types ‘const char [6]’ and ‘const char [2]’ to binary ‘operator+’
+         const auto &fullname(args.at<std::string>("first") + " " + args.at<std::string>("last"));
+                                                              ^
+main.cpp:156:73: error: request for member ‘at’ in ‘args’, which is of non-class type ‘const int’
+         const auto &fullname(args.at<std::string>("first") + " " + args.at<std::string>("last"));
+                                                                         ^
+main.cpp:156:87: error: expected primary-expression before ‘>’ token
+         const auto &fullname(args.at<std::string>("first") + " " + args.at<std::string>("last"));
+                                                                                       ^
