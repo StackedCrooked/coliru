@@ -1,0 +1,33 @@
+main.cpp: In function ‘int main()’:
+main.cpp:212:12: warning: ISO C++ forbids variable length array ‘b’ [-Wvla]
+  double b[k];
+            ^
+main.cpp:216:12: warning: ISO C++ forbids variable length array ‘x’ [-Wvla]
+  double x[k], y[k];
+            ^
+main.cpp:216:18: warning: ISO C++ forbids variable length array ‘y’ [-Wvla]
+  double x[k], y[k];
+                  ^
+*** glibc detected *** ./a.out: free(): invalid pointer: 0x00007fff5c012a70 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7f039a3cdb96]
+./a.out[0x400cd9]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f039a37076d]
+./a.out[0x400d39]
+======= Memory map: ========
+solve_upper A1:
+1.000000  2.000000  3.000000  
+solve_upper A2:
+1.000000  1.000000  1.000000  
+solve_lower A3:
+3.000000  2.000000  1.000000  
+cholesky B1:
+2.000000  0.000000  0.000000  
+1.000000  1.732051  0.000000  
+1.500000  0.288675  1.290994  
+
+solve_B1 mit Cholesky:
+0.100000  0.150000  0.100000  
+solve_B10 mit Cholesky:
+0.500000  4.500000  8.000000  10.500000  12.000000  12.500000  12.000000  10.500000  8.000000  4.500000  
+bash: line 7:  4663 Aborted                 (core dumped) ./a.out
