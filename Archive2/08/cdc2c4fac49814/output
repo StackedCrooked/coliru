@@ -1,0 +1,44 @@
+main.cpp: In function ‘int main()’:
+main.cpp:5:34: error: no matching function for call to ‘std::map<int, std::map<double, bool> >::insert(<brace-enclosed initializer list>)’
+    mymap.insert({50, {0.1,false}});
+                                  ^
+main.cpp:5:34: note: candidates are:
+In file included from /usr/include/c++/4.8/map:61:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_map.h:594:7: note: std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(const value_type&) [with _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >; typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator = std::_Rb_tree_iterator<std::pair<const int, std::map<double, bool> > >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, std::map<double, bool> >]
+       insert(const value_type& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:594:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘const value_type& {aka const std::pair<const int, std::map<double, bool> >&}’
+/usr/include/c++/4.8/bits/stl_map.h:602:9: note: template<class _Pair, class> std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename _Alloc::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(_Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >]
+         insert(_Pair&& __x)
+         ^
+/usr/include/c++/4.8/bits/stl_map.h:602:9: note:   template argument deduction/substitution failed:
+main.cpp:5:34: note:   couldn't deduce template parameter ‘_Pair’
+    mymap.insert({50, {0.1,false}});
+                                  ^
+In file included from /usr/include/c++/4.8/map:61:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_map.h:615:7: note: void std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::initializer_list<std::pair<const _Key, _Tp> >) [with _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >]
+       insert(std::initializer_list<value_type> __list)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:615:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘std::initializer_list<std::pair<const int, std::map<double, bool> > >’
+/usr/include/c++/4.8/bits/stl_map.h:644:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, const value_type&) [with _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >; std::map<_Key, _Tp, _Compare, _Alloc>::iterator = std::_Rb_tree_iterator<std::pair<const int, std::map<double, bool> > >; std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<std::pair<const int, std::map<double, bool> > >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, std::map<double, bool> >]
+       insert(const_iterator __position, const value_type& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_map.h:644:7: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.8/bits/stl_map.h:655:9: note: template<class _Pair, class> std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, _Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >]
+         insert(const_iterator __position, _Pair&& __x)
+         ^
+/usr/include/c++/4.8/bits/stl_map.h:655:9: note:   template argument deduction/substitution failed:
+main.cpp:5:34: note:   cannot convert ‘{50, {1.0000000000000001e-1, false}}’ (type ‘<brace-enclosed initializer list>’) to type ‘std::map<int, std::map<double, bool> >::const_iterator {aka std::_Rb_tree_const_iterator<std::pair<const int, std::map<double, bool> > >}’
+    mymap.insert({50, {0.1,false}});
+                                  ^
+In file included from /usr/include/c++/4.8/map:61:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_map.h:670:9: note: template<class _InputIterator> void std::map<_Key, _Tp, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = int; _Tp = std::map<double, bool>; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, std::map<double, bool> > >]
+         insert(_InputIterator __first, _InputIterator __last)
+         ^
+/usr/include/c++/4.8/bits/stl_map.h:670:9: note:   template argument deduction/substitution failed:
+main.cpp:5:34: note:   candidate expects 2 arguments, 1 provided
+    mymap.insert({50, {0.1,false}});
+                                  ^
