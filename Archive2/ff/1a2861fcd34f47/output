@@ -1,0 +1,18 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:1: error: ‘Your’ does not name a type
+ Your next step is to then provide a partial specialization that takes the typename T, but only works for a specific variant of the template parameters (e.g. true or false).
+ ^
+main.cpp:13:2: warning: extra ‘;’ [-Wpedantic]
+ };
+  ^
+main.cpp: In function ‘int main()’:
+main.cpp:22:42: error: dependent-name ‘std::is_unsigned<_Tp>::type’ is parsed as a non-type, but instantiation yields a type
+    std::cout << std::boolalpha << FXP<int>::arf;
+                                          ^
+main.cpp:22:42: note: say ‘typename std::is_unsigned<_Tp>::type’ if a type is meant
+main.cpp:22:42: error: template argument 2 is invalid
+main.cpp:24:51: error: dependent-name ‘std::is_unsigned<_Tp>::type’ is parsed as a non-type, but instantiation yields a type
+    std::cout << std::boolalpha << FXP<unsigned int>::arf;
+                                                   ^
+main.cpp:24:51: note: say ‘typename std::is_unsigned<_Tp>::type’ if a type is meant
+main.cpp:24:51: error: template argument 2 is invalid
