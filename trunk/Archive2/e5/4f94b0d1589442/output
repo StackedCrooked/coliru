@@ -1,0 +1,10 @@
+main.cpp:11:15: error: static_cast from 'test' to 'float' uses deleted function
+    float c = static_cast<float>(a); // c = ?
+              ^~~~~~~~~~~~~~~~~~~~~
+main.cpp:3:14: note: candidate function
+    explicit operator bool() const { return true; }
+             ^
+main.cpp:4:35: note: candidate function [with T = float] has been explicitly deleted
+    template<typename T> explicit operator T() const = delete;
+                                  ^
+1 error generated.
