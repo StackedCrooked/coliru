@@ -1,0 +1,40 @@
+main.cpp:3:13: error: ‘shared_mutex’ in namespace ‘std’ does not name a type
+     mutable std::shared_mutex m;
+             ^
+main.cpp:16:1: error: expected ‘;’ after class definition
+ }
+ ^
+main.cpp: In member function ‘R& R::operator=(const R&)’:
+main.cpp:9:9: error: ‘unique_lock’ is not a member of ‘std’
+         std::unique_lock<std::shared_mutex> lhs(mut, std::defer_lock);
+         ^
+main.cpp:9:26: error: ‘shared_mutex’ is not a member of ‘std’
+         std::unique_lock<std::shared_mutex> lhs(mut, std::defer_lock);
+                          ^
+main.cpp:9:49: error: ‘mut’ was not declared in this scope
+         std::unique_lock<std::shared_mutex> lhs(mut, std::defer_lock);
+                                                 ^
+main.cpp:9:54: error: ‘defer_lock’ is not a member of ‘std’
+         std::unique_lock<std::shared_mutex> lhs(mut, std::defer_lock);
+                                                      ^
+main.cpp:9:69: error: ‘lhs’ was not declared in this scope
+         std::unique_lock<std::shared_mutex> lhs(mut, std::defer_lock);
+                                                                     ^
+main.cpp:11:9: error: ‘shared_lock’ is not a member of ‘std’
+         std::shared_lock<std::shared_mutex> rhs(other.mut, std::defer_lock);
+         ^
+main.cpp:11:26: error: ‘shared_mutex’ is not a member of ‘std’
+         std::shared_lock<std::shared_mutex> rhs(other.mut, std::defer_lock);
+                          ^
+main.cpp:11:55: error: ‘const class R’ has no member named ‘mut’
+         std::shared_lock<std::shared_mutex> rhs(other.mut, std::defer_lock);
+                                                       ^
+main.cpp:11:60: error: ‘defer_lock’ is not a member of ‘std’
+         std::shared_lock<std::shared_mutex> rhs(other.mut, std::defer_lock);
+                                                            ^
+main.cpp:11:75: error: ‘rhs’ was not declared in this scope
+         std::shared_lock<std::shared_mutex> rhs(other.mut, std::defer_lock);
+                                                                           ^
+main.cpp:12:22: error: ‘lock’ was not declared in this scope
+         lock(lhs, rhs);
+                      ^
