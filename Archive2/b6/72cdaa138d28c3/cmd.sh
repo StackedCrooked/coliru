@@ -1,0 +1,1 @@
+set -x && g++-4.8 -std=c++11 -pedantic-errors -Wall -Wextra -Woverloaded-virtual main.cpp && ./a.out

@@ -1,0 +1,13 @@
+main.cpp: In function ‘int main()’:
+main.cpp:9:17: error: expected ‘,’ before ‘{’ token
+     auto l = [ u{std::move(u)} ]() { std::cout << *u << std::endl;};
+                 ^
+main.cpp:9:17: error: expected identifier before ‘{’ token
+main.cpp:9:14: error: use of deleted function ‘std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = int; _Dp = std::default_delete<int>]’
+     auto l = [ u{std::move(u)} ]() { std::cout << *u << std::endl;};
+              ^
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/unique_ptr.h:273:7: error: declared here
+       unique_ptr(const unique_ptr&) = delete;
+       ^

@@ -1,0 +1,33 @@
+main.cpp: In function ‘int main()’:
+main.cpp:43:26: error: use of deleted function ‘Array::Array(const Array&)’
+     Array b = std::move(a);
+                          ^
+main.cpp:26:8: note: ‘Array::Array(const Array&)’ is implicitly deleted because the default definition would be ill-formed:
+ struct Array
+        ^
+main.cpp:26:8: error: use of deleted function ‘constexpr wrapper<char*>::wrapper(const wrapper<char*>&)’
+main.cpp:5:8: note: ‘constexpr wrapper<char*>::wrapper(const wrapper<char*>&)’ is implicitly declared as deleted because ‘wrapper<char*>’ declares a move constructor or move assignment operator
+ struct wrapper
+        ^
+main.cpp:26:8: error: use of deleted function ‘constexpr wrapper<int>::wrapper(const wrapper<int>&)’
+ struct Array
+        ^
+main.cpp:5:8: note: ‘constexpr wrapper<int>::wrapper(const wrapper<int>&)’ is implicitly declared as deleted because ‘wrapper<int>’ declares a move constructor or move assignment operator
+ struct wrapper
+        ^
+main.cpp:44:7: error: use of deleted function ‘Array& Array::operator=(const Array&)’
+     a = std::move(b);
+       ^
+main.cpp:26:8: note: ‘Array& Array::operator=(const Array&)’ is implicitly deleted because the default definition would be ill-formed:
+ struct Array
+        ^
+main.cpp:26:8: error: use of deleted function ‘wrapper<char*>& wrapper<char*>::operator=(const wrapper<char*>&)’
+main.cpp:5:8: note: ‘wrapper<char*>& wrapper<char*>::operator=(const wrapper<char*>&)’ is implicitly declared as deleted because ‘wrapper<char*>’ declares a move constructor or move assignment operator
+ struct wrapper
+        ^
+main.cpp:26:8: error: use of deleted function ‘wrapper<int>& wrapper<int>::operator=(const wrapper<int>&)’
+ struct Array
+        ^
+main.cpp:5:8: note: ‘wrapper<int>& wrapper<int>::operator=(const wrapper<int>&)’ is implicitly declared as deleted because ‘wrapper<int>’ declares a move constructor or move assignment operator
+ struct wrapper
+        ^

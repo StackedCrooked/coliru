@@ -1,0 +1,28 @@
+main.cpp:1:1: error: use of undeclared identifier 'boost'
+boost::variant<array_and_length, pointer_and_length> foo(<U+2026>) { <U+2026> }
+^
+main.cpp:1:15: error: expected unqualified-id
+boost::variant<array_and_length, pointer_and_length> foo(<U+2026>) { <U+2026> }
+              ^
+main.cpp:1:58: error: non-ASCII characters are not allowed outside of literals and identifiers
+boost::variant<array_and_length, pointer_and_length> foo(<U+2026>) { <U+2026> }
+                                                         ^~~~~~~~
+main.cpp:1:65: error: non-ASCII characters are not allowed outside of literals and identifiers
+boost::variant<array_and_length, pointer_and_length> foo(<U+2026>) { <U+2026> }
+                                                                     ^~~~~~~~~
+main.cpp:5:9: error: non-ASCII characters are not allowed outside of literals and identifiers
+    bar(<U+2026>) : baz(foo(<U+2026>)) {
+        ^~~~~~~~
+main.cpp:5:24: error: non-ASCII characters are not allowed outside of literals and identifiers
+    bar(<U+2026>) : baz(foo(<U+2026>)) {
+                            ^~~~~~~~
+main.cpp:10:5: error: use of undeclared identifier 'boost'
+    boost::variant<array_and_length, pointer_and_length> baz;
+    ^
+main.cpp:10:19: error: expected member name or ';' after declaration specifiers
+    boost::variant<array_and_length, pointer_and_length> baz;
+    ~~~~~~~~~~~~~~^
+main.cpp:5:20: error: use of undeclared identifier 'foo'
+    bar(<U+2026>) : baz(foo(<U+2026>)) {
+                        ^
+9 errors generated.

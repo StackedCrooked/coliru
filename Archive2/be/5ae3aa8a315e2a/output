@@ -1,0 +1,428 @@
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h: In instantiation of ‘bool std::less<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = std::function<void(int, int)>]’:
+/usr/include/c++/4.8/bits/stl_tree.h:1321:11:   required from ‘std::pair<std::_Rb_tree_node_base*, std::_Rb_tree_node_base*> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_insert_unique_pos(const key_type&) [with _Key = std::function<void(int, int)>; _Val = std::function<void(int, int)>; _KeyOfValue = std::_Identity<std::function<void(int, int)> >; _Compare = std::less<std::function<void(int, int)> >; _Alloc = std::allocator<std::function<void(int, int)> >; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::key_type = std::function<void(int, int)>]’
+/usr/include/c++/4.8/bits/stl_tree.h:1374:47:   required from ‘std::pair<std::_Rb_tree_iterator<_Val>, bool> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique(_Arg&&) [with _Arg = const std::function<void(int, int)>&; _Key = std::function<void(int, int)>; _Val = std::function<void(int, int)>; _KeyOfValue = std::_Identity<std::function<void(int, int)> >; _Compare = std::less<std::function<void(int, int)> >; _Alloc = std::allocator<std::function<void(int, int)> >]’
+/usr/include/c++/4.8/bits/stl_set.h:463:29:   required from ‘std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(const value_type&) [with _Key = std::function<void(int, int)>; _Compare = std::less<std::function<void(int, int)> >; _Alloc = std::allocator<std::function<void(int, int)> >; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<std::function<void(int, int)> >; std::set<_Key, _Compare, _Alloc>::value_type = std::function<void(int, int)>]’
+main.cpp:227:9:   required from ‘Event<Args>& Event<Args>::operator+=(const Func&) [with Func = std::function<void(int, int)>; Args = {int, int}]’
+main.cpp:394:8:   required from here
+/usr/include/c++/4.8/bits/stl_function.h:235:20: error: no match for ‘operator<’ (operand types are ‘const std::function<void(int, int)>’ and ‘const std::function<void(int, int)>’)
+       { return __x < __y; }
+                    ^
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note: candidates are:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note: operator<(int, int) <built-in>
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   no known conversion for argument 2 from ‘const std::function<void(int, int)>’ to ‘int’
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:220:5: note: template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_pair.h:220:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::pair<_T1, _T2>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_iterator.h:297:5: note: template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator<(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:297:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_iterator.h:347:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator<(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:347:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_iterator.h:1055:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator<(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1055:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::move_iterator<_Iterator>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_iterator.h:1061:5: note: template<class _Iterator> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator<(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:1061:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::move_iterator<_Iterator>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:2569:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2569:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:2581:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2581:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:2593:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2593:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   mismatched types ‘const _CharT*’ and ‘std::function<void(int, int)>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_vector.h:1420:5: note: template<class _Tp, class _Alloc> bool std::operator<(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator<(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_vector.h:1420:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/tuple:39:0,
+                 from /usr/include/c++/4.8/functional:55,
+                 from /usr/include/c++/4.8/memory:79,
+                 from main.cpp:4:
+/usr/include/c++/4.8/array:238:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+     ^
+/usr/include/c++/4.8/array:238:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::array<_Tp, _Nm>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/memory:79,
+                 from main.cpp:4:
+/usr/include/c++/4.8/tuple:822:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator<(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator<(const tuple<_TElements...>& __t,
+     ^
+/usr/include/c++/4.8/tuple:822:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::tuple<_Elements ...>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/unique_ptr.h:523:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator<(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator<(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/include/c++/4.8/bits/unique_ptr.h:523:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/unique_ptr.h:534:5: note: template<class _Tp, class _Dp> bool std::operator<(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator<(const unique_ptr<_Tp, _Dp>& __x, nullptr_t)
+     ^
+/usr/include/c++/4.8/bits/unique_ptr.h:534:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/unique_ptr.h:540:5: note: template<class _Tp, class _Dp> bool std::operator<(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator<(nullptr_t, const unique_ptr<_Tp, _Dp>& __x)
+     ^
+/usr/include/c++/4.8/bits/unique_ptr.h:540:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   cannot convert ‘__x’ (type ‘const std::function<void(int, int)>’) to type ‘std::nullptr_t’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1090:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator<(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator<(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1090:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::__shared_ptr<_Tp1, _Lp>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1099:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator<(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator<(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1099:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1104:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator<(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator<(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:1104:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   cannot convert ‘__x’ (type ‘const std::function<void(int, int)>’) to type ‘std::nullptr_t’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:82:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr.h:359:5: note: template<class _Tp1, class _Tp2> bool std::operator<(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator<(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/include/c++/4.8/bits/shared_ptr.h:359:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::shared_ptr<_Tp1>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:82:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr.h:368:5: note: template<class _Tp> bool std::operator<(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator<(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/include/c++/4.8/bits/shared_ptr.h:368:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::shared_ptr<_Tp1>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/memory:82:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/shared_ptr.h:373:5: note: template<class _Tp> bool std::operator<(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator<(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/include/c++/4.8/bits/shared_ptr.h:373:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   cannot convert ‘__x’ (type ‘const std::function<void(int, int)>’) to type ‘std::nullptr_t’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:60:0,
+                 from main.cpp:208:
+/usr/include/c++/4.8/bits/stl_tree.h:914:5: note: template<class _Key, class _Val, class _KeyOfValue, class _Compare, class _Alloc> bool std::operator<(const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&, const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&)
+     operator<(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_tree.h:914:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:61:0,
+                 from main.cpp:208:
+/usr/include/c++/4.8/bits/stl_set.h:769:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator<(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)
+     operator<(const set<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_set.h:769:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::set<_Key, _Compare, _Alloc>’
+       { return __x < __y; }
+                    ^
+In file included from /usr/include/c++/4.8/set:62:0,
+                 from main.cpp:208:
+/usr/include/c++/4.8/bits/stl_multiset.h:754:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator<(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)
+     operator<(const multiset<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_multiset.h:754:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/string:48:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_function.h:235:20: note:   ‘const std::function<void(int, int)>’ is not derived from ‘const std::multiset<_Key, _Compare, _Alloc>’
+       { return __x < __y; }
+                    ^

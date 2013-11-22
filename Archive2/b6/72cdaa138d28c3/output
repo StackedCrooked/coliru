@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++11 -pedantic-errors -Wall -Wextra -Woverloaded-virtual main.cpp
+main.cpp:21:6: warning: ‘virtual void CLassA::MethodA(int)’ was hidden [-Woverloaded-virtual]
+ void CLassA::MethodA(int x)
+      ^
+main.cpp:37:10: warning:   by ‘virtual void CLassB::MethodA(int, int)’ [-Woverloaded-virtual]
+     void MethodA(int x, int y) override;
+          ^
+main.cpp:40:6: warning: ‘virtual void CLassB::MethodA(int, int)’ was hidden [-Woverloaded-virtual]
+ void CLassB::MethodA(int x, int y)
+      ^
+main.cpp:50:10: warning:   by ‘virtual void CLassC::MethodA(int)’ [-Woverloaded-virtual]
+     void MethodA(int x) override;
+          ^
+main.cpp:61:5: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv)
+     ^
+main.cpp:61:5: warning: unused parameter ‘argv’ [-Wunused-parameter]
++ ./a.out
+CLassA::MethodA: 1
+	CLassA::MethodA: 1 1
+CLassA::MethodA: 2
+	CLassB::MethodA: 2 2
+CLassC::MethodA: 3
+	CLassB::MethodA: 3 3

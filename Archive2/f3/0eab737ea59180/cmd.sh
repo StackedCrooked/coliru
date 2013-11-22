@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O3 -pedantic main.cpp && ./a.out

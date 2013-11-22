@@ -1,0 +1,1 @@
+clang++ -std=c++11 main.cpp -o consume_void && ./consume_void

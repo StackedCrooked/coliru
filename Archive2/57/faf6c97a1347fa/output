@@ -1,0 +1,13 @@
+main.cpp:22:33: error: non-type template argument is not a constant expression
+    return issix(int_<factorial(n)>());
+                                ^
+main.cpp:21:16: error: no return statement in constexpr function
+constexpr bool issix(int const n) {
+               ^
+main.cpp:27:55: error: no matching function for call to 'issix'
+    std::cout << "issix: " << factorial(4) << ": " << issix(factorial(4)) << '\n';
+                                                      ^~~~~
+main.cpp:13:16: note: candidate template ignored: could not match 'integral_constant<int, n>' against 'int'
+constexpr bool issix(int_< n > const) {
+               ^
+3 errors generated.

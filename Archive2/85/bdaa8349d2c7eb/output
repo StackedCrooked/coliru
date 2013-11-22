@@ -1,0 +1,27 @@
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/functional: In instantiation of ‘std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = main()::__lambda0; _Res = X; _ArgTypes = {}; std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> = std::function<X()>&]’:
+main.cpp:11:12:   required from here
+/usr/include/c++/4.8/functional:2333:4: error: no matching function for call to ‘std::function<X()>::function(main()::__lambda0)’
+    function(std::forward<_Functor>(__f)).swap(*this);
+    ^
+/usr/include/c++/4.8/functional:2333:4: note: candidates are:
+/usr/include/c++/4.8/functional:2255:2: note: template<class _Functor, class> std::function<_Res(_ArgTypes ...)>::function(_Functor)
+  function(_Functor);
+  ^
+/usr/include/c++/4.8/functional:2255:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:2230:7: note: std::function<_Res(_ArgTypes ...)>::function(std::function<_Res(_ArgTypes ...)>&&) [with _Res = X; _ArgTypes = {}]
+       function(function&& __x) : _Function_base()
+       ^
+/usr/include/c++/4.8/functional:2230:7: note:   no known conversion for argument 1 from ‘main()::__lambda0’ to ‘std::function<X()>&&’
+/usr/include/c++/4.8/functional:2433:5: note: std::function<_Res(_ArgTypes ...)>::function(const std::function<_Res(_ArgTypes ...)>&) [with _Res = X; _ArgTypes = {}]
+     function<_Res(_ArgTypes...)>::
+     ^
+/usr/include/c++/4.8/functional:2433:5: note:   no known conversion for argument 1 from ‘main()::__lambda0’ to ‘const std::function<X()>&’
+/usr/include/c++/4.8/functional:2210:7: note: std::function<_Res(_ArgTypes ...)>::function(std::nullptr_t) [with _Res = X; _ArgTypes = {}; std::nullptr_t = std::nullptr_t]
+       function(nullptr_t) noexcept
+       ^
+/usr/include/c++/4.8/functional:2210:7: note:   no known conversion for argument 1 from ‘main()::__lambda0’ to ‘std::nullptr_t’
+/usr/include/c++/4.8/functional:2203:7: note: std::function<_Res(_ArgTypes ...)>::function() [with _Res = X; _ArgTypes = {}]
+       function() noexcept
+       ^
+/usr/include/c++/4.8/functional:2203:7: note:   candidate expects 0 arguments, 1 provided

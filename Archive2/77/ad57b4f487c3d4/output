@@ -1,0 +1,42 @@
++ g++-4.8 -std=c++11 -Wall -W -pedantic main.cpp
+main.cpp: In constructor ‘refp::shared_ptr<T>::shared_ptr(const refp::shared_ptr<U>&)’:
+main.cpp:37:22: error: ‘is_convertible’ is not a member of ‘std’
+       static_assert (std::is_convertible<U*, T*>::value,
+                      ^
+main.cpp:37:43: error: expected primary-expression before ‘*’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                           ^
+main.cpp:37:44: error: expected primary-expression before ‘,’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                            ^
+main.cpp:37:46: error: expected string-literal before ‘T’
+       static_assert (std::is_convertible<U*, T*>::value,
+                                              ^
+main.cpp:37:46: error: expected ‘)’ before ‘T’
+main.cpp: In member function ‘refp::shared_ptr<T>& refp::shared_ptr<T>::operator=(const refp::shared_ptr<U>&)’:
+main.cpp:49:22: error: ‘is_convertible’ is not a member of ‘std’
+       static_assert (std::is_convertible<U*, T*>::value,
+                      ^
+main.cpp:49:43: error: expected primary-expression before ‘*’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                           ^
+main.cpp:49:44: error: expected primary-expression before ‘,’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                            ^
+main.cpp:49:46: error: expected string-literal before ‘T’
+       static_assert (std::is_convertible<U*, T*>::value,
+                                              ^
+main.cpp:49:46: error: expected ‘)’ before ‘T’
+main.cpp: In function ‘refp::shared_ptr<T> refp::make_shared(Args&& ...)’:
+main.cpp:75:34: error: ‘forward’ is not a member of ‘std’
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                  ^
+main.cpp:75:26: error: expected primary-expression before ‘(’ token
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                          ^
+main.cpp:75:34: error: ‘forward’ is not a member of ‘std’
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                  ^
+main.cpp:75:51: error: expected primary-expression before ‘>’ token
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                                   ^

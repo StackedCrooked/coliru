@@ -1,0 +1,48 @@
+main.cpp:65:43: error: ‘i’ was not declared in this scope
+     bool sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j]);
+                                           ^
+main.cpp:65:45: error: expected ‘)’ before ‘,’ token
+     bool sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j]);
+                                             ^
+main.cpp:65:59: error: invalid declarator before ‘&’ token
+     bool sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j]);
+                                                           ^
+main.cpp: In member function ‘void deckOfCards::pairs(std::vector<Card>&)’:
+main.cpp:118:15: warning: statement has no effect [-Wunused-value]
+         for (j; j < MAX_CARDS; j++)
+               ^
+main.cpp: In member function ‘void deckOfCards::straight(std::vector<Card>&)’:
+main.cpp:173:52: error: no matching function for call to ‘sort(std::vector<Card>::iterator, std::vector<Card>::iterator, <unresolved overloaded function type>)’
+     sort(fiveHand.begin(), fiveHand.end(), sortFunc); 
+                                                    ^
+main.cpp:173:52: note: candidates are:
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_algo.h:5461:5: note: template<class _RAIter> void std::sort(_RAIter, _RAIter)
+     sort(_RandomAccessIterator __first, _RandomAccessIterator __last)
+     ^
+/usr/include/c++/4.8/bits/stl_algo.h:5461:5: note:   template argument deduction/substitution failed:
+main.cpp:173:52: note:   candidate expects 2 arguments, 3 provided
+     sort(fiveHand.begin(), fiveHand.end(), sortFunc); 
+                                                    ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_algo.h:5497:5: note: void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Card*, std::vector<Card> >; _Compare = bool (deckOfCards::*)(...)]
+     sort(_RandomAccessIterator __first, _RandomAccessIterator __last,
+     ^
+/usr/include/c++/4.8/bits/stl_algo.h:5497:5: note:   no known conversion for argument 3 from ‘<unresolved overloaded function type>’ to ‘bool (deckOfCards::*)(...)’
+main.cpp: At global scope:
+main.cpp:183:52: error: ‘i’ was not declared in this scope
+ bool deckOfCards::sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j])
+                                                    ^
+main.cpp:183:54: error: expected ‘)’ before ‘,’ token
+ bool deckOfCards::sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j])
+                                                      ^
+main.cpp:183:54: error: declaration of ‘bool deckOfCards::sortFunc(...)’ outside of class is not definition [-fpermissive]
+main.cpp:183:68: error: invalid declarator before ‘&’ token
+ bool deckOfCards::sortFunc(vector<Card>&  fiveHand[i], vector<Card>&  fiveHand[j])
+                                                                    ^
+main.cpp:189:5: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv) 
+     ^
+main.cpp:189:5: warning: unused parameter ‘argv’ [-Wunused-parameter]

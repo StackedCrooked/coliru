@@ -1,0 +1,1 @@
+set -x ; clang++ --version -std=c++11 -O3 -Wall -pedantic -pthread main.cpp && ./a.out

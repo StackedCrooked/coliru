@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -stdlib=libc++ -Wall -W -pedantic -O2 main.cpp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 && ./a.out
