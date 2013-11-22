@@ -1,0 +1,48 @@
+In file included from /usr/include/c++/4.8/random:35:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp: In function ‘int main()’:
+main.cpp:7:5: error: ‘random_device’ is not a member of ‘std’
+     std::random_device rd;
+     ^
+main.cpp:7:24: error: expected ‘;’ before ‘rd’
+     std::random_device rd;
+                        ^
+main.cpp:8:5: error: ‘mt19937’ is not a member of ‘std’
+     std::mt19937 gen(rd());
+     ^
+main.cpp:8:18: error: expected ‘;’ before ‘gen’
+     std::mt19937 gen(rd());
+                  ^
+main.cpp:9:5: error: ‘discrete_distribution’ is not a member of ‘std’
+     std::discrete_distribution<> d={40, 10, 10, 40};
+     ^
+main.cpp:9:32: error: expected primary-expression before ‘>’ token
+     std::discrete_distribution<> d={40, 10, 10, 40};
+                                ^
+main.cpp:9:34: error: ‘d’ was not declared in this scope
+     std::discrete_distribution<> d={40, 10, 10, 40};
+                                  ^
+main.cpp:9:51: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     std::discrete_distribution<> d={40, 10, 10, 40};
+                                                   ^
+main.cpp:12:15: error: ‘gen’ was not declared in this scope
+         ++m[d(gen)];
+               ^
+main.cpp:14:9: warning: ‘auto’ changes meaning in C++11; please remove it [-Wc++0x-compat]
+     for(auto p : m) {
+         ^
+main.cpp:14:14: error: ‘p’ does not name a type
+     for(auto p : m) {
+              ^
+main.cpp:17:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^
+main.cpp:17:1: error: expected primary-expression before ‘}’ token
+main.cpp:17:1: error: expected ‘;’ before ‘}’ token
+main.cpp:17:1: error: expected primary-expression before ‘}’ token
+main.cpp:17:1: error: expected ‘)’ before ‘}’ token
+main.cpp:17:1: error: expected primary-expression before ‘}’ token
+main.cpp:17:1: error: expected ‘;’ before ‘}’ token
