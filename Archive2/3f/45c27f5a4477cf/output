@@ -1,0 +1,26 @@
+A<char> a1;
+staff default constructor (0x2113010)
+A default constructor (0x7fff66401c30)
+A get_staff() (0x7fff66401c30)
+&a1.get_staff() = [0x2113010]
+static_cast<bool>(a1) = [1]
+
+A<char> a2(a1);
+staff copy constructor (0x2113420)
+A copy constructor (0x7fff66401c40)
+A get_staff() (0x7fff66401c40)
+&a2.get_staff() = [0x2113420]
+static_cast<bool>(a2) = [1]
+
+A<char> a3(std::move(a1));
+A move constructor (0x7fff66401c50)
+A get_staff() (0x7fff66401c50)
+&a3.get_staff() = [0x2113010]
+static_cast<bool>(a3) = [1]
+static_cast<bool>(a1) = [0]
+
+A destructor (0x7fff66401c50)
+staff destructor (0x2113010)
+A destructor (0x7fff66401c40)
+staff destructor (0x2113420)
+A destructor (0x7fff66401c30)
