@@ -28,8 +28,5 @@ cd /tmp/${jobid}
 set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
-
-ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}
-
 # Run the command in the chroot and create a new pgid.
 setsid sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
