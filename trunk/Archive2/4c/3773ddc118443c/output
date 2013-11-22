@@ -1,0 +1,118 @@
+main.cpp: In static member function ‘static std::shared_ptr<DataSource> DataSource::CreateFake()’:
+main.cpp:123:33: error: ‘FakeDataSource’ was not declared in this scope
+         return std::make_shared<FakeDataSource>();
+                                 ^
+main.cpp:123:49: error: no matching function for call to ‘make_shared()’
+         return std::make_shared<FakeDataSource>();
+                                                 ^
+main.cpp:123:49: note: candidate is:
+In file included from /usr/include/c++/4.8/memory:82:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/shared_ptr.h:610:5: note: template<class _Tp, class ... _Args> std::shared_ptr<_Tp1> std::make_shared(_Args&& ...)
+     make_shared(_Args&&... __args)
+     ^
+/usr/include/c++/4.8/bits/shared_ptr.h:610:5: note:   template argument deduction/substitution failed:
+main.cpp:123:49: error: template argument 1 is invalid
+         return std::make_shared<FakeDataSource>();
+                                                 ^
+main.cpp: In static member function ‘static std::shared_ptr<DataSource> DataSource::CreateReal()’:
+main.cpp:128:33: error: ‘RealDataSource’ was not declared in this scope
+         return std::make_shared<RealDataSource>();
+                                 ^
+main.cpp:128:49: error: no matching function for call to ‘make_shared()’
+         return std::make_shared<RealDataSource>();
+                                                 ^
+main.cpp:128:49: note: candidate is:
+In file included from /usr/include/c++/4.8/memory:82:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/shared_ptr.h:610:5: note: template<class _Tp, class ... _Args> std::shared_ptr<_Tp1> std::make_shared(_Args&& ...)
+     make_shared(_Args&&... __args)
+     ^
+/usr/include/c++/4.8/bits/shared_ptr.h:610:5: note:   template argument deduction/substitution failed:
+main.cpp:128:49: error: template argument 1 is invalid
+         return std::make_shared<RealDataSource>();
+                                                 ^
+main.cpp: In constructor ‘DataSource::DataSource(bool)’:
+main.cpp:132:9: error: class ‘DataSource’ does not have any field named ‘mFake’
+         mFake(inFake)
+         ^
+main.cpp: In member function ‘bool DataSource::fake() const’:
+main.cpp:138:16: error: ‘mFake’ was not declared in this scope
+         return mFake;
+                ^
+main.cpp: In member function ‘ByteRange DataSource::read(unsigned int)’:
+main.cpp:143:13: error: ‘mFake’ was not declared in this scope
+         if (mFake)
+             ^
+main.cpp:145:25: error: expected type-specifier before ‘FakeDataSource’
+             static_cast<FakeDataSource&>(*this).do_read(mdl);
+                         ^
+main.cpp:145:25: error: expected ‘>’ before ‘FakeDataSource’
+main.cpp:145:25: error: expected ‘(’ before ‘FakeDataSource’
+main.cpp:145:25: error: ‘FakeDataSource’ was not declared in this scope
+main.cpp:145:40: error: expected primary-expression before ‘>’ token
+             static_cast<FakeDataSource&>(*this).do_read(mdl);
+                                        ^
+main.cpp:145:49: error: ‘struct DataSource’ has no member named ‘do_read’
+             static_cast<FakeDataSource&>(*this).do_read(mdl);
+                                                 ^
+main.cpp:145:61: error: expected ‘)’ before ‘;’ token
+             static_cast<FakeDataSource&>(*this).do_read(mdl);
+                                                             ^
+main.cpp:149:25: error: expected type-specifier before ‘RealDataSource’
+             static_cast<RealDataSource&>(*this).do_read(mdl);
+                         ^
+main.cpp:149:25: error: expected ‘>’ before ‘RealDataSource’
+main.cpp:149:25: error: expected ‘(’ before ‘RealDataSource’
+main.cpp:149:25: error: ‘RealDataSource’ was not declared in this scope
+main.cpp:149:40: error: expected primary-expression before ‘>’ token
+             static_cast<RealDataSource&>(*this).do_read(mdl);
+                                        ^
+main.cpp:149:49: error: ‘struct DataSource’ has no member named ‘do_read’
+             static_cast<RealDataSource&>(*this).do_read(mdl);
+                                                 ^
+main.cpp:149:61: error: expected ‘)’ before ‘;’ token
+             static_cast<RealDataSource&>(*this).do_read(mdl);
+                                                             ^
+main.cpp:151:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: In member function ‘ByteRange DataSource::write(const char*, unsigned int)’:
+main.cpp:155:17: error: ‘mFake’ was not declared in this scope
+         assert(!mFake);
+                 ^
+main.cpp:155:22: error: ‘assert’ was not declared in this scope
+         assert(!mFake);
+                      ^
+main.cpp:158:25: error: expected type-specifier before ‘RealDataSource’
+             static_cast<RealDataSource&>(*this).do_write(data, len);
+                         ^
+main.cpp:158:25: error: expected ‘>’ before ‘RealDataSource’
+main.cpp:158:25: error: expected ‘(’ before ‘RealDataSource’
+main.cpp:158:25: error: ‘RealDataSource’ was not declared in this scope
+main.cpp:158:40: error: expected primary-expression before ‘>’ token
+             static_cast<RealDataSource&>(*this).do_write(data, len);
+                                        ^
+main.cpp:158:49: error: ‘struct DataSource’ has no member named ‘do_write’
+             static_cast<RealDataSource&>(*this).do_write(data, len);
+                                                 ^
+main.cpp:158:68: error: expected ‘)’ before ‘;’ token
+             static_cast<RealDataSource&>(*this).do_write(data, len);
+                                                                    ^
+main.cpp:160:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: In member function ‘void RealDataSource::write(const char*, unsigned int)’:
+main.cpp:186:34: error: ‘append’ was not declared in this scope
+         append(mBuffer, data, len);
+                                  ^
+main.cpp: In member function ‘ByteRange RealDataSource::read(unsigned int, ByteRange::Ref)’:
+main.cpp:191:27: error: ‘current’ was not declared in this scope
+         ByteRange(current(), current() + len);
+                           ^
+main.cpp:192:29: error: ‘consume’ was not declared in this scope
+         consume(mBuffer, len);
+                             ^
+main.cpp:193:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }    
+     ^

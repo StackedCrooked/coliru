@@ -1,0 +1,68 @@
++ g++-4.8 -std=c++11 -Wall -W -pedantic main.cpp
+main.cpp:65:5: error: ‘exception_ptr’ in namespace ‘std’ does not name a type
+     std::exception_ptr   e;
+     ^
+main.cpp: In constructor ‘refp::shared_ptr<T>::shared_ptr(const T*)’:
+main.cpp:25:9: error: class ‘refp::shared_ptr<T>’ does not have any field named ‘e’
+       : e (std::make_exception_ptr<value_wrapper> (value_wrapper (ptr)))
+         ^
+main.cpp:25:12: error: ‘make_exception_ptr’ is not a member of ‘std’
+       : e (std::make_exception_ptr<value_wrapper> (value_wrapper (ptr)))
+            ^
+main.cpp:25:49: error: expected primary-expression before ‘>’ token
+       : e (std::make_exception_ptr<value_wrapper> (value_wrapper (ptr)))
+                                                 ^
+main.cpp: In constructor ‘refp::shared_ptr<T>::shared_ptr(const refp::shared_ptr<U>&)’:
+main.cpp:33:9: error: class ‘refp::shared_ptr<T>’ does not have any field named ‘e’
+       : e (src.e), w (src.w)
+         ^
+main.cpp:35:22: error: ‘is_convertible’ is not a member of ‘std’
+       static_assert (std::is_convertible<U*, T*>::value,
+                      ^
+main.cpp:35:43: error: expected primary-expression before ‘*’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                           ^
+main.cpp:35:44: error: expected primary-expression before ‘,’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                            ^
+main.cpp:35:46: error: expected string-literal before ‘T’
+       static_assert (std::is_convertible<U*, T*>::value,
+                                              ^
+main.cpp:35:46: error: expected ‘)’ before ‘T’
+main.cpp: In member function ‘refp::shared_ptr<T>& refp::shared_ptr<T>::operator=(const refp::shared_ptr<U>&)’:
+main.cpp:47:22: error: ‘is_convertible’ is not a member of ‘std’
+       static_assert (std::is_convertible<U*, T*>::value,
+                      ^
+main.cpp:47:43: error: expected primary-expression before ‘*’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                           ^
+main.cpp:47:44: error: expected primary-expression before ‘,’ token
+       static_assert (std::is_convertible<U*, T*>::value,
+                                            ^
+main.cpp:47:46: error: expected string-literal before ‘T’
+       static_assert (std::is_convertible<U*, T*>::value,
+                                              ^
+main.cpp:47:46: error: expected ‘)’ before ‘T’
+main.cpp:51:7: error: ‘e’ was not declared in this scope
+       e = src.e;
+       ^
+main.cpp: In member function ‘refp::shared_ptr<T>::value_wrapper& refp::shared_ptr<T>::get_wrapper() const’:
+main.cpp:58:15: error: ‘rethrow_exception’ is not a member of ‘std’
+       try   { std::rethrow_exception (e); }
+               ^
+main.cpp:58:39: error: ‘e’ was not declared in this scope
+       try   { std::rethrow_exception (e); }
+                                       ^
+main.cpp: In function ‘refp::shared_ptr<T> refp::make_shared(Args&& ...)’:
+main.cpp:73:34: error: ‘forward’ is not a member of ‘std’
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                  ^
+main.cpp:73:26: error: expected primary-expression before ‘(’ token
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                          ^
+main.cpp:73:34: error: ‘forward’ is not a member of ‘std’
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                  ^
+main.cpp:73:51: error: expected primary-expression before ‘>’ token
+     return shared_ptr<T> (new T (std::forward<Args> (args) ... ));
+                                                   ^

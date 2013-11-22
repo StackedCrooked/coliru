@@ -1,0 +1,16 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:32:7: error: no matching function for call to ‘A::A()’
+     A a;
+       ^
+main.cpp:32:7: note: candidates are:
+main.cpp:22:1: note: A::A(int)
+ A::A(int b) : b(b) {}
+ ^
+main.cpp:22:1: note:   candidate expects 1 argument, 0 provided
+main.cpp:1:7: note: constexpr A::A(const A&)
+ class A 
+       ^
+main.cpp:1:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:1:7: note: constexpr A::A(A&&)
+main.cpp:1:7: note:   candidate expects 1 argument, 0 provided

@@ -1,0 +1,21 @@
++ g++ -Os -std=c++11 -Wall -pedantic main.cpp
+main.cpp: In constructor ‘constexpr mygrammar<const char*>::mygrammar()’:
+main.cpp:16:8: error: conversion from ‘qi::space_type’ to non-scalar type ‘qi::rule<const char*, int()>’ requested
+ struct mygrammar {
+        ^
+main.cpp:16:8: error: conversion from ‘qi::rule<const char*, int()>’ to non-scalar type ‘qi::rule<const char*, std::vector<int, std::allocator<int> >(), qi::space_type>’ requested
+main.cpp:16:8: error: conversion from ‘int’ to non-scalar type ‘qi::rule<const char*, std::vector<int, std::allocator<int> >(), qi::space_type>’ requested
+main.cpp: At global scope:
+main.cpp:23:53: note: synthesized method ‘constexpr mygrammar<const char*>::mygrammar()’ first required here 
+ static mygrammar<const char*>                       char_grammar;
+                                                     ^
+main.cpp: In constructor ‘constexpr mygrammar<__gnu_cxx::__normal_iterator<const char*, std::vector<char> > >::mygrammar()’:
+main.cpp:16:8: error: conversion from ‘qi::space_type’ to non-scalar type ‘qi::rule<__gnu_cxx::__normal_iterator<const char*, std::vector<char, std::allocator<char> > >, int()>’ requested
+ struct mygrammar {
+        ^
+main.cpp:16:8: error: conversion from ‘qi::rule<__gnu_cxx::__normal_iterator<const char*, std::vector<char, std::allocator<char> > >, int()>’ to non-scalar type ‘qi::rule<__gnu_cxx::__normal_iterator<const char*, std::vector<char, std::allocator<char> > >, std::vector<int, std::allocator<int> >(), qi::space_type>’ requested
+main.cpp:16:8: error: conversion from ‘int’ to non-scalar type ‘qi::rule<__gnu_cxx::__normal_iterator<const char*, std::vector<char, std::allocator<char> > >, std::vector<int, std::allocator<int> >(), qi::space_type>’ requested
+main.cpp: At global scope:
+main.cpp:24:53: note: synthesized method ‘constexpr mygrammar<__gnu_cxx::__normal_iterator<const char*, std::vector<char> > >::mygrammar()’ first required here 
+ static mygrammar<std::vector<char>::const_iterator> cvec_grammar;
+                                                     ^

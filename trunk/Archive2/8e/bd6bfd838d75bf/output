@@ -1,0 +1,32 @@
++ g++-4.8 -std=c++11 -Wall -Wextra main.cpp
+main.cpp: In member function ‘virtual bool Base::operator==(const Base&) const’:
+main.cpp:11:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+main.cpp: At global scope:
+main.cpp:9:16: warning: unused parameter ‘other’ [-Wunused-parameter]
+   virtual bool operator==(Base const& other) const {
+                ^
+main.cpp:15:8: error: ‘bool Derived::operator==(const Derived&) const’ marked override, but does not override
+   bool operator==(Derived const& other) const override {
+        ^
+main.cpp: In member function ‘bool Derived::operator==(const Derived&) const’:
+main.cpp:17:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+main.cpp: At global scope:
+main.cpp:15:8: warning: unused parameter ‘other’ [-Wunused-parameter]
+   bool operator==(Derived const& other) const override {
+        ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:29:10: warning: deleting object of polymorphic class type ‘Derived’ which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+   delete d1; delete d2; return 0;
+          ^
+main.cpp:29:21: warning: deleting object of polymorphic class type ‘Derived’ which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+   delete d1; delete d2; return 0;
+                     ^
+main.cpp: At global scope:
+main.cpp:20:5: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char** argv){
+     ^
+main.cpp:20:5: warning: unused parameter ‘argv’ [-Wunused-parameter]

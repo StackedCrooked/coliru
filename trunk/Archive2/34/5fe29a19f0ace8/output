@@ -1,0 +1,59 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -Wold-style-cast main.cpp
+main.cpp:159:43: error: expected class-name before ‘{’ token
+ class tree_simulation : public simulation {
+                                           ^
+main.cpp: In constructor ‘tree_simulation::tree_simulation(double, double)’:
+main.cpp:173:12: warning: ‘tree_simulation::delta_t’ will be initialized after [-Wreorder]
+     double delta_t;
+            ^
+main.cpp:172:12: warning:   ‘double tree_simulation::alpha’ [-Wreorder]
+     double alpha;
+            ^
+main.cpp:161:12: warning:   when initialized here [-Wreorder]
+     inline tree_simulation(double delta_t, double alpha) :
+            ^
+main.cpp: At global scope:
+main.cpp:200:1: error: ‘simulation’ does not name a type
+ simulation* create_tree_simulation(double delta_t, double alpha) {
+ ^
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:208:19: error: ‘simulation’ was not declared in this scope
+     std::auto_ptr<simulation> sim_ptr;
+                   ^
+main.cpp:208:29: error: template argument 1 is invalid
+     std::auto_ptr<simulation> sim_ptr;
+                             ^
+main.cpp:208:38: error: invalid type in declaration before ‘;’ token
+     std::auto_ptr<simulation> sim_ptr;
+                                      ^
+main.cpp:212:29: error: the value of ‘simulation’ is not usable in a constant expression
+     sim_ptr = std::auto_ptr<simulation>(create_tree_simulation(delta_t, alpha));
+                             ^
+main.cpp:208:19: note: ‘simulation’ was not declared ‘constexpr’
+     std::auto_ptr<simulation> sim_ptr;
+                   ^
+main.cpp:212:39: error: type/value mismatch at argument 1 in template parameter list for ‘template<class> class std::auto_ptr’
+     sim_ptr = std::auto_ptr<simulation>(create_tree_simulation(delta_t, alpha));
+                                       ^
+main.cpp:212:39: error:   expected a type, got ‘simulation’
+main.cpp:212:78: error: ‘create_tree_simulation’ was not declared in this scope
+     sim_ptr = std::auto_ptr<simulation>(create_tree_simulation(delta_t, alpha));
+                                                                              ^
+main.cpp:220:59: error: ‘random_valarray’ was not declared in this scope
+ std::valarray<double> m  = random_valarray(particles_count);
+                                                           ^
+main.cpp:230:12: error: base operand of ‘->’ is not a pointer
+     sim_ptr->step(x, y, vx, vy, m);
+            ^
+main.cpp:216:14: warning: unused variable ‘particles_shown’ [-Wunused-variable]
+ const size_t particles_shown = 2048;
+              ^
+main.cpp:217:14: warning: unused variable ‘image_width’ [-Wunused-variable]
+ const size_t image_width = 512;
+              ^
+main.cpp:218:14: warning: unused variable ‘image_height’ [-Wunused-variable]
+ const size_t image_height = 512;
+              ^
+main.cpp:231:1: error: expected ‘}’ at end of input
+ }
+ ^

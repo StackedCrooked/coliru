@@ -1,0 +1,9 @@
++ g++ -Os -std=c++11 -Wall -pedantic main.cpp
+main.cpp: In function ‘void reverse(T&, typename std::enable_if<(sizeof (T) == sizeof (unsigned int)), void*>::type)’:
+main.cpp:12:83: error: there are no arguments to ‘byteswap32’ that depend on a template parameter, so a declaration of ‘byteswap32’ must be available [-fpermissive]
+     *reinterpret_cast<uint32_t*>(&x) = byteswap32(*reinterpret_cast<uint32_t*>(&x));
+                                                                                   ^
+main.cpp:12:83: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In instantiation of ‘void reverse(T&, typename std::enable_if<(sizeof (T) == sizeof (unsigned int)), void*>::type) [with T = unsigned int; typename std::enable_if<(sizeof (T) == sizeof (unsigned int)), void*>::type = void*]’:
+main.cpp:26:14:   required from here
+main.cpp:12:83: error: ‘byteswap32’ was not declared in this scope

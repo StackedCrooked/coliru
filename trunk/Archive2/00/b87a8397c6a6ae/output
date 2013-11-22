@@ -1,0 +1,81 @@
++ g++ -std=c++11 -W -Wall -Wextra -Wconversion -pedantic -O2 -S main.cpp
+main.cpp:3:6: warning: unused parameter ‘tab’ [-Wunused-parameter]
+ void func(int *tab)
+      ^
+main.cpp: In function ‘int main()’:
+main.cpp:11:24: warning: ISO C++ forbids variable length array ‘tabs’ [-Wvla]
+     int tabs[maxsize][6];
+                        ^
++ cat main.s
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	_Z4funcPi
+	.type	_Z4funcPi, @function
+_Z4funcPi:
+.LFB1264:
+	.cfi_startproc
+	rep; ret
+	.cfi_endproc
+.LFE1264:
+	.size	_Z4funcPi, .-_Z4funcPi
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1265:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movl	$_ZSt3cin, %edi
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$8, %rsp
+	.cfi_offset 3, -24
+	subq	$23952032, %rsp
+	leaq	3(%rsp), %rbx
+	shrq	$2, %rbx
+	leaq	23952020(,%rbx,4), %rsi
+	call	_ZNSirsERi
+	movl	23952020(,%rbx,4), %esi
+	movl	$_ZSt4cout, %edi
+	call	_ZNSolsEi
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	xorl	%eax, %eax
+	movq	-8(%rbp), %rbx
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1265:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I__Z4funcPi, @function
+_GLOBAL__sub_I__Z4funcPi:
+.LFB1418:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1418:
+	.size	_GLOBAL__sub_I__Z4funcPi, .-_GLOBAL__sub_I__Z4funcPi
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__Z4funcPi
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits

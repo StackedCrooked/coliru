@@ -1,0 +1,23 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/local/include/boost/bind.hpp:22:0,
+                 from main.cpp:6:
+/usr/local/include/boost/bind/bind.hpp: In instantiation of ‘struct boost::_bi::result_traits<boost::_bi::unspecified, void (MyVariantTestWrapper::*)()>’:
+/usr/local/include/boost/bind/bind_template.hpp:15:48:   required from ‘class boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>’
+main.cpp:67:76:   required from here
+/usr/local/include/boost/bind/bind.hpp:69:37: error: ‘void (MyVariantTestWrapper::*)()’ is not a class, struct, or union type
+     typedef typename F::result_type type;
+                                     ^
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:0,
+                 from /usr/local/include/boost/function/detail/function_iterate.hpp:14,
+                 from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52,
+                 from /usr/local/include/boost/function.hpp:64,
+                 from main.cpp:5:
+/usr/local/include/boost/function/function_template.hpp: In instantiation of ‘static void boost::detail::function::void_function_obj_invoker1<FunctionObj, R, T0>::invoke(boost::detail::function::function_buffer&, T0) [with FunctionObj = boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>; R = void; T0 = MyVariantTestWrapper*]’:
+/usr/local/include/boost/function/function_template.hpp:934:38:   required from ‘void boost::function1<R, T1>::assign_to(Functor) [with Functor = boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>; R = void; T0 = MyVariantTestWrapper*]’
+/usr/local/include/boost/function/function_template.hpp:722:7:   required from ‘boost::function1<R, T1>::function1(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>; R = void; T0 = MyVariantTestWrapper*; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]’
+/usr/local/include/boost/function/function_template.hpp:1069:16:   required from ‘boost::function<R(T0)>::function(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>; R = void; T0 = MyVariantTestWrapper*; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]’
+/usr/local/include/boost/function/function_template.hpp:1124:5:   required from ‘typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, boost::function<R(T0)>&>::type boost::function<R(T0)>::operator=(Functor) [with Functor = boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>; R = void; T0 = MyVariantTestWrapper*; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, boost::function<R(T0)>&>::type = boost::function<void(MyVariantTestWrapper*)>&]’
+main.cpp:67:33:   required from here
+/usr/local/include/boost/function/function_template.hpp:153:11: error: no match for call to ‘(boost::_bi::bind_t<boost::_bi::unspecified, void (MyVariantTestWrapper::*)(), boost::_bi::list0>) (MyVariantTestWrapper*&)’
+           BOOST_FUNCTION_RETURN((*f)(BOOST_FUNCTION_ARGS));
+           ^

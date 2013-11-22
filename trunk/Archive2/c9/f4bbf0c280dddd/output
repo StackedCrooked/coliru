@@ -1,0 +1,73 @@
++ gcc -x c -std=c99 -W -Wall -Wextra -Wconversion -pedantic -O2 -S main.cpp
+main.cpp: In function ‘func’:
+main.cpp:4:16: warning: unused parameter ‘tab’ [-Wunused-parameter]
+main.cpp: In function ‘main’:
+main.cpp:14:5: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘int’ [-Wformat]
+main.cpp:14:10: warning: ignoring return value of ‘scanf’, declared with attribute warn_unused_result [-Wunused-result]
++ cat main.s
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	func
+	.type	func, @function
+func:
+.LFB13:
+	.cfi_startproc
+	rep
+	ret
+	.cfi_endproc
+.LFE13:
+	.size	func, .-func
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"%d"
+.LC1:
+	.string	"%d\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB14:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movl	$.LC0, %edi
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$24, %rsp
+	subq	$23952048, %rsp
+	movq	%fs:40, %rax
+	movq	%rax, -24(%rbp)
+	xorl	%eax, %eax
+	leaq	15(%rsp), %rax
+	andq	$-16, %rax
+	movl	23952000(%rax), %ebx
+	.cfi_offset 3, -24
+	xorl	%eax, %eax
+	movl	%ebx, %esi
+	call	__isoc99_scanf
+	movl	%ebx, %edx
+	xorl	%eax, %eax
+	movl	$.LC1, %esi
+	movl	$1, %edi
+	call	__printf_chk
+	xorl	%eax, %eax
+	movq	-24(%rbp), %rdx
+	xorq	%fs:40, %rdx
+	jne	.L5
+	movq	-8(%rbp), %rbx
+	leave
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L5:
+	.cfi_restore_state
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE14:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.4-1ubuntu1~12.04) 4.6.4"
+	.section	.note.GNU-stack,"",@progbits

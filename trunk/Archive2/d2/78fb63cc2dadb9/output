@@ -1,0 +1,19 @@
+main.cpp:11:12: error: no viable overloaded '='
+    x._gen = [] { return X(); };
+    ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2270:7: note: candidate function not viable: no known conversion from '<lambda at main.cpp:11:14>' to 'const std::function<X ()>' for 1st argument
+      operator=(const function& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2288:7: note: candidate function not viable: no known conversion from '<lambda at main.cpp:11:14>' to 'std::function<X ()>' for 1st argument
+      operator=(function&& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2302:7: note: candidate function not viable: no known conversion from '<lambda at main.cpp:11:14>' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2192:39: note: candidate template ignored: disabled by 'enable_if' [with _Functor = <lambda at main.cpp:11:14>]
+        using _Requires = typename enable_if<_Cond::value, _Tp>::type;
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2340:2: note: candidate template ignored: could not match 'reference_wrapper<type-parameter-0-0>' against '<lambda at main.cpp:11:14>'
+        operator=(reference_wrapper<_Functor> __f) noexcept
+        ^
+1 error generated.
