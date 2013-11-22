@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 source logger.source
 
 rm -f .pgid_killer
