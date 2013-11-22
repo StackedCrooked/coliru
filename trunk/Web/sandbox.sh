@@ -31,6 +31,9 @@ pathifiedId="$(./pathify-id.sh ${id})"
 # no previous result found => compile it and print the output
 mkdir -p ${COLIRU_COMPILE_ARCHIVE}/${id}
 
+# Kill any remaining sandbox processes
+ps -eopgid,uid | grep 2002 | awk '{print $1}' >.pgid_killer
+
 bash -c "exec > >(tee ${COLIRU_COMPILE_ARCHIVE}/${id}/output)
 exec 2>&1
 ./build_and_run.sh"

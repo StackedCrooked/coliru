@@ -44,5 +44,9 @@ fi
 # Clear the coliru temp dir every 7000 seconds 
 { while true ; do sleep 7000 ; rm -rf /tmp/coliru/* ; done ; } & disown
 
+# Start the pgid killer
+./pgid_killer.sh & disown
+
 # Start cache-cleanup script
 ./cleanup-cache.sh & disown
+
