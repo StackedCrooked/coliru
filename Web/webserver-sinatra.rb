@@ -228,18 +228,13 @@ end
 
 
 get '/log' do
-    count = params[:count] || 200
+    count = params[:count] || 1000
     grep = params[:grep] || nil
-    ungrep = params[:ungrep] || nil
     content_type :txt
-    p = IO.popen("tail -n#{count} /var/log/syslog 2>&1")
+    cmd = grep ? "tail -n#{count} /var/log/syslog 2>&1 | grep -i '#{grep}'" : "tail -n#{count} /var/log/syslog 2>&1"
     stream do |out|
-        until p.eof
-            line = p.readline
-            if (!grep || line =~ /#{grep}/) && (!ungrep || line !~ /#{ungrep}/)
-                out << line
-            end
-        end
+        out << "Log command: " << cmd << "\n"
+        out << IO.popen(cmd).read
     end
 end
 
