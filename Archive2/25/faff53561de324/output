@@ -1,0 +1,15 @@
+main.cpp: In function ‘int main()’:
+main.cpp:14:33: error: no matching function for call to ‘maybe(bool, int)’
+     int getone = maybe( true, 1 );
+                                 ^
+main.cpp:14:33: note: candidate is:
+main.cpp:4:7: note: template<class TFx, class UFx, class T> T maybe(bool, T, TFx&&, UFx&&)
+     T maybe( bool isthere, T op,
+       ^
+main.cpp:4:7: note:   template argument deduction/substitution failed:
+main.cpp:14:33: note:   couldn't deduce template parameter ‘TFx’
+     int getone = maybe( true, 1 );
+                                 ^
+main.cpp:14:9: warning: unused variable ‘getone’ [-Wunused-variable]
+     int getone = maybe( true, 1 );
+         ^
