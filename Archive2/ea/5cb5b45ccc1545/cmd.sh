@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O0 -c -S -emit-llvm -o - ./main.cpp
