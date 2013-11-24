@@ -1,0 +1,60 @@
+main.cpp:42:5: error: use of undeclared identifier 'cin'; did you mean 'sin'?
+    cin.unsetf(std::ios::skipws);//Disable Whitespace Skipping
+    ^~~
+    sin
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:66:13: note: 'sin' declared here
+__MATHCALL (sin,, (_Mdouble_ __x));
+            ^
+/usr/include/math.h:55:25: note: expanded from macro '__MATHCALL'
+  __MATHDECL (_Mdouble_,function,suffix, args)
+                        ^
+/usr/include/math.h:57:22: note: expanded from macro '__MATHDECL'
+  __MATHDECL_1(type, function,suffix, args); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+main.cpp:42:8: error: member reference base type 'double (double) throw()' is not a structure or union
+    cin.unsetf(std::ios::skipws);//Disable Whitespace Skipping
+    ~~~^~~~~~~
+main.cpp:43:21: error: use of undeclared identifier 'cin'; did you mean 'sin'?
+    iter_type begin(cin);
+                    ^~~
+                    sin
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:66:13: note: 'sin' declared here
+__MATHCALL (sin,, (_Mdouble_ __x));
+            ^
+/usr/include/math.h:55:25: note: expanded from macro '__MATHCALL'
+  __MATHDECL (_Mdouble_,function,suffix, args)
+                        ^
+/usr/include/math.h:57:22: note: expanded from macro '__MATHDECL'
+  __MATHDECL_1(type, function,suffix, args); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+main.cpp:43:15: error: no matching constructor for initialization of 'iter_type' (aka 'basic_istream_iterator<char>')
+    iter_type begin(cin);
+              ^     ~~~
+/usr/local/include/boost/spirit/home/support/iterators/istream_iterator.hpp:56:18: note: candidate constructor not viable: no known conversion from 'double (double) throw()' to 'std::basic_istream<char, char_traits<char> > &' for 1st argument
+        explicit basic_istream_iterator(std::basic_istream<Elem, Traits>& x)
+                 ^
+/usr/local/include/boost/spirit/home/support/iterators/istream_iterator.hpp:59:9: note: candidate constructor not viable: no known conversion from 'double (double) throw()' to 'const boost::spirit::basic_istream_iterator<char, std::char_traits<char> >' for 1st argument
+        basic_istream_iterator(basic_istream_iterator const& x)
+        ^
+/usr/local/include/boost/spirit/home/support/iterators/istream_iterator.hpp:53:9: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+        basic_istream_iterator()
+        ^
+4 errors generated.
