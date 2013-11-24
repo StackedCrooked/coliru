@@ -1,0 +1,12 @@
+[            main.cpp:   71]     0.088687s  --> new + full memset (routine2)
+[            main.cpp:   54]     0.542022s  --> new (routine1)
+[            main.cpp:   71]     0.070118s  --> new + full memset (routine2)
+[            main.cpp:   89]     0.086397s  --> new + strided memset (every page half) (routine3)
+[            main.cpp:  107]     0.082311s  --> new + strided memset (every page) (routine4)
+[            main.cpp:  125]     0.303147s  --> new + strided memset (every other page) (routine5)
+[            main.cpp:  143]     0.426247s  --> new + strided memset (every 4th page) (routine6)
+[            main.cpp:  157]     0.080116s  --> vector, using ctor to initialize (routine7)
+[            main.cpp:  170]     1.440611s  --> vector (+ no reserve) + push_back (routine8)
+[            main.cpp:  184]     0.766150s  --> vector + reserve + push_back (routine9)
+[            main.cpp:  199]     0.367107s  --> vector + reserve + memset (UB) + push_back (routine10)
+bash: line 7: 29818 Killed                  ./a.out
