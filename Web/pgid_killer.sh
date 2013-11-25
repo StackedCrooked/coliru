@@ -7,8 +7,7 @@ chmod a+w .pgid_killer
 while true ; do
     read line <.pgid_killer
     [ "$line" != "" ] && {
-        echo "Killing sandbox process: $line"
-        kill -9 "$line" 
+        kill -9 -${line}
     } || {
         echo "Nothing to kill."
     }
