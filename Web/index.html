@@ -56,7 +56,7 @@
 
         app.elements.cmd.value = function() {
             try {
-                var cmd = localStorage.getItem("cmd");
+                var cmd = localStorage.getItem(window.location.pathname + "cmd");
                 if (cmd !== null) {
                     return cmd;
                 } else {
@@ -102,7 +102,7 @@
             app.enableUI(false);
             app.elements.cmd.value = app.elements.cmd.value.trim();
             localStorage.setItem(window.location.pathname + "src", app.elements.editor.getValue());
-            localStorage.setItem("cmd", app.elements.cmd.value);
+            localStorage.setItem(window.location.pathname + "cmd", app.elements.cmd.value);
             var httpRequest = new XMLHttpRequest();
             httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
