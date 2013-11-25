@@ -43,11 +43,10 @@
             return this.replace(/^\s+|\s+$/g, "");
         };
 
-        var sourceCode = localStorage.getItem(window.location.pathname + "src");
         app.defaultCmd = "g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
         app.defaultSrc = "#include <iostream>\n#include <string>\n#include <vector>\n\ntemplate<typename T>\nstd::ostream& operator<<(std::ostream& os, const std::vector<T>& vec)\n{\n    for (auto& el : vec)\n    {\n        os << el << ' ';\n    }\n    return os;\n}\n\nint main()\n{\n    std::vector<std::string> words = {\n        \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\"\n    };\n    std::cout << words << std::endl;\n}\n";
 
-        app.elements.editor.getSession().setValue(localStorage.getItem(window.location.pathname + "src") || app.defaultSrc);
+        app.elements.editor.getSession().setValue(localStorage.getItem(window.location.pathname.replace(/^\//,"") + "src") || localStorage.getItem("src") || app.defaultSrc);
         app.elements.editor.commands.bindKeys({"Ctrl-l":null}) 
         app.elements.editor.commands.bindKeys({"Ctrl-t":null}) 
         app.elements.editor.commands.bindKeys({"Command-l":null}) 
@@ -55,16 +54,7 @@
         app.elements.editor.commands.addCommand({ name: 'Disable Ctrl-S', bindKey: {win: 'Ctrl-S',  mac: 'Command-S'}, exec: function(editor) {}, readOnly: true });
 
         app.elements.cmd.value = function() {
-            try {
-                var cmd = localStorage.getItem(window.location.pathname + "cmd");
-                if (cmd !== null) {
-                    return cmd;
-                } else {
-                    return app.defaultCmd;
-                }
-            } catch (e) {
-                return app.defaultCmd;
-            }
+            return localStorage.getItem(window.location.pathname.replace(/^\//,"") + "cmd") || localStorage.getItem("cmd") || app.defaultCmd;
         }();
 
         app.resetCommand = function() {
@@ -101,8 +91,8 @@
         app.send = function (location, f) {
             app.enableUI(false);
             app.elements.cmd.value = app.elements.cmd.value.trim();
-            localStorage.setItem(window.location.pathname + "src", app.elements.editor.getValue());
-            localStorage.setItem(window.location.pathname + "cmd", app.elements.cmd.value);
+            localStorage.setItem(window.location.pathname.replace(/^\//,"") + "src", app.elements.editor.getValue());
+            localStorage.setItem(window.location.pathname.replace(/^\//,"") + "cmd", app.elements.cmd.value);
             var httpRequest = new XMLHttpRequest();
             httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
