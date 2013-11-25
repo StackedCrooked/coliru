@@ -230,8 +230,8 @@
     });
 
     app.goBack = function () {
-        localStorage.setItem(window.location.pathname + "src", editor.getValue());
-        localStorage.setItem(window.location.pathname + "cmd", app.cmd);
+        localStorage.setItem(window.location.pathname.replace(/^\//,"") + "src", editor.getValue());
+        localStorage.setItem(window.location.pathname.replace(/^\//,"") + "cmd", app.cmd);
         window.location.href = "/";
     };
     window.highlightError = function(node, b) {
