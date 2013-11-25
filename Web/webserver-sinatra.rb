@@ -13,6 +13,11 @@ get '/' do
 end
 
 
+get %r{\/tag=\w+} do
+    File.read('index.html')
+end
+
+
 get '/mobile' do |_|
     File.read('mobile.html')
 end
