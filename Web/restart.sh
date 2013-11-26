@@ -38,14 +38,23 @@ else
 fi
 
 
-# Clean the chroot tmp folder every 7000 seconds.
-{ while true ; do sleep 7000 ; rm -rf /var/chroot/tmp/* ; done ; } & disown
+# Clean the chroot tmp folder after 1000 seconds.
+{ sleep 1000 ; rm -rf /var/chroot/tmp/* ; } & disown
 
-# Clear the coliru temp dir every 7000 seconds 
-{ while true ; do sleep 7000 ; rm -rf /tmp/coliru/* ; done ; } & disown
+# Clear the coliru temp dir after 1000 seconds 
+{ sleep 1000 ; rm -rf /tmp/coliru/* ; } & disown
 
-# Start the pgid killer
+# Restart after 2000 seconds
+#{ sleep 2000 ; ./restart.sh ; } & disown
+
+# Reboot after 5000 seconds
+#{ sleep 5000 ; reboot ; } & disown
+
+# Start the pgid killer (for killing timed out sandbox processes)
 ./pgid_killer.sh & disown
+
+# Start the pid killer (for defunct webserver processes)
+./pid_killer.sh & disown
 
 # Start cache-cleanup script
 ./cleanup-cache.sh & disown
