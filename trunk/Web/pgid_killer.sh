@@ -8,7 +8,5 @@ while true ; do
     read line <.pgid_killer
     [ "$line" != "" ] && {
         kill -9 -${line}
-    } || {
-        echo "Nothing to kill."
     }
 done 
