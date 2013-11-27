@@ -1,0 +1,30 @@
+is_nothrow_move_constructible? true
+is_nothrow_destructible? true
+
+Song autumn(...) ;
+    Song::two arg constructor
+
+favourites.push_back(autumn) ;
+    Song::copy constructor
+
+favourites.push_back( Song(...) ) ;
+    Song::two arg constructor
+    Song::move constructor
+    Song::destructor
+
+favourites.emplace_back(...) ;
+    Song::two arg constructor
+
+favourites.reserve(50) ;
+    Song::move constructor
+    Song::move constructor
+    Song::move constructor
+    Song::destructor
+    Song::destructor
+    Song::destructor
+
+end of main: autumn, vector destroyed
+    Song::destructor
+    Song::destructor
+    Song::destructor
+    Song::destructor
