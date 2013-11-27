@@ -44,18 +44,11 @@ fi
 # Clear the coliru temp dir after 1000 seconds 
 { sleep 1000 ; rm -rf /tmp/coliru/* ; } & disown
 
-# Restart after 2000 seconds
-#{ sleep 2000 ; ./restart.sh ; } & disown
-
-# Reboot after 5000 seconds
-#{ sleep 5000 ; reboot ; } & disown
-
 # Start the pgid killer (for killing timed out sandbox processes)
 ./pgid_killer.sh & disown
-
-# Start the pid killer (for defunct webserver processes)
-./pid_killer.sh & disown
 
 # Start cache-cleanup script
 ./cleanup-cache.sh & disown
 
+# Start the defunct processes monitor
+./defunct-restarter.sh & disown
