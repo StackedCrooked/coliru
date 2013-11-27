@@ -1,0 +1,24 @@
+main.cpp:11:30: warning: ‘tuple_cat’ function uses ‘auto’ type specifier without trailing return type [enabled by default]
+ auto tuple_cat( Tn&&... meow ) {
+                              ^
+main.cpp: In function ‘auto tuple_cat(Tn&& ...)’:
+main.cpp:12:50: error: type/value mismatch at argument 1 in template parameter list for ‘template<long unsigned int N, long unsigned int ...I> struct indices’
+     typedef std::tuple<indices<std::tuple_size<Tn>>...> index_t;
+                                                  ^
+main.cpp:12:50: error:   expected a constant of type ‘long unsigned int’, got ‘std::tuple_size<Tn>’
+main.cpp:12:52: error: expected parameter pack before ‘...’
+     typedef std::tuple<indices<std::tuple_size<Tn>>...> index_t;
+                                                    ^
+main.cpp:12:55: error: template argument 1 is invalid
+     typedef std::tuple<indices<std::tuple_size<Tn>>...> index_t;
+                                                       ^
+main.cpp:12:64: error: invalid type in declaration before ‘;’ token
+     typedef std::tuple<indices<std::tuple_size<Tn>>...> index_t;
+                                                                ^
+main.cpp: In function ‘int main()’:
+main.cpp:22:24: error: expected ‘;’ after struct definition
+     struct make_error {} = tuple_cat( kitty, std::tie( doggy ), cat );
+                        ^
+main.cpp:22:26: error: expected primary-expression before ‘=’ token
+     struct make_error {} = tuple_cat( kitty, std::tie( doggy ), cat );
+                          ^
