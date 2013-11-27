@@ -1,0 +1,1 @@
+gcc-4.7 -O2 -Wall -pedantic main.cpp && ./a.out
