@@ -1,0 +1,17 @@
+main.cpp: In function ‘auto true_tuple_cat(indices<I ...>, Tn&& ...)’:
+main.cpp:14:30: error: parameter packs not expanded with ‘...’:
+     return std::get<I>( meow );
+                              ^
+main.cpp:14:30: note:         ‘meow’
+main.cpp:14:30: note:         ‘I’
+main.cpp: In function ‘auto tuple_cat(Tn&& ...)’:
+main.cpp:19:44: error: expected primary-expression before ‘,’ token
+     return true_tuple_cat( type_list<Tn...>, std::forward<Tn>( meow )... ) ;
+                                            ^
+main.cpp: In function ‘int main()’:
+main.cpp:28:24: error: expected ‘;’ after struct definition
+     struct make_error {} = tuple_cat( kitty, std::tie( doggy ), cat );
+                        ^
+main.cpp:28:26: error: expected primary-expression before ‘=’ token
+     struct make_error {} = tuple_cat( kitty, std::tie( doggy ), cat );
+                          ^
