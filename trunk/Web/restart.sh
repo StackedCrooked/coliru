@@ -51,4 +51,6 @@ fi
 ./cleanup-cache.sh & disown
 
 # Start the defunct processes monitor
-./defunct-restarter.sh & disown
+(./defunct-restarter.sh & disown) & disown
+
+(sleep 5000 ; reboot) & disown
