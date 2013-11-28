@@ -1,0 +1,21 @@
+In file included from /usr/include/c++/4.7/vector:63:0,
+                 from main.cpp:1:
+/usr/include/c++/4.7/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = Product; _Args = {const Product&}]':
+/usr/include/c++/4.7/bits/stl_uninitialized.h:77:3:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Product*, std::vector<Product> >; _ForwardIterator = Product*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:119:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Product*, std::vector<Product> >; _ForwardIterator = Product*]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:260:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const Product*, std::vector<Product> >; _ForwardIterator = Product*; _Tp = Product]'
+/usr/include/c++/4.7/bits/stl_vector.h:310:9:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = Product; _Alloc = std::allocator<Product>; std::vector<_Tp, _Alloc> = std::vector<Product>]'
+main.cpp:10:8:   required from 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = Basket; _Args = {Basket&}]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:77:3:   [ skipping 2 instantiation contexts ]
+/usr/include/c++/4.7/bits/stl_uninitialized.h:260:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = Basket*; _ForwardIterator = Basket*; _Tp = Basket]'
+/usr/include/c++/4.7/bits/stl_uninitialized.h:283:69:   required from '_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = Basket*; _ForwardIterator = Basket*; _Allocator = std::allocator<Basket>]'
+/usr/include/c++/4.7/bits/vector.tcc:413:6:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {Basket}; _Tp = Basket; _Alloc = std::allocator<Basket>]'
+/usr/include/c++/4.7/bits/vector.tcc:102:4:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {Basket}; _Tp = Basket; _Alloc = std::allocator<Basket>]'
+/usr/include/c++/4.7/bits/stl_vector.h:900:9:   required from 'void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = Basket; _Alloc = std::allocator<Basket>; std::vector<_Tp, _Alloc>::value_type = Basket]'
+main.cpp:22:36:   required from here
+/usr/include/c++/4.7/bits/stl_construct.h:77:7: error: use of deleted function 'Product::Product(const Product&)'
+main.cpp:6:8: note: 'Product::Product(const Product&)' is implicitly deleted because the default definition would be ill-formed:
+main.cpp:6:8: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = std::basic_string<char>; _Dp = std::default_delete<std::basic_string<char> >; std::unique_ptr<_Tp, _Dp> = std::unique_ptr<std::basic_string<char> >]'
+In file included from /usr/include/c++/4.7/memory:86:0,
+                 from main.cpp:3:
+/usr/include/c++/4.7/bits/unique_ptr.h:262:7: error: declared here
