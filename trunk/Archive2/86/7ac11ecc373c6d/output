@@ -1,0 +1,16 @@
+main.cpp: In instantiation of 'struct tuple_indices<std::tuple<int, float, double>&>':
+main.cpp:40:104:   required from 'auto awesome_tuple_cat(Tn&& ...) [with Tn = std::tuple<int, float, double>&, std::tuple<long long int&>, std::pair<unsigned int, long long unsigned int>&]'
+main.cpp:49:82:   required from here
+main.cpp:13:8: error: incomplete type 'std::tuple_size<std::tuple<int, float, double>&>' used in nested name specifier
+ struct tuple_indices : public indices<std::tuple_size<T>::value>{ };
+        ^
+main.cpp: In instantiation of 'auto awesome_tuple_cat(Tn&& ...) [with Tn = std::tuple<int, float, double>&, std::tuple<long long int&>, std::pair<unsigned int, long long unsigned int>&]':
+main.cpp:49:82:   required from here
+main.cpp:40:104: error: no type named 'type' in 'struct tuple_indices<std::tuple<int, float, double>&>'
+     return awsome_tuple_dog( stuff<typename tuple_indices<Tn>::type...>(), std::forward<Tn>( meow )... );
+                                                                                                        ^
+main.cpp:40:104: error: 'awsome_tuple_dog' was not declared in this scope
+main.cpp: In function 'int main()':
+main.cpp:49:82: error: conversion from 'void' to non-scalar type 'main()::make_error' requested
+     struct make_error {} test = awesome_tuple_cat( kitty, std::tie( doggy ), cat );
+                                                                                  ^
