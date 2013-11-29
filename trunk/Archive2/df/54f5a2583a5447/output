@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:26:5: error: 'SimpleChar::SimpleChar()' is private
+     SimpleChar(){
+     ^
+main.cpp:33:16: error: within this context
+     SimpleChar myChar;
+                ^
+main.cpp:24:22: error: 'Item SimpleChar::inventory [20]' is private
+     Item inventory[20];
+                      ^
+main.cpp:34:15: error: within this context
+     if(myChar.inventory[0].get()!=NULL){...}///this caused the most recent SEGFAULT as mentioned below. Why wouldn't this work?
+               ^
+main.cpp:34:28: error: 'struct Item' has no member named 'get'
+     if(myChar.inventory[0].get()!=NULL){...}///this caused the most recent SEGFAULT as mentioned below. Why wouldn't this work?
+                            ^
+main.cpp:34:35: error: 'NULL' was not declared in this scope
+     if(myChar.inventory[0].get()!=NULL){...}///this caused the most recent SEGFAULT as mentioned below. Why wouldn't this work?
+                                   ^
+main.cpp:34:41: error: expected primary-expression before '...' token
+     if(myChar.inventory[0].get()!=NULL){...}///this caused the most recent SEGFAULT as mentioned below. Why wouldn't this work?
+                                         ^
+main.cpp:34:41: error: expected ';' before '...' token
