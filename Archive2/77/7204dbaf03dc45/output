@@ -1,0 +1,35 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = Node; _Args = {Token}; _Tp = Node]':
+/usr/include/c++/4.8/bits/alloc_traits.h:254:4:   required from 'static typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Node; _Args = {Token}; _Alloc = std::allocator<Node>; typename std::enable_if<std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::value, void>::type = void]'
+/usr/include/c++/4.8/bits/alloc_traits.h:393:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Node; _Args = {Token}; _Alloc = std::allocator<Node>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/include/c++/4.8/bits/shared_ptr_base.h:400:38:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {Token}; _Tp = Node; _Alloc = std::allocator<Node>; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/include/c++/4.8/ext/new_allocator.h:120:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<Node, std::allocator<Node>, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<Node>, Token}; _Tp = std::_Sp_counted_ptr_inplace<Node, std::allocator<Node>, (__gnu_cxx::_Lock_policy)2u>]'
+/usr/include/c++/4.8/bits/alloc_traits.h:254:4:   [ skipping 2 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/4.8/bits/shared_ptr_base.h:523:37:   required from 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = Node; _Alloc = std::allocator<Node>; _Args = {Token}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/include/c++/4.8/bits/shared_ptr_base.h:986:35:   required from 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Node>; _Args = {Token}; _Tp = Node; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/include/c++/4.8/bits/shared_ptr.h:316:64:   required from 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Node>; _Args = {Token}; _Tp = Node]'
+/usr/include/c++/4.8/bits/shared_ptr.h:598:39:   required from 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = Node; _Alloc = std::allocator<Node>; _Args = {Token}]'
+/usr/include/c++/4.8/bits/shared_ptr.h:614:42:   required from 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = Node; _Args = {Token}]'
+main.cpp:20:60:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:120:4: error: no matching function for call to 'Node::Node(Token)'
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^
+/usr/include/c++/4.8/ext/new_allocator.h:120:4: note: candidates are:
+main.cpp:11:1: note: Node::Node(Token&)
+ Node ( Token & token );
+ ^
+main.cpp:11:1: note:   no known conversion for argument 1 from 'Token' to 'Token&'
+main.cpp:10:8: note: constexpr Node::Node(const Node&)
+ struct Node {
+        ^
+main.cpp:10:8: note:   no known conversion for argument 1 from 'Token' to 'const Node&'
+main.cpp:10:8: note: constexpr Node::Node(Node&&)
+main.cpp:10:8: note:   no known conversion for argument 1 from 'Token' to 'Node&&'
