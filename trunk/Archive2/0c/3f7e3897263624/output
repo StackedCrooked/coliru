@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:11:19: error: no matching function for call to 'func(const char [8])'
+     func("I'm gay");
+                   ^
+main.cpp:11:19: note: candidate is:
+main.cpp:6:6: note: template<class T> void func(typename std::enable_if<(! strcmp(T(), "I\'m gay")), void>::type*)
+ void func(typename std::enable_if<!strcmp(T(), "I'm gay"), void>::type* = nullptr) {
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> void func(typename std::enable_if<(! strcmp(T(), "I\'m gay")), void>::type*) [with T = const char*]':
+main.cpp:11:19:   required from here
+main.cpp:6:57: error: 'strcmp' was not declared in this scope
+ void func(typename std::enable_if<!strcmp(T(), "I'm gay"), void>::type* = nullptr) {
+                                                         ^
