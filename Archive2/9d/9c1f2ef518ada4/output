@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'void f(T) [with T = std::integral_constant<bool, false>]':
+main.cpp:21:24:   required from here
+main.cpp:7:5: error: static assertion failed: first requirement failed to meet.
+     static_assert(T(), "first requirement failed to meet.");
+     ^
+main.cpp:8:15: error: 'f_impl' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     f_impl(T());
+               ^
+main.cpp:12:6: note: 'template<class T> void f_impl(T)' declared here, later in the translation unit
+ void f_impl(T)
+      ^
