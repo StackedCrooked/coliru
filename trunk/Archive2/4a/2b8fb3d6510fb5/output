@@ -1,0 +1,25 @@
+main.cpp:10:5: error: static_assert failed "first requirement failed to meet."
+    static_assert(T(), "first requirement failed to meet.");
+    ^             ~~~
+main.cpp:24:5: note: in instantiation of function template specialization 'f<std::integral_constant<bool, false> >' requested here
+    f(std::false_type{});
+    ^
+main.cpp:17:5: error: static_assert failed "second requirement failed to meet."
+    static_assert(T::value, "second requirement failed to meet.");     
+    ^             ~~~~~~~~
+main.cpp:11:5: note: in instantiation of function template specialization 'f_impl<std::integral_constant<bool, false> >' requested here
+    f_impl(T());
+    ^
+main.cpp:24:5: note: in instantiation of function template specialization 'f<std::integral_constant<bool, false> >' requested here
+    f(std::false_type{});
+    ^
+main.cpp:18:7: error: no viable conversion from 'int' to 'std::integral_constant<bool, false>'
+    T t = 10;
+      ^   ~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:57:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'int' to 'const std::integral_constant<bool, false> &' for 1st argument
+    struct integral_constant
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:57:12: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'int' to 'std::integral_constant<bool, false> &&' for 1st argument
+    struct integral_constant
+           ^
+3 errors generated.
