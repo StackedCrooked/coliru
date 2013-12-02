@@ -1,0 +1,8 @@
+main.cpp: In instantiation of 'void something(TFx&&) [with TFx = void (&)()]':
+main.cpp:21:25:   required from here
+main.cpp:14:51: error: conversion from 'std::decay<void (&)()>::type {aka void (*)()}' to non-scalar type 'something(TFx&&) [with TFx = void (&)()]::<anonymous struct>' requested
+     struct { } _ = typename std::decay<TFx>::type();
+                                                   ^
+main.cpp:15:5: error: static assertion failed: FUCK!
+     static_assert( isfunction, "FUCK!" );
+     ^
