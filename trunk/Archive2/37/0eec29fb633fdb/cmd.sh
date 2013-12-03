@@ -1,0 +1,1 @@
+g++ --version && g++ -c -fPIC main.cpp -o main.o && gcc -shared -o libmain.so main.o && nm -DC libmain.so
