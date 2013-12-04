@@ -1,0 +1,55 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/vector:61,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'struct __gnu_cxx::new_allocator<const char []>':
+/usr/include/c++/4.8/bits/allocator.h:92:11:   required from 'class std::allocator<const char []>'
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<const char []> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<const char []> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<const char [], std::allocator<const char []> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<const char []>'
+main.cpp:4:31:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:93:7: error: 'const _Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::const_reference) const [with _Tp = const char []; __gnu_cxx::new_allocator<_Tp>::const_pointer = const char (*)[]; __gnu_cxx::new_allocator<_Tp>::const_reference = const char (&)[]]' cannot be overloaded
+       address(const_reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/ext/new_allocator.h:89:7: error: with '_Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::reference) const [with _Tp = const char []; __gnu_cxx::new_allocator<_Tp>::pointer = const char (*)[]; __gnu_cxx::new_allocator<_Tp>::reference = const char (&)[]]'
+       address(reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h: In instantiation of 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = const char []; _Alloc = std::allocator<const char []>]':
+/usr/include/c++/4.8/bits/stl_vector.h:249:15:   required from 'std::vector<_Tp, _Alloc>::vector() [with _Tp = const char []; _Alloc = std::allocator<const char []>]'
+main.cpp:4:31:   required from here
+/usr/include/c++/4.8/bits/stl_vector.h:161:9: error: invalid use of array with unspecified bounds
+         - this->_M_impl._M_start); }
+         ^
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/vector:61,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = const char []; __gnu_cxx::new_allocator<_Tp>::pointer = const char (*)[]; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/usr/include/c++/4.8/bits/stl_vector.h:174:4:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = const char []; _Alloc = std::allocator<const char []>; std::_Vector_base<_Tp, _Alloc>::pointer = const char (*)[]; std::size_t = long unsigned int]'
+/usr/include/c++/4.8/bits/stl_vector.h:161:33:   required from 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = const char []; _Alloc = std::allocator<const char []>]'
+/usr/include/c++/4.8/bits/stl_vector.h:249:15:   required from 'std::vector<_Tp, _Alloc>::vector() [with _Tp = const char []; _Alloc = std::allocator<const char []>]'
+main.cpp:4:31:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:110:30: error: no matching function for call to 'operator delete(const char (*&)[])'
+       { ::operator delete(__p); }
+                              ^
+/usr/include/c++/4.8/ext/new_allocator.h:110:30: note: candidates are:
+In file included from /usr/include/c++/4.8/ext/new_allocator.h:33:0,
+                 from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/vector:61,
+                 from main.cpp:1:
+/usr/include/c++/4.8/new:95:6: note: void operator delete(void*) <near match>
+ void operator delete(void*) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/include/c++/4.8/new:95:6: note:   no known conversion for argument 1 from '__gnu_cxx::new_allocator<const char []>::pointer {aka const char (*)[]}' to 'void*'
+/usr/include/c++/4.8/new:103:6: note: void operator delete(void*, const std::nothrow_t&)
+ void operator delete(void*, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/include/c++/4.8/new:103:6: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.8/new:115:13: note: void operator delete(void*, void*)
+ inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
+             ^
+/usr/include/c++/4.8/new:115:13: note:   candidate expects 2 arguments, 1 provided
