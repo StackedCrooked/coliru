@@ -1,0 +1,23 @@
+main.cpp: In function 'auto awesome_tuple_dog(stuff<idxij<I, J>...>, TTuple&&)':
+main.cpp:15:22: error: missing template arguments before '(' token
+     return std::tuple( std::get<J>( std::get<I>( std::forward<TTuple>( master ) ) )... );
+                      ^
+main.cpp: In function 'int main()':
+main.cpp:30:38: error: conversion from 'void' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} _ = awesome_tuple_cat( );
+                                      ^
+main.cpp:31:44: error: conversion from 'void' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} __ = awesome_tuple_cat( a, b );
+                                            ^
+main.cpp:32:48: error: conversion from 'void' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} ___ = awesome_tuple_cat( a, b, c );
+                                                ^
+main.cpp:33:38: error: conversion from 'std::__tuple_cat_result<>::__type {aka std::tuple<>}' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} std_ = std::tuple_cat( );
+                                      ^
+main.cpp:34:44: error: conversion from 'std::__tuple_cat_result<std::tuple<bool, char>&, std::tuple<short int, int>&>::__type {aka std::tuple<bool, char, short int, int>}' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} std__ = std::tuple_cat( a, b );
+                                            ^
+main.cpp:35:48: error: conversion from 'std::__tuple_cat_result<std::tuple<bool, char>&, std::tuple<short int, int>&, std::tuple<long long int>&>::__type {aka std::tuple<bool, char, short int, int, long long int>}' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} std___ = std::tuple_cat( a, b, c );
+                                                ^
