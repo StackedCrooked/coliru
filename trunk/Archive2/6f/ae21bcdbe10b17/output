@@ -1,0 +1,45 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:7:35: error: use of undeclared identifier 'myName'
+    return [na,num]{ std::cout << myName << " " << myNum << std::endl; };
+                                  ^
+main.cpp:7:52: error: use of undeclared identifier 'myNum'
+    return [na,num]{ std::cout << myName << " " << myNum << std::endl; };
+                                                   ^
+main.cpp:7:12: error: no viable conversion from '<lambda at main.cpp:7:12>' to 'std::function<void (std::string, int)>'
+    return [na,num]{ std::cout << myName << " " << myNum << std::endl; };
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2210:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:7:12>' to 'nullptr_t' for 1st argument
+      function(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2221:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:7:12>' to 'const std::function<void (std::basic_string<char>, int)> &' for 1st argument
+      function(const function& __x);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2230:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:7:12>' to 'std::function<void (std::basic_string<char>, int)> &&' for 1st argument
+      function(function&& __x) : _Function_base()
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2255:2: note: candidate template ignored: couldn't infer template argument ''
+        function(_Functor);
+        ^
+main.cpp:13:5: error: no template named 'function'; did you mean 'std::function'?
+    function<void()> fn = getFunction(myName,myNum);
+    ^~~~~~~~
+    std::function
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:1866:11: note: 'std::function' declared here
+    class function;
+          ^
+main.cpp:13:22: error: no viable conversion from 'function<void (std::string, int)>' to 'function<void (void)>'
+    function<void()> fn = getFunction(myName,myNum);
+                     ^    ~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2210:7: note: candidate constructor not viable: no known conversion from 'std::function<void (std::string, int)>' to 'nullptr_t' for 1st argument
+      function(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2221:7: note: candidate constructor not viable: no known conversion from 'std::function<void (std::string, int)>' to 'const std::function<void ()> &' for 1st argument
+      function(const function& __x);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2230:7: note: candidate constructor not viable: no known conversion from 'std::function<void (std::string, int)>' to 'std::function<void ()> &&' for 1st argument
+      function(function&& __x) : _Function_base()
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:2255:2: note: candidate template ignored: couldn't infer template argument ''
+        function(_Functor);
+        ^
+5 errors generated.
