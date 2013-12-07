@@ -1,0 +1,13 @@
+main.cpp: In lambda function:
+main.cpp:23:28: error: expected '{' before ';' token
+     fn = [myFavNum, myName];
+                            ^
+main.cpp: In function 'int main()':
+main.cpp:23:8: error: no match for 'operator=' (operand types are 'main()::__lambda0' and 'main()::__lambda1')
+     fn = [myFavNum, myName];
+        ^
+main.cpp:23:8: note: candidate is:
+main.cpp:11:32: note: main()::__lambda0& main()::__lambda0::operator=(const main()::__lambda0&) <deleted>
+     auto fn = [myFavNum, myName]
+                                ^
+main.cpp:11:32: note:   no known conversion for argument 1 from 'main()::__lambda1' to 'const main()::__lambda0&'
