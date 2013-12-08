@@ -1,0 +1,25 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+    10        
+ 5      15    
+2 6   11    17
+   7      16  
+
+10
+5
+2
+6
+7
+15
+11
+17
+16
+*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x0000000000c52190 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7fdc78b55b96]
+./a.out[0x4053fc]
+./a.out[0x4034b1]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fdc78af876d]
+./a.out[0x4051e1]
+======= Memory map: ========
+bash: line 7: 12928 Aborted                 (core dumped) ./a.out
