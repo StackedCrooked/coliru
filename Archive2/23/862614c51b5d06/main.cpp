@@ -1,0 +1,1 @@
+<script type="text/javascript">alert("I hope ace editor is reinforced against XSS...");</Script>
