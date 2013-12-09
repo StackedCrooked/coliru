@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O2 -Wall -Wextra -Werror -pedantic main.cpp -lm
+main.cpp:6:22: error: conversion from string literal to 'char *' is deprecated [-Werror,-Wdeprecated-writable-strings]
+    char* argv[] = { "", "", nullptr };
+                     ^
+main.cpp:6:26: error: conversion from string literal to 'char *' is deprecated [-Werror,-Wdeprecated-writable-strings]
+    char* argv[] = { "", "", nullptr };
+                         ^
+main.cpp:7:5: error: no matching function for call to 'f'
+    f(argc, argv); 
+    ^
+main.cpp:1:6: note: candidate function not viable: no known conversion from 'char *[3]' to 'char **&' for 2nd argument
+void f(int&, char**&){}
+     ^
+3 errors generated.
