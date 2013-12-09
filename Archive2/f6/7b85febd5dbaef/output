@@ -1,0 +1,11 @@
+main.cpp: In function 'void thread_func()':
+main.cpp:15:47: error: 'function_that_uses_thread_locals' was not declared in this scope
+     result = function_that_uses_thread_locals();
+                                               ^
+main.cpp:17:5: error: 'notify_all_at_thread_exit' is not a member of 'std'
+     std::notify_all_at_thread_exit(cv, std::move(lk));
+     ^
+main.cpp: In function 'int main()':
+main.cpp:33:19: error: 'process' was not declared in this scope
+     process(result); // result is ready and thread_local destructors have finished
+                   ^
