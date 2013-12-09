@@ -51,6 +51,7 @@ fi
 ./cleanup-cache.sh & disown
 
 # Start the defunct processes monitor
-(./defunct-restarter.sh & disown) & disown
+setsid ./defunct-restarter.sh & disown
 
-(sleep 5000 ; reboot) & disown
+# Reboot after 5000 seconds
+setsid bash -c "sleep 5000 ; reboot" & disown
