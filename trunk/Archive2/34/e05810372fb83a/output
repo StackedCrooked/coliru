@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'R N::get_value(T) [with R = int; T = Final<int>]':
+main.cpp:10:30:   recursively required from 'R N::get_value(T) [with R = int; T = Wrap<Final<int> >]'
+main.cpp:10:30:   required from 'R N::get_value(T) [with R = int; T = Wrap<Wrap<Final<int> > >]'
+main.cpp:25:36:   required from here
+main.cpp:10:30: error: 'struct Final<int>' has no member named 'next'
+   return get_value<R> (x.next);
+                              ^
+main.cpp: In function 'R N::get_value(T) [with R = int; T = Final<int>]':
+main.cpp:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
