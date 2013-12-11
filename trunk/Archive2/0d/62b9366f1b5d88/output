@@ -1,0 +1,88 @@
++ g++ -std=c++11 -O2 -W -Wall -Wconversion -pedantic -pthread main.cpp -S
++ cat main.s
+	.file	"main.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1617:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movl	$_ZSt3cin, %edi
+	movsd	.LC0(%rip), %xmm1
+	leaq	8(%rsp), %rsi
+	movsd	%xmm1, 8(%rsp)
+	call	_ZNSi10_M_extractIdEERSiRT_
+	movsd	8(%rsp), %xmm0
+	call	atan
+	movq	_ZSt4cout(%rip), %rax
+	movl	$_ZSt4cout, %edi
+	movq	-24(%rax), %rax
+	movq	$20, _ZSt4cout+8(%rax)
+	call	_ZNSo9_M_insertIdEERSoT_
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	movq	_ZSt4cout(%rip), %rax
+	movsd	.LC1(%rip), %xmm0
+	movl	$_ZSt4cout, %edi
+	movq	-24(%rax), %rax
+	movq	$20, _ZSt4cout+8(%rax)
+	call	_ZNSo9_M_insertIdEERSoT_
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	movq	_ZSt4cout(%rip), %rax
+	movsd	.LC2(%rip), %xmm0
+	movl	$_ZSt4cout, %edi
+	movq	-24(%rax), %rax
+	movq	$20, _ZSt4cout+8(%rax)
+	call	_ZNSo9_M_insertIdEERSoT_
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1617:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_main, @function
+_GLOBAL__sub_I_main:
+.LFB1774:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1774:
+	.size	_GLOBAL__sub_I_main, .-_GLOBAL__sub_I_main
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_main
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC0:
+	.long	0
+	.long	1076101120
+	.align 8
+.LC1:
+	.long	3307785841
+	.long	-1075793684
+	.align 8
+.LC2:
+	.long	3221225472
+	.long	-1075793684
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
