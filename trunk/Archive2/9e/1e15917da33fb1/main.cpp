@@ -1,0 +1,1 @@
+template<int I = 0> struct A : A<I+1>{}; A<0> a;
