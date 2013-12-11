@@ -1,0 +1,11 @@
+
+=== values, references and rvalue-refs ===
+> int a = 1; // a is int
+> int& b = a; // b is int&
+> const int& c = 3; // c is const int&
+> int&& d = 4; // d is int&&
+> int e = 5; // move(e) is int&&
+
+=== decltype-based type deduction vs auto === 
+> decltype(move(b)) g = std::move(b); // g is int&&
+> auto f = std::move(a); // f is int
