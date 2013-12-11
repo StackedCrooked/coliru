@@ -1,0 +1,9 @@
+main.cpp:1:28: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct A<900>'
+ template<int I = 0> struct A : A<I+1>{}; A<0> a;
+                            ^
+main.cpp:1:28:   recursively required from 'struct A<1>'
+main.cpp:1:28:   required from 'struct A<0>'
+main.cpp:1:47:   required from here
+
+main.cpp:1:28: error: invalid use of incomplete type 'struct A<900>'
+main.cpp:1:28: error: declaration of 'struct A<900>'
