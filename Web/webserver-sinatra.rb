@@ -248,7 +248,6 @@ end
 
 
 set :port, ENV['COLIRU_PORT']
-set :lock, true
 $mutex = Mutex.new
 
 options '/*' do
