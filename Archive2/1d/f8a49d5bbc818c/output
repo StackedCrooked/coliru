@@ -1,0 +1,53 @@
+main.cpp: In function 'int main()':
+main.cpp:21:39: error: conversion from 'types<char>' to non-scalar type 'main()::<anonymous struct>' requested
+     struct {} _ = reverse_types<char>();
+                                       ^
+main.cpp:22:45: error: no matching function for call to 'reverse_types()'
+     struct {} __ = reverse_types<char, int>();
+                                             ^
+main.cpp:22:45: note: candidate is:
+main.cpp:16:6: note: template<class ... Args> decltype (detail::reverse_types(types<>(), types<RArgs ...>())) reverse_types()
+ auto reverse_types() -> decltype(detail::reverse_types(types<>(), types<Args...>())) {
+      ^
+main.cpp:16:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class ... Args> decltype (detail::reverse_types(types<>(), types<RArgs ...>())) reverse_types() [with Args = {char, int}]':
+main.cpp:22:45:   required from here
+main.cpp:16:83: error: no matching function for call to 'reverse_types(types<>, types<char, int>)'
+ auto reverse_types() -> decltype(detail::reverse_types(types<>(), types<Args...>())) {
+                                                                                   ^
+main.cpp:16:83: note: candidates are:
+main.cpp:6:17: note: template<class ... RArgs> types<RArgs ...> detail::reverse_types(types<RArgs ...>, types<>)
+ types<RArgs...> reverse_types( types<RArgs...>, types<> ) {
+                 ^
+main.cpp:6:17: note:   template argument deduction/substitution failed:
+main.cpp:16:83: note:   cannot convert 'types<char, int>()' (type 'types<char, int>') to type 'types<>'
+ auto reverse_types() -> decltype(detail::reverse_types(types<>(), types<Args...>())) {
+                                                                                   ^
+main.cpp:10:6: note: template<class Next, class ... Args, class ... RArgs> decltype (detail::reverse_types(types<Next, RArgs ...>(), types<Args ...>())) detail::reverse_types(types<RArgs ...>, types<Next, Args ...>)
+ auto reverse_types(types<RArgs...>, types<Next, Args...>) -> decltype(reverse_types(types<Next, RArgs...>(), types<Args...>())) {
+      ^
+main.cpp:10:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Next, class ... Args, class ... RArgs> decltype (detail::reverse_types(types<Next, RArgs ...>(), types<Args ...>())) detail::reverse_types(types<RArgs ...>, types<Next, Args ...>) [with Next = char; Args = {int}; RArgs = {}]':
+main.cpp:16:83:   required by substitution of 'template<class ... Args> decltype (detail::reverse_types(types<>(), types<RArgs ...>())) reverse_types() [with Args = {char, int}]'
+main.cpp:22:45:   required from here
+main.cpp:10:126: error: no matching function for call to 'reverse_types(types<char>, types<int>)'
+ auto reverse_types(types<RArgs...>, types<Next, Args...>) -> decltype(reverse_types(types<Next, RArgs...>(), types<Args...>())) {
+                                                                                                                              ^
+main.cpp:10:126: note: candidates are:
+main.cpp:6:17: note: template<class ... RArgs> types<RArgs ...> detail::reverse_types(types<RArgs ...>, types<>)
+ types<RArgs...> reverse_types( types<RArgs...>, types<> ) {
+                 ^
+main.cpp:6:17: note:   template argument deduction/substitution failed:
+main.cpp:10:126: note:   cannot convert 'types<int>()' (type 'types<int>') to type 'types<>'
+ auto reverse_types(types<RArgs...>, types<Next, Args...>) -> decltype(reverse_types(types<Next, RArgs...>(), types<Args...>())) {
+                                                                                                                              ^
+main.cpp:16:6: note: template<class ... Args> decltype (detail::reverse_types(types<>(), types<RArgs ...>())) reverse_types()
+ auto reverse_types() -> decltype(detail::reverse_types(types<>(), types<Args...>())) {
+      ^
+main.cpp:16:6: note:   template argument deduction/substitution failed:
+main.cpp:10:126: note:   candidate expects 0 arguments, 2 provided
+ auto reverse_types(types<RArgs...>, types<Next, Args...>) -> decltype(reverse_types(types<Next, RArgs...>(), types<Args...>())) {
+                                                                                                                              ^
+main.cpp:22:15: warning: unused variable '__' [-Wunused-variable]
+     struct {} __ = reverse_types<char, int>();
+               ^
