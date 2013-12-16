@@ -1,0 +1,15 @@
+main.cpp:2:1: error: ‘atomic’ in namespace ‘std’ does not name a type
+ std::atomic<int> mailbox[num_mailboxes];
+ ^
+main.cpp:5:28: error: expected constructor, destructor, or type conversion before ‘(’ token
+  std::atomic_store_explicit(&mailbox[i], std::memory_order_release);
+                            ^
+main.cpp:8:2: error: expected unqualified-id before ‘for’
+  for (int i = 0; i < num_mailboxes; ++i) {
+  ^
+main.cpp:8:18: error: ‘i’ does not name a type
+  for (int i = 0; i < num_mailboxes; ++i) {
+                  ^
+main.cpp:8:37: error: expected unqualified-id before ‘++’ token
+  for (int i = 0; i < num_mailboxes; ++i) {
+                                     ^
