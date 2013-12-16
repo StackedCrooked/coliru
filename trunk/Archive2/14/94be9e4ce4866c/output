@@ -1,0 +1,13 @@
+main.cpp:34:5: error: call to deleted function 'make_unique'
+    experimental::make_unique<int[1]>(42);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:29:3: note: candidate function [with T = int [1], Args = <int>] has been explicitly deleted
+  make_unique( Args&&... args ) = delete;
+  ^
+main.cpp:12:23: note: candidate template ignored: disabled by 'enable_if' [with T = int [1]]
+  typename enable_if< !is_array< T >::value, unique_ptr< T > >::type
+                      ^
+main.cpp:19:23: note: candidate template ignored: disabled by 'enable_if' [with T = int [1]]
+  typename enable_if< is_array< T >::value && extent< T >::value == 0, unique_ptr< T > >::type
+                      ^
+1 error generated.
