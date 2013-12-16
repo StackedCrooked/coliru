@@ -1,0 +1,33 @@
+#include <iostream>
+#include <type_traits>
+
+float       lHTY8Au8b9 = float();
+int         dO3PNUInH6 = int();
+float       B_MtShimak = float();
+float       hgi_TzaVEv = float();
+double      mfW8kr6h6q = double();
+std::string lSLj9antfj = std::string();
+char        MQkeARWYTL = char();
+char        Oe7G_ZRJy6 = char();
+float       qUwmOWeilK = float();
+double      FJYIODwQfx = double();
+
+    template <typename A, typename B>
+    typename std::enable_if<std::is_convertible<A, B>::value, decltype(A() + B())>::type
+        try_to_add(A a, B b) {
+            return a + b;
+        }
+int main(int argc, char* argv[]) {
+	try_to_add<float,int>(lHTY8Au8b9,dO3PNUInH6);
+
+	try_to_add<int,float>(dO3PNUInH6,B_MtShimak);
+
+	try_to_add<float,float>(B_MtShimak,hgi_TzaVEv);
+
+	try_to_add<float,double>(hgi_TzaVEv,mfW8kr6h6q);
+
+	try_to_add<double,std::string>(mfW8kr6h6q,lSLj9antfj);
+
+
+	return 0;
+}
