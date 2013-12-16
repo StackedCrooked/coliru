@@ -1,0 +1,10 @@
+main.cpp:4:43: warning: unused parameter 'il' [-Wunused-parameter]
+void function(std::initializer_list<T>... il) {
+                                          ^
+main.cpp:8:5: error: no matching function for call to 'function'
+    function({"hello", "aloha", "foobarbaz"});
+    ^~~~~~~~
+main.cpp:4:6: note: candidate template ignored: deduced conflicting types for parameter 'T' ('char const[6]' vs. 'char const[10]')
+void function(std::initializer_list<T>... il) {
+     ^
+1 warning and 1 error generated.
