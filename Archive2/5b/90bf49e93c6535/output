@@ -1,0 +1,38 @@
+clang: warning: argument unused during compilation: '-arch x86_64'
+In file included from main.cpp:1:
+In file included from /usr/local/include/boost/filesystem.hpp:15:
+In file included from /usr/local/include/boost/filesystem/config.hpp:28:
+In file included from /usr/local/include/boost/config.hpp:40:
+In file included from /usr/local/include/boost/config/select_stdlib_config.hpp:37:
+In file included from /usr/local/include/boost/config/no_tr1/utility.hpp:21:
+/usr/include/c++/v1/utility:247:11: error: call to implicitly-deleted copy constructor of 'std::__1::unique_ptr<int, std::__1::default_delete<int> >'
+          second(__p.second)
+          ^      ~~~~~~~~~~
+/usr/include/c++/v1/memory:1685:31: note: in instantiation of member function 'std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >::pair' requested here
+            ::new((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                              ^
+/usr/include/c++/v1/memory:1612:18: note: in instantiation of function template specialization 'std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > >::construct<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, const std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > &>' requested here
+            {__a.construct(__p, _VSTD::forward<_Args>(__args)...);}
+                 ^
+/usr/include/c++/v1/memory:1493:14: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::__construct<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, const std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > &>' requested here
+            {__construct(__has_construct<allocator_type, pointer, _Args...>(),
+             ^
+/usr/include/c++/v1/memory:1575:17: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::construct<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, const std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > &>' requested here
+                construct(__a, _VSTD::__to_raw_pointer(__end2-1), _VSTD::move_if_noexcept(*--__end1));
+                ^
+/usr/include/c++/v1/vector:837:21: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::__construct_backward<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > *>' requested here
+    __alloc_traits::__construct_backward(this->__alloc(), this->__begin_, this->__end_, __v.__begin_);
+                    ^
+/usr/include/c++/v1/vector:1556:5: note: in instantiation of member function 'std::__1::vector<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::__swap_out_circular_buffer' requested here
+    __swap_out_circular_buffer(__v);
+    ^
+/usr/include/c++/v1/vector:1573:9: note: in instantiation of function template specialization 'std::__1::vector<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::__emplace_back_slow_path<boost::filesystem::path &, std::__1::unique_ptr<int, std::__1::default_delete<int> > >' requested here
+        __emplace_back_slow_path(_VSTD::forward<_Args>(__args)...);
+        ^
+main.cpp:30:11: note: in instantiation of function template specialization 'std::__1::vector<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > >, std::__1::allocator<std::__1::pair<boost::filesystem::path, std::__1::unique_ptr<int, std::__1::default_delete<int> > > > >::emplace_back<boost::filesystem::path &, std::__1::unique_ptr<int, std::__1::default_delete<int> > >' requested here
+    myvec.emplace_back(dummy_path, unique_ptr<int>(new int(12)));
+          ^
+/usr/include/c++/v1/memory:2573:31: note: copy constructor is implicitly deleted because 'unique_ptr<int, std::__1::default_delete<int> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+1 error generated.
