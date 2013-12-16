@@ -1,0 +1,1 @@
+clang -x c++ -arch x86_64 -std=gnu++11 -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp && ./a.out
