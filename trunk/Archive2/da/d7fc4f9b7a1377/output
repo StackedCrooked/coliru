@@ -1,0 +1,19 @@
++ g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:9:31: error: no matching function for call to 'f(std::tuple<int, int, int>)'
+     f(std::make_tuple(1, 1, 1));
+                               ^
+main.cpp:9:31: note: candidates are:
+main.cpp:3:6: note: int f(std::tuple<>)
+ auto f(std::tuple<>) -> int;
+      ^
+main.cpp:3:6: note:   no known conversion for argument 1 from 'std::tuple<int, int, int>' to 'std::tuple<>'
+main.cpp:6:6: note: template<class H, class ... T> decltype (f(std::tuple<_Elements ...>())) f(std::tuple<_El0, _El ...>)
+ auto f(std::tuple<H, T...>) -> decltype(f(std::tuple<T...>()));
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class H, class ... T> decltype (f(std::tuple<_Elements ...>())) f(std::tuple<_El0, _El ...>) [with H = int; T = {int, int}]':
+main.cpp:9:31:   required from here
+main.cpp:6:61: error: could not convert 'std::tuple<int, int>()' from 'std::tuple<int, int>' to 'std::tuple<>'
+ auto f(std::tuple<H, T...>) -> decltype(f(std::tuple<T...>()));
+                                                             ^
