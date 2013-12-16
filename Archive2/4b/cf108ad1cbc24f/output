@@ -1,0 +1,28 @@
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	_Z9factoriali
+	.type	_Z9factoriali, @function
+_Z9factoriali:
+.LFB0:
+	.cfi_startproc
+	cmpl	$1, %edi
+	movl	$1, %eax
+	jg	.L3
+	jmp	.L2
+	.p2align 5,,7
+	.p2align 3
+.L9:
+	movl	%edx, %edi
+.L3:
+	leal	-1(%rdi), %edx
+	imull	%edi, %eax
+	cmpl	$1, %edx
+	jne	.L9
+.L2:
+	rep; ret
+	.cfi_endproc
+.LFE0:
+	.size	_Z9factoriali, .-_Z9factoriali
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
