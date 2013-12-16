@@ -1,0 +1,36 @@
+	.file	"main.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align 5,,31
+	.globl	main
+	.type	main, @function
+main:
+.LFB7:
+	.cfi_startproc
+	movl	%edi, n(%rip)
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE7:
+	.size	main, .-main
+	.p2align 5,,31
+	.type	_GLOBAL__sub_I_n, @function
+_GLOBAL__sub_I_n:
+.LFB14:
+	.cfi_startproc
+	movl	$0, n(%rip)
+	ret
+	.cfi_endproc
+.LFE14:
+	.size	_GLOBAL__sub_I_n, .-_GLOBAL__sub_I_n
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_n
+	.globl	n
+	.bss
+	.align 4
+	.type	n, @object
+	.size	n, 4
+n:
+	.zero	4
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
