@@ -1,0 +1,55 @@
+main.cpp: In function 'int main()':
+main.cpp:43:16: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     BasicBlock root
+                ^
+main.cpp:46:18: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         new std::vector<BasicBlock*> { new BasicBlock { 4, 5, 6, nullptr, nullptr } },
+                  ^
+main.cpp:46:44: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         new std::vector<BasicBlock*> { new BasicBlock { 4, 5, 6, nullptr, nullptr } },
+                                            ^
+main.cpp:46:66: error: 'nullptr' was not declared in this scope
+         new std::vector<BasicBlock*> { new BasicBlock { 4, 5, 6, nullptr, nullptr } },
+                                                                  ^
+main.cpp:46:83: error: could not convert '{4, 5, 6, <expression error>, nullptr}' from '<brace-enclosed initializer list>' to 'BasicBlock'
+         new std::vector<BasicBlock*> { new BasicBlock { 4, 5, 6, nullptr, nullptr } },
+                                                                                   ^
+main.cpp:46:85: error: no matching function for call to 'std::vector<BasicBlock*>::vector(<brace-enclosed initializer list>)'
+         new std::vector<BasicBlock*> { new BasicBlock { 4, 5, 6, nullptr, nullptr } },
+                                                                                     ^
+main.cpp:46:85: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from /usr/local/include/boost/serialization/vector.hpp:20,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note: template<class _InputIterator> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = BasicBlock*; _Alloc = std::allocator<BasicBlock*>]
+       vector(const vector& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note:   no known conversion for argument 1 from '<type error>' to 'const std::vector<BasicBlock*>&'
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = BasicBlock*; _Alloc = std::allocator<BasicBlock*>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = BasicBlock*; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<BasicBlock*>]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note:   no known conversion for argument 1 from '<type error>' to 'std::vector<BasicBlock*>::size_type {aka long unsigned int}'
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = BasicBlock*; _Alloc = std::allocator<BasicBlock*>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<BasicBlock*>]
+       vector(const allocator_type& __a)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note:   no known conversion for argument 1 from '<type error>' to 'const allocator_type& {aka const std::allocator<BasicBlock*>&}'
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note: std::vector<_Tp, _Alloc>::vector() [with _Tp = BasicBlock*; _Alloc = std::allocator<BasicBlock*>]
+       vector()
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp:47:18: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         new std::vector<BasicBlock*> { &root } // cyclic!
+                  ^
+main.cpp:47:46: error: invalid conversion from 'BasicBlock*' to 'std::vector<BasicBlock*>::size_type {aka long unsigned int}' [-fpermissive]
+         new std::vector<BasicBlock*> { &root } // cyclic!
+                                              ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from /usr/local/include/boost/serialization/vector.hpp:20,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: error:   initializing argument 1 of 'std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = BasicBlock*; _Alloc = std::allocator<BasicBlock*>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = BasicBlock*; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<BasicBlock*>]' [-fpermissive]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
