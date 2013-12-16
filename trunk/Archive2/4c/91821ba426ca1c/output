@@ -1,0 +1,11 @@
+push 0 => [0] front=0 back=0 offset=0
+push 1 => [0-1] front=0 back=1 offset=0
+push 2 => [0-1-2] front=0 back=2 offset=0
+push 3 => [0-1-2-3] front=0 back=3 offset=0
+push 4 => [0-1-2-3-4] front=0 back=4 offset=0
+pop  0 => [1-2-3-4] front=1 back=4 offset=1
+pop  1 => [2-3-4] front=2 back=4 offset=2
+push 5 (moved-to-start) => [2-3-4-5] front=2 back=5 offset=0
+push 6 => [2-3-4-5-6] front=2 back=6 offset=0
+push 7a.out: main.cpp:67: void Queue<T, Capacity>::push(T) [with T = int; unsigned int Capacity = 5u]: Assertion `read_ > 0 && "Capacity has been exceeded!"' failed.
+bash: line 7: 10971 Aborted                 (core dumped) ./a.out
