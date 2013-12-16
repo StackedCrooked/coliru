@@ -1,0 +1,10 @@
+main.cpp:15:9: error: call to implicitly-deleted copy constructor of 'foo'
+    foo b = std::move(a);
+        ^   ~~~~~~~~~~~~
+main.cpp:10:26: note: copy constructor of 'foo' is implicitly deleted because field 'p' has a deleted copy constructor
+    std::unique_ptr<int> p;
+                         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: function has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+1 error generated.
