@@ -1,0 +1,13 @@
+main.cpp:7:45: warning: control reaches end of non-void function [-Wreturn-type]
+    with_copy& operator=(with_copy const&) {}
+                                            ^
+main.cpp:18:7: error: object of type 'foo' cannot be assigned because its copy assignment operator is implicitly deleted
+    a = std::move(b);
+      ^
+main.cpp:12:26: note: copy assignment operator of 'foo' is implicitly deleted because field 'p' has a deleted copy assignment operator
+    std::unique_ptr<int> p;
+                         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:274:19: note: function has been explicitly marked deleted here
+      unique_ptr& operator=(const unique_ptr&) = delete;
+                  ^
+1 warning and 1 error generated.
