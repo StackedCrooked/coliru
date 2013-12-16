@@ -1,0 +1,23 @@
++ clang++ -std=c++11 -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:59:18: warning: unused parameter 'other' [-Wunused-parameter]
+    TS(const TS &other) {
+                 ^
+main.cpp:63:13: warning: unused parameter 'other' [-Wunused-parameter]
+    TS(TS &&other) noexcept{
+            ^
+main.cpp:67:29: warning: unused parameter 'other' [-Wunused-parameter]
+    TS& operator=(TS const& other)
+                            ^
+main.cpp:73:30: warning: unused parameter 'other' [-Wunused-parameter]
+    TS& operator=(TS const&& other) noexcept
+                             ^
+4 warnings generated.
++ ./a.out
+default constructor
+default constructor
+Copy constructor
+Copy constructor
+destructor
+destructor
+destructor
+destructor
