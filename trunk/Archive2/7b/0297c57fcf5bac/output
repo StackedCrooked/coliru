@@ -1,0 +1,34 @@
++ gcc -x c -std=c99 -O2 -W -Wall -pedantic -pthread -S main.cpp
++ cat main.s
+	.file	"main.cpp"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC1:
+	.string	"%f\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB16:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$.LC1, %esi
+	movl	$1, %edi
+	movsd	.LC0(%rip), %xmm0
+	movl	$1, %eax
+	call	__printf_chk
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE16:
+	.size	main, .-main
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC0:
+	.long	0
+	.long	1074266112
+	.ident	"GCC: (Ubuntu/Linaro 4.6.4-1ubuntu1~12.04) 4.6.4"
+	.section	.note.GNU-stack,"",@progbits
