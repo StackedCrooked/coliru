@@ -97,11 +97,13 @@
             httpRequest.open("POST", "http://" + window.location.hostname + ":" + window.location.port + '/' + location, true);
             httpRequest.onreadystatechange = function () {
                 if (httpRequest.readyState == 4) {
+                    app.enableUI(true);
                     if (httpRequest.status == 200) {
-                        app.enableUI(true);
                         app.lastResult = httpRequest.responseText.trim();
-                        f({src: app.elements.editor.getValue(), cmd: app.elements.cmd.value, output: app.lastResult});
+                    } else {
+                        app.lastResult = httpRequest.statusText;
                     }
+                    f({src: app.elements.editor.getValue(), cmd: app.elements.cmd.value, output: app.lastResult});
                 }
             };
             var post_data = JSON.stringify({
