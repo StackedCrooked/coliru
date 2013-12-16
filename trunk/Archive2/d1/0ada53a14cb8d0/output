@@ -1,0 +1,142 @@
+	.file	"main.cpp"
+	.section	.text._ZN7Functor4BaseD2Ev,"axG",@progbits,_ZN7Functor4BaseD5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	Functor::Base::~Base()
+	.type	Functor::Base::~Base(), @function
+Functor::Base::~Base():
+.LFB98:
+	.cfi_startproc
+	movq	vtable for Functor::Base+16, (%rdi)
+	ret
+	.cfi_endproc
+.LFE98:
+	.size	Functor::Base::~Base(), .-Functor::Base::~Base()
+	.weak	Functor::Base::~Base()
+	.set	Functor::Base::~Base(),Functor::Base::~Base()
+	.text
+	.align 2
+	.p2align 4,,15
+	.type	Functor::Fun<main::{lambda()#1}>::~Fun(), @function
+Functor::Fun<main::{lambda()#1}>::~Fun():
+.LFB118:
+	.cfi_startproc
+	movq	vtable for Functor::Base+16, (%rdi)
+	ret
+	.cfi_endproc
+.LFE118:
+	.size	Functor::Fun<main::{lambda()#1}>::~Fun(), .-Functor::Fun<main::{lambda()#1}>::~Fun()
+	.set	Functor::Fun<main::{lambda()#1}>::~Fun(),Functor::Fun<main::{lambda()#1}>::~Fun()
+	.align 2
+	.p2align 4,,15
+	.type	Functor::Fun<main::{lambda()#1}>::call() const, @function
+Functor::Fun<main::{lambda()#1}>::call() const:
+.LFB121:
+	.cfi_startproc
+	rep; ret
+	.cfi_endproc
+.LFE121:
+	.size	Functor::Fun<main::{lambda()#1}>::call() const, .-Functor::Fun<main::{lambda()#1}>::call() const
+	.section	.text._ZN7Functor4BaseD0Ev,"axG",@progbits,Functor::Base::~Base(),comdat
+	.align 2
+	.p2align 4,,15
+	.weak	Functor::Base::~Base()
+	.type	Functor::Base::~Base(), @function
+Functor::Base::~Base():
+.LFB100:
+	.cfi_startproc
+	movq	vtable for Functor::Base+16, (%rdi)
+	jmp	operator delete(void*)
+	.cfi_endproc
+.LFE100:
+	.size	Functor::Base::~Base(), .-Functor::Base::~Base()
+	.text
+	.align 2
+	.p2align 4,,15
+	.type	Functor::Fun<main::{lambda()#1}>::~Fun(), @function
+Functor::Fun<main::{lambda()#1}>::~Fun():
+.LFB120:
+	.cfi_startproc
+	movq	vtable for Functor::Base+16, (%rdi)
+	jmp	operator delete(void*)
+	.cfi_endproc
+.LFE120:
+	.size	Functor::Fun<main::{lambda()#1}>::~Fun(), .-Functor::Fun<main::{lambda()#1}>::~Fun()
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB103:
+	.cfi_startproc
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE103:
+	.size	main, .-main
+	.section	.rodata
+	.type	typeinfo name for main::{lambda()#1}, @object
+	.size	typeinfo name for main::{lambda()#1}, 14
+typeinfo name for main::{lambda()#1}:
+	.string	"*Z4mainEUlvE_"
+	.align 16
+	.type	typeinfo for main::{lambda()#1}, @object
+	.size	typeinfo for main::{lambda()#1}, 16
+typeinfo for main::{lambda()#1}:
+	.quad	vtable for __cxxabiv1::__class_type_info+16
+	.quad	typeinfo name for main::{lambda()#1}
+	.align 16
+	.type	typeinfo name for Functor::Fun<main::{lambda()#1}>, @object
+	.size	typeinfo name for Functor::Fun<main::{lambda()#1}>, 30
+typeinfo name for Functor::Fun<main::{lambda()#1}>:
+	.string	"*N7Functor3FunIZ4mainEUlvE_EE"
+	.align 32
+	.type	typeinfo for Functor::Fun<main::{lambda()#1}>, @object
+	.size	typeinfo for Functor::Fun<main::{lambda()#1}>, 56
+typeinfo for Functor::Fun<main::{lambda()#1}>:
+	.quad	vtable for __cxxabiv1::__vmi_class_type_info+16
+	.quad	typeinfo name for Functor::Fun<main::{lambda()#1}>
+	.long	0
+	.long	2
+	.quad	typeinfo for Functor::Base
+	.quad	2
+	.quad	typeinfo for main::{lambda()#1}
+	.quad	2
+	.weak	typeinfo for Functor::Base
+	.section	.rodata._ZTIN7Functor4BaseE,"aG",@progbits,typeinfo for Functor::Base,comdat
+	.align 16
+	.type	typeinfo for Functor::Base, @object
+	.size	typeinfo for Functor::Base, 16
+typeinfo for Functor::Base:
+	.quad	vtable for __cxxabiv1::__class_type_info+16
+	.quad	typeinfo name for Functor::Base
+	.weak	typeinfo name for Functor::Base
+	.section	.rodata._ZTSN7Functor4BaseE,"aG",@progbits,typeinfo name for Functor::Base,comdat
+	.align 16
+	.type	typeinfo name for Functor::Base, @object
+	.size	typeinfo name for Functor::Base, 16
+typeinfo name for Functor::Base:
+	.string	"N7Functor4BaseE"
+	.weak	vtable for Functor::Base
+	.section	.rodata._ZTVN7Functor4BaseE,"aG",@progbits,vtable for Functor::Base,comdat
+	.align 32
+	.type	vtable for Functor::Base, @object
+	.size	vtable for Functor::Base, 40
+vtable for Functor::Base:
+	.quad	0
+	.quad	typeinfo for Functor::Base
+	.quad	Functor::Base::~Base()
+	.quad	Functor::Base::~Base()
+	.quad	__cxa_pure_virtual
+	.section	.rodata
+	.align 32
+	.type	vtable for Functor::Fun<main::{lambda()#1}>, @object
+	.size	vtable for Functor::Fun<main::{lambda()#1}>, 40
+vtable for Functor::Fun<main::{lambda()#1}>:
+	.quad	0
+	.quad	typeinfo for Functor::Fun<main::{lambda()#1}>
+	.quad	Functor::Fun<main::{lambda()#1}>::~Fun()
+	.quad	Functor::Fun<main::{lambda()#1}>::~Fun()
+	.quad	Functor::Fun<main::{lambda()#1}>::call() const
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
