@@ -1,0 +1,22 @@
+main.cpp:4:69: error: wrong number of template arguments (1, should be 2)
+ void myFunction(int b, typename std::enable_if<std::is_same<int B, T>::value, void>::type* = nullptr) {
+                                                                     ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/type_traits:823:12: error: provided for 'template<class, class> struct std::is_same'
+     struct is_same;
+            ^
+main.cpp:4:83: error: template argument 1 is invalid
+ void myFunction(int b, typename std::enable_if<std::is_same<int B, T>::value, void>::type* = nullptr) {
+                                                                                   ^
+main.cpp: In function 'int main()':
+main.cpp:7:18: error: no matching function for call to 'myFunction(int)'
+     myFunction(42);
+                  ^
+main.cpp:7:18: note: candidate is:
+main.cpp:4:6: note: template<class T> void myFunction(int, int*)
+ void myFunction(int b, typename std::enable_if<std::is_same<int B, T>::value, void>::type* = nullptr) {
+      ^
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:7:18: note:   couldn't deduce template parameter 'T'
+     myFunction(42);
+                  ^
