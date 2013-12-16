@@ -1,0 +1,1 @@
+set -x; g++ -mfma4 *.cpp
