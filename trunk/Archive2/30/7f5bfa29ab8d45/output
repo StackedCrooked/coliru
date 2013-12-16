@@ -1,0 +1,9 @@
+main.cpp: In instantiation of 'struct X<int>':
+main.cpp:13:10:   required from here
+main.cpp:5:34: error: cannot call member function 'void X< <template-parameter-1-1> >::foo() [with <template-parameter-1-1> = int]' without object
+   auto bar() -> decltype( X::foo() )
+                                  ^
+main.cpp: In function 'int main()':
+main.cpp:13:12: error: 'struct X<int>' has no member named 'bar'
+   X<int>().bar();
+            ^
