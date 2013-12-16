@@ -1,0 +1,19 @@
+main.cpp: In constructor 'MemberInitializer::MemberInitializer(int)':
+main.cpp:8:9: warning: 'MemberInitializer::d2' will be initialized after [-Wreorder]
+     int d2;
+         ^
+main.cpp:7:9: warning:   'int MemberInitializer::d1' [-Wreorder]
+     int d1;
+         ^
+main.cpp:6:5: warning:   when initialized here [-Wreorder]
+     MemberInitializer(int nbr): d2(nbr*2), d1(d2*3) {}
+     ^
+main.cpp: In function 'int main()':
+main.cpp:6:49: warning: 'mi.MemberInitializer::d2' is used uninitialized in this function [-Wuninitialized]
+     MemberInitializer(int nbr): d2(nbr*2), d1(d2*3) {}
+                                                 ^
+main.cpp:21:23: note: 'mi.MemberInitializer::d2' was declared here
+     MemberInitializer mi(2);
+                       ^
+mi.d1: 0
+tc.d1: 12
