@@ -1,0 +1,47 @@
+main.cpp:11:24: error: explicit specialization of non-template ‘special_flatten’
+ struct special_flatten { /* Tits. */ };
+                        ^
+main.cpp:17:79: error: type/value mismatch at argument 1 in template parameter list for ‘template<long unsigned int n, class ... Tn> struct flatten’
+ struct flatten<0, T, Tn...> { typedef T type; typedef std::tuple<T, flatten<Tn>::type...> tuple_type; };
+                                                                               ^
+main.cpp:17:79: error:   expected a constant of type ‘long unsigned int’, got ‘Tn’
+main.cpp:17:86: error: expected parameter pack before ‘...’
+ struct flatten<0, T, Tn...> { typedef T type; typedef std::tuple<T, flatten<Tn>::type...> tuple_type; };
+                                                                                      ^
+main.cpp:17:89: error: template argument 2 is invalid
+ struct flatten<0, T, Tn...> { typedef T type; typedef std::tuple<T, flatten<Tn>::type...> tuple_type; };
+                                                                                         ^
+main.cpp:20:46: error: expected template-name before ‘<’ token
+ struct flatten<n, T, Tn...> : special_flatten<indices<n>, T, Tn...> { typedef T type; typedef std::tuple<decltype( std::get</*This is helpful.*/>( T ) )..., flatten<Tn>::type...> tuple_type; };
+                                              ^
+main.cpp:20:46: error: expected ‘{’ before ‘<’ token
+main.cpp:20:46: error: expected unqualified-id before ‘<’ token
+main.cpp:20:193: warning: extra ‘;’ [-Wpedantic]
+ struct flatten<n, T, Tn...> : special_flatten<indices<n>, T, Tn...> { typedef T type; typedef std::tuple<decltype( std::get</*This is helpful.*/>( T ) )..., flatten<Tn>::type...> tuple_type; };
+                                                                                                                                                                                                 ^
+main.cpp:24:13: error: need ‘typename’ before ‘flatten<Tn ...>::tuple_type’ because ‘flatten<Tn ...>’ is a dependent scope
+     typedef flatten<Tn...>::tuple_type type;
+             ^
+main.cpp:28:30: warning: ‘tuple_cat’ function uses ‘auto’ type specifier without trailing return type [enabled by default]
+ auto tuple_cat( Tn&&... meow ) {
+                              ^
+main.cpp: In function ‘auto tuple_cat(Tn&& ...)’:
+main.cpp:29:13: error: need ‘typename’ before ‘std_get_type_list<Tn ...>::tuple_type’ because ‘std_get_type_list<Tn ...>’ is a dependent scope
+     typedef std_get_type_list<Tn...>::tuple_type purr;
+             ^
+main.cpp:31:19: error: there are no arguments to ‘purr’ that depend on a template parameter, so a declaration of ‘purr’ must be available [-fpermissive]
+     return purr(  );
+                   ^
+main.cpp:31:19: note: (if you use ‘-fpermissive’, G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function ‘int main()’:
+main.cpp:40:24: error: expected ‘;’ after struct definition
+     struct make_error {} = tuple_cat( meow, arf, woof );
+                        ^
+main.cpp:40:26: error: expected primary-expression before ‘=’ token
+     struct make_error {} = tuple_cat( meow, arf, woof );
+                          ^
+main.cpp: In instantiation of ‘auto tuple_cat(Tn&& ...) [with Tn = {std::tuple<int, float, double>&, long long int&, std::pair<unsigned int, long long unsigned int>&}]’:
+main.cpp:40:55:   required from here
+main.cpp:31:19: error: ‘purr’ was not declared in this scope
+     return purr(  );
+                   ^
