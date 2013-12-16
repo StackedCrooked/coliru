@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O3 -Wall -pedantic-errors -pthread -lboost_system main.cpp && ./a.out
