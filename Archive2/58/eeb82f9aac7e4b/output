@@ -1,0 +1,54 @@
+Inheritances:
+struct A
+struct X
+struct Y : A
+struct Z : Y, A
+
+- runtime A to -
+  A: true
+  X: false
+  Y: false
+  Z: false
+
+- runtime A to -
+  runtime A: true
+  runtime X: false
+  runtime Y: true
+  runtime Z: true
+
+- runtime X to -
+  A: false
+  X: true
+  Y: false
+  Z: false
+
+- runtime X to -
+  runtime A: false
+  runtime X: true
+  runtime Y: false
+  runtime Z: true
+
+- runtime Y to -
+  A: true
+  X: false
+  Y: true
+  Z: false
+
+- runtime Y to -
+  runtime A: false
+  runtime X: false
+  runtime Y: true
+  runtime Z: true
+
+- runtime Z to -
+  A: true
+  X: true
+  Y: true
+  Z: true
+
+- runtime Z to -
+  runtime A: false
+  runtime X: false
+  runtime Y: false
+  runtime Z: true
+
