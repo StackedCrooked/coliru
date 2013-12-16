@@ -1,0 +1,14 @@
+main.cpp:18:24: error: reference to non-static member function must be called; did you mean to call it with no arguments?
+    auto f = async(cap.pr);
+                   ~~~~^~
+                         ()
+main.cpp:18:14: error: no matching function for call to 'async'
+    auto f = async(cap.pr);
+             ^~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/future:1538:5: note: candidate template ignored: substitution failure [with _Fn = void, _Args = <>]: no type named 'type' in 'std::result_of<void ()>'
+    async(_Fn&& __fn, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/future:1518:5: note: candidate function template not viable: requires at least 2 arguments, but 1 was provided
+    async(launch __policy, _Fn&& __fn, _Args&&... __args)
+    ^
+2 errors generated.
