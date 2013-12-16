@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/20338247/string-iterator-incompatible-for-reading-eachline/20339694#20339694
