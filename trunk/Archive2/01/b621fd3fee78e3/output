@@ -1,0 +1,25 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:5:44: error: the type 'const string {aka const std::basic_string<char>}' of constexpr variable 's' is not literal
+     constexpr std::string s{"Hello, world!"};
+                                            ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/stdexcept:39,
+                 from /usr/include/c++/4.8/array:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:112:11: note: 'std::basic_string<char>' is not literal because:
+     class basic_string
+           ^
+/usr/include/c++/4.8/bits/basic_string.h:112:11: note:   'std::basic_string<char>' has a non-trivial destructor
+main.cpp:6:29: error: call to non-constexpr function 'std::basic_string<_CharT, _Traits, _Alloc>::size_type std::basic_string<_CharT, _Traits, _Alloc>::size() const [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]'
+     std::array<char, s.size()> a;
+                             ^
+main.cpp:6:29: error: call to non-constexpr function 'std::basic_string<_CharT, _Traits, _Alloc>::size_type std::basic_string<_CharT, _Traits, _Alloc>::size() const [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]'
+main.cpp:6:30: note: in template argument for type 'long unsigned int' 
+     std::array<char, s.size()> a;
+                              ^
+main.cpp:6:33: error: invalid type in declaration before ';' token
+     std::array<char, s.size()> a;
+                                 ^
+main.cpp:7:37: error: request for member 'begin' in 'a', which is of non-class type 'int'
+     std::copy(s.begin(), s.end(), a.begin());
+                                     ^
