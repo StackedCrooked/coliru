@@ -1,0 +1,101 @@
+main.cpp:9:11: error: 'ulword' has not been declared
+ template <ulword...> 
+           ^
+main.cpp:12:11: error: 'ulword' has not been declared
+ template <ulword N, ulword... I>
+           ^
+main.cpp:12:21: error: 'ulword' has not been declared
+ template <ulword N, ulword... I>
+                     ^
+main.cpp:15:11: error: 'ulword' has not been declared
+ template <ulword... I>
+           ^
+main.cpp:19:68: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> struct std::tuple_size'
+ struct tuple_indices : indices<std::tuple_size<unqualified<T>::type>::value> { };
+                                                                    ^
+main.cpp:19:68: error:   expected a type, got 'unqualified<T>::type'
+main.cpp:19:76: error: template argument 1 is invalid
+ struct tuple_indices : indices<std::tuple_size<unqualified<T>::type>::value> { };
+                                                                            ^
+main.cpp:21:44: error: expected '>' before '.' token
+ template <std::size_t ...I, std::size_t ....J, typename Tuple0, typename Tuple1>
+                                            ^
+main.cpp:22:58: error: 'J' was not declared in this scope
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+                                                          ^
+main.cpp:22:59: error: expected parameter pack before '...'
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+                                                           ^
+main.cpp:22:62: error: template argument 1 is invalid
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+                                                              ^
+main.cpp:22:65: error: 'Tuple0' has not been declared
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+                                                                 ^
+main.cpp:22:78: error: 'Tuple1' has not been declared
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+                                                                              ^
+main.cpp: In function 'auto awesome_tuple_dog(indices_list<I ...>, int, int&&, int&&)':
+main.cpp:23:55: error: 'Tuple0' was not declared in this scope
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                       ^
+main.cpp:23:82: error: 'J' was not declared in this scope
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                                                  ^
+main.cpp:23:99: error: the value of 'Tuple0' is not usable in a constant expression
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                                                                   ^
+main.cpp:23:55: note: 'Tuple0' was not declared 'constexpr'
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                       ^
+main.cpp:23:109: error: no matching function for call to 'forward(int&)'
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                                                                             ^
+main.cpp:23:109: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/utility:70,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:23:112: error: expansion pattern 'get<<expression error> >(<expression error>)' contains no argument packs
+     return std::make_tuple( std::get<I>( std::forward<Tuple0>(t0) )..., std::get<J>( std::forward<Tuple0>(t1) )... );
+                                                                                                                ^
+main.cpp: In function 'auto awesome_tuple_cat(Tuple0&&, Tuple1&&)':
+main.cpp:28:86: error: parse error in template argument list
+     return awesome_tuple_dog( tuple_indices<Tuple0>(), tuple_indices<Tuple1>(), std::forward<std::forward<Tuple0>( t0 ), std::forward<Tuple0>( t1 ) );
+                                                                                      ^
+main.cpp: In function 'int main()':
+main.cpp:34:24: error: expected ';' after struct definition
+     struct make_error {} = awesome_tuple_cat( a, b );
+                        ^
+main.cpp:34:26: error: expected primary-expression before '=' token
+     struct make_error {} = awesome_tuple_cat( a, b );
+                          ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/utility:70,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h: In instantiation of 'constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&) [with _Tp = std::tuple<bool, char>&; typename std::remove_reference<_From>::type = std::tuple<bool, char>]':
+main.cpp:28:147:   required from 'auto awesome_tuple_cat(Tuple0&&, Tuple1&&) [with Tuple0 = std::tuple<bool, char>&; Tuple1 = std::tuple<short int, int>&]'
+main.cpp:34:52:   required from here
+/usr/include/c++/4.8/bits/move.h:89:7: error: static assertion failed: template argument substituting _Tp is an lvalue reference type
+       static_assert(!std::is_lvalue_reference<_Tp>::value, "template argument"
+       ^
+main.cpp: In instantiation of 'auto awesome_tuple_cat(Tuple0&&, Tuple1&&) [with Tuple0 = std::tuple<bool, char>&; Tuple1 = std::tuple<short int, int>&]':
+main.cpp:34:52:   required from here
+main.cpp:28:149: error: no matching function for call to 'awesome_tuple_dog(tuple_indices<std::tuple<bool, char>&>, tuple_indices<std::tuple<short int, int>&>, <unresolved overloaded function type>)'
+     return awesome_tuple_dog( tuple_indices<Tuple0>(), tuple_indices<Tuple1>(), std::forward<std::forward<Tuple0>( t0 ), std::forward<Tuple0>( t1 ) );
+                                                                                                                                                     ^
+main.cpp:28:149: note: candidate is:
+main.cpp:22:6: note: template<long unsigned int ...I, long unsigned int ...<anonymous> > auto awesome_tuple_dog(indices_list<I ...>, int, int&&, int&&)
+ auto awesome_tuple_dog( indices_list<I...>, indices_list<J...>, Tuple0&& t0, Tuple1&& t1 ) {
+      ^
+main.cpp:22:6: note:   template argument deduction/substitution failed:
+main.cpp:28:149: note:   'tuple_indices<std::tuple<bool, char>&>' is not derived from 'indices_list<I ...>'
+     return awesome_tuple_dog( tuple_indices<Tuple0>(), tuple_indices<Tuple1>(), std::forward<std::forward<Tuple0>( t0 ), std::forward<Tuple0>( t1 ) );
+                                                                                                                                                     ^
