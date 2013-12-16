@@ -1,0 +1,36 @@
+main.cpp:18:7: error: template specifiers not specified in declaration of 'template<class T> class MyAlgorithm'
+ class MyAlgorithm:
+       ^
+main.cpp:19:52: error: 'T' was not declared in this scope
+     public ISolutionToProblem<typename MyAlgorithm<T>::WorkData, T>
+                                                    ^
+main.cpp:19:53: error: template argument 1 is invalid
+     public ISolutionToProblem<typename MyAlgorithm<T>::WorkData, T>
+                                                     ^
+main.cpp:19:66: error: 'T' was not declared in this scope
+     public ISolutionToProblem<typename MyAlgorithm<T>::WorkData, T>
+                                                                  ^
+main.cpp:19:67: error: template argument 1 is invalid
+     public ISolutionToProblem<typename MyAlgorithm<T>::WorkData, T>
+                                                                   ^
+main.cpp:19:67: error: template argument 2 is invalid
+main.cpp:20:1: error: expected '::' before '{' token
+ {
+ ^
+main.cpp:20:1: error: expected class-name before '{' token
+main.cpp: In instantiation of 'class ISolutionToProblem<void, int>':
+main.cpp:12:7:   required from 'class MyAlgorithm<int>'
+main.cpp:28:22:   required from here
+main.cpp:5:18: error: forming reference to void
+     virtual void Init(const A & input, const B & param) = 0;
+                  ^
+main.cpp: In function 'int main()':
+main.cpp:28:22: error: cannot declare variable 'do_shit' to be of abstract type 'MyAlgorithm<int>'
+     MyAlgorithm<int> do_shit;
+                      ^
+main.cpp:12:7: note:   because the following virtual functions are pure within 'MyAlgorithm<int>':
+ class MyAlgorithm:
+       ^
+main.cpp:6:23: note: 	const B& ISolutionToProblem<A, B>::ComputeSolution() [with A = void; B = int]
+     virtual const B & ComputeSolution() = 0;
+                       ^
