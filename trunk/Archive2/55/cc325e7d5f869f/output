@@ -1,0 +1,38 @@
+main.cpp:4:15: error: 'key' has not been declared
+     void read(key k) {
+               ^
+main.cpp:10:11: error: 'key' has not been declared
+  void map(key k, sob::cell d) {
+           ^
+main.cpp:10:18: error: 'sob' has not been declared
+  void map(key k, sob::cell d) {
+                  ^
+main.cpp:10:28: error: expected ',' or '...' before 'd'
+  void map(key k, sob::cell d) {
+                            ^
+main.cpp:14:2: error: 'sob' does not name a type
+  sob::cell operator()(const sob::cell& pos) {
+  ^
+main.cpp:24:5: error: 'sob' does not name a type
+     sob::cell                   current_dir;        // initially (0, 0)
+     ^
+main.cpp:25:2: error: 'deque' in namespace 'std' does not name a type
+  std::deque<sob::cell>       direction_queue;    // initially empty
+  ^
+main.cpp:26:5: error: 'map' in namespace 'std' does not name a type
+     std::map<key, sob::cell>    key_map;            // initially empty
+     ^
+main.cpp: In member function 'void player_mover::read(int)':
+main.cpp:5:13: error: 'key_map' was not declared in this scope
+         if (key_map.find(k) != key_map.end()) {
+             ^
+main.cpp:6:13: error: 'direction_queue' was not declared in this scope
+             direction_queue.push_back(key_map[k]);
+             ^
+main.cpp: In member function 'void player_mover::map(int, int)':
+main.cpp:11:9: error: 'key_map' was not declared in this scope
+         key_map[k] = d;
+         ^
+main.cpp:11:22: error: 'd' was not declared in this scope
+         key_map[k] = d;
+                      ^
