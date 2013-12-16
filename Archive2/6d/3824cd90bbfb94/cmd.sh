@@ -1,0 +1,1 @@
+set -x; g++ -std=c++11 -Wall -Wextra -pedantic-errors -g -march=native *.cpp && ./a.out
