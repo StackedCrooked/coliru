@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -march=native -O2 -Wall -Wextra -pedantic -pthread main.cpp -S -o -
