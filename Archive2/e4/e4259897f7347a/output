@@ -1,0 +1,19 @@
+main.cpp: In constructor 'A::A(int)':
+main.cpp:22:12: warning: 'A::second' will be initialized after [-Wreorder]
+     double second ;
+            ^
+main.cpp:21:12: warning:   'double A::first' [-Wreorder]
+     double first ;
+            ^
+main.cpp:10:5: warning:   when initialized here [-Wreorder]
+     A( int a ) : second( 4.3*a*a - 2.6*a + 3.5 ), first( std::sqrt(second) ) {}
+     ^
+main.cpp: In function 'int main()':
+main.cpp:10:74: warning: 'a1.A::second' is used uninitialized in this function [-Wuninitialized]
+     A( int a ) : second( 4.3*a*a - 2.6*a + 3.5 ), first( std::sqrt(second) ) {}
+                                                                          ^
+main.cpp:27:7: note: 'a1' was declared here
+     A a1( 23 ) ;
+       ^
+0 47.0999
+47.0999 47.0999
