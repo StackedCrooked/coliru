@@ -1,0 +1,17 @@
+main.cpp: In instantiation of 'auto awesome_tuple_cat(Tn&& ...) [with Tn = {std::tuple<int, float, double>&, std::tuple<long long int&>, std::pair<unsigned int, long long unsigned int>&}]':
+main.cpp:56:82:   required from here
+main.cpp:47:105: error: no matching function for call to 'awesome_tuple_dog(stuff<indices_list<0ul, 1ul, 2ul>, indices_list<0ul>, indices_list<0ul, 1ul> >, std::tuple<int, float, double>&, std::tuple<long long int&>, std::pair<unsigned int, long long unsigned int>&)'
+     return awesome_tuple_dog( stuff<typename tuple_indices<Tn>::type...>(), std::forward<Tn>( meow )... );
+                                                                                                         ^
+main.cpp:47:105: note: candidate is:
+main.cpp:22:6: note: template<class TArf, class T> auto awesome_tuple_dog(TArf&&, T&&)
+ auto awesome_tuple_dog ( TArf&&, T&& item ) {
+      ^
+main.cpp:22:6: note:   template argument deduction/substitution failed:
+main.cpp:47:105: note:   candidate expects 2 arguments, 4 provided
+     return awesome_tuple_dog( stuff<typename tuple_indices<Tn>::type...>(), std::forward<Tn>( meow )... );
+                                                                                                         ^
+main.cpp: In function 'int main()':
+main.cpp:56:82: error: conversion from 'void' to non-scalar type 'main()::make_error' requested
+     struct make_error {} test = awesome_tuple_cat( kitty, std::tie( doggy ), cat );
+                                                                                  ^
