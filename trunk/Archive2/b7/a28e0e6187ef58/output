@@ -1,0 +1,17 @@
+In file included from /usr/include/string.h:642:0,
+                 from /usr/include/c++/4.8/cstring:42,
+                 from main.cpp:2:
+In function 'char* strcpy(char*, const char*)',
+    inlined from 'int main()' at main.cpp:11:30:
+/usr/include/x86_64-linux-gnu/bits/string3.h:105:63: warning: call to void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int) will always overflow destination buffer [enabled by default]
+   return __builtin___strcpy_chk (__dest, __src, __bos (__dest));
+                                                               ^
+*** buffer overflow detected ***: ./a.out terminated
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(__fortify_fail+0x37)[0x7fefaf080817]
+/lib/x86_64-linux-gnu/libc.so.6(+0x109710)[0x7fefaf07f710]
+./a.out[0x4007bb]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fefaef9776d]
+./a.out[0x400841]
+======= Memory map: ========
+bash: line 7: 11928 Aborted                 (core dumped) ./a.out
