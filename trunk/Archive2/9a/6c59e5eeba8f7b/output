@@ -1,0 +1,33 @@
+main.cpp:6:24: warning: trigraph ??) converted to ] [-Wtrigraphs]
+ -> decltype( (object.*???)( std::forward<Args>( args )... ) ){
+ ^
+main.cpp:7:23: warning: trigraph ??) converted to ] [-Wtrigraphs]
+      return (object.*???)( std::forward<Args>( args )... );
+ ^
+main.cpp:6:23: error: expected primary-expression before '?' token
+ -> decltype( (object.*???)( std::forward<Args>( args )... ) ){
+                       ^
+main.cpp:6:24: error: expected primary-expression before ']' token
+ -> decltype( (object.*???)( std::forward<Args>( args )... ) ){
+                        ^
+main.cpp:6:24: error: expected ':' before ']' token
+main.cpp:6:24: error: expected primary-expression before ']' token
+main.cpp:6:24: error: expected ')' before ']' token
+main.cpp:10:1: error: expected ')' before 'struct'
+ struct A {
+ ^
+main.cpp:6:4: error: expected type-specifier before 'decltype'
+ -> decltype( (object.*???)( std::forward<Args>( args )... ) ){
+    ^
+main.cpp:6:4: error: expected initializer before 'decltype'
+main.cpp: In function 'int main()':
+main.cpp:18:17: error: 'call_member_fn' was not declared in this scope
+    std::cout << call_member_fn<decltype( &A::arf ), A>( a ) << std::endl;
+                 ^
+main.cpp:18:32: error: expected primary-expression before 'decltype'
+    std::cout << call_member_fn<decltype( &A::arf ), A>( a ) << std::endl;
+                                ^
+main.cpp:18:32: error: expected ';' before 'decltype'
+main.cpp:17:7: warning: unused variable 'a' [-Wunused-variable]
+     A a;
+       ^
