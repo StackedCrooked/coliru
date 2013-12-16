@@ -1,0 +1,16 @@
+main.cpp: In instantiation of ‘class parse<int&>’:
+main.cpp:16:39:   required from ‘void accept(T&&) [with T = int&]’
+main.cpp:22:13:   required from here
+main.cpp:10:10: error: ‘void parse<T>::operator()(T&&, int) const [with T = int&]’ cannot be overloaded
+     void operator()(T&& arg     , int n) const { /* optimized for rvalues */ }
+          ^
+main.cpp:9:10: error: with ‘void parse<T>::operator()(const T&, int) const [with T = int&]’
+     void operator()(T const& arg, int n) const { /* optimized for lvalues */ }
+          ^
+main.cpp: In instantiation of ‘void parse<T>::operator()(T&&, int) const [with T = int]’:
+main.cpp:16:39:   required from ‘void accept(T&&) [with T = int]’
+main.cpp:20:13:   required from here
+main.cpp:10:10: warning: unused parameter ‘arg’ [-Wunused-parameter]
+     void operator()(T&& arg     , int n) const { /* optimized for rvalues */ }
+          ^
+main.cpp:10:10: warning: unused parameter ‘n’ [-Wunused-parameter]
