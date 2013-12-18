@@ -1,0 +1,35 @@
+main.cpp: In function 'std::function<void(int)> curry(std::function<void(int, int)>, int)':
+main.cpp:14:37: error: expected primary-expression before '[' token
+     return std::function<void(int)> [int m]{ f(m, n); };
+                                     ^
+main.cpp:14:38: error: expected primary-expression before 'int'
+     return std::function<void(int)> [int m]{ f(m, n); };
+                                      ^
+main.cpp:14:38: error: expected ']' before 'int'
+main.cpp:14:38: error: expected ';' before 'int'
+main.cpp:14:43: error: expected initializer before ']' token
+     return std::function<void(int)> [int m]{ f(m, n); };
+                                           ^
+main.cpp: At global scope:
+main.cpp:13:26: warning: unused parameter 'f' [-Wunused-parameter]
+ std::function<void(int)> curry(std::function<void(int, int)> f, int n) {
+                          ^
+main.cpp:13:26: warning: unused parameter 'n' [-Wunused-parameter]
+main.cpp: In function 'std::function<void()> curry(std::function<void(int)>, int)':
+main.cpp:18:34: error: expected primary-expression before '[' token
+     return std::function<void()> []{ g(m); };
+                                  ^
+main.cpp:18:35: error: expected primary-expression before ']' token
+     return std::function<void()> []{ g(m); };
+                                   ^
+main.cpp:18:36: error: expected ';' before '{' token
+     return std::function<void()> []{ g(m); };
+                                    ^
+main.cpp: In function 'std::function<void(int)> curry(std::function<void(int, int)>, int)':
+main.cpp:15:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'std::function<void()> curry(std::function<void(int)>, int)':
+main.cpp:19:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
