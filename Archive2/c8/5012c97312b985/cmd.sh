@@ -1,0 +1,1 @@
+clang main.cpp >> main.a
