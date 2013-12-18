@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ -lc++ main.cpp -lsupc++
