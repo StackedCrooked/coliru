@@ -1,0 +1,27 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.intel_syntax noprefix						.intel_syntax noprefix
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB0:								.LFB0:
+	.cfi_startproc							.cfi_startproc
+	cmp	edi, 1							cmp	edi, 1
+	mov	eax, 1							mov	eax, 1
+	je	.L8							je	.L8
+	ret								ret
+.L8:								.L8:
+	push	rax							push	rax
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	call	clean_code()				      |		call	clever_code()
+	xor	eax, eax						xor	eax, eax
+	pop	rdx							pop	rdx
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	.p2align 4,,5							.p2align 4,,5
+	ret								ret
+	.cfi_endproc							.cfi_endproc
+.LFE0:								.LFE0:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
