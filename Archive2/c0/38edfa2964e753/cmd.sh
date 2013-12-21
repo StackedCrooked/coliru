@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread -DBOOST_REGEX_MATCH_EXTRA main.cpp -lm -lboost_regex -lpthread && ./a.out
