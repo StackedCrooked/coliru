@@ -1,0 +1,18 @@
+main.cpp:19:30: error: redefinition of 'template<class T> void hahaha(T)'
+ template < typename T > void hahaha( const T a ) { /* ... */ }
+                              ^
+main.cpp:16:30: error: 'template<class T> void hahaha(T)' previously declared here
+ template < typename T > void hahaha( T a ) { /* ... */ } // definition
+                              ^
+main.cpp:25:18: error: redefinition of 'void hahaha(T) [with T = int*]'
+ template <> void hahaha<int*>( int* const a ) { /* ... */ }
+                  ^
+main.cpp:22:18: error: 'void hahaha(T) [with T = int*]' previously declared here
+ template <> void hahaha<int*>( int* a ) { /* ... */ }
+                  ^
+main.cpp:31:18: error: redefinition of 'void hahaha(T) [with T = const int*]'
+ template <> void hahaha<const int*>( const int* a ) { /* ... */ }
+                  ^
+main.cpp:28:18: error: 'void hahaha(T) [with T = const int*]' previously declared here
+ template <> void hahaha<const int*>( const int* const a ) { /* ... */ }
+                  ^
