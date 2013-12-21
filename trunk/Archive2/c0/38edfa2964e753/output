@@ -1,0 +1,44 @@
+Expression:  "(([[:lower:]]+)|([[:upper:]]+))+"
+Text:        "aBBcccDDDDDeeeeeeee"
+** Match found **
+   Sub-Expressions:
+      $0 = "aBBcccDDDDDeeeeeeee"
+      $1 = "eeeeeeee"
+      $2 = "eeeeeeee"
+      $3 = "DDDDD"
+   Captures:
+      $0 = { "aBBcccDDDDDeeeeeeee" }
+      $1 = { "a", "BB", "ccc", "DDDDD", "eeeeeeee" }
+      $2 = { "a", "ccc", "eeeeeeee" }
+      $3 = { "BB", "DDDDD" }
+Expression:  "(.*)bar|(.*)bah"
+Text:        "abcbar"
+** Match found **
+   Sub-Expressions:
+      $0 = "abcbar"
+      $1 = "abc"
+      $2 = ""
+   Captures:
+      $0 = { "abcbar" }
+      $1 = { "abc" }
+      $2 = { }
+Expression:  "(.*)bar|(.*)bah"
+Text:        "abcbah"
+** Match found **
+   Sub-Expressions:
+      $0 = "abcbah"
+      $1 = ""
+      $2 = "abc"
+   Captures:
+      $0 = { "abcbah" }
+      $1 = { }
+      $2 = { "abc" }
+Expression:  "^(?:(\w+)|(?>\W+))*$"
+Text:        "now is the time for all good men to come to the aid of the party"
+** Match found **
+   Sub-Expressions:
+      $0 = "now is the time for all good men to come to the aid of the party"
+      $1 = "party"
+   Captures:
+      $0 = { "now is the time for all good men to come to the aid of the party" }
+      $1 = { "now", "is", "the", "time", "for", "all", "good", "men", "to", "come", "to", "the", "aid", "of", "the", "party" }
