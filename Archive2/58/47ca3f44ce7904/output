@@ -1,0 +1,165 @@
+	.file	"main.cpp"
+	.text
+	.globl	_Z4funcv
+	.align	16, 0x90
+	.type	_Z4funcv,@function
+_Z4funcv:                               # @_Z4funcv
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin0:
+	.cfi_lsda 3, .Lexception0
+# BB#0:
+	pushq	%rbx
+.Ltmp5:
+	.cfi_def_cfa_offset 16
+.Ltmp6:
+	.cfi_offset %rbx, -16
+	movb	_ZGVZ4funcvE1p(%rip), %al
+	testb	%al, %al
+	jne	.LBB0_4
+# BB#1:
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_acquire
+	testl	%eax, %eax
+	je	.LBB0_4
+# BB#2:
+.Ltmp0:
+	movl	$4, %edi
+	callq	_Znwm
+.Ltmp1:
+# BB#3:
+	movl	$0, (%rax)
+	movq	%rax, _ZZ4funcvE1p(%rip)
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_release
+.LBB0_4:
+	movl	$1024, %eax             # imm = 0x400
+	movq	_ZZ4funcvE1p(%rip), %rcx
+	testq	%rcx, %rcx
+	je	.LBB0_6
+# BB#5:
+	movl	(%rcx), %eax
+.LBB0_6:
+	popq	%rbx
+	ret
+.LBB0_7:
+.Ltmp2:
+	movq	%rax, %rbx
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_abort
+	movq	%rbx, %rdi
+	callq	_Unwind_Resume
+.Ltmp7:
+	.size	_Z4funcv, .Ltmp7-_Z4funcv
+	.cfi_endproc
+.Leh_func_end0:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table0:
+.Lexception0:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	 "\234"                 # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	26                      # Call site table length
+.Lset0 = .Ltmp0-.Leh_func_begin0        # >> Call Site 1 <<
+	.long	.Lset0
+.Lset1 = .Ltmp1-.Ltmp0                  #   Call between .Ltmp0 and .Ltmp1
+	.long	.Lset1
+.Lset2 = .Ltmp2-.Leh_func_begin0        #     jumps to .Ltmp2
+	.long	.Lset2
+	.byte	0                       #   On action: cleanup
+.Lset3 = .Ltmp1-.Leh_func_begin0        # >> Call Site 2 <<
+	.long	.Lset3
+.Lset4 = .Leh_func_end0-.Ltmp1          #   Call between .Ltmp1 and .Leh_func_end0
+	.long	.Lset4
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin1:
+	.cfi_lsda 3, .Lexception1
+# BB#0:
+	pushq	%rbx
+.Ltmp13:
+	.cfi_def_cfa_offset 16
+.Ltmp14:
+	.cfi_offset %rbx, -16
+	movb	_ZGVZ4funcvE1p(%rip), %al
+	testb	%al, %al
+	jne	.LBB1_4
+# BB#1:
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_acquire
+	testl	%eax, %eax
+	je	.LBB1_4
+# BB#2:
+.Ltmp8:
+	movl	$4, %edi
+	callq	_Znwm
+.Ltmp9:
+# BB#3:
+	movl	$0, (%rax)
+	movq	%rax, _ZZ4funcvE1p(%rip)
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_release
+.LBB1_4:
+	movl	$1024, %eax             # imm = 0x400
+	movq	_ZZ4funcvE1p(%rip), %rcx
+	testq	%rcx, %rcx
+	je	.LBB1_6
+# BB#5:
+	movl	(%rcx), %eax
+.LBB1_6:                                # %_Z4funcv.exit
+	popq	%rbx
+	ret
+.LBB1_7:
+.Ltmp10:
+	movq	%rax, %rbx
+	movl	$_ZGVZ4funcvE1p, %edi
+	callq	__cxa_guard_abort
+	movq	%rbx, %rdi
+	callq	_Unwind_Resume
+.Ltmp15:
+	.size	main, .Ltmp15-main
+	.cfi_endproc
+.Leh_func_end1:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table1:
+.Lexception1:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	 "\234"                 # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	26                      # Call site table length
+.Lset5 = .Ltmp8-.Leh_func_begin1        # >> Call Site 1 <<
+	.long	.Lset5
+.Lset6 = .Ltmp9-.Ltmp8                  #   Call between .Ltmp8 and .Ltmp9
+	.long	.Lset6
+.Lset7 = .Ltmp10-.Leh_func_begin1       #     jumps to .Ltmp10
+	.long	.Lset7
+	.byte	0                       #   On action: cleanup
+.Lset8 = .Ltmp9-.Leh_func_begin1        # >> Call Site 2 <<
+	.long	.Lset8
+.Lset9 = .Leh_func_end1-.Ltmp9          #   Call between .Ltmp9 and .Leh_func_end1
+	.long	.Lset9
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.type	_ZZ4funcvE1p,@object    # @_ZZ4funcvE1p
+	.local	_ZZ4funcvE1p
+	.comm	_ZZ4funcvE1p,8,8
+	.type	_ZGVZ4funcvE1p,@object  # @_ZGVZ4funcvE1p
+	.local	_ZGVZ4funcvE1p
+	.comm	_ZGVZ4funcvE1p,8,8
+
+	.section	".note.GNU-stack","",@progbits
