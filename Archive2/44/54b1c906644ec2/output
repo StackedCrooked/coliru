@@ -1,0 +1,25 @@
+main.cpp:2:7: internal compiler error: in gen_type_die_with_usage, at dwarf2out.c:19486
+ class a {
+       ^
+libbacktrace could not find executable to open
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
+Preprocessed source stored into /tmp/ccn9azCi.out file, please attach this to your bugreport.
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 34, in <module>
+    pr.write(open(apport.fileutils.make_report_path(pr), 'w'))
+IOError: [Errno 30] Read-only file system: '/var/crash/_usr_lib_gcc_x86_64-linux-gnu_4.8_cc1plus.2002.crash'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/apport_python_hook.py", line 95, in apport_excepthook
+    pr.add_proc_info()
+  File "/usr/lib/python2.7/dist-packages/apport/report.py", line 432, in add_proc_info
+    raise ValueError('invalid process')
+ValueError: invalid process
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 34, in <module>
+    pr.write(open(apport.fileutils.make_report_path(pr), 'w'))
+IOError: [Errno 30] Read-only file system: '/var/crash/_usr_lib_gcc_x86_64-linux-gnu_4.8_cc1plus.2002.crash'
