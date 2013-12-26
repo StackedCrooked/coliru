@@ -1,0 +1,40 @@
+main.cpp: In function 'int main()':
+main.cpp:17:22: error: no matching function for call to 'std::shared_ptr<Thing>::reset(std::nullptr_t)'
+     ptr.reset(nullptr);
+                      ^
+main.cpp:17:22: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:910:7: note: void std::__shared_ptr<_Tp, _Lp>::reset() [with _Tp = Thing; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]
+       reset() noexcept
+       ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:910:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.8/bits/shared_ptr_base.h:915:2: note: template<class _Tp1> void std::__shared_ptr<_Tp, _Lp>::reset(_Tp1*) [with _Tp1 = _Tp1; _Tp = Thing; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]
+  reset(_Tp1* __p) // _Tp1 must be complete.
+  ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:915:2: note:   template argument deduction/substitution failed:
+main.cpp:17:22: note:   mismatched types '_Tp1*' and 'std::nullptr_t'
+     ptr.reset(nullptr);
+                      ^
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:924:2: note: template<class _Tp1, class _Deleter> void std::__shared_ptr<_Tp, _Lp>::reset(_Tp1*, _Deleter) [with _Tp1 = _Tp1; _Deleter = _Deleter; _Tp = Thing; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]
+  reset(_Tp1* __p, _Deleter __d)
+  ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:924:2: note:   template argument deduction/substitution failed:
+main.cpp:17:22: note:   mismatched types '_Tp1*' and 'std::nullptr_t'
+     ptr.reset(nullptr);
+                      ^
+In file included from /usr/include/c++/4.8/bits/shared_ptr.h:52:0,
+                 from /usr/include/c++/4.8/memory:82,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/shared_ptr_base.h:929:9: note: template<class _Tp1, class _Deleter, class _Alloc> void std::__shared_ptr<_Tp, _Lp>::reset(_Tp1*, _Deleter, _Alloc) [with _Tp1 = _Tp1; _Deleter = _Deleter; _Alloc = _Alloc; _Tp = Thing; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]
+         reset(_Tp1* __p, _Deleter __d, _Alloc __a)
+         ^
+/usr/include/c++/4.8/bits/shared_ptr_base.h:929:9: note:   template argument deduction/substitution failed:
+main.cpp:17:22: note:   mismatched types '_Tp1*' and 'std::nullptr_t'
+     ptr.reset(nullptr);
+                      ^
+main.cpp
