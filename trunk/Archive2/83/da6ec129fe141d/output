@@ -1,0 +1,43 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.intel_syntax noprefix						.intel_syntax noprefix
+	.section	.text.startup,"ax",@progbits			.section	.text.startup,"ax",@progbits
+	.p2align 4,,15							.p2align 4,,15
+	.globl	main							.globl	main
+	.type	main, @function						.type	main, @function
+main:								main:
+.LFB0:								.LFB0:
+	.cfi_startproc							.cfi_startproc
+	push	rbx					      |		sub	rsp, 16424
+	.cfi_def_cfa_offset 16				      |		.cfi_def_cfa_offset 16432
+	.cfi_offset 3, -16				      |		lea	rdi, [rsp+8208]
+	sub	rsp, 16400				      <
+	.cfi_def_cfa_offset 16416			      <
+	lea	rbx, [rsp+8192]				      <
+	mov	rax, QWORD PTR fs:40					mov	rax, QWORD PTR fs:40
+	mov	QWORD PTR [rsp+16392], rax		      |		mov	QWORD PTR [rsp+16408], rax
+	xor	eax, eax						xor	eax, eax
+	mov	rdi, rbx				      |		call	Data<8193> get_data<8193>()
+	call	Data<8192> get_data<8192>()		      |		lea	rsi, [rsp+8208]
+	mov	ecx, 1024				      |		mov	edx, 8193
+	mov	rdi, rsp						mov	rdi, rsp
+	mov	rsi, rbx				      |		call	memcpy
+	rep movsq					      |		call	void set_data<8193>(Data<8193>)
+	call	void set_data<8192>(Data<8192>)		      <
+	xor	eax, eax						xor	eax, eax
+	mov	rdx, QWORD PTR [rsp+16392]		      |		mov	rcx, QWORD PTR [rsp+16408]
+	xor	rdx, QWORD PTR fs:40			      |		xor	rcx, QWORD PTR fs:40
+	jne	.L5							jne	.L5
+	add	rsp, 16400				      |		add	rsp, 16424
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 16				      <
+	pop	rbx					      <
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+.L5:								.L5:
+	.cfi_restore_state						.cfi_restore_state
+	call	__stack_chk_fail					call	__stack_chk_fail
+	.cfi_endproc							.cfi_endproc
+.LFE0:								.LFE0:
+	.size	main, .-main						.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
