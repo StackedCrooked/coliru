@@ -1,0 +1,25 @@
+main.cpp: In function 'int main()':
+main.cpp:21:32: error: uninitialized const 'aw' [-fpermissive]
+     constexpr array_wrapper<3> aw;
+                                ^
+main.cpp:7:8: note: 'const struct array_wrapper<3u>' has no user-provided default constructor
+ struct array_wrapper {
+        ^
+main.cpp:9:14: note: and the implicitly-defined constructor does not initialize 'int array_wrapper<3u>::arr [3]'
+     int arr[N];
+              ^
+main.cpp:24:32: error: the value of 'aw' is not usable in a constant expression
+     deliberate_error<aw.at(cti)> my_error2;
+                                ^
+main.cpp:21:32: note: 'aw' used in its own initializer
+     constexpr array_wrapper<3> aw;
+                                ^
+main.cpp:24:32: note: in template argument for type 'unsigned int' 
+     deliberate_error<aw.at(cti)> my_error2;
+                                ^
+main.cpp:24:43: error: invalid type in declaration before ';' token
+     deliberate_error<aw.at(cti)> my_error2;
+                                           ^
+main.cpp:24:34: warning: unused variable 'my_error2' [-Wunused-variable]
+     deliberate_error<aw.at(cti)> my_error2;
+                                  ^
