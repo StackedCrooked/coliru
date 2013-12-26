@@ -1,0 +1,1 @@
+clang++ -std=c++11 -S -O2 main.cpp -o -
