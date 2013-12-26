@@ -1,0 +1,1 @@
+g++ -std=c++11 -pedantic -pthread main.cpp && ./a.out
