@@ -1,0 +1,16 @@
+main.cpp:151:62: error: wrong number of template arguments (0, should be 3)
+     ConstructorSizedCollection(const TemplateSizedCollection<> & other) : 
+                                                              ^
+main.cpp:80:7: error: provided for 'template<class T, long unsigned int size, bool with_pointer> class TemplateSizedCollection'
+ class TemplateSizedCollection : NumericCollection<T> {
+       ^
+main.cpp: In constructor 'ConstructorSizedCollection<T, with_pointer>::ConstructorSizedCollection(const int&)':
+main.cpp:152:11: error: 'size' was not declared in this scope
+     size_(size),
+           ^
+main.cpp:155:34: error: request for member 'size_' in 'other', which is of non-class type 'const int'
+         for (size_t i=0; i<other.size_; ++i) {
+                                  ^
+main.cpp:156:37: error: request for member 'items_' in 'other', which is of non-class type 'const int'
+             this->items_[i] = other.items_[i];
+                                     ^
