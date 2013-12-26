@@ -1,0 +1,28 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:13: error: 'HRESULT' does not name a type
+             HRESULT hr = S_OK;
+             ^
+main.cpp:3:13: error: 'UINT' does not name a type
+             UINT createDeviceFlags = 0;
+             ^
+main.cpp:7:13: error: 'array' in namespace 'std' does not name a type
+             std::array<D3D_FEATURE_LEVEL, 1> featureLevels = { D3D_FEATURE_LEVEL_11_0 };
+             ^
+main.cpp:7:88: warning: extra ';' [-Wpedantic]
+             std::array<D3D_FEATURE_LEVEL, 1> featureLevels = { D3D_FEATURE_LEVEL_11_0 };
+                                                                                        ^
+main.cpp:9:13: error: 'CComPtr' does not name a type
+             CComPtr<ID3D11Device> device;
+             ^
+main.cpp:10:13: error: 'D3D_FEATURE_LEVEL' does not name a type
+             D3D_FEATURE_LEVEL featureLevel;
+             ^
+main.cpp:11:13: error: 'CComPtr' does not name a type
+             CComPtr<ID3D11DeviceContext> immediateContext;
+             ^
+main.cpp:13:13: error: 'hr' does not name a type
+             hr = D3D11CreateDevice(nullptr /* default adapter */,
+             ^
+main.cpp:23:19: error: expected constructor, destructor, or type conversion before '(' token
+             assert(SUCCEEDED(hr));
+                   ^
