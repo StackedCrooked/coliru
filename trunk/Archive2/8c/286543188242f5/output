@@ -1,0 +1,97 @@
+main.cpp:12:14: error: no matching constructor for initialization of 'MyString'
+    MyString x(h); // Y U NO WORK
+             ^ ~
+main.cpp:3:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'MyString' for 1st argument
+struct MyString : std::string
+       ^
+main.cpp:3:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const MyString' for 1st argument
+struct MyString : std::string
+       ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const std::allocator<char>' for 1st argument
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:448:7: note: inherited from here
+      basic_string(const _Alloc& __a);
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'initializer_list<char>' for 1st argument
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:522:7: note: inherited from here
+      basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const char *' for 1st argument
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:490:7: note: inherited from here
+      basic_string(const _CharT* __s, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) template not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:532:9: note: inherited from here
+        basic_string(_InputIterator __beg, _InputIterator __end,
+        ^
+main.cpp:5:24: note: candidate constructor (inherited) template not viable: requires 3 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:532:9: note: inherited from here
+        basic_string(_InputIterator __beg, _InputIterator __end,
+        ^
+main.cpp:3:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+struct MyString : std::string
+       ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:522:7: note: inherited from here
+      basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:497:7: note: inherited from here
+      basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 3 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:497:7: note: inherited from here
+      basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:490:7: note: inherited from here
+      basic_string(const _CharT* __s, const _Alloc& __a = _Alloc());
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:483:7: note: inherited from here
+      basic_string(const _CharT* __s, size_type __n,
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 3 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:483:7: note: inherited from here
+      basic_string(const _CharT* __s, size_type __n,
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 4 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:471:7: note: inherited from here
+      basic_string(const basic_string& __str, size_type __pos,
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 2 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:462:7: note: inherited from here
+      basic_string(const basic_string& __str, size_type __pos,
+      ^
+main.cpp:5:24: note: candidate constructor (inherited) not viable: requires 3 arguments, but 1 was provided
+    using std::string::string;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:462:7: note: inherited from here
+      basic_string(const basic_string& __str, size_type __pos,
+      ^
+1 error generated.
