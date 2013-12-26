@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O2 -W -Wall -Weverything -Wconversion -pedantic -pthread main.cpp
+main.cpp:3:6: warning: no previous prototype for function 'passMin' [-Wmissing-prototypes]
+bool passMin(float val, float minval=10.) {return minval<val;}
+     ^
+main.cpp:7:18: warning: implicit conversion turns floating-point number into integer: 'float' to 'bool' [-Wconversion]
+  if(passMin(val), minval) printf(" pass (p( ), )"); else printf(" fail (p( ), )");
+  ~~ ~~~~~~~~~~~~^~~~~~~~
+main.cpp:11:2: warning: C++98 requires newline at end of file [-Wc++98-compat-pedantic]
+}
+ ^
+3 warnings generated.
++ ./a.out
+ pass (p( ), )
+ fail (p( , ))
