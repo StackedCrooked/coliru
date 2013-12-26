@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 -pthread main.cpp && echo "10 10 10" | ./a.out
