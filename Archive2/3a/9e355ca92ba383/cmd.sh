@@ -1,0 +1,1 @@
+g++-4.8 -x c -O2 -Wall -pthread main.cpp && echo "5" | ./a.out
