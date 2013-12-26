@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -Wall -O2 main.cpp
+main.cpp:14:29: error: constexpr variable 'FLAG_DEF' must be initialized by a constant expression
+    static constexpr flag_t FLAG_DEF = NOT(MY_FLAG);
+                            ^          ~~~~~~~~~~~~
+main.cpp:14:40: note: undefined function 'NOT' cannot be used in a constant expression
+    static constexpr flag_t FLAG_DEF = NOT(MY_FLAG);
+                                       ^
+main.cpp:13:29: note: declared here
+    static constexpr flag_t NOT(flag_t f) { return f << ((sizeof(flag_t) / 2) * 8); }
+                            ^
+1 error generated.
