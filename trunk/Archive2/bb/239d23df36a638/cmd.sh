@@ -1,0 +1,1 @@
+g++-4.8 -S -O3 -Wall -pedantic -pthread main.cpp -o a.asm && cat ./a.asm
