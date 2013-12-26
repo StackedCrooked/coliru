@@ -1,0 +1,37 @@
+main.cpp: In function 'int main()':
+main.cpp:30:22: error: call of overloaded 'purr(implicit)' is ambiguous
+     purr( implicit() );
+                      ^
+main.cpp:30:22: note: candidates are:
+main.cpp:5:6: note: void purr(char)
+ void purr ( char a ) {
+      ^
+main.cpp:10:6: note: void purr(std::string)
+ void purr ( std::string a ) {
+      ^
+main.cpp:41:9: error: ambiguous overload for 'operator=' (operand types are 'std::string {aka std::basic_string<char>}' and 'implicit')
+     arf = implicit{};
+         ^
+main.cpp:41:9: note: candidates are:
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:546:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const basic_string& __str) 
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:565:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:580:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(basic_string&& __str)
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:592:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
