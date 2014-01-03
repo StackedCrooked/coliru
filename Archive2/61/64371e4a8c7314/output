@@ -1,0 +1,13 @@
+main.cpp: In function 'void local::test3()':
+main.cpp:41:19: error: use of deleted function 'A::A(const A&)'
+         A test2 = testB;
+                   ^
+main.cpp:18:7: note: 'A::A(const A&)' is implicitly deleted because the default definition would be ill-formed:
+ class A
+       ^
+main.cpp:18:7: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = C; _Dp = std::default_delete<C>]'
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/unique_ptr.h:273:7: error: declared here
+       unique_ptr(const unique_ptr&) = delete;
+       ^
