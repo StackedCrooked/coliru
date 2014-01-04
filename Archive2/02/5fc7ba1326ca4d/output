@@ -1,0 +1,37 @@
+main.cpp:60:65: error: no matching constructor for initialization of 'Iterator<std::map<std::size_t, std::vector<int> >::iterator>'
+    Iterator<std::map<std::size_t, std::vector<int>>::iterator> e(bx.begin()), f(bx.end()); // Error occurs here.
+                                                                ^ ~~~~~~~~~~
+main.cpp:46:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'const Iterator<std::_Rb_tree_iterator<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > >, true>' for 1st argument
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+main.cpp:46:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'Iterator<std::_Rb_tree_iterator<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > >, true>' for 1st argument
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+main.cpp:49:38: note: candidate constructor (inherited) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to '_Link_type' (aka '_Rb_tree_node<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > > *') for 1st argument
+    using Citerator<TYPE, IS_CLASS>::Citerator;
+                                     ^
+main.cpp:40:17: note: inherited from here
+    using TYPE::TYPE;
+                ^
+main.cpp:46:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+main.cpp:60:80: error: no matching constructor for initialization of 'Iterator<std::map<std::size_t, std::vector<int> >::iterator>'
+    Iterator<std::map<std::size_t, std::vector<int>>::iterator> e(bx.begin()), f(bx.end()); // Error occurs here.
+                                                                               ^ ~~~~~~~~
+main.cpp:46:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'const Iterator<std::_Rb_tree_iterator<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > >, true>' for 1st argument
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+main.cpp:46:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'Iterator<std::_Rb_tree_iterator<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > >, true>' for 1st argument
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+main.cpp:49:38: note: candidate constructor (inherited) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to '_Link_type' (aka '_Rb_tree_node<std::pair<const unsigned long, std::vector<int, std::allocator<int> > > > *') for 1st argument
+    using Citerator<TYPE, IS_CLASS>::Citerator;
+                                     ^
+main.cpp:40:17: note: inherited from here
+    using TYPE::TYPE;
+                ^
+main.cpp:46:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+class Iterator : public Citerator<TYPE, IS_CLASS>
+      ^
+2 errors generated.
