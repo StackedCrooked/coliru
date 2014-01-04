@@ -1,0 +1,15 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:4:18: error: member initializer 'bar' does not name a non-static data member or base class
+    Foo(Bar b) : bar(b) { }
+                 ^~~~~~
+main.cpp:10:9: error: no matching constructor for initialization of 'Foo'
+    Foo x;
+        ^
+main.cpp:4:5: note: candidate constructor not viable: requires single argument 'b', but no arguments were provided
+    Foo(Bar b) : bar(b) { }
+    ^
+main.cpp:1:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+struct Foo {
+       ^
+main.cpp:1:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 0 were provided
+2 errors generated.
