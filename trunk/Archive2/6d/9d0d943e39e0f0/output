@@ -1,0 +1,33 @@
+main.cpp: In member function 'void X::bar(A&, int)':
+main.cpp:51:35: error: use of deleted function 'readonly<int, A, B>& readonly<int, A, B>::operator=(readonly<int, A, B>&&)'
+     void bar( A& a, int v ) { a.x = v ; } // *** error: use of deleted function
+                                   ^
+main.cpp:28:53: note: 'readonly<int, A, B>& readonly<int, A, B>::operator=(readonly<int, A, B>&&)' is implicitly deleted because the default definition would be ill-formed:
+ template < typename T, typename... FRIENDS > struct readonly : detail_::allow_<T,FRIENDS...>
+                                                     ^
+main.cpp:28:53: error: use of deleted function 'detail_::allow_<int, A, B>& detail_::allow_<int, A, B>::operator=(detail_::allow_<int, A, B>&&)'
+main.cpp:25:12: note: 'detail_::allow_<int, A, B>& detail_::allow_<int, A, B>::operator=(detail_::allow_<int, A, B>&&)' is implicitly deleted because the default definition would be ill-formed:
+     struct allow_<T,FRIEND,MORE_FRIENDS...> : allow_<T,FRIEND>, allow_<T,MORE_FRIENDS...> {} ;
+            ^
+main.cpp:25:12: error: use of deleted function 'detail_::allow_<int, A>& detail_::allow_<int, A>::operator=(detail_::allow_<int, A>&&)'
+main.cpp:22:12: note: 'detail_::allow_<int, A>& detail_::allow_<int, A>::operator=(detail_::allow_<int, A>&&)' is implicitly deleted because the default definition would be ill-formed:
+     struct allow_<T,FRIEND> : virtual restricted_<T> { friend FRIEND ; };
+            ^
+main.cpp:22:12: error: use of deleted function 'detail_::restricted_<int>& detail_::restricted_<int>::operator=(const detail_::restricted_<int>&)'
+main.cpp:5:36: note: 'detail_::restricted_<int>& detail_::restricted_<int>::operator=(const detail_::restricted_<int>&)' is implicitly declared as deleted because 'detail_::restricted_<int>' declares a move constructor or move assignment operator
+     template < typename T > struct restricted_
+                                    ^
+main.cpp:25:12: error: use of deleted function 'detail_::allow_<int, B>& detail_::allow_<int, B>::operator=(detail_::allow_<int, B>&&)'
+     struct allow_<T,FRIEND,MORE_FRIENDS...> : allow_<T,FRIEND>, allow_<T,MORE_FRIENDS...> {} ;
+            ^
+main.cpp:22:12: note: 'detail_::allow_<int, B>& detail_::allow_<int, B>::operator=(detail_::allow_<int, B>&&)' is implicitly deleted because the default definition would be ill-formed:
+     struct allow_<T,FRIEND> : virtual restricted_<T> { friend FRIEND ; };
+            ^
+main.cpp:22:12: error: use of deleted function 'detail_::restricted_<int>& detail_::restricted_<int>::operator=(const detail_::restricted_<int>&)'
+main.cpp: In member function 'void X::baz(A&, int)':
+main.cpp:12:16: error: 'T& detail_::restricted_<T>::operator()() [with T = int]' is protected
+             T& operator()() { return value ; } // writeable by friends
+                ^
+main.cpp:53:35: error: within this context
+     void baz( A& a, int v ) { a.x() = v ; } // *** error: a.x() is inaccesssible
+                                   ^
