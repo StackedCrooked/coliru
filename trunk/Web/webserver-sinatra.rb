@@ -34,18 +34,6 @@ get '/*.js' do |file|
 end
 
 
-get '/images/*.png' do |file|
-    content_type :png
-    File.read("./images/#{file}.png")
-end
-
-
-get '/images/*.jpg' do |file|
-    content_type :jpg
-    File.read("./images/#{file}.jpg")
-end
-
-
 get '/favicon.ico' do
     File.read('favicon.ico')
 end
