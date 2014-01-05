@@ -1,0 +1,13 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:23:26: error: no matching function for call to 'Obj<>::func()'
+   Obj<>         {}.func (); // illegal
+                          ^
+main.cpp:23:26: note: candidate is:
+main.cpp:15:10: note: template<class hack, typename std::enable_if<has<WithFunc, hack>::value, void>::type* <anonymous> > void Obj<Tags>::func() [with hack = hack; typename std::enable_if<has<WithFunc, Tags ..., hack>::value>::type* <anonymous> = <enumerator>; Tags = {}]
+   > void func () {}
+          ^
+main.cpp:15:10: note:   template argument deduction/substitution failed:
+main.cpp:14:76: error: no type named 'type' in 'struct std::enable_if<false, void>'
+     typename std::enable_if<has<WithFunc, Tags..., hack>::value>::type * = nullptr
+                                                                            ^
+main.cpp:14:76: note: invalid template non-type parameter
