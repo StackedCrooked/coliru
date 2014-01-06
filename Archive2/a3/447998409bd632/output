@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O2 -W -Wall -pedantic -pthread main.cpp
+main.cpp:7:3: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
+  const my_int foo();
+  ^~~~~~
+main.cpp:12:7: error: function with trailing return type must specify return type 'auto', not 'const auto'
+const auto MyClass<T>::foo() -> my_int
+~~~~~~^~~~
+1 warning and 1 error generated.
