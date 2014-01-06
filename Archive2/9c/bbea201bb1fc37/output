@@ -1,0 +1,29 @@
+main.cpp:14:6: error: no template named 'enable_if_t' in namespace 'std'; did you mean 'enable_if'?
+std::enable_if_t<std::is_integral<T>::value, T> //Using helper type
+~~~~~^~~~~~~~~~~
+     enable_if
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:1766:12: note: 'enable_if' declared here
+    struct enable_if 
+           ^
+main.cpp:46:5: error: call to 'foo1' is ambiguous
+    foo1(1.2); // OK, calls the first version of foo1()
+    ^~~~
+main.cpp:7:5: note: candidate function [with T = double]
+    foo1(T t) 
+    ^
+main.cpp:15:5: note: candidate function [with T = double]
+    foo1(T t) 
+    ^
+main.cpp:18:12: error: no viable conversion from 'int' to 'std::enable_if<std::is_integral<int>::value, int>'
+    return t;
+           ^
+main.cpp:47:5: note: in instantiation of function template specialization 'foo1<int>' requested here
+    foo1(10); // OK, calls the second version of foo1()
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:1771:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'int' to 'const std::enable_if<true, int> &' for 1st argument
+    struct enable_if<true, _Tp>
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:1771:12: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'int' to 'std::enable_if<true, int> &&' for 1st argument
+    struct enable_if<true, _Tp>
+           ^
+3 errors generated.
