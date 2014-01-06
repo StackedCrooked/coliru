@@ -1,0 +1,18 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
+main.cpp:25:24: warning: unused variable 'testStringTemp2' [-Wunused-variable]
+    const std::string& testStringTemp2 = tempFoo();               // OK
+                       ^
+main.cpp:23:9: warning: unused variable 'testIntTemp' [-Wunused-variable]
+    int testIntTemp = tempFoo();                                  // OK
+        ^
+2 warnings generated.
++ ./a.out
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:23:9: warning: unused variable 'testIntTemp' [-Wunused-variable]
+     int testIntTemp = tempFoo();                                  // OK
+         ^
+main.cpp:25:24: warning: unused variable 'testStringTemp2' [-Wunused-variable]
+     const std::string& testStringTemp2 = tempFoo();               // OK
+                        ^
++ ./a.out
