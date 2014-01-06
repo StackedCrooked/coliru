@@ -1,0 +1,71 @@
+main.cpp: In function 'int main()':
+main.cpp:12:49: error: no matching function for call to 'atomic_compare_exchange_weak(std::shared_ptr<int>*, std::shared_ptr<int>*, std::shared_ptr<int>&)'
+     while(atomic_compare_exchange_weak(&a, &b, c))
+                                                 ^
+main.cpp:12:49: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:930:5: note: template<class _ITp> bool std::atomic_compare_exchange_weak(volatile std::atomic<_ITp>*, _ITp*, _ITp)
+     atomic_compare_exchange_weak(volatile atomic<_ITp>* __a,
+     ^
+/usr/include/c++/4.8/atomic:930:5: note:   template argument deduction/substitution failed:
+main.cpp:12:49: note:   'std::shared_ptr<int>' is not derived from 'volatile std::atomic<_ITp>'
+     while(atomic_compare_exchange_weak(&a, &b, c))
+                                                 ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:920:5: note: template<class _ITp> bool std::atomic_compare_exchange_weak(std::atomic<_ITp>*, _ITp*, _ITp)
+     atomic_compare_exchange_weak(atomic<_ITp>* __a,
+     ^
+/usr/include/c++/4.8/atomic:920:5: note:   template argument deduction/substitution failed:
+main.cpp:12:49: note:   'std::shared_ptr<int>' is not derived from 'std::atomic<_ITp>'
+     while(atomic_compare_exchange_weak(&a, &b, c))
+                                                 ^
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:2:
+main.cpp:15:26: error: no matching function for call to 'atomic_load(std::shared_ptr<int>*)'
+     assert(atomic_load(&a) == c);  
+                          ^
+main.cpp:15:26: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:905:5: note: template<class _ITp> _ITp std::atomic_load(const volatile std::atomic<_ITp>*)
+     atomic_load(const volatile atomic<_ITp>* __a) noexcept
+     ^
+/usr/include/c++/4.8/atomic:905:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:2:
+main.cpp:15:26: note:   'std::shared_ptr<int>' is not derived from 'const volatile std::atomic<_ITp>'
+     assert(atomic_load(&a) == c);  
+                          ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:900:5: note: template<class _ITp> _ITp std::atomic_load(const std::atomic<_ITp>*)
+     atomic_load(const atomic<_ITp>* __a) noexcept
+     ^
+/usr/include/c++/4.8/atomic:900:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:2:
+main.cpp:15:26: note:   'std::shared_ptr<int>' is not derived from 'const std::atomic<_ITp>'
+     assert(atomic_load(&a) == c);  
+                          ^
+main.cpp:16:26: error: no matching function for call to 'atomic_load(std::shared_ptr<int>*)'
+     assert(atomic_load(&a).use_count() == 2);
+                          ^
+main.cpp:16:26: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:905:5: note: template<class _ITp> _ITp std::atomic_load(const volatile std::atomic<_ITp>*)
+     atomic_load(const volatile atomic<_ITp>* __a) noexcept
+     ^
+/usr/include/c++/4.8/atomic:905:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:2:
+main.cpp:16:26: note:   'std::shared_ptr<int>' is not derived from 'const volatile std::atomic<_ITp>'
+     assert(atomic_load(&a).use_count() == 2);
+                          ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/atomic:900:5: note: template<class _ITp> _ITp std::atomic_load(const std::atomic<_ITp>*)
+     atomic_load(const atomic<_ITp>* __a) noexcept
+     ^
+/usr/include/c++/4.8/atomic:900:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:2:
+main.cpp:16:26: note:   'std::shared_ptr<int>' is not derived from 'const std::atomic<_ITp>'
+     assert(atomic_load(&a).use_count() == 2);
+                          ^
