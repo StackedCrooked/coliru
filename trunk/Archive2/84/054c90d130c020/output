@@ -1,0 +1,16 @@
++ clang++ -O3 -Wall -Wextra -pedantic -Wconversion -std=c++11 -pthread main.cpp
++ ./a.out
+normal constructor 2!
++ g++-4.8 -O3 -Wall -Wextra -pedantic -Wconversion -std=c++11 -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:14:25: error: call of overloaded 'Test(<brace-enclosed initializer list>)' is ambiguous
+     Test t6({"Test", 42});
+                         ^
+main.cpp:14:25: note: candidates are:
+main.cpp:4:9: note: Test::Test(std::pair<const char*, int>)
+         Test(std::pair<char const *, int>) {
+         ^
+main.cpp:2:7: note: constexpr Test::Test(const Test&)
+ class Test {
+       ^
+main.cpp:2:7: note: constexpr Test::Test(Test&&)
