@@ -1,0 +1,34 @@
+main.cpp: In instantiation of 'NumericCollection<T, true>::NumericCollection(size_t) [with T = int; size_t = long unsigned int]':
+main.cpp:204:37:   required from here
+main.cpp:48:70: error: type 'AbstractCollection<int, false>' is not a direct base of 'NumericCollection<int, true>'
+     NumericCollection(size_t size) : AbstractCollection<T,false>(size) {}
+                                                                      ^
+main.cpp:48:70: error: no matching function for call to 'AbstractCollection<int, true>::AbstractCollection()'
+main.cpp:48:70: note: candidates are:
+main.cpp:38:5: note: AbstractCollection<T, with_pointer>::AbstractCollection(size_t) [with T = int; bool with_pointer = true; size_t = long unsigned int]
+     AbstractCollection(size_t size) : size_(size), items_(new Storage_T[size]) {}
+     ^
+main.cpp:38:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:21:7: note: constexpr AbstractCollection<int, true>::AbstractCollection(const AbstractCollection<int, true>&)
+ class AbstractCollection
+       ^
+main.cpp:21:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:21:7: note: constexpr AbstractCollection<int, true>::AbstractCollection(AbstractCollection<int, true>&&)
+main.cpp:21:7: note:   candidate expects 1 argument, 0 provided
+main.cpp: In instantiation of 'typename std::enable_if<((std::is_arithmetic<_Tp>::value && std::is_arithmetic<e_T>::value) && std::is_convertible<_U1, _T1>::value), NumericCollection<T, false> >::type NumericCollection<T, false>::operator-(NumericCollection<e_T, e_with_pointer>&) [with e_T = int; bool e_with_pointer = true; T = int; typename std::enable_if<((std::is_arithmetic<_Tp>::value && std::is_arithmetic<e_T>::value) && std::is_convertible<_U1, _T1>::value), NumericCollection<T, false> >::type = NumericCollection<int, false>]':
+main.cpp:205:7:   required from here
+main.cpp:36:12: error: 'size_t AbstractCollection<int, true>::size_' is protected
+     size_t size_;
+            ^
+main.cpp:140:21: error: within this context
+      if (this->size_!=other.size_) throw "Sizes must be equal.";
+                     ^
+main.cpp:37:16: error: 'int** AbstractCollection<int, true>::items_' is protected
+     Storage_T* items_;
+                ^
+main.cpp:143:50: error: within this context
+    res.items_[i] = this->items_[i] - other.items_[i]; 
+                                                  ^
+main.cpp:143:36: error: invalid operands of types 'AbstractCollection<int, false>::Storage_T {aka int}' and 'AbstractCollection<int, true>::Storage_T {aka int*}' to binary 'operator-'
+    res.items_[i] = this->items_[i] - other.items_[i]; 
+                                    ^
