@@ -1,0 +1,29 @@
+main.cpp: In instantiation of 'struct flatten<std::tuple<int, std::tuple<std::tuple<std::tuple<int, long int> > >, int> >':
+main.cpp:53:28:   required from here
+main.cpp:40:75: error: ambiguous class template instantiation for 'struct flatten<std::tuple<int, std::tuple<std::tuple<std::tuple<int, long int> > >, int> >::flatten_impl<std::tuple<std::tuple<std::tuple<int, long int> > > >'
+     using type = typename join< typename flatten_impl<Ts>::type... >::type;
+                                                                           ^
+main.cpp:30:12: error: candidates are: struct flatten<TT<Ts ...> >::flatten_impl<TT<TT<L ...>, Rest ...> >
+     struct flatten_impl< TT<TT<L...>, Rest...> >
+            ^
+main.cpp:35:12: error:                 struct flatten<TT<Ts ...> >::flatten_impl<TT<L ...> >
+     struct flatten_impl< TT<L...> >
+            ^
+main.cpp:40:75: error: invalid use of incomplete type 'struct flatten<std::tuple<int, std::tuple<std::tuple<std::tuple<int, long int> > >, int> >::flatten_impl<std::tuple<std::tuple<std::tuple<int, long int> > > >'
+     using type = typename join< typename flatten_impl<Ts>::type... >::type;
+                                                                           ^
+main.cpp:25:12: error: declaration of 'struct flatten<std::tuple<int, std::tuple<std::tuple<std::tuple<int, long int> > >, int> >::flatten_impl<std::tuple<std::tuple<std::tuple<int, long int> > > >'
+     struct flatten_impl
+            ^
+main.cpp: In function 'int main()':
+main.cpp:53:36: error: no matching function for call to 'print_type()'
+     print_type<flatten<tup>::type>();
+                                    ^
+main.cpp:53:36: note: candidate is:
+main.cpp:45:6: note: template<class T> void print_type()
+ void print_type()
+      ^
+main.cpp:45:6: note:   template argument deduction/substitution failed:
+main.cpp:53:36: error: template argument 1 is invalid
+     print_type<flatten<tup>::type>();
+                                    ^
