@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:11:42: warning: ISO C++ does not allow initializers in lambda expression capture lists [-Wpedantic]
+     std::function<void()> f{std::move([p = std::move(p)]{
+                                          ^
+In file included from /usr/include/c++/4.8/memory:79:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = main()::__lambda0; std::false_type = std::integral_constant<bool, false>]':
+/usr/include/c++/4.8/functional:1946:51:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = main()::__lambda0]'
+/usr/include/c++/4.8/functional:2457:19:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = main()::__lambda0; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:13:7:   required from here
+/usr/include/c++/4.8/functional:1910:34: error: use of deleted function 'main()::__lambda0::<lambda>(const main()::__lambda0&)'
+    __dest._M_access<_Functor*>() =
+                                  ^
+main.cpp:11:56: note: 'main()::__lambda0::<lambda>(const main()::__lambda0&)' is implicitly deleted because the default definition would be ill-formed:
+     std::function<void()> f{std::move([p = std::move(p)]{
+                                                        ^
+main.cpp:11:56: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = int; _Dp = std::default_delete<int>]'
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/unique_ptr.h:273:7: error: declared here
+       unique_ptr(const unique_ptr&) = delete;
+       ^
