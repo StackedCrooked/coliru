@@ -1,0 +1,19 @@
+main.cpp:9:10: error: class member cannot be redeclared
+    void bar() { [this]foo(); } // Prints "member"?
+         ^
+main.cpp:8:10: note: previous declaration is here
+    void bar() { []foo(); } // Prints "global"?
+         ^
+main.cpp:8:20: error: expected body of lambda expression
+    void bar() { []foo(); } // Prints "global"?
+                   ^
+main.cpp:9:10: error: redefinition of 'bar'
+    void bar() { [this]foo(); } // Prints "member"?
+         ^
+main.cpp:8:10: note: previous definition is here
+    void bar() { []foo(); } // Prints "global"?
+         ^
+main.cpp:9:24: error: expected body of lambda expression
+    void bar() { [this]foo(); } // Prints "member"?
+                       ^
+4 errors generated.
