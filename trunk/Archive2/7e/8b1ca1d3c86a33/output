@@ -1,0 +1,16 @@
+main.cpp:10:8: warning: class template partial specialization contains template parameters that can not be deduced; this partial specialization will never be used
+struct Flat< C<ARGS0...,C<ARGS1...>,ARGS2...> >
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:9:54: note: non-deducible template parameter 'ARGS0'
+template <template<typename...> class C, typename... ARGS0,typename...ARGS1,typename ...ARGS2>
+                                                     ^
+main.cpp:9:71: note: non-deducible template parameter 'ARGS1'
+template <template<typename...> class C, typename... ARGS0,typename...ARGS1,typename ...ARGS2>
+                                                                      ^
+main.cpp:9:89: note: non-deducible template parameter 'ARGS2'
+template <template<typename...> class C, typename... ARGS0,typename...ARGS1,typename ...ARGS2>
+                                                                                        ^
+main.cpp:17:5: error: static_assert failed ""
+    static_assert(std::is_same<typename Flat<tup>::type,std::tuple<int,int,long,int> >::value,"");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning and 1 error generated.
