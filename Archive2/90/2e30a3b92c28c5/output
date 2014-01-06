@@ -1,0 +1,62 @@
+main.cpp: In function 'int main()':
+main.cpp:17:81: error: no matching function for call to 'regex_search(__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >&, const __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >&, std::smatch&, const regex&)'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+main.cpp:17:81: note: candidates are:
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2028:5: note: template<class _Bi_iter, class _Alloc, class _Ch_type, class _Rx_traits> bool std::regex_search(_Bi_iter, _Bi_iter, std::match_results<_FwdIterT, _Alloc>&, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(_Bi_iter __first, _Bi_iter __last,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2028:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   deduced conflicting types for parameter '_FwdIterT' ('__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >')
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2049:5: note: template<class _Bi_iter, class _Ch_type, class _Rx_traits> bool std::regex_search(_Bi_iter, _Bi_iter, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(_Bi_iter __first, _Bi_iter __last,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2049:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   'std::smatch {aka std::match_results<__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> > >}' is not derived from 'const std::basic_regex<_Ch_type, _Rx_traits>'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2073:5: note: template<class _Ch_type, class _Alloc, class _Rx_traits> bool std::regex_search(const _Ch_type*, std::match_results<const _Ch_type*, _Alloc>&, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(const _Ch_type* __s,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2073:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   mismatched types 'const _Ch_type*' and '__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2093:5: note: template<class _Ch_type, class _Rx_traits> bool std::regex_search(const _Ch_type*, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(const _Ch_type* __s,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2093:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   mismatched types 'const _Ch_type*' and '__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2113:5: note: template<class _Ch_traits, class _String_allocator, class _Ch_type, class _Rx_traits> bool std::regex_search(const std::basic_string<_Ch_type, _Ch_traits, _Str_allocator>&, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(const basic_string<_Ch_type, _Ch_traits,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2113:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   '__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >' is not derived from 'const std::basic_string<_Ch_type, _Ch_traits, _Str_allocator>'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2136:5: note: template<class _Ch_traits, class _Ch_alloc, class _Alloc, class _Ch_type, class _Rx_traits> bool std::regex_search(const std::basic_string<_Ch_type, _Ch_traits, _Ch_alloc>&, std::match_results<typename std::basic_string<_Ch_type, _Ch_traits, _Ch_alloc>::const_iterator, _Alloc>&, const std::basic_regex<_Ch_type, _Rx_traits>&, std::regex_constants::match_flag_type)
+     regex_search(const basic_string<_Ch_type, _Ch_traits, _Ch_alloc>& __s,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2136:5: note:   template argument deduction/substitution failed:
+main.cpp:17:81: note:   '__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >' is not derived from 'const std::basic_string<_Ch_type, _Ch_traits, _Ch_alloc>'
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+                                                                                 ^
+main.cpp:17:14: warning: unused variable 'matched' [-Wunused-variable]
+   const bool matched = std::regex_search(lineStart, lineEnd, match, liveVarRegex);
+              ^
