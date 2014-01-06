@@ -1,0 +1,19 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:122:11: error: use of deleted function 'Derived::Derived()'
+   Derived x; // error
+           ^
+main.cpp:112:8: note: 'Derived::Derived()' is implicitly deleted because the default definition would be ill-formed:
+ struct Derived : Obj<PrivateCtor, PureDtor> { };
+        ^
+main.cpp:95:5: error: 'Obj<Tags>::Obj(Ts&& ...) [with _ = int; typename std::enable_if<has<PrivateCtor, _, Tags ...>::value, int>::type <anonymous> = 0; Ts = {}; Tags = {PrivateCtor, PureDtor}]' is private
+     Obj (Ts&&... args) noexcept (noexcept (Obj (real_ctor_tag {}))) : Obj (real_ctor_tag {}, std::forward<Ts> (args)...) { } 
+     ^
+main.cpp:112:8: error: within this context
+ struct Derived : Obj<PrivateCtor, PureDtor> { };
+        ^
+main.cpp:103:95: error: 'PrivateDtorObj<Ts>::~PrivateDtorObj() [with Ts = {ProtectedCtor, PrivateDtor}]' is private
+ template<typename... Ts> struct PrivateDtorObj : Obj<Ts...> { using Obj<Ts...>::Obj; private: ~PrivateDtorObj () {}};
+                                                                                               ^
+main.cpp:123:39: error: within this context
+   tracked<ProtectedCtor, PrivateDtor> c; //error
+                                       ^
