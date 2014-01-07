@@ -1,0 +1,45 @@
+Enter the character that you want to replace: Enter the character that you want to replace it with: Enter y to run this program again. Enter any other letter to quit: Enter the character that you want to replace: Enter the character that you want to replace it with: Enter y to run this program again. Enter any other letter to quit: Enter the character that you want to replace: Enter the character that you want to replace it with: Enter y to run this program again. Enter any other letter to quit: 
+
+
+#@nclude <@o+tream>
+#@nclude <$+tream>
+#@nclude <c+td@o>
+
+@nt ma@n()
+{
+    con+t char* con+t $@le_name = "+wapped.txt" ;
+    con+t char* con+t temp_$@le_name = "$@nal_decrypted.txt" ;
+
+    char RunAga@n = 'y';
+
+    wh@le( (RunAga@n=='y') || (RunAga@n=='Y') )
+    {
+        char x ;
+        +td::cout << "Enter the character that you want to replace: " ;
+        +td::c@n >> x;
+
+        char y ;
+        +td::cout << "Enter the character that you want to replace @t w@th: " ;
+        +td::c@n >> y;
+
+        {
+            +td::@$+tream @$@le($@le_name) ; // open @nput $@le $or read@ng
+            +td::o$+tream o$@le(temp_$@le_name) ; // open temp $@le $or wr@t@ng
+
+            char c ;
+            wh@le( @$@le.get(c) ) // $or every character (@nclud@ng wh@te +pace)  @n @$@le
+                o$@le.put( c == x ? y : c ) ; // wr@te (replaced) character to o$@le
+        }
+
+        // copy content+ o$ temp $@le to the or@g@nal $@le
+        { +td::o$+tream($@le_name) << +td::@$+tream(temp_$@le_name).rdbu$() ; }
+
+        +td::remove(temp_$@le_name) ; // delete the temp $@le
+
+        +td::cout << "Enter y to run th@+ program aga@n. Enter any other letter to qu@t: " ;
+    	+td::c@n >> RunAga@n;
+    }
+
+    // exam@ne the content+ o$ the mod@$@ed $@le
+    +td::cout << "\n\n\n" << +td::@$+tream($@le_name).rdbu$() ;
+}
