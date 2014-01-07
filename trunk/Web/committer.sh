@@ -4,6 +4,7 @@ echo "$(basename $0) must be run with root permissions." 1>&2
 exit 1
 }
 
+# Detect already running instance.
 pgids="$(ps -eopgid,ppid,pid,uid,comm | grep 'committer.sh' | awk '{print $1}' | sort -n | uniq)"
 [ "$(echo "${pgids}" | wc -l)" == 1 ] || {
 echo "Committer is already running" 1>&2
@@ -27,7 +28,7 @@ source logger.source
 )
  
 commit() {
-    svn ci $d -m "Updating archive." || sleep 1
+    svn ci $1 -m "Updating archive." || sleep 1
 }
 
 while true ; do (

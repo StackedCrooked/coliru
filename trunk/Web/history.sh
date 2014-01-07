@@ -3,7 +3,7 @@ cd $(dirname $0)
 printf "THIS IS COLIRU\n\n"
 
 get_timestamp_files() {
-    find /var/chroot/Archive -name timestamp
+    find /var/chroot/Archive2 -name timestamp
 }
 
 get_entries_by_date() {

@@ -21,6 +21,7 @@ id="$(./hash.sh)"
 }
 
 # search for previous output in the new archive
+# pathifiedId puts a slash after the first two characters ("abcdefgh..." => "ab/cdefgh...")
 pathifiedId="$(./pathify-id.sh ${id})"
 [ -d "${COLIRU_ARCHIVE2}/${pathifiedId}" ] && {
     cat "${COLIRU_ARCHIVE2}/${pathifiedId}/output" && exit
