@@ -97,6 +97,7 @@
     <div id="output" style="overflow:auto;" class="vbox f1"></div>
 
     <div id="footer">
+        <pre id="path"></pre>
         <button id="cloneButton">Edit</button>
     </div>
 </div>
@@ -133,6 +134,8 @@
             app.id = url.split('/a/')[1];
         }
     }
+    document.getElementById('path').textContent = 'Coliru path: /Archive2/' + app.id.substring(0,2) + '/' + app.id.substring(2, app.id.length);
+
     app.editor = editor;
     app.output = document.getElementById("output");
     app.output.readOnly = true;
