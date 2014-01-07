@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:35:18: error: no matching function for call to 'display(bar)'
+     display(bar()); // doesn't compile
+                  ^
+main.cpp:35:18: note: candidates are:
+main.cpp:5:6: note: template<class T> decltype ((t.display(), void())) display(const T&)
+ auto display(T const& t) -> decltype(t.display(), void())
+      ^
+main.cpp:5:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> decltype ((t.display(), void())) display(const T&) [with T = bar]':
+main.cpp:35:18:   required from here
+main.cpp:5:49: error: 'const struct bar' has no member named 'display'
+ auto display(T const& t) -> decltype(t.display(), void())
+                                                 ^
+main.cpp:10:6: note: void display(int)
+ void display(int)
+      ^
+main.cpp:10:6: note:   no known conversion for argument 1 from 'bar' to 'int'
+main.cpp:15:6: note: void display(double)
+ void display(double)
+      ^
+main.cpp:15:6: note:   no known conversion for argument 1 from 'bar' to 'double'

@@ -1,0 +1,1 @@
+ls | while read line ; do character_count="$(echo $line | wc -c)" ; echo "$character_count $line" ; done | sort -nr
