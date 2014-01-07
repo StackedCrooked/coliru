@@ -1,0 +1,18 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:13:34: error: no matching function for call to 'make_pair(<brace-enclosed initializer list>, int)'
+     f(std::make_pair({1, 2, 3}, 4));
+                                  ^
+main.cpp:13:34: note: candidate is:
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_pair.h:276:5: note: template<class _T1, class _T2> constexpr std::pair<typename std::__decay_and_strip<_Tp>::__type, typename std::__decay_and_strip<_T2>::__type> std::make_pair(_T1&&, _T2&&)
+     make_pair(_T1&& __x, _T2&& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_pair.h:276:5: note:   template argument deduction/substitution failed:
+main.cpp:13:34: note:   couldn't deduce template parameter '_T1'
+     f(std::make_pair({1, 2, 3}, 4));
+                                  ^
