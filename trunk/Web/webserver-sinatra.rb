@@ -82,7 +82,7 @@ post '/compile' do
         result = ""
         $mutex.synchronize do
             request_text = request.body.read
-            cached_result = $cache[request_text]
+            cached_result = $cache[request_text.hash]
             if cached_result
                 result = cached_result
             else
@@ -99,7 +99,7 @@ post '/compile' do
                 if $cache.size >= 5000
                     $cache.delete $cache.keys.sample
                 end
-                $cache[request_text] = result
+                $cache[request_text.hash] = result
             end
         end
         stream do |out|
