@@ -1,0 +1,23 @@
+In file included from main.cpp:1:
+In file included from /usr/local/include/boost/variant.hpp:17:
+/usr/local/include/boost/variant/variant.hpp:1612:28: error: call to member function 'initialize' is ambiguous
+              initializer::initialize(
+              ~~~~~~~~~~~~~^~~~~~~~~~
+/usr/local/include/boost/variant/variant.hpp:1789:9: note: in instantiation of function template specialization 'boost::variant<long, long double, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_>::convert_construct<long long>' requested here
+        convert_construct( detail::variant::move(operand), 1L);
+        ^
+main.cpp:9:11: note: in instantiation of function template specialization 'boost::variant<long, long double, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_>::variant<long long>' requested here
+      c = 42ll
+          ^
+/usr/local/include/boost/variant/detail/initializer.hpp:115:24: note: candidate function
+            static int initialize(void* dest, param2_T operand)
+                       ^
+/usr/local/include/boost/variant/detail/initializer.hpp:115:24: note: candidate function
+/usr/local/include/boost/variant/detail/initializer.hpp:104:24: note: candidate function
+            static int initialize(void* dest, param_T operand)
+                       ^
+/usr/local/include/boost/variant/detail/initializer.hpp:104:24: note: candidate function
+/usr/local/include/boost/variant/detail/initializer.hpp:149:17: note: candidate function not viable: requires 0 arguments, but 2 were provided
+    static void initialize();
+                ^
+1 error generated.
