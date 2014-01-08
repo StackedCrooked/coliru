@@ -43,7 +43,7 @@ post '/feedback' do
     Thread.new do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
-                file.puts(request.body.read)
+                file.puts(request.body.read.gsub('NOTE', 'IAMGAY'))
             end
         end
     end.join
@@ -69,7 +69,7 @@ get '/feedback' do
         stream do |out|
             out << '<html><body><ul>'
             $mutex.synchronize do
-                File.readlines('feedback.txt').reverse.each { |l| out << "<li>#{l.gsub('<', '&lt;').gsub('>', '&gt;')}</li>" }
+                File.readlines('feedback.txt').reverse.each { |l| out << "<li><pre>#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "<br>&nbsp;<b>NOTE</b>")}</pre></li>" }
             end
             out << '</ul></body></html>'
         end
