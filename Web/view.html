@@ -134,7 +134,10 @@
             app.id = url.split('/a/')[1];
         }
     }
-    document.getElementById('path').textContent = 'Coliru path: /Archive2/' + app.id.substring(0,2) + '/' + app.id.substring(2, app.id.length);
+
+    if (app.id.length == 16) {
+        document.getElementById('path').textContent = 'TIP: ln -s /Archive2/' + app.id.substring(0,2) + '/' + app.id.substring(2, app.id.length) + '/main.cpp a.cpp';
+    }
 
     app.editor = editor;
     app.output = document.getElementById("output");
