@@ -167,6 +167,7 @@ end
 
 
 get '/a/:id/:file' do
+    content_type (params[:ct] || 'text/plain') 
     id = params[:id]
     file = params[:file]
     File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
@@ -228,11 +229,17 @@ get '/archive' do
     stdout = IO.popen("./id2existingpath.sh #{id}")
     path = stdout.read.strip
     Process.wait stdout.pid
-    {       
+    result = {       
         :cmd => get_contents.call(path, 'cmd.sh'),        
         :src => get_contents.call(path, 'main.cpp'),      
         :output => get_contents.call(path, 'output')      
-    }.to_json       
+    }
+    begin
+        return result.to_json
+    rescue Exception
+        result[:output] = "NOTE: JSON encoding for the output failed due to invalid UTF8."
+        return result.to_json
+    end
 end     
 
 
