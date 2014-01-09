@@ -1,0 +1,1 @@
+g++ -c -std=c++0x main.cpp -Wall -pedantic -Wextra -Weffc++
