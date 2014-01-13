@@ -1,0 +1,98 @@
+GAS LISTING /tmp/ccqQ5SXt.s 			page 1
+
+
+   1              		.file	"main.cpp"
+   2              		.section	.text.startup,"ax",@progbits
+   3              		.p2align 4,,15
+   4              		.globl	main
+   6              	main:
+   7              	.LFB1265:
+   8              		.cfi_startproc
+   9 0000 B9010000 		movl	$1, %ecx
+   9      00
+  10 0005 B8010000 		movl	$1, %eax
+  10      00
+  11 000a 31F6     		xorl	%esi, %esi
+  12 000c BA00093D 		movl	$4000000, %edx
+  12      00
+  13 0011 EB09     		jmp	.L2
+  14              		.p2align 4,,10
+  15 0013 0F1F4400 		.p2align 3
+  15      00
+  16              	.L6:
+  17 0018 89C1     		movl	%eax, %ecx
+  18 001a 89F8     		movl	%edi, %eax
+  19              	.L2:
+  20 001c 8D3C06   		leal	(%rsi,%rax), %edi
+  21 001f 29C2     		subl	%eax, %edx
+  22 0021 A801     		testb	$1, %al
+  23 0023 0F45F7   		cmovne	%edi, %esi
+  24 0026 85D2     		testl	%edx, %edx
+  25 0028 8D3C08   		leal	(%rax,%rcx), %edi
+  26 002b 7FEB     		jg	.L6
+  27 002d 83C601   		addl	$1, %esi
+  28 0030 4883EC08 		subq	$8, %rsp
+  29              		.cfi_def_cfa_offset 16
+  30 0034 BF000000 		movl	$_ZSt4cout, %edi
+  30      00
+  31 0039 4863F6   		movslq	%esi, %rsi
+  32 003c E8000000 		call	_ZNSo9_M_insertIyEERSoT_
+  32      00
+  33 0041 31C0     		xorl	%eax, %eax
+  34 0043 4883C408 		addq	$8, %rsp
+  35              		.cfi_def_cfa_offset 8
+  36 0047 C3       		ret
+  37              		.cfi_endproc
+  38              	.LFE1265:
+  40 0048 0F1F8400 		.p2align 4,,15
+  40      00000000 
+  42              	_GLOBAL__sub_I_main:
+  43              	.LFB1414:
+  44              		.cfi_startproc
+  45 0050 4883EC08 		subq	$8, %rsp
+  46              		.cfi_def_cfa_offset 16
+  47 0054 BF000000 		movl	$_ZStL8__ioinit, %edi
+  47      00
+  48 0059 E8000000 		call	_ZNSt8ios_base4InitC1Ev
+  48      00
+  49 005e BA000000 		movl	$__dso_handle, %edx
+  49      00
+  50 0063 BE000000 		movl	$_ZStL8__ioinit, %esi
+GAS LISTING /tmp/ccqQ5SXt.s 			page 2
+
+
+  50      00
+  51 0068 BF000000 		movl	$_ZNSt8ios_base4InitD1Ev, %edi
+  51      00
+  52 006d 4883C408 		addq	$8, %rsp
+  53              		.cfi_def_cfa_offset 8
+  54 0071 E9000000 		jmp	__cxa_atexit
+  54      00
+  55              		.cfi_endproc
+  56              	.LFE1414:
+  58              		.section	.init_array,"aw"
+  59              		.align 8
+  60 0000 00000000 		.quad	_GLOBAL__sub_I_main
+  60      00000000 
+  61              		.local	_ZStL8__ioinit
+  62              		.comm	_ZStL8__ioinit,1,1
+  63              		.hidden	__dso_handle
+  64              		.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+  65              		.section	.note.GNU-stack,"",@progbits
+GAS LISTING /tmp/ccqQ5SXt.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+     /tmp/ccqQ5SXt.s:6      .text.startup:0000000000000000 main
+     /tmp/ccqQ5SXt.s:42     .text.startup:0000000000000050 _GLOBAL__sub_I_main
+                             .bss:0000000000000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZSt4cout
+_ZNSo9_M_insertIyEERSoT_
+_ZNSt8ios_base4InitC1Ev
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+__cxa_atexit
+4613732
