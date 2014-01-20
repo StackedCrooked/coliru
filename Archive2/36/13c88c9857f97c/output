@@ -1,0 +1,7 @@
+main.cpp:11:5: error: no matching function for call to 'set_a'
+    set_a("feep");
+    ^~~~~
+main.cpp:6:28: note: candidate template ignored: substitution failure [with T = char const (&)[5]]: assigning to 'int' from incompatible type 'char const[5]'
+template <typename T> auto set_a(T&& a) -> decltype((void)(_a = std::forward<T>(a))) { _a = std::forward<T>(a); }
+                           ^                                  ~
+1 error generated.
