@@ -1,0 +1,70 @@
+main.cpp:7:1: error: expected initializer before 'struct'
+ struct buffer
+ ^
+main.cpp: In function 'void* produce(void*)':
+main.cpp:17:20: warning: unused variable 'buf' [-Wunused-variable]
+     struct buffer *buf = (struct buffer*)(bufIn);
+                    ^
+main.cpp: In function 'void* consume(void*)':
+main.cpp:23:20: error: declaration of 'consume(void*)::buffer* buf' shadows a parameter
+     struct buffer *buf = (struct buffer*)(bufIn);
+                    ^
+main.cpp:23:43: error: 'bufIn' was not declared in this scope
+     struct buffer *buf = (struct buffer*)(bufIn);
+                                           ^
+main.cpp:23:20: warning: unused variable 'buf' [-Wunused-variable]
+     struct buffer *buf = (struct buffer*)(bufIn);
+                    ^
+main.cpp: In function 'void init_buffer(buffer*)':
+main.cpp:29:15: error: invalid use of incomplete type 'struct buffer'
+     memset(buf->buf, 0, sizeof(buf->buf));
+               ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp:29:35: error: invalid use of incomplete type 'struct buffer'
+     memset(buf->buf, 0, sizeof(buf->buf));
+                                   ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp:30:8: error: invalid use of incomplete type 'struct buffer'
+     buf->read = buf->buf;
+        ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp:30:20: error: invalid use of incomplete type 'struct buffer'
+     buf->read = buf->buf;
+                    ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp:31:8: error: invalid use of incomplete type 'struct buffer'
+     buf->write = buf->buf;       
+        ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp:31:21: error: invalid use of incomplete type 'struct buffer'
+     buf->write = buf->buf;       
+                     ^
+main.cpp:27:25: error: forward declaration of 'struct buffer'
+ void init_buffer(struct buffer *buf)
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:36:19: error: aggregate 'buffer buf' has incomplete type and cannot be defined
+     struct buffer buf;
+                   ^
+main.cpp:43:32: error: invalid conversion from 'pthread_t* {aka long unsigned int*}' to 'pthread_t {aka long unsigned int}' [-fpermissive]
+     pthread_join(&thread1, NULL);
+                                ^
+main.cpp:44:32: error: invalid conversion from 'pthread_t* {aka long unsigned int*}' to 'pthread_t {aka long unsigned int}' [-fpermissive]
+     pthread_join(&thread2, NULL);
+                                ^
+main.cpp:40:9: warning: unused variable 'r1' [-Wunused-variable]
+     int r1 = pthread_create(&thread1, NULL, produce, (void*)&buf);
+         ^
+main.cpp:41:9: warning: unused variable 'r2' [-Wunused-variable]
+     int r2 = pthread_create(&thread2, NULL, consume, (void*)&buf);
+         ^
