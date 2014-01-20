@@ -1,0 +1,17 @@
++ clang++ --version
+clang version 3.5 (trunk 198621)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread -o main main.cpp
++ ./main
+static void X<>::print() [Args = <>]
+sizeof...(Args)                     = 0
+index_sequence_for<>::size()        = 0
+index_sequence_for<Args...>::size() = 1
+indices_type::size()                = 1
+---
+false
+false
+---
+true
+false
