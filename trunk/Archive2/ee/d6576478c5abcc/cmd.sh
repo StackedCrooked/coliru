@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread /Archive2/b2/34fbf5484e93c8/main.cpp main.cpp && ./a.out
