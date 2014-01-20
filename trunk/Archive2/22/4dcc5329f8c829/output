@@ -1,0 +1,10 @@
+main.cpp:17:38: error: ISO C++ does not permit 'Base::foo' to be defined as 'Templated<0>::foo' [-fpermissive]
+ const std::string Templated<Tag::A>::foo{ "bar" };
+                                      ^
+main.cpp:18:38: error: ISO C++ does not permit 'Base::foo' to be defined as 'Templated<1>::foo' [-fpermissive]
+ const std::string Templated<Tag::B>::foo{ "baz" };
+                                      ^
+main.cpp:18:38: error: redefinition of 'const string Base::foo'
+main.cpp:17:19: error: 'const string Base::foo' previously declared here
+ const std::string Templated<Tag::A>::foo{ "bar" };
+                   ^
