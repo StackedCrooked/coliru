@@ -1,0 +1,40 @@
+main.cpp:15:65: error: 'type' in 'struct std::enable_if<false>' does not name a type
+         template < typename = typename std::enable_if< false >::type >
+                                                                 ^
+main.cpp: In instantiation of 'class Wrapper<int()>':
+main.cpp:37:41:   required from here
+main.cpp:8:21: error: no type named 'type' in 'struct std::enable_if<false>'
+         static void exec(Func f) {
+                     ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:37:52: error: no matching function for call to 'Wrapper<int()>::exec(int (&)())'
+     std::cout << Wrapper<decltype(blah)>::exec(blah) << std::endl;
+                                                    ^
+main.cpp:37:52: note: candidates are:
+main.cpp:8:21: note: template<class> static void Wrapper<Func>::exec(Func) [with <template-parameter-2-1> = <template-parameter-1-1>; Func = int()]
+         static void exec(Func f) {
+                     ^
+main.cpp:8:21: note:   template argument deduction/substitution failed:
+main.cpp:16:21: note: template<class> static decltype (f()) Wrapper<Func>::exec(Func) [with <template-parameter-2-1> = <template-parameter-1-1>; Func = int()]
+         static auto exec(Func f) -> decltype(f()) {
+                     ^
+main.cpp:16:21: note:   template argument deduction/substitution failed:
+main.cpp: In instantiation of 'class Wrapper<void()>':
+main.cpp:38:27:   required from here
+main.cpp:8:21: error: no type named 'type' in 'struct std::enable_if<false>'
+         static void exec(Func f) {
+                     ^
+main.cpp:16:21: error: 'template<class> static decltype (f()) Wrapper<Func>::exec(Func) [with <template-parameter-2-1> = <template-parameter-1-1>; Func = void()]' cannot be overloaded
+         static auto exec(Func f) -> decltype(f()) {
+                     ^
+main.cpp:8:21: error: with 'template<class> static void Wrapper<Func>::exec(Func) [with <template-parameter-2-1> = <template-parameter-1-1>; Func = void()]'
+         static void exec(Func f) {
+                     ^
+main.cpp:38:37: error: no matching function for call to 'Wrapper<void()>::exec(void (&)())'
+     Wrapper<decltype(foo)>::exec(foo);
+                                     ^
+main.cpp:38:37: note: candidate is:
+main.cpp:8:21: note: template<class> static void Wrapper<Func>::exec(Func) [with <template-parameter-2-1> = <template-parameter-1-1>; Func = void()]
+         static void exec(Func f) {
+                     ^
+main.cpp:8:21: note:   template argument deduction/substitution failed:
