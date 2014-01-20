@@ -1,0 +1,20 @@
+main.cpp:9:30: error: use of undeclared identifier 'char_t'; did you mean 'wchar_t'?
+    std::ostreambuf_iterator<char_t> out1(&f);
+                             ^~~~~~
+                             wchar_t
+main.cpp:9:38: error: no matching constructor for initialization of 'std::ostreambuf_iterator<wchar_t>'
+    std::ostreambuf_iterator<char_t> out1(&f);
+                                     ^    ~~
+/usr/include/c++/v1/iterator:861:24: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::basic_filebuf<char> *' to 'const std::__1::ostreambuf_iterator<wchar_t, std::__1::char_traits<wchar_t> >' for 1st argument
+class _LIBCPP_TYPE_VIS ostreambuf_iterator
+                       ^
+/usr/include/c++/v1/iterator:861:24: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'std::basic_filebuf<char> *' to 'std::__1::ostreambuf_iterator<wchar_t, std::__1::char_traits<wchar_t> >' for 1st argument
+class _LIBCPP_TYPE_VIS ostreambuf_iterator
+                       ^
+/usr/include/c++/v1/iterator:872:31: note: candidate constructor not viable: no known conversion from 'std::basic_filebuf<char> *' to 'ostream_type &' (aka 'basic_ostream<wchar_t, std::__1::char_traits<wchar_t> > &') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY ostreambuf_iterator(ostream_type& __s) _NOEXCEPT
+                              ^
+/usr/include/c++/v1/iterator:874:31: note: candidate constructor not viable: no known conversion from 'std::basic_filebuf<char> *' to 'streambuf_type *' (aka 'basic_streambuf<wchar_t, std::__1::char_traits<wchar_t> > *') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY ostreambuf_iterator(streambuf_type* __s) _NOEXCEPT
+                              ^
+2 errors generated.
