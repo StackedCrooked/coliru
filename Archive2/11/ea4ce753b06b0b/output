@@ -1,0 +1,61 @@
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	_Z22with_default_allocatorv
+	.type	_Z22with_default_allocatorv, @function
+_Z22with_default_allocatorv:
+.LFB1926:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	movl	$40, %edi
+	call	_Znwm
+	leaq	40(%rax), %rdx
+	movq	%rax, (%rbx)
+	movq	%rdx, 16(%rbx)
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	movq	$0, 16(%rax)
+	movq	$0, 24(%rax)
+	movq	$0, 32(%rax)
+	movq	%rbx, %rax
+	movq	%rdx, 8(%rbx)
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1926:
+	.size	_Z22with_default_allocatorv, .-_Z22with_default_allocatorv
+	.p2align 5,,31
+	.globl	_Z21with_custom_allocatorv
+	.type	_Z21with_custom_allocatorv, @function
+_Z21with_custom_allocatorv:
+.LFB1928:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	movl	$40, %edi
+	call	_Znwm
+	movq	%rax, (%rbx)
+	addq	$40, %rax
+	movq	%rax, 16(%rbx)
+	movq	%rax, 8(%rbx)
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1928:
+	.size	_Z21with_custom_allocatorv, .-_Z21with_custom_allocatorv
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
