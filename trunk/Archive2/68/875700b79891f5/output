@@ -1,0 +1,24 @@
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:63:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:515:30: error: calling a private constructor of class 'A'
+          std::fill_n(__first, __n, _ValueType());
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:544:2: note: in instantiation of function template specialization 'std::__uninitialized_default_n_1<true>::__uninit_default_n<A *, unsigned long>' requested here
+        __uninit_default_n(__first, __n);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:605:12: note: in instantiation of function template specialization 'std::__uninitialized_default_n<A *, unsigned long>' requested here
+    { std::__uninitialized_default_n(__first, __n); }
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:1224:7: note: in instantiation of function template specialization 'std::__uninitialized_default_n_a<A *, unsigned long, A>' requested here
+        std::__uninitialized_default_n_a(this->_M_impl._M_start, __n, 
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:271:9: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::_M_default_initialize' requested here
+      { _M_default_initialize(__n); }
+        ^
+main.cpp:10:20: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::vector' requested here
+    std::vector<A> v1(1);
+                   ^
+main.cpp:5:5: note: implicitly declared private here
+    A() = default;
+    ^
+1 error generated.
