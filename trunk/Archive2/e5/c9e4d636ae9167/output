@@ -1,0 +1,63 @@
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	_Z22with_default_allocatorv
+	.type	_Z22with_default_allocatorv, @function
+_Z22with_default_allocatorv:
+.LFB1925:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$40, %edi
+	call	_Znwm
+	testq	%rax, %rax
+	movq	$0, (%rax)
+	movq	$0, 8(%rax)
+	movq	$0, 16(%rax)
+	movq	$0, 24(%rax)
+	movq	$0, 32(%rax)
+	je	.L1
+	movq	%rax, %rdi
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 5,,7
+	.p2align 3
+.L1:
+	.cfi_restore_state
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1925:
+	.size	_Z22with_default_allocatorv, .-_Z22with_default_allocatorv
+	.p2align 5,,31
+	.globl	_Z21with_custom_allocatorv
+	.type	_Z21with_custom_allocatorv, @function
+_Z21with_custom_allocatorv:
+.LFB1927:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$40, %edi
+	call	_Znwm
+	testq	%rax, %rax
+	je	.L5
+	movq	%rax, %rdi
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	jmp	_ZdlPv
+	.p2align 5,,7
+	.p2align 3
+.L5:
+	.cfi_restore_state
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1927:
+	.size	_Z21with_custom_allocatorv, .-_Z21with_custom_allocatorv
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
