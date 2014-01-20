@@ -1,0 +1,1 @@
+set -x ; clang -x c -std=c99 -O3 -fno-strict-aliasing main.cpp && ./a.out; clang -x c -std=c99 -O3 main.cpp && ./a.out
