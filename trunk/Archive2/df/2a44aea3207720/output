@@ -1,0 +1,13 @@
+main.cpp: In function ‘int main()’:
+main.cpp:12:18: error: no match for ‘operator=’ (operand types are ‘std::remove_reference<MyClass&>::type {aka MyClass}’ and ‘MyClass’)
+     std::move(m) = m;
+                  ^
+main.cpp:12:18: note: candidates are:
+main.cpp:4:12: note: MyClass& MyClass::operator=(const MyClass&) &
+   MyClass& operator = (const MyClass& other) & = default;
+            ^
+main.cpp:4:12: note:   no known conversion for implicit ‘this’ parameter from ‘std::remove_reference<MyClass&>::type {aka MyClass}’ to ‘MyClass&’
+main.cpp:5:12: note: MyClass& MyClass::operator=(MyClass&&) &
+   MyClass& operator = (MyClass&& other) & = default;
+            ^
+main.cpp:5:12: note:   no known conversion for implicit ‘this’ parameter from ‘std::remove_reference<MyClass&>::type {aka MyClass}’ to ‘MyClass&’
