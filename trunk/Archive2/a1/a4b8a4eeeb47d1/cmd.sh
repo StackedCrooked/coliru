@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -pedantic -pthread -lboost_system -lboost_coroutine main.cpp && ./a.out
