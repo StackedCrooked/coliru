@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:52:44: error: no matching function for call to 'parallel_accumulate(std::vector<int>::iterator, <unresolved overloaded function type>, int)'
+     parallel_accumulate(v.begin(), v.end, 0);
+                                            ^
+main.cpp:52:44: note: candidate is:
+main.cpp:16:3: note: template<class Iterator, class T> T parallel_accumulate(Iterator, Iterator, T)
+ T parallel_accumulate(Iterator first,Iterator last,T init)
+   ^
+main.cpp:16:3: note:   template argument deduction/substitution failed:
+main.cpp:52:44: note:   could not resolve address from overloaded function 'v.std::vector<int>::end'
+     parallel_accumulate(v.begin(), v.end, 0);
+                                            ^
