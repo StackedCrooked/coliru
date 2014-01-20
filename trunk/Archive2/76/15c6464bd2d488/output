@@ -1,0 +1,27 @@
+In file included from main.cpp:2:
+In file included from /usr/local/include/boost/bind.hpp:22:
+/usr/local/include/boost/bind/bind.hpp:392:36: error: no viable overloaded operator[] for type 'boost::_bi::list0'
+        unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_], a[base_type::a3_]);
+                                   ^ ~~~~~~~~~~~~~~
+/usr/local/include/boost/bind/bind_template.hpp:20:27: note: in instantiation of function template specialization 'boost::_bi::list3<boost::arg<1> (*)(), boost::_bi::value<boost::asio::basic_socket_acceptor<boost::asio::ip::tcp, boost::asio::socket_acceptor_service<boost::asio::ip::tcp> > *>, boost::_bi::value<std::shared_ptr<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> > > > >::operator()<void (*)(boost::system::error_code &, boost::asio::basic_socket_acceptor<boost::asio::ip::tcp, boost::asio::socket_acceptor_service<boost::asio::ip::tcp> > *, std::shared_ptr<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> > >), boost::_bi::list0>' requested here
+        BOOST_BIND_RETURN l_(type<result_type>(), f_, a, 0);
+                          ^
+main.cpp:31:5: note: in instantiation of member function 'boost::_bi::bind_t<void, void (*)(boost::system::error_code &, boost::asio::basic_socket_acceptor<boost::asio::ip::tcp, boost::asio::socket_acceptor_service<boost::asio::ip::tcp> > *, std::shared_ptr<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> > >), boost::_bi::list3<boost::arg<1> (*)(), boost::_bi::value<boost::asio::basic_socket_acceptor<boost::asio::ip::tcp, boost::asio::socket_acceptor_service<boost::asio::ip::tcp> > *>, boost::_bi::value<std::shared_ptr<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> > > > > >::operator()' requested here
+  fn();
+    ^
+/usr/local/include/boost/bind/bind.hpp:170:27: note: candidate template ignored: could not match 'value<type-parameter-0-0>' against 'boost::arg<1> ()'
+    template<class T> T & operator[] (_bi::value<T> & v) const { return v.get(); }
+                          ^
+/usr/local/include/boost/bind/bind.hpp:172:33: note: candidate template ignored: could not match 'value<type-parameter-0-0>' against 'boost::arg<1> ()'
+    template<class T> T const & operator[] (_bi::value<T> const & v) const { return v.get(); }
+                                ^
+/usr/local/include/boost/bind/bind.hpp:174:27: note: candidate template ignored: could not match 'reference_wrapper<type-parameter-0-0>' against 'boost::arg<1> ()'
+    template<class T> T & operator[] (reference_wrapper<T> const & v) const { return v.get(); }
+                          ^
+/usr/local/include/boost/bind/bind.hpp:176:76: note: candidate template ignored: could not match 'bind_t<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'boost::arg<1> ()'
+    template<class R, class F, class L> typename result_traits<R, F>::type operator[] (bind_t<R, F, L> & b) const { return b.eval(*this); }
+                                                                           ^
+/usr/local/include/boost/bind/bind.hpp:178:76: note: candidate template ignored: could not match 'bind_t<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'boost::arg<1> ()'
+    template<class R, class F, class L> typename result_traits<R, F>::type operator[] (bind_t<R, F, L> const & b) const { return b.eval(*this); }
+                                                                           ^
+1 error generated.
