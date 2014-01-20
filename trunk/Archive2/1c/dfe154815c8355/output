@@ -1,0 +1,39 @@
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/functional: In instantiation of 'struct std::_Bind<void (*())(int, int, int)>':
+main.cpp:6:16:   required from here
+/usr/include/c++/4.8/functional:1347:37: error: too few arguments to function
+  = decltype( std::declval<_Functor>()(
+                                     ^
+main.cpp: In function 'int main()':
+main.cpp:6:23: error: no match for call to '(std::_Bind_helper<false, void (&)(int, int, int)>::type {aka std::_Bind<void (*())(int, int, int)>}) (int, int, int)'
+     std::bind(f)(1,2,3);
+                       ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/functional:1280:11: note: candidates are:
+     class _Bind<_Functor(_Bound_args...)>
+           ^
+/usr/include/c++/4.8/functional:1351:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {_Args ...}; _Result = _Result; _Functor = void (*)(int, int, int); _Bound_args = {}]
+  operator()(_Args&&... __args)
+  ^
+/usr/include/c++/4.8/functional:1351:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:1365:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const [with _Args = {_Args ...}; _Result = _Result; _Functor = void (*)(int, int, int); _Bound_args = {}]
+  operator()(_Args&&... __args) const
+  ^
+/usr/include/c++/4.8/functional:1365:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:1361:53: error: too few arguments to function
+          typename add_const<_Functor>::type>::type>()(
+                                                     ^
+/usr/include/c++/4.8/functional:1379:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = void (*)(int, int, int); _Bound_args = {}]
+  operator()(_Args&&... __args) volatile
+  ^
+/usr/include/c++/4.8/functional:1379:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:1375:70: error: too few arguments to function
+                        typename add_volatile<_Functor>::type>::type>()(
+                                                                      ^
+/usr/include/c++/4.8/functional:1393:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = void (*)(int, int, int); _Bound_args = {}]
+  operator()(_Args&&... __args) const volatile
+  ^
+/usr/include/c++/4.8/functional:1393:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:1389:64: error: too few arguments to function
+                        typename add_cv<_Functor>::type>::type>()(
+                                                                ^
