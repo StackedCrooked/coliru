@@ -1,0 +1,16 @@
+main.cpp:37:15: error: no member named 'doTheDew' in 'Command<void, void>'
+        this->doTheDew(); // 1
+        ~~~~  ^
+main.cpp:29:15: error: no member named 'doTheDew' in 'Command<int, void>'
+        this->doTheDew();
+        ~~~~  ^
+main.cpp:43:23: note: in instantiation of member function 'Command<int, void>::Command' requested here
+    Command<int,void> c1; // fail
+                      ^
+main.cpp:21:15: error: no member named 'doTheDew' in 'Command<void, int>'
+        this->doTheDew();
+        ~~~~  ^
+main.cpp:44:23: note: in instantiation of member function 'Command<void, int>::Command' requested here
+    Command<void,int> c2; // fail
+                      ^
+3 errors generated.
