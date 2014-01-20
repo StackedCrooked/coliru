@@ -1,0 +1,15 @@
+main.cpp: In function ‘int main()’:
+main.cpp:9:11: warning: ignoring return value of ‘char* gets(char*)’, declared with attribute warn_unused_result [-Wunused-result]
+  gets(arr);
+           ^
+*** buffer overflow detected ***: ./a.out terminated
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(__fortify_fail+0x37)[0x7fed7e31d817]
+/lib/x86_64-linux-gnu/libc.so.6(+0x109710)[0x7fed7e31c710]
+/lib/x86_64-linux-gnu/libc.so.6(__gets_chk+0x179)[0x7fed7e31c649]
+./a.out[0x400853]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fed7e23476d]
+./a.out[0x400931]
+======= Memory map: ========
+Enter string bash: line 8: 16795 Aborted                 (core dumped) ./a.out <<< "over10bytes
+11"
