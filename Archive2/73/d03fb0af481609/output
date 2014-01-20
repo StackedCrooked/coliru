@@ -1,0 +1,26 @@
+main.cpp: In function 'int main()':
+main.cpp:23:16: error: aggregate 'main()::buffer buf' has incomplete type and cannot be defined
+  struct buffer buf;
+                ^
+main.cpp:24:9: error: 'memcpy' was not declared in this scope
+  memcpy()
+         ^
+main.cpp:25:2: error: expected ';' before 'pthread_t'
+  pthread_t thread1, thread2;
+  ^
+main.cpp:26:27: error: 'thread1' was not declared in this scope
+  int r1 = pthread_create(&thread1, NULL, produce, buf);
+                           ^
+main.cpp:27:27: error: 'thread2' was not declared in this scope
+  int r2 = pthread_create(&thread2, NULL, consume, buf);
+                           ^
+main.cpp:26:6: warning: unused variable 'r1' [-Wunused-variable]
+  int r1 = pthread_create(&thread1, NULL, produce, buf);
+      ^
+main.cpp:27:6: warning: unused variable 'r2' [-Wunused-variable]
+  int r2 = pthread_create(&thread2, NULL, consume, buf);
+      ^
+main.cpp: At global scope:
+main.cpp:19:3: warning: 'buffer' defined but not used [-Wunused-variable]
+ } buffer;
+   ^
