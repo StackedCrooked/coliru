@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O0 -W -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:11:5: error: static_assert failed "check failed"
+    static_assert(std::is_same<L, R>::value, "check failed");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:21:1: note: in instantiation of template class 'self_check<bar *, foo *>' requested here
+using self_check_t = typename self_check<L, R>::type;
+^
+main.cpp:30:24: note: in instantiation of template type alias 'self_check_t' requested here
+    auto ret_self() -> self_check_t<decltype(this), foo*>;
+                       ^
+main.cpp:35:9: warning: unused variable 'f' [-Wunused-variable]
+    foo f;
+        ^
+1 warning and 1 error generated.
