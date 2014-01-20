@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -stdlib=libc++ -W -Wall -Wextra -pedantic-errors -O3 main.cpp -lsupc++ && ./a.out
