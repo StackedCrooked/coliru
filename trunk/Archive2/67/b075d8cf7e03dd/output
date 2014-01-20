@@ -1,0 +1,37 @@
+main.cpp:7:59: error: no matching member function for call to 'insert'
+    auto store = [&](auto pair) { storage<decltype(pair)>.insert(pair); };
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+main.cpp:9:10: note: in instantiation of function template specialization 'some_func()::<anonymous class>::operator()<std::pair<int, int> >' requested here
+    store(std::pair<int, int>(0, 1));
+         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:594:7: note: candidate function not viable: no known conversion from 'pair<int, int>' to 'const pair<const int, struct std::pair<int, int>>' for 1st argument
+      insert(const value_type& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:615:7: note: candidate function not viable: no known conversion from 'std::pair<int, int>' to 'std::initializer_list<value_type>' for 1st argument
+      insert(std::initializer_list<value_type> __list)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:599:24: note: candidate template ignored: disabled by 'enable_if' [with _Pair = std::pair<int, int> &]
+               std::enable_if<std::is_constructible<value_type,
+                              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:655:9: note: candidate function template not viable: requires 2 arguments, but 1 was provided
+        insert(const_iterator __position, _Pair&& __x)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:670:9: note: candidate function template not viable: requires 2 arguments, but 1 was provided
+        insert(_InputIterator __first, _InputIterator __last)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:644:7: note: candidate function not viable: requires 2 arguments, but 1 was provided
+      insert(const_iterator __position, const value_type& __x)
+      ^
+main.cpp:10:5: error: no matching function for call to object of type '<lambda at main.cpp:7:18>'
+    store(std::pair<int, int>(1, 2));
+    ^~~~~
+main.cpp:7:18: note: candidate template ignored: substitution failure [with $auto-0-0 = std::pair<int, int>]
+    auto store = [&](auto pair) { storage<decltype(pair)>.insert(pair); };
+                 ^
+main.cpp:11:5: error: no matching function for call to object of type '<lambda at main.cpp:7:18>'
+    store(std::pair<int, int>(2, 3));
+    ^~~~~
+main.cpp:7:18: note: candidate template ignored: substitution failure [with $auto-0-0 = std::pair<int, int>]
+    auto store = [&](auto pair) { storage<decltype(pair)>.insert(pair); };
+                 ^
+3 errors generated.
