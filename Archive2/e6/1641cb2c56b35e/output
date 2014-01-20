@@ -1,0 +1,15 @@
+main.cpp: In function 'std::vector<double> repeatFunction(F)':
+main.cpp:26:19: error: 'mean' is not a member of 'std'
+    info.push_back(std::mean(numCalls));
+                   ^
+main.cpp:27:45: error: there are no arguments to 'standardDeviation' that depend on a template parameter, so a declaration of 'standardDeviation' must be available [-fpermissive]
+    info.push_back(standardDeviation(numCalls));
+                                             ^
+main.cpp:27:45: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In function 'int main()':
+main.cpp:40:56: error: 'mean' was not declared in this scope
+    std::vector<double> info = repeatFunction(std::bind(mean<double>, x));
+                                                        ^
+main.cpp:40:61: error: expected primary-expression before 'double'
+    std::vector<double> info = repeatFunction(std::bind(mean<double>, x));
+                                                             ^
