@@ -1,0 +1,7 @@
+main.cpp:6:54: error: assigning to 'int' from incompatible type 'char const[5]'
+template <typename T> auto set_a(T&& a) -> void { _a = std::forward<T>(a); }
+                                                     ^ ~~~~~~~~~~~~~~~~~~
+main.cpp:11:5: note: in instantiation of function template specialization 'set_a<char const (&)[5]>' requested here
+    set_a("feep");
+    ^
+1 error generated.
