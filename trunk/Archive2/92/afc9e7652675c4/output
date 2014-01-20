@@ -1,0 +1,55 @@
+main.cpp:6:10: warning: unused variable 'x' [-Wunused-variable]
+    auto x = pi<double>;
+         ^
+0  clang           0x0000000001e01f75 llvm::sys::PrintStackTrace(_IO_FILE*) + 37
+1  clang           0x0000000001e02763
+2  libpthread.so.0 0x00007f86afa51cb0
+3  clang           0x000000000106ebbe clang::ASTContext::getTypeInfoImpl(clang::Type const*) const + 958
+4  clang           0x000000000106e738 clang::ASTContext::getTypeInfo(clang::Type const*) const + 168
+5  clang           0x000000000106eba2 clang::ASTContext::getTypeInfoImpl(clang::Type const*) const + 930
+6  clang           0x000000000106e738 clang::ASTContext::getTypeInfo(clang::Type const*) const + 168
+7  clang           0x000000000106e413 clang::ASTContext::getPreferredTypeAlign(clang::Type const*) const + 19
+8  clang           0x000000000106df47 clang::ASTContext::getDeclAlign(clang::Decl const*, bool) const + 951
+9  clang           0x00000000008ccd95 clang::CodeGen::CodeGenFunction::EmitAutoVarAlloca(clang::VarDecl const&) + 213
+10 clang           0x00000000008cb4e8 clang::CodeGen::CodeGenFunction::EmitVarDecl(clang::VarDecl const&) + 248
+11 clang           0x0000000000852cbc clang::CodeGen::CodeGenFunction::EmitDeclStmt(clang::DeclStmt const&) + 172
+12 clang           0x000000000084d073 clang::CodeGen::CodeGenFunction::EmitSimpleStmt(clang::Stmt const*) + 595
+13 clang           0x000000000084c9f9 clang::CodeGen::CodeGenFunction::EmitStmt(clang::Stmt const*) + 25
+14 clang           0x000000000085322b clang::CodeGen::CodeGenFunction::EmitCompoundStmtWithoutScope(clang::CompoundStmt const&, bool, clang::CodeGen::AggValueSlot) + 91
+15 clang           0x000000000085d333 clang::CodeGen::CodeGenFunction::GenerateCode(clang::GlobalDecl, llvm::Function*, clang::CodeGen::CGFunctionInfo const&) + 995
+16 clang           0x0000000000866eb0 clang::CodeGen::CodeGenModule::EmitGlobalFunctionDefinition(clang::GlobalDecl, llvm::GlobalValue*) + 640
+17 clang           0x00000000008646f5 clang::CodeGen::CodeGenModule::EmitGlobalDefinition(clang::GlobalDecl, llvm::GlobalValue*) + 293
+18 clang           0x0000000000866278 clang::CodeGen::CodeGenModule::EmitGlobal(clang::GlobalDecl) + 1336
+19 clang           0x000000000086862b clang::CodeGen::CodeGenModule::EmitTopLevelDecl(clang::Decl*) + 427
+20 clang           0x000000000082823f
+21 clang           0x000000000082771e
+22 clang           0x0000000000978303 clang::ParseAST(clang::Sema&, bool, bool) + 435
+23 clang           0x0000000000826a88 clang::CodeGenAction::ExecuteAction() + 72
+24 clang           0x00000000006bb9c1 clang::FrontendAction::Execute() + 81
+25 clang           0x0000000000699afd clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 813
+26 clang           0x00000000006833e2 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 2898
+27 clang           0x000000000067b777 cc1_main(char const**, char const**, char const*, void*) + 663
+28 clang           0x0000000000681760 main + 9312
+29 libc.so.6       0x00007f86aea8176d __libc_start_main + 237
+30 clang           0x000000000067b3fd
+Stack dump:
+0.	Program arguments: /usr/local/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -resource-dir /usr/local/bin/../lib/clang/3.5 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.5/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wall -pedantic -std=c++1y -fdeprecated-macro -fdebug-compilation-dir /tmp/1389973184-75767453 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o /tmp/main-447a01.o -x c++ main.cpp 
+1.	<eof> parser at end of file
+2.	main.cpp:4:5: LLVM IR generation of declaration 'main'
+3.	main.cpp:4:5: Generating code for declaration 'main'
+clang: error: unable to execute command: Segmentation fault (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 3.5 (trunk 198621)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+clang: note: diagnostic msg: PLEASE submit a bug report to http://llvm.org/bugs/ and include the crash backtrace, preprocessed source, and associated run script.
+clang: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang: note: diagnostic msg: /tmp/main-f0724e.cpp
+clang: note: diagnostic msg: /tmp/main-f0724e.sh
+clang: note: diagnostic msg: 
+
+********************
