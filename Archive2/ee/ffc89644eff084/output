@@ -1,0 +1,18 @@
+main.cpp: In member function 'void LibraryUser::saveDoubleData(double*)':
+main.cpp:29:36: error: no matching function for call to 'MyTemplateClass<boost::any>::saveData(double*&)'
+     my_generic_object.saveData(data);
+                                    ^
+main.cpp:29:36: note: candidate is:
+main.cpp:15:6: note: void MyTemplateClass<T>::saveData(T*) [with T = boost::any]
+ void MyTemplateClass<T>::saveData(T *data){
+      ^
+main.cpp:15:6: note:   no known conversion for argument 1 from 'double*' to 'boost::any*'
+main.cpp: In member function 'void LibraryUser::saveFloatData(float*)':
+main.cpp:34:36: error: no matching function for call to 'MyTemplateClass<boost::any>::saveData(float*&)'
+     my_generic_object.saveData(data);
+                                    ^
+main.cpp:34:36: note: candidate is:
+main.cpp:15:6: note: void MyTemplateClass<T>::saveData(T*) [with T = boost::any]
+ void MyTemplateClass<T>::saveData(T *data){
+      ^
+main.cpp:15:6: note:   no known conversion for argument 1 from 'float*' to 'boost::any*'
