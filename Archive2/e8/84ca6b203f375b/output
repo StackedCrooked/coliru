@@ -1,0 +1,24 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:4:35: error: expected primary-expression before ')' token
+     using self = decltype(((self_*)0)());
+                                   ^
+main.cpp:4:36: error: expected ')' before numeric constant
+     using self = decltype(((self_*)0)());
+                                    ^
+main.cpp:4:41: error: expected ')' before ';' token
+     using self = decltype(((self_*)0)());
+                                         ^
+main.cpp:4:18: error: expected type-specifier before 'decltype'
+     using self = decltype(((self_*)0)());
+                  ^
+main.cpp: In member function 'A& A::self_()':
+main.cpp:3:46: error: invalid initialization of non-const reference of type 'A&' from an rvalue of type 'A* const'
+     auto self_() -> decltype(*this) { return this; }
+                                              ^
+main.cpp: In function 'int main()':
+main.cpp:8:5: error: 'self' is not a member of 'A'
+     A::self x;
+     ^
+main.cpp:8:13: error: expected ';' before 'x'
+     A::self x;
+             ^
