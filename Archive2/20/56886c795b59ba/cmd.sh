@@ -1,0 +1,1 @@
+clang++ -c main.cpp
