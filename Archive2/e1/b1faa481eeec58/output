@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:12:83: error: conversion from 'void' to non-scalar type 'std::string {aka std::basic_string<char>}' requested
+   string output_string=replace(string_to_edit.begin(),string_to_edit.end(),"a","x");               
+                                                                                   ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of 'void std::replace(_FIter, _FIter, const _Tp&, const _Tp&) [with _FIter = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; _Tp = char [2]]':
+main.cpp:12:83:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:5020:15: error: ISO C++ forbids comparison between pointer and integer [-fpermissive]
+  if (*__first == __old_value)
+               ^
+/usr/include/c++/4.8/bits/stl_algo.h:5021:13: error: invalid conversion from 'const char*' to 'char' [-fpermissive]
+    *__first = __new_value;
+             ^
