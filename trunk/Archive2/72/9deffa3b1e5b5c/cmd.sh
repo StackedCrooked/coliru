@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -stdlib=libc++ -I/usr/include/c++/v1 -W -Wall -Wextra -pedantic-errors -O3 main.cpp -lsupc++ && echo "Cubbi" | ./a.out
