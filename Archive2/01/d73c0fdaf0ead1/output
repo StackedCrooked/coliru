@@ -1,0 +1,10 @@
+main.cpp:7:13: warning: variable 'pi<int>' has internal linkage but is not defined [-Wundefined-internal]
+constexpr T pi = T(3.1415926535897932385);
+            ^
+main.cpp:12:12: note: used here
+    return pi<T> * r * r;
+           ^
+1 warning generated.
+/tmp/main-c98816.o: In function `main':
+main.cpp:(.text+0x3): undefined reference to `_ZL2piIiE'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
