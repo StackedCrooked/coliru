@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -fno-if-conversion main.cpp && ./a.out
