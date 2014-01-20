@@ -1,0 +1,44 @@
+In file included from /usr/include/c++/4.8/set:60:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_tree.h: In instantiation of 'std::pair<std::_Rb_tree_node_base*, std::_Rb_tree_node_base*> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_insert_unique_pos(const key_type&) [with _Key = A; _Val = A; _KeyOfValue = std::_Identity<A>; _Compare = cmp; _Alloc = std::allocator<A>; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::key_type = A]':
+/usr/include/c++/4.8/bits/stl_tree.h:1374:47:   required from 'std::pair<std::_Rb_tree_iterator<_Val>, bool> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique(_Arg&&) [with _Arg = A; _Key = A; _Val = A; _KeyOfValue = std::_Identity<A>; _Compare = cmp; _Alloc = std::allocator<A>]'
+/usr/include/c++/4.8/bits/stl_set.h:472:40:   required from 'std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = A; _Compare = cmp; _Alloc = std::allocator<A>; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<A>; std::set<_Key, _Compare, _Alloc>::value_type = A]'
+main.cpp:21:19:   required from here
+/usr/include/c++/4.8/bits/stl_tree.h:1321:11: error: no match for call to '(cmp) (const key_type&, const A&)'
+    __comp = _M_impl._M_key_compare(__k, _S_key(__x));
+           ^
+main.cpp:9:8: note: candidate is:
+ struct cmp
+        ^
+main.cpp:11:10: note: bool cmp::operator()(A&, A&) const
+     bool operator() ( A& first, A& second ) const
+          ^
+main.cpp:11:10: note:   no known conversion for argument 1 from 'const key_type {aka const A}' to 'A&'
+In file included from /usr/include/c++/4.8/set:60:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_tree.h:1332:7: error: no match for call to '(cmp) (const A&, const key_type&)'
+       if (_M_impl._M_key_compare(_S_key(__j._M_node), __k))
+       ^
+main.cpp:9:8: note: candidate is:
+ struct cmp
+        ^
+main.cpp:11:10: note: bool cmp::operator()(A&, A&) const
+     bool operator() ( A& first, A& second ) const
+          ^
+main.cpp:11:10: note:   no known conversion for argument 1 from 'const A' to 'A&'
+In file included from /usr/include/c++/4.8/set:60:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_tree.h: In instantiation of 'std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, _Arg&&) [with _Arg = A; _Key = A; _Val = A; _KeyOfValue = std::_Identity<A>; _Compare = cmp; _Alloc = std::allocator<A>; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator = std::_Rb_tree_iterator<A>; std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr = std::_Rb_tree_node_base*]':
+/usr/include/c++/4.8/bits/stl_tree.h:1378:38:   required from 'std::pair<std::_Rb_tree_iterator<_Val>, bool> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique(_Arg&&) [with _Arg = A; _Key = A; _Val = A; _KeyOfValue = std::_Identity<A>; _Compare = cmp; _Alloc = std::allocator<A>]'
+/usr/include/c++/4.8/bits/stl_set.h:472:40:   required from 'std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = A; _Compare = cmp; _Alloc = std::allocator<A>; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename _Alloc::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<A>; std::set<_Key, _Compare, _Alloc>::value_type = A]'
+main.cpp:21:19:   required from here
+/usr/include/c++/4.8/bits/stl_tree.h:1017:8: error: no match for call to '(cmp) (A&, const A&)'
+        || _M_impl._M_key_compare(_KeyOfValue()(__v),
+        ^
+main.cpp:9:8: note: candidate is:
+ struct cmp
+        ^
+main.cpp:11:10: note: bool cmp::operator()(A&, A&) const
+     bool operator() ( A& first, A& second ) const
+          ^
+main.cpp:11:10: note:   no known conversion for argument 2 from 'const A' to 'A&'
