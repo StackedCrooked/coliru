@@ -1,0 +1,39 @@
+main.cpp:11:21: error: no matching literal operator for call to 'operator "" s' with arguments of types 'const char *' and 'unsigned long', and no matching literal operator template
+    store(1, "Hello"s);
+                    ^
+main.cpp:8:64: error: no matching member function for call to 'insert'
+    auto store = [](int key, const auto& value) { storage<int>.insert(key, value); };
+                                                  ~~~~~~~~~~~~~^~~~~~
+main.cpp:12:10: note: in instantiation of function template specialization 'some_func()::<anonymous class>::operator()<double>' requested here
+    store(2, 0.7);
+         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:644:7: note: candidate function not viable: no known conversion from 'int' to 'const_iterator' (aka '_Rb_tree_const_iterator<value_type>') for 1st argument
+      insert(const_iterator __position, const value_type& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:670:9: note: candidate template ignored: deduced conflicting types for parameter '_InputIterator' ('int' vs. 'double')
+        insert(_InputIterator __first, _InputIterator __last)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:652:24: note: candidate template ignored: disabled by 'enable_if' [with _Pair = const double &]
+               std::enable_if<std::is_constructible<value_type,
+                              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:602:9: note: candidate function template not viable: requires single argument '__x', but 2 arguments were provided
+        insert(_Pair&& __x)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:594:7: note: candidate function not viable: requires single argument '__x', but 2 arguments were provided
+      insert(const value_type& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:615:7: note: candidate function not viable: requires single argument '__list', but 2 arguments were provided
+      insert(std::initializer_list<value_type> __list)
+      ^
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/map:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_tree.h:1719:29: error: indirection requires pointer operand ('int' invalid)
+          _M_insert_unique_(end(), *__first);
+                                   ^~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_map.h:671:16: note: in instantiation of function template specialization 'std::_Rb_tree<int, std::pair<const int, int>, std::_Select1st<std::pair<const int, int> >, std::less<int>, std::allocator<std::pair<const int, int> > >::_M_insert_unique<int>' requested here
+        { _M_t._M_insert_unique(__first, __last); }
+               ^
+main.cpp:8:64: note: in instantiation of function template specialization 'std::map<int, int, std::less<int>, std::allocator<std::pair<const int, int> > >::insert<int>' requested here
+    auto store = [](int key, const auto& value) { storage<int>.insert(key, value); };
+                                                               ^
+3 errors generated.
