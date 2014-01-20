@@ -1,0 +1,22 @@
+In file included from /usr/local/include/boost/serialization/version.hpp:20:0,
+                 from /usr/local/include/boost/archive/detail/oserializer.hpp:52,
+                 from /usr/local/include/boost/archive/detail/interface_oarchive.hpp:23,
+                 from /usr/local/include/boost/archive/detail/common_oarchive.hpp:22,
+                 from /usr/local/include/boost/archive/basic_xml_oarchive.hpp:21,
+                 from /usr/local/include/boost/archive/xml_oarchive.hpp:31,
+                 from main.cpp:6:
+/usr/local/include/boost/archive/basic_xml_iarchive.hpp: In instantiation of 'void boost::archive::basic_xml_iarchive<Archive>::load_override(T&, int) [with T = gps_position; Archive = boost::archive::xml_iarchive]':
+/usr/local/include/boost/archive/xml_iarchive.hpp:93:56:   required from 'void boost::archive::xml_iarchive_impl<Archive>::load_override(T&, int) [with T = gps_position; Archive = boost::archive::xml_iarchive]'
+/usr/local/include/boost/archive/detail/interface_iarchive.hpp:60:9:   required from 'Archive& boost::archive::detail::interface_iarchive<Archive>::operator>>(T&) [with T = gps_position; Archive = boost::archive::xml_iarchive]'
+main.cpp:61:15:   required from here
+/usr/local/include/boost/archive/basic_xml_iarchive.hpp:70:9: error: no matching function for call to 'assertion_failed(mpl_::failed************ boost::serialization::is_wrapper<gps_position>::************)'
+         BOOST_MPL_ASSERT((serialization::is_wrapper< T >));
+         ^
+/usr/local/include/boost/archive/basic_xml_iarchive.hpp:70:9: note: candidate is:
+/usr/local/include/boost/mpl/assert.hpp:82:5: note: template<bool C> int mpl_::assertion_failed(typename mpl_::assert<C>::type)
+ int assertion_failed( typename assert<C>::type );
+     ^
+/usr/local/include/boost/mpl/assert.hpp:82:5: note:   template argument deduction/substitution failed:
+/usr/local/include/boost/archive/basic_xml_iarchive.hpp:70:9: note:   cannot convert 'mpl_::assert_arg<boost::serialization::is_wrapper<gps_position> >(0u, 1)' (type 'mpl_::failed************ boost::serialization::is_wrapper<gps_position>::************') to type 'mpl_::assert<false>::type {aka mpl_::assert<false>}'
+         BOOST_MPL_ASSERT((serialization::is_wrapper< T >));
+         ^
