@@ -1,0 +1,1 @@
+set -x ; g++ -O2 -pthread main.cpp && ./a.out
