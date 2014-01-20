@@ -1,0 +1,9 @@
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:10:37: error: 'void*' is not a pointer-to-object type
+     int u = reinterpret_cast<int&>(*v);
+                                     ^
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
++ ./a.out
+5
+5
