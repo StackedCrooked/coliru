@@ -1,0 +1,18 @@
+main.cpp: In constructor 'Vector_container::Vector_container(int)':
+main.cpp:24:33: warning: narrowing conversion of 's' from 'int' to 'double' inside { } [-Wnarrowing]
+     Vector_container(int s): v{s}{}
+                                 ^
+main.cpp:24:33: warning: narrowing conversion of 's' from 'int' to 'double' inside { } [-Wnarrowing]
+main.cpp: In function 'int main()':
+main.cpp:38:54: error: no matching function for call to 'Vector_container::Vector_container(<brace-enclosed initializer list>)'
+     Vector_container vc{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+                                                      ^
+main.cpp:38:54: note: candidates are:
+main.cpp:24:5: note: Vector_container::Vector_container(int)
+     Vector_container(int s): v{s}{}
+     ^
+main.cpp:24:5: note:   candidate expects 1 argument, 10 provided
+main.cpp:21:7: note: constexpr Vector_container::Vector_container(const Vector_container&)
+ class Vector_container:public Container{
+       ^
+main.cpp:21:7: note:   candidate expects 1 argument, 10 provided
