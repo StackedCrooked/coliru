@@ -28,6 +28,7 @@ source logger.source
 )
  
 commit() {
+    svnunknowns $1 | xargs svn add 
     svn ci $1 -m "Updating archive." || sleep 1
 }
 
