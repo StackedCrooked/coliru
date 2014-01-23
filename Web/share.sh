@@ -44,5 +44,7 @@ echo "${id}" | sed 's,/,,'
     # run program, writing to output file in the archive
     ./build_and_run.sh >${path}/output 2>&1
 
+    svn ci ${path} -m "Adding $(basename $path)."
+
 } >/dev/null 2>&1
 
