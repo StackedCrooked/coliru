@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out <<< '4.000001 5.000004 3.000002'
