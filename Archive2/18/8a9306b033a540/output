@@ -1,0 +1,94 @@
+Output:
+0123412341234000000
+----------
+
+	.file	"main.cpp"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"\n----------\n\n"
+.LC1:
+	.string	"Output:\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB973:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	jmp	.L6
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	movslq	12(%rsp), %rax
+	addl	$1234, A(,%rax,4)
+.L6:
+	leaq	12(%rsp), %rsi
+	movl	$_ZSt3cin, %edi
+	call	_ZNSirsERi
+	movq	(%rax), %rdx
+	movq	-24(%rdx), %rdx
+	testb	$5, 32(%rax,%rdx)
+	je	.L7
+	movl	$.LC1, %esi
+	movl	$_ZSt4cout, %edi
+	movl	$A, %ebx
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	movl	(%rbx), %esi
+	movl	$_ZSt4cout, %edi
+	addq	$4, %rbx
+	call	_ZNSolsEi
+	cmpq	$A+40, %rbx
+	jne	.L5
+	movl	$.LC0, %esi
+	movl	$_ZSt4cout, %edi
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 16
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE973:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_A, @function
+_GLOBAL__sub_I_A:
+.LFB980:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE980:
+	.size	_GLOBAL__sub_I_A, .-_GLOBAL__sub_I_A
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_A
+	.globl	A
+	.bss
+	.align 32
+	.type	A, @object
+	.size	A, 40
+A:
+	.zero	40
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.8.2"
+	.section	.note.GNU-stack,"",@progbits
