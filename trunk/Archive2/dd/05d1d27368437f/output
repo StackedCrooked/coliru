@@ -1,0 +1,14 @@
++ g++-4.8 -O3 -pedantic -Wall -Wextra -Wconversion -std=c++11 -pthread main.cpp
+main.cpp: In lambda function:
+main.cpp:39:20: warning: conversion to 'float' from 'int' may alter its value [-Wconversion]
+         return x + y + z;
+                    ^
+main.cpp: In lambda function:
+main.cpp:46:20: warning: conversion to 'float' from 'int' may alter its value [-Wconversion]
+         return x + y + z;
+                    ^
++ ./a.out
+7.2
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  type error: t_app wrong arity
+bash: line 8: 11849 Aborted                 (core dumped) ./a.out
