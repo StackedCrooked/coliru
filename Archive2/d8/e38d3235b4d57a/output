@@ -1,0 +1,46 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type '<lambda at main.cpp:6:9>' cannot bind to lvalue of type '<lambda at main.cpp:6:9>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, <lambda at main.cpp:6:9> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:6:9>, std::__1::allocator<<lambda at main.cpp:6:9> >, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+/usr/include/c++/v1/functional:1378:5: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:6:9> >' requested here
+    function(_VSTD::forward<_Fp>(__f)).swap(*this);
+    ^
+main.cpp:6:7: note: in instantiation of function template specialization 'std::__1::function<void ()>::operator=<<lambda at main.cpp:6:9> >' requested here
+    f = [&]() { f(); };
+      ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<<lambda at main.cpp:6:9> > &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:6:9>, std::__1::allocator<<lambda at main.cpp:6:9> >, void ()>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+/usr/include/c++/v1/functional:1378:5: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:6:9> >' requested here
+    function(_VSTD::forward<_Fp>(__f)).swap(*this);
+    ^
+main.cpp:6:7: note: in instantiation of function template specialization 'std::__1::function<void ()>::operator=<<lambda at main.cpp:6:9> >' requested here
+    f = [&]() { f(); };
+      ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4 errors generated.
