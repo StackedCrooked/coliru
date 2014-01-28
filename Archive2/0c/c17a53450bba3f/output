@@ -1,0 +1,65 @@
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'struct __gnu_cxx::new_allocator<const std::basic_string<char> >':
+/usr/include/c++/4.8/bits/allocator.h:92:11:   required from 'class std::allocator<const std::basic_string<char> >'
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<const std::basic_string<char> > >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<const std::basic_string<char> > >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<const std::basic_string<char>, std::allocator<const std::basic_string<char> > >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<const std::basic_string<char> >'
+main.cpp:7:40:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:93:7: error: 'const _Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::const_reference) const [with _Tp = const std::basic_string<char>; __gnu_cxx::new_allocator<_Tp>::const_pointer = const std::basic_string<char>*; __gnu_cxx::new_allocator<_Tp>::const_reference = const std::basic_string<char>&]' cannot be overloaded
+       address(const_reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/ext/new_allocator.h:89:7: error: with '_Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::reference) const [with _Tp = const std::basic_string<char>; __gnu_cxx::new_allocator<_Tp>::pointer = const std::basic_string<char>*; __gnu_cxx::new_allocator<_Tp>::reference = const std::basic_string<char>&]'
+       address(reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = const std::basic_string<char>; __gnu_cxx::new_allocator<_Tp>::pointer = const std::basic_string<char>*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/usr/include/c++/4.8/bits/stl_vector.h:174:4:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = const std::basic_string<char>; _Alloc = std::allocator<const std::basic_string<char> >; std::_Vector_base<_Tp, _Alloc>::pointer = const std::basic_string<char>*; std::size_t = long unsigned int]'
+/usr/include/c++/4.8/bits/stl_vector.h:161:33:   required from 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = const std::basic_string<char>; _Alloc = std::allocator<const std::basic_string<char> >]'
+/usr/include/c++/4.8/bits/stl_vector.h:366:18:   required from 'std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = const std::basic_string<char>; _Alloc = std::allocator<const std::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<const std::basic_string<char> >]'
+main.cpp:7:67:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:110:30: error: no matching function for call to 'operator delete(const std::basic_string<char>*&)'
+       { ::operator delete(__p); }
+                              ^
+/usr/include/c++/4.8/ext/new_allocator.h:110:30: note: candidates are:
+In file included from /usr/include/c++/4.8/ext/new_allocator.h:33:0,
+                 from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/new:95:6: note: void operator delete(void*) <near match>
+ void operator delete(void*) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/include/c++/4.8/new:95:6: note:   no known conversion for argument 1 from '__gnu_cxx::new_allocator<const std::basic_string<char> >::pointer {aka const std::basic_string<char>*}' to 'void*'
+/usr/include/c++/4.8/new:103:6: note: void operator delete(void*, const std::nothrow_t&)
+ void operator delete(void*, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/include/c++/4.8/new:103:6: note:   candidate expects 2 arguments, 1 provided
+/usr/include/c++/4.8/new:115:13: note: void operator delete(void*, void*)
+ inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
+             ^
+/usr/include/c++/4.8/new:115:13: note:   candidate expects 2 arguments, 1 provided
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = const std::basic_string<char>; _Args = {const std::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]':
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const std::basic_string<char>*; _ForwardIterator = const std::basic_string<char>*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const std::basic_string<char>*; _ForwardIterator = const std::basic_string<char>*]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = const std::basic_string<char>*; _ForwardIterator = const std::basic_string<char>*; _Tp = const std::basic_string<char>]'
+/usr/include/c++/4.8/bits/stl_vector.h:1206:27:   required from 'void std::vector<_Tp, _Alloc>::_M_range_initialize(_ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = const std::basic_string<char>*; _Tp = const std::basic_string<char>; _Alloc = std::allocator<const std::basic_string<char> >]'
+/usr/include/c++/4.8/bits/stl_vector.h:369:36:   required from 'std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = const std::basic_string<char>; _Alloc = std::allocator<const std::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<const std::basic_string<char> >]'
+main.cpp:7:67:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: error: invalid static_cast from type 'const std::basic_string<char>*' to type 'void*'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
