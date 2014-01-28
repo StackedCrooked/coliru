@@ -1,0 +1,17 @@
+In file included from /usr/include/string.h:642:0,
+                 from /usr/include/c++/4.8/cstring:42,
+                 from main.cpp:3:
+In function 'char* strcat(char*, const char*)',
+    inlined from 'int main()' at main.cpp:21:44:
+/usr/include/x86_64-linux-gnu/bits/string3.h:144:63: warning: call to char* __builtin___strcat_chk(char*, const char*, long unsigned int) will always overflow destination buffer [enabled by default]
+   return __builtin___strcat_chk (__dest, __src, __bos (__dest));
+                                                               ^
+*** buffer overflow detected ***: ./a.out terminated
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(__fortify_fail+0x37)[0x7f4233cf2f47]
+/lib/x86_64-linux-gnu/libc.so.6(+0x109e40)[0x7f4233cf1e40]
+./a.out[0x4005ee]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f4233c0976d]
+./a.out[0x4006f5]
+======= Memory map: ========
+bash: line 7: 10288 Aborted                 (core dumped) ./a.out
