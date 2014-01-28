@@ -1,0 +1,10 @@
+main.cpp:6:23: error: constexpr variable 'x' must be initialized by a constant expression
+        constexpr int x = 1 << 33 ;  // Assuming 32-bit int
+                      ^   ~~~~~~~
+main.cpp:6:29: note: shift count 33 >= width of type 'int' (32 bits)
+        constexpr int x = 1 << 33 ;  // Assuming 32-bit int
+                            ^
+main.cpp:6:29: warning: shift count >= width of type [-Wshift-count-overflow]
+        constexpr int x = 1 << 33 ;  // Assuming 32-bit int
+                            ^  ~~
+1 warning and 1 error generated.
