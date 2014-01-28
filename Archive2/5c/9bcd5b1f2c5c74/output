@@ -1,0 +1,15 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:20:24: error: no matching function for call to 'std::vector<double>::push_back(int) const'
+     d.get().push_back(6);
+                        ^
+main.cpp:20:24: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::value_type = double] <near match>
+       push_back(const value_type& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: note:   no known conversion for implicit 'this' parameter from 'Dumb::result_type* {aka const std::vector<double>*}' to 'std::vector<double>*'
+/usr/include/c++/4.8/bits/stl_vector.h:919:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::value_type = double] <near match>
+       push_back(value_type&& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:919:7: note:   no known conversion for implicit 'this' parameter from 'Dumb::result_type* {aka const std::vector<double>*}' to 'std::vector<double>*'
