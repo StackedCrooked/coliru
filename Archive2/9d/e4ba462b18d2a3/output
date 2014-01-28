@@ -1,0 +1,30 @@
++ g++-4.8 -std=c++1y -O2 -Wall -pthread -pedantic main.cpp
+main.cpp: In function 'int main()':
+main.cpp:4:5: error: 'unique_lock' is not a member of 'std'
+     std::unique_lock<std::mutex> lock (some_mutex);
+     ^
+main.cpp:4:22: error: 'mutex' is not a member of 'std'
+     std::unique_lock<std::mutex> lock (some_mutex);
+                      ^
+main.cpp:4:40: error: 'some_mutex' was not declared in this scope
+     std::unique_lock<std::mutex> lock (some_mutex);
+                                        ^
+main.cpp:4:50: error: 'lock' was not declared in this scope
+     std::unique_lock<std::mutex> lock (some_mutex);
+                                                  ^
+main.cpp:6:9: error: 'condition_variable' was not declared in this scope
+         condition_variable.wait(lock, [](...));
+         ^
+main.cpp: In lambda function:
+main.cpp:6:46: error: expected '{' before ')' token
+         condition_variable.wait(lock, [](...));
+                                              ^
+main.cpp: In function 'int main()':
+main.cpp:7:9: error: expected primary-expression before '...' token
+         ...
+         ^
+main.cpp:7:9: error: expected ';' before '...' token
+main.cpp:10:5: error: expected primary-expression before '...' token
+     ...
+     ^
+main.cpp:10:5: error: expected ';' before '...' token
