@@ -1,0 +1,36 @@
+main.cpp:16:18: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+  printf("%d\n", strlen_constexpr("Hello World!\n"));
+          ~~     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          %zu
+1 warning generated.
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:                                 # %_Z16strlen_constexprPKc.exit
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$.L.str, %edi
+	movl	$13, %esi
+	xorl	%eax, %eax
+	callq	printf
+	xorl	%eax, %eax
+	popq	%rdx
+	ret
+.Ltmp2:
+	.size	main, .Ltmp2-main
+	.cfi_endproc
+
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"%d\n"
+	.size	.L.str, 4
+
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits

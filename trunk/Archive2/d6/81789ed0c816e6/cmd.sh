@@ -1,0 +1,1 @@
+clang++ -std=c++11 main.cpp -O3 -S -o test.s && cat test.s
