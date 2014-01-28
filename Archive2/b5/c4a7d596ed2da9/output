@@ -1,0 +1,33 @@
++ clang++ -std=c++11 -O0 -W -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:13:25: error: non-constant-expression cannot be narrowed from type 'int' to 'float' in initializer list [-Wc++11-narrowing]
+    : underlying_array{{args...}}
+                        ^~~~
+main.cpp:20:20: note: in instantiation of function template specialization 'float_vec<4>::float_vec<int, int, int, int>' requested here
+  float_vec<4> v = {1, 2, 3, 4}; // error here
+                   ^
+main.cpp:13:25: note: override this message by inserting an explicit cast
+    : underlying_array{{args...}}
+                        ^~~~
+                        static_cast<float>( )
+main.cpp:13:25: error: non-constant-expression cannot be narrowed from type 'int' to 'float' in initializer list [-Wc++11-narrowing]
+    : underlying_array{{args...}}
+                        ^~~~
+main.cpp:13:25: note: override this message by inserting an explicit cast
+    : underlying_array{{args...}}
+                        ^~~~
+                        static_cast<float>( )
+main.cpp:13:25: error: non-constant-expression cannot be narrowed from type 'int' to 'float' in initializer list [-Wc++11-narrowing]
+    : underlying_array{{args...}}
+                        ^~~~
+main.cpp:13:25: note: override this message by inserting an explicit cast
+    : underlying_array{{args...}}
+                        ^~~~
+                        static_cast<float>( )
+main.cpp:13:25: error: non-constant-expression cannot be narrowed from type 'int' to 'float' in initializer list [-Wc++11-narrowing]
+    : underlying_array{{args...}}
+                        ^~~~
+main.cpp:13:25: note: override this message by inserting an explicit cast
+    : underlying_array{{args...}}
+                        ^~~~
+                        static_cast<float>( )
+4 errors generated.
