@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp && echo "B Game_6 6 600 B Game_7 7 700 A X" | ./a.out
