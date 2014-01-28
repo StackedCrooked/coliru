@@ -1,0 +1,95 @@
+Output:
+0111000000
+----------
+
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"\n----------\n\n"
+.LC1:
+	.string	"Output:\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB973:
+	.cfi_startproc
+	push	rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	sub	rsp, 16
+	.cfi_def_cfa_offset 32
+	jmp	.L6
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	movsx	rax, DWORD PTR [rsp+12]
+	add	DWORD PTR A[0+rax*4], 1
+.L6:
+	lea	rsi, [rsp+12]
+	mov	edi, OFFSET FLAT:_ZSt3cin
+	call	_ZNSirsERi
+	mov	rdx, QWORD PTR [rax]
+	mov	rdx, QWORD PTR [rdx-24]
+	test	BYTE PTR [rax+32+rdx], 5
+	je	.L7
+	mov	esi, OFFSET FLAT:.LC1
+	mov	edi, OFFSET FLAT:_ZSt4cout
+	mov	ebx, OFFSET FLAT:A
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	mov	esi, DWORD PTR [rbx]
+	mov	edi, OFFSET FLAT:_ZSt4cout
+	add	rbx, 4
+	call	_ZNSolsEi
+	cmp	rbx, OFFSET FLAT:A+40
+	jne	.L5
+	mov	esi, OFFSET FLAT:.LC0
+	mov	edi, OFFSET FLAT:_ZSt4cout
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	add	rsp, 16
+	.cfi_def_cfa_offset 16
+	xor	eax, eax
+	pop	rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE973:
+	.size	main, .-main
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_A, @function
+_GLOBAL__sub_I_A:
+.LFB980:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	mov	edi, OFFSET FLAT:_ZStL8__ioinit
+	call	_ZNSt8ios_base4InitC1Ev
+	mov	edx, OFFSET FLAT:__dso_handle
+	mov	esi, OFFSET FLAT:_ZStL8__ioinit
+	mov	edi, OFFSET FLAT:_ZNSt8ios_base4InitD1Ev
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE980:
+	.size	_GLOBAL__sub_I_A, .-_GLOBAL__sub_I_A
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_A
+	.globl	A
+	.bss
+	.align 32
+	.type	A, @object
+	.size	A, 40
+A:
+	.zero	40
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.8.2"
+	.section	.note.GNU-stack,"",@progbits
