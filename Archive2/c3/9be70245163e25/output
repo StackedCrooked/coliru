@@ -1,0 +1,31 @@
+main.cpp:14:7: error: non-deleted function '~Circle' cannot override a deleted function
+class Circle: public Shape
+      ^
+main.cpp:9:13: note: overridden virtual function is here
+    virtual ~Shape() = delete;
+            ^
+main.cpp:17:5: error: attempt to use a deleted function
+    Circle(int i) : a(i) {}
+    ^
+main.cpp:9:13: note: '~Shape' has been explicitly marked deleted here
+    virtual ~Shape() = delete;
+            ^
+main.cpp:18:40: error: call to implicitly-deleted copy constructor of 'Circle'
+    Circle* clone() const { return new Circle(*this); }
+                                       ^      ~~~~~
+main.cpp:14:15: note: copy constructor of 'Circle' is implicitly deleted because base class 'Shape' has a deleted copy constructor
+class Circle: public Shape
+              ^
+main.cpp:5:5: note: 'Shape' has been explicitly marked deleted here
+    Shape(const Shape&) = delete;
+    ^
+main.cpp:24:12: error: attempt to use a deleted function
+    Circle a(1);
+           ^
+main.cpp:14:15: note: destructor of 'Circle' is implicitly deleted because base class 'Shape' has a deleted destructor
+class Circle: public Shape
+              ^
+main.cpp:9:13: note: '~Shape' has been explicitly marked deleted here
+    virtual ~Shape() = delete;
+            ^
+4 errors generated.
