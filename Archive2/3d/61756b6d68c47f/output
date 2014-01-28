@@ -1,0 +1,16 @@
+main.cpp:10:20: error: no viable overloaded '='
+  boost::tie(a, b) = A();
+  ~~~~~~~~~~~~~~~~ ^ ~~~
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:470:7: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'A' to 'boost::tuples::tuple<int &, int &, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type>' for 1st argument
+class tuple :
+      ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:470:7: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'A' to 'const boost::tuples::tuple<int &, int &, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type, boost::tuples::null_type>' for 1st argument
+class tuple :
+      ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:575:10: note: candidate template ignored: could not match 'cons<type-parameter-0-0, type-parameter-0-1>' against 'A'
+  tuple& operator=(const cons<U1, U2>& k) {
+         ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:581:10: note: candidate template ignored: could not match 'pair<type-parameter-0-0, type-parameter-0-1>' against 'A'
+  tuple& operator=(const std::pair<U1, U2>& k) {
+         ^
+1 error generated.
