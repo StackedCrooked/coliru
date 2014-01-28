@@ -1,0 +1,1 @@
+gcc -O2 -Wall -trigraphs -pedantic -w -pthread main.cpp && ./a.out
