@@ -1,0 +1,53 @@
+main.cpp:16:5: error: 'byte_inte' does not name a type
+     byte_inte  data_type;
+     ^
+main.cpp:60:60: error: there are no arguments to 'strong_bytebyte_int' that depend on a template parameter, so a declaration of 'strong_bytebyte_int' must be available [-fpermissive]
+     qi::rule<Iterator, qi::blank_type, strong_bytebyte_int()> data_type_, byte_order_;
+                                                            ^
+main.cpp:60:60: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:60:61: error: type/value mismatch at argument 3 in template parameter list for 'template<class Iterator, class T1, class T2, class T3, class T4> struct boost::spirit::qi::rule'
+     qi::rule<Iterator, qi::blank_type, strong_bytebyte_int()> data_type_, byte_order_;
+                                                             ^
+main.cpp:60:61: error:   expected a type, got 'strong_bytebyte_int()'
+In file included from /usr/local/include/boost/spirit/home/qi/nonterminal.hpp:17:0,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:20,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+main.cpp: In constructor 'Hdr_parser<Iterator>::Hdr_parser()':
+main.cpp:54:9: error: request for member 'name' in '((Hdr_parser<Iterator>*)this)->Hdr_parser<Iterator>::data_type_', which is of non-class type 'int'
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp:54:9: error: there are no arguments to 'debug' that depend on a template parameter, so a declaration of 'debug' must be available [-fpermissive]
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp:54:9: error: request for member 'name' in '((Hdr_parser<Iterator>*)this)->Hdr_parser<Iterator>::byte_order_', which is of non-class type 'int'
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp:54:9: error: there are no arguments to 'debug' that depend on a template parameter, so a declaration of 'debug' must be available [-fpermissive]
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp: In instantiation of 'Hdr_parser<Iterator>::Hdr_parser() [with Iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >]':
+main.cpp:75:39:   required from here
+main.cpp:42:21: error: cannot convert 'const type {aka const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::subscript, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::lexeme>, 0l>&, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char (&)[10]>, 0l> >, 2l>&, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char&>, 0l> >, 2l>&, boost::spirit::qi::uint_parser<unsigned int, 10u, 1u, 2>&>, 2l>&, boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::blank, boost::spirit::char_encoding::standard> >, 0l>, boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>&>, 2l>}' to 'int' in assignment
+         data_type_  = qi::lexeme["data type"]  >> '=' >> data_type_p  >> sep;
+                     ^
+main.cpp:43:21: error: cannot convert 'const type {aka const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::subscript, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::lexeme>, 0l>&, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char (&)[11]>, 0l> >, 2l>&, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char&>, 0l> >, 2l>&, boost::spirit::qi::uint_parser<unsigned int, 2u, 1u, 1>&>, 2l>&, boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::blank, boost::spirit::char_encoding::standard> >, 0l>, boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>&>, 2l>}' to 'int' in assignment
+         byte_order_ = qi::lexeme["byte order"] >> '=' >> byte_order_p >> sep;
+                     ^
+In file included from /usr/local/include/boost/spirit/home/qi/nonterminal.hpp:17:0,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:20,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+main.cpp:54:9: error: 'debug' was not declared in this scope
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp:54:9: note: suggested alternative:
+/usr/local/include/boost/spirit/home/qi/nonterminal/debug_handler.hpp:109:10: note:   'boost::spirit::qi::debug'
+     void debug(rule<Iterator, T1, T2, T3, T4>& r)
+          ^
+main.cpp:54:9: error: 'debug' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^
+main.cpp:54:9: note: 'debug' declared here, later in the translation unit
+         BOOST_SPIRIT_DEBUG_NODES((kv_uint)(start)(sep)(data_type_)(byte_order_)(interleave_));
+         ^

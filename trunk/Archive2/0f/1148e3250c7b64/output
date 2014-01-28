@@ -1,0 +1,24 @@
+1.	#include <iostream>
+2.	#include <string>
+3.	#include <cctype>
+4.	#include <algorithm>
+5.	int main() // filter; reads from stdin and writes to stdout
+6.	    int line_cnt = 0 ;
+7.	    /* this line is counted
+8.	       and this one too */
+9.	    ??< ??> // this too is counted
+10.	    #ifdef not_used // counted
+11.	        int x = 56 ; // counted
+12.	    #endif // not_used (counted)   
+13.	    std::string line ;
+14.	    while( std::getline( std::cin, line ) )
+15.	        static const auto not_space = [] ( char c ) { return std::isspace(c) == 0 ; } ;
+16.	        auto iter = std::find_if( line.begin(), line.end(), not_space ) ;
+17.	        while( iter != line.end() && ( *iter == '{' || *iter == '}' || std::isspace(*iter) ) ) ++iter ;
+18.	        if( std::search_n( iter, line.end(), 2, '/' ) != iter )
+19.	            ++line_cnt ;
+20.	            std::cout << line_cnt << ".\t" << line << '\n' ;
+21.	    std::cout << "\n--------------\nline count: " << line_cnt << '\n' ;
+
+--------------
+line count: 21
