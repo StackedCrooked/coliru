@@ -1,0 +1,977 @@
+.data
+	.align 8
+.align 1
+.globl __stginit_Main
+.type __stginit_Main, @object
+__stginit_Main:
+.globl __stginit_ZCMain
+.type __stginit_ZCMain, @object
+__stginit_ZCMain:
+.data
+	.align 8
+.align 1
+r2ow_closure:
+	.quad	integerzmgmp_GHCziIntegerziType_Szh_static_info
+	.quad	1234
+.data
+	.align 8
+.align 1
+r2ox_closure:
+	.quad	r2ox_info
+	.quad	0
+	.quad	0
+	.quad	0
+.section .rodata
+	.align 8
+.align 1
+c2rm_str:
+	.byte	73
+	.byte	110
+	.byte	116
+	.byte	101
+	.byte	103
+	.byte	101
+	.byte	114
+	.byte	0
+.text
+	.align 8
+	.quad	0
+	.quad	22
+r2ox_info:
+.Lc2rq:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2rs
+	addq $16,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2ru
+	movq $stg_CAF_BLACKHOLE_info,-8(%r12)
+	movq 160(%r13),%rax
+	movq %rax,0(%r12)
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	leaq -8(%r12),%rdx
+	subq $8,%rsp
+	movl $0,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je .Lc2rv
+.Lc2rw:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	leaq -8(%r12),%rax
+	movq %rax,-8(%rbp)
+	movl $c2rm_str,%r14d
+	addq $-16,%rbp
+	jmp ghczmprim_GHCziCString_unpackCStringzh_info
+.Lc2ru:
+	movq $16,192(%r13)
+.Lc2rs:
+	jmp *-16(%r13)
+.Lc2rv:
+	jmp *(%rbx)
+	.size r2ox_info, .-r2ox_info
+.section .data
+	.align 8
+.align 1
+r2oy_srt:
+	.quad	base_GHCziShow_zdfShowInteger_closure
+	.quad	base_GHCziArr_indexError_closure
+	.quad	r2ox_closure
+.data
+	.align 8
+.align 1
+r2oy_closure:
+	.quad	r2oy_info
+	.quad	0
+.text
+	.align 8
+	.long	r2oy_srt-(r2oy_info)+0
+	.long	0
+	.quad	12884901908
+	.quad	0
+	.quad	30064771087
+r2oy_info:
+.Lc2rI:
+	addq $24,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2rN
+	movq $ghczmprim_GHCziTuple_Z2T_con_info,-16(%r12)
+	movq %r14,-8(%r12)
+	movq %rsi,0(%r12)
+	movl $base_GHCziShow_zdfShowInteger_closure,%r14d
+	leaq -15(%r12),%rsi
+	movl $r2ox_closure,%r8d
+	jmp base_GHCziArr_indexError_info
+.Lc2rN:
+	movq $24,192(%r13)
+.Lc2rL:
+	movl $r2oy_closure,%ebx
+	jmp *-8(%r13)
+	.size r2oy_info, .-r2oy_info
+.section .data
+	.align 8
+.align 1
+Main_main4_srt:
+	.quad	base_SystemziExit_exitSuccess_closure
+	.quad	base_GHCziIOziHandleziText_hGetLine2_closure
+	.quad	base_GHCziIOziHandleziText_hGetLine3_closure
+	.quad	base_GHCziIOziHandleziInternals_wantReadableHandlezu1_closure
+	.quad	base_GHCziIOziHandleziText_hPutStr2_closure
+	.quad	base_GHCziIOziHandleziFD_stdout_closure
+	.quad	base_GHCziIOziHandleziFD_stdin_closure
+	.quad	base_GHCziArr_arrEleBottom_closure
+	.quad	base_GHCziArr_zdfIxInteger_closure
+	.quad	base_GHCziArr_badSafeIndex1_closure
+	.quad	base_GHCziArr_zdwzdcshowsPrec_closure
+	.quad	base_GHCziShow_zdfShowInteger_closure
+	.quad	base_TextziRead_zdwread_closure
+	.quad	base_GHCziRead_zdfReadInteger2_closure
+	.quad	base_GHCziIOziHandle_hIsEOF3_closure
+	.quad	Main_main4_closure
+	.quad	r2ow_closure
+	.quad	r2oy_closure
+.data
+	.align 8
+.align 1
+.globl Main_main4_closure
+.type Main_main4_closure, @object
+Main_main4_closure:
+	.quad	Main_main4_info
+	.quad	0
+.text
+	.align 8
+	.quad	8589934596
+	.quad	4294967298
+	.quad	9
+s2pg_info:
+.Lc2sj:
+	cmpq 22(%rbx),%r14
+	je .Lc2so
+	movq 6(%rbx),%rax
+	movq 24(%rax,%r14,8),%rcx
+	movq 14(%rbx),%rax
+	movq %rcx,24(%rax,%r14,8)
+	movq 14(%rbx),%rax
+	movq $stg_MUT_ARR_PTRS_DIRTY_info,(%rax)
+	movq 14(%rbx),%rax
+	movq %r14,%rcx
+	shrq $7,%rcx
+	addq $24,%rcx
+	movq 14(%rbx),%rdx
+	movq 8(%rdx),%rdx
+	shlq $3,%rdx
+	addq %rcx,%rdx
+	movb $1,(%rax,%rdx,1)
+	incq %r14
+	jmp s2pg_info
+.Lc2so:
+	jmp *0(%rbp)
+	.size s2pg_info, .-s2pg_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qG_info)+128
+	.long	0
+	.quad	4294967297
+	.quad	4294967316
+s2qG_info:
+.Lc2tf:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2th
+	movq $stg_upd_frame_info,-16(%rbp)
+	movq %rbx,-8(%rbp)
+	movq 16(%rbx),%rax
+	movq 24(%rbx),%rcx
+	movq 24(%rax,%rcx,8),%r14
+	movl $r2ow_closure+1,%esi
+	addq $-16,%rbp
+	jmp integerzmgmp_GHCziIntegerziType_plusInteger_info
+.Lc2th:
+	jmp *-16(%r13)
+	.size s2qG_info, .-s2qG_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2pu_info)+72
+	.long	0
+	.quad	2566
+	.quad	554050781216
+s2pu_info:
+.Lc2tn:
+	addq $72,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2tr
+	xorl %eax,%eax
+	cmpq %rbx,%rax
+	jle .Lc2tt
+	movq %rbx,%r14
+	movq 48(%rbp),%rsi
+	addq $56,%rbp
+	addq $-72,%r12
+	jmp base_GHCziArr_badSafeIndex1_info
+.Lc2tr:
+	movq $72,192(%r13)
+	jmp stg_gc_unbx_r1
+.Lc2tt:
+	cmpq 48(%rbp),%rbx
+	jl .Lc2tv
+	movq %rbx,%r14
+	movq 48(%rbp),%rsi
+	addq $56,%rbp
+	addq $-72,%r12
+	jmp base_GHCziArr_badSafeIndex1_info
+.Lc2tv:
+	movq $s2qG_info,-64(%r12)
+	movq 40(%rbp),%rax
+	movq %rax,-48(%r12)
+	movq %rbx,-40(%r12)
+	leaq -64(%r12),%rcx
+	movq 8(%rbp),%rax
+	movq %rcx,24(%rax,%rbx,8)
+	movq 8(%rbp),%rax
+	movq $stg_MUT_ARR_PTRS_DIRTY_info,(%rax)
+	movq 8(%rbp),%rax
+	movq %rbx,%rcx
+	shrq $7,%rcx
+	addq $24,%rcx
+	movq 8(%rbp),%rdx
+	movq 8(%rdx),%rdx
+	shlq $3,%rdx
+	addq %rcx,%rdx
+	movb $1,(%rax,%rdx,1)
+	movq 8(%rbp),%rax
+	movq $stg_MUT_ARR_PTRS_FROZEN0_info,(%rax)
+	movq 8(%rbp),%rcx
+	movq $base_GHCziArr_Array_con_info,-32(%r12)
+	movq 24(%rbp),%rax
+	movq %rax,-24(%r12)
+	movq 16(%rbp),%rax
+	movq %rax,-16(%r12)
+	movq %rcx,-8(%r12)
+	movq 48(%rbp),%rax
+	movq %rax,0(%r12)
+	leaq -31(%r12),%rbx
+	addq $56,%rbp
+	jmp *0(%rbp)
+	.size s2pu_info, .-s2pu_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qE_info)+72
+	.long	0
+	.quad	2566
+	.quad	554050781216
+s2qE_info:
+.Lc2tP:
+	movq %rbx,%r14
+	movq $s2pu_info,0(%rbp)
+	jmp integerzmgmp_GHCziIntegerziType_integerToInt_info
+	.size s2qE_info, .-s2qE_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2r1_info)+72
+	.long	0
+	.quad	2054
+	.quad	1653562408992
+s2r1_info:
+.Lc2tU:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae .Lc2tV
+	movq 24(%rbp),%r14
+	movq 16(%rbp),%rsi
+	movq 32(%rbp),%rdi
+	addq $56,%rbp
+	jmp r2oy_info
+.Lc2tV:
+	movq 32(%rbp),%r14
+	movq 24(%rbp),%rsi
+	movq $s2qE_info,0(%rbp)
+	jmp integerzmgmp_GHCziIntegerziType_minusInteger_info
+	.size s2r1_info, .-s2r1_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2r0_info)+72
+	.long	0
+	.quad	2054
+	.quad	1653562408992
+s2r0_info:
+.Lc2u3:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae .Lc2u4
+	movq 24(%rbp),%r14
+	movq 16(%rbp),%rsi
+	movq 32(%rbp),%rdi
+	addq $56,%rbp
+	jmp r2oy_info
+.Lc2u4:
+	movq 32(%rbp),%r14
+	movq 16(%rbp),%rsi
+	movq $s2r1_info,0(%rbp)
+	jmp integerzmgmp_GHCziIntegerziType_leInteger_info
+	.size s2r0_info, .-s2r0_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2pn_info)+72
+	.long	0
+	.quad	2566
+	.quad	1653562408992
+s2pn_info:
+.Lc2ua:
+	movq %rbx,32(%rbp)
+	movq 24(%rbp),%r14
+	movq %rbx,%rsi
+	movq $s2r0_info,0(%rbp)
+	jmp integerzmgmp_GHCziIntegerziType_leInteger_info
+	.size s2pn_info, .-s2pn_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2pB_info)+72
+	.long	0
+	.quad	2054
+	.quad	1756641624096
+s2pB_info:
+.Lc2ud:
+	movl $base_GHCziRead_zdfReadInteger2_closure+2,%r14d
+	movq 32(%rbp),%rsi
+	movq $s2pn_info,0(%rbp)
+	jmp base_TextziRead_zdwread_info
+	.size s2pB_info, .-s2pB_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qW_info)+72
+	.long	0
+	.quad	1029
+	.quad	1756641624096
+s2qW_info:
+.Lc2ug:
+	addq $32,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2uk
+	movq $s2pg_info,-24(%r12)
+	movq 32(%rbp),%rax
+	movq %rax,-16(%r12)
+	movq %rbx,-8(%r12)
+	movq 40(%rbp),%rax
+	movq %rax,0(%r12)
+	movq %rbx,0(%rbp)
+	leaq -22(%r12),%rbx
+	xorl %r14d,%r14d
+	movq $s2pB_info,-8(%rbp)
+	addq $-8,%rbp
+	jmp s2pg_info
+.Lc2uk:
+	movq $32,192(%r13)
+.Lc2ui:
+	movq $254,64(%r13)
+	jmp stg_gc_ut
+	.size s2qW_info, .-s2qW_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qH_info)+56
+	.long	0
+	.quad	4294967299
+	.quad	4294967300
+	.quad	7030861463561
+s2qH_info:
+.Lc2up:
+	leaq -56(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2ur
+	movq 39(%rbx),%rax
+	movq %rax,-8(%rbp)
+	movq 7(%rbx),%rax
+	movq %rax,-16(%rbp)
+	movq 15(%rbx),%rax
+	movq %rax,-24(%rbp)
+	movq 23(%rbx),%rax
+	movq %rax,-32(%rbp)
+	movq 31(%rbx),%rax
+	movq %rax,-40(%rbp)
+	movq 39(%rbx),%rbx
+	movl $base_GHCziArr_arrEleBottom_closure,%r14d
+	movq $s2qW_info,-48(%rbp)
+	addq $-48,%rbp
+	jmp stg_newArrayzh
+.Lc2ur:
+	jmp *-8(%r13)
+	.size s2qH_info, .-s2qH_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qX_info)+56
+	.long	0
+	.quad	1
+	.quad	7030861463584
+s2qX_info:
+.Lc2uA:
+	addq $48,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2uE
+	movq $s2qH_info,-40(%r12)
+	movq 23(%rbx),%rax
+	movq %rax,-32(%r12)
+	movq 8(%rbp),%rax
+	movq %rax,-24(%r12)
+	movq 7(%rbx),%rax
+	movq %rax,-16(%r12)
+	movq 15(%rbx),%rax
+	movq %rax,-8(%r12)
+	movq 31(%rbx),%rax
+	movq %rax,0(%r12)
+	leaq -39(%r12),%r14
+	addq $16,%rbp
+	jmp base_GHCziST_runSTRep_info
+.Lc2uE:
+	movq $48,192(%r13)
+.Lc2uC:
+	jmp *-16(%r13)
+	.size s2qX_info, .-s2qX_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qI_info)+56
+	.long	0
+	.quad	2
+	.quad	7030861463571
+s2qI_info:
+.Lc2uO:
+	leaq -32(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2uQ
+	movq $stg_upd_frame_info,-16(%rbp)
+	movq %rbx,-8(%rbp)
+	movq 24(%rbx),%rax
+	movq %rax,-24(%rbp)
+	movq 16(%rbx),%rbx
+	movq $s2qX_info,-32(%rbp)
+	addq $-32,%rbp
+	testq $7,%rbx
+	jne s2qX_info
+	jmp *(%rbx)
+.Lc2uQ:
+	jmp *-16(%r13)
+	.size s2qI_info, .-s2qI_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qY_info)+56
+	.long	0
+	.quad	1
+	.quad	8130373091360
+s2qY_info:
+.Lc2uW:
+	addq $32,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2v0
+	movq $s2qI_info,-24(%r12)
+	movq 8(%rbp),%rax
+	movq %rax,-8(%r12)
+	movq %rbx,0(%r12)
+	leaq -24(%r12),%r14
+	addq $16,%rbp
+	jmp Main_main4_info
+.Lc2v0:
+	movq $32,192(%r13)
+.Lc2uY:
+	movq $254,64(%r13)
+	jmp stg_gc_ut
+	.size s2qY_info, .-s2qY_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2pN_info)+8
+	.long	0
+	.quad	1
+	.quad	520511381569568
+s2pN_info:
+.Lc2v4:
+	movl $base_GHCziIOziHandleziText_hGetLine3_closure,%r14d
+	movl $base_GHCziIOziHandleziFD_stdin_closure,%esi
+	movl $base_GHCziIOziHandleziText_hGetLine2_closure+2,%edi
+	movq $s2qY_info,0(%rbp)
+	jmp base_GHCziIOziHandleziInternals_wantReadableHandlezu1_info
+	.size s2pN_info, .-s2pN_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qJ_info)+64
+	.long	0
+	.quad	1
+	.quad	55834574865
+s2qJ_info:
+.Lc2vf:
+	leaq -32(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2vh
+	movq $stg_upd_frame_info,-16(%rbp)
+	movq %rbx,-8(%rbp)
+	movq $ghczmprim_GHCziTypes_ZMZN_closure+1,-24(%rbp)
+	movq $stg_ap_p_info,-32(%rbp)
+	movl $base_GHCziArr_zdfIxInteger_closure,%r14d
+	movl $base_GHCziShow_zdfShowInteger_closure,%esi
+	movl $base_GHCziShow_zdfShowInteger_closure,%edi
+	xorl %r8d,%r8d
+	movq 16(%rbx),%r9
+	addq $-32,%rbp
+	jmp base_GHCziArr_zdwzdcshowsPrec_info
+.Lc2vh:
+	jmp *-16(%r13)
+	.size s2qJ_info, .-s2qJ_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2r7_info)+8
+	.long	0
+	.quad	1
+	.quad	520511381569568
+s2r7_info:
+.Lc2vq:
+	jmp s2pN_info
+	.size s2r7_info, .-s2r7_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2r8_info)+0
+	.long	0
+	.quad	1
+	.quad	1041027058106400
+s2r8_info:
+.Lc2vt:
+	movq $s2r7_info,0(%rbp)
+	jmp base_SystemziExit_exitSuccess_info
+	.size s2r8_info, .-s2r8_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2r6_info)+0
+	.long	0
+	.quad	1
+	.quad	1055526867697696
+s2r6_info:
+.Lc2vy:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae .Lc2vz
+	jmp s2pN_info
+.Lc2vz:
+	addq $24,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2vD
+	movq $s2qJ_info,-16(%r12)
+	movq 8(%rbp),%rax
+	movq %rax,0(%r12)
+	movl $base_GHCziIOziHandleziFD_stdout_closure,%r14d
+	leaq -16(%r12),%rsi
+	movl $ghczmprim_GHCziTypes_True_closure+2,%edi
+	movq $s2r8_info,0(%rbp)
+	jmp base_GHCziIOziHandleziText_hPutStr2_info
+.Lc2vD:
+	movq $24,192(%r13)
+.Lc2vB:
+	jmp *-16(%r13)
+	.size s2r6_info, .-s2r6_info
+.text
+	.align 8
+	.long	Main_main4_srt-(s2qZ_info)+0
+	.long	0
+	.quad	1
+	.quad	1055526867697696
+s2qZ_info:
+.Lc2vK:
+	movq $s2r6_info,0(%rbp)
+	testq $7,%rbx
+	jne s2r6_info
+	jmp *(%rbx)
+	.size s2qZ_info, .-s2qZ_info
+.text
+	.align 8
+	.long	Main_main4_srt-(Main_main4_info)+0
+	.long	0
+	.quad	8589934597
+	.quad	0
+	.quad	1125895611875343
+.globl Main_main4_info
+.type Main_main4_info, @object
+Main_main4_info:
+.Lc2vQ:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2vS
+	movq %r14,-8(%rbp)
+	movl $base_GHCziIOziHandle_hIsEOF3_closure,%r14d
+	movl $base_GHCziIOziHandleziFD_stdin_closure,%esi
+	movl $base_GHCziIOziHandle_hIsEOF2_closure+2,%edi
+	movq $s2qZ_info,-16(%rbp)
+	addq $-16,%rbp
+	jmp base_GHCziIOziHandleziInternals_wantReadableHandlezu1_info
+.Lc2vS:
+	movl $Main_main4_closure,%ebx
+	jmp *-8(%r13)
+	.size Main_main4_info, .-Main_main4_info
+.data
+	.align 8
+.align 1
+.globl Main_mainzul_closure
+.type Main_mainzul_closure, @object
+Main_mainzul_closure:
+	.quad	integerzmgmp_GHCziIntegerziType_Szh_static_info
+	.quad	0
+.data
+	.align 8
+.align 1
+.globl Main_mainzuu_closure
+.type Main_mainzuu_closure, @object
+Main_mainzuu_closure:
+	.quad	integerzmgmp_GHCziIntegerziType_Szh_static_info
+	.quad	10
+.data
+	.align 8
+.align 1
+.globl Main_mainzuxs_closure
+.type Main_mainzuxs_closure, @object
+Main_mainzuxs_closure:
+	.quad	ghczmprim_GHCziTypes_ZC_static_info
+	.quad	Main_mainzul_closure+1
+	.quad	Main_mainzuxs_closure+2
+	.quad	0
+.section .data
+	.align 8
+.align 1
+Main_main3_srt:
+	.quad	base_GHCziArr_arrEleBottom_closure
+	.quad	base_GHCziArr_negRange_closure
+	.quad	Main_mainzuxs_closure
+	.quad	Main_mainzuu_closure
+	.quad	Main_mainzul_closure
+.data
+	.align 8
+.align 1
+.globl Main_main3_closure
+.type Main_main3_closure, @object
+Main_main3_closure:
+	.quad	Main_main3_info
+	.quad	0
+.text
+	.align 8
+	.quad	259
+	.quad	32
+s2qO_info:
+.Lc2wt:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae .Lc2wu
+	addq $32,%rbp
+	jmp *0(%rbp)
+.Lc2wu:
+	movq 6(%rbx),%rdx
+	movq 16(%rbp),%rax
+	movq 24(%rbp),%rcx
+	movq %rdx,24(%rax,%rcx,8)
+	movq 16(%rbp),%rax
+	movq $stg_MUT_ARR_PTRS_DIRTY_info,(%rax)
+	movq 16(%rbp),%rax
+	movq 24(%rbp),%rcx
+	shrq $7,%rcx
+	addq $24,%rcx
+	movq 16(%rbp),%rdx
+	movq 8(%rdx),%rdx
+	shlq $3,%rdx
+	addq %rcx,%rdx
+	movb $1,(%rax,%rdx,1)
+	movq 24(%rbp),%rax
+	leaq 1(%rax),%r14
+	movq 14(%rbx),%rsi
+	movq 8(%rbp),%rbx
+	addq $32,%rbp
+	jmp s2qm_info
+	.size s2qO_info, .-s2qO_info
+.text
+	.align 8
+	.quad	12884901898
+	.quad	4294967297
+	.quad	13
+s2qm_info:
+.Lc2wL:
+	leaq -32(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2wN
+	cmpq 13(%rbx),%r14
+	je .Lc2wP
+	movq %rbx,-24(%rbp)
+	movq 5(%rbx),%rax
+	movq %rax,-16(%rbp)
+	movq %r14,-8(%rbp)
+	movq %rsi,%rbx
+	movq $s2qO_info,-32(%rbp)
+	addq $-32,%rbp
+	testq $7,%rbx
+	jne s2qO_info
+	jmp *(%rbx)
+.Lc2wN:
+	jmp *-8(%r13)
+.Lc2wP:
+	jmp *0(%rbp)
+	.size s2qm_info, .-s2qm_info
+.text
+	.align 8
+	.long	Main_main3_srt-(s2qs_info)+24
+	.long	0
+	.quad	130
+	.quad	12884901920
+s2qs_info:
+.Lc2x0:
+	addq $40,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2x7
+	movq 8(%rbp),%rax
+	movq $stg_MUT_ARR_PTRS_FROZEN0_info,(%rax)
+	movq 8(%rbp),%rax
+	movq $base_GHCziArr_Array_con_info,-32(%r12)
+	movq $Main_mainzul_closure+1,-24(%r12)
+	movq $Main_mainzuu_closure+1,-16(%r12)
+	movq %rax,-8(%r12)
+	movq 16(%rbp),%rax
+	movq %rax,0(%r12)
+	leaq -31(%r12),%rbx
+	addq $24,%rbp
+	jmp *0(%rbp)
+.Lc2x7:
+	movq $40,192(%r13)
+	jmp stg_gc_noregs
+	.size s2qs_info, .-s2qs_info
+.text
+	.align 8
+	.long	Main_main3_srt-(s2qQ_info)+16
+	.long	0
+	.quad	65
+	.quad	30064771104
+s2qQ_info:
+.Lc2xc:
+	addq $24,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2xg
+	movq $s2qm_info,-16(%r12)
+	movq %rbx,-8(%r12)
+	movq 8(%rbp),%rax
+	movq %rax,0(%r12)
+	movq %rbx,0(%rbp)
+	leaq -13(%r12),%rbx
+	xorl %r14d,%r14d
+	movl $Main_mainzuxs_closure+2,%esi
+	movq $s2qs_info,-8(%rbp)
+	addq $-8,%rbp
+	jmp s2qm_info
+.Lc2xg:
+	movq $24,192(%r13)
+.Lc2xe:
+	movq $254,64(%r13)
+	jmp stg_gc_ut
+	.size s2qQ_info, .-s2qQ_info
+.text
+	.align 8
+	.long	Main_main3_srt-(s2q2_info)+0
+	.long	0
+	.quad	0
+	.quad	133143986208
+s2q2_info:
+.Lc2xk:
+	testq %rbx,%rbx
+	jl .Lc2xm
+	movq %rbx,0(%rbp)
+	movl $base_GHCziArr_arrEleBottom_closure,%r14d
+	movq $s2qQ_info,-8(%rbp)
+	addq $-8,%rbp
+	jmp stg_newArrayzh
+.Lc2xm:
+	movl $base_GHCziArr_negRange_closure,%ebx
+	addq $8,%rbp
+	andq $-8,%rbx
+	jmp *(%rbx)
+	.size s2q2_info, .-s2q2_info
+.text
+	.align 8
+	.long	Main_main3_srt-(Main_main3_info)+0
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	133143986191
+.globl Main_main3_info
+.type Main_main3_info, @object
+Main_main3_info:
+.Lc2xr:
+	leaq -24(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2xt
+	movl $Main_mainzul_closure+1,%r14d
+	movl $Main_mainzuu_closure+1,%esi
+	movq $s2q2_info,-8(%rbp)
+	addq $-8,%rbp
+	jmp base_GHCziArr_zdwzdcrangeSizze5_info
+.Lc2xt:
+	movl $Main_main3_closure,%ebx
+	jmp *-8(%r13)
+	.size Main_main3_info, .-Main_main3_info
+.section .data
+	.align 8
+.align 1
+Main_main2_srt:
+	.quad	Main_main3_closure
+.data
+	.align 8
+.align 1
+.globl Main_main2_closure
+.type Main_main2_closure, @object
+Main_main2_closure:
+	.quad	Main_main2_info
+	.quad	0
+	.quad	0
+	.quad	0
+.text
+	.align 8
+	.long	Main_main2_srt-(Main_main2_info)+0
+	.long	0
+	.quad	0
+	.quad	4294967318
+.globl Main_main2_info
+.type Main_main2_info, @object
+Main_main2_info:
+.Lc2xG:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb .Lc2xI
+	addq $16,%r12
+	cmpq 144(%r13),%r12
+	ja .Lc2xK
+	movq $stg_CAF_BLACKHOLE_info,-8(%r12)
+	movq 160(%r13),%rax
+	movq %rax,0(%r12)
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	leaq -8(%r12),%rdx
+	subq $8,%rsp
+	movl $0,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je .Lc2xL
+.Lc2xM:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	leaq -8(%r12),%rax
+	movq %rax,-8(%rbp)
+	movl $Main_main3_closure+1,%r14d
+	addq $-16,%rbp
+	jmp base_GHCziST_runSTRep_info
+.Lc2xK:
+	movq $16,192(%r13)
+.Lc2xI:
+	jmp *-16(%r13)
+.Lc2xL:
+	jmp *(%rbx)
+	.size Main_main2_info, .-Main_main2_info
+.section .data
+	.align 8
+.align 1
+Main_main1_srt:
+	.quad	Main_main2_closure
+	.quad	Main_main4_closure
+.data
+	.align 8
+.align 1
+.globl Main_main1_closure
+.type Main_main1_closure, @object
+Main_main1_closure:
+	.quad	Main_main1_info
+	.quad	0
+.text
+	.align 8
+	.long	Main_main1_srt-(Main_main1_info)+0
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	12884901903
+.globl Main_main1_info
+.type Main_main1_info, @object
+Main_main1_info:
+.Lc2xY:
+	movl $Main_main2_closure,%r14d
+	jmp Main_main4_info
+	.size Main_main1_info, .-Main_main1_info
+.section .data
+	.align 8
+.align 1
+Main_main_srt:
+	.quad	Main_main1_closure
+.data
+	.align 8
+.align 1
+.globl Main_main_closure
+.type Main_main_closure, @object
+Main_main_closure:
+	.quad	Main_main_info
+	.quad	0
+.text
+	.align 8
+	.long	Main_main_srt-(Main_main_info)+0
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl Main_main_info
+.type Main_main_info, @object
+Main_main_info:
+.Lc2y6:
+	jmp Main_main1_info
+	.size Main_main_info, .-Main_main_info
+.section .data
+	.align 8
+.align 1
+Main_main5_srt:
+	.quad	base_GHCziTopHandler_runMainIO1_closure
+	.quad	Main_main1_closure
+.data
+	.align 8
+.align 1
+.globl Main_main5_closure
+.type Main_main5_closure, @object
+Main_main5_closure:
+	.quad	Main_main5_info
+	.quad	0
+.text
+	.align 8
+	.long	Main_main5_srt-(Main_main5_info)+0
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	12884901903
+.globl Main_main5_info
+.type Main_main5_info, @object
+Main_main5_info:
+.Lc2ye:
+	movl $Main_main1_closure+1,%r14d
+	jmp base_GHCziTopHandler_runMainIO1_info
+	.size Main_main5_info, .-Main_main5_info
+.section .data
+	.align 8
+.align 1
+ZCMain_main_srt:
+	.quad	Main_main5_closure
+.data
+	.align 8
+.align 1
+.globl ZCMain_main_closure
+.type ZCMain_main_closure, @object
+ZCMain_main_closure:
+	.quad	ZCMain_main_info
+	.quad	0
+.text
+	.align 8
+	.long	ZCMain_main_srt-(ZCMain_main_info)+0
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl ZCMain_main_info
+.type ZCMain_main_info, @object
+ZCMain_main_info:
+.Lc2ym:
+	jmp Main_main5_info
+	.size ZCMain_main_info, .-ZCMain_main_info
+.section .note.GNU-stack,"",@progbits
+.ident "GHC 7.4.1"
