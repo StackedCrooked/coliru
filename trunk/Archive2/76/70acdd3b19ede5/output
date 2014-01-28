@@ -1,0 +1,10 @@
+main.cpp:18:40: error: call to implicitly-deleted copy constructor of 'Circle'
+    Circle* clone() const { return new Circle(*this); }
+                                       ^      ~~~~~
+main.cpp:14:15: note: copy constructor of 'Circle' is implicitly deleted because base class 'Shape' has a deleted copy constructor
+class Circle: public Shape
+              ^
+main.cpp:5:5: note: 'Shape' has been explicitly marked deleted here
+    Shape(const Shape&) = delete;
+    ^
+1 error generated.
