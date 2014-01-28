@@ -1,0 +1,24 @@
++ g++-4.8 -O3 -pedantic -Wall -Wextra -Wconversion -std=c++1y -pthread main.cpp
+In file included from /usr/include/c++/4.8/bits/char_traits.h:39:0,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iterator:64,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algobase.h: In instantiation of 'std::pair<_T1, _T2> std::mismatch(_InputIterator1, _InputIterator1, _InputIterator2, _BinaryPredicate) [with _InputIterator1 = char*; _InputIterator2 = char*; _BinaryPredicate = char*]':
+main.cpp:8:49:   required from here
+/usr/include/c++/4.8/bits/stl_algobase.h:1206:76: error: '__binary_pred' cannot be used as a function
+       while (__first1 != __last1 && bool(__binary_pred(*__first1, *__first2)))
+                                                                            ^
++ clang++ -O3 -pedantic -Wall -Wextra -Wconversion -std=c++1y -pthread main.cpp
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iterator:64:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:38:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ios:40:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/char_traits.h:39:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:1206:42: error: called object type 'char *' is not a function or function pointer
+      while (__first1 != __last1 && bool(__binary_pred(*__first1, *__first2)))
+                                         ^~~~~~~~~~~~~
+main.cpp:7:10: note: in instantiation of function template specialization 'std::mismatch<char *, char *, char *>' requested here
+    std::mismatch(std::begin(arr), std::end(arr),
+         ^
+1 error generated.
