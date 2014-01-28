@@ -1,0 +1,12 @@
++ clang++ -std=c++11 -O0 -W -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:7:12: error: constant expression evaluates to 999999 which cannot be narrowed to type 'short' [-Wc++11-narrowing]
+  short i {999999};
+           ^~~~~~
+main.cpp:7:12: note: override this message by inserting an explicit cast
+  short i {999999};
+           ^~~~~~
+           static_cast<short>( )
+main.cpp:7:12: warning: implicit conversion from 'int' to 'short' changes value from 999999 to 16959 [-Wconstant-conversion]
+  short i {999999};
+          ~^~~~~~
+1 warning and 1 error generated.
