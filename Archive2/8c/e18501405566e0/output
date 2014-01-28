@@ -1,0 +1,142 @@
+5 blocks
+In file included from /usr/local/include/c++/4.8.2/type_traits:35:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp: In member function 'CorrectVector<T>::const_iterator CorrectVector<T>::end() const':
+main.cpp:13:34: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     const_iterator end() const { return {}; }
+                                  ^
+main.cpp: In member function 'CorrectVector<T>::iterator CorrectVector<T>::insert(CorrectVector<T>::const_iterator, CorrectVector<T>::size_type, CorrectVector<T>::const_reference)':
+main.cpp:16:9: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         return {};
+         ^
+main.cpp: At global scope:
+main.cpp:20:23: error: 'constexpr' does not name a type
+ template <typename C> constexpr bool is_insert_pos_n_val_broken() {
+                       ^
+main.cpp:20:23: note: C++11 'constexpr' only available with -std=c++11 or -std=gnu++11
+main.cpp: In function 'int main()':
+main.cpp:26:48: error: 'is_insert_pos_n_val_broken' was not declared in this scope
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                ^
+main.cpp:26:90: error: spurious '>>', use '>' to terminate a template argument list
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                          ^
+main.cpp:26:97: error: no match for 'operator<<' (operand types are 'std::vector<int>' and 'const char [2]')
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                 ^
+main.cpp:26:97: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.8.2/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.8.2/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.8.2/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/ostream:609:0,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.8.2/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<_CharT, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/local/include/c++/4.8.2/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<_CharT, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.8.2/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.8.2/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.8.2/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<char, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.8.2/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<_CharT, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/local/include/c++/4.8.2/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<_CharT, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2753:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2753:5: note:   template argument deduction/substitution failed:
+main.cpp:26:100: note:   'std::vector<int>' is not derived from 'std::basic_ostream<_CharT, _Traits>'
+     std::cout << "platform vector result: " << is_insert_pos_n_val_broken<std::vector<int>>()   << "\n";
+                                                                                                    ^
+main.cpp:27:92: error: spurious '>>', use '>' to terminate a template argument list
+     std::cout << "correct vector result: "  << is_insert_pos_n_val_broken<CorrectVector<int>>() << "\n";
+                                                                                            ^
+main.cpp:27:97: error: no match for 'operator<<' (operand types are 'CorrectVector<int>' and 'const char [2]')
+     std::cout << "correct vector result: "  << is_insert_pos_n_val_broken<CorrectVector<int>>() << "\n";
+                                                                                                 ^
+bash: line 29: ./main: No such file or directory
