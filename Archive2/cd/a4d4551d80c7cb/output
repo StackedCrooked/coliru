@@ -1,0 +1,13 @@
+main.cpp:10:12: error: no matching constructor for initialization of 'Foo'
+    return x;                // may use Foo::Foo(Foo &&)
+           ^
+main.cpp:3:5: note: candidate constructor not viable: 1st argument ('const volatile Foo') would lose volatile qualifier
+    Foo(const Foo&) = delete;
+    ^
+main.cpp:4:5: note: candidate constructor not viable: 1st argument ('const volatile Foo') would lose const and volatile qualifiers
+    Foo(Foo&&) {}
+    ^
+main.cpp:2:5: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+    Foo() {}
+    ^
+1 error generated.
