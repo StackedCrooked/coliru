@@ -1,0 +1,60 @@
+main.cpp:44:33: error: '...' must immediately precede declared identifier
+    Message(id_t messageId, Args...&& args)
+                                ^~~
+                                      ...
+main.cpp:29:20: error: assigning to 'uint8_t *' (aka 'unsigned char *') from incompatible type 'void *'
+            m_data = realloc((m_data == m_localData) ? nullptr : m_data, newSize);
+                   ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:30:13: error: use of undeclared identifier 'assert'
+            assert(m_data != nullptr); // my system uses less brutal mem mgmt
+            ^
+main.cpp:38:25: error: use of undeclared identifier 'size'
+        size_t offset = size;
+                        ^
+main.cpp:45:30: error: use of undeclared identifier 'messageID'; did you mean 'messageId'?
+        : Message(sizeof(T), messageID)
+                             ^~~~~~~~~
+                             messageId
+main.cpp:44:18: note: 'messageId' declared here
+    Message(id_t messageId, Args...&& args)
+                 ^
+main.cpp:48:34: error: no member named 'forward' in namespace 'std'
+        new ((T*)m_data) T (std::forward<Args>(args)...);
+                            ~~~~~^
+main.cpp:48:42: error: 'Args' does not refer to a value
+        new ((T*)m_data) T (std::forward<Args>(args)...);
+                                         ^
+main.cpp:43:38: note: declared here
+    template<typename T, typename... Args>
+                                     ^
+main.cpp:53:18: error: expected ')'
+    Message(id_t messageId, T&& src)
+                 ^
+main.cpp:53:12: note: to match this '('
+    Message(id_t messageId, T&& src)
+           ^
+main.cpp:53:13: warning: variable templates are a C++1y extension [-Wc++1y-extensions]
+    Message(id_t messageId, T&& src)
+            ^
+main.cpp:53:13: error: redefinition of 'id_t' as different kind of symbol
+/usr/include/x86_64-linux-gnu/sys/types.h:105:16: note: previous definition is here
+typedef __id_t id_t;
+               ^
+main.cpp:54:9: error: expected ';' at end of declaration
+        : Message(sizeof(T), messageID)
+        ^
+        ;
+main.cpp:54:19: error: expected unqualified-id
+        : Message(sizeof(T), messageID)
+                  ^
+main.cpp:54:19: error: expected ')'
+main.cpp:54:18: note: to match this '('
+        : Message(sizeof(T), messageID)
+                 ^
+main.cpp:62:58: error: use of undeclared identifier 'wpArg1'
+        Message outgoing(MessageID::WorldPeace, MyStruct(wpArg1, wpArg2, wpArg3));
+                                                         ^
+main.cpp:11:10: warning: private field 'm_messageId' is not used [-Wunused-private-field]
+    id_t m_messageId;
+         ^
+2 warnings and 13 errors generated.
