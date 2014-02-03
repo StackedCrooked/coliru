@@ -1,0 +1,16 @@
+main.cpp:22:39: error: 'con' is a private member of 'ProjectIV::Monster'
+  cout << "Constitution: " << monster.con << endl;
+                                      ^
+main.cpp:16:9: note: declared private here
+    int con;
+        ^
+main.cpp:35:8: error: use of overloaded operator '<<' is ambiguous (with operand types 'ostream' (aka 'basic_ostream<char>') and 'ProjectIV::Monster')
+  cout << Gojira << endl;
+  ~~~~ ^  ~~~~~~
+main.cpp:12:19: note: candidate function
+  friend ostream &operator<< (ostream &out, const Monster &monster);
+                  ^
+main.cpp:20:10: note: candidate function
+ostream& operator<< (ostream &out, const ProjectIV::Monster &monster)
+         ^
+2 errors generated.

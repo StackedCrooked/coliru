@@ -1,0 +1,10 @@
+main.cpp:13:43: error: no matching function for call to 'test'
+    constexpr static bool value = (sizeof(test<C, T...>(0)) == sizeof(yes));
+                                          ^~~~~~~~~~~~~
+main.cpp:27:34: note: in instantiation of template class 'is_valid_specialization<Test2, int, int>' requested here
+    std::cout << "Test2<T>: " << is_valid_specialization<Test2, int, int>::value << std::endl;
+                                 ^
+main.cpp:9:16: note: candidate template ignored: substitution failure [with D = Test2, U = <int, int>]: too many template arguments for class template 'Test2'
+    static yes test(D<U...>*);
+               ^    ~
+1 error generated.
