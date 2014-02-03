@@ -1,0 +1,34 @@
+get area on entry: " Title: Alpha Beam With Ernie"
+expected tag: "Title:"
+get area after input_stream >> std::ws: "Title: Alpha Beam With Ernie"
+get area after input_stream >> str: " Alpha Beam With Ernie"
+str now contains: "Title:"
+get area after another input_stream >> std::ws: "Alpha Beam With Ernie"
+actual string read: "Title:"
+expected tag: "Title:"
+did we get the expected tag? yes
+consume returned true
+get area after consume( stm, "Title:" ): "Alpha Beam With Ernie"
+
+---------------------------
+
+get area on entry: " Blah: Alpha Beam With Ernie"
+expected tag: "Title:"
+get area after input_stream >> std::ws: "Blah: Alpha Beam With Ernie"
+get area after input_stream >> str: " Alpha Beam With Ernie"
+str now contains: "Blah:"
+get area after another input_stream >> std::ws: "Alpha Beam With Ernie"
+actual string read: "Blah:"
+expected tag: "Title:"
+did we get the expected tag? no
+consume returned false
+get area after consume( stm, "Title:" ): "Alpha Beam With Ernie"
+
+---------------------------
+
+get area at start: " Title: Alpha Beam With Ernie
+ Genre: ...blah..."
+consume() returned true
+std::getline( stm, title ) returned true
+title now contains: "Alpha Beam With Ernie"
+get area after reading title: " Genre: ...blah..."
