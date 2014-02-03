@@ -1,0 +1,68 @@
+standard c++ (-std=c++11)
+------------------------------
+g++ ok
+clang++ ok.
+
+legacy standard c++ (-std=c++98)
+------------------------------
+main.cpp: In function ‘int main()’:
+main.cpp:86:74: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                                                                          ^
+main.cpp:86:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                  ^
+main.cpp:87:60: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                                                            ^
+main.cpp:87:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                  ^
+main.cpp:88:69: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                                                                     ^
+main.cpp:88:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                  ^
+main.cpp:86:20: error: expected expression
+    employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                   ^
+main.cpp:87:20: error: expected expression
+    employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                   ^
+main.cpp:88:20: error: expected expression
+    employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                   ^
+3 errors generated.
+
+non-standard (g++/clang++ default)
+------------------------------
+main.cpp: In function ‘int main()’:
+main.cpp:86:74: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                                                                          ^
+main.cpp:86:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                  ^
+main.cpp:87:60: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                                                            ^
+main.cpp:87:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                  ^
+main.cpp:88:69: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                                                                     ^
+main.cpp:88:18: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                  ^
+main.cpp:86:20: error: expected expression
+    employees[0] = {"Susan Meyers", 47899, "Accounting", "Vice President"}; 
+                   ^
+main.cpp:87:20: error: expected expression
+    employees[1] = {"Mark Jones", 39119, "IT", "Programmer"};
+                   ^
+main.cpp:88:20: error: expected expression
+    employees[2] = {"Joy Rogers", 81774, "Manufacturing", "Engineer"};
+                   ^
+3 errors generated.
