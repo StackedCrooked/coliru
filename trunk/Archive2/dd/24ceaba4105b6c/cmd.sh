@@ -1,0 +1,1 @@
+for a in {1..100}; do cat main.cpp; done | gzip > test.gz; g++-4.8 -std=c++11 -Os -Wall -pedantic main.cpp -lz; ./a.out | md5sum; zcat test.gz | md5sum
