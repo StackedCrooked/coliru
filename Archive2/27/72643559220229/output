@@ -1,0 +1,38 @@
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB2282:
+	.cfi_startproc
+	movl	$1, %edx
+.L3:
+	movl	%edx, %eax
+	xchgb	mtx(%rip), %al
+	testb	%al, %al
+	jne	.L3
+	movl	$0, %eax
+	ret
+	.cfi_endproc
+.LFE2282:
+	.size	main, .-main
+	.type	_GLOBAL__sub_I_mtx, @function
+_GLOBAL__sub_I_mtx:
+.LFB2476:
+	.cfi_startproc
+	movb	$0, mtx(%rip)
+	ret
+	.cfi_endproc
+.LFE2476:
+	.size	_GLOBAL__sub_I_mtx, .-_GLOBAL__sub_I_mtx
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_mtx
+	.globl	mtx
+	.bss
+	.type	mtx, @object
+	.size	mtx, 1
+mtx:
+	.zero	1
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
