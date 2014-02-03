@@ -1,0 +1,30 @@
+main.cpp:8:60: error: no matching function for call to 'mem_fn(std::function<void(int)>)'
+     typedef decltype(std::mem_fn(std::function<void(int)>())) mytype;
+                                                            ^
+main.cpp:8:60: note: candidate is:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/functional:961:5: note: template<class _Tp, class _Class> std::_Mem_fn<_Tp _Class::*> std::mem_fn(_Tp _Class::*)
+     mem_fn(_Tp _Class::* __pm) noexcept
+     ^
+/usr/include/c++/4.8/functional:961:5: note:   template argument deduction/substitution failed:
+main.cpp:8:60: note:   mismatched types '_Tp _Class::*' and 'std::function<void(int)>'
+     typedef decltype(std::mem_fn(std::function<void(int)>())) mytype;
+                                                            ^
+main.cpp:8:60: error: no matching function for call to 'mem_fn(std::function<void(int)>)'
+main.cpp:8:60: note: candidate is:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/functional:961:5: note: template<class _Tp, class _Class> std::_Mem_fn<_Tp _Class::*> std::mem_fn(_Tp _Class::*)
+     mem_fn(_Tp _Class::* __pm) noexcept
+     ^
+/usr/include/c++/4.8/functional:961:5: note:   template argument deduction/substitution failed:
+main.cpp:8:60: note:   mismatched types '_Tp _Class::*' and 'std::function<void(int)>'
+     typedef decltype(std::mem_fn(std::function<void(int)>())) mytype;
+                                                            ^
+main.cpp: In member function 'void test::dummy()':
+main.cpp:23:9: error: 'func' was not declared in this scope
+         func =  [](int x)->int{ cout << "x =" << "  " << x << endl << endl; };
+         ^
+main.cpp: In lambda function:
+main.cpp:23:77: warning: no return statement in function returning non-void [-Wreturn-type]
+         func =  [](int x)->int{ cout << "x =" << "  " << x << endl << endl; };
+                                                                             ^
