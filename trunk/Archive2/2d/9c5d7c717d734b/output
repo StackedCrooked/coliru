@@ -1,0 +1,29 @@
+	.file	"main.cpp"						.file	"main.cpp"
+	.text								.text
+	.p2align 4,,15							.p2align 4,,15
+	.globl	test()							.globl	test()
+	.type	test(), @function					.type	test(), @function
+test():								test():
+.LFB0:								.LFB0:
+	.cfi_startproc							.cfi_startproc
+	subq	$8, %rsp						subq	$8, %rsp
+	.cfi_def_cfa_offset 16						.cfi_def_cfa_offset 16
+	call	aaa()							call	aaa()
+	testq	%rax, %rax						testq	%rax, %rax
+	jne	.L5							jne	.L5
+	addq	$8, %rsp						addq	$8, %rsp
+	.cfi_remember_state						.cfi_remember_state
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	ret								ret
+							      >		.p2align 4,,10
+							      >		.p2align 3
+.L5:								.L5:
+	.cfi_restore_state						.cfi_restore_state
+	popq	%rax					      |		addq	$8, %rsp
+	.cfi_def_cfa_offset 8						.cfi_def_cfa_offset 8
+	jmp	bbb()							jmp	bbb()
+	.cfi_endproc							.cfi_endproc
+.LFE0:								.LFE0:
+	.size	test(), .-test()					.size	test(), .-test()
+	.ident	"GCC: (GNU) 4.8.2"					.ident	"GCC: (GNU) 4.8.2"
+	.section	.note.GNU-stack,"",@progbits			.section	.note.GNU-stack,"",@progbits
