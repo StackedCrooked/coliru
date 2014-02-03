@@ -1,0 +1,86 @@
++ g++-4.8 -std=c++1y -O3 -S main.cpp -masm=intel
++ cat main.s
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.text._ZNSt6vectorIiSaIiEED2Ev,"axG",@progbits,_ZNSt6vectorIiSaIiEED5Ev,comdat
+	.align 2
+	.p2align 4,,15
+	.weak	_ZNSt6vectorIiSaIiEED2Ev
+	.type	_ZNSt6vectorIiSaIiEED2Ev, @function
+_ZNSt6vectorIiSaIiEED2Ev:
+.LFB685:
+	.cfi_startproc
+	mov	rdi, QWORD PTR [rdi]
+	test	rdi, rdi
+	je	.L1
+	jmp	_ZdlPv
+	.p2align 4,,10
+	.p2align 3
+.L1:
+	rep; ret
+	.cfi_endproc
+.LFE685:
+	.size	_ZNSt6vectorIiSaIiEED2Ev, .-_ZNSt6vectorIiSaIiEED2Ev
+	.weak	_ZNSt6vectorIiSaIiEED1Ev
+	.set	_ZNSt6vectorIiSaIiEED1Ev,_ZNSt6vectorIiSaIiEED2Ev
+	.text
+	.p2align 4,,15
+	.globl	_Z3foov
+	.type	_Z3foov, @function
+_Z3foov:
+.LFB675:
+	.cfi_startproc
+	cmp	BYTE PTR _ZGVZ3foovE1x[rip], 0
+	je	.L13
+	mov	eax, OFFSET FLAT:_ZZ3foovE1x
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L13:
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	mov	edi, OFFSET FLAT:_ZGVZ3foovE1x
+	call	__cxa_guard_acquire
+	test	eax, eax
+	je	.L6
+	mov	edi, OFFSET FLAT:_ZGVZ3foovE1x
+	mov	QWORD PTR _ZZ3foovE1x[rip], 0
+	mov	QWORD PTR _ZZ3foovE1x[rip+8], 0
+	mov	QWORD PTR _ZZ3foovE1x[rip+16], 0
+	call	__cxa_guard_release
+	mov	edx, OFFSET FLAT:__dso_handle
+	mov	esi, OFFSET FLAT:_ZZ3foovE1x
+	mov	edi, OFFSET FLAT:_ZNSt6vectorIiSaIiEED1Ev
+	call	__cxa_atexit
+.L6:
+	mov	eax, OFFSET FLAT:_ZZ3foovE1x
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE675:
+	.size	_Z3foov, .-_Z3foov
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB677:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	call	_Z3foov
+	xor	eax, eax
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE677:
+	.size	main, .-main
+	.local	_ZZ3foovE1x
+	.comm	_ZZ3foovE1x,24,16
+	.local	_ZGVZ3foovE1x
+	.comm	_ZGVZ3foovE1x,8,16
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
