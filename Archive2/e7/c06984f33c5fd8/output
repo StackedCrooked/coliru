@@ -1,0 +1,13 @@
+main.cpp:18:34: error: template argument 1 is invalid
+ template<>  struct sigma <int tmp> {
+                                  ^
+main.cpp: In instantiation of 'constexpr const int sigma<0>::result':
+main.cpp:13:38:   recursively required from 'constexpr const int sigma<2, 3, 4, 5, 0>::result'
+main.cpp:13:38:   required from 'constexpr const int sigma<1, 2, 3, 4, 5, 0>::result'
+main.cpp:27:31:   required from here
+main.cpp:13:38: error: wrong number of template arguments (0, should be 1 or more)
+  constexpr static int result = first + sigma<Args...>::result   ;
+                                      ^
+main.cpp:11:40: error: provided for 'template<int first, int ...Args> struct sigma'
+ template <int first,int...Args> struct sigma  {
+                                        ^
