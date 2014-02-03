@@ -1,0 +1,52 @@
+main.cpp:61:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+main.cpp:65:17: error: read-only variable is not assignable
+    myNumerator = a;
+    ~~~~~~~~~~~ ^
+main.cpp:70:17: error: read-only variable is not assignable
+    myNumerator = b;
+    ~~~~~~~~~~~ ^
+main.cpp:137:19: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    Rational first(), second(75, 350), third(13, 55);
+                  ^~
+main.cpp:137:19: note: remove parentheses to declare a variable
+    Rational first(), second(75, 350), third(13, 55);
+                  ^~
+main.cpp:139:13: warning: address of function 'first' will always evaluate to 'true' [-Wbool-conversion]
+    cout << first << endl << second << endl << third << endl << fourth <<endl;
+    ~~~~    ^~~~~
+main.cpp:139:13: note: prefix with the address-of operator to silence this warning
+    cout << first << endl << second << endl << third << endl << fourth <<endl;
+            ^
+            &
+main.cpp:141:5: error: base of member reference is a function; perhaps you meant to call it with no arguments?
+    first.numerator(3)const;
+    ^~~~~
+         ()
+main.cpp:141:23: error: expected ';' after expression
+    first.numerator(3)const;
+                      ^
+                      ;
+main.cpp:141:23: warning: declaration does not declare anything [-Wmissing-declarations]
+    first.numerator(3)const;
+                      ^~~~~
+main.cpp:142:5: error: base of member reference is a function; perhaps you meant to call it with no arguments?
+    first.denominator(5)const;
+    ^~~~~
+         ()
+main.cpp:142:25: error: expected ';' after expression
+    first.denominator(5)const;
+                        ^
+                        ;
+main.cpp:142:25: warning: declaration does not declare anything [-Wmissing-declarations]
+    first.denominator(5)const;
+                        ^~~~~
+main.cpp:144:13: warning: address of function 'first' will always evaluate to 'true' [-Wbool-conversion]
+    cout << first;
+    ~~~~    ^~~~~
+main.cpp:144:13: note: prefix with the address-of operator to silence this warning
+    cout << first;
+            ^
+            &
+6 warnings and 6 errors generated.
