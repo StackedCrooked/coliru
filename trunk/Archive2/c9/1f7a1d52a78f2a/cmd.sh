@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Ofast -ffast-math -march=native -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
