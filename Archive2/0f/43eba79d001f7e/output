@@ -1,0 +1,13 @@
+main.cpp:6:55: error: no matching function for call to 'std::basic_stringstream<char>::basic_stringstream(const char [14], const char [16])'
+ std::stringstream in("1 2 2 5 3 3 5"," 9 8 5 1 4 2 9 ");
+                                                       ^
+main.cpp:6:55: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/sstream:553:7: note: std::basic_stringstream<_CharT, _Traits, _Alloc>::basic_stringstream(const __string_type&, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_stringstream<_CharT, _Traits, _Alloc>::__string_type = std::basic_string<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_stringstream(const __string_type& __str,
+       ^
+/usr/include/c++/4.8/sstream:553:7: note:   no known conversion for argument 2 from 'const char [16]' to 'std::ios_base::openmode {aka std::_Ios_Openmode}'
+/usr/include/c++/4.8/sstream:537:7: note: std::basic_stringstream<_CharT, _Traits, _Alloc>::basic_stringstream(std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_stringstream(ios_base::openmode __m = ios_base::out | ios_base::in)
+       ^
+/usr/include/c++/4.8/sstream:537:7: note:   candidate expects 1 argument, 2 provided
