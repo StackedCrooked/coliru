@@ -1,0 +1,1 @@
+clang++ main.cpp -O3 -std=c++03 && ./a.out
