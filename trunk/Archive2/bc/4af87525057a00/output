@@ -1,0 +1,35 @@
+61 61 118 130 
+
+**** so far, so good ******
+
+
+----------------------------------
+
+main.cpp:31:15: error: overload resolution selected deleted operator '<<'
+        A{23} << 34.567 ; // error
+        ~~~~~ ^  ~~~~~~
+main.cpp:12:9: note: candidate function has been explicitly deleted
+    A&& operator<< ( double d ) && = delete ;
+        ^
+main.cpp:8:8: note: candidate function
+    A& operator<< ( int v ) { i += v ; std::cout << i << ' ' ; return *this ; } 
+       ^
+main.cpp:9:8: note: candidate function
+    A& operator<< ( char c ) { ++i ; std::cout << c ; return *this ; } 
+       ^
+main.cpp:20:4: note: candidate function not viable: no known conversion from 'A' to 'B &' for 1st argument
+B& operator<< ( B& b, double d ) {++ b.i ; std::cout << d << ' ' ; return b ; } 
+   ^
+main.cpp:17:4: note: candidate function not viable: no known conversion from 'A' to 'B &' for 1st argument
+B& operator<< ( B& b, int v ) { b.i += v ; std::cout << b.i << ' ' ; return b ; } 
+   ^
+main.cpp:18:5: note: candidate function not viable: no known conversion from 'A' to 'B' for 1st argument
+B&& operator<< ( B&& b, int v ) { b.i += v ; std::cout << b.i << ' ' ; return std::move(b) ; } 
+    ^
+main.cpp:11:8: note: candidate function not viable: no known conversion from 'A' to 'A' for object argument
+    A& operator<< ( double d ) & { ++i ; std::cout << d ; return *this ; }
+       ^
+main.cpp:32:18: warning: implicit conversion from 'double' to 'int' changes value from 34.567 to 34 [-Wliteral-conversion]
+        B{23} << 34.567 ; // error
+        ~        ^~~~~~
+1 warning and 1 error generated.
