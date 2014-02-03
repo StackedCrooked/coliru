@@ -1,0 +1,1 @@
+int main() { if (int x = 3) {} }
