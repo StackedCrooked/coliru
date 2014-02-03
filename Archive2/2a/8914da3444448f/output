@@ -1,0 +1,23 @@
+// Fully static dispatch:
+//
+Both objects are of the same type (and not funky) : Model::ClientModel::cClientVerticesObject
+static void UserTypeHooks::RenderClientObjectsImpl<ClientObject1, ClientObject2, Enable>::call(Controller::QtOpenGL::cQOpenGLContext*, const ClientObject1&, const ClientObject2&) [with ClientObject1 = Model::ClientModel::cClientVerticesObject; ClientObject2 = Model::ClientModel::cRawClientObject; Enable = void; Controller::QtOpenGL::cQOpenGLContext = std::basic_ostream<char>]
+Funky object involved (other is Model::ClientModel::cClientVerticesObject)
+static void UserTypeHooks::RenderClientObjectsImpl<ClientObject1, ClientObject2, Enable>::call(Controller::QtOpenGL::cQOpenGLContext*, const ClientObject1&, const ClientObject2&) [with ClientObject1 = Model::ClientModel::cRawClientObject; ClientObject2 = Model::ClientModel::cClientVerticesObject; Enable = void; Controller::QtOpenGL::cQOpenGLContext = std::basic_ostream<char>]
+Both objects are of the same type (and not funky) : Model::ClientModel::cRawClientObject
+Funky object involved (other is Model::ClientModel::cRawClientObject)
+Funky object involved (other is Model::ClientModel::cClientVerticesObject)
+Funky object involved (other is Model::ClientModel::cRawClientObject)
+Both objects are Funky.
+
+// Runtime dispatch:
+//
+Both objects are of the same type (and not funky) : Model::ClientModel::cClientVerticesObject
+static void UserTypeHooks::RenderClientObjectsImpl<ClientObject1, ClientObject2, Enable>::call(Controller::QtOpenGL::cQOpenGLContext*, const ClientObject1&, const ClientObject2&) [with ClientObject1 = Model::ClientModel::cClientVerticesObject; ClientObject2 = Model::ClientModel::cRawClientObject; Enable = void; Controller::QtOpenGL::cQOpenGLContext = std::basic_ostream<char>]
+Funky object involved (other is Model::ClientModel::cClientVerticesObject)
+static void UserTypeHooks::RenderClientObjectsImpl<ClientObject1, ClientObject2, Enable>::call(Controller::QtOpenGL::cQOpenGLContext*, const ClientObject1&, const ClientObject2&) [with ClientObject1 = Model::ClientModel::cRawClientObject; ClientObject2 = Model::ClientModel::cClientVerticesObject; Enable = void; Controller::QtOpenGL::cQOpenGLContext = std::basic_ostream<char>]
+Both objects are of the same type (and not funky) : Model::ClientModel::cRawClientObject
+Funky object involved (other is Model::ClientModel::cRawClientObject)
+Funky object involved (other is Model::ClientModel::cClientVerticesObject)
+Funky object involved (other is Model::ClientModel::cRawClientObject)
+Both objects are Funky.
