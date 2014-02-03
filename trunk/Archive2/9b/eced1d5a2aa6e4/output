@@ -1,0 +1,20 @@
+main.cpp:53:9: warning: private field 'ii' is not used [-Wunused-private-field]
+    int ii {};
+        ^
+1 warning generated.
+Constructor: 0x7fff410083f8
+Temp object created!
+Destructor: 0x7fff410083f8 and delete 0xd58010
+Move constructor: 0x7fff41008468 Move from: 0x7fff41008450
+Destructor: 0x7fff41008450 and delete 0
+Finish!
+Destructor: 0x7fff41008468 and delete 0x400ec0
+*** glibc detected *** ./a.out: double free or corruption (out): 0x0000000000400ec0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7fe6c554fb96]
+./a.out[0x400dd6]
+./a.out[0x400c31]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fe6c54f276d]
+./a.out[0x400a55]
+======= Memory map: ========
+bash: line 7:  3930 Aborted                 (core dumped) ./a.out
