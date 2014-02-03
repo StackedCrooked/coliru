@@ -1,0 +1,193 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:462:
+/usr/include/c++/v1/type_traits:2761:19: error: invalid application of 'sizeof' to an incomplete type 'void'
+    static_assert(sizeof(_Tp) > 0, "Type must be complete.");
+                  ^~~~~~~~~~~
+/usr/include/c++/v1/type_traits:2778:15: note: in instantiation of template class 'std::__1::__check_complete<void>' requested here
+    : private __check_complete<_Rp>
+              ^
+/usr/include/c++/v1/type_traits:2766:15: note: in instantiation of template class 'std::__1::__check_complete<void (*)(int)>' requested here
+    : private __check_complete<_Tp>
+              ^
+/usr/include/c++/v1/type_traits:2947:15: note: in instantiation of template class 'std::__1::__check_complete<void (*&)(int)>' requested here
+    : private __check_complete<_Fp>
+              ^
+/usr/include/c++/v1/type_traits:2958:11: note: in instantiation of template class 'std::__1::__invokable_imp<void (*&)(int), int>' requested here
+          __invokable_imp<_Fp, _Args...>::value>
+          ^
+/usr/include/c++/v1/functional:1117:33: note: in instantiation of template class 'std::__1::__invokable<void (*&)(int), int>' requested here
+                                __invokable<_Fp&, _ArgTypes...>::value>
+                                ^
+/usr/include/c++/v1/functional:1143:35: note: in instantiation of default argument for '__callable<void (*)(int)>' required here
+               typename enable_if<__callable<_Fp>::value>::type* = 0);
+                                  ^~~~~~~~~~~~~~~
+/usr/include/c++/v1/functional:1142:7: note: while substituting deduced template arguments into function template 'function' [with _Fp = void (*)(int)]
+      function(_Fp,
+      ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'void (*)(int)' cannot bind to lvalue of type 'void (*)(int)'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, void (*&&)(int), false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<void (*)(int), std::__1::allocator<void (*)(int)>, void (int)>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:25:42: note: in instantiation of function template specialization 'std::__1::function<void (int)>::function<void (*)(int)>' requested here
+    std::function<void(int)> f_display = print_num;
+                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<void (*)(int)> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<void (*)(int), std::__1::allocator<void (*)(int)>, void (int)>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+main.cpp:25:42: note: in instantiation of function template specialization 'std::__1::function<void (int)>::function<void (*)(int)>' requested here
+    std::function<void(int)> f_display = print_num;
+                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type '<lambda at main.cpp:29:42>' cannot bind to lvalue of type '<lambda at main.cpp:29:42>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, <lambda at main.cpp:29:42> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:29:42>, std::__1::allocator<<lambda at main.cpp:29:42> >, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:29:42: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:29:42> >' requested here
+    std::function<void()> f_display_42 = []() { print_num(42); };
+                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<<lambda at main.cpp:29:42> > &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:29:42>, std::__1::allocator<<lambda at main.cpp:29:42> >, void ()>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+main.cpp:29:42: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:29:42> >' requested here
+    std::function<void()> f_display_42 = []() { print_num(42); };
+                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type '__bind<[2 * ...]>' cannot bind to lvalue of type '__bind<[2 * ...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::__bind<void (&)(int), int> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<std::__1::__bind<void (&)(int), int>, std::__1::allocator<std::__1::__bind<void (&)(int), int> >, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:33:45: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<std::__1::__bind<void (&)(int), int> >' requested here
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+                                            ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<std::__1::__bind<void (&)(int), int> > &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<std::__1::__bind<void (&)(int), int>, std::__1::allocator<std::__1::__bind<void (&)(int), int> >, void ()>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+main.cpp:33:45: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<std::__1::__bind<void (&)(int), int> >' requested here
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+                                            ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'void (Foo::*)(int) const' cannot bind to lvalue of type 'void (Foo::*)(int) const'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, void (Foo::*&&)(int) const, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<void (Foo::*)(int) const, std::__1::allocator<void (Foo::*)(int) const>, void (const Foo &, int)>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:37:58: note: in instantiation of function template specialization 'std::__1::function<void (const Foo &, int)>::function<void (Foo::*)(int) const>' requested here
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+                                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<void (Foo::*)(int) const> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<void (Foo::*)(int) const, std::__1::allocator<void (Foo::*)(int) const>, void (const Foo &, int)>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+main.cpp:37:58: note: in instantiation of function template specialization 'std::__1::function<void (const Foo &, int)>::function<void (Foo::*)(int) const>' requested here
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+                                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type '__bind<[3 * ...]>' cannot bind to lvalue of type '__bind<[3 * ...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::__bind<void (Foo::*)(int) const, const Foo &, std::__1::placeholders::__ph<1> &> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<std::__1::__bind<void (Foo::*)(int) const, const Foo &, std::__1::placeholders::__ph<1> &>, std::__1::allocator<std::__1::__bind<void (Foo::*)(int) const, const Foo &, std::__1::placeholders::__ph<1> &> >, void (int)>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:43:46: note: in instantiation of function template specialization 'std::__1::function<void (int)>::function<std::__1::__bind<void (Foo::*)(int) const, const Foo &, std::__1::placeholders::__ph<1> &> >' requested here
+    std::function<void(int)> f_add_display2= std::bind( &Foo::print_add, foo, _1 );
+                                             ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
