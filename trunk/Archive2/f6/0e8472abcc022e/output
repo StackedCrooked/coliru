@@ -1,0 +1,43 @@
+main.cpp:3:23: error: constexpr variable 'x1' must be initialized by a constant expression
+        constexpr int x1 =  1 << 33 ; //Assuming 32-bit int
+                      ^     ~~~~~~~
+main.cpp:3:31: note: shift count 33 >= width of type 'int' (32 bits)
+        constexpr int x1 =  1 << 33 ; //Assuming 32-bit int
+                              ^
+main.cpp:4:23: error: constexpr variable 'x2' must be initialized by a constant expression
+        constexpr int x2 =  1 << -1 ;
+                      ^     ~~~~~~~
+main.cpp:4:31: note: negative shift count -1
+        constexpr int x2 =  1 << -1 ;
+                              ^
+main.cpp:5:23: error: constexpr variable 'x3' must be initialized by a constant expression
+        constexpr int x3 =  -1 << 1 ;
+                      ^     ~~~~~~~
+main.cpp:5:32: note: left shift of negative value -1
+        constexpr int x3 =  -1 << 1 ;
+                               ^
+main.cpp:6:23: error: constexpr variable 'x4' must be initialized by a constant expression
+        constexpr int x4 =  1 >> 33 ; //Assuming 32-bit int
+                      ^     ~~~~~~~
+main.cpp:6:31: note: shift count 33 >= width of type 'int' (32 bits)
+        constexpr int x4 =  1 >> 33 ; //Assuming 32-bit int
+                              ^
+main.cpp:7:23: error: constexpr variable 'x5' must be initialized by a constant expression
+        constexpr int x5 =  1 >> -1 ;
+                      ^     ~~~~~~~
+main.cpp:7:31: note: negative shift count -1
+        constexpr int x5 =  1 >> -1 ;
+                              ^
+main.cpp:3:31: warning: shift count >= width of type [-Wshift-count-overflow]
+        constexpr int x1 =  1 << 33 ; //Assuming 32-bit int
+                              ^  ~~
+main.cpp:4:31: warning: shift count is negative [-Wshift-count-negative]
+        constexpr int x2 =  1 << -1 ;
+                              ^  ~~
+main.cpp:6:31: warning: shift count >= width of type [-Wshift-count-overflow]
+        constexpr int x4 =  1 >> 33 ; //Assuming 32-bit int
+                              ^  ~~
+main.cpp:7:31: warning: shift count is negative [-Wshift-count-negative]
+        constexpr int x5 =  1 >> -1 ;
+                              ^  ~~
+4 warnings and 5 errors generated.
