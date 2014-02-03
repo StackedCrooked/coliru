@@ -1,0 +1,36 @@
+main.cpp: In function 'int main()':
+main.cpp:47:22: error: 'my_alloc' was not declared in this scope
+     std::vector<int, my_alloc> v(10, 1, my_alloc(1));
+                      ^
+main.cpp:47:30: error: template argument 2 is invalid
+     std::vector<int, my_alloc> v(10, 1, my_alloc(1));
+                              ^
+main.cpp:47:33: error: invalid type in declaration before '(' token
+     std::vector<int, my_alloc> v(10, 1, my_alloc(1));
+                                 ^
+main.cpp:47:52: error: expression list treated as compound expression in initializer [-fpermissive]
+     std::vector<int, my_alloc> v(10, 1, my_alloc(1));
+                                                    ^
+main.cpp:47:52: warning: left operand of comma operator has no effect [-Wunused-value]
+main.cpp:49:38: error: the value of 'my_alloc' is not usable in a constant expression
+     std::tuple<int, std::vector<int, my_alloc>, double> t5(std::allocator_arg,
+                                      ^
+main.cpp:47:22: note: 'my_alloc' was not declared 'constexpr'
+     std::vector<int, my_alloc> v(10, 1, my_alloc(1));
+                      ^
+main.cpp:49:46: error: type/value mismatch at argument 2 in template parameter list for 'template<class _Tp, class _Alloc> class std::vector'
+     std::tuple<int, std::vector<int, my_alloc>, double> t5(std::allocator_arg,
+                                              ^
+main.cpp:49:46: error:   expected a type, got 'my_alloc'
+main.cpp:49:55: error: template argument 2 is invalid
+     std::tuple<int, std::vector<int, my_alloc>, double> t5(std::allocator_arg,
+                                                       ^
+main.cpp:49:59: error: invalid type in declaration before '(' token
+     std::tuple<int, std::vector<int, my_alloc>, double> t5(std::allocator_arg,
+                                                           ^
+main.cpp:50:86: error: expression list treated as compound expression in initializer [-fpermissive]
+                                                            my_alloc(2), 42, v,  -3.14);
+                                                                                      ^
+main.cpp:49:57: warning: unused variable 't5' [-Wunused-variable]
+     std::tuple<int, std::vector<int, my_alloc>, double> t5(std::allocator_arg,
+                                                         ^
