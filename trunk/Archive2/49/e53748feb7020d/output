@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:21:15: error: call of overloaded 'foo(Test&)' is ambiguous
+     foo( test );
+               ^
+main.cpp:21:15: note: candidates are:
+main.cpp:11:1: note: typename std::enable_if<std::is_pointer<decltype (T:: p)>::value>::type foo(T) [with T = Test; typename std::enable_if<std::is_pointer<decltype (T:: p)>::value>::type = void]
+ foo( T bla ) { static_assert( sizeof( T ) == 0, "T::p is a pointer" ); }
+ ^
+main.cpp:14:6: note: void foo(T) [with T = Test]
+ void foo( T bla )
+      ^
