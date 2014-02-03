@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -flto -pedantic -Wall -Wextra -Wno-unused-but-set-variable -o log2bench main.cpp && ./log2bench
