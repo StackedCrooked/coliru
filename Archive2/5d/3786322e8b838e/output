@@ -1,0 +1,27 @@
+-----------------------
+12 34
+560 5600
+7800 780000
+------- done ---------
+main.cpp:44:17: error: invalid operands to binary expression ('D' and 'A')
+        D{"90"} >> x >> y ; // ***error: operator>> expects l-value (D&)
+        ~~~~~~~ ^  ~
+main.cpp:10:15: note: candidate function not viable: no known conversion from 'D' to 'std::istream &' (aka 'basic_istream<char> &') for 1st argument
+std::istream& operator>> ( std::istream& is, A& a ) { return is >> a.text ; }
+              ^
+main.cpp:14:4: note: candidate function not viable: no known conversion from 'D' to 'B &' for 1st argument
+B& operator>>( B& b, A& a ) { b.text += '0' ; a.text = b.text ; return b ; }
+   ^
+main.cpp:17:5: note: candidate function not viable: no known conversion from 'D' to 'B' for 1st argument
+B&& operator>>( B&& b, A& a ) { return std::move( b >> a ) ; } 
+    ^
+main.cpp:19:4: note: candidate function not viable: no known conversion from 'D' to 'C &' for 1st argument
+C& operator>>( C& c, A& a ) { c.text += "00" ; a.text = c.text ; return c ; }
+   ^
+main.cpp:22:29: note: candidate function [with T = A] not viable: no known conversion from 'D' to 'C' for 1st argument
+template < typename T > C&& operator>>( C&& c, T& t ){ return std::move( c >> t ) ; }
+                            ^
+main.cpp:24:4: note: candidate function not viable: expects an l-value for 1st argument
+D& operator>>( D& d, A& a ) { d.text += "000" ; a.text = d.text ; return d ; }
+   ^
+1 error generated.
