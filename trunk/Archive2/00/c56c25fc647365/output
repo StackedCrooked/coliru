@@ -1,0 +1,17 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:15:55: error: invalid conversion from 'char**' to 'const char**' [-fpermissive]
+     const char** charArray = new char*[vstrings.size()];
+                                                       ^
+In file included from /usr/include/c++/4.8/bits/char_traits.h:39:0,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algobase.h: In instantiation of 'static _OI std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m(_II, _II, _OI) [with _II = std::basic_string<char>*; _OI = const char**]':
+/usr/include/c++/4.8/bits/stl_algobase.h:390:70:   required from '_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = std::basic_string<char>*; _OI = const char**]'
+/usr/include/c++/4.8/bits/stl_algobase.h:428:38:   required from '_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = __gnu_cxx::__normal_iterator<std::basic_string<char>*, std::vector<std::basic_string<char> > >; _OI = const char**]'
+/usr/include/c++/4.8/bits/stl_algobase.h:460:17:   required from '_OI std::copy(_II, _II, _OI) [with _II = __gnu_cxx::__normal_iterator<std::basic_string<char>*, std::vector<std::basic_string<char> > >; _OI = const char**]'
+main.cpp:16:62:   required from here
+/usr/include/c++/4.8/bits/stl_algobase.h:335:18: error: cannot convert 'std::basic_string<char>' to 'const char*' in assignment
+        *__result = *__first;
+                  ^
