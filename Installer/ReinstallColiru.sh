@@ -80,6 +80,11 @@ useradd -g coliru -u 2001 webserver || echo "User webserver already exists. Cont
 useradd -g coliru -u 2002 sandbox || echo "User sandbox already exists. Continuing."
 
 
+# SECURITY SETTINGS
+
+# sandbox user can not access the network
+iptables -A OUTPUT -m owner --uid-owner sandbox -j DROP
+
 # Set the securit limites for the webserver and sandbox users.
 LIMITS_ALREADY_SET=$(cat /etc/security/limits.conf | grep COLIRU | wc -l)
 echo "LIMITS_ALREADY_SET: ${LIMITS_ALREADY_SET}"
