@@ -53,5 +53,5 @@ fi
 # Start the defunct processes monitor
 setsid ./defunct-restarter.sh & disown
 
-# Reboot after 86400 seconds
-setsid bash -c "sleep 86400 ; reboot" & disown
+# Schedule a future reboot (because we crash all the time)
+setsid bash -c "sleep 43200 ; reboot" & disown
