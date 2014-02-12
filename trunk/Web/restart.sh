@@ -53,5 +53,8 @@ fi
 # Start the defunct processes monitor
 setsid ./defunct-restarter.sh & disown
 
+# Disable network access
+iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
+
 # Schedule a future reboot (because we crash all the time)
 setsid bash -c "sleep 43200 ; reboot" & disown
