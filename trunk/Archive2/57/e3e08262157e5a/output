@@ -1,0 +1,16 @@
+main.cpp:44:25: warning: returning reference to local temporary object [-Wreturn-stack-address]
+const A& bar() { return A("three") ; }
+                        ^~~~~~~~~~
+1 warning generated.
+A{ "one" } constructed { 111 110 101 0  }
+A{ "one" } destroyed
+{ 0 0 0 0  }
+A{ "two" } constructed { 116 119 111 0  }
+A{ "two" } destroyed
+{ 0 0 0 0  }
+A{ "three" } constructed { 116 104 114 101 101 0  }
+A{ "three" } destroyed
+{ 112 -69 119 87  }
+A{ "four" } constructed { 102 111 117 114 0  }
+A{ "four" } destroyed
+{ 0 0 0 0 0  }
