@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:11:29: error: no matching function for call to 'std::basic_ifstream<char>::basic_ifstream(std::string&)'
+     ifstream myfile(filename);
+                             ^
+main.cpp:11:29: note: candidates are:
+In file included from main.cpp:3:0:
+/usr/include/c++/4.8/fstream:467:7: note: std::basic_ifstream<_CharT, _Traits>::basic_ifstream(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ifstream(const char* __s, ios_base::openmode __mode = ios_base::in)
+       ^
+/usr/include/c++/4.8/fstream:467:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+/usr/include/c++/4.8/fstream:453:7: note: std::basic_ifstream<_CharT, _Traits>::basic_ifstream() [with _CharT = char; _Traits = std::char_traits<char>]
+       basic_ifstream() : __istream_type(), _M_filebuf()
+       ^
+/usr/include/c++/4.8/fstream:453:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.8/fstream:427:11: note: std::basic_ifstream<char>::basic_ifstream(const std::basic_ifstream<char>&)
+     class basic_ifstream : public basic_istream<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/fstream:427:11: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::basic_ifstream<char>&'
+main.cpp:14:22: error: 'thing' was not declared in this scope
+     while (myfile >> thing) {
+                      ^
+main.cpp:15:9: error: 'mydata' was not declared in this scope
+         mydata[i] = thing;
+         ^
+main.cpp:15:16: error: 'i' was not declared in this scope
+         mydata[i] = thing;
+                ^
