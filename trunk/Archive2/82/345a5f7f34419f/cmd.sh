@@ -1,0 +1,1 @@
+g++ -O2 -Wall main.cpp && ./a.out && clang++ -O2 -Wall main.cpp -ob.out && ./a.out && echo && ./b.out
