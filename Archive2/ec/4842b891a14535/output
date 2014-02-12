@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:36:32: error: no match for call to '(const std::hash<Employee>) (Employee&)'
+   std::cout << hash_fn(employee) << '\n';
+                                ^
+main.cpp:12:7: note: candidate is:
+ class hash<Employee> {
+       ^
+main.cpp:14:10: note: std::size_t std::hash<Employee>::operator()(const Employee&) <near match>
+   size_t operator()(const Employee &employee) 
+          ^
+main.cpp:14:10: note:   no known conversion for implicit 'this' parameter from 'const std::hash<Employee>*' to 'std::hash<Employee>*'

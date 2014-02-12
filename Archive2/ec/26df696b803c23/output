@@ -1,0 +1,10 @@
+GCC: 
+main.cpp: In function 'int main(int, char**)':
+main.cpp:23:3: error: static assertion failed: violates [temp.deduct.call]/4; `B1<void>` is a base of `D1`, func (TT<T>) should be called!
+   static_assert (
+   ^
+CLANG: 
+main.cpp:30:3: error: static_assert failed "violates [temp.deduct.call]/5; func(TT<T>) can be called with both `B1<void>` and `B2<void>` which are both bases of D2, this causes ambigiuity and `func(...)` should be called!"
+  static_assert (
+  ^
+1 error generated.
