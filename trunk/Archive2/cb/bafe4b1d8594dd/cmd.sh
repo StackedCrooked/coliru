@@ -1,0 +1,1 @@
+set -x; gcc -O2 -Wall -Wextra -pedantic -pthread main.cpp -lssl && ./a.out && echo hello
