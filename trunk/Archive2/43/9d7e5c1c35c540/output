@@ -1,0 +1,36 @@
+
+-------------------------------------
+
+     1	
+     2	
+     3	
+     4	
+     5	        #include <fstream>
+     6	
+     7	int main()
+     8	{
+     9	    std::ifstream file( __FILE__ ) ;
+    10	
+    11	    char c ;
+    12	    if( file >> c ) file.putback(c) ;
+    13	
+    14	    std::ofstream( "temp.txt" ) << file.rdbuf() ;
+    15	
+    16	    // remove, rename
+    17	}
+
+-------------------------------------
+
+     1	#include <fstream>
+     2	
+     3	int main()
+     4	{
+     5	    std::ifstream file( __FILE__ ) ;
+     6	
+     7	    char c ;
+     8	    if( file >> c ) file.putback(c) ;
+     9	
+    10	    std::ofstream( "temp.txt" ) << file.rdbuf() ;
+    11	
+    12	    // remove, rename
+    13	}
