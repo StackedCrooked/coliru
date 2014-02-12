@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -march=native -O3 -Wall -funroll-loops -s -pedantic -pthread main.cpp && ./a.out s512

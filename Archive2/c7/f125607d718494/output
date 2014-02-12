@@ -1,0 +1,73 @@
+main.cpp:1133:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+  #pragma omp parallel for if (sieve_size > 2 * Threshold.L1Size)
+ ^
+main.cpp:1649:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for reduction(+:primes) schedule(static, 2) if(cmd == NULL)
+ ^
+main.cpp: In function 'uint64 atoint64(const char*)':
+main.cpp:507:27: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (ps = strchr(str, '+')) {
+                           ^
+main.cpp:509:34: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  } else if (ps = strchr(str, '-')) {
+                                  ^
+main.cpp:511:34: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  } else if (ps = strchr(str, '*')) {
+                                  ^
+main.cpp: In function 'void eratSieveBucket(uchar*, uint)':
+main.cpp:1399:54: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  for (Stock* phead = (Stock*)Bucket; phead = phead ->Next; loops = WHEEL_SIZE) {
+                                                      ^
+main.cpp: In function 'int segmentProcessed(uchar*, uint64, uint, Cmd*)':
+main.cpp:1432:84: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+   primes = doCall((stype*)bitarray, start, dwords, cmd ->Primes, (sieve_call)cmd ->Data);
+                                                                                    ^
+main.cpp: In function 'int checkSmall(uint64, uint64, Cmd*)':
+main.cpp:1617:63: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < sizeof(SmallPrime) / sizeof(SmallPrime[0]); i ++) {
+                                                               ^
+main.cpp:1621:25: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+     (*(sieve_call)cmd ->Data)(primes, SmallPrime[i]);
+                         ^
+main.cpp: In function 'uint64 pi2(uint64, uint64, Cmd*)':
+main.cpp:1636:14: warning: unused variable 'ts' [-Wunused-variable]
+  const int64 ts = getTime();
+              ^
+main.cpp: In function 'void initBitTable()':
+main.cpp:1919:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (i = 8; i < sizeof(Pattern30) / sizeof (Pattern30[0]); i ++) {
+                                                          ^
+main.cpp: In function 'void startBenchmark()':
+main.cpp:2153:61: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int k = 0; k < sizeof(RangeData) / sizeof(RangeData[0]); k ++) {
+                                                             ^
+main.cpp: In function 'bool excuteCmd(const char*)':
+main.cpp:2404:35: warning: ISO C++ forbids casting between pointer-to-function and pointer-to-object [enabled by default]
+    Cmd cmd = {PCALL_BACK, (uchar*)printPrime, 0};
+                                   ^
+main.cpp: In function 'void doCompile(const char*)':
+main.cpp:2278:14: warning: ignoring return value of 'int system(const char*)', declared with attribute warn_unused_result [-Wunused-result]
+  system(ccmd);
+              ^
+main.cpp:2279:21: warning: ignoring return value of 'int system(const char*)', declared with attribute warn_unused_result [-Wunused-result]
+  system(programming);
+                     ^
+main.cpp: At global scope:
+main.cpp:1296:13: warning: 'void sieveBigOne(uchar*, uint, WheelPrime*)' defined but not used [-Wunused-function]
+ static void sieveBigOne(uchar bitarray[], const uint sieve_size, WheelPrime* cur_wheel)
+             ^
+Quad-Core AMD Opteron(tm) Processor 2374 HE
+>> 3.15%, time(0.25 sec), primes ~= 61746728pi(2^0,1e9) = 50847534 (0.36 + 0.00 sec)
+-------------------------------------------------------------------------
+Fast implementation of the segmented sieve of Eratosthenes (0, 2^64 - 1)
+Copyright @ by Huang Yuanbing (2011 - 2014) bailuzhou@163.com
+Code: https://github.com/ktprime/ktprime/blob/master/PrimeNumber.cpp
+C++: g++ -march=native [-DW30,-DSAFE,-DPOPCNT] -funroll-loops -O3 -s -pipe
+Compiled by gcc 4.8.1 x86-64 08:12:10 Feb  8 2014
+-------------------------------------------------------------------------
+[MARCO] : ASM_X86, POPCNT, BIT_SCANF, SAFE = (1, 0, 1, 1)
+[MARCO] : MAX_SIEVE = 1024k, WHEEL_SIZE = 16k, ERAT_BIG = 6, WHEEL = 210
+[ARG ]  : L1Size = 32k, L2Size = 256k, SieveSize = 512k
+[ARG ]  : L1Seg/L1Maxp/L2Seg/L2Maxp/Medium = (4,8209,2,131072,31622)
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
