@@ -1,0 +1,31 @@
+main.cpp:10:41: error: call to non-static member function without an object argument
+  : public function_traits<decltype(&T::operator()(1, 2, 3))>
+                                     ~~~^~~~~~~~
+main.cpp:35:17: note: in instantiation of template class 'function_traits<<lambda at main.cpp:47:27> >' requested here
+static typename function_traits<L>::f_type make_function(L l){
+                ^
+main.cpp:35:44: note: while substituting deduced template arguments into function template 'make_function' [with L = <lambda at main.cpp:47:27>]
+static typename function_traits<L>::f_type make_function(L l){
+                                           ^
+main.cpp:47:13: error: no matching function for call to 'make_function'
+  auto f1 = make_function([](int x, int y, int z) { return x + y + z;});
+            ^~~~~~~~~~~~~
+main.cpp:35:44: note: candidate template ignored: substitution failure [with L = <lambda at main.cpp:47:27>]
+static typename function_traits<L>::f_type make_function(L l){
+                                           ^
+main.cpp:10:41: error: call to non-static member function without an object argument
+  : public function_traits<decltype(&T::operator()(1, 2, 3))>
+                                     ~~~^~~~~~~~
+main.cpp:35:17: note: in instantiation of template class 'function_traits<std::_Bind<int (*(std::_Placeholder<1>, std::_Placeholder<2>, std::_Placeholder<3>))(int, int, int)> >' requested here
+static typename function_traits<L>::f_type make_function(L l){
+                ^
+main.cpp:35:44: note: while substituting deduced template arguments into function template 'make_function' [with L = std::_Bind<int (*(std::_Placeholder<1>, std::_Placeholder<2>, std::_Placeholder<3>))(int, int, int)>]
+static typename function_traits<L>::f_type make_function(L l){
+                                           ^
+main.cpp:49:15: error: no matching function for call to 'make_function'
+    auto f2 = make_function(std::bind(foo, _1, _2, _3));
+              ^~~~~~~~~~~~~
+main.cpp:35:44: note: candidate template ignored: substitution failure [with L = std::_Bind<int (*(std::_Placeholder<1>, std::_Placeholder<2>, std::_Placeholder<3>))(int, int, int)>]
+static typename function_traits<L>::f_type make_function(L l){
+                                           ^
+4 errors generated.
