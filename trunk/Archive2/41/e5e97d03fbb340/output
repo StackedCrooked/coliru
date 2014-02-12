@@ -1,0 +1,111 @@
+main.cpp:6:1: error: 'Private' does not name a type
+ Private:
+ ^
+main.cpp:8:10: error: 'MAX_ITEMS' was not declared in this scope
+ int info[MAX_ITEMS];
+          ^
+main.cpp: In constructor 'UnsortedType::UnsortedType()':
+main.cpp:25:1: error: 'length' was not declared in this scope
+ length = 0;
+ ^
+main.cpp: At global scope:
+main.cpp:27:6: error: prototype for 'bool UnsortedType::IsFull()' does not match any in class 'UnsortedType'
+ bool UnsortedType::IsFull()
+      ^
+main.cpp:14:6: error: candidate is: bool UnsortedType::IsFull() const
+ bool IsFull( ) const;
+      ^
+main.cpp:31:6: error: prototype for 'bool UnsortedType::IsEmpty()' does not match any in class 'UnsortedType'
+ bool UnsortedType::IsEmpty()
+      ^
+main.cpp:15:6: error: candidate is: bool UnsortedType::IsEmpty() const
+ bool IsEmpty( ) const;
+      ^
+main.cpp: In member function 'void UnsortedType::InsertItem(int)':
+main.cpp:37:1: error: 'info' was not declared in this scope
+ info[length] = item;
+ ^
+main.cpp:37:6: error: 'length' was not declared in this scope
+ info[length] = item;
+      ^
+main.cpp: In member function 'void UnsortedType::RetrieveItem(int&, bool&)':
+main.cpp:45:28: error: 'length' was not declared in this scope
+ moreToSearch = (location < length);
+                            ^
+main.cpp:47:5: error: 'info' was not declared in this scope
+ if (info[location] == item){
+     ^
+main.cpp: In member function 'void UnsortedType::DeleteItem(int)':
+main.cpp:59:8: error: 'info' was not declared in this scope
+ while (info[location] != item)
+        ^
+main.cpp:61:1: error: 'info' was not declared in this scope
+ info [location] = info [length - 1 ] ;
+ ^
+main.cpp:61:25: error: 'length' was not declared in this scope
+ info [location] = info [length - 1 ] ;
+                         ^
+main.cpp: In function 'void PrintList(UnsortedType)':
+main.cpp:72:1: error: 'cout' was not declared in this scope
+ cout << item << " ";
+ ^
+main.cpp:72:1: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+main.cpp: In member function 'void UnsortedType::GetNextItem(int&)':
+main.cpp:82:8: error: 'info' was not declared in this scope
+ item = info [currentPos] ;
+        ^
+main.cpp: In member function 'int UnsortedType::GetLength() const':
+main.cpp:86:8: error: 'length' was not declared in this scope
+ return length;}
+        ^
+main.cpp: In function 'int main()':
+main.cpp:91:1: error: 'cout' was not declared in this scope
+ cout << "enter an item: ";
+ ^
+main.cpp:91:1: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+main.cpp:92:1: error: 'cin' was not declared in this scope
+ cin >> k;
+ ^
+main.cpp:92:1: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/iostream:60:18: note:   'std::cin'
+   extern istream cin;  /// Linked to standard input
+                  ^
+main.cpp:95:6: error: 'class UnsortedType' has no member named 'PrintList'
+ list.PrintList();
+      ^
+main.cpp:96:1: error: 'cout' was not declared in this scope
+ cout << "\nItem to delete: ";
+ ^
+main.cpp:96:1: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+main.cpp:97:1: error: 'cin' was not declared in this scope
+ cin >> k;
+ ^
+main.cpp:97:1: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/iostream:60:18: note:   'std::cin'
+   extern istream cin;  /// Linked to standard input
+                  ^
+main.cpp:99:6: error: 'class UnsortedType' has no member named 'PrintList'
+ list.PrintList();
+      ^
+main.cpp: In member function 'int UnsortedType::GetLength() const':
+main.cpp:86:15: warning: control reaches end of non-void function [-Wreturn-type]
+ return length;}
+               ^
+main.cpp: In function 'int main()':
+main.cpp:100:16: warning: ignoring return value of 'int system(const char*)', declared with attribute warn_unused_result [-Wunused-result]
+ system("pause");
+                ^
