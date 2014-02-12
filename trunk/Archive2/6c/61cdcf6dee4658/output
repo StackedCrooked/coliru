@@ -1,0 +1,23 @@
+main.cpp:22:15: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  t.push_back("1");
+              ^
+main.cpp:23:15: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  t.push_back("2");
+              ^
+main.cpp:27:35: error: no member named 'test2' in 'toto'; did you mean 'test'?
+       bind2nd(mem_fun_ref(&toto::test2), name)); // <= error
+                            ~~~~~~^~~~~
+                                  test
+main.cpp:15:8: note: 'test' declared here
+  bool test(const char* var) const { return !strncmp(var, v, 9); }
+       ^
+In file included from main.cpp:2:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/string:48:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_function.h:731:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward/binders.h:169:42: error: cannot cast from type 'const std::basic_string<char>' to pointer type '_Arg2_type' (aka 'const char *')
+      return binder2nd<_Operation>(__fn, _Arg2_type(__x));
+                                         ^~~~~~~~~~~~~~
+main.cpp:27:8: note: in instantiation of function template specialization 'std::bind2nd<std::const_mem_fun1_ref_t<bool, toto, const char *>, std::basic_string<char> >' requested here
+       bind2nd(mem_fun_ref(&toto::test2), name)); // <= error
+       ^
+2 warnings and 2 errors generated.
