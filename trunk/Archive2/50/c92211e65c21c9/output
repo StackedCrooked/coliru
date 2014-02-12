@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+
+
+oid PrepareOBJ( std::ifstream& inputFile, std::ostream& out ) // replace result type with newline oid
+{
+    // copy contents of input file to output file, replacing '
+' (this one too) with '\n'
+    char c ;
+    while( inputFile.get(c) ) out << ( c == '
+' ? '\n' : c ) ; // (and one on this line too)
+}
+
+int main()
+{ 
+    std::ifstream this_file( __FILE__ ) ;
+    PrepareOBJ( this_file, std::cout ) ;
+    
+    // abcdefgh 
+(replace with '\n') ijkl 
+(replace with '\n') ***
+    // mnop 
+(replace with '\n') qrstu 
+(replace with '\n') wxyz ***
+}
