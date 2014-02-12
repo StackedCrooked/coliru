@@ -1,0 +1,27 @@
+main.cpp:7:17: warning: unused variable 'Factorial' [-Wunused-const-variable]
+uintmax_t const Factorial<0> = 1;
+                ^
+main.cpp:5:17: warning: variable 'Factorial<N - 1>' has internal linkage but is not defined [-Wundefined-internal]
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                ^
+main.cpp:5:33: note: used here
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                                ^
+main.cpp:5:17: warning: variable 'Factorial<4>' has internal linkage but is not defined [-Wundefined-internal]
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                ^
+main.cpp:5:33: note: used here
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                                ^
+main.cpp:5:17: warning: variable 'Factorial<51>' has internal linkage but is not defined [-Wundefined-internal]
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                ^
+main.cpp:5:33: note: used here
+uintmax_t const Factorial = N * Factorial<N - 1>;
+                                ^
+4 warnings generated.
+/tmp/main-d77b73.o: In function `__cxx_global_var_init1':
+main.cpp:(.text.startup+0x3): undefined reference to `_ZL9FactorialILm51EE'
+/tmp/main-d77b73.o: In function `__cxx_global_var_init2':
+main.cpp:(.text.startup+0x13): undefined reference to `_ZL9FactorialILm4EE'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
