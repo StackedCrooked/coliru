@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:8:8: error: no matching function for call to 'Foo(float [3])'
+   Foo(x);  // C2784: could not deduce template argument for 'T [D]' from 'float [3]'
+        ^
+main.cpp:8:8: note: candidate is:
+main.cpp:2:6: note: template<int D, class T> void Foo(T*)
+ void Foo(T x[D]) {
+      ^
+main.cpp:2:6: note:   template argument deduction/substitution failed:
+main.cpp:8:8: note:   couldn't deduce template parameter 'D'
+   Foo(x);  // C2784: could not deduce template argument for 'T [D]' from 'float [3]'
+        ^
