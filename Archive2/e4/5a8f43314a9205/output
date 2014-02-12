@@ -1,0 +1,18 @@
+main.cpp: In function 'int main()':
+main.cpp:8:34: error: no matching function for call to 'foo(main()::myEnumType&)'
+     int a = foo(enum_type_istance);
+                                  ^
+main.cpp:8:34: note: candidate is:
+main.cpp:2:5: note: template<class myEnumType> int foo(const myEnumType&)
+ int foo(const myEnumType&) { return 0; }
+     ^
+main.cpp:2:5: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class myEnumType> int foo(const myEnumType&) [with myEnumType = main()::myEnumType]':
+main.cpp:8:34:   required from here
+main.cpp:8:34: error: template argument for 'template<class myEnumType> int foo(const myEnumType&)' uses local type 'main()::myEnumType'
+     int a = foo(enum_type_istance);
+                                  ^
+main.cpp:8:34: error:   trying to instantiate 'template<class myEnumType> int foo(const myEnumType&)'
+main.cpp:8:9: warning: unused variable 'a' [-Wunused-variable]
+     int a = foo(enum_type_istance);
+         ^
