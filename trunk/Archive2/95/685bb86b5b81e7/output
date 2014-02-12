@@ -1,0 +1,33 @@
+g++-4.8 (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp: In function 'int main()':
+main.cpp:3:34: warning: left shift count >= width of type [enabled by default]
+         constexpr int x1 =  1 << 33 ; //Assuming 32-bit int
+                                  ^
+main.cpp:4:35: warning: left shift count is negative [enabled by default]
+         constexpr int x2 =  1 << -1 ;
+                                   ^
+main.cpp:6:34: warning: right shift count >= width of type [enabled by default]
+         constexpr int x4 =  1 >> 33 ; //Assuming 32-bit int
+                                  ^
+main.cpp:7:35: warning: right shift count is negative [enabled by default]
+         constexpr int x5 =  1 >> -1 ;
+                                   ^
+main.cpp:3:23: warning: unused variable 'x1' [-Wunused-variable]
+         constexpr int x1 =  1 << 33 ; //Assuming 32-bit int
+                       ^
+main.cpp:4:23: warning: unused variable 'x2' [-Wunused-variable]
+         constexpr int x2 =  1 << -1 ;
+                       ^
+main.cpp:5:23: warning: unused variable 'x3' [-Wunused-variable]
+         constexpr int x3 =  -1 << 1 ;
+                       ^
+main.cpp:6:23: warning: unused variable 'x4' [-Wunused-variable]
+         constexpr int x4 =  1 >> 33 ; //Assuming 32-bit int
+                       ^
+main.cpp:7:23: warning: unused variable 'x5' [-Wunused-variable]
+         constexpr int x5 =  1 >> -1 ;
+                       ^
