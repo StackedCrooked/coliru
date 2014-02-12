@@ -1,0 +1,42 @@
+main.cpp:4:13: error: 'function' does not name a type
+     typedef function<void(const int, const string&)> PT;
+             ^
+main.cpp:5:10: error: 'vector' does not name a type
+  typedef vector<pair<int, pair<string, PT>>> Modes;
+          ^
+main.cpp:7:2: error: 'Modes' does not name a type
+  Modes& m;
+  ^
+main.cpp:9:17: error: expected ')' before '&' token
+  add_modes(Modes& m):m(m) { }
+                 ^
+main.cpp:10:43: error: 'string' does not name a type
+  add_modes& operator()(const int i, const string& n, PT f)
+                                           ^
+main.cpp:10:51: error: ISO C++ forbids declaration of 'n' with no type [-fpermissive]
+  add_modes& operator()(const int i, const string& n, PT f)
+                                                   ^
+main.cpp:10:54: error: 'PT' has not been declared
+  add_modes& operator()(const int i, const string& n, PT f)
+                                                      ^
+main.cpp: In member function 'add_modes& add_modes::operator()(int, const int&, int)':
+main.cpp:12:3: error: 'm' was not declared in this scope
+   m.push_back(make_pair(i, make_pair(n, f)));
+   ^
+main.cpp:12:42: error: 'make_pair' was not declared in this scope
+   m.push_back(make_pair(i, make_pair(n, f)));
+                                          ^
+main.cpp:12:43: error: 'make_pair' was not declared in this scope
+   m.push_back(make_pair(i, make_pair(n, f)));
+                                           ^
+main.cpp:12:43: error: redeclaration of '<typeprefixerror>make_pair'
+main.cpp:12:42: note: previous declaration '<typeprefixerror>make_pair'
+   m.push_back(make_pair(i, make_pair(n, f)));
+                                          ^
+main.cpp: At global scope:
+main.cpp:18:1: error: expected unqualified-id before 'try'
+ try
+ ^
+main.cpp:23:2: error: expected unqualified-id before 'catch'
+  catch(out_of_range&)
+  ^
