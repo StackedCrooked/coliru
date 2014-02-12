@@ -1,0 +1,217 @@
+Lexer state: 0
+
+State: 0
+  [ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz] -> 1
+  [\'] -> 2
+  [\b\t\n\f\r ] -> 3
+  [(] -> 4
+  [)] -> 5
+  [+-] -> 6
+  [0123456789] -> 7
+  [^\b\t\n\f\r \'()+-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz] -> 8
+
+State: 1
+  END STATE, Id = 65536, Unique Id = 0, dfa = 0
+  [0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz] -> 9
+
+State: 2
+  END STATE, Id = 65537, Unique Id = 1, dfa = 0
+
+State: 3
+  END STATE, Id = 65538, Unique Id = 2, dfa = 0
+
+State: 4
+  END STATE, Id = 65539, Unique Id = 3, dfa = 0
+
+State: 5
+  END STATE, Id = 65540, Unique Id = 4, dfa = 0
+
+State: 6
+  END STATE, Id = 65542, Unique Id = 6, dfa = 0
+  [0123456789] -> 10
+
+State: 7
+  END STATE, Id = 65541, Unique Id = 5, dfa = 0
+  [0123456789] -> 10
+
+State: 8
+  END STATE, Id = 65542, Unique Id = 6, dfa = 0
+
+State: 9
+  END STATE, Id = 65536, Unique Id = 0, dfa = 0
+  [0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz] -> 9
+
+State: 10
+  END STATE, Id = 65541, Unique Id = 5, dfa = 0
+  [0123456789] -> 10
+
+Lexer state: 1
+
+State: 0
+  [\\] -> 1
+  [^\'\\] -> 2
+  [\'] -> 3
+
+State: 1
+  END STATE, Id = 65543, Unique Id = 7, dfa = 1
+  [^\\] -> 2
+  [\\] -> 4
+
+State: 2
+  END STATE, Id = 65543, Unique Id = 7, dfa = 1
+  [^\'\\] -> 2
+  [\\] -> 4
+
+State: 3
+  END STATE, Id = 65544, Unique Id = 8, dfa = 1
+
+State: 4
+  END STATE, Id = 65543, Unique Id = 7, dfa = 1
+  [^\\] -> 2
+  [\\] -> 4
+
+Switching state from: 0 to: 0
+<_start>
+  <try>Matched: 65537, in state: 0, string: >'<, lookahead: >a' (1)<
+[']Matched: 65543, in state: 1, string: >a<, lookahead: >' (1)<
+[a]Matched: 65544, in state: 1, string: >'<, lookahead: > (1)<
+[']Matched: 65538, in state: 0, string: > <, lookahead: >(1)<
+Token ignored, continuing matching
+Matched: 65539, in state: 0, string: >(<, lookahead: >1)<
+[(]Matched: 65541, in state: 0, string: >1<, lookahead: >)<
+[1]Matched: 65540, in state: 0, string: >)<, lookahead: ><
+[)]</try>
+  <_ident>
+    <try>['][a]['][(][1][)]</try>
+    <fail/>
+  </_ident>
+  <_pair>
+    <try>['][a]['][(][1][)]</try>
+    <_label>
+      <try>['][a]['][(][1][)]</try>
+      <success>[(][1][)]</success>
+      <attributes>[[a]]</attributes>
+    </_label>
+    <_value>
+      <try>[1][)]</try>
+      <success>[)]</success>
+      <attributes>[1]</attributes>
+    </_value>
+    <success></success>
+    <attributes>[[[a], 1]]</attributes>
+  </_pair>
+  <success></success>
+  <attributes>[[[a], 1]]</attributes>
+</_start>
+'a' (1) -> true [label:'a', value:1]
+Switching state from: 0 to: 0
+<_start>
+  <try>Matched: 65537, in state: 0, string: >'<, lookahead: >a\' b,' (
+<
+[']Matched: 65543, in state: 1, string: >a\' b,<, lookahead: >' (
+  -42 <
+[a\' b,]Matched: 65544, in state: 1, string: >'<, lookahead: > (
+  -42 )<
+[']Matched: 65538, in state: 0, string: > <, lookahead: >(
+  -42 )<
+Token ignored, continuing matching
+Matched: 65539, in state: 0, string: >(<, lookahead: >
+  -42 )<
+[(]Matched: 65538, in state: 0, string: >
+<, lookahead: >  -42 )<
+Token ignored, continuing matching
+Matched: 65538, in state: 0, string: > <, lookahead: > -42 )<
+Token ignored, continuing matching
+Matched: 65538, in state: 0, string: > <, lookahead: >-42 )<
+Token ignored, continuing matching
+Matched: 65541, in state: 0, string: >-42<, lookahead: > )<
+[-42]Matched: 65538, in state: 0, string: > <, lookahead: >)<
+Token ignored, continuing matching
+Matched: 65540, in state: 0, string: >)<, lookahead: ><
+[)]</try>
+  <_ident>
+    <try>['][a\' b,]['][(][-42][)]</try>
+    <fail/>
+  </_ident>
+  <_pair>
+    <try>['][a\' b,]['][(][-42][)]</try>
+    <_label>
+      <try>['][a\' b,]['][(][-42][)]</try>
+      <success>[(][-42][)]</success>
+      <attributes>[[a, \, ',  , b, ,]]</attributes>
+    </_label>
+    <_value>
+      <try>[-42][)]</try>
+      <success>[)]</success>
+      <attributes>[-42]</attributes>
+    </_value>
+    <success></success>
+    <attributes>[[[a, \, ',  , b, ,], -42]]</attributes>
+  </_pair>
+  <success></success>
+  <attributes>[[[a, \, ',  , b, ,], -42]]</attributes>
+</_start>
+'a\' b,' (
+  -42 ) -> true [label:'a\' b,', value:-42]
+Switching state from: 0 to: 0
+<_start>
+  <try>Matched: 65537, in state: 0, string: >'<, lookahead: >/this is m<
+[']Matched: 65543, in state: 1, string: >/this is my BOOLEAN     123label 12as<, lookahead: >' ( 123 )<
+[/this is my BOOLEAN     123label 12as]Matched: 65544, in state: 1, string: >'<, lookahead: > ( 123 )<
+[']Matched: 65538, in state: 0, string: > <, lookahead: >( 123 )<
+Token ignored, continuing matching
+Matched: 65539, in state: 0, string: >(<, lookahead: > 123 )<
+[(]Matched: 65538, in state: 0, string: > <, lookahead: >123 )<
+Token ignored, continuing matching
+Matched: 65541, in state: 0, string: >123<, lookahead: > )<
+[123]Matched: 65538, in state: 0, string: > <, lookahead: >)<
+Token ignored, continuing matching
+Matched: 65540, in state: 0, string: >)<, lookahead: ><
+[)]</try>
+  <_ident>
+    <try>['][/this is my BOOLEAN     123label 12as]['][(][123][)]</try>
+    <fail/>
+  </_ident>
+  <_pair>
+    <try>['][/this is my BOOLEAN     123label 12as]['][(][123][)]</try>
+    <_label>
+      <try>['][/this is my BOOLEAN     123label 12as]['][(][123][)]</try>
+      <success>[(][123][)]</success>
+      <attributes>[[/, t, h, i, s,  , i, s,  , m, y,  , B, O, O, L, E, A, N,  ,  ,  ,  ,  , 1, 2, 3, l, a, b, e, l,  , 1, 2, a, s]]</attributes>
+    </_label>
+    <_value>
+      <try>[123][)]</try>
+      <success>[)]</success>
+      <attributes>[123]</attributes>
+    </_value>
+    <success></success>
+    <attributes>[[[/, t, h, i, s,  , i, s,  , m, y,  , B, O, O, L, E, A, N,  ,  ,  ,  ,  , 1, 2, 3, l, a, b, e, l,  , 1, 2, a, s], 123]]</attributes>
+  </_pair>
+  <success></success>
+  <attributes>[[[/, t, h, i, s,  , i, s,  , m, y,  , B, O, O, L, E, A, N,  ,  ,  ,  ,  , 1, 2, 3, l, a, b, e, l,  , 1, 2, a, s], 123]]</attributes>
+</_start>
+'/this is my BOOLEAN     123label 12as' ( 123 ) -> true [label:'/this is my BOOLEAN     123label 12as', value:123]
+Switching state from: 0 to: 0
+<_start>
+  <try>Matched: 65537, in state: 0, string: >'<, lookahead: >a b',<
+[']Matched: 65543, in state: 1, string: >a b<, lookahead: >',<
+[a b]Matched: 65544, in state: 1, string: >'<, lookahead: >,<
+[']Matched: 65542, in state: 0, string: >,<, lookahead: ><
+[,]</try>
+  <_ident>
+    <try>['][a b]['][,]</try>
+    <fail/>
+  </_ident>
+  <_pair>
+    <try>['][a b]['][,]</try>
+    <_label>
+      <try>['][a b]['][,]</try>
+      <success>[,]</success>
+      <attributes>[[a,  , b]]</attributes>
+    </_label>
+    <fail/>
+  </_pair>
+  <fail/>
+</_start>
+FIXME: expected "(", got '[,]'
+'a b', -> false
