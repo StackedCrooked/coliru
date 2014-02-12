@@ -1,0 +1,50 @@
+--------------------------------------------------------------
+Parsing  1000 iterations of header 
+
+server: nginx 
+Date: Mon, 03 Feb 2014 17:48:49 GMT 
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked 
+Connection: close
+Cache-Control: no-cache,no-store,max-age=0,must-revalidate 
+Expires: Mon, 03 Feb 2014 17:48:50 GMT
+	Last-Modified: Mon, 03  Feb 2014 17:48:50 GMT 
+Content-Encoding: gzip
+Content-Length: 3122
+
+ Server: server3
+Some val : some text here after header
+
+
+--------------------------------------------------------------
+
+
+parsing into struct time : 14
+spirit parsing result:
+
+Server: server3
+Date: Mon, 03 Feb 2014 17:48:49 GMT 
+Content_Type: text/html; charset=UTF-8
+Transfer_Encoding: chunked 
+Connection: close
+Cache_Control: no-cache,no-store,max-age=0,must-revalidate 
+Last_Modified: Mon, 03  Feb 2014 17:48:50 GMT 
+Expires: Mon, 03 Feb 2014 17:48:50 GMT
+Content_Encoding: gzip
+Content_Length:3122
+--------------------------------------------------------------
+
+
+parsing into map time : 15
+spirit parsing result:
+
+0: nginx 
+1: Mon, 03 Feb 2014 17:48:49 GMT 
+2: text/html; charset=UTF-8
+3: chunked 
+4: close
+5: no-cache,no-store,max-age=0,must-revalidate 
+6: Mon, 03  Feb 2014 17:48:50 GMT 
+7: Mon, 03 Feb 2014 17:48:50 GMT
+8: gzip
+9:3122
