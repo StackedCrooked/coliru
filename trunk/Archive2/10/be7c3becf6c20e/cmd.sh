@@ -1,0 +1,1 @@
+g++-4.8 -S -std=c++11 -march=native -O3 -Wall -Wextra -pedantic -fverbose-asm main.cpp -o foo.s && cat foo.s
