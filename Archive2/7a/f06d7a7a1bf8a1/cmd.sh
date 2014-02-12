@@ -1,0 +1,1 @@
+g++ -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
