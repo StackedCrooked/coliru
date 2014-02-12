@@ -1,0 +1,146 @@
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/range/algorithm.hpp:29:
+In file included from /usr/local/include/boost/range/concepts.hpp:20:
+In file included from /usr/local/include/boost/iterator/iterator_concepts.hpp:10:
+In file included from /usr/local/include/boost/iterator/iterator_categories.hpp:15:
+/usr/local/include/boost/mpl/eval_if.hpp:38:26: error: no type named 'type' in 'boost::result_of<const <lambda at main.cpp:20:9> (const int &)>'
+    typedef typename f_::type type;
+            ~~~~~~~~~~~~~^~~~
+/usr/local/include/boost/iterator/iterator_adaptor.hpp:161:9: note: in instantiation of template class 'boost::mpl::eval_if<boost::is_same<boost::use_default, boost::use_default>, boost::result_of<const <lambda at main.cpp:20:9> (const int &)>, boost::mpl::identity<boost::use_default> >' requested here
+      : mpl::eval_if<
+        ^
+/usr/local/include/boost/iterator/transform_iterator.hpp:47:26: note: in instantiation of template class 'boost::detail::ia_dflt_help<boost::use_default, boost::result_of<const <lambda at main.cpp:20:9> (const int &)> >' requested here
+        typedef typename ia_dflt_help<
+                         ^
+/usr/local/include/boost/iterator/transform_iterator.hpp:75:29: note: in instantiation of template class 'boost::detail::transform_iterator_base<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default>' requested here
+    : public boost::detail::transform_iterator_base<UnaryFunc, Iterator, Reference, Value>::type
+                            ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_iterator_base_types.h:142:1: note: in instantiation of template class 'boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default>' requested here
+_GLIBCXX_HAS_NESTED_TYPE(iterator_category)
+^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:2054:49: note: expanded from macro '_GLIBCXX_HAS_NESTED_TYPE'
+        static __one __test(_Wrap_type<typename _Up::_NTYPE>*);  \
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_iterator_base_types.h:142:1: note: while substituting explicitly-specified template arguments into function template '__test' 
+_GLIBCXX_HAS_NESTED_TYPE(iterator_category)
+^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:2054:22: note: expanded from macro '_GLIBCXX_HAS_NESTED_TYPE'
+        static __one __test(_Wrap_type<typename _Up::_NTYPE>*);  \
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_iterator_base_types.h:142:1: note: (skipping 4 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:2065:31: note: expanded from macro '_GLIBCXX_HAS_NESTED_TYPE'
+    : integral_constant<bool, __has_##_NTYPE##_helper            \
+                              ^
+<scratch space>:29:1: note: expanded from here
+__has_iterator_category_helper
+^
+/usr/local/include/boost/iterator/iterator_traits.hpp:30:37: note: in instantiation of template class 'boost::detail::iterator_traits<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+    typedef typename boost::detail::iterator_traits<Iterator>::value_type type;
+                                    ^
+/usr/local/include/boost/range/iterator_range_core.hpp:141:17: note: in instantiation of template class 'boost::iterator_value<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+                iterator_value<IteratorT>::type value_type;
+                ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:26:20: note: in instantiation of template class 'boost::iterator_range<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+            public boost::iterator_range<
+                   ^
+main.cpp:19:17: note: in instantiation of template class 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+main.cpp:34:17: note: in instantiation of function template specialization 'delta_rng<std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> > >' requested here
+    boost::copy(delta_rng(r1, r2), std::ostream_iterator<int>(std::cout, ",")); std::cout << "\n";
+                ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/range/algorithm.hpp:29:
+In file included from /usr/local/include/boost/range/concepts.hpp:21:
+In file included from /usr/local/include/boost/range/begin.hpp:24:
+In file included from /usr/local/include/boost/range/iterator.hpp:19:
+In file included from /usr/local/include/boost/range/mutable_iterator.hpp:25:
+/usr/local/include/boost/iterator/iterator_traits.hpp:30:64: error: no type named 'value_type' in 'boost::detail::iterator_traits<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >'
+    typedef typename boost::detail::iterator_traits<Iterator>::value_type type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+/usr/local/include/boost/range/iterator_range_core.hpp:141:17: note: in instantiation of template class 'boost::iterator_value<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+                iterator_value<IteratorT>::type value_type;
+                ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:26:20: note: in instantiation of template class 'boost::iterator_range<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+            public boost::iterator_range<
+                   ^
+main.cpp:19:17: note: in instantiation of template class 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+main.cpp:34:17: note: in instantiation of function template specialization 'delta_rng<std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> > >' requested here
+    boost::copy(delta_rng(r1, r2), std::ostream_iterator<int>(std::cout, ",")); std::cout << "\n";
+                ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/range/algorithm.hpp:29:
+In file included from /usr/local/include/boost/range/concepts.hpp:21:
+In file included from /usr/local/include/boost/range/begin.hpp:24:
+In file included from /usr/local/include/boost/range/iterator.hpp:19:
+In file included from /usr/local/include/boost/range/mutable_iterator.hpp:25:
+/usr/local/include/boost/iterator/iterator_traits.hpp:49:64: error: no type named 'difference_type' in 'boost::detail::iterator_traits<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >'
+    typedef typename boost::detail::iterator_traits<Iterator>::difference_type type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/usr/local/include/boost/range/iterator_range_core.hpp:145:17: note: in instantiation of template class 'boost::iterator_difference<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+                iterator_difference<IteratorT>::type difference_type;
+                ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:26:20: note: in instantiation of template class 'boost::iterator_range<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+            public boost::iterator_range<
+                   ^
+main.cpp:19:17: note: in instantiation of template class 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+main.cpp:34:17: note: in instantiation of function template specialization 'delta_rng<std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> > >' requested here
+    boost::copy(delta_rng(r1, r2), std::ostream_iterator<int>(std::cout, ",")); std::cout << "\n";
+                ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/range/algorithm.hpp:29:
+In file included from /usr/local/include/boost/range/concepts.hpp:21:
+In file included from /usr/local/include/boost/range/begin.hpp:24:
+In file included from /usr/local/include/boost/range/iterator.hpp:19:
+In file included from /usr/local/include/boost/range/mutable_iterator.hpp:25:
+/usr/local/include/boost/iterator/iterator_traits.hpp:36:64: error: no type named 'reference' in 'boost::detail::iterator_traits<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >'
+    typedef typename boost::detail::iterator_traits<Iterator>::reference type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/usr/local/include/boost/range/iterator_range_core.hpp:159:17: note: in instantiation of template class 'boost::iterator_reference<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+                iterator_reference<IteratorT>::type reference;
+                ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:26:20: note: in instantiation of template class 'boost::iterator_range<boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default> >' requested here
+            public boost::iterator_range<
+                   ^
+main.cpp:19:17: note: in instantiation of template class 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+main.cpp:34:17: note: in instantiation of function template specialization 'delta_rng<std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> > >' requested here
+    boost::copy(delta_rng(r1, r2), std::ostream_iterator<int>(std::cout, ",")); std::cout << "\n";
+                ^
+In file included from main.cpp:5:
+In file included from /usr/local/include/boost/range/adaptors.hpp:20:
+In file included from /usr/local/include/boost/range/adaptor/map.hpp:14:
+/usr/local/include/boost/range/adaptor/transformed.hpp:45:19: error: type 'base' (aka 'iterator_range<boost::transform_iterator<<lambda at main.cpp:20:9>, typename range_iterator<const vector<int, allocator<int> > >::type> >') is not a direct or virtual base of 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >'
+                : base( boost::make_transform_iterator( boost::begin(r), f ),
+                  ^~~~
+/usr/local/include/boost/range/adaptor/transformed.hpp:71:19: note: in instantiation of member function 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >::transformed_range' requested here
+           return transformed_range<UnaryFunction, const InputRng>( f.val, r );
+                  ^
+main.cpp:19:17: note: in instantiation of function template specialization 'boost::range_detail::operator|<std::vector<int, std::allocator<int> >, <lambda at main.cpp:20:9> >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+In file included from main.cpp:5:
+In file included from /usr/local/include/boost/range/adaptors.hpp:20:
+In file included from /usr/local/include/boost/range/adaptor/map.hpp:14:
+In file included from /usr/local/include/boost/range/adaptor/transformed.hpp:16:
+/usr/local/include/boost/iterator/transform_iterator.hpp:87:9: error: type 'super_t' (aka 'iterator_adaptor<transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, cv_value_type, boost::use_default, reference>') is not a direct or virtual base of 'boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default>'
+      : super_t(x), m_f(f) { }
+        ^~~~~~~
+/usr/local/include/boost/iterator/transform_iterator.hpp:132:14: note: in instantiation of member function 'boost::transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >, boost::use_default, boost::use_default>::transform_iterator' requested here
+      return transform_iterator<UnaryFunc, Iterator>(it, fun);
+             ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:45:32: note: in instantiation of function template specialization 'boost::make_transform_iterator<<lambda at main.cpp:20:9>, __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >' requested here
+                : base( boost::make_transform_iterator( boost::begin(r), f ),
+                               ^
+/usr/local/include/boost/range/adaptor/transformed.hpp:71:19: note: in instantiation of member function 'boost::range_detail::transformed_range<<lambda at main.cpp:20:9>, const std::vector<int, std::allocator<int> > >::transformed_range' requested here
+           return transformed_range<UnaryFunction, const InputRng>( f.val, r );
+                  ^
+main.cpp:19:17: note: in instantiation of function template specialization 'boost::range_detail::operator|<std::vector<int, std::allocator<int> >, <lambda at main.cpp:20:9> >' requested here
+    return rng1 | boost::adaptors::transformed(
+                ^
+6 errors generated.
