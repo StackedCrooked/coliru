@@ -1,0 +1,55 @@
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$_ZSt4cout, %edi
+	movl	$62748517, %esi         # imm = 0x3BD7765
+	callq	_ZNSo9_M_insertIlEERSoT_
+	movb	$10, 7(%rsp)
+	leaq	7(%rsp), %rsi
+	movl	$1, %edx
+	movq	%rax, %rdi
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	xorl	%eax, %eax
+	popq	%rdx
+	ret
+.Ltmp2:
+	.size	main, .Ltmp2-main
+	.cfi_endproc
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__I_a,@function
+_GLOBAL__I_a:                           # @_GLOBAL__I_a
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp4:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp5:
+	.size	_GLOBAL__I_a, .Ltmp5-_GLOBAL__I_a
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__I_a
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits
