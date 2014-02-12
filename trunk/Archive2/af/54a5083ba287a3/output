@@ -1,0 +1,24 @@
+main.cpp: In function 'const A& bar()':
+main.cpp:35:34: warning: returning reference to temporary [-Wreturn-local-addr]
+ const A& bar() { return A("three") ; }
+                                  ^
+A{ "one" } constructed
+A{ "one" } destroyed
+one.a.buff: 
+A{ "two" } constructed
+A{ "two" } destroyed
+two.buff: 
+A{ "three" } constructed
+A{ "three" } destroyed
+three.buff: 
+A{ "four" } constructed
+A{ "four" } destroyed
+pb->a.buff: 
+
+--------------------------------------------------------
+
+main.cpp:35:25: warning: returning reference to local temporary object [-Wreturn-stack-address]
+const A& bar() { return A("three") ; }
+                        ^~~~~~~~~~
+1 warning generated.
+bash: line 9:  1665 Segmentation fault      (core dumped) ./a.out
