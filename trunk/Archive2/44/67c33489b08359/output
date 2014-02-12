@@ -1,0 +1,34 @@
+main.cpp:9:135: error: 'bar' was not declared in this scope
+ auto bar(const std::type_info& variant_type_info) -> decltype(typeid(FirstArg) == variant_type_info ? boost::get<FirstArg>(variant) : bar<OtherArgs...>(variant_type_info))
+                                                                                                                                       ^
+main.cpp:9:148: error: expected primary-expression before '...' token
+ auto bar(const std::type_info& variant_type_info) -> decltype(typeid(FirstArg) == variant_type_info ? boost::get<FirstArg>(variant) : bar<OtherArgs...>(variant_type_info))
+                                                                                                                                                    ^
+main.cpp:9:148: error: expected ')' before '...' token
+main.cpp:9:135: error: 'bar' was not declared in this scope
+ auto bar(const std::type_info& variant_type_info) -> decltype(typeid(FirstArg) == variant_type_info ? boost::get<FirstArg>(variant) : bar<OtherArgs...>(variant_type_info))
+                                                                                                                                       ^
+main.cpp:9:54: error: expected type-specifier before 'decltype'
+ auto bar(const std::type_info& variant_type_info) -> decltype(typeid(FirstArg) == variant_type_info ? boost::get<FirstArg>(variant) : bar<OtherArgs...>(variant_type_info))
+                                                      ^
+main.cpp:9:54: error: expected initializer before 'decltype'
+main.cpp:20:69: error: 'bar' was not declared in this scope
+ auto foo(const boost::variant<VariantArgs...>& variant) -> decltype(bar<VariantArgs...>(variant.type()))
+                                                                     ^
+main.cpp:20:69: error: 'bar' was not declared in this scope
+main.cpp:20:84: error: expected primary-expression before '...' token
+ auto foo(const boost::variant<VariantArgs...>& variant) -> decltype(bar<VariantArgs...>(variant.type()))
+                                                                                    ^
+main.cpp:20:84: error: expected ')' before '...' token
+main.cpp:20:69: error: 'bar' was not declared in this scope
+ auto foo(const boost::variant<VariantArgs...>& variant) -> decltype(bar<VariantArgs...>(variant.type()))
+                                                                     ^
+main.cpp:20:69: error: 'bar' was not declared in this scope
+main.cpp:20:60: error: expected type-specifier before 'decltype'
+ auto foo(const boost::variant<VariantArgs...>& variant) -> decltype(bar<VariantArgs...>(variant.type()))
+                                                            ^
+main.cpp:20:60: error: expected initializer before 'decltype'
+main.cpp: In function 'int main()':
+main.cpp:28:34: error: 'foo' was not declared in this scope
+     const auto& baz = foo(variant);
+                                  ^
