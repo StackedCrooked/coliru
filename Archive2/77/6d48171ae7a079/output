@@ -1,0 +1,16 @@
+main.cpp: In constructor 'Session::Session(boost::asio::ip::tcp::socket)':
+main.cpp:50:33: warning: 'Session::readbuf' will be initialized after [-Wreorder]
+     basic_streambuf<> writebuf, readbuf;
+                                 ^
+main.cpp:50:23: warning:   'boost::asio::basic_streambuf<> Session::writebuf' [-Wreorder]
+     basic_streambuf<> writebuf, readbuf;
+                       ^
+main.cpp:11:5: warning:   when initialized here [-Wreorder]
+     Session(ip::tcp::socket socket)
+     ^
+main.cpp: In member function 'void Session::do_read()':
+main.cpp:25:21: warning: statement has no effect [-Wunused-value]
+         (MAX_LENGTH);
+                     ^
+Ohai
+./build_and_run.sh: line 32: 22827 Killed                  setsid sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
