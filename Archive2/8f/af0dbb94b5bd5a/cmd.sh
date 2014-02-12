@@ -1,0 +1,1 @@
+gcc -std=gnu99 -Wall -Wextra -pedantic -O3 -ffast-math -march=native -x c main.cpp -S -o -
