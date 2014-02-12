@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pedantic main.cpp && ./a.out <<<"d$+$B$ 0.0   000 000 000    1.0   255 255 255"
