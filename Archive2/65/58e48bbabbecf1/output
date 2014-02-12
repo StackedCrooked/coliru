@@ -1,0 +1,17 @@
+--------------------------  WITH_RVALUE_OVERLOAD -------------------------------------
+
+one two three four five six 
+
+
+--------------------- DISABLE_ON_RVALUES (compile-time error) ------------------------
+
+main.cpp:24:32: error: call to deleted member function 'names'
+    for( const auto& s : foo().names() ) std::cout << s << ' ' ; // UB
+                         ~~~~~~^~~~~
+main.cpp:14:34: note: candidate function has been explicitly deleted
+        std::vector<std::string> names() const&& = delete ;
+                                 ^
+main.cpp:7:37: note: candidate function
+    const std::vector<std::string>& names() const& { return names_ ; }
+                                    ^
+1 error generated.
