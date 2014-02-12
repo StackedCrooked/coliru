@@ -1,0 +1,13 @@
+main.cpp:3:25: error: constexpr variable 'SEC3' must be initialized by a constant expression
+static constexpr double SEC3 = static_cast<double>(45)/180*boost::math::double_constants::pi;
+                        ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:3:60: note: read of non-constexpr variable 'pi' is not allowed in a constant expression
+static constexpr double SEC3 = static_cast<double>(45)/180*boost::math::double_constants::pi;
+                                                           ^
+/usr/local/include/boost/math/constants/constants.hpp:264:30: note: declared here
+  BOOST_DEFINE_MATH_CONSTANT(pi, 3.141592653589793238462643383279502884e+00, "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651e+00")
+                             ^
+/usr/local/include/boost/math/constants/constants.hpp:248:52: note: expanded from macro 'BOOST_DEFINE_MATH_CONSTANT'
+   namespace double_constants{ static const double name = x; } \
+                                                   ^
+1 error generated.
