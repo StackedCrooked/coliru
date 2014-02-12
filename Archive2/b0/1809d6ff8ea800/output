@@ -1,0 +1,34 @@
+main.cpp:17:19: error: 'Paragraph' has not been declared
+     void LogFirst(Paragraph* para)
+                   ^
+main.cpp:22:20: error: 'Paragraph' has not been declared
+     void LogSecond(Paragraph* para)
+                    ^
+main.cpp:34:5: error: 'Paragraph' does not name a type
+     Paragraph* _para1;
+     ^
+main.cpp:35:5: error: 'Paragraph' does not name a type
+     Paragraph* _para2;
+     ^
+main.cpp: In constructor 'Transaction::Transaction()':
+main.cpp:5:37: error: class 'Transaction' does not have any field named '_para1'
+     Transaction() : _commit(false), _para1(0), _para2(0) {}
+                                     ^
+main.cpp:5:48: error: class 'Transaction' does not have any field named '_para2'
+     Transaction() : _commit(false), _para1(0), _para2(0) {}
+                                                ^
+main.cpp: In destructor 'Transaction::~Transaction()':
+main.cpp:12:20: error: '_para2' was not declared in this scope
+             delete _para2;
+                    ^
+main.cpp:13:20: error: '_para1' was not declared in this scope
+             delete _para1;
+                    ^
+main.cpp: In member function 'void Transaction::LogFirst(int*)':
+main.cpp:19:9: error: '_para1' was not declared in this scope
+         _para1 = para;
+         ^
+main.cpp: In member function 'void Transaction::LogSecond(int*)':
+main.cpp:24:9: error: '_para2' was not declared in this scope
+         _para2 = para;
+         ^
