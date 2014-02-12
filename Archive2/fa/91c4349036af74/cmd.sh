@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pedantic main.cpp && ./a.out <<< "1 2 3 4 5 6 7 9 1 2 3 error 4 5"
