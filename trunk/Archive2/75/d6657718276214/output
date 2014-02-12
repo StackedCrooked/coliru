@@ -1,0 +1,52 @@
+
+------------------------------------------------------------------------------
+
+anonymous 12.3
+set_name
+set_amount
+Cambalinho!!! 580.19
+
+----------------------   TRY_BYPASS_SETTER    ---------------------------------
+
+main.cpp: In function 'int main()':
+main.cpp:30:9: error: 'property<T, C>::property(T&&) [with T = double; C = A]' is private
+         property( T&& v ) : value( std::move(v) ) {}
+         ^
+main.cpp:86:41: error: within this context
+         decltype(a.amount) my_value(1234) ; // ***error: constructor is private
+                                         ^
+/usr/include/c++/4.8/bits/move.h: In instantiation of 'void std::swap(_Tp&, _Tp&) [with _Tp = property<double, A>]':
+main.cpp:87:39:   required from here
+main.cpp:41:9: error: 'property<T, C>::property(property<T, C>&&) [with T = double; C = A]' is private
+         property<T,C>( property<T,C>&& ) = default ;
+         ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/utility:70,
+                 from /usr/include/c++/4.8/tuple:38,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:175:19: error: within this context
+       _Tp __tmp = _GLIBCXX_MOVE(__a);
+                   ^
+main.cpp:43:24: error: 'property<T, C>& property<T, C>::operator=(property<T, C>&&) [with T = double; C = A]' is private
+         property<T,C>& operator= ( property<T,C>&& ) = default ;
+                        ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/utility:70,
+                 from /usr/include/c++/4.8/tuple:38,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:176:11: error: within this context
+       __a = _GLIBCXX_MOVE(__b);
+           ^
+main.cpp:4:44: error: 'property<T, C>& property<T, C>::operator=(property<T, C>&&) [with T = double; C = A]' is private
+ template < typename T, typename C > struct property // getter elided for brevity
+                                            ^
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/utility:70,
+                 from /usr/include/c++/4.8/tuple:38,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:177:11: error: within this context
+       __b = _GLIBCXX_MOVE(__tmp);
+           ^
