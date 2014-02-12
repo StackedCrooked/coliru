@@ -1,0 +1,20 @@
+In file included from /usr/include/c++/4.8/type_traits:35:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp:8:5: warning: identifier 'static_assert' is a keyword in C++11 [-Wc++0x-compat]
+     static_assert(std::is_same<value_type&, const value_type&>::value, "references and shit");
+     ^
+main.cpp:8:24: error: 'std::is_same' has not been declared
+     static_assert(std::is_same<value_type&, const value_type&>::value, "references and shit");
+                        ^
+main.cpp:8:31: error: expected ',' or '...' before '<' token
+     static_assert(std::is_same<value_type&, const value_type&>::value, "references and shit");
+                               ^
+main.cpp:8:93: error: ISO C++ forbids declaration of 'static_assert' with no type [-fpermissive]
+     static_assert(std::is_same<value_type&, const value_type&>::value, "references and shit");
+                                                                                             ^
+main.cpp:11:31: warning: defaulted and deleted functions only available with -std=c++11 or -std=gnu++11 [enabled by default]
+ struct foo { virtual ~foo() = default; };
+                               ^
