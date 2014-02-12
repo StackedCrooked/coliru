@@ -1,0 +1,31 @@
+main.cpp:19:39: error: expected ')' before '...' token
+   template <decltype(std::declval<B>()...)... Args>
+                                       ^
+main.cpp:19:13: error: expected identifier before 'decltype'
+   template <decltype(std::declval<B>()...)... Args>
+             ^
+main.cpp:19:39: error: expected ')' before '...' token
+   template <decltype(std::declval<B>()...)... Args>
+                                       ^
+main.cpp:19:13: error: expected '>' before 'decltype'
+   template <decltype(std::declval<B>()...)... Args>
+             ^
+main.cpp:20:22: error: 'Args' was not declared in this scope
+   using ret_type = A<Args...>;
+                      ^
+main.cpp:20:26: error: expected parameter pack before '...'
+   using ret_type = A<Args...>;
+                          ^
+main.cpp:20:29: error: wrong number of template arguments (1, should be 2)
+   using ret_type = A<Args...>;
+                             ^
+main.cpp:5:7: error: provided for 'template<int a, foo b> class A'
+ class A
+       ^
+main.cpp: In function 'int main()':
+main.cpp:25:3: error: 'ret_type' is not a member of 'madscience_intitializer<int, foo>'
+   madscience_intitializer<int, foo>::ret_type<1, foo::y> a;
+   ^
+main.cpp:25:58: error: 'a' was not declared in this scope
+   madscience_intitializer<int, foo>::ret_type<1, foo::y> a;
+                                                          ^
