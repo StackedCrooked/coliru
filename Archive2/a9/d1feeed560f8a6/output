@@ -1,0 +1,45 @@
+main.cpp: In member function 'void Session::do_read()':
+main.cpp:32:14: error: no matching function for call to 'async_read_until(boost::asio::ip::tcp::socket&, boost::asio::mutable_buffers_1, std::string, Session::do_read()::__lambda0)'
+             });
+              ^
+main.cpp:32:14: note: candidates are:
+In file included from /usr/local/include/boost/asio/read_until.hpp:921:0,
+                 from /usr/local/include/boost/asio.hpp:91,
+                 from main.cpp:4:
+/usr/local/include/boost/asio/impl/read_until.hpp:498:1: note: template<class AsyncReadStream, class Allocator, class ReadHandler> typename boost::asio::async_result<typename boost::asio::handler_type<WriteHandler, void(boost::system::error_code, long unsigned int)>::type>::type boost::asio::async_read_until(AsyncReadStream&, boost::asio::basic_streambuf<Allocator>&, char, ReadHandler&&)
+ async_read_until(AsyncReadStream& s,
+ ^
+/usr/local/include/boost/asio/impl/read_until.hpp:498:1: note:   template argument deduction/substitution failed:
+main.cpp:32:14: note:   'boost::asio::mutable_buffers_1' is not derived from 'boost::asio::basic_streambuf<Allocator>'
+             });
+              ^
+In file included from /usr/local/include/boost/asio/read_until.hpp:921:0,
+                 from /usr/local/include/boost/asio.hpp:91,
+                 from main.cpp:4:
+/usr/local/include/boost/asio/impl/read_until.hpp:701:1: note: template<class AsyncReadStream, class Allocator, class ReadHandler> typename boost::asio::async_result<typename boost::asio::handler_type<WriteHandler, void(boost::system::error_code, long unsigned int)>::type>::type boost::asio::async_read_until(AsyncReadStream&, boost::asio::basic_streambuf<Allocator>&, const string&, ReadHandler&&)
+ async_read_until(AsyncReadStream& s,
+ ^
+/usr/local/include/boost/asio/impl/read_until.hpp:701:1: note:   template argument deduction/substitution failed:
+main.cpp:32:14: note:   'boost::asio::mutable_buffers_1' is not derived from 'boost::asio::basic_streambuf<Allocator>'
+             });
+              ^
+In file included from /usr/local/include/boost/asio/read_until.hpp:921:0,
+                 from /usr/local/include/boost/asio.hpp:91,
+                 from main.cpp:4:
+/usr/local/include/boost/asio/impl/read_until.hpp:913:1: note: template<class AsyncReadStream, class Allocator, class ReadHandler> typename boost::asio::async_result<typename boost::asio::handler_type<WriteHandler, void(boost::system::error_code, long unsigned int)>::type>::type boost::asio::async_read_until(AsyncReadStream&, boost::asio::basic_streambuf<Allocator>&, const regex&, ReadHandler&&)
+ async_read_until(AsyncReadStream& s,
+ ^
+/usr/local/include/boost/asio/impl/read_until.hpp:913:1: note:   template argument deduction/substitution failed:
+main.cpp:32:14: note:   'boost::asio::mutable_buffers_1' is not derived from 'boost::asio::basic_streambuf<Allocator>'
+             });
+              ^
+In file included from /usr/local/include/boost/asio/read_until.hpp:921:0,
+                 from /usr/local/include/boost/asio.hpp:91,
+                 from main.cpp:4:
+/usr/local/include/boost/asio/impl/read_until.hpp:1122:1: note: template<class AsyncReadStream, class Allocator, class MatchCondition, class ReadHandler> typename boost::asio::async_result<typename boost::asio::handler_type<WriteHandler, void(boost::system::error_code, long unsigned int)>::type>::type boost::asio::async_read_until(AsyncReadStream&, boost::asio::basic_streambuf<Allocator>&, MatchCondition, ReadHandler&&, typename std::enable_if<boost::asio::is_match_condition<MatchCondition>::value>::type*)
+ async_read_until(AsyncReadStream& s,
+ ^
+/usr/local/include/boost/asio/impl/read_until.hpp:1122:1: note:   template argument deduction/substitution failed:
+main.cpp:32:14: note:   'boost::asio::mutable_buffers_1' is not derived from 'boost::asio::basic_streambuf<Allocator>'
+             });
+              ^
