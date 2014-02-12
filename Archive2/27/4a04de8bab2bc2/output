@@ -1,0 +1,143 @@
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, const std::vector<parameter>&)':
+main.cpp:24:20: error: ISO C++ forbids declaration of 'param' with no type [-fpermissive]
+   for (const auto& param : parameters) { os << param << "; "; }
+                    ^
+main.cpp:24:28: error: range-based 'for' loops are not allowed in C++98 mode
+   for (const auto& param : parameters) { os << param << "; "; }
+                            ^
+main.cpp: In function 'int main()':
+main.cpp:66:10: error: 'itr' does not name a type
+     auto itr = input_data.begin();
+          ^
+main.cpp:67:10: error: 'end' does not name a type
+     auto end = input_data.end();
+          ^
+main.cpp:68:30: error: 'itr' was not declared in this scope
+     function_parser<decltype(itr)> g;
+                              ^
+main.cpp:68:33: error: a function call cannot appear in a constant-expression
+     function_parser<decltype(itr)> g;
+                                 ^
+main.cpp:68:34: error: template argument 1 is invalid
+     function_parser<decltype(itr)> g;
+                                  ^
+main.cpp:68:37: error: invalid type in declaration before ';' token
+     function_parser<decltype(itr)> g;
+                                     ^
+main.cpp:69:53: error: 'end' was not declared in this scope
+     bool res = boost::spirit::qi::phrase_parse(itr, end, g, boost::spirit::ascii::space, fn);
+                                                     ^
+main.cpp:69:53: note: suggested alternatives:
+In file included from /usr/local/include/boost/range/empty.hpp:20:0,
+                 from /usr/local/include/boost/proto/functional/range/empty.hpp:12,
+                 from /usr/local/include/boost/proto/functional/range.hpp:13,
+                 from /usr/local/include/boost/proto/functional.hpp:14,
+                 from /usr/local/include/boost/proto/proto.hpp:16,
+                 from /usr/local/include/boost/spirit/home/support/meta_compiler.hpp:19,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/range/end.hpp:106:61: note:   'boost::range_adl_barrier::end'
+ inline BOOST_DEDUCED_TYPENAME range_iterator<const T>::type end( const T& r )
+                                                             ^
+In file included from /usr/local/include/boost/fusion/support/sequence_base.hpp:11:0,
+                 from /usr/local/include/boost/fusion/support/detail/is_mpl_sequence.hpp:11,
+                 from /usr/local/include/boost/fusion/support/tag_of.hpp:13,
+                 from /usr/local/include/boost/fusion/support/category_of.hpp:11,
+                 from /usr/local/include/boost/fusion/adapted/struct/detail/extension.hpp:13,
+                 from /usr/local/include/boost/fusion/adapted/struct/adapt_struct.hpp:19,
+                 from /usr/local/include/boost/fusion/include/adapt_struct.hpp:11,
+                 from main.cpp:2:
+/usr/local/include/boost/mpl/begin_end_fwd.hpp:23:38: note:   'boost::mpl::end'
+ template< typename Sequence > struct end;
+                                      ^
+In file included from /usr/local/include/boost/fusion/container/list/cons.hpp:14:0,
+                 from /usr/local/include/boost/fusion/iterator/segmented_iterator.hpp:13,
+                 from /usr/local/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp:11,
+                 from /usr/local/include/boost/fusion/sequence/intrinsic/begin.hpp:17,
+                 from /usr/local/include/boost/fusion/sequence/io/detail/in.hpp:16,
+                 from /usr/local/include/boost/fusion/sequence/io/in.hpp:13,
+                 from /usr/local/include/boost/fusion/sequence/io.hpp:10,
+                 from /usr/local/include/boost/fusion/include/io.hpp:10,
+                 from main.cpp:3:
+/usr/local/include/boost/fusion/sequence/intrinsic/end.hpp:89:5: note:   'boost::fusion::end'
+     end(Sequence const& seq)
+     ^
+In file included from /usr/local/include/boost/fusion/sequence/intrinsic/begin.hpp:13:0,
+                 from /usr/local/include/boost/fusion/sequence/io/detail/in.hpp:16,
+                 from /usr/local/include/boost/fusion/sequence/io/in.hpp:13,
+                 from /usr/local/include/boost/fusion/sequence/io.hpp:10,
+                 from /usr/local/include/boost/fusion/include/io.hpp:10,
+                 from main.cpp:3:
+/usr/local/include/boost/fusion/sequence/intrinsic_fwd.hpp:67:16: note:   'boost::fusion::result_of::end'
+         struct end;
+                ^
+In file included from /usr/local/include/boost/proto/functional/range.hpp:14:0,
+                 from /usr/local/include/boost/proto/functional.hpp:14,
+                 from /usr/local/include/boost/proto/proto.hpp:16,
+                 from /usr/local/include/boost/spirit/home/support/meta_compiler.hpp:19,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/proto/functional/range/end.hpp:19:12: note:   'boost::proto::functional::end'
+     struct end
+            ^
+In file included from /usr/local/include/boost/range/empty.hpp:20:0,
+                 from /usr/local/include/boost/proto/functional/range/empty.hpp:12,
+                 from /usr/local/include/boost/proto/functional/range.hpp:13,
+                 from /usr/local/include/boost/proto/functional.hpp:14,
+                 from /usr/local/include/boost/proto/proto.hpp:16,
+                 from /usr/local/include/boost/spirit/home/support/meta_compiler.hpp:19,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/range/end.hpp:106:61: note:   'boost::range_adl_barrier::end'
+ inline BOOST_DEDUCED_TYPENAME range_iterator<const T>::type end( const T& r )
+                                                             ^
+In file included from /usr/local/include/boost/spirit/home/support/string_traits.hpp:16:0,
+                 from /usr/local/include/boost/spirit/home/support/nonterminal/expand_arg.hpp:20,
+                 from /usr/local/include/boost/spirit/home/support/context.hpp:18,
+                 from /usr/local/include/boost/spirit/home/qi/domain.hpp:18,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:15,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/spirit/home/support/container.hpp:445:5: note:   'boost::spirit::traits::end'
+     end(unused_type)
+     ^
+In file included from /usr/local/include/boost/spirit/home/support/container.hpp:17:0,
+                 from /usr/local/include/boost/spirit/home/support/string_traits.hpp:16,
+                 from /usr/local/include/boost/spirit/home/support/nonterminal/expand_arg.hpp:20,
+                 from /usr/local/include/boost/spirit/home/support/context.hpp:18,
+                 from /usr/local/include/boost/spirit/home/qi/domain.hpp:18,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:15,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/spirit/home/support/attributes_fwd.hpp:43:12: note:   'boost::spirit::result_of::end'
+     struct end;
+            ^
+In file included from /usr/local/include/boost/spirit/home/support/info.hpp:17:0,
+                 from /usr/local/include/boost/spirit/home/qi/domain.hpp:16,
+                 from /usr/local/include/boost/spirit/home/qi/meta_compiler.hpp:15,
+                 from /usr/local/include/boost/spirit/home/qi/action/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi/action.hpp:14,
+                 from /usr/local/include/boost/spirit/home/qi.hpp:14,
+                 from /usr/local/include/boost/spirit/include/qi.hpp:16,
+                 from main.cpp:4:
+/usr/local/include/boost/foreach.hpp:730:1: note:   'boost::foreach_detail_::end'
+ end(auto_any_t, type2type<T *, C> *, boost::mpl::true_ *) // null-terminated C-style strings
+ ^

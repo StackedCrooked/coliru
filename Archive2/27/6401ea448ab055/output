@@ -1,0 +1,17 @@
+main.cpp: In member function 'int& Foo::get() const':
+main.cpp:10:31: error: invalid initialization of reference of type 'int&' from expression of type 'const int'
+     int& get() const { return x; }
+                               ^
+main.cpp: In function 'int main()':
+main.cpp:14:15: error: uninitialized const 'obj' [-fpermissive]
+     const Foo obj;
+               ^
+main.cpp:5:7: note: 'const class Foo' has no user-provided default constructor
+ class Foo
+       ^
+main.cpp:7:9: note: and the implicitly-defined constructor does not initialize 'int Foo::x'
+     int x;
+         ^
+main.cpp:14:15: warning: unused variable 'obj' [-Wunused-variable]
+     const Foo obj;
+               ^
