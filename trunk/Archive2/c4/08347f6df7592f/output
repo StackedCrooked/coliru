@@ -1,0 +1,19 @@
+// *** first non white space
+
+#include <fstream>
+#include <string>
+#include <iterator>
+#include <iostream>
+
+int main()
+{
+    std::ifstream file( __FILE__ ) ; // this file
+
+    // copy everything from the first non-ws character onwards into a string
+    // http://www.cplusplus.com/reference/istream/ws/
+    std::istreambuf_iterator<char> first_non_ws( file >> std::ws ), eof ;
+    const std::string trimmed( first_non_ws, eof ) ;
+
+    std::cout << trimmed ;
+}
+// *** eof after this new line
