@@ -1,0 +1,230 @@
+	.file	"main.cpp"
+	.text
+	.p2align 5,,31
+	.globl	mm
+	.type	mm, @function
+mm:
+.LFB0:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	testl	%edi, %edi
+	movl	%edi, %r15d
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	movq	%rdx, -72(%rsp)
+	movq	%rcx, -48(%rsp)
+	jle	.L1
+	movslq	%edi, %rax
+	xorpd	%xmm4, %xmm4
+	movq	%rdx, -56(%rsp)
+	movq	%rax, %r13
+	movq	%rax, %rdi
+	movq	%rax, -32(%rsp)
+	leaq	0(,%rax,8), %r12
+	salq	$4, %r13
+	salq	$5, %rax
+	leaq	(%rax,%r13,2), %r14
+	movq	%rax, -24(%rsp)
+	movq	%rdi, %rax
+	salq	$6, %rax
+	movq	%rsi, -16(%rsp)
+	movq	$0, -64(%rsp)
+	movq	%rax, -88(%rsp)
+	movq	%r14, %rbp
+	.p2align 5,,24
+	.p2align 3
+.L3:
+	movl	-64(%rsp), %eax
+	movq	-48(%rsp), %r10
+	xorl	%r14d, %r14d
+	movq	-16(%rsp), %r11
+	movl	$0, -80(%rsp)
+	movl	%eax, -36(%rsp)
+	.p2align 5,,24
+	.p2align 3
+.L17:
+	movq	%r10, %rax
+	movq	$0, (%r11)
+	movl	%r15d, %ecx
+	salq	$60, %rax
+	shrq	$63, %rax
+	cmpl	%eax, %r15d
+	cmovbe	%r15d, %eax
+	cmpl	$42, %r15d
+	ja	.L29
+.L4:
+	movq	-56(%rsp), %rdx
+	movq	%r10, %rsi
+	xorl	%eax, %eax
+	movapd	%xmm4, %xmm1
+	.p2align 5,,24
+	.p2align 3
+.L7:
+	movsd	(%rdx), %xmm0
+	incl	%eax
+	addq	%r12, %rdx
+	addq	$8, %rsi
+	mulsd	-8(%rsi), %xmm0
+	cmpl	%ecx, %eax
+	addsd	%xmm0, %xmm1
+	jne	.L7
+	cmpl	%eax, %r15d
+	je	.L30
+.L5:
+	movl	%r15d, %ebx
+	movl	%ecx, %edx
+	subl	%ecx, %ebx
+	movl	%ebx, %r8d
+	movl	%ebx, -40(%rsp)
+	shrl	%r8d
+	movl	%r8d, %ebx
+	addl	%ebx, %ebx
+	movl	%ebx, -76(%rsp)
+	je	.L9
+	movq	-32(%rsp), %rcx
+	movq	-72(%rsp), %rdi
+	leal	-3(%r8), %ebx
+	imulq	%rdx, %rcx
+	leaq	(%r10,%rdx,8), %rdx
+	addq	-64(%rsp), %rcx
+	cmpl	$4, %r8d
+	leaq	(%rdi,%rcx,8), %rcx
+	jbe	.L21
+	movq	-24(%rsp), %rdi
+	xorpd	%xmm2, %xmm2
+	leaq	(%rcx,%rdi), %rsi
+	xorl	%edi, %edi
+	jmp	.L13
+	.p2align 5,,7
+	.p2align 3
+.L11:
+	movl	%r9d, %edi
+.L13:
+	movsd	(%rcx,%r13), %xmm0
+	movsd	(%rcx), %xmm3
+	leaq	(%rcx,%r13), %r9
+	prefetcht0	304(%rdx)
+	addq	$64, %rdx
+	movhpd	(%r9,%r12), %xmm0
+	movhpd	(%rcx,%r12), %xmm3
+	mulpd	-48(%rdx), %xmm0
+	mulpd	-64(%rdx), %xmm3
+	leaq	(%rsi,%r13), %r9
+	addq	-88(%rsp), %rcx
+	addpd	%xmm3, %xmm0
+	movsd	(%rsi), %xmm3
+	movhpd	(%rsi,%r12), %xmm3
+	mulpd	-32(%rdx), %xmm3
+	addpd	%xmm3, %xmm0
+	movsd	(%rsi,%r13), %xmm3
+	addq	%rbp, %rsi
+	movhpd	(%r9,%r12), %xmm3
+	mulpd	-16(%rdx), %xmm3
+	leal	4(%rdi), %r9d
+	addl	$5, %edi
+	cmpl	%edi, %ebx
+	addpd	%xmm3, %xmm0
+	addpd	%xmm0, %xmm2
+	ja	.L11
+	.p2align 5,,24
+	.p2align 3
+.L15:
+	movsd	(%rcx), %xmm0
+	incl	%r9d
+	addq	$16, %rdx
+	movhpd	(%rcx,%r12), %xmm0
+	mulpd	-16(%rdx), %xmm0
+	addq	%r13, %rcx
+	cmpl	%r9d, %r8d
+	addpd	%xmm0, %xmm2
+	ja	.L15
+	movl	-76(%rsp), %ebx
+	haddpd	%xmm2, %xmm2
+	movl	-40(%rsp), %edi
+	addl	%ebx, %eax
+	cmpl	%edi, %ebx
+	addsd	%xmm1, %xmm2
+	je	.L8
+	movapd	%xmm2, %xmm1
+.L9:
+	movl	%r15d, %edx
+	movq	-72(%rsp), %rbx
+	imull	%eax, %edx
+	addl	-36(%rsp), %edx
+	addl	-80(%rsp), %eax
+	movslq	%edx, %rdx
+	cltq
+	movsd	(%rbx,%rdx,8), %xmm2
+	movq	-48(%rsp), %rbx
+	mulsd	(%rbx,%rax,8), %xmm2
+	addsd	%xmm1, %xmm2
+.L8:
+	incl	%r14d
+	movsd	%xmm2, (%r11)
+	addq	%r12, %r10
+	addq	%r12, %r11
+	addl	%r15d, -80(%rsp)
+	cmpl	%r15d, %r14d
+	jne	.L17
+	incq	-64(%rsp)
+	addq	$8, -56(%rsp)
+	addq	$8, -16(%rsp)
+	cmpl	-64(%rsp), %r15d
+	jg	.L3
+.L1:
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 5,,7
+	.p2align 3
+.L29:
+	.cfi_restore_state
+	testl	%eax, %eax
+	jne	.L31
+	xorl	%ecx, %ecx
+	movapd	%xmm4, %xmm1
+	xorl	%eax, %eax
+	jmp	.L5
+	.p2align 5,,7
+	.p2align 3
+.L30:
+	movapd	%xmm1, %xmm2
+	jmp	.L8
+.L21:
+	xorl	%r9d, %r9d
+	xorpd	%xmm2, %xmm2
+	jmp	.L15
+.L31:
+	movl	%eax, %ecx
+	jmp	.L4
+	.cfi_endproc
+.LFE0:
+	.size	mm, .-mm
+	.ident	"GCC: (GNU) 4.8.2"
+	.section	.note.GNU-stack,"",@progbits
