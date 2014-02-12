@@ -1,0 +1,10 @@
+main.cpp:2:12: warning: unused parameter 'x' [-Wunused-parameter]
+void Foo(T x[D]) {
+           ^
+main.cpp:8:3: error: no matching function for call to 'Foo'
+  Foo(x);  // C2784: could not deduce template argument for 'T [D]' from 'float [3]'
+  ^~~
+main.cpp:2:6: note: candidate template ignored: couldn't infer template argument 'D'
+void Foo(T x[D]) {
+     ^
+1 warning and 1 error generated.
