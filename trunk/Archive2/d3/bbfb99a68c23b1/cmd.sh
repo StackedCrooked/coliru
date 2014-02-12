@@ -1,0 +1,1 @@
+mkdir -p a/b/c/d/e/../f/../g/../h/../../i/../j/../k/../../../lmnopq/rustvw../../xyz && find a | sort
