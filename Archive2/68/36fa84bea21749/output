@@ -1,0 +1,13 @@
+main.cpp:4:20: error: constexpr variable 'SEC3<int>' must be initialized by a constant expression
+static constexpr T SEC3 = i;
+                   ^      ~
+main.cpp:10:18: note: in instantiation of variable template specialization 'SEC3<int>' requested here
+    std::cout << SEC3<int>;
+                 ^
+main.cpp:4:27: note: read of non-constexpr variable 'i' is not allowed in a constant expression
+static constexpr T SEC3 = i;
+                          ^
+main.cpp:1:14: note: declared here
+const double i = 25;
+             ^
+1 error generated.
