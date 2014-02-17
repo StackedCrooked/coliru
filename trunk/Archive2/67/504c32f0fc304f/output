@@ -1,0 +1,29 @@
+clang version 3.5 (trunk 198621)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -menable-no-infs -menable-no-nans -menable-unsafe-fp-math -ffp-contract=fast -ffast-math -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu amdfam10 -target-linker-version 2.22 -momit-leaf-frame-pointer -v -resource-dir /usr/local/bin/../lib/clang/3.5 -D NDEBUG -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.5/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wall -Wextra -pedantic -std=c++1y -fdeprecated-macro -fdebug-compilation-dir /tmp/1392523740-265732628 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o /tmp/main-4b660d.o -x c++ main.cpp
+clang -cc1 version 3.5 based upon LLVM 3.5svn default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.5/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+main.cpp:9:9: error: cannot initialize a variable of type 'int' with an lvalue of type 'auto'
+    int f1 = F<int>; // error: cannot initialize a variable of type 'int' with an lvalue of type 'auto'
+        ^    ~~~~~~
+1 error generated.
