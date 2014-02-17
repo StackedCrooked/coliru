@@ -1,0 +1,20 @@
+main.cpp: In member function 'int Queue::pop()':
+main.cpp:23:52: error: no matching function for call to 'std::exception::exception(const char [17])'
+             throw std::exception("Program stopped!");
+                                                    ^
+main.cpp:23:52: note: candidates are:
+In file included from /usr/include/c++/4.8/new:40:0,
+                 from /usr/include/c++/4.8/ext/new_allocator.h:33,
+                 from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/deque:61,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main.cpp:1:
+/usr/include/c++/4.8/exception:63:5: note: std::exception::exception()
+     exception() _GLIBCXX_USE_NOEXCEPT { }
+     ^
+/usr/include/c++/4.8/exception:63:5: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.8/exception:60:9: note: constexpr std::exception::exception(const std::exception&)
+   class exception
+         ^
+/usr/include/c++/4.8/exception:60:9: note:   no known conversion for argument 1 from 'const char [17]' to 'const std::exception&'
