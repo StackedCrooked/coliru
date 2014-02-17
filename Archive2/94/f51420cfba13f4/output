@@ -1,0 +1,10 @@
+main.cpp:20:12: warning: unused variable 'x' [-Wunused-variable]
+    auto&& x = as_const(foo());
+           ^
+main.cpp:11:64: error: rvalue reference to type 'const foo' cannot bind to lvalue of type 'const foo'
+template <typename T> const T&& as_const(const T&& t) { return t; }
+                                                               ^
+main.cpp:20:16: note: in instantiation of function template specialization 'as_const<foo>' requested here
+    auto&& x = as_const(foo());
+               ^
+1 warning and 1 error generated.
