@@ -1,0 +1,27 @@
++ clang++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:31:14: error: member reference base type 'int *' is not a structure or union
+    int n = a.size(), m = b.size(); //IS THIS LEGAL?
+            ~^~~~~
+main.cpp:31:28: error: member reference base type 'int *' is not a structure or union
+    int n = a.size(), m = b.size(); //IS THIS LEGAL?
+                          ~^~~~~
+main.cpp:58:28: error: use of undeclared identifier 'first'; did you mean 'Range::first'?
+    return merge(mergeSort(first,SIZE OF FIRST),mergeSort(last, SIZE OF LAST),a);
+                           ^~~~~
+                           Range::first
+main.cpp:10:10: note: 'Range::first' declared here
+    int* first;
+         ^
+main.cpp:58:28: error: invalid use of non-static data member 'first'
+    return merge(mergeSort(first,SIZE OF FIRST),mergeSort(last, SIZE OF LAST),a);
+                           ^~~~~
+main.cpp:65:9: warning: unused variable 'arr' [-Wunused-variable]
+    int arr[7];
+        ^
+main.cpp:66:9: warning: unused variable 'sorted' [-Wunused-variable]
+    int sorted[7];
+        ^
+main.cpp:69:1: error: extraneous closing brace ('}')
+}
+^
+2 warnings and 5 errors generated.
