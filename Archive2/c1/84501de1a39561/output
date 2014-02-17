@@ -1,0 +1,21 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -Weffc++ -Wextra main.cpp
+main.cpp: In member function 'double functionality<T>::operator[](size_t) const [with T = Point; size_t = long unsigned int]':
+main.cpp:68:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+main.cpp: In member function 'double functionality<T>::operator[](size_t) const [with T = PointRef; size_t = long unsigned int]':
+main.cpp:68:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
++ ./a.out
+{ 1, 2, 3 }
+~Point of { 1, 2, 3 }
+{ 2, 4, 6 }
+{ 3, 3, 3 }
+{ 5, 7, 9 }
+5 7 9
+{ 7, 11, 15 }
+{ 7, 11, 15 }
+~PointRef of { 7, 11, 15 }
+~PointRef of { 5, 7, 9 }
+~Point of { 7, 11, 15 }
