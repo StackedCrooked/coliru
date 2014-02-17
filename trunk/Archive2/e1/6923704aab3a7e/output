@@ -1,0 +1,22 @@
+clang version 3.5 (trunk 198621)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:18:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+constexpr int func2() {
+              ^
+main.cpp:19:14: note: non-constexpr constructor 'a' cannot be used in a constant expression
+    a<int,3> a1 ;
+             ^
+main.cpp:5:8: note: declared here
+struct a
+       ^
+main.cpp:28:19: error: constexpr variable 'x' must be initialized by a constant expression
+    constexpr int x = func<int>();
+                  ^   ~~~~~~~~~~~
+main.cpp:14:11: note: assignment to object outside its lifetime is not allowed in a constant expression
+  a1.x[0] = 10 ;
+          ^
+main.cpp:28:23: note: in call to 'func()'
+    constexpr int x = func<int>();
+                      ^
+2 errors generated.
