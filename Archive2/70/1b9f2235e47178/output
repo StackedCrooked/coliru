@@ -1,0 +1,18 @@
+main.cpp:9:14: error: explicit specialization in non-namespace scope 'struct A<(count)0u>'
+     template<> char get<one>(); //error: explicit specialization in non-namespace scope 'struct A<(count)0u>'
+              ^
+main.cpp:9:30: error: template-id 'get<one>' in declaration of primary template
+     template<> char get<one>(); //error: explicit specialization in non-namespace scope 'struct A<(count)0u>'
+                              ^
+main.cpp:12:17: error: template-id 'get<one>' for 'char A<(count)0u>::get()' does not match any template declaration
+ template<> char A<one>::get<one>(); //error: template-id 'get<one>' for 'char A<(count)0u>::get()' does not match any template declaration
+                 ^
+main.cpp:13:16: error: template-id 'get<two>' for 'int A<(count)0u>::get()' does not match any template declaration
+ template<> int A<one>::get<two>();
+                ^
+main.cpp:16:17: error: template-id 'get<one>' for 'char A<(count)0u>::get()' does not match any template declaration
+ template<> char A<one>::get<one>() {}
+                 ^
+main.cpp:17:16: error: template-id 'get<two>' for 'int A<(count)0u>::get()' does not match any template declaration
+ template<> int A<one>::get<two>() {}
+                ^
