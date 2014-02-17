@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:6:12: warning: variable length arrays are a C99 feature [-Wvla-extension]
+    int out[length];
+           ^
+main.cpp:26:10: error: no matching function for call to 'merge'
+    else merge(mergeSort(firstHalf,firstHalfLength),firstHalfLength,mergeSort(secondHalf,secondHalfLength),secondHalfLength);
+         ^~~~~
+main.cpp:3:6: note: candidate function not viable: cannot convert argument of incomplete type 'void' to 'int *'
+void merge(int* a,int x,int* b,int y){
+     ^
+main.cpp:34:9: error: array type 'int [7]' is not assignable
+    arr = {1,2,3,2,6,3,1};
+    ~~~ ^
+1 warning and 2 errors generated.
