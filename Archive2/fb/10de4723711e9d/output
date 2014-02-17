@@ -1,0 +1,55 @@
+main.cpp:1:5: warning: no previous prototype for function 'wrap' [-Wmissing-prototypes]
+int wrap(int(*asmfn)(int,int,int,int), int param1, int param2, int param3, int param4) {
+    ^
+main.cpp:4:1: warning: raw string literals are incompatible with C++98 [-Wc++98-compat]
+R"(
+^
+main.cpp:6:1: error: instruction requires: Not 64-bit mode
+push %5;
+^
+<inline asm>:3:1: note: instantiated into assembly here
+push %edi;
+^
+main.cpp:7:1: error: instruction requires: Not 64-bit mode
+push %4;
+^
+<inline asm>:4:1: note: instantiated into assembly here
+push %esi;
+^
+main.cpp:8:1: error: instruction requires: Not 64-bit mode
+pushl %3;
+^
+<inline asm>:5:1: note: instantiated into assembly here
+pushl %ebx;
+^
+main.cpp:9:1: error: instruction requires: Not 64-bit mode
+push %2;
+^
+<inline asm>:6:1: note: instantiated into assembly here
+push %edx;
+^
+main.cpp:11:1: error: instruction requires: Not 64-bit mode
+pop %2;
+^
+<inline asm>:8:1: note: instantiated into assembly here
+pop %edx;
+^
+main.cpp:12:1: error: instruction requires: Not 64-bit mode
+pop %3;
+^
+<inline asm>:9:1: note: instantiated into assembly here
+pop %ebx;
+^
+main.cpp:13:1: error: instruction requires: Not 64-bit mode
+pop %4;
+^
+<inline asm>:10:1: note: instantiated into assembly here
+pop %esi;
+^
+main.cpp:14:1: error: instruction requires: Not 64-bit mode
+pop %5;
+^
+<inline asm>:11:1: note: instantiated into assembly here
+pop %edi;
+^
+2 warnings and 8 errors generated.
