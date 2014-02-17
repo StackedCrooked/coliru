@@ -1,0 +1,1 @@
+(clang++ -Wall -pedantic -std=c++11 -pthread main.cpp && echo "ACCEPTED") || echo "REJECTED"
