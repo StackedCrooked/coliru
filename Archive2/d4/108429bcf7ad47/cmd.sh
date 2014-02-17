@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp && echo "22 4444 1 333 22" | ./a.out && cat evens.out && echo "" && cat odds.out
