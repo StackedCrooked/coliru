@@ -1,0 +1,1 @@
+clang++ -stdlib=libc++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -lc++ /usr/lib/x86_64-linux-gnu/libstdc++.so.6 && ./a.out
