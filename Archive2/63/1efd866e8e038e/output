@@ -1,0 +1,26 @@
+main.cpp:6:17: error: constant expression evaluates to 32768 which cannot be narrowed to type 'short' [-Wc++11-narrowing]
+    short s1 = {SHRT_MAX+1};
+                ^~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5/include/limits.h:62:19: note: expanded from macro 'SHRT_MAX'
+#define SHRT_MAX  __SHRT_MAX__
+                  ^
+<built-in>:47:22: note: expanded from here
+#define __SHRT_MAX__ 32767
+                     ^
+main.cpp:6:17: note: override this message by inserting an explicit cast
+    short s1 = {SHRT_MAX+1};
+                ^~~~~~~~~~
+                static_cast<short>( )
+/usr/local/bin/../lib/clang/3.5/include/limits.h:62:19: note: expanded from macro 'SHRT_MAX'
+#define SHRT_MAX  __SHRT_MAX__
+                  ^
+<built-in>:47:22: note: expanded from here
+#define __SHRT_MAX__ 32767
+                     ^
+main.cpp:5:11: warning: unused variable 's0' [-Wunused-variable]
+    short s0 = SHRT_MAX+1;
+          ^
+main.cpp:6:11: warning: unused variable 's1' [-Wunused-variable]
+    short s1 = {SHRT_MAX+1};
+          ^
+2 warnings and 1 error generated.
