@@ -1,0 +1,59 @@
+main.cpp:1:1: error: unknown type name 'Vec3'
+Vec3<double> inferRayDirection(const Vec2<double>& pixel) const restrict(cpu, amp) {
+^
+main.cpp:1:5: error: expected unqualified-id
+Vec3<double> inferRayDirection(const Vec2<double>& pixel) const restrict(cpu, amp) {
+    ^
+main.cpp:7:1: error: unknown type name 'Ray'
+Ray Compute( real x, real y, real width, real height ) const {
+^
+main.cpp:7:14: error: unknown type name 'real'
+Ray Compute( real x, real y, real width, real height ) const {
+             ^
+main.cpp:7:22: error: unknown type name 'real'
+Ray Compute( real x, real y, real width, real height ) const {
+                     ^
+main.cpp:7:30: error: unknown type name 'real'
+Ray Compute( real x, real y, real width, real height ) const {
+                             ^
+main.cpp:7:42: error: unknown type name 'real'
+Ray Compute( real x, real y, real width, real height ) const {
+                                         ^
+main.cpp:7:56: error: non-member function cannot have 'const' qualifier
+Ray Compute( real x, real y, real width, real height ) const {
+                                                       ^~~~~~
+main.cpp:8:2: error: unknown type name 'real'
+        real normalizedi = ( x / width ) - static_cast<real>( 0.5 );
+        ^
+main.cpp:8:49: error: unknown type name 'real'
+        real normalizedi = ( x / width ) - static_cast<real>( 0.5 );
+                                                       ^
+main.cpp:9:2: error: unknown type name 'real'
+        real normalizedj = ( y / height ) - static_cast<real>( 0.5 );
+        ^
+main.cpp:9:50: error: unknown type name 'real'
+        real normalizedj = ( y / height ) - static_cast<real>( 0.5 );
+                                                        ^
+main.cpp:12:2: error: unknown type name 'Vec3'
+        Vec3 imageplanepoint = normalizedi * right +
+        ^
+main.cpp:12:39: error: use of undeclared identifier 'right'
+        Vec3 imageplanepoint = normalizedi * right +
+                                             ^
+main.cpp:13:17: error: use of undeclared identifier 'up'
+                normalizedj * up +
+                              ^
+main.cpp:14:3: error: use of undeclared identifier 'position'
+                position + direction;
+                ^
+main.cpp:14:14: error: use of undeclared identifier 'direction'
+                position + direction;
+                           ^
+main.cpp:15:2: error: unknown type name 'Vec3'
+        Vec3 raydir = imageplanepoint - position;
+        ^
+main.cpp:15:34: error: use of undeclared identifier 'position'
+        Vec3 raydir = imageplanepoint - position;
+                                        ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
