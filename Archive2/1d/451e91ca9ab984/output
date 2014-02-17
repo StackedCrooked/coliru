@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:14:86: error: no matching function for call to 'transform(std::vector<double>::iterator, std::vector<double>::iterator, std::back_insert_iterator<std::vector<double> >, <unresolved overloaded function type>)'
+  std::transform(begin(squares), end(squares), std::back_inserter(numbers), &std::sqrt);
+                                                                                      ^
+main.cpp:14:86: note: candidates are:
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algo.h:4938:5: note: template<class _IIter, class _OIter, class _UnaryOperation> _OIter std::transform(_IIter, _IIter, _OIter, _UnaryOperation)
+     transform(_InputIterator __first, _InputIterator __last,
+     ^
+/usr/include/c++/4.8/bits/stl_algo.h:4938:5: note:   template argument deduction/substitution failed:
+main.cpp:14:86: note:   couldn't deduce template parameter '_UnaryOperation'
+  std::transform(begin(squares), end(squares), std::back_inserter(numbers), &std::sqrt);
+                                                                                      ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algo.h:4975:5: note: template<class _IIter1, class _IIter2, class _OIter, class _BinaryOperation> _OIter std::transform(_IIter1, _IIter1, _IIter2, _OIter, _BinaryOperation)
+     transform(_InputIterator1 __first1, _InputIterator1 __last1,
+     ^
+/usr/include/c++/4.8/bits/stl_algo.h:4975:5: note:   template argument deduction/substitution failed:
+main.cpp:14:86: note:   candidate expects 5 arguments, 4 provided
+  std::transform(begin(squares), end(squares), std::back_inserter(numbers), &std::sqrt);
+                                                                                      ^
