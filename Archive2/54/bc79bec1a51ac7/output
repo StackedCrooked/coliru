@@ -1,0 +1,66 @@
+main.cpp: In function 'int main()':
+main.cpp:9:21: error: no matching function for call to 'std::basic_string<char>::basic_string(<brace-enclosed initializer list>)'
+     string s1{4, "y"};
+                     ^
+main.cpp:9:21: note: candidates are:
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:532:9: note: template<class _InputIterator> std::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^
+/usr/include/c++/4.8/bits/basic_string.h:532:9: note:   template argument deduction/substitution failed:
+main.cpp:9:21: note:   deduced conflicting types for parameter '_InputIterator' ('int' and 'const char*')
+     string s1{4, "y"};
+                     ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:522:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_Tp>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc());
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:522:7: note:   no known conversion for argument 1 from 'int' to 'std::initializer_list<char>'
+/usr/include/c++/4.8/bits/basic_string.h:507:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str) noexcept
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:507:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/bits/basic_string.h:497:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int] <near match>
+       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc());
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:497:7: note:   no known conversion for argument 2 from 'const char [2]' to 'char'
+/usr/include/c++/4.8/bits/basic_string.h:490:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc());
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:490:7: note:   no known conversion for argument 2 from 'const char [2]' to 'const std::allocator<char>&'
+/usr/include/c++/4.8/bits/basic_string.h:483:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int] <near match>
+       basic_string(const _CharT* __s, size_type __n,
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:483:7: note:   no known conversion for argument 2 from 'const char [2]' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/include/c++/4.8/bits/basic_string.h:471:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:471:7: note:   candidate expects 4 arguments, 2 provided
+/usr/include/c++/4.8/bits/basic_string.h:462:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:462:7: note:   no known conversion for argument 1 from 'int' to 'const std::basic_string<char>&'
+/usr/include/c++/4.8/bits/basic_string.h:455:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str);
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:455:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/bits/basic_string.h:448:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _Alloc& __a);
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:448:7: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/bits/basic_string.h:437:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:437:7: note:   candidate expects 0 arguments, 2 provided
