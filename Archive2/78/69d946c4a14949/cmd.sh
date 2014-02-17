@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O3 -DNDEBUG -Wall -Wextra -pedantic -pthread main.cpp -c
