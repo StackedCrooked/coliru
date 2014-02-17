@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'constexpr Size n_items() [with Fixed_size_container = std::array<int, 5ul>; Size = long int]':
+main.cpp:38:24:   required from here
+main.cpp:29:54: error: incomplete type 'detail::N_items_<std::array<int, 5ul> >' used in nested name specifier
+     { return detail::N_items_<Fixed_size_container>::count; }
+                                                      ^
+main.cpp:29:61: error: body of constexpr function 'constexpr Size n_items() [with Fixed_size_container = std::array<int, 5ul>; Size = long int]' not a return-statement
+     { return detail::N_items_<Fixed_size_container>::count; }
+                                                             ^
+main.cpp: In function 'constexpr Size n_items() [with Fixed_size_container = std::array<int, 5ul>; Size = long int]':
+main.cpp:29:61: warning: control reaches end of non-void function [-Wreturn-type]
+     { return detail::N_items_<Fixed_size_container>::count; }
+                                                             ^
