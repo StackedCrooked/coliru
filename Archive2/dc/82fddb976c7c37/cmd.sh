@@ -1,0 +1,1 @@
+cp /Archive2/c9/c8ea51d93e4ae1/main.cpp Sales_item.h; g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp && ./a.out
