@@ -1,0 +1,46 @@
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h: In instantiation of 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = Foo; _Alloc = std::allocator<Foo>]':
+/usr/include/c++/4.8/bits/stl_vector.h:249:15:   required from 'std::vector<_Tp, _Alloc>::vector() [with _Tp = Foo; _Alloc = std::allocator<Foo>]'
+main.cpp:6:18:   required from here
+/usr/include/c++/4.8/bits/stl_vector.h:161:9: error: invalid use of incomplete type 'class Foo'
+         - this->_M_impl._M_start); }
+         ^
+main.cpp:3:7: error: forward declaration of 'class Foo'
+ class Foo;
+       ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h: In instantiation of 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = Bar; _Alloc = std::allocator<Bar>]':
+/usr/include/c++/4.8/bits/stl_vector.h:249:15:   required from 'std::vector<_Tp, _Alloc>::vector() [with _Tp = Bar; _Alloc = std::allocator<Bar>]'
+main.cpp:7:18:   required from here
+/usr/include/c++/4.8/bits/stl_vector.h:161:9: error: invalid use of incomplete type 'class Bar'
+         - this->_M_impl._M_start); }
+         ^
+main.cpp:4:7: error: forward declaration of 'class Bar'
+ class Bar;
+       ^
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = Foo*]':
+/usr/include/c++/4.8/bits/stl_construct.h:151:31:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = Foo*; _Tp = Foo]'
+/usr/include/c++/4.8/bits/stl_vector.h:416:30:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = Foo; _Alloc = std::allocator<Foo>]'
+main.cpp:6:18:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:127:27: error: invalid use of incomplete type '_Value_type {aka class Foo}'
+  __destroy(__first, __last);
+                           ^
+main.cpp:3:7: error: forward declaration of '_Value_type {aka class Foo}'
+ class Foo;
+       ^
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = Bar*]':
+/usr/include/c++/4.8/bits/stl_construct.h:151:31:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = Bar*; _Tp = Bar]'
+/usr/include/c++/4.8/bits/stl_vector.h:416:30:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = Bar; _Alloc = std::allocator<Bar>]'
+main.cpp:7:18:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:127:27: error: invalid use of incomplete type '_Value_type {aka class Bar}'
+  __destroy(__first, __last);
+                           ^
+main.cpp:4:7: error: forward declaration of '_Value_type {aka class Bar}'
+ class Bar;
+       ^
