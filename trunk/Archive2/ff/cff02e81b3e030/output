@@ -1,0 +1,68 @@
+main.cpp: In instantiation of 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]':
+main.cpp:170:65:   required from here
+main.cpp:131:10: error: no matching function for call to 'boost::future<int>::then(Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]::__lambda2)'
+         });
+          ^
+main.cpp:131:10: note: candidates are:
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+/usr/local/include/boost/thread/future.hpp:1614:9: note: template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(F&&) [with F = F; R = int]
+         then(BOOST_THREAD_FWD_REF(F) func);  // EXTENSION
+         ^
+/usr/local/include/boost/thread/future.hpp:1614:9: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+/usr/local/include/boost/thread/future.hpp: In substitution of 'template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(F&&) [with F = F; R = int] [with F = Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]::__lambda2]':
+main.cpp:131:10:   required from 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]'
+main.cpp:170:65:   required from here
+/usr/local/include/boost/thread/future.hpp:3982:3: error: no type named 'type' in 'struct boost::result_of<Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]::__lambda2(boost::future<int>)>'
+   BOOST_THREAD_FUTURE<R>::then(BOOST_THREAD_FWD_REF(F) func)
+   ^
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+main.cpp: In instantiation of 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]':
+main.cpp:170:65:   required from here
+/usr/local/include/boost/thread/future.hpp:1617:9: note: template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(boost::launch, F&&) [with F = F; R = int]
+         then(launch policy, BOOST_THREAD_FWD_REF(F) func);  // EXTENSION
+         ^
+/usr/local/include/boost/thread/future.hpp:1617:9: note:   template argument deduction/substitution failed:
+main.cpp:131:10: note:   cannot convert '<lambda closure object>Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]::__lambda2{CurrentCoro((*(const CurrentCoro*)current_coro))}' (type 'Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]::__lambda2') to type 'boost::launch'
+         });
+          ^
+main.cpp: In instantiation of 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]':
+main.cpp:190:23:   required from here
+main.cpp:131:10: error: no matching function for call to 'boost::future<int>::then(Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]::__lambda2)'
+main.cpp:131:10: note: candidates are:
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+/usr/local/include/boost/thread/future.hpp:1614:9: note: template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(F&&) [with F = F; R = int]
+         then(BOOST_THREAD_FWD_REF(F) func);  // EXTENSION
+         ^
+/usr/local/include/boost/thread/future.hpp:1614:9: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+/usr/local/include/boost/thread/future.hpp: In substitution of 'template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(F&&) [with F = F; R = int] [with F = Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]::__lambda2]':
+main.cpp:131:10:   required from 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]'
+main.cpp:190:23:   required from here
+/usr/local/include/boost/thread/future.hpp:3982:3: error: no type named 'type' in 'struct boost::result_of<Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]::__lambda2(boost::future<int>)>'
+   BOOST_THREAD_FUTURE<R>::then(BOOST_THREAD_FWD_REF(F) func)
+   ^
+In file included from /usr/local/include/boost/thread.hpp:24:0,
+                 from main.cpp:20:
+main.cpp: In instantiation of 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]':
+main.cpp:190:23:   required from here
+/usr/local/include/boost/thread/future.hpp:1617:9: note: template<class F> boost::future<typename boost::result_of<F(boost::future<R>)>::type> boost::future<R>::then(boost::launch, F&&) [with F = F; R = int]
+         then(launch policy, BOOST_THREAD_FWD_REF(F) func);  // EXTENSION
+         ^
+/usr/local/include/boost/thread/future.hpp:1617:9: note:   template argument deduction/substitution failed:
+main.cpp:131:10: note:   cannot convert '<lambda closure object>Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]::__lambda2{CurrentCoro((*(const CurrentCoro*)current_coro))}' (type 'Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]::__lambda2') to type 'boost::launch'
+         });
+          ^
+main.cpp: In member function 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>; decltype (ft.get()) = int]':
+main.cpp:134:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+main.cpp: In member function 'decltype (ft.get()) Awaiter::operator*(Future&&) [with Future = boost::future<int>&; decltype (ft.get()) = int]':
+main.cpp:134:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
