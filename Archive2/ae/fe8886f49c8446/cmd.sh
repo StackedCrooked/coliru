@@ -1,0 +1,1 @@
+g++-4.6 -std=c++0x -I/usr/local/include/c++/4.8.2/bit -o main main.cpp
