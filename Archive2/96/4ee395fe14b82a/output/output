@@ -1,0 +1,30 @@
+In file included from /usr/include/c++/4.8/thread:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/functional: In instantiation of 'struct std::_Bind_simple<void (*(X))(X&)>':
+/usr/include/c++/4.8/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(X&); _Args = {X&}]'
+main.cpp:12:52:   required from 'std::thread* doThread(T&&) [with T = X&]'
+main.cpp:23:19:   required from here
+/usr/include/c++/4.8/functional:1697:61: error: no type named 'type' in 'class std::result_of<void (*(X))(X&)>'
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/include/c++/4.8/functional:1727:9: error: no type named 'type' in 'class std::result_of<void (*(X))(X&)>'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
+In file included from /usr/include/c++/4.8/functional:55:0,
+                 from /usr/include/c++/4.8/thread:39,
+                 from main.cpp:2:
+/usr/include/c++/4.8/tuple: In instantiation of 'constexpr std::_Head_base<_Idx, _Head, true>::_Head_base(const _Head&) [with long unsigned int _Idx = 1ul; _Head = X]':
+/usr/include/c++/4.8/tuple:255:44:   recursively required from 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 1ul; _Head = X; _Tail = {}]'
+/usr/include/c++/4.8/tuple:255:44:   required from 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = void (*)(X&); _Tail = {X}]'
+/usr/include/c++/4.8/tuple:531:30:   required from 'constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = void (*)(X&); _T2 = X]'
+/usr/include/c++/4.8/functional:1710:74:   required from 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {X&}; <template-parameter-2-2> = void; _Callable = void (*)(X&); _Args = {X}]'
+/usr/include/c++/4.8/functional:1759:41:   required from 'typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(X&); _Args = {X&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(X))(X&)>]'
+/usr/include/c++/4.8/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(X&); _Args = {X&}]'
+main.cpp:12:52:   required from 'std::thread* doThread(T&&) [with T = X&]'
+main.cpp:23:19:   required from here
+/usr/include/c++/4.8/tuple:89:18: error: use of deleted function 'X::X(const X&)'
+       : _Head(__h) { }
+                  ^
+main.cpp:5:29: error: declared here
+ struct X { X(){}  X(X&&){}  X(X const&) = delete; };
+                             ^
