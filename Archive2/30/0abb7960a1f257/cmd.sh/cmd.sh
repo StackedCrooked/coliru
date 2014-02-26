@@ -1,0 +1,1 @@
+clang++ -std=c++98 -stdlib=libc++ -Wall -Wextra -pedantic-errors -O3 main.cpp -lsupc++ && ./a.out
