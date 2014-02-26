@@ -1,0 +1,43 @@
+main.cpp:1:15: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<class... pack1, class T>
+              ^
+main.cpp:2:11: warning: unused parameter 'n' [-Wunused-parameter]
+void f1(T n, pack1... args) {}
+          ^
+main.cpp:2:23: warning: unused parameter 'args' [-Wunused-parameter]
+void f1(T n, pack1... args) {}
+                      ^
+main.cpp:4:15: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<class... pack1, class T>
+              ^
+main.cpp:5:18: warning: unused parameter 'args' [-Wunused-parameter]
+void f2(pack1... args, T n) {}
+                 ^
+main.cpp:5:26: warning: unused parameter 'n' [-Wunused-parameter]
+void f2(pack1... args, T n) {}
+                         ^
+main.cpp:7:13: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<int...> struct T {};
+            ^
+main.cpp:9:13: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<int... pack1, int N, int... pack2>
+            ^
+main.cpp:9:34: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<int... pack1, int N, int... pack2>
+                                 ^
+main.cpp:10:31: warning: unused parameter 'arg1' [-Wunused-parameter]
+void g1(const T<N, pack1...>& arg1, const T<N, pack2...>&) {}
+                              ^
+main.cpp:12:13: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<int... pack1, int N, int... pack2>
+            ^
+main.cpp:12:34: error: variadic templates are a C++11 extension [-Werror,-Wc++11-extensions]
+template<int... pack1, int N, int... pack2>
+                                 ^
+main.cpp:13:31: warning: unused parameter 'arg1' [-Wunused-parameter]
+void g2(const T<pack1..., N>& arg1, const T<N, pack2...>&) {}
+                              ^
+main.cpp:25:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+}
+ ^
+6 warnings and 8 errors generated.
