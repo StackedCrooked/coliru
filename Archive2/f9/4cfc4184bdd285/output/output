@@ -1,0 +1,29 @@
+main.cpp: In constructor 'constexpr Array<int, 3ul, 5ul, 10ul>::Array()':
+main.cpp:31:8: error: converting to 'std::unique_ptr<int [], std::default_delete<int []> >' from initializer list would use explicit constructor 'std::unique_ptr<_Tp [], _Dp>::unique_ptr(std::unique_ptr<_Tp [], _Dp>::pointer) [with _Tp = int; _Dp = std::default_delete<int []>; std::unique_ptr<_Tp [], _Dp>::pointer = int*]'
+ struct Array {
+        ^
+main.cpp: In function 'int main()':
+main.cpp:49:23: note: synthesized method 'constexpr Array<int, 3ul, 5ul, 10ul>::Array()' first required here 
+     Array<int,3,5,10> array;
+                       ^
+main.cpp: In instantiation of 'size_t Index(First, Indices ...) [with long unsigned int Dim = 5ul; long unsigned int ...Dims = {10ul}; First = int; Indices = {int}; size_t = long unsigned int]':
+main.cpp:27:67:   required from 'size_t Index(First, Indices ...) [with long unsigned int Dim = 3ul; long unsigned int ...Dims = {5ul, 10ul}; First = int; Indices = {int, int}; size_t = long unsigned int]'
+main.cpp:36:41:   required from 'static size_t Array<T, Dims>::OffsetAt(Indices ...) [with Indices = {int, int, int}; T = int; long unsigned int ...Dims = {3ul, 5ul, 10ul}; size_t = long unsigned int]'
+main.cpp:50:38:   required from here
+main.cpp:27:67: error: call of overloaded 'Index(int&)' is ambiguous
+     return first * Mul<Dims...>::value + Index<Dims...>(indices...);
+                                                                   ^
+main.cpp:27:67: note: candidates are:
+main.cpp:19:8: note: size_t Index(Indices ...) [with long unsigned int ...Dims = {10ul}; Indices = {int}; size_t = long unsigned int]
+ size_t Index( Indices... indices );
+        ^
+main.cpp:22:8: note: size_t Index(Indices) [with long unsigned int Dims = 10ul; Indices = int; size_t = long unsigned int]
+ size_t Index( Indices indices ) {
+        ^
+main.cpp:26:8: note: size_t Index(First, Indices ...) [with long unsigned int Dim = 10ul; long unsigned int ...Dims = {}; First = int; Indices = {}; size_t = long unsigned int]
+ size_t Index( First first, Indices... indices ) {
+        ^
+main.cpp: In function 'size_t Index(First, Indices ...) [with long unsigned int Dim = 5ul; long unsigned int ...Dims = {10ul}; First = int; Indices = {int}; size_t = long unsigned int]':
+main.cpp:28:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
