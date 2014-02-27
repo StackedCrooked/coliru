@@ -23,7 +23,7 @@ echo "${id}" | sed 's,/,,'
 
     # create the archive directory and add the files
     # an empty output file is also added here
-    mkdir -p ${path}
+    mkdir -p "${path}"
     cat ${INPUT_FILES_DIR}/main.cpp > ${path}/main.cpp
     cat ${INPUT_FILES_DIR}/cmd.sh > ${path}/cmd.sh
     echo > ${path}/output
