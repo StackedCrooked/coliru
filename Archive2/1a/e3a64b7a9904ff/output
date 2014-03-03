@@ -1,0 +1,19 @@
+main.cpp:9:31: error: invalid use of incomplete type 'pi_t<float>'
+    static const pi_t value = pi_t();
+                              ^~~~~~
+main.cpp:17:12: note: in instantiation of template class 'pi_t<float>' requested here
+using pi = pi_t<float>::value;
+           ^
+main.cpp:8:8: note: definition of 'pi_t<float>' is not complete until the closing '}'
+struct pi_t {
+       ^
+main.cpp:21:15: error: use of undeclared identifier 'pi'
+    float f = pi<float>;
+              ^
+main.cpp:21:23: error: expected '(' for function-style cast or type construction
+    float f = pi<float>;
+                 ~~~~~^
+main.cpp:21:24: error: expected expression
+    float f = pi<float>;
+                       ^
+4 errors generated.
