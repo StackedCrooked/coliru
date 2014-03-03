@@ -1,0 +1,8 @@
+main.cpp: In instantiation of 'void Y::f(T) [with T = X::A]':
+main.cpp:16:21:   required from here
+main.cpp:14:19: error: 'h' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+  void f(T x) { h(x); }
+                   ^
+main.cpp:18:7: note: 'void Y::h(X::A)' declared here, later in the translation unit
+  void h(X::A) { cout << "Hello, world!" << endl; }
+       ^
