@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp && echo "10:35" | ./a.out
