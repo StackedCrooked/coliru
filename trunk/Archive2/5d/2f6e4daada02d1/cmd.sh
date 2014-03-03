@@ -1,0 +1,1 @@
+clang++ -fno-elide-constructors -std=c++11 -O0 -Wall -Wextra -pedantic -pthread main.cpp -E && ./a.out
