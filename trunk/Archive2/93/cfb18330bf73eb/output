@@ -1,0 +1,54 @@
+main.cpp: In instantiation of 'std::thread* doThread(T&&) [with T = X]':
+main.cpp:18:35:   required from here
+main.cpp:12:49: error: no matching function for call to 'std::thread::thread(<unresolved overloaded function type>, X)'
+     return new std::thread(f, std::forward<T>(t));
+                                                 ^
+main.cpp:12:49: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/thread:133:7: note: template<class _Callable, class ... _Args> std::thread::thread(_Callable&&, _Args&& ...)
+       thread(_Callable&& __f, _Args&&... __args)
+       ^
+/usr/include/c++/4.8/thread:133:7: note:   template argument deduction/substitution failed:
+main.cpp:12:49: note:   couldn't deduce template parameter '_Callable'
+     return new std::thread(f, std::forward<T>(t));
+                                                 ^
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/thread:128:5: note: std::thread::thread(std::thread&&)
+     thread(thread&& __t) noexcept
+     ^
+/usr/include/c++/4.8/thread:128:5: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/thread:122:5: note: std::thread::thread()
+     thread() noexcept = default;
+     ^
+/usr/include/c++/4.8/thread:122:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp: In instantiation of 'std::thread* doThread(T&&) [with T = X&]':
+main.cpp:23:19:   required from here
+main.cpp:12:49: error: no matching function for call to 'std::thread::thread(<unresolved overloaded function type>, X&)'
+     return new std::thread(f, std::forward<T>(t));
+                                                 ^
+main.cpp:12:49: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/thread:133:7: note: template<class _Callable, class ... _Args> std::thread::thread(_Callable&&, _Args&& ...)
+       thread(_Callable&& __f, _Args&&... __args)
+       ^
+/usr/include/c++/4.8/thread:133:7: note:   template argument deduction/substitution failed:
+main.cpp:12:49: note:   couldn't deduce template parameter '_Callable'
+     return new std::thread(f, std::forward<T>(t));
+                                                 ^
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/thread:128:5: note: std::thread::thread(std::thread&&)
+     thread(thread&& __t) noexcept
+     ^
+/usr/include/c++/4.8/thread:128:5: note:   candidate expects 1 argument, 2 provided
+/usr/include/c++/4.8/thread:122:5: note: std::thread::thread()
+     thread() noexcept = default;
+     ^
+/usr/include/c++/4.8/thread:122:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp: In function 'std::thread* doThread(T&&) [with T = X]':
+main.cpp:13:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'std::thread* doThread(T&&) [with T = X&]':
+main.cpp:13:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
