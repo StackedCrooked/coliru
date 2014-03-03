@@ -1,0 +1,10 @@
+main.cpp:10:10: error: call to function 'elem' that is neither visible in the template definition nor found by argument-dependent lookup
+         elem(mat, i, j);
+         ^
+main.cpp:22:5: note: in instantiation of function template specialization 'func<N::S>' requested here
+    func(s,1,1);
+    ^
+main.cpp:17:5: note: 'elem' should be declared prior to the call site or in namespace 'N'
+int elem(N::S, int, int) { return 1; }
+    ^
+1 error generated.
