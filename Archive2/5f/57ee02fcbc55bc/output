@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:13:20: error: no match for 'operator=' (operand types are 'std::chrono::milliseconds {aka std::chrono::duration<long int, std::ratio<1l, 1000l> >}' and 'std::chrono::microseconds {aka std::chrono::duration<long int, std::ratio<1l, 1000000l> >}')
+     milliseconds() = microseconds();
+                    ^
+main.cpp:13:20: note: candidate is:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/chrono:273:12: note: std::chrono::duration<_Rep, _Period>& std::chrono::duration<_Rep, _Period>::operator=(const std::chrono::duration<_Rep, _Period>&) [with _Rep = long int; _Period = std::ratio<1l, 1000l>]
+  duration& operator=(const duration&) = default;
+            ^
+/usr/include/c++/4.8/chrono:273:12: note:   no known conversion for argument 1 from 'std::chrono::microseconds {aka std::chrono::duration<long int, std::ratio<1l, 1000000l> >}' to 'const std::chrono::duration<long int, std::ratio<1l, 1000l> >&'
