@@ -1,0 +1,1 @@
+g++ -fstrict-aliasing -O3 main.cpp && ./a.out
