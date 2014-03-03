@@ -1,0 +1,168 @@
+main.cpp:21:25: error: 'constexpr const T_& Array<T_, N_>::operator[](size_t) const' cannot be overloaded
+     constexpr T_ const& operator[]( size_t i ) const { return values_[i]; }
+                         ^
+main.cpp:20:25: error: with 'constexpr T_& Array<T_, N_>::operator[](size_t) const'
+     constexpr T_&       operator[]( size_t i ) { return values_[i]; }
+                         ^
+main.cpp:25:26: error: 'constexpr const T_* Array<T_, N_>::begin() const' cannot be overloaded
+     constexpr T_ const * begin() const { return values_; }
+                          ^
+main.cpp:23:26: error: with 'constexpr T_* Array<T_, N_>::begin() const'
+     constexpr T_*        begin()       { return values_; }
+                          ^
+main.cpp:26:26: error: 'constexpr const T_* Array<T_, N_>::end() const' cannot be overloaded
+     constexpr T_ const * end() const   { return values_+N_; }
+                          ^
+main.cpp:24:26: error: with 'constexpr T_* Array<T_, N_>::end() const'
+     constexpr T_*        end()         { return values_+N_; }
+                          ^
+main.cpp: In function 'constexpr Array<T_, N_> const_sort(Array<T_, N_>)':
+main.cpp:45:24: warning: compound-statement in constexpr function [-Wpedantic]
+         if( min != i ) {
+                        ^
+main.cpp: At global scope:
+main.cpp:57:35: warning: 'UnsortedFunc' function uses 'auto' type specifier without trailing return type [enabled by default]
+ constexpr auto const UnsortedFunc();
+                                   ^
+main.cpp:60:46: error: template declaration of 'constexpr decltype (UnsortedFunc<T_>()) Unsorted'
+ constexpr const decltype(UnsortedFunc<T_>()) Unsorted = UnsortedFunc<T_>();
+                                              ^
+main.cpp:64:33: error: 'Unsorted' was not declared in this scope
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                 ^
+main.cpp:64:33: error: 'Unsorted' was not declared in this scope
+main.cpp:64:44: error: expected primary-expression before '>' token
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                            ^
+main.cpp:64:46: error: expected primary-expression before ')' token
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                              ^
+main.cpp:64:57: error: invalid type in declaration before '=' token
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                                         ^
+main.cpp:64:57: error: template declaration of 'constexpr const int Sorted'
+main.cpp:64:71: error: 'Unsorted' was not declared in this scope
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                                                       ^
+main.cpp:64:82: error: expected primary-expression before '>' token
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                                                                  ^
+main.cpp:64:84: error: expected primary-expression before ')' token
+ constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                                                                    ^
+main.cpp: In function 'constexpr bool Contains(typename std::underlying_type<T_>::type)':
+main.cpp:72:28: error: 'Sorted' was not declared in this scope
+     T min = static_cast<T>(Sorted<E_>[0]);
+                            ^
+main.cpp:72:37: error: expected primary-expression before '>' token
+     T min = static_cast<T>(Sorted<E_>[0]);
+                                     ^
+main.cpp:72:39: error: expected identifier before numeric constant
+     T min = static_cast<T>(Sorted<E_>[0]);
+                                       ^
+main.cpp: In lambda function:
+main.cpp:72:41: error: expected '{' before ')' token
+     T min = static_cast<T>(Sorted<E_>[0]);
+                                         ^
+main.cpp: In function 'constexpr bool Contains(typename std::underlying_type<T_>::type)':
+main.cpp:73:37: error: expected primary-expression before '>' token
+     T max = static_cast<T>(Sorted<E_>[Sorted<E_>.size()-1]);
+                                     ^
+main.cpp:73:45: error: expected ',' before '<' token
+     T max = static_cast<T>(Sorted<E_>[Sorted<E_>.size()-1]);
+                                             ^
+main.cpp:73:45: error: expected identifier before '<' token
+main.cpp: In lambda function:
+main.cpp:73:59: error: expected '{' before ')' token
+     T max = static_cast<T>(Sorted<E_>[Sorted<E_>.size()-1]);
+                                                           ^
+main.cpp: In function 'constexpr bool Contains(typename std::underlying_type<T_>::type)':
+main.cpp:77:36: error: expected primary-expression before '>' token
+     size_t low {}, high { Sorted<E_>.size() };
+                                    ^
+main.cpp:77:37: error: expected primary-expression before '.' token
+     size_t low {}, high { Sorted<E_>.size() };
+                                     ^
+main.cpp:80:42: error: expected primary-expression before '>' token
+         if ( v < static_cast<T>(Sorted<E_>[ mid ]) ) {
+                                          ^
+main.cpp: In lambda function:
+main.cpp:80:50: error: expected '{' before ')' token
+         if ( v < static_cast<T>(Sorted<E_>[ mid ]) ) {
+                                                  ^
+main.cpp: In function 'constexpr bool Contains(typename std::underlying_type<T_>::type)':
+main.cpp:80:54: warning: compound-statement in constexpr function [-Wpedantic]
+         if ( v < static_cast<T>(Sorted<E_>[ mid ]) ) {
+                                                      ^
+main.cpp:82:16: warning: compound-statement in constexpr function [-Wpedantic]
+         } else {
+                ^
+main.cpp:83:45: error: expected primary-expression before '>' token
+             if ( !( static_cast<T>(Sorted<E_>[ mid ]) < v ) )
+                                             ^
+main.cpp: In lambda function:
+main.cpp:83:53: error: expected '{' before ')' token
+             if ( !( static_cast<T>(Sorted<E_>[ mid ]) < v ) )
+                                                     ^
+main.cpp: In function 'void Dump()':
+main.cpp:93:21: error: 'Unsorted' was not declared in this scope
+     for( auto & v : Unsorted<T_> )
+                     ^
+main.cpp:93:32: error: expected primary-expression before '>' token
+     for( auto & v : Unsorted<T_> )
+                                ^
+main.cpp:93:34: error: expected primary-expression before ')' token
+     for( auto & v : Unsorted<T_> )
+                                  ^
+main.cpp:97:21: error: 'Sorted' was not declared in this scope
+     for( auto & v : Sorted<T_> )
+                     ^
+main.cpp:97:30: error: expected primary-expression before '>' token
+     for( auto & v : Sorted<T_> )
+                              ^
+main.cpp:97:32: error: expected primary-expression before ')' token
+     for( auto & v : Sorted<T_> )
+                                ^
+main.cpp: At global scope:
+main.cpp:103:52: warning: 'UnsortedFunc' function uses 'auto' type specifier without trailing return type [enabled by default]
+ template <> constexpr auto const UnsortedFunc<Foo>() { 
+                                                    ^
+main.cpp: In function 'int main()':
+main.cpp:110:21: error: 'Unsorted' was not declared in this scope
+     for( auto & v : Unsorted<Foo> )
+                     ^
+main.cpp:110:33: error: expected primary-expression before '>' token
+     for( auto & v : Unsorted<Foo> )
+                                 ^
+main.cpp:110:35: error: expected primary-expression before ')' token
+     for( auto & v : Unsorted<Foo> )
+                                   ^
+main.cpp:113:21: error: 'Sorted' was not declared in this scope
+     for( auto & v : Sorted<Foo> )
+                     ^
+main.cpp:113:31: error: expected primary-expression before '>' token
+     for( auto & v : Sorted<Foo> )
+                               ^
+main.cpp:113:33: error: expected primary-expression before ')' token
+     for( auto & v : Sorted<Foo> )
+                                 ^
+main.cpp: In instantiation of 'struct Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]::__lambda1':
+main.cpp:73:37:   required from 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]'
+main.cpp:117:40:   required from here
+main.cpp:73:39: error: using invalid field 'Contains(typename std::underlying_type<T_>::type)::__lambda1::__Sorted'
+     T max = static_cast<T>(Sorted<E_>[Sorted<E_>.size()-1]);
+                                       ^
+main.cpp: In instantiation of 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]':
+main.cpp:117:40:   required from here
+main.cpp:89:1: error: body of constexpr function 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]' not a return-statement
+ }
+ ^
+main.cpp:117:40: error: 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]' called in a constant expression
+     constexpr bool b1 = Contains<Foo>(2);
+                                        ^
+main.cpp:70:16: note: 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]' is not usable as a constexpr function because:
+ constexpr bool Contains( typename std::underlying_type<E_>::type v ) {
+                ^
+main.cpp:118:41: error: 'constexpr bool Contains(typename std::underlying_type<T_>::type) [with E_ = Foo; typename std::underlying_type<T_>::type = int]' called in a constant expression
+     constexpr bool b2 = Contains<Foo>(10);
+                                         ^
