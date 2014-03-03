@@ -1,0 +1,10 @@
+main.cpp:23:8: error: overload resolution selected deleted operator '='
+    a+b=c; // compiler error
+    ~~~^~
+main.cpp:11:7: note: candidate function [with T = A &] has been explicitly deleted
+    T operator=(T&& rhs) &&=delete;
+      ^
+main.cpp:4:8: note: candidate function
+    A& operator=(const A& rhs)
+       ^
+1 error generated.
