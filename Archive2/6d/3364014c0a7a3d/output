@@ -1,0 +1,26 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function 'virtual bool ParamPolicy<Derived>::isValid(const string&)':
+main.cpp:75:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main.cpp: In function 'int main()':
+main.cpp:120:39: error: cannot declare variable 'ZeroToTen' to be of abstract type 'IntegralPolicy<int, (ParamTag)0u, 0>'
+     IntegralPolicy<int, INT, DECIMAL> ZeroToTen(0,10);
+                                       ^
+main.cpp:80:8: note:   because the following virtual functions are pure within 'IntegralPolicy<int, (ParamTag)0u, 0>':
+ struct IntegralPolicy : public ParamPolicy<T>
+        ^
+main.cpp:61:18: note: 	virtual bool Policy::isValid(std::string)
+     virtual bool isValid(std::string) = 0;
+                  ^
+main.cpp:131:16: warning: unused variable 'num' [-Wunused-variable]
+         auto & num = std::get<0>(val);      // value
+                ^
+main.cpp:132:16: warning: unused variable 'comp' [-Wunused-variable]
+         auto & comp = std::get<1>(val);     // comp
+                ^
+main.cpp: In instantiation of 'bool ParamPolicy<Derived>::isValid(const string&) [with Derived = int; std::string = std::basic_string<char>]':
+main.cpp:136:1:   required from here
+main.cpp:74:37: error: invalid static_cast from type 'ParamPolicy<int>* const' to type 'int*'
+         static_cast<Derived *>(this)->isValid(value);
+                                     ^
