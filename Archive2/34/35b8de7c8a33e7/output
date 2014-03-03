@@ -1,0 +1,10 @@
++ clang++ -std=c++11 -O3 -march=native -pedantic -Wall -Wextra -Wconversion -pthread -stdlib=libc++ main.cpp -lsupc++
+main.cpp:6:3: warning: deleting pointer to incomplete type 'MyClass' may cause undefined behavior [-Wdelete-incomplete]
+  delete (MyClass*)42;
+  ^      ~~~~~~~~~~~~
+main.cpp:3:8: note: forward declaration of 'MyClass'
+struct MyClass;
+       ^
+1 warning generated.
++ ./a.out
+bash: line 7: 29839 Segmentation fault      (core dumped) ./a.out
