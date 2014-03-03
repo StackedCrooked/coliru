@@ -1,0 +1,116 @@
+main.cpp:16:59: error: missing 'typename' prior to dependent type name 'T0::iterator'
+    typedef void (*callable)(void* object_ptr, METHOD_SIG(T0));
+                                               ~~~~~~~~~~~^~~
+                                               typename 
+main.cpp:13:38: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                     ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:16:59: error: missing 'typename' prior to dependent type name 'T0::size_type'
+    typedef void (*callable)(void* object_ptr, METHOD_SIG(T0));
+                                               ~~~~~~~~~~~^~~
+                                                          typename 
+main.cpp:13:63: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                                              ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:16:59: error: missing 'typename' prior to dependent type name 'T0::value_type'
+    typedef void (*callable)(void* object_ptr, METHOD_SIG(T0));
+                                               ~~~~~~~~~~~^~~
+                                                          typename 
+main.cpp:13:89: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                                                                        ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:21:64: error: too many arguments provided to function-like macro invocation
+    template<typename T, METHOD_RET METHOD_SIG_DEF(T, TMethod, void))>
+                                                               ^
+main.cpp:14:13: note: macro 'METHOD_SIG_DEF' defined here
+    #define METHOD_SIG_DEF(T, Tfn) METHOD_RET (T::*Tfn)(METHOD_SIG(T))
+            ^
+main.cpp:21:37: error: a non-type template parameter cannot have type 'void'
+    template<typename T, METHOD_RET METHOD_SIG_DEF(T, TMethod, void))>
+                                    ^
+main.cpp:21:69: error: expected ',' or '>' in template-parameter-list
+    template<typename T, METHOD_RET METHOD_SIG_DEF(T, TMethod, void))>
+                                                                    ^
+main.cpp:22:47: error: unknown type name 'METHOD_ARG1'
+    static void method_stub(void* object_ptr, METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3)
+                                              ^
+main.cpp:22:66: error: unknown type name 'METHOD_ARG2'
+    static void method_stub(void* object_ptr, METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3)
+                                                                 ^
+main.cpp:22:85: error: unknown type name 'METHOD_ARG3'
+    static void method_stub(void* object_ptr, METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3)
+                                                                                    ^
+main.cpp:30:28: error: missing 'typename' prior to dependent type name 'T0::iterator'
+    typedef METHOD_SIG_DEF(T0, TMethod);
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+                           typename 
+main.cpp:14:68: note: expanded from macro 'METHOD_SIG_DEF'
+    #define METHOD_SIG_DEF(T, Tfn) METHOD_RET (T::*Tfn)(METHOD_SIG(T))
+                                                                   ^
+main.cpp:13:38: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                     ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:30:28: error: missing 'typename' prior to dependent type name 'T0::size_type'
+    typedef METHOD_SIG_DEF(T0, TMethod);
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+                           typename 
+main.cpp:14:68: note: expanded from macro 'METHOD_SIG_DEF'
+    #define METHOD_SIG_DEF(T, Tfn) METHOD_RET (T::*Tfn)(METHOD_SIG(T))
+                                                                   ^
+main.cpp:13:63: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                                              ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:30:28: error: missing 'typename' prior to dependent type name 'T0::value_type'
+    typedef METHOD_SIG_DEF(T0, TMethod);
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+                           typename 
+main.cpp:14:68: note: expanded from macro 'METHOD_SIG_DEF'
+    #define METHOD_SIG_DEF(T, Tfn) METHOD_RET (T::*Tfn)(METHOD_SIG(T))
+                                                                   ^
+main.cpp:13:89: note: expanded from macro 'METHOD_SIG'
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+                                                                                        ^
+main.cpp:12:33: note: expanded from macro 'SCOPED_ARG'
+    #define SCOPED_ARG(T, name) T::name
+                                ^
+main.cpp:33:40: error: too many arguments provided to function-like macro invocation
+    template<typename T, METHOD_SIG(T, TMethod))>
+                                       ^
+main.cpp:13:13: note: macro 'METHOD_SIG' defined here
+    #define METHOD_SIG(T) SCOPED_ARG(T, iterator), SCOPED_ARG(T, size_type), SCOPED_ARG(T, value_type)
+            ^
+main.cpp:33:26: error: unknown type name 'METHOD_SIG'
+    template<typename T, METHOD_SIG(T, TMethod))>
+                         ^
+main.cpp:33:48: error: expected ',' or '>' in template-parameter-list
+    template<typename T, METHOD_SIG(T, TMethod))>
+                                               ^
+main.cpp:42:21: error: unknown type name 'METHOD_ARG1'
+    void operator()(METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3) const {
+                    ^
+main.cpp:42:40: error: unknown type name 'METHOD_ARG2'
+    void operator()(METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3) const {
+                                       ^
+main.cpp:42:59: error: unknown type name 'METHOD_ARG3'
+    void operator()(METHOD_ARG1 _arg1, METHOD_ARG2 _arg2, METHOD_ARG3 _arg3) const {
+                                                          ^
+main.cpp:25:21: error: unexpected type name 'TMethod': expected expression
+        return (p->*TMethod)(_arg1, _arg2, _arg3); // #2
+                    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
