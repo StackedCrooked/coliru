@@ -1,0 +1,17 @@
+main.cpp:4:25: error: constexpr variable 'B' must be initialized by a constant expression
+   constexpr const int &B = A;
+                        ^   ~
+main.cpp:4:25: note: reference to 'A' is not a constant expression
+main.cpp:3:24: note: declared here
+   constexpr const int A = 42;
+                       ^
+main.cpp:6:18: error: static_assert expression is not an integral constant expression
+   static_assert(&A == &B, "Bug");
+                 ^~~~~~~~
+main.cpp:6:25: note: initializer of 'B' is not a constant expression
+   static_assert(&A == &B, "Bug");
+                        ^
+main.cpp:4:25: note: declared here
+   constexpr const int &B = A;
+                        ^
+2 errors generated.
