@@ -1,0 +1,20 @@
+main.cpp:13:37: warning: expression result unused [-Wunused-value]
+    void a1 () { (vfunp)A::foo<bar()>(5); };
+                 ~~~~~~~~~~~~~~~~~~~^~~~
+main.cpp:14:18: warning: expression result unused [-Wunused-value]
+    void a2 () { (vfunp)A::template foo<bar()>(5); }
+                 ^      ~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:37: warning: expression result unused [-Wunused-value]
+    void a1 () { (vfunp)A::foo<bar()>(5); };
+                 ~~~~~~~~~~~~~~~~~~~^~~~
+main.cpp:26:9: note: in instantiation of member function 'X<Y>::a1' requested here
+    moo.a1();
+        ^
+main.cpp:14:18: warning: expression result unused [-Wunused-value]
+    void a2 () { (vfunp)A::template foo<bar()>(5); }
+                 ^      ~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:27:9: note: in instantiation of member function 'X<Y>::a2' requested here
+    moo.a2();
+        ^
+4 warnings generated.
+Oops!
