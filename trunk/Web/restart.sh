@@ -27,17 +27,6 @@ echo "Starting new instance..."
 ) & disown
 
 
-
-echo "Starting committer.sh if not already started."
-COMMITTER_PGID=$(ps -eopgid,comm | grep 'committer.sh' | sort | uniq | awk '{ print $1 }')
-if [ "$COMMITTER_PGID" == "" ] ; then 
-    echo "committer.sh not yet running => start it"
-    ./committer.sh & disown
-else
-    echo "committer.sh already running => don't start it."
-fi
-
-
 # Clean the chroot tmp folder after 1000 seconds.
 { sleep 1000 ; rm -rf /var/chroot/tmp/* ; } & disown
 
