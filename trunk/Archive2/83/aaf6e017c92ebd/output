@@ -1,0 +1,19 @@
+main.cpp:5:16: error: friend declaration specifying a default argument must be a definition
+    friend int f(A&, int j = 2); // int f(A& a, int j = 2); { return a.i + j; }
+               ^
+main.cpp:10:17: error: redefinition of default argument
+int f(A& a, int j = 2); { return a.i + j; }
+                ^   ~
+main.cpp:5:26: note: previous definition is here
+    friend int f(A&, int j = 2); // int f(A& a, int j = 2); { return a.i + j; }
+                         ^   ~
+main.cpp:10:5: error: friend declaration specifying a default argument must be the only declaration
+int f(A& a, int j = 2); { return a.i + j; }
+    ^
+main.cpp:5:16: note: previous declaration is here
+    friend int f(A&, int j = 2); // int f(A& a, int j = 2); { return a.i + j; }
+               ^
+main.cpp:10:25: error: expected unqualified-id
+int f(A& a, int j = 2); { return a.i + j; }
+                        ^
+4 errors generated.
