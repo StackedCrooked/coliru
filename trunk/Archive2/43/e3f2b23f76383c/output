@@ -1,0 +1,17 @@
+main.cpp: In member function 'const Log& Log::operator<<(const T&) const':
+main.cpp:13:13: error: 'msg' was not declared in this scope
+             msg << t;
+             ^
+main.cpp: At global scope:
+main.cpp:18:10: error: expected initializer before '&' token
+ const Log& Log::operator<< <Log::logModifiers>(const Log::logModifiers& t) const;
+          ^
+main.cpp:20:77: error: template-id 'operator<< <Log::logModifiers>' in declaration of primary template
+ const Log& Log::operator<< <Log::logModifiers> (const Log::logModifiers& t) const 
+                                                                             ^
+main.cpp:20:12: error: prototype for 'const Log& Log::operator<<(const Log::logModifiers&) const' does not match any in class 'Log'
+ const Log& Log::operator<< <Log::logModifiers> (const Log::logModifiers& t) const 
+            ^
+main.cpp:12:34: error: candidate is: template<class T> const Log& Log::operator<<(const T&) const
+     template<class T> const Log& operator<<(const T& t) const {
+                                  ^
