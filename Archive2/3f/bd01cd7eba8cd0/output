@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:23:10: error: no matching function for call to 'B::B(A&)'
+     B b(a);
+          ^
+main.cpp:23:10: note: candidates are:
+main.cpp:18:15: note: B::B(int)
+   using base::base;
+               ^
+main.cpp:18:15: note:   no known conversion for argument 1 from 'A' to 'int'
+main.cpp:16:7: note: B::B(const B&)
+ class B : public base  {
+       ^
+main.cpp:16:7: note:   no known conversion for argument 1 from 'A' to 'const B&'
+main.cpp:16:7: note: B::B(B&&)
+main.cpp:16:7: note:   no known conversion for argument 1 from 'A' to 'B&&'
