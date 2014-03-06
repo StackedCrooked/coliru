@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:21:18: error: no matching function for call to 'Message<int>::Message()'
+     Message<int> m3;
+                  ^
+main.cpp:21:18: note: candidates are:
+main.cpp:14:5: note: Message<TAG, DATATYPES>::Message(int) [with TAG = int; DATATYPES = {}]
+     Message(int n) {}
+     ^
+main.cpp:14:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:10:5: note: template<class T> Message<TAG, DATATYPES>::Message(typename std::enable_if<(std::tuple_size<T>() >= 1), Message<TAG, DATATYPES>::dummy_type>::type)
+     Message(
+     ^
+main.cpp:10:5: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> Message<TAG, DATATYPES>::Message(typename std::enable_if<(std::tuple_size<T>() >= 1), Message<TAG, DATATYPES>::dummy_type>::type) [with T = std::tuple<>]':
+main.cpp:21:18:   required from here
+main.cpp:10:5: error: no type named 'type' in 'struct std::enable_if<false, Message<int>::dummy_type>'
+main.cpp:5:8: note: constexpr Message<int>::Message(const Message<int>&)
+ struct Message {
+        ^
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr Message<int>::Message(Message<int>&&)
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
