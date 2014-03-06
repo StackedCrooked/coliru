@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:14:11: error: use of deleted function 'B::B()'
+     A a{B()};
+           ^
+main.cpp:10:8: note: 'B::B()' is implicitly deleted because the default definition would be ill-formed:
+ struct B : public Base {};
+        ^
+main.cpp:10:8: error: no matching function for call to 'Base::Base()'
+main.cpp:10:8: note: candidate is:
+main.cpp:5:5: note: Base::Base(const Base&)
+     Base(const Base& other) { a = other.a; }
+     ^
+main.cpp:5:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:14:12: error: no matching function for call to 'A::A(<brace-enclosed initializer list>)'
+     A a{B()};
+            ^
+main.cpp:14:12: note: candidates are:
+main.cpp:8:8: note: A::A(const A&)
+ struct A : public Base {};
+        ^
+main.cpp:8:8: note:   no known conversion for argument 1 from 'B' to 'const A&'
+main.cpp:8:8: note: A::A(A&&)
+main.cpp:8:8: note:   no known conversion for argument 1 from 'B' to 'A&&'
