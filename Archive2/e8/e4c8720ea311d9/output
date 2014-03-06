@@ -1,0 +1,61 @@
+main.cpp:24:12: error: use of class template 'DListNode' requires template arguments
+protected: DListNode header, trailer;
+           ^
+main.cpp:9:7: note: template is declared here
+class DListNode {
+      ^
+main.cpp:32:3: error: use of class template 'DListNode' requires template arguments
+  DListNode *getFirst() const { return header.next; } 
+  ^
+main.cpp:9:7: note: template is declared here
+class DListNode {
+      ^
+main.cpp:34:9: error: use of class template 'DListNode' requires template arguments
+  const DListNode *getAfterLast() const { return &trailer; }
+        ^
+main.cpp:9:7: note: template is declared here
+class DListNode {
+      ^
+main.cpp:91:31: error: use of class template 'DListNode' requires template arguments
+  DListNode<T> *newNode = new DListNode(newobj, &header, header.next);
+                              ^
+main.cpp:9:7: note: template is declared here
+class DListNode {
+      ^
+main.cpp:89:41: warning: unused parameter 'newobj' [-Wunused-parameter]
+void DoublyLinkedList<T>::insertFirst(T newobj)
+                                        ^
+main.cpp:99:31: error: use of class template 'DListNode' requires template arguments
+  DListNode<T> *newNode = new DListNode(newobj, trailer.prev,&trailer);
+                              ^
+main.cpp:9:7: note: template is declared here
+class DListNode {
+      ^
+main.cpp:97:40: warning: unused parameter 'newobj' [-Wunused-parameter]
+void DoublyLinkedList<T>::insertLast(T newobj)
+                                       ^
+main.cpp:108:11: error: cannot refer to class template 'EmptyDLinkedListException' without a template argument list
+    throw EmptyDLinkedListException("Empty Doubly Linked List");
+          ^
+main.cpp:52:8: note: template is declared here
+struct EmptyDLinkedListException : std::range_error {
+       ^
+main.cpp:121:11: error: cannot refer to class template 'EmptyDLinkedListException' without a template argument list
+    throw EmptyDLinkedListException("Empty Doubly Linked List");
+          ^
+main.cpp:52:8: note: template is declared here
+struct EmptyDLinkedListException : std::range_error {
+       ^
+main.cpp:147:11: error: cannot refer to class template 'EmptyDLinkedListException' without a template argument list
+    throw EmptyDLinkedListException("Empty Doubly Linked List");
+          ^
+main.cpp:52:8: note: template is declared here
+struct EmptyDLinkedListException : std::range_error {
+       ^
+main.cpp:155:11: error: cannot refer to class template 'EmptyDLinkedListException' without a template argument list
+    throw EmptyDLinkedListException("Empty Doubly Linked List");
+          ^
+main.cpp:52:8: note: template is declared here
+struct EmptyDLinkedListException : std::range_error {
+       ^
+2 warnings and 9 errors generated.
