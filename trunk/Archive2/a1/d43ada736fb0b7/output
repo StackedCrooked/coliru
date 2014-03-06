@@ -1,0 +1,26 @@
+main.cpp:104:26: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    return Array<Foo,6>{ Foo::a, Foo::b, Foo::c, Foo::d, Foo::e, Foo::f }; 
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         {                                             }
+main.cpp:35:27: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    Array<T_, N_> result{ T_{} };
+                          ^~~~
+                          {   }
+main.cpp:64:21: note: in instantiation of function template specialization 'const_sort<Foo, 6>' requested here
+constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                    ^
+main.cpp:113:21: note: in instantiation of variable template specialization 'Sorted' requested here
+    for( auto & v : Sorted<Foo> )
+                    ^
+main.cpp:60:46: warning: variable 'Unsorted<type-parameter-0-0>' has internal linkage but is not defined [-Wundefined-internal]
+constexpr const decltype(UnsortedFunc<T_>()) Unsorted = UnsortedFunc<T_>();
+                                             ^
+main.cpp:64:71: note: used here
+constexpr decltype( const_sort( Unsorted<T_> ) ) Sorted = const_sort( Unsorted<T_> );
+                                                                      ^
+3 warnings generated.
+4.2.1 Compatible Clang 3.5 (trunk 198621)
+5  2  8  1  4  9  
+1  2  4  5  8  9  
+true false
+0 : false, 1 : true, 2 : true, 3 : false, 4 : true, 5 : true, 6 : false, 7 : false, 8 : true, 9 : true, 
