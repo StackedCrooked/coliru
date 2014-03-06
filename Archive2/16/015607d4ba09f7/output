@@ -1,0 +1,28 @@
+main.cpp:3:31: error: use of undeclared identifier 'std'
+            _dispatchAddLight(std::forward<T>(light));
+                              ^
+main.cpp:3:44: error: 'T' does not refer to a value
+            _dispatchAddLight(std::forward<T>(light));
+                                           ^
+main.cpp:1:28: note: declared here
+        template <typename T>
+                           ^
+main.cpp:6:32: error: unknown type name 'PointLight'
+        void _dispatchAddLight(PointLight&& light) {
+                               ^
+main.cpp:7:13: error: use of undeclared identifier 'pointLights'
+            pointLights.emplace_back(std::move(light));
+            ^
+main.cpp:7:38: error: use of undeclared identifier 'std'
+            pointLights.emplace_back(std::move(light));
+                                     ^
+main.cpp:10:32: error: unknown type name 'DirectionalLight'
+        void _dispatchAddLight(DirectionalLight&& light) {
+                               ^
+main.cpp:11:13: error: use of undeclared identifier 'directionalLights'
+            directionalLights.emplace_back(std::move(light));
+            ^
+main.cpp:11:44: error: use of undeclared identifier 'std'
+            directionalLights.emplace_back(std::move(light));
+                                           ^
+8 errors generated.
