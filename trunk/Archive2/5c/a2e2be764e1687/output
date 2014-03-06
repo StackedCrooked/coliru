@@ -1,0 +1,19 @@
+main.cpp: In instantiation of 'void Y::f(T) [with T = X::A]':
+main.cpp:24:21:   required from here
+main.cpp:22:19: error: no matching function for call to 'h(X::A&)'
+  void f(T x) { h(x); }
+                   ^
+main.cpp:22:19: note: candidate is:
+main.cpp:17:7: note: template<class ... T> decltype (Y::H<T ...>()((forward<T>)(Y::h::x)...)) Y::h(T&& ...)
+  auto h(T&&... x)
+       ^
+main.cpp:17:7: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class ... T> decltype (Y::H<T ...>()((forward<T>)(Y::h::x)...)) Y::h(T&& ...) [with T = {X::A&}]':
+main.cpp:22:19:   required from 'void Y::f(T) [with T = X::A]'
+main.cpp:24:21:   required from here
+main.cpp:18:48: error: invalid use of incomplete type 'struct Y::H<X::A&>'
+     ->decltype(H<T...>()(std::forward <T>(x)...))
+                                                ^
+main.cpp:14:9: error: declaration of 'struct Y::H<X::A&>'
+  struct H;
+         ^
