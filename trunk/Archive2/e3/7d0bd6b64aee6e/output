@@ -1,0 +1,26 @@
+main.cpp:9:1: error: expected ';' after struct definition
+ }
+ ^
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = mystruct; _Args = {}]':
+/usr/include/c++/4.8/bits/stl_uninitialized.h:495:43:   required from 'static void std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = mystruct*; _Size = long unsigned int; bool _TrivialValueType = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:544:33:   required from 'void std::__uninitialized_default_n(_ForwardIterator, _Size) [with _ForwardIterator = mystruct*; _Size = long unsigned int]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:605:50:   required from 'void std::__uninitialized_default_n_a(_ForwardIterator, _Size, std::allocator<_Tp>&) [with _ForwardIterator = mystruct*; _Size = long unsigned int; _Tp = mystruct]'
+/usr/include/c++/4.8/bits/stl_vector.h:1225:28:   required from 'void std::vector<_Tp, _Alloc>::_M_default_initialize(std::vector<_Tp, _Alloc>::size_type) [with _Tp = mystruct; _Alloc = std::allocator<mystruct>; std::vector<_Tp, _Alloc>::size_type = long unsigned int]'
+/usr/include/c++/4.8/bits/stl_vector.h:271:34:   required from 'std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = mystruct; _Alloc = std::allocator<mystruct>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<mystruct>]'
+main.cpp:13:35:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: error: no matching function for call to 'mystruct::mystruct()'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: note: candidates are:
+main.cpp:7:5: note: mystruct::mystruct(int)
+     mystruct(int){
+     ^
+main.cpp:7:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr mystruct::mystruct(const mystruct&)
+ struct mystruct
+        ^
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr mystruct::mystruct(mystruct&&)
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
