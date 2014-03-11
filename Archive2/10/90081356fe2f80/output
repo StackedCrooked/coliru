@@ -1,0 +1,49 @@
+main.cpp:8:23: error: no return statement in constexpr function
+static constexpr auto hasTest(const T&) -> decltype(std::declval<T>().test(), std::true_type()) {}
+                      ^
+main.cpp:11:34: error: no return statement in constexpr function
+static constexpr std::false_type hasTest(...) {}
+                                 ^
+main.cpp:33:28: error: no matching function for call to 'hasTest'
+        using has_test = decltype(detail::hasTest<T>(t));
+                                  ^~~~~~~~~~~~~~~~~~
+main.cpp:53:2: note: in instantiation of function template specialization 'test<Pokus1>' requested here
+        test(Pokus1());
+        ^
+main.cpp:8:23: note: candidate template ignored: substitution failure [with T = Pokus1]: no member named 'test' in 'Pokus1'
+static constexpr auto hasTest(const T&) -> decltype(std::declval<T>().test(), std::true_type()) {}
+                      ^                                               ~~~~
+main.cpp:11:34: note: candidate template ignored: substitution failure [with $0 = Pokus1]
+static constexpr std::false_type hasTest(...) {}
+                                 ^
+main.cpp:34:2: error: no matching function for call to 'test_impl'
+        detail::test_impl(t, has_test());
+        ^~~~~~~~~~~~~~~~~
+main.cpp:15:6: note: candidate function [with T = Pokus1] not viable: no known conversion from 'has_test' (aka 'int') to 'std::true_type' (aka 'integral_constant<bool, true>') for 2nd argument
+void test_impl(const T& t, std::true_type)
+     ^
+main.cpp:22:6: note: candidate function [with T = Pokus1] not viable: no known conversion from 'has_test' (aka 'int') to 'std::false_type' (aka 'integral_constant<bool, false>') for 2nd argument
+void test_impl(const T& t, std::false_type)
+     ^
+main.cpp:33:28: error: no matching function for call to 'hasTest'
+        using has_test = decltype(detail::hasTest<T>(t));
+                                  ^~~~~~~~~~~~~~~~~~
+main.cpp:57:2: note: in instantiation of function template specialization 'test<Pokus2>' requested here
+        test(Pokus2());
+        ^
+main.cpp:8:23: note: candidate template ignored: substitution failure [with T = Pokus2]
+static constexpr auto hasTest(const T&) -> decltype(std::declval<T>().test(), std::true_type()) {}
+                      ^
+main.cpp:11:34: note: candidate template ignored: substitution failure [with $0 = Pokus2]
+static constexpr std::false_type hasTest(...) {}
+                                 ^
+main.cpp:34:2: error: no matching function for call to 'test_impl'
+        detail::test_impl(t, has_test());
+        ^~~~~~~~~~~~~~~~~
+main.cpp:15:6: note: candidate function [with T = Pokus2] not viable: no known conversion from 'has_test' (aka 'int') to 'std::true_type' (aka 'integral_constant<bool, true>') for 2nd argument
+void test_impl(const T& t, std::true_type)
+     ^
+main.cpp:22:6: note: candidate function [with T = Pokus2] not viable: no known conversion from 'has_test' (aka 'int') to 'std::false_type' (aka 'integral_constant<bool, false>') for 2nd argument
+void test_impl(const T& t, std::false_type)
+     ^
+6 errors generated.
