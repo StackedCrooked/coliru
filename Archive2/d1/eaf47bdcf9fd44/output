@@ -1,0 +1,17 @@
+main.cpp:6:22: error: expected ')'
+void foo( F&& f, Ts&&.. ts ) {
+                     ^
+main.cpp:6:9: note: to match this '('
+void foo( F&& f, Ts&&.. ts ) {
+        ^
+main.cpp:6:6: error: declaration type contains unexpanded parameter pack 'Ts'
+void foo( F&& f, Ts&&.. ts ) {
+     ^           ~~
+main.cpp:7:41: error: use of undeclared identifier 'ts'
+    std::forward<F>(f)(std::forward<Ts>(ts))...;
+                                        ^
+main.cpp:10:61: error: expected ';' at end of declaration
+    auto f = []( auto const & v ) { std::cout << v << " "; }
+                                                            ^
+                                                            ;
+4 errors generated.
