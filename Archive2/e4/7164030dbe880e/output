@@ -1,0 +1,19 @@
+main.cpp:67:14: error: call to 'is_sorted_until' is ambiguous
+  auto pos = is_sorted_until(range.begin(), range.end(), std::greater<int>());
+             ^~~~~~~~~~~~~~~
+/usr/include/c++/v1/algorithm:3465:1: note: candidate function [with _ForwardIterator = <anonymous>::irange::iterator, _Compare = std::__1::greater<int>]
+is_sorted_until(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp)
+^
+main.cpp:10:17: note: candidate function [with Iterator = <anonymous>::irange::iterator, Comp = std::__1::greater<int>]
+inline Iterator is_sorted_until (Iterator first, Iterator last, Comp c) {
+                ^
+main.cpp:69:15: error: call to 'is_sorted_until' is ambiguous
+  auto pos2 = is_sorted_until(range.begin(), range.end(), std::less<int>());
+              ^~~~~~~~~~~~~~~
+/usr/include/c++/v1/algorithm:3465:1: note: candidate function [with _ForwardIterator = <anonymous>::irange::iterator, _Compare = std::__1::less<int>]
+is_sorted_until(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp)
+^
+main.cpp:10:17: note: candidate function [with Iterator = <anonymous>::irange::iterator, Comp = std::__1::less<int>]
+inline Iterator is_sorted_until (Iterator first, Iterator last, Comp c) {
+                ^
+2 errors generated.
