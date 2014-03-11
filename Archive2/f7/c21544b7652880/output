@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:8:8: error: call of overloaded 'f(A&)' is ambiguous
+     f(a);
+        ^
+main.cpp:8:8: note: candidates are:
+main.cpp:3:28: note: void f(T&) [with T = A]
+ template <typename T> void f(T& a) {}
+                            ^
+main.cpp:4:28: note: void f(T&&) [with T = A&]
+ template <typename T> void f(T&& a) {}
+                            ^
