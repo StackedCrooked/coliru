@@ -1,0 +1,17 @@
+main.cpp:10:19: error: expected type-specifier
+     using clock = chrono::system_clock::system_clock;
+                   ^
+main.cpp:11:53: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> struct std::atomic'
+     using shared_delay = std::atomic<clock::duration>;
+                                                     ^
+main.cpp:11:53: error:   expected a type, got 'clock'
+main.cpp:13:17: error: variable or field 'worker' declared void
+     void worker(clock::time_point const start, shared_delay const& delay)
+                 ^
+main.cpp:13:17: error: 'clock' is not a class, namespace, or enumeration
+main.cpp:13:48: error: 'shared_delay' was not declared in this scope
+     void worker(clock::time_point const start, shared_delay const& delay)
+                                                ^
+main.cpp:38:1: error: expected '}' at end of input
+ }
+ ^
