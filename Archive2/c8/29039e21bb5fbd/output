@@ -1,0 +1,13 @@
+main.cpp:27:35: error: use of overloaded operator '<<' is ambiguous (with operand types 'basic_ostream<char, std::char_traits<char> >' and 'X<int>')
+    stream << value_.value << " " << static_cast<X<Args...> >(value_);
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:39:14: note: in instantiation of function template specialization 'operator<<<std::basic_string<char>, int>' requested here
+   std::cout << Person("Me", 35) << std::endl;
+             ^
+main.cpp:20:15: note: candidate function [with T = int]
+std::ostream& operator <<(std::ostream& stream, const X<T>& value_) {
+              ^
+main.cpp:26:15: note: candidate function [with T = int, Args = <>]
+std::ostream& operator <<(std::ostream& stream, const X<T, Args...>& value_) {
+              ^
+1 error generated.
