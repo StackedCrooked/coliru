@@ -1,0 +1,31 @@
+main.cpp: In function 'int main()':
+main.cpp:51:5: error: redefinition of 'int main()'
+ int main()
+     ^
+main.cpp:11:5: error: 'int main()' previously defined here
+ int main()
+     ^
+In file included from /usr/local/include/c++/4.8.2/vector:62:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = NotOk; _Args = {const NotOk&}]':
+/usr/local/include/c++/4.8.2/bits/stl_uninitialized.h:187:48:   required from 'static void std::__uninitialized_fill_n<_TrivialValueType>::__uninit_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = NotOk*; _Size = long unsigned int; _Tp = NotOk; bool _TrivialValueType = false]'
+/usr/local/include/c++/4.8.2/bits/stl_uninitialized.h:224:35:   required from 'void std::uninitialized_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = NotOk*; _Size = long unsigned int; _Tp = NotOk]'
+/usr/local/include/boost/multi_array.hpp:477:60:   required from 'void boost::multi_array<T, NumDims, Allocator>::allocate_space() [with T = NotOk; long unsigned int NumDims = 3ul; Allocator = std::allocator<NotOk>]'
+/usr/local/include/boost/multi_array.hpp:186:20:   required from 'boost::multi_array<T, NumDims, Allocator>::multi_array(const boost::detail::multi_array::extent_gen<NumDims>&) [with T = NotOk; long unsigned int NumDims = 3ul; Allocator = std::allocator<NotOk>]'
+main.cpp:55:62:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_construct.h:75:7: error: use of deleted function 'NotOk::NotOk(const NotOk&)'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+main.cpp:49:8: note: 'NotOk::NotOk(const NotOk&)' is implicitly deleted because the default definition would be ill-formed:
+ struct NotOk : boost::noncopyable { };
+        ^
+main.cpp:49:8: error: use of deleted function 'boost::noncopyable_::noncopyable::noncopyable(const boost::noncopyable_::noncopyable&)'
+In file included from /usr/local/include/boost/type_traits/is_copy_constructible.hpp:18:0,
+                 from /usr/local/include/boost/type_traits.hpp:53,
+                 from /usr/local/include/boost/geometry/core/cs.hpp:19,
+                 from /usr/local/include/boost/geometry/geometry.hpp:19,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:4:
+/usr/local/include/boost/noncopyable.hpp:34:9: error: declared here
+         noncopyable( const noncopyable& ) = delete;
+         ^
