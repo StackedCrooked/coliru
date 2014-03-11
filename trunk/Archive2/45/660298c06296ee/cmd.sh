@@ -1,0 +1,2 @@
+set -x ; clang -x c -std=c99 -O1 -W -Wall -pedantic  -Wconversion -pthread main.cpp  && ./a.out
+##set -x ; gcc -x c -std=c99 -O3  -fno-builtin -W -Wall -Wconversion  -Wextra -pedantic  -pthread main.cpp  && ./a.out
