@@ -1,0 +1,23 @@
+main.cpp:3:5: warning: no previous prototype for function 'func' [-Wmissing-prototypes]
+int func()
+    ^
+main.cpp:13:12: warning: variable length array used [-Wvla]
+    int arr[func()] ;
+           ^
+main.cpp:16:37: warning: variable length array used [-Wvla]
+    printf( "%zu %d\n", sizeof( char[x++] ), x ) ;
+                                    ^
+main.cpp:17:17: warning: variable length array used [-Wvla]
+    sizeof( char[func()]  ) ;
+                ^
+main.cpp:17:5: warning: expression result unused [-Wunused-value]
+    sizeof( char[func()]  ) ;
+    ^~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:9: warning: unused variable 'arr' [-Wunused-variable]
+    int arr[func()] ;
+        ^
+6 warnings generated.
+hello
+1 2
+hello
+2
