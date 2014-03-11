@@ -1,0 +1,22 @@
+main.cpp:5:39: warning: unused parameter 'v' [-Wunused-parameter]
+template<class T> void sort(Array<T>& v) { /* ... */ }
+                                      ^
+main.cpp:11:17: error: explicit specialization of 'sort<String>' after instantiation
+template<> void sort<String>(Array<String>& v); // error: specialization
+                ^
+main.cpp:7:3: note: implicit instantiation first required here
+  sort(v); // use primary template
+  ^
+main.cpp:22:26: error: enumeration redeclared with different underlying type 'int' (was 'char')
+template<> enum A<char>::E : int { echar };       // ill-formed, A<char>::E was instantiated
+                         ^
+main.cpp:20:30: note: previous declaration is here
+template<class T> enum A<T>::E : T { eT };
+                             ^
+main.cpp:24:32: error: enumeration redeclared with different underlying type 'int' (was 'char')
+template<> enum class A<char>::S : int { schar }; // OK
+                               ^
+main.cpp:16:14: note: previous declaration is here
+  enum class S : T;
+             ^   ~
+1 warning and 3 errors generated.

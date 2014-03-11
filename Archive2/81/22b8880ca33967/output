@@ -1,0 +1,25 @@
+main.cpp:17:47: error: no type named 'type' in 'std::enable_if<false, bool>'; 'enable_if' cannot be used to disable this declaration
+    explicit operator typename std::enable_if<std::is_same<T, bool>::value, bool>::type() {
+                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:35:41: note: in instantiation of template class 'any<int>' requested here
+    std::cout << static_cast<bool>(x == any<int>{3, 42, 90}) << '\n';
+                                        ^
+main.cpp:25:22: error: overloaded 'operator==' must have at least one parameter of class or enumeration type
+    friend any<bool> operator==(U const& other, T const& self) {
+                     ^
+main.cpp:25:22: note: in instantiation of function template specialization 'operator==<int>' requested here
+    friend any<bool> operator==(U const& other, T const& self) {
+                     ^
+main.cpp:35:38: error: invalid operands to binary expression ('int' and 'any<int>')
+    std::cout << static_cast<bool>(x == any<int>{3, 42, 90}) << '\n';
+                                   ~ ^  ~~~~~~~~~~~~~~~~~~~
+main.cpp:25:22: note: candidate template ignored: substitution failure [with U = int]
+    friend any<bool> operator==(U const& other, T const& self) {
+                     ^
+main.cpp:36:38: error: invalid operands to binary expression ('int' and 'any<int>')
+    std::cout << static_cast<bool>(x == any<int>{3, 41, 90}) << '\n';
+                                   ~ ^  ~~~~~~~~~~~~~~~~~~~
+main.cpp:25:22: note: candidate template ignored: substitution failure [with U = int]
+    friend any<bool> operator==(U const& other, T const& self) {
+                     ^
+4 errors generated.
