@@ -1,0 +1,30 @@
+main.cpp: In member function 'const std::vector<T>& Data<Ts>::getVector() const':
+main.cpp:16:63: error: 'get_index' was not declared in this scope
+     const std::vector<T>& getVector() const { return std::get<get_index<T, Ts...>::value>(items); }
+                                                               ^
+main.cpp:16:59: error: parse error in template argument list
+     const std::vector<T>& getVector() const { return std::get<get_index<T, Ts...>::value>(items); }
+                                                           ^
+main.cpp:16:82: error: expected ';' before '::' token
+     const std::vector<T>& getVector() const { return std::get<get_index<T, Ts...>::value>(items); }
+                                                                                  ^
+main.cpp:16:82: error: '::value' has not been declared
+main.cpp: In member function 'std::vector<T>& Data<Ts>::getVector()':
+main.cpp:19:51: error: 'get_index' was not declared in this scope
+     std::vector<T>& getVector() { return std::get<get_index<T, Ts...>::value>(items); }
+                                                   ^
+main.cpp:19:47: error: parse error in template argument list
+     std::vector<T>& getVector() { return std::get<get_index<T, Ts...>::value>(items); }
+                                               ^
+main.cpp:19:70: error: expected ';' before '::' token
+     std::vector<T>& getVector() { return std::get<get_index<T, Ts...>::value>(items); }
+                                                                      ^
+main.cpp:19:70: error: '::value' has not been declared
+main.cpp: In member function 'std::vector<T>& Data<Ts>::getVector() [with T = A; Ts = {A, B}]':
+main.cpp:19:87: warning: control reaches end of non-void function [-Wreturn-type]
+     std::vector<T>& getVector() { return std::get<get_index<T, Ts...>::value>(items); }
+                                                                                       ^
+main.cpp: In member function 'std::vector<T>& Data<Ts>::getVector() [with T = B; Ts = {A, B}]':
+main.cpp:19:87: warning: control reaches end of non-void function [-Wreturn-type]
+     std::vector<T>& getVector() { return std::get<get_index<T, Ts...>::value>(items); }
+                                                                                       ^
