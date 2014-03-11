@@ -1,0 +1,30 @@
+main.cpp:16:36: warning: field 'm_size' will be initialized after field 'm_num_partitions' [-Wreorder]
+    LinearPartition(int n, int k): m_size(n),
+                                   ^
+main.cpp:17:36: warning: field 'm_num_partitions' will be initialized after field 'm_possible_cost_table' [-Wreorder]
+                                   m_num_partitions(k),
+                                   ^
+2 warnings generated.
+
+    1    1    1
+    5    4    4
+   12    7    7
+   21   12    9
+   24   12   12
+   35   21   12
+   45   24   21
+   45   24   21
+   45   24   21
+
+    0    0    0
+    0    1    1
+    0    2    2
+    0    3    3
+    0    3    3
+    0    4    5
+    0    4    5
+    0    4    5
+    0    4    5
+{ 1  4  7 }
+{ 9  3 }
+{ 11  10  0  0 }
