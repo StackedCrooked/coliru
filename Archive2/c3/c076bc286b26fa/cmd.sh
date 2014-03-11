@@ -1,0 +1,1 @@
+ln -s /Archive2//main.cpp implementation.c && cp main.cpp main.c && cat implementation.c  && gcc -O3 -std=c11 main.c implementation.c && ./a.out
