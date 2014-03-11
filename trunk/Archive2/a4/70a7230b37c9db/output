@@ -1,0 +1,9 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:77:53: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = obj; _Dp = std::default_delete<obj>]'
+     std::unique_ptr< obj > newb(std::move(obx.obj_b));
+                                                     ^
+In file included from /usr/include/c++/4.8/memory:81:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/unique_ptr.h:273:7: error: declared here
+       unique_ptr(const unique_ptr&) = delete;
+       ^
