@@ -1,0 +1,28 @@
+main.cpp:8:5: warning: // comments are not allowed in this language [-Wcomment]
+    //Matches
+    ^
+main.cpp:9:43: error: too few arguments provided to function-like macro invocation
+    int a = strncmp(string, "Hello World!");
+                                          ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:920:10: note: macro 'strncmp' defined here
+# define strncmp(s1, s2, n)                                                   \
+         ^
+main.cpp:9:9: error: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int (const char *, const char *, unsigned long)' [-Werror,-Wint-conversion]
+    int a = strncmp(string, "Hello World!");
+        ^   ~~~~~~~
+main.cpp:15:36: error: too few arguments provided to function-like macro invocation
+    int b = strncmp(string, "Hello");
+                                   ^
+/usr/include/x86_64-linux-gnu/bits/string2.h:920:10: note: macro 'strncmp' defined here
+# define strncmp(s1, s2, n)                                                   \
+         ^
+main.cpp:15:9: error: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int (const char *, const char *, unsigned long)' [-Werror,-Wint-conversion]
+    int b = strncmp(string, "Hello");
+        ^   ~~~~~~~
+main.cpp:25:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+}
+ ^
+main.cpp:15:9: error: ISO C90 forbids mixing declarations and code [-Werror,-Wdeclaration-after-statement]
+    int b = strncmp(string, "Hello");
+        ^
+1 warning and 6 errors generated.
