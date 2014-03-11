@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wextra -pedantic -O2 main.cpp && echo "John Rhens Pimentel" | ./a.out
