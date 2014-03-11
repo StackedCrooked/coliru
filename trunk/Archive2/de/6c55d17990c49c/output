@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:13:31: error: no matching function for call to 'brief(const char [19])'
+     brief("abcdefghijklmnopqr"); // not brief enough
+                               ^
+main.cpp:13:31: note: candidate is:
+main.cpp:5:6: note: template<unsigned int N> void brief(const char (&)[N], typename std::enable_if<(N < 10)>::type*)
+ void brief(const char (&msg)[N], typename std::enable_if<(N < 10)>::type* = 0)
+      ^
+main.cpp:5:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<unsigned int N> void brief(const char (&)[N], typename std::enable_if<(N < 10)>::type*) [with unsigned int N = 19u]':
+main.cpp:13:31:   required from here
+main.cpp:5:6: error: no type named 'type' in 'struct std::enable_if<false, void>'
