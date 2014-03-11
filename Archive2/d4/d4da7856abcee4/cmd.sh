@@ -1,0 +1,1 @@
+g++ -std=c++11 -W -Wall -pedantic -o domath main.cpp && ./domath <<< "4 ** 5"
