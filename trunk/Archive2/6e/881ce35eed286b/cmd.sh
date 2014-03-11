@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -fno-elide-constructors -Wall -Wextra -Wconversion -pedantic -pthread main.cpp && ./a.out
