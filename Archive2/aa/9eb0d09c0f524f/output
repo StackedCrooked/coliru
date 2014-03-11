@@ -1,0 +1,18 @@
+main.cpp: In function 'int main()':
+main.cpp:11:55: error: no matching function for call to 'find(std::vector<std::basic_string<char> >::iterator, std::vector<std::basic_string<char> >::iterator, std::string&)'
+     auto it = std::find(words.begin(), words.end(), lh);
+                                                       ^
+main.cpp:11:55: note: candidate is:
+In file included from /usr/include/c++/4.8/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/4.8/bits/basic_ios.h:37,
+                 from /usr/include/c++/4.8/ios:44,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/streambuf_iterator.h:369:5: note: template<class _CharT2> typename __gnu_cxx::__enable_if<std::__is_char<_CharT2>::__value, std::istreambuf_iterator<_CharT> >::__type std::find(std::istreambuf_iterator<_CharT>, std::istreambuf_iterator<_CharT>, const _CharT2&)
+     find(istreambuf_iterator<_CharT> __first,
+     ^
+/usr/include/c++/4.8/bits/streambuf_iterator.h:369:5: note:   template argument deduction/substitution failed:
+main.cpp:11:55: note:   '__gnu_cxx::__normal_iterator<std::basic_string<char>*, std::vector<std::basic_string<char> > >' is not derived from 'std::istreambuf_iterator<_CharT>'
+     auto it = std::find(words.begin(), words.end(), lh);
+                                                       ^
