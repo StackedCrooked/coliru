@@ -1,0 +1,35 @@
+; ModuleID = 'main.cpp'
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: uwtable
+define i32 @main() #0 {
+  %array = alloca [100 x i32], align 16
+  %1 = bitcast [100 x i32]* %array to i8*
+  call void @llvm.lifetime.start(i64 400, i8* %1) #1
+  call void @llvm.memset.p0i8.i64(i8* %1, i8 0, i64 400, i32 16, i1 false)
+  %2 = getelementptr inbounds [100 x i32]* %array, i64 0, i64 0
+  %3 = getelementptr inbounds [100 x i32]* %array, i64 0, i64 100
+  call void @_Z6opaquePiS_(i32* %2, i32* %3)
+  call void @llvm.lifetime.end(i64 400, i8* %1) #1
+  ret i32 0
+}
+
+; Function Attrs: nounwind
+declare void @llvm.lifetime.start(i64, i8* nocapture) #1
+
+declare void @_Z6opaquePiS_(i32*, i32*) #2
+
+; Function Attrs: nounwind
+declare void @llvm.lifetime.end(i64, i8* nocapture) #1
+
+; Function Attrs: nounwind
+declare void @llvm.memset.p0i8.i64(i8* nocapture, i8, i64, i32, i1) #1
+
+attributes #0 = { uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { nounwind }
+attributes #2 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = metadata !{metadata !"clang version 3.5 (trunk 198621)"}
