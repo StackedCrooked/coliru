@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -pthread -pedantic  -Wall -Werror main.cpp 2>&1 && ./a.out; echo $?; clang++ --version
