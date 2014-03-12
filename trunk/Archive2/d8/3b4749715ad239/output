@@ -1,0 +1,28 @@
+main.cpp:7:15: error: static_assert expression is not an integral constant expression
+static_assert(&A == &B, "Bug");
+              ^~~~~~~~
+main.cpp:7:22: note: initializer of 'B' is not a constant expression
+static_assert(&A == &B, "Bug");
+                     ^
+main.cpp:6:12: note: declared here
+const int &B = A;
+           ^
+main.cpp:9:22: error: constexpr variable 'C' must be initialized by a constant expression
+constexpr const int &C = B;
+                     ^   ~
+main.cpp:9:26: note: initializer of 'B' is not a constant expression
+constexpr const int &C = B;
+                         ^
+main.cpp:6:12: note: declared here
+const int &B = A;
+           ^
+main.cpp:10:15: error: static_assert expression is not an integral constant expression
+static_assert(&A == &C, "Bug");
+              ^~~~~~~~
+main.cpp:10:22: note: initializer of 'C' is not a constant expression
+static_assert(&A == &C, "Bug");
+                     ^
+main.cpp:9:22: note: declared here
+constexpr const int &C = B;
+                     ^
+3 errors generated.
