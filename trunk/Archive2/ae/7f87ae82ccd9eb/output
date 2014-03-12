@@ -1,0 +1,21 @@
+main.cpp:11:69: warning: overloaded operator >> has lower precedence than comparison operator [-Woverloaded-shift-op-parentheses]
+    qi::rule<It, std::string()> quoted    = '"' >> *~qi::char_('"') > '"';
+                                            ~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~
+main.cpp:11:49: note: place parentheses around the '>>' expression to silence this warning
+    qi::rule<It, std::string()> quoted    = '"' >> *~qi::char_('"') > '"';
+                                                ^
+                                            (                      )
+main.cpp:11:69: note: place parentheses around comparison expression to evaluate it first
+    qi::rule<It, std::string()> quoted    = '"' >> *~qi::char_('"') > '"';
+                                                                    ^
+                                                   (                     )
+1 warning generated.
+'cout'
+'<<'
+'hello'
+';'
+'my'
+' '
+'name is'
+' '
+'Hassan'
