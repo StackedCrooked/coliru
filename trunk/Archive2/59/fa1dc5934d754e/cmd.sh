@@ -1,0 +1,1 @@
+clang++ -std=c++14 -O2 -Wall -pedantic -pthread -ggdb3 main.cpp && ./a.out
