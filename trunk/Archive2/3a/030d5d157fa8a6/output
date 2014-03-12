@@ -1,0 +1,20 @@
+main.cpp: In function 'int main()':
+main.cpp:26:12: warning: unused variable 'd' [-Wunused-variable]
+     double d = double{1.2}; // list-initialization of a temporary, then copy-init
+            ^
+main.cpp:37:17: warning: unused variable 'ar' [-Wunused-variable]
+     const int (&ar)[2] = {1,2}; // binds a lvalue reference to a temporary array
+                 ^
+main.cpp:38:11: warning: unused variable 'r1' [-Wunused-variable]
+     int&& r1 = {1}; // binds a rvalue reference to a temporary int
+           ^
+main.cpp:42:19: warning: unused variable 'uc1' [-Wunused-variable]
+     unsigned char uc1{10}; // okay
+                   ^
+world
+0 1 1
+abcd cd aa
+1 a
+2 abc
+3 abcd
+1 2 3 -1 -2 -3 
