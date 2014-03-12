@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O0 -Wall -pedantic main.cpp -lboost_system &&  (while true; do echo $(($RANDOM % 2 +1)); done) | ./a.out
