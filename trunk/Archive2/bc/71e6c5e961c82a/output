@@ -1,0 +1,17 @@
+main.cpp:8:23: warning: function 'detail::hasTest<Pokus2>' has internal linkage but is not defined [-Wundefined-internal]
+static constexpr auto hasTest(const T&) -> decltype(std::declval<T>().test(), std::true_type());
+                      ^
+main.cpp:33:36: note: used here
+        using has_test = decltype(detail::hasTest<T>(t));
+                                          ^
+main.cpp:11:34: warning: function 'detail::hasTest<Pokus1>' has internal linkage but is not defined [-Wundefined-internal]
+static constexpr std::false_type hasTest(...);
+                                 ^
+main.cpp:33:36: note: used here
+        using has_test = decltype(detail::hasTest<T>(t));
+                                          ^
+2 warnings generated.
+nic
+------
+volam test()...
+test
