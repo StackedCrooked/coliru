@@ -1,0 +1,13 @@
+main.cpp:4:39: error: expected type-specifier
+ template <typename RoundingStrategy = std::round> int convert(float a)
+                                       ^
+main.cpp:4:39: error: expected '>'
+main.cpp: In function 'int main()':
+main.cpp:11:29: error: no matching function for call to 'convert(double)'
+     std::cout << convert(4.5) << std::endl;
+                             ^
+main.cpp:11:29: note: candidate is:
+main.cpp:4:55: note: template<class RoundingStrategy> int convert(float)
+ template <typename RoundingStrategy = std::round> int convert(float a)
+                                                       ^
+main.cpp:4:55: note:   template argument deduction/substitution failed:
