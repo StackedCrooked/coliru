@@ -1,0 +1,52 @@
+	.file	"main.c"
+	.text
+	.globl	g1
+	.align	16, 0x90
+	.type	g1,@function
+g1:                                     # @g1
+	.cfi_startproc
+# BB#0:
+	movl	$1, %eax
+	ret
+.Ltmp0:
+	.size	g1, .Ltmp0-g1
+	.cfi_endproc
+
+	.globl	g2
+	.align	16, 0x90
+	.type	g2,@function
+g2:                                     # @g2
+	.cfi_startproc
+# BB#0:
+	movl	$20, %eax
+	ret
+.Ltmp1:
+	.size	g2, .Ltmp1-g2
+	.cfi_endproc
+
+	.globl	f
+	.align	16, 0x90
+	.type	f,@function
+f:                                      # @f
+	.cfi_startproc
+# BB#0:
+	jmpq	*%rdi  # TAILCALL
+.Ltmp2:
+	.size	f, .Ltmp2-f
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	movl	$21, %eax
+	ret
+.Ltmp3:
+	.size	main, .Ltmp3-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits
