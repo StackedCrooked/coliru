@@ -1,0 +1,1 @@
+set -x ; g++ -O2 -std=c++11 -c main.cpp && size main.o && g++-4.8 -std=c++11 -Wall main.o && ./a.out
