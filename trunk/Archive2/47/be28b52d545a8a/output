@@ -1,0 +1,18 @@
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of 'void std::random_shuffle(_RAIter, _RAIter, _Generator&&) [with _RAIter = int*; _Generator = std::mersenne_twister_engine<long unsigned int, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&]':
+main.cpp:16:46:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:5253:58: error: no match for call to '(std::mersenne_twister_engine<long unsigned int, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>) (long int)'
+  std::iter_swap(__i, __first + __rand((__i - __first) + 1));
+                                                          ^
+In file included from /usr/include/c++/4.8/random:50:0,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/random.h:449:11: note: candidate is:
+     class mersenne_twister_engine
+           ^
+/usr/include/c++/4.8/bits/random.h:544:7: note: std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>::result_type std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>::operator()() [with _UIntType = long unsigned int; long unsigned int __w = 32ul; long unsigned int __n = 624ul; long unsigned int __m = 397ul; long unsigned int __r = 31ul; _UIntType __a = 2567483615ul; long unsigned int __u = 11ul; _UIntType __d = 4294967295ul; long unsigned int __s = 7ul; _UIntType __b = 2636928640ul; long unsigned int __t = 15ul; _UIntType __c = 4022730752ul; long unsigned int __l = 18ul; _UIntType __f = 1812433253ul; std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>::result_type = long unsigned int]
+       operator()();
+       ^
+/usr/include/c++/4.8/bits/random.h:544:7: note:   candidate expects 0 arguments, 1 provided
