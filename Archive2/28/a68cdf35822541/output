@@ -1,0 +1,29 @@
+main.cpp:5:18: error: no type named 'shared_timed_mutex' in namespace 'std'
+    mutable std::shared_timed_mutex m;
+            ~~~~~^
+main.cpp:11:31: error: no member named 'shared_timed_mutex' in namespace 'std'
+        std::unique_lock<std::shared_timed_mutex> lhs(mut, std::defer_lock);
+                         ~~~~~^
+main.cpp:11:51: error: C++ requires a type specifier for all declarations
+        std::unique_lock<std::shared_timed_mutex> lhs(mut, std::defer_lock);
+                                                  ^~~
+main.cpp:11:55: error: use of undeclared identifier 'mut'
+        std::unique_lock<std::shared_timed_mutex> lhs(mut, std::defer_lock);
+                                                      ^
+main.cpp:13:14: error: no member named 'shared_lock' in namespace 'std'
+        std::shared_lock<std::shared_timed_mutex> rhs(other.mut, std::defer_lock);
+        ~~~~~^
+main.cpp:13:31: error: no member named 'shared_timed_mutex' in namespace 'std'
+        std::shared_lock<std::shared_timed_mutex> rhs(other.mut, std::defer_lock);
+                         ~~~~~^
+main.cpp:13:61: error: no member named 'mut' in 'R'
+        std::shared_lock<std::shared_timed_mutex> rhs(other.mut, std::defer_lock);
+                                                      ~~~~~ ^
+main.cpp:18:2: error: expected ';' after class
+}
+ ^
+ ;
+main.cpp:5:37: warning: private field 'm' is not used [-Wunused-private-field]
+    mutable std::shared_timed_mutex m;
+                                    ^
+1 warning and 8 errors generated.
