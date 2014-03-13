@@ -1,0 +1,69 @@
+	.file	"main.c"
+	.text
+	.globl	g
+	.align	16, 0x90
+	.type	g,@function
+g:                                      # @g
+	.cfi_startproc
+# BB#0:
+	movl	$.L.str, %edi
+	movl	$10, %esi
+	xorl	%eax, %eax
+	jmp	printf                  # TAILCALL
+.Ltmp0:
+	.size	g, .Ltmp0-g
+	.cfi_endproc
+
+	.globl	f
+	.align	16, 0x90
+	.type	f,@function
+f:                                      # @f
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp3:
+	.cfi_def_cfa_offset 16
+.Ltmp4:
+	.cfi_offset %rbx, -16
+	movq	%rdi, %rbx
+	callq	*%rbx
+	movq	%rbx, %rax
+	popq	%rbx
+	jmpq	*%rax  # TAILCALL
+.Ltmp5:
+	.size	f, .Ltmp5-f
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp7:
+	.cfi_def_cfa_offset 16
+	movl	$.L.str, %edi
+	movl	$10, %esi
+	xorl	%eax, %eax
+	callq	printf
+	movl	$.L.str, %edi
+	movl	$10, %esi
+	xorl	%eax, %eax
+	callq	printf
+	xorl	%eax, %eax
+	popq	%rdx
+	ret
+.Ltmp8:
+	.size	main, .Ltmp8-main
+	.cfi_endproc
+
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"%d"
+	.size	.L.str, 3
+
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits
