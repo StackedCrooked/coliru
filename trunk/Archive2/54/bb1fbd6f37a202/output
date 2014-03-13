@@ -1,0 +1,17 @@
+In file included from main.cpp:1:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/type_traits:1857:15: error: only enumeration types have underlying types
+      typedef __underlying_type(_Tp) type;
+              ^
+main.cpp:7:15: note: in instantiation of template class 'std::underlying_type<int>' requested here
+typename std::underlying_type<T>::type
+              ^
+main.cpp:8:1: note: while substituting deduced template arguments into function template 'get_underlying_value' [with T = int, $1 = <no value>]
+get_underlying_value (T value) {
+^
+main.cpp:18:3: error: no matching function for call to 'get_underlying_value'
+  get_underlying_value (int {});
+  ^~~~~~~~~~~~~~~~~~~~
+main.cpp:8:1: note: candidate template ignored: substitution failure [with T = int, $1 = nullptr]: zero-length arrays are not permitted in C++
+get_underlying_value (T value) {
+^
+2 errors generated.
