@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'B<T> foo(...) [with T = base]':
+main.cpp:35:16:   required from here
+main.cpp:21:25: warning: missing initializer for member 'B<base>::m' [-Wmissing-field-initializers]
+ B<T> foo(...) { return {}; }
+                         ^
+main.cpp: In instantiation of 'A<T> foo(int) [with T = derived; <template-parameter-1-2> = derived []]':
+main.cpp:36:19:   required from here
+main.cpp:18:25: warning: missing initializer for member 'A<derived>::m' [-Wmissing-field-initializers]
+ A<T> foo(int) { return {}; }
+                         ^
+B
+A
