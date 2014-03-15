@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -pedantic -Wno-vla-extension -pthread main.cpp && ./a.out
