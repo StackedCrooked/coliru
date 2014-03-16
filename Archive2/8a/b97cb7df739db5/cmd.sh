@@ -1,0 +1,1 @@
+g++ -std=c++11 -pedantic -W -Ofast -o average main.cpp && ./average <<< "4.5 6.4 8 10"
