@@ -1,0 +1,31 @@
+main.cpp: In function 'int weak_call(int (X::*)()const, const boost::weak_ptr<X>&)':
+main.cpp:22:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto lock = wp.lock();
+     ^
+main.cpp:22:10: error: 'lock' does not name a type
+     auto lock = wp.lock();
+          ^
+main.cpp:23:10: error: 'lock' was not declared in this scope
+     if (!lock)
+          ^
+main.cpp:26:15: error: 'lock' was not declared in this scope
+     return ((*lock).*ptmf)();
+               ^
+main.cpp: At global scope:
+main.cpp:20:5: warning: unused parameter 'wp' [-Wunused-parameter]
+ int weak_call(int (X::*ptmf)() const, boost::weak_ptr<X> const& wp) 
+     ^
+main.cpp: In function 'int main()':
+main.cpp:34:9: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+         auto x = boost::make_shared<X>(); 
+         ^
+main.cpp:34:14: error: 'x' does not name a type
+         auto x = boost::make_shared<X>(); 
+              ^
+main.cpp:35:72: error: 'x' was not declared in this scope
+         bound_foo = boost::bind(weak_call, &X::foo, boost::weak_ptr<X>(x));
+                                                                        ^
+main.cpp: In function 'int weak_call(int (X::*)()const, const boost::weak_ptr<X>&)':
+main.cpp:27:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
