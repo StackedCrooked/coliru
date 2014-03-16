@@ -1,0 +1,2 @@
+clang++ -std=c++11 -O0 -Wall -Wextra -Wconversion -pedantic -pthread -fno-builtin main.cpp && ./a.out
+#g++-4.8 -std=c++11 -O0 -Wall -Wextra -Wconversion -pedantic -pthread -fno-builtin main.cpp && ./a.out
