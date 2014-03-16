@@ -1,0 +1,14 @@
+main.cpp:8:23: error: no member named 'address_of' in namespace 'std'; did you mean 'addressof'?
+    std::cout << std::address_of(Foo(5));
+                 ~~~~~^~~~~~~~~~
+                      addressof
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/move.h:135:5: note: 'addressof' declared here
+    addressof(_Tp& __r) noexcept
+    ^
+main.cpp:8:18: error: no matching function for call to 'addressof'
+    std::cout << std::address_of(Foo(5));
+                 ^~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/move.h:135:5: note: candidate function [with _Tp = Foo] not viable: expects an l-value for 1st argument
+    addressof(_Tp& __r) noexcept
+    ^
+2 errors generated.
