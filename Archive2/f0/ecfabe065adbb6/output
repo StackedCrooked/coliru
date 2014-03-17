@@ -1,0 +1,61 @@
+main.cpp:29:16: error: redefinition of 'get' as different kind of symbol
+        size_t get(std::integral_constant<int, T>)
+               ^
+main.cpp:27:53: note: previous definition is here
+        using typename indexer<Index + 1, Rest...>::get;
+                                                    ^
+main.cpp:23:20: error: reference to 'get' is ambiguous
+            return get(std::integral_constant<int, Value>());
+                   ^
+main.cpp:27:53: note: candidate found by name lookup is 'indexer<Index, T, Rest...>::get'
+        using typename indexer<Index + 1, Rest...>::get;
+                                                    ^
+main.cpp:21:16: note: candidate found by name lookup is 'indexer<Index, T, Rest...>::get'
+        size_t get()
+               ^
+main.cpp:27:53: error: 'typename' keyword used on a non-type
+        using typename indexer<Index + 1, Rest...>::get;
+                                                    ^
+main.cpp:18:16: note: in instantiation of template class 'indexer<2, 3>' requested here
+        public indexer<Index + 1, Rest...>
+               ^
+main.cpp:18:16: note: in instantiation of template class 'indexer<1, 2, 3>' requested here
+        public indexer<Index + 1, Rest...>
+               ^
+main.cpp:36:16: note: in instantiation of template class 'indexer<0, 5, 2, 3>' requested here
+        public indexer<0, Values...>
+               ^
+main.cpp:42:25: note: in instantiation of template class 'mapper<5, 2, 3>' requested here
+        mapper<5, 2, 3> m;
+                        ^
+main.cpp:13:16: note: target of using declaration
+        size_t get(std::integral_constant<int, Value>);
+               ^
+main.cpp:27:24: error: using declaration refers into 'indexer<1UL + 1, 3>::', which is not a base class of 'indexer<1, 2, 3>'
+        using typename indexer<Index + 1, Rest...>::get;
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:18:16: note: in instantiation of template class 'indexer<1, 2, 3>' requested here
+        public indexer<Index + 1, Rest...>
+               ^
+main.cpp:36:16: note: in instantiation of template class 'indexer<0, 5, 2, 3>' requested here
+        public indexer<0, Values...>
+               ^
+main.cpp:42:25: note: in instantiation of template class 'mapper<5, 2, 3>' requested here
+        mapper<5, 2, 3> m;
+                        ^
+main.cpp:27:24: error: using declaration refers into 'indexer<0UL + 1, 2, 3>::', which is not a base class of 'indexer<0, 5, 2, 3>'
+        using typename indexer<Index + 1, Rest...>::get;
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:36:16: note: in instantiation of template class 'indexer<0, 5, 2, 3>' requested here
+        public indexer<0, Values...>
+               ^
+main.cpp:42:25: note: in instantiation of template class 'mapper<5, 2, 3>' requested here
+        mapper<5, 2, 3> m;
+                        ^
+main.cpp:43:31: error: expected expression
+        std::cout << m.get<5>();   // returns 0 as expected
+                              ^
+main.cpp:44:31: error: expected expression
+        std::cout << m.get<2>();   // does not compile
+                              ^
+7 errors generated.
