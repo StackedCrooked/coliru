@@ -1,0 +1,1 @@
+clang++ -std=c++11 main.cpp -lboost_system -lboost_filesystem -o main && ./main
