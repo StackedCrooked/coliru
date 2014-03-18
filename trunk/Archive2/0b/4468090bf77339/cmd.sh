@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -Wno-unused-value -pedantic main.cpp && ./a.out
