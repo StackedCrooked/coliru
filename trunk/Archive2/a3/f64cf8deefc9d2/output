@@ -1,0 +1,24 @@
+---------------------------------------------------------------------------
+Test: fake_program.exe --help 
+without add_x_options: Error message: unrecognised option '--help'
+after add_x_options: Options:
+  --help                print usage instructions
+  --option1 arg
+  --option2 arg
+
+---------------------------------------------------------------------------
+Test: fake_program.exe --option1 
+without add_x_options: Error message: unrecognised option '--option1'
+after add_x_options: Error message: the required argument for option '--option1' is missing
+---------------------------------------------------------------------------
+Test: fake_program.exe --option1 value1 
+without add_x_options: Error message: unrecognised option '--option1'
+after add_x_options: Error message: the option '--option2' is required but missing
+---------------------------------------------------------------------------
+Test: fake_program.exe --option2 value2 
+without add_x_options: Error message: unrecognised option '--option2'
+after add_x_options: Error message: the option '--option1' is required but missing
+---------------------------------------------------------------------------
+Test: fake_program.exe --option1 value1 --option2 value2 
+without add_x_options: Error message: unrecognised option '--option1'
+after add_x_options: 
