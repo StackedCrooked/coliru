@@ -1,0 +1,55 @@
+main.cpp:13:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+     #pragma omp parallel for
+ ^
+main.cpp:164:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for schedule(static)
+ ^
+main.cpp:184:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for schedule(static)
+ ^
+main.cpp:201:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for schedule(static)
+ ^
+main.cpp:218:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for schedule(static)
+ ^
+main.cpp:235:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for schedule(dynamic)
+ ^
+main.cpp:255:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+   #pragma omp parallel for
+ ^
+main.cpp: In function 'double inner_sum_AVX(double*, double*, int)':
+main.cpp:133:2: error: '__m256d' was not declared in this scope
+  __m256d s4;
+  ^
+main.cpp:133:10: error: expected ';' before 's4'
+  __m256d s4;
+          ^
+main.cpp:137:2: error: 's4' was not declared in this scope
+  s4 = _mm256_set1_pd(0.0);
+  ^
+main.cpp:137:25: error: '_mm256_set1_pd' was not declared in this scope
+  s4 = _mm256_set1_pd(0.0);
+                         ^
+main.cpp:139:11: error: expected ';' before 'li4'
+   __m256d li4, lj4;
+           ^
+main.cpp:140:3: error: 'li4' was not declared in this scope
+   li4 = _mm256_loadu_pd(&li[i]);
+   ^
+main.cpp:140:31: error: '_mm256_loadu_pd' was not declared in this scope
+   li4 = _mm256_loadu_pd(&li[i]);
+                               ^
+main.cpp:141:3: error: 'lj4' was not declared in this scope
+   lj4 = _mm256_loadu_pd(&lj[i]);
+   ^
+main.cpp:142:44: error: '_mm256_mul_pd' was not declared in this scope
+   s4 = _mm256_add_pd(_mm256_mul_pd(li4, lj4), s4);
+                                            ^
+main.cpp:142:49: error: '_mm256_add_pd' was not declared in this scope
+   s4 = _mm256_add_pd(_mm256_mul_pd(li4, lj4), s4);
+                                                 ^
+main.cpp:145:26: error: '_mm256_storeu_pd' was not declared in this scope
+  _mm256_storeu_pd(out, s4);
+                          ^
