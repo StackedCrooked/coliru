@@ -1,0 +1,1 @@
+clang++ -std=c++11 -pedantic -W -Ofast -o bst main.cpp && ./bst
