@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:77:34: error: cannot allocate an object of abstract type 'CCharFrancais'
+     ICharFrancais* pCharFr = new CCharFrancais;
+                                  ^
+main.cpp:51:7: note:   because the following virtual functions are pure within 'CCharFrancais':
+ class CCharFrancais : public virtual CChar, public virtual ICharFrancais
+       ^
+main.cpp:9:22: note: 	virtual void IChar::SetSerie(int)
+         virtual void SetSerie(const int serie) = 0;
+                      ^
+main.cpp:11:21: note: 	virtual int IChar::GetSerie() const
+         virtual int GetSerie() const = 0;
+                     ^
