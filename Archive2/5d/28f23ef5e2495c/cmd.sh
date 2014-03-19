@@ -1,0 +1,1 @@
+gcc -pthread main.cpp&& ./a.out
