@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -march=native -DNDEBUG -Wall -Wextra -Wdeprecated -pthread main.cpp -S -o -
