@@ -1,0 +1,18 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:102:89: error: no matching function for call to 'crk4(std::vector<std::function<double(__gnu_cxx::__normal_iterator<double*, std::vector<double> >, __gnu_cxx::__normal_iterator<double*, std::vector<double> >, double)> >::iterator, std::vector<std::function<double(__gnu_cxx::__normal_iterator<double*, std::vector<double> >, __gnu_cxx::__normal_iterator<double*, std::vector<double> >, double)> >::iterator, std::vector<double>::iterator, std::vector<double>::iterator, double&, double&)'
+     auto vec_n = crk4(f_vec.begin(),f_vec.end(),coords.begin(),coords.end(),t0,step_size);
+                                                                                         ^
+main.cpp:102:89: note: candidate is:
+main.cpp:63:1: note: template<class functor_type, class coord_type, template<class functor_type> class Container1, template<class coord_type> class Container2, class t_type> std::vector<double> crk4(class Container1<functor_type>::iterator, class Container1<functor_type>::iterator, class Container2<coord_type>::iterator, class Container2<coord_type>::iterator, t_type, double)
+ crk4(class Container1<functor_type>::iterator funct_iter1,
+ ^
+main.cpp:63:1: note:   template argument deduction/substitution failed:
+main.cpp:102:89: note:   couldn't deduce template parameter 'functor_type'
+     auto vec_n = crk4(f_vec.begin(),f_vec.end(),coords.begin(),coords.end(),t0,step_size);
+                                                                                         ^
+main.cpp:104:23: error: unable to deduce 'auto&&' from 'vec_n'
+     for(const auto& i:vec_n)
+                       ^
+main.cpp:99:12: warning: unused variable 'N' [-Wunused-variable]
+     size_t N = (tf - t0)/step_size ;          
+            ^
