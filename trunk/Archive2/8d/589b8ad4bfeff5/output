@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:12:8: error: no matches converting function 'g' to type 'void (*)()'
+     f(g);
+        ^
+main.cpp:9:6: note: candidates are: void g(int, int)
+ void g(int, int) { std::cout << "g(int, int)"; }
+      ^
+main.cpp:8:6: note:                 void g(int)
+ void g(int) { std::cout << "g(int)"; }
+      ^
+main.cpp: In instantiation of 'void f(void (*)(T ...)) [with T = {}]':
+main.cpp:12:8:   required from here
+main.cpp:5:10: error: too many arguments to function
+     ptr(1);
+          ^
