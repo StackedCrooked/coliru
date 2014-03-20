@@ -1,0 +1,17 @@
+main.cpp: In instantiation of 'struct X<int, 0>':
+main.cpp:17:16:   required from here
+main.cpp:13:8: error: ambiguous class template instantiation for 'struct X_<int, std::integral_constant<int, 0> >'
+ struct X : X_<T, std::integral_constant<T, N>> {};
+        ^
+main.cpp:7:8: error: candidates are: struct X_<T, std::integral_constant<T, N> >
+ struct X_<T, std::integral_constant<T, N>> {};
+        ^
+main.cpp:10:8: error:                 struct X_<T, std::integral_constant<T, 0> >
+ struct X_<T, std::integral_constant<T, 0>> {};
+        ^
+main.cpp:13:8: error: invalid use of incomplete type 'struct X_<int, std::integral_constant<int, 0> >'
+ struct X : X_<T, std::integral_constant<T, N>> {};
+        ^
+main.cpp:4:8: error: declaration of 'struct X_<int, std::integral_constant<int, 0> >'
+ struct X_;
+        ^
