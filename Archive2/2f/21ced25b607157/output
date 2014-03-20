@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:23:20: error: too many arguments to function 'Foo make_foo(X ...) [with X = {}]'
+     make_foo({1, 2});
+                    ^
+main.cpp:12:5: note: declared here
+ Foo make_foo(X ... x) {
+     ^
+main.cpp: In instantiation of 'Foo make_foo(X ...) [with X = {}]':
+main.cpp:23:20:   required from here
+main.cpp:13:37: error: no matching function for call to 'Foo::Foo()'
+     return Foo(std::forward<X>(x)...);
+                                     ^
+main.cpp:13:37: note: candidates are:
+main.cpp:8:5: note: Foo::Foo(const std::initializer_list<int>&)
+     Foo(std::initializer_list<int> const &initList) {std::cout << "Initialiizer list\n";}
+     ^
+main.cpp:8:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:7:5: note: Foo::Foo(int, int)
+     Foo(int x, int y) { std::cout << "int, int\n";}
+     ^
+main.cpp:7:5: note:   candidate expects 2 arguments, 0 provided
+main.cpp:6:8: note: constexpr Foo::Foo(const Foo&)
+ struct Foo {
+        ^
+main.cpp:6:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:6:8: note: constexpr Foo::Foo(Foo&&)
+main.cpp:6:8: note:   candidate expects 1 argument, 0 provided
