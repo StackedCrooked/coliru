@@ -1,0 +1,33 @@
+main.cpp:15:54: error: type/value mismatch at argument 1 in template parameter list for 'template<class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19> class boost::variant'
+             boost::recursive_wrapper<Branch<T>>::type> type;
+                                                      ^
+main.cpp:15:54: error:   expected a type, got 'boost::recursive_wrapper<Leaf<T> >::type'
+main.cpp:15:54: error: type/value mismatch at argument 2 in template parameter list for 'template<class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19> class boost::variant'
+main.cpp:15:54: error:   expected a type, got 'boost::recursive_wrapper<Branch<T> >::type'
+main.cpp: In function 'int main()':
+main.cpp:113:7: warning: unused variable 'tree' [-Wunused-variable]
+  Tree tree = intTree<int, Tree>(3);
+       ^
+main.cpp: In instantiation of 'Tree empty() [with T = int; Tree = int]':
+main.cpp:107:40:   required from 'Tree intTree(T) [with T = int; Tree = int]'
+main.cpp:113:34:   required from here
+main.cpp:30:67: error: cannot convert 'Leaf<int>' to 'int' in return
+ template<typename T, typename Tree> Tree empty() { return Leaf<T>(); }
+                                                                   ^
+In file included from /usr/local/include/boost/variant/apply_visitor.hpp:16:0,
+                 from /usr/local/include/boost/variant/detail/hash_variant.hpp:23,
+                 from /usr/local/include/boost/variant/variant.hpp:37,
+                 from /usr/local/include/boost/variant.hpp:17,
+                 from main.cpp:5:
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp: In instantiation of 'typename Visitor::result_type boost::apply_visitor(const Visitor&, Visitable&) [with Visitor = InsertVisitor<int, int>; Visitable = int; typename Visitor::result_type = int]':
+main.cpp:57:59:   required from 'Tree insert(const T&, Tree&) [with T = int; Tree = int]'
+main.cpp:100:24:   required from 'Tree intTree_(T, Tree) [with T = int; Tree = int]'
+main.cpp:107:41:   required from 'Tree intTree(T) [with T = int; Tree = int]'
+main.cpp:113:34:   required from here
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:76:43: error: request for member 'apply_visitor' in 'visitable', which is of non-class type 'int'
+     return visitable.apply_visitor(visitor);
+                                           ^
+main.cpp: In function 'Tree empty() [with T = int; Tree = int]':
+main.cpp:30:70: warning: control reaches end of non-void function [-Wreturn-type]
+ template<typename T, typename Tree> Tree empty() { return Leaf<T>(); }
+                                                                      ^
