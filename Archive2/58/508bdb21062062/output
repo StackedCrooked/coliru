@@ -1,0 +1,30 @@
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"that"
+.LC1:
+	.string	"%s"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB34:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	mov	edx, OFFSET FLAT:.LC0
+	mov	esi, OFFSET FLAT:.LC1
+	mov	edi, 1
+	xor	eax, eax
+	call	__printf_chk
+	xor	eax, eax
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE34:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
