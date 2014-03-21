@@ -1,0 +1,46 @@
+main.cpp:27:22: error: implicit instantiation of undefined template 'debug<reverse_impl<list<int, short, char> > >'
+    using t=typename debug<reverse_impl>::type;
+                     ^
+main.cpp:38:1: note: in instantiation of template class 'reverse_impl<list<int, short, char> >' requested here
+using reverse = typename reverse_impl<T>::type;
+^
+main.cpp:41:11: note: in instantiation of template type alias 'reverse' requested here
+using rL1=reverse<L1>;
+          ^
+main.cpp:4:27: note: template is declared here
+template<typename> struct debug;
+                          ^
+main.cpp:27:22: error: implicit instantiation of undefined template 'debug<reverse_impl<list<short, char> > >'
+    using t=typename debug<reverse_impl>::type;
+                     ^
+main.cpp:28:34: note: in instantiation of template class 'reverse_impl<list<short, char> >' requested here
+    using type = concat<typename reverse_impl<list<TAIL...>>::type,list<HEAD>>;
+                                 ^
+main.cpp:38:1: note: in instantiation of template class 'reverse_impl<list<int, short, char> >' requested here
+using reverse = typename reverse_impl<T>::type;
+^
+main.cpp:41:11: note: in instantiation of template type alias 'reverse' requested here
+using rL1=reverse<L1>;
+          ^
+main.cpp:4:27: note: template is declared here
+template<typename> struct debug;
+                          ^
+main.cpp:27:22: error: implicit instantiation of undefined template 'debug<reverse_impl<list<char> > >'
+    using t=typename debug<reverse_impl>::type;
+                     ^
+main.cpp:28:34: note: in instantiation of template class 'reverse_impl<list<char> >' requested here
+    using type = concat<typename reverse_impl<list<TAIL...>>::type,list<HEAD>>;
+                                 ^
+main.cpp:28:34: note: in instantiation of template class 'reverse_impl<list<short, char> >' requested here
+    using type = concat<typename reverse_impl<list<TAIL...>>::type,list<HEAD>>;
+                                 ^
+main.cpp:38:1: note: in instantiation of template class 'reverse_impl<list<int, short, char> >' requested here
+using reverse = typename reverse_impl<T>::type;
+^
+main.cpp:41:11: note: in instantiation of template type alias 'reverse' requested here
+using rL1=reverse<L1>;
+          ^
+main.cpp:4:27: note: template is declared here
+template<typename> struct debug;
+                          ^
+3 errors generated.
