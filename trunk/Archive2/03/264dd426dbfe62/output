@@ -1,0 +1,63 @@
+main.cpp:8:22: error: 'CreateTreeType' does not name a type
+ template<typename T> CreateTreeType {
+                      ^
+main.cpp:10:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp:13:13: error: 'CreateTreeType' does not name a type
+     typedef CreateTreeType<T>::type Tree;
+             ^
+main.cpp:14:34: error: 'Tree' does not name a type
+     Branch(const T& value, const Tree& left, const Tree& right)
+                                  ^
+main.cpp:14:40: error: ISO C++ forbids declaration of 'left' with no type [-fpermissive]
+     Branch(const T& value, const Tree& left, const Tree& right)
+                                        ^
+main.cpp:14:52: error: 'Tree' does not name a type
+     Branch(const T& value, const Tree& left, const Tree& right)
+                                                    ^
+main.cpp:14:58: error: ISO C++ forbids declaration of 'right' with no type [-fpermissive]
+     Branch(const T& value, const Tree& left, const Tree& right)
+                                                          ^
+main.cpp:17:2: error: 'Tree' does not name a type
+  Tree left;
+  ^
+main.cpp:18:2: error: 'Tree' does not name a type
+  Tree right;
+  ^
+main.cpp: In constructor 'Branch<T>::Branch(const T&, const int&, const int&)':
+main.cpp:15:19: error: class 'Branch<T>' does not have any field named 'left'
+   : value(value), left(left), right(right) {}
+                   ^
+main.cpp:15:31: error: class 'Branch<T>' does not have any field named 'right'
+   : value(value), left(left), right(right) {}
+                               ^
+main.cpp: At global scope:
+main.cpp:31:22: error: 'Tree' does not name a type
+ template<typename T> Tree<T>* insert(const T& value, Tree<T>* tree) {
+                      ^
+main.cpp:51:3: error: 'Tree' has not been declared
+   Tree<T>* tree) {
+   ^
+main.cpp:51:7: error: expected ',' or '...' before '<' token
+   Tree<T>* tree) {
+       ^
+main.cpp: In function 'U fold(std::function<U(T, U, U)>, U, int)':
+main.cpp:52:47: error: 'tree' was not declared in this scope
+  Branch<T>* branch = dynamic_cast<Branch<T>*>(tree);
+                                               ^
+main.cpp: At global scope:
+main.cpp:60:22: error: 'Tree' does not name a type
+ template<typename T> Tree<T>* intTree_(T value, Tree<T>* tree) {
+                      ^
+main.cpp:67:22: error: 'Tree' does not name a type
+ template<typename T> Tree<T>* intTree(T value) {
+                      ^
+main.cpp: In function 'int main()':
+main.cpp:75:2: error: 'Tree' was not declared in this scope
+  Tree<int>* tree = intTree<int>(3);  
+  ^
+main.cpp:75:7: error: expected primary-expression before 'int'
+  Tree<int>* tree = intTree<int>(3);  
+       ^
+main.cpp:75:7: error: expected ';' before 'int'
