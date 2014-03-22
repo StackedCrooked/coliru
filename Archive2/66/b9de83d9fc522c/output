@@ -1,0 +1,22 @@
+main.cpp:13:28: error: 'previous_type' is not a member of 'X'
+ static_assert(std::is_same<X::previous_type, void>::value, "");
+                            ^
+main.cpp:13:28: error: 'previous_type' is not a member of 'X'
+main.cpp:13:50: error: template argument 1 is invalid
+ static_assert(std::is_same<X::previous_type, void>::value, "");
+                                                  ^
+main.cpp:14:28: error: 'previous_type' is not a member of 'Y'
+ static_assert(std::is_same<Y::previous_type, X>::value, "");
+                            ^
+main.cpp:14:28: error: 'previous_type' is not a member of 'Y'
+main.cpp:14:47: error: template argument 1 is invalid
+ static_assert(std::is_same<Y::previous_type, X>::value, "");
+                                               ^
+main.cpp:15:28: error: 'previous_type' is not a member of 'Z'
+ static_assert(std::is_same<Z::previous_type, Y>::value, "");
+                            ^
+main.cpp:15:28: error: 'previous_type' is not a member of 'Z'
+main.cpp:15:47: error: template argument 1 is invalid
+ static_assert(std::is_same<Z::previous_type, Y>::value, "");
+                                               ^
+compilation failed
