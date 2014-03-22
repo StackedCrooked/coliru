@@ -1,0 +1,102 @@
+main.cpp: In function 'int main()':
+main.cpp:18:33: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     std::cout << to_string(std::vector<double> { 1.1,2.2,3e-12 }, ";") << "\n";
+                                 ^
+main.cpp:18:64: error: no matching function for call to 'std::vector<double>::vector(<brace-enclosed initializer list>)'
+     std::cout << to_string(std::vector<double> { 1.1,2.2,3e-12 }, ";") << "\n";
+                                                                ^
+main.cpp:18:64: note: candidates are:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note: template<class _InputIterator> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/include/c++/4.8/bits/stl_vector.h:398:9: note:   template argument deduction/substitution failed:
+main.cpp:18:64: note:   cannot convert '3.0000000000000001e-12' (type 'double') to type 'const allocator_type& {aka const std::allocator<double>&}'
+     std::cout << to_string(std::vector<double> { 1.1,2.2,3e-12 }, ";") << "\n";
+                                                                ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = double; _Alloc = std::allocator<double>]
+       vector(const vector& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:310:7: note:   candidate expects 1 argument, 3 provided
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = double; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<double>]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:295:7: note:   no known conversion for argument 3 from 'double' to 'const allocator_type& {aka const std::allocator<double>&}'
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<double>]
+       vector(const allocator_type& __a)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:256:7: note:   candidate expects 1 argument, 3 provided
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note: std::vector<_Tp, _Alloc>::vector() [with _Tp = double; _Alloc = std::allocator<double>]
+       vector()
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:248:7: note:   candidate expects 0 arguments, 3 provided
+main.cpp:19:33: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     std::cout << to_string(std::vector<int> { 42, -13 }, "\t") << "\n";
+                                 ^
+main.cpp:20:33: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     std::cout << to_string(std::vector<std::string> { "42", "-13" }) << "\n";
+                                 ^
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, const _T2&) [with _T1 = std::basic_string<char>; _T2 = char]':
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const char*; _ForwardIterator = std::basic_string<char>*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = const char*; _ForwardIterator = std::basic_string<char>*]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = const char*; _ForwardIterator = std::basic_string<char>*; _Tp = std::basic_string<char>]'
+/usr/include/c++/4.8/bits/stl_vector.h:1206:27:   required from 'void std::vector<_Tp, _Alloc>::_M_range_initialize(_ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = const char*; _Tp = std::basic_string<char>; _Alloc = std::allocator<std::basic_string<char> >]'
+/usr/include/c++/4.8/bits/stl_vector.h:1177:56:   required from 'void std::vector<_Tp, _Alloc>::_M_initialize_dispatch(_InputIterator, _InputIterator, std::__false_type) [with _InputIterator = const char*; _Tp = std::basic_string<char>; _Alloc = std::allocator<std::basic_string<char> >]'
+/usr/include/c++/4.8/bits/stl_vector.h:404:55:   required from 'std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&) [with _InputIterator = const char*; _Tp = std::basic_string<char>; _Alloc = std::allocator<std::basic_string<char> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::basic_string<char> >]'
+main.cpp:20:67:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:83:7: error: no matching function for call to 'std::basic_string<char>::basic_string(const char&)'
+       ::new(static_cast<void*>(__p)) _T1(__value);
+       ^
+/usr/include/c++/4.8/bits/stl_construct.h:83:7: note: candidates are:
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.h:532:9: note: template<class _InputIterator> std::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^
+/usr/include/c++/4.8/bits/basic_string.h:532:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_construct.h:83:7: note:   candidate expects 3 arguments, 1 provided
+       ::new(static_cast<void*>(__p)) _T1(__value);
+       ^
+In file included from /usr/include/c++/4.8/string:53:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.tcc:219:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:219:5: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.8/bits/basic_string.tcc:212:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:212:5: note:   no known conversion for argument 1 from 'const char' to 'const char*'
+/usr/include/c++/4.8/bits/basic_string.tcc:205:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:205:5: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.8/bits/basic_string.tcc:193:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:193:5: note:   candidate expects 4 arguments, 1 provided
+/usr/include/c++/4.8/bits/basic_string.tcc:183:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:183:5: note:   candidate expects 3 arguments, 1 provided
+/usr/include/c++/4.8/bits/basic_string.tcc:169:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:169:5: note:   no known conversion for argument 1 from 'const char' to 'const std::basic_string<char>&'
+/usr/include/c++/4.8/bits/basic_string.tcc:177:5: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+     basic_string<_CharT, _Traits, _Alloc>::
+     ^
+/usr/include/c++/4.8/bits/basic_string.tcc:177:5: note:   no known conversion for argument 1 from 'const char' to 'const std::allocator<char>&'
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/basic_string.h:437:7: note: std::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^
+/usr/include/c++/4.8/bits/basic_string.h:437:7: note:   candidate expects 0 arguments, 1 provided
