@@ -1,0 +1,16 @@
+main.cpp:9:28: warning: unused parameter 'a' [-Wunused-parameter]
+    NoDefault1(const Foo & a,const Bar & b)
+                           ^
+main.cpp:9:42: warning: unused parameter 'b' [-Wunused-parameter]
+    NoDefault1(const Foo & a,const Bar & b)
+                                         ^
+main.cpp:17:37: error: only special member functions may be defaulted
+    NoDefault2(const NoDefault1&) = default;
+                                    ^
+main.cpp:15:27: warning: unused parameter 'a' [-Wunused-parameter]
+    NoDefault2(const Foo& a,const Bar& b)
+                          ^
+main.cpp:15:40: warning: unused parameter 'b' [-Wunused-parameter]
+    NoDefault2(const Foo& a,const Bar& b)
+                                       ^
+4 warnings and 1 error generated.
