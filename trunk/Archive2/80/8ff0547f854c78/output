@@ -1,0 +1,22 @@
+main.cpp:155:12: error: template parameters not used in partial specialization:
+     struct tag
+            ^
+main.cpp:155:12: error:         'OrdinaryType'
+main.cpp:155:12: error:         'template<class, class> class Container'
+main.cpp:155:12: error:         'template<class> class Allocator'
+main.cpp: In instantiation of 'Result algorithm(Arguments ...) [with Result = std::list<first_type>; Arguments = {concrete_one, concrete_two}]':
+main.cpp:181:59:   required from here
+main.cpp:123:95: error: 'apply' is not a member of 'implementation::algorithm<std::list<first_type>, void>'
+     return implementation::algorithm<Result, typename tags::tag<Result>::type>::apply(args ...);
+                                                                                               ^
+main.cpp: In instantiation of 'Result algorithm(Arguments ...) [with Result = std::vector<first_type>; Arguments = {concrete_one, concrete_two}]':
+main.cpp:182:63:   required from here
+main.cpp:123:95: error: 'apply' is not a member of 'implementation::algorithm<std::vector<first_type>, void>'
+main.cpp: In function 'Result algorithm(Arguments ...) [with Result = std::list<first_type>; Arguments = {concrete_one, concrete_two}]':
+main.cpp:124:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'Result algorithm(Arguments ...) [with Result = std::vector<first_type>; Arguments = {concrete_one, concrete_two}]':
+main.cpp:124:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
