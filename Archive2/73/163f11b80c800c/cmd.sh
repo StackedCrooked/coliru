@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -c -Wno-unused-variable -pedantic -pthread main.cpp
