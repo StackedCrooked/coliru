@@ -1,0 +1,112 @@
+	.file	"main.cpp"
+	.section	.rodata
+	.type	_ZStL19piecewise_construct, @object
+	.size	_ZStL19piecewise_construct, 1
+_ZStL19piecewise_construct:
+	.zero	1
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.text
+	.globl	_Z13simpleMemLeakv
+	.type	_Z13simpleMemLeakv, @function
+_Z13simpleMemLeakv:
+.LFB1194:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$4, %edi
+	call	_Znwm
+	movq	%rax, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movl	$10, (%rax)
+	movq	-8(%rbp), %rax
+	movl	(%rax), %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1194:
+	.size	_Z13simpleMemLeakv, .-_Z13simpleMemLeakv
+	.globl	main
+	.type	main, @function
+main:
+.LFB1195:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$0, -4(%rbp)
+	jmp	.L4
+.L5:
+	call	_Z13simpleMemLeakv
+	addl	$1, -4(%rbp)
+.L4:
+	cmpl	$99999, -4(%rbp)
+	jle	.L5
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1195:
+	.size	main, .-main
+	.type	_Z41__static_initialization_and_destruction_0ii, @function
+_Z41__static_initialization_and_destruction_0ii:
+.LFB1342:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	%edi, -4(%rbp)
+	movl	%esi, -8(%rbp)
+	cmpl	$1, -4(%rbp)
+	jne	.L7
+	cmpl	$65535, -8(%rbp)
+	jne	.L7
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	call	__cxa_atexit
+.L7:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1342:
+	.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destruction_0ii
+	.type	_GLOBAL__sub_I__Z13simpleMemLeakv, @function
+_GLOBAL__sub_I__Z13simpleMemLeakv:
+.LFB1343:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	$65535, %esi
+	movl	$1, %edi
+	call	_Z41__static_initialization_and_destruction_0ii
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1343:
+	.size	_GLOBAL__sub_I__Z13simpleMemLeakv, .-_GLOBAL__sub_I__Z13simpleMemLeakv
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__Z13simpleMemLeakv
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1"
+	.section	.note.GNU-stack,"",@progbits
