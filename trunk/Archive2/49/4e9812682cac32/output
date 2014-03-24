@@ -1,0 +1,72 @@
+main.cpp:22:4: error: use of undeclared identifier 'std'
+                        std::declval<Ser&>(),
+                        ^
+main.cpp:22:17: error: 'Ser' does not refer to a value
+                        std::declval<Ser&>(),
+                                     ^
+main.cpp:17:25: note: declared here
+template<class T, class Ser>
+                        ^
+main.cpp:22:21: error: expected expression
+                        std::declval<Ser&>(),
+                                         ^
+main.cpp:22:23: error: expected expression
+                        std::declval<Ser&>(),
+                                           ^
+main.cpp:25:3: error: use of undeclared identifier 'std'
+                std::true_type{}
+                ^
+main.cpp:30:8: error: use of undeclared identifier 'std'
+static std::false_type
+       ^
+main.cpp:51:25: error: use of undeclared identifier 'std'
+using enable = typename std::enable_if<value, T>::type;
+                        ^
+main.cpp:51:30: error: expected a qualified name after 'typename'
+using enable = typename std::enable_if<value, T>::type;
+                             ^
+main.cpp:51:30: error: type-id cannot have a name
+using enable = typename std::enable_if<value, T>::type;
+                             ^~~~~~~~~
+main.cpp:51:39: error: expected ';' after alias declaration
+using enable = typename std::enable_if<value, T>::type;
+                                      ^
+                                      ;
+main.cpp:68:2: error: unknown type name 'enable'
+        enable<
+        ^
+main.cpp:68:8: error: expected member name or ';' after declaration specifiers
+        enable<
+        ~~~~~~^
+main.cpp:166:16: error: use of undeclared identifier 'const_safe'; did you mean 'const_cast'?
+                auto& self = const_safe<Ser>(*this);
+                             ^
+main.cpp:166:27: error: 'Ser' does not refer to a value
+                auto& self = const_safe<Ser>(*this);
+                                        ^
+main.cpp:162:17: note: declared here
+        template<class Ser>
+                       ^
+main.cpp:172:16: error: use of undeclared identifier 'const_safe'; did you mean 'const_cast'?
+                auto& self = const_safe<Ser>(*this);
+                             ^
+main.cpp:172:27: error: 'Ser' does not refer to a value
+                auto& self = const_safe<Ser>(*this);
+                                        ^
+main.cpp:170:17: note: declared here
+        template<class Ser>
+                       ^
+main.cpp:189:15: error: use of undeclared identifier 'const_safe'; did you mean 'const_cast'?
+        auto& self = const_safe<Ser>(d);
+                     ^
+main.cpp:189:26: error: 'Ser' does not refer to a value
+        auto& self = const_safe<Ser>(d);
+                                ^
+main.cpp:187:16: note: declared here
+template<class Ser>
+               ^
+main.cpp:191:3: error: use of undeclared identifier 'base_cast'
+                base_cast<B>(self),
+                ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
