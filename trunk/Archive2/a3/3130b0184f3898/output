@@ -1,0 +1,16 @@
+main.cpp:8:24: error: member function 'fun' not viable: 'this' argument has type 'const Const', but function is not marked const
+    void gun() const { fun(); }
+                       ^~~
+main.cpp:6:10: note: 'fun' declared here
+    void fun()       {}
+         ^
+main.cpp:16:26: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+    static constexpr int gun() { return fun(); }
+                         ^
+main.cpp:16:41: note: non-constexpr function 'fun' cannot be used in a constant expression
+    static constexpr int gun() { return fun(); }
+                                        ^
+main.cpp:14:26: note: declared here
+    static           int fun() { return 0; }
+                         ^
+2 errors generated.
