@@ -1,0 +1,38 @@
+main.cpp:15:11: error: non-constant-expression cannot be narrowed from type 'int' to 'double' in initializer list [-Wc++11-narrowing]
+        double d{i};
+                 ^
+main.cpp:15:11: note: override this message by inserting an explicit cast
+        double d{i};
+                 ^
+                 static_cast<double>( )
+main.cpp:17:14: error: non-constant-expression cannot be narrowed from type 'int' to 'double' in initializer list [-Wc++11-narrowing]
+        double y[2]{i, 2};
+                    ^
+main.cpp:17:14: note: override this message by inserting an explicit cast
+        double y[2]{i, 2};
+                    ^
+                    static_cast<double>( )
+main.cpp:15:9: warning: unused variable 'd' [-Wunused-variable]
+        double d{i};
+               ^
+main.cpp:17:9: warning: unused variable 'y' [-Wunused-variable]
+        double y[2]{i, 2};
+               ^
+main.cpp:9:19: error: non-constant-expression cannot be narrowed from type 'int' to 'double' in initializer list [-Wc++11-narrowing]
+        A(E&&... e) : a{std::forward <E>(e)...} { }
+                        ^~~~~~~~~~~~~~~~~~~
+main.cpp:16:16: note: in instantiation of function template specialization 'A<double, 2>::A<int &, int>' requested here
+        A <double, 2> x(i, 2);
+                      ^
+main.cpp:9:19: note: override this message by inserting an explicit cast
+        A(E&&... e) : a{std::forward <E>(e)...} { }
+                        ^~~~~~~~~~~~~~~~~~~
+                        static_cast<double>( )
+main.cpp:9:19: error: non-constant-expression cannot be narrowed from type 'int' to 'double' in initializer list [-Wc++11-narrowing]
+        A(E&&... e) : a{std::forward <E>(e)...} { }
+                        ^~~~~~~~~~~~~~~~~~~
+main.cpp:9:19: note: override this message by inserting an explicit cast
+        A(E&&... e) : a{std::forward <E>(e)...} { }
+                        ^~~~~~~~~~~~~~~~~~~
+                        static_cast<double>( )
+2 warnings and 4 errors generated.
