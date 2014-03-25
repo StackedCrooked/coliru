@@ -1,0 +1,67 @@
+In file included from main.cpp:3:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/initializer_list:36:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support for the \
+ ^
+main.cpp:8:12: error: no type named 'initializer_list' in namespace 'std'
+    S(std::initializer_list<T> l) : v(l) {
+      ~~~~~^
+main.cpp:8:28: error: expected ')'
+    S(std::initializer_list<T> l) : v(l) {
+                           ^
+main.cpp:8:6: note: to match this '('
+    S(std::initializer_list<T> l) : v(l) {
+     ^
+main.cpp:11:22: error: no type named 'initializer_list' in namespace 'std'
+    void append(std::initializer_list<T> l) {
+                ~~~~~^
+main.cpp:11:38: error: expected ')'
+    void append(std::initializer_list<T> l) {
+                                     ^
+main.cpp:11:16: note: to match this '('
+    void append(std::initializer_list<T> l) {
+               ^
+main.cpp:8:39: error: use of undeclared identifier 'l'
+    S(std::initializer_list<T> l) : v(l) {
+                                      ^
+main.cpp:9:48: error: use of undeclared identifier 'l'
+         std::cout << "constructed with a " << l.size() << "-element list\n";
+                                               ^
+main.cpp:12:27: error: use of undeclared identifier 'l'
+        v.insert(v.end(), l.begin(), l.end());
+                          ^
+main.cpp:15:16: error: generalized initializer lists are a C++11 extension [-Werror,-Wc++11-extensions]
+        return {&v[0], v.size()};  // list-initialization in return statement
+               ^~~~~~~~~~~~~~~~~
+main.cpp:26:14: error: expected expression
+    s.append({6, 7, 8});      // list-initialization in function call
+             ^
+main.cpp:30:10: error: 'auto' type specifier is a C++11 extension [-Werror,-Wc++11-extensions]
+    for (auto n : s.v) std::cout << ' ' << n;
+         ^
+main.cpp:30:17: error: range-based for loop is a C++11 extension [-Werror,-Wc++11-extensions]
+    for (auto n : s.v) std::cout << ' ' << n;
+                ^
+main.cpp:36:16: error: range-based for loop is a C++11 extension [-Werror,-Wc++11-extensions]
+    for (int x : {-1, -2, -3}) // the rule for auto makes this ranged for work
+               ^
+main.cpp:36:18: error: cannot deduce type of initializer list because std::initializer_list was not found; include <initializer_list>
+    for (int x : {-1, -2, -3}) // the rule for auto makes this ranged for work
+                 ^
+main.cpp:40:5: error: 'auto' type specifier is a C++11 extension [-Werror,-Wc++11-extensions]
+    auto al = {10, 11, 12};   // special rule for auto
+    ^
+main.cpp:40:15: error: cannot deduce type of initializer list because std::initializer_list was not found; include <initializer_list>
+    auto al = {10, 11, 12};   // special rule for auto
+              ^
+main.cpp:46:23: error: no member named 'initializer_list' in namespace 'std'
+    templated_fn<std::initializer_list<int>>({1, 2, 3}); // OK
+                 ~~~~~^
+main.cpp:46:43: error: expected '(' for function-style cast or type construction
+    templated_fn<std::initializer_list<int>>({1, 2, 3}); // OK
+                                       ~~~^
+main.cpp:46:46: error: use of GNU statement expression extension [-Werror,-Wgnu-statement-expression]
+    templated_fn<std::initializer_list<int>>({1, 2, 3}); // OK
+                                             ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
