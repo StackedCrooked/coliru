@@ -1,0 +1,28 @@
+main.cpp:34:23: error: 'right' is a private member of 'Tree<int>::Node'
+    value_type v = p->right->value;         // error: Node::right is private
+                      ^
+main.cpp:42:7: note: in instantiation of member function 'Tree<int>::g' requested here
+    t.g(&n);
+      ^
+main.cpp:10:15: note: implicitly declared private here
+        Node* right;
+              ^
+main.cpp:34:30: error: 'value' is a private member of 'Tree<int>::Node'
+    value_type v = p->right->value;         // error: Node::right is private
+                             ^
+main.cpp:12:20: note: implicitly declared private here
+        value_type value;
+                   ^
+main.cpp:34:16: warning: unused variable 'v' [-Wunused-variable]
+    value_type v = p->right->value;         // error: Node::right is private
+               ^
+main.cpp:27:16: warning: unused variable 'v' [-Wunused-variable]
+    value_type v = left->value;             // OK: value_type is not associated with an object
+               ^
+main.cpp:35:8: note: in instantiation of member function 'Tree<int>::Node::f' requested here
+    p->f(this);                             // OK
+       ^
+main.cpp:42:7: note: in instantiation of member function 'Tree<int>::g' requested here
+    t.g(&n);
+      ^
+2 warnings and 2 errors generated.
