@@ -1,0 +1,1 @@
+g++-4.8 -ansi -O2 -Wall -pedantic -pthread -fopenmp -x c main.cpp && ./a.out
