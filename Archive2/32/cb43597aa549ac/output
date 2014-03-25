@@ -1,0 +1,15 @@
+main.cpp:9:14: error: use of undeclared identifier 'async'; did you mean 'fsync'?
+      return async([]{ boost::this_thread::sleep_for(boost::chrono::seconds(2)); return 89; });
+             ^~~~~
+             fsync
+/usr/include/unistd.h:980:12: note: 'fsync' declared here
+extern int fsync (int __fd);
+           ^
+main.cpp:9:20: error: no viable conversion from '<lambda at main.cpp:9:20>' to 'int'
+      return async([]{ boost::this_thread::sleep_for(boost::chrono::seconds(2)); return 89; });
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:9:20: note: candidate function
+/usr/include/unistd.h:980:23: note: passing argument to parameter '__fd' here
+extern int fsync (int __fd);
+                      ^
+2 errors generated.
