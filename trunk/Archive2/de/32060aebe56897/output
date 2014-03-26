@@ -1,0 +1,12 @@
++ g++ -std=c++11 -O3 -Wall -Wextra -Wsign-compare -pedantic-errors main.cpp
+main.cpp: In function 'int main()':
+main.cpp:16:9: error: use of deleted function 'B::B(const B&)'
+   B c = b;  
+         ^
+main.cpp:8:7: note: 'B::B(const B&)' is implicitly deleted because the default definition would be ill-formed:
+ class B
+       ^
+main.cpp:8:7: error: use of deleted function 'A::A(const A&)'
+main.cpp:5:3: error: declared here
+   A(const A&) = delete;
+   ^
