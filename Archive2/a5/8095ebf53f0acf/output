@@ -1,0 +1,22 @@
+main.cpp:8:6: error: invalid character ' ' in raw string delimiter
+     });
+ ^
+main.cpp:1:24: error: pasting "R" and ""[]{ return main; }"" does not give a valid preprocessing token
+ #define STRINGIFY(...) R ## #__VA_ARGS__
+                        ^
+main.cpp:6:18: note: in expansion of macro 'STRINGIFY'
+     std::cout << STRINGIFY([]{
+                  ^
+main.cpp: In function 'int main()':
+main.cpp:1:24: error: 'R' was not declared in this scope
+ #define STRINGIFY(...) R ## #__VA_ARGS__
+                        ^
+main.cpp:6:18: note: in expansion of macro 'STRINGIFY'
+     std::cout << STRINGIFY([]{
+                  ^
+main.cpp:8:6: error: expected ';' before string constant
+     });
+      ^
+main.cpp:1:30: note: in definition of macro 'STRINGIFY'
+ #define STRINGIFY(...) R ## #__VA_ARGS__
+                              ^
