@@ -1,0 +1,6 @@
+main.cpp: In substitution of 'template<class A, class B> using ternary = decltype ((true ?  declval<A>() : declval<B>())) [with A = Y<int>; B = Y<double>]':
+main.cpp:9:30:   required by substitution of 'template<template<class ...> class F, class ... A> using sfinae = decltype (test:: call<A ...>(0)) [with F = ternary; A = {Y<int>, Y<double>}]'
+main.cpp:34:23:   required from here
+main.cpp:4:31: error: operands to ?: have different types 'Y<int>' and 'Y<double>'
+ using ternary = decltype(true ? std::declval <A>() : std::declval <B>());
+                               ^
