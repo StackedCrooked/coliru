@@ -1,0 +1,14 @@
++ g++ -std=c++11 -O3 -Wall -Wextra -Wsign-compare -pedantic-errors main.cpp
+main.cpp: In function 'int main()':
+main.cpp:12:9: error: use of deleted function 'A::A(const A&)'
+   A b = a;  
+         ^
+main.cpp:3:7: note: 'A::A(const A&)' is implicitly deleted because the default definition would be ill-formed:
+ class A
+       ^
+main.cpp:3:7: error: use of deleted function 'std::unique_ptr<_Tp, _Dp>::unique_ptr(const std::unique_ptr<_Tp, _Dp>&) [with _Tp = int; _Dp = std::default_delete<int>]'
+In file included from /usr/local/include/c++/4.8.2/memory:81:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/unique_ptr.h:273:7: error: declared here
+       unique_ptr(const unique_ptr&) = delete;
+       ^
