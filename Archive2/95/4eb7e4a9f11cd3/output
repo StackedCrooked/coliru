@@ -1,0 +1,10 @@
+main.cpp:5:15: error: binding of reference to type 'int' to a value of type 'const int' drops qualifiers
+    for (int& i : array)
+              ^ ~
+main.cpp:11:5: error: no matching function for call to 'show'
+    show(x);
+    ^~~~
+main.cpp:4:6: note: candidate function not viable: no known conversion from 'int [11]' to 'const int [10]' for 1st argument
+void show(const int (&array)[10]) {
+     ^
+2 errors generated.
