@@ -1,0 +1,223 @@
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:69:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:122:12: error: call to deleted constructor of 'std::unique_ptr<int, std::default_delete<int> >'
+              _Tp __x_copy = __x;
+                  ^          ~~~
+main.cpp:23:21: note: in instantiation of member function 'std::vector<std::unique_ptr<int, std::default_delete<int> >, std::allocator<std::unique_ptr<int, std::default_delete<int> > > >::insert' requested here
+template class std::vector<std::unique_ptr<int>>;
+                    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:69:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:449:19: error: call to deleted constructor of 'value_type' (aka 'std::unique_ptr<int, std::default_delete<int> >')
+              value_type __x_copy = __x;
+                         ^          ~~~
+main.cpp:23:21: note: in instantiation of member function 'std::vector<std::unique_ptr<int, std::default_delete<int> >, std::allocator<std::unique_ptr<int, std::default_delete<int> > > >::_M_fill_insert' requested here
+template class std::vector<std::unique_ptr<int>>;
+                    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_construct.h:75:38: error: call to deleted constructor of 'std::unique_ptr<int, std::default_delete<int> >'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<std::unique_ptr<int, std::default_delete<int> >, const std::unique_ptr<int, std::default_delete<int> > &>' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:117:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<const std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:258:19: note: in instantiation of function template specialization 'std::uninitialized_copy<__gnu_cxx::__normal_iterator<const std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:314:9: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<const std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > >' requested here
+          std::__uninitialized_copy_a(__x.begin(), __x.end(),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:63:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:75:3: error: no matching function for call to '_Construct'
+                std::_Construct(std::__addressof(*__cur), *__first);
+                ^~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:117:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<const std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:258:19: note: in instantiation of function template specialization 'std::uninitialized_copy<const std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:1204:11: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<const std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > >' requested here
+            std::__uninitialized_copy_a(__first, __last,
+                 ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:368:2: note: in instantiation of function template specialization 'std::vector<std::unique_ptr<int, std::default_delete<int> >, std::allocator<std::unique_ptr<int, std::default_delete<int> > > >::_M_range_initialize<const std::unique_ptr<int, std::default_delete<int> > *>' requested here
+        _M_range_initialize(__l.begin(), __l.end(),
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_construct.h:74:5: note: candidate template ignored: substitution failure [with _T1 = std::unique_ptr<int, std::default_delete<int> >, _Args = <const std::unique_ptr<int, std::default_delete<int> > &>]
+    _Construct(_T1* __p, _Args&&... __args)
+    ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:335:18: error: overload resolution selected deleted operator '='
+              *__result = *__first;
+              ~~~~~~~~~ ^ ~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:390:36: note: in instantiation of function template specialization 'std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m<const std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:426:23: note: in instantiation of function template specialization 'std::__copy_move_a<false, const std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:458:20: note: in instantiation of function template specialization 'std::__copy_move_a2<false, __gnu_cxx::__normal_iterator<const std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, __gnu_cxx::__normal_iterator<std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > > >' requested here
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:199:27: note: in instantiation of function template specialization 'std::copy<__gnu_cxx::__normal_iterator<const std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, __gnu_cxx::__normal_iterator<std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > > >' requested here
+              std::_Destroy(std::copy(__x.begin(), __x.end(), begin()),
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:274:19: note: candidate function has been explicitly deleted
+      unique_ptr& operator=(const unique_ptr&) = delete;
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:190:7: note: candidate function not viable: 1st argument ('const std::unique_ptr<int, std::default_delete<int> >') would lose const qualifier
+      operator=(unique_ptr&& __u) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:211:7: note: candidate function not viable: no known conversion from 'const std::unique_ptr<int, std::default_delete<int> >' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:203:2: note: candidate template ignored: substitution failure [with _Up = int, _Ep = std::default_delete<int>]
+        operator=(unique_ptr<_Up, _Ep>&& __u) noexcept
+        ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:335:18: error: overload resolution selected deleted operator '='
+              *__result = *__first;
+              ~~~~~~~~~ ^ ~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:390:36: note: in instantiation of function template specialization 'std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:426:23: note: in instantiation of function template specialization 'std::__copy_move_a<false, std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:458:20: note: in instantiation of function template specialization 'std::__copy_move_a2<false, std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:204:13: note: in instantiation of function template specialization 'std::copy<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+              std::copy(__x._M_impl._M_start, __x._M_impl._M_start + size(),
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:274:19: note: candidate function has been explicitly deleted
+      unique_ptr& operator=(const unique_ptr&) = delete;
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:190:7: note: candidate function not viable: no known conversion from 'std::unique_ptr<int, std::default_delete<int> >' to 'std::unique_ptr<int, std::default_delete<int> > &&' for 1st argument
+      operator=(unique_ptr&& __u) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:203:2: note: candidate function [with _Up = int, _Ep = std::default_delete<int>] not viable: no known conversion from 'std::unique_ptr<int, std::default_delete<int> >' to 'unique_ptr<int, std::default_delete<int> > &&' for 1st argument
+        operator=(unique_ptr<_Up, _Ep>&& __u) noexcept
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:211:7: note: candidate function not viable: no known conversion from 'std::unique_ptr<int, std::default_delete<int> >' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t) noexcept
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_construct.h:75:38: error: call to deleted constructor of 'std::unique_ptr<int, std::default_delete<int> >'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<std::unique_ptr<int, std::default_delete<int> >, std::unique_ptr<int, std::default_delete<int> > &>' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:117:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:258:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:206:13: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > >' requested here
+              std::__uninitialized_copy_a(__x._M_impl._M_start + size(),
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:61:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/allocator.h:46:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/new_allocator.h:120:23: error: call to deleted constructor of 'std::unique_ptr<int, std::default_delete<int> >'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/alloc_traits.h:254:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<std::unique_ptr<int, std::default_delete<int> > >::construct<std::unique_ptr<int, std::default_delete<int> >, const std::unique_ptr<int, std::default_delete<int> > &>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/alloc_traits.h:393:4: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::unique_ptr<int, std::default_delete<int> > > >::_S_construct<std::unique_ptr<int, std::default_delete<int> >, const std::unique_ptr<int, std::default_delete<int> > &>' requested here
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:905:21: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::unique_ptr<int, std::default_delete<int> > > >::construct<std::unique_ptr<int, std::default_delete<int> >, const std::unique_ptr<int, std::default_delete<int> > &>' requested here
+            _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish,
+                           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:273:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:63:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:187:3: error: no matching function for call to '_Construct'
+                std::_Construct(std::__addressof(*__cur), __x);
+                ^~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:224:2: note: in instantiation of function template specialization 'std::__uninitialized_fill_n<false>::__uninit_fill_n<std::unique_ptr<int, std::default_delete<int> > *, unsigned long, std::unique_ptr<int, std::default_delete<int> > >' requested here
+        __uninit_fill_n(__first, __n, __x);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:334:12: note: in instantiation of function template specialization 'std::uninitialized_fill_n<std::unique_ptr<int, std::default_delete<int> > *, unsigned long, std::unique_ptr<int, std::default_delete<int> > >' requested here
+    { std::uninitialized_fill_n(__first, __n, __x); }
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:1214:7: note: in instantiation of function template specialization 'std::__uninitialized_fill_n_a<std::unique_ptr<int, std::default_delete<int> > *, unsigned long, std::unique_ptr<int, std::default_delete<int> >, std::unique_ptr<int, std::default_delete<int> > >' requested here
+        std::__uninitialized_fill_n_a(this->_M_impl._M_start, __n, __value, 
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_construct.h:74:5: note: candidate template ignored: substitution failure [with _T1 = std::unique_ptr<int, std::default_delete<int> >, _Args = <const std::unique_ptr<int, std::default_delete<int> > &>]
+    _Construct(_T1* __p, _Args&&... __args)
+    ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:682:11: error: overload resolution selected deleted operator '='
+        *__first = __value;
+        ~~~~~~~~ ^ ~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:728:12: note: in instantiation of function template specialization 'std::__fill_a<std::unique_ptr<int, std::default_delete<int> > *, std::unique_ptr<int, std::default_delete<int> > >' requested here
+      std::__fill_a(std::__niter_base(__first), std::__niter_base(__last),
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:228:9: note: in instantiation of function template specialization 'std::fill<__gnu_cxx::__normal_iterator<std::unique_ptr<int, std::default_delete<int> > *, std::vector<std::unique_ptr<int> > >, std::unique_ptr<int, std::default_delete<int> > >' requested here
+          std::fill(begin(), end(), __val);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:274:19: note: candidate function has been explicitly deleted
+      unique_ptr& operator=(const unique_ptr&) = delete;
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:190:7: note: candidate function not viable: 1st argument ('const std::unique_ptr<int, std::default_delete<int> >') would lose const qualifier
+      operator=(unique_ptr&& __u) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:211:7: note: candidate function not viable: no known conversion from 'const std::unique_ptr<int, std::default_delete<int> >' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:203:2: note: candidate template ignored: substitution failure [with _Up = int, _Ep = std::default_delete<int>]
+        operator=(unique_ptr<_Up, _Ep>&& __u) noexcept
+        ^
+In file included from main.cpp:20:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:739:11: error: overload resolution selected deleted operator '='
+        *__first = __value;
+        ~~~~~~~~ ^ ~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:786:23: note: in instantiation of function template specialization 'std::__fill_n_a<std::unique_ptr<int, std::default_delete<int> > *, unsigned long, std::unique_ptr<int, std::default_delete<int> > >' requested here
+      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
+                      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:235:30: note: in instantiation of function template specialization 'std::fill_n<std::unique_ptr<int, std::default_delete<int> > *, unsigned long, std::unique_ptr<int, std::default_delete<int> > >' requested here
+        _M_erase_at_end(std::fill_n(this->_M_impl._M_start, __n, __val));
+                             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:274:19: note: candidate function has been explicitly deleted
+      unique_ptr& operator=(const unique_ptr&) = delete;
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:190:7: note: candidate function not viable: 1st argument ('const std::unique_ptr<int, std::default_delete<int> >') would lose const qualifier
+      operator=(unique_ptr&& __u) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:211:7: note: candidate function not viable: no known conversion from 'const std::unique_ptr<int, std::default_delete<int> >' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/unique_ptr.h:203:2: note: candidate template ignored: substitution failure [with _Up = int, _Ep = std::default_delete<int>]
+        operator=(unique_ptr<_Up, _Ep>&& __u) noexcept
+        ^
+11 errors generated.
