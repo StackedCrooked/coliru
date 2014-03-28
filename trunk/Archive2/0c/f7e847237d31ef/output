@@ -1,0 +1,13 @@
+main.cpp:10:33: error: no matching constructor for initialization of 'std::lock_guard<std::mutex>'
+    std::lock_guard<std::mutex> lock(flag.mut);
+                                ^    ~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/mutex:413:16: note: candidate constructor not viable: no known conversion from 'std::recursive_mutex' to 'mutex_type &' (aka 'std::mutex &') for 1st argument
+      explicit lock_guard(mutex_type& __m) : _M_device(__m)
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/mutex:422:7: note: candidate constructor not viable: no known conversion from 'std::recursive_mutex' to 'const std::lock_guard<std::mutex>' for 1st argument
+      lock_guard(const lock_guard&) = delete;
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/mutex:416:7: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+      lock_guard(mutex_type& __m, adopt_lock_t) : _M_device(__m)
+      ^
+1 error generated.
