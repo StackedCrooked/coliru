@@ -1,0 +1,34 @@
+main.cpp: In function 'void test()':
+main.cpp:38:27: error: parameter declared 'auto'
+    FuncPtr fptr = [](auto a){cout << a << endl;};                                         
+                           ^
+main.cpp: In lambda function:
+main.cpp:38:38: error: 'a' was not declared in this scope
+    FuncPtr fptr = [](auto a){cout << a << endl;};                                         
+                                      ^
+main.cpp: In function 'void test()':
+main.cpp:38:48: error: cannot convert 'test()::__lambda1' to 'FuncPtr {aka void (*)(int)}' in initialization
+    FuncPtr fptr = [](auto a){cout << a << endl;};                                         
+                                                ^
+main.cpp:41:43: error: parameter declared 'auto'
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};                        
+                                           ^
+main.cpp: In lambda function:
+main.cpp:41:55: error: 'a' was not declared in this scope
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};                        
+                                                       ^
+main.cpp: In function 'void test()':
+main.cpp:41:65: error: conversion from 'test()::__lambda2' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};                        
+                                                                 ^
+main.cpp:42:49: error: parameter declared 'auto'
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};                  
+                                                 ^
+main.cpp: In lambda function:
+main.cpp:42:61: error: 'a' was not declared in this scope
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};                  
+                                                             ^
+main.cpp: In function 'void test()':
+main.cpp:42:71: error: conversion from 'test()::__lambda3' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};                  
+                                                                       ^
