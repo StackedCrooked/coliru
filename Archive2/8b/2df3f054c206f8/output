@@ -1,0 +1,59 @@
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++ [enabled by default]
+main.cpp: In function 'int main()':
+main.cpp:17:34: error: invalid conversion from 'void*' to 'ListNode* {aka _listnode*}' [-fpermissive]
+         head = malloc(sizeof head);
+                                  ^
+main.cpp:18:34: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         head = {rand()%0xff, last};
+                                  ^
+main.cpp:18:14: error: cannot convert '<brace-enclosed initializer list>' to 'ListNode* {aka _listnode*}' in assignment
+         head = {rand()%0xff, last};
+              ^
+main.cpp:21:17: error: 'ptrEvenList' was not declared in this scope
+     split(head,&ptrEvenList, &ptrOddList);
+                 ^
+main.cpp:21:31: error: 'ptrOddList' was not declared in this scope
+     split(head,&ptrEvenList, &ptrOddList);
+                               ^
+main.cpp:14:26: warning: unused variable 'odd' [-Wunused-variable]
+     ListNode *head = 0, *odd = 0, *even = 0;
+                          ^
+main.cpp:14:36: warning: unused variable 'even' [-Wunused-variable]
+     ListNode *head = 0, *odd = 0, *even = 0;
+                                    ^
+main.cpp: In function 'void printList(ListNode*)':
+main.cpp:27:10: error: range-based 'for' loops are not allowed in C++98 mode
+     for(:head;head=head->next)
+          ^
+main.cpp:27:9: error: expected primary-expression before ':' token
+     for(:head;head=head->next)
+         ^
+main.cpp:27:9: error: expected ';' before ':' token
+main.cpp:27:26: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     for(:head;head=head->next)
+                          ^
+main.cpp:27:30: error: expected ';' before ')' token
+     for(:head;head=head->next)
+                              ^
+main.cpp: In function 'void split(ListNode*, ListNode**, ListNode**)':
+main.cpp:34:28: error: 'ptrListEven' was not declared in this scope
+     ListNode** lists[2] = {ptrListEven, ptrListOdd};
+                            ^
+main.cpp:34:41: error: 'ptrListOdd' was not declared in this scope
+     ListNode** lists[2] = {ptrListEven, ptrListOdd};
+                                         ^
+main.cpp:37:43: error: invalid conversion from 'void*' to 'ListNode* {aka _listnode*}' [-fpermissive]
+         **target = malloc(sizeof ***target);
+                                           ^
+main.cpp:38:32: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         ***target = {head->item};
+                                ^
+main.cpp:38:19: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+         ***target = {head->item};
+                   ^
+main.cpp:41:26: error: cannot convert 'ListNode** {aka _listnode**}' to 'ListNode* {aka _listnode*}' for argument '1' to 'void printList(ListNode*)'
+     printList(ptrEvenList);
+                          ^
+main.cpp:42:25: error: cannot convert 'ListNode** {aka _listnode**}' to 'ListNode* {aka _listnode*}' for argument '1' to 'void printList(ListNode*)'
+     printList(ptrOddList);
+                         ^
