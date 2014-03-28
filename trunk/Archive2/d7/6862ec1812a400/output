@@ -1,0 +1,47 @@
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/function.hpp:64:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:
+In file included from /usr/local/include/boost/function/detail/function_iterate.hpp:14:
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:
+/usr/local/include/boost/function/function_template.hpp:132:18: error: cannot initialize return object of type 'int' with an rvalue of type 'result_type' (aka 'void')
+          return (*f)(BOOST_FUNCTION_ARGS);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/function/function_template.hpp:934:53: note: in instantiation of member function 'boost::detail::function::function_obj_invoker1<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > >, int, int>::invoke' requested here
+        { { &manager_type::manage }, &invoker_type::invoke };
+                                                    ^
+/usr/local/include/boost/function/function_template.hpp:722:13: note: in instantiation of function template specialization 'boost::function1<int, int>::assign_to<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+      this->assign_to(f);
+            ^
+/usr/local/include/boost/function/function_template.hpp:1069:5: note: in instantiation of function template specialization 'boost::function1<int, int>::function1<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+    base_type(f)
+    ^
+/usr/local/include/boost/function/function_template.hpp:1124:5: note: in instantiation of function template specialization 'boost::function<int (int)>::function<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+    self_type(f).swap(*this);
+    ^
+main.cpp:29:22: note: in instantiation of function template specialization 'boost::function<int (int)>::operator=<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+   playButton.onClick=boost::bind(&player::stop,thePlayer);
+                     ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/function.hpp:64:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:
+In file included from /usr/local/include/boost/function/detail/function_iterate.hpp:14:
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:
+/usr/local/include/boost/function/function_template.hpp:132:18: error: cannot initialize return object of type 'int' with an rvalue of type 'typename mem_fun1_t<void, player, int>::result_type' (aka 'void')
+          return (*f)(BOOST_FUNCTION_ARGS);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/function/function_template.hpp:934:53: note: in instantiation of member function 'boost::detail::function::function_obj_invoker1<std::binder1st<std::mem_fun1_t<void, player, int> >, int, int>::invoke' requested here
+        { { &manager_type::manage }, &invoker_type::invoke };
+                                                    ^
+/usr/local/include/boost/function/function_template.hpp:722:13: note: in instantiation of function template specialization 'boost::function1<int, int>::assign_to<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+      this->assign_to(f);
+            ^
+/usr/local/include/boost/function/function_template.hpp:1069:5: note: in instantiation of function template specialization 'boost::function1<int, int>::function1<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+    base_type(f)
+    ^
+/usr/local/include/boost/function/function_template.hpp:1124:5: note: in instantiation of function template specialization 'boost::function<int (int)>::function<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+    self_type(f).swap(*this);
+    ^
+main.cpp:33:22: note: in instantiation of function template specialization 'boost::function<int (int)>::operator=<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+   stopbutton.onClick=std::bind1st(std::mem_fun(&player::play),&thePlayer);
+                     ^
+2 errors generated.
