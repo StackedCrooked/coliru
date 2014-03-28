@@ -1,0 +1,87 @@
+main.cpp:14:24: error: parameter declared 'auto'
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                        ^
+main.cpp: In lambda function:
+main.cpp:14:37: error: 'a_' was not declared in this scope
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                                     ^
+main.cpp: In function 'void Fun(T&) [with T = __lambda0]':
+main.cpp:31:9: error: no match for call to '(__lambda0) (int)'
+    a_(42);
+         ^
+main.cpp:14:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:31:9: note: void (*)() <conversion>
+    a_(42);
+         ^
+main.cpp:31:9: note:   candidate expects 1 argument, 2 provided
+main.cpp:14:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:14:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp:32:11: error: no match for call to '(__lambda0) (double)'
+    a_(3.14);
+           ^
+main.cpp:14:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:32:11: note: void (*)() <conversion>
+    a_(3.14);
+           ^
+main.cpp:32:11: note:   candidate expects 1 argument, 2 provided
+main.cpp:14:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:14:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp:33:29: error: no match for call to '(__lambda0) (const char [21])'
+    a_("it's fun! loving it!");
+                             ^
+main.cpp:14:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:33:29: note: void (*)() <conversion>
+    a_("it's fun! loving it!");
+                             ^
+main.cpp:33:29: note:   candidate expects 1 argument, 2 provided
+main.cpp:14:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:14:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In function 'void test()':
+main.cpp:39:27: error: parameter declared 'auto'
+    auto LocalGlambda = [](auto){}; // New type
+                           ^
+main.cpp:44:27: error: parameter declared 'auto'
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                           ^
+main.cpp: In lambda function:
+main.cpp:44:38: error: 'a' was not declared in this scope
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                                      ^
+main.cpp: In function 'void test()':
+main.cpp:44:48: error: cannot convert 'test()::__lambda2' to 'FuncPtr {aka void (*)(int)}' in initialization
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                                                ^
+main.cpp:47:43: error: parameter declared 'auto'
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                           ^
+main.cpp: In lambda function:
+main.cpp:47:55: error: 'a' was not declared in this scope
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                                       ^
+main.cpp: In function 'void test()':
+main.cpp:47:65: error: conversion from 'test()::__lambda3' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                                                 ^
+main.cpp:48:49: error: parameter declared 'auto'
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                 ^
+main.cpp: In lambda function:
+main.cpp:48:61: error: 'a' was not declared in this scope
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                             ^
+main.cpp: In function 'void test()':
+main.cpp:48:71: error: conversion from 'test()::__lambda4' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                                       ^
