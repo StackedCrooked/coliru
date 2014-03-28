@@ -1,0 +1,20 @@
+In file included from main.cpp:2:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/future:38:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:1697:56: error: no type named 'type' in 'std::result_of<std::packaged_task<int (std::basic_string<char> &)> (std::basic_string<char>)>'
+      typedef typename result_of<_Callable(_Args...)>::type result_type;
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/thread:135:41: note: in instantiation of template class 'std::_Bind_simple<std::packaged_task<int (std::basic_string<char> &)> (std::basic_string<char>)>' requested here
+        _M_start_thread(_M_make_routine(std::__bind_simple(
+                                        ^
+main.cpp:21:17: note: in instantiation of function template specialization 'std::thread::thread<std::packaged_task<int (std::basic_string<char> &)>, std::basic_string<char> >' requested here
+    std::thread t(std::move(task), std::move(a));
+                ^
+main.cpp:30:18: note: in instantiation of function template specialization 'spawn_task<int (&)(const std::basic_string<char> &), std::basic_string<char> &>' requested here
+     auto res1 = spawn_task(func_string, str);
+                 ^
+In file included from main.cpp:2:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/future:38:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/functional:1726:50: error: no type named 'type' in 'std::result_of<std::packaged_task<int (std::basic_string<char> &)> (std::basic_string<char>)>'
+        typename result_of<_Callable(_Args...)>::type
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+2 errors generated.
