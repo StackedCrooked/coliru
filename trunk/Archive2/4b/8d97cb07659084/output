@@ -1,0 +1,22 @@
+main.cpp:9:5: error: no matching conversion for static_cast from 'foo<std::complex<double> >' to 'std::complex<double>'
+    static_cast<std::complex<double>>(foo<std::complex<double>>{});
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1193:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'foo<std::complex<double> >' to 'const std::complex<double>' for 1st argument
+    struct complex<double>
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1193:12: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'foo<std::complex<double> >' to 'std::complex<double>' for 1st argument
+    struct complex<double>
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1198:26: note: candidate constructor not viable: no known conversion from 'foo<std::complex<double> >' to '_ComplexT' (aka '_Complex double') for 1st argument
+      _GLIBCXX_CONSTEXPR complex(_ComplexT __z) : _M_value(__z) { }
+                         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1200:26: note: candidate constructor not viable: no known conversion from 'foo<std::complex<double> >' to 'double' for 1st argument
+      _GLIBCXX_CONSTEXPR complex(double __r = 0.0, double __i = 0.0)
+                         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1210:26: note: candidate constructor not viable: no known conversion from 'foo<std::complex<double> >' to 'const complex<float>' for 1st argument
+      _GLIBCXX_CONSTEXPR complex(const complex<float>& __z)
+                         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:1503:20: note: candidate constructor not viable: no known conversion from 'foo<std::complex<double> >' to 'const complex<long double>' for 1st argument
+  complex<double>::complex(const complex<long double>& __z)
+                   ^
+1 error generated.
