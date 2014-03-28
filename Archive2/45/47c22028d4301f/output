@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -fsanitize=undefined -Wall -Wextra -Wconversion -pedantic -O3 -Wall -pthread main.cpp
+main.cpp:6:9: warning: unused variable 'x' [-Wunused-variable]
+    int x = 1 << 100 ;
+        ^
+main.cpp:6:15: warning: shift count >= width of type [-Wshift-count-overflow]
+    int x = 1 << 100 ;
+              ^  ~~~
+2 warnings generated.
++ ./a.out
+main.cpp:6:15: runtime error: shift exponent 100 is too large for 32-bit type 'int'
+main.cpp:2:32: runtime error: division by zero
