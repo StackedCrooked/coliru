@@ -1,0 +1,84 @@
+main.cpp:12:24: error: parameter declared 'auto'
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                        ^
+main.cpp: In lambda function:
+main.cpp:12:37: error: 'a_' was not declared in this scope
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                                     ^
+main.cpp: In function 'void Fun(T) [with T = __lambda0]':
+main.cpp:29:9: error: no match for call to '(__lambda0) (int)'
+    a_(19);
+         ^
+main.cpp:12:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:29:9: note: void (*)() <conversion>
+    a_(19);
+         ^
+main.cpp:29:9: note:   candidate expects 1 argument, 2 provided
+main.cpp:12:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:12:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp:30:11: error: no match for call to '(__lambda0) (double)'
+    a_(11.2);
+           ^
+main.cpp:12:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:30:11: note: void (*)() <conversion>
+    a_(11.2);
+           ^
+main.cpp:30:11: note:   candidate expects 1 argument, 2 provided
+main.cpp:12:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:12:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp:31:40: error: no match for call to '(__lambda0) (const char [32])'
+    a_("it's fun! Can't help loving c++");
+                                        ^
+main.cpp:12:17: note: candidates are:
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                 ^
+main.cpp:31:40: note: void (*)() <conversion>
+    a_("it's fun! Can't help loving c++");
+                                        ^
+main.cpp:31:40: note:   candidate expects 1 argument, 2 provided
+main.cpp:12:26: note: __lambda0
+ auto Glambda = [](auto a_){ cout << a_ << endl;};
+                          ^
+main.cpp:12:26: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In function 'void test()':
+main.cpp:42:27: error: parameter declared 'auto'
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                           ^
+main.cpp: In lambda function:
+main.cpp:42:38: error: 'a' was not declared in this scope
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                                      ^
+main.cpp: In function 'void test()':
+main.cpp:42:48: error: cannot convert 'test()::__lambda1' to 'FuncPtr {aka void (*)(int)}' in initialization
+    FuncPtr fptr = [](auto a){cout << a << endl;};
+                                                ^
+main.cpp:45:43: error: parameter declared 'auto'
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                           ^
+main.cpp: In lambda function:
+main.cpp:45:55: error: 'a' was not declared in this scope
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                                       ^
+main.cpp: In function 'void test()':
+main.cpp:45:65: error: conversion from 'test()::__lambda2' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion = [](auto a){ cout << a << endl;};
+                                                                 ^
+main.cpp:46:49: error: parameter declared 'auto'
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                 ^
+main.cpp: In lambda function:
+main.cpp:46:61: error: 'a' was not declared in this scope
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                             ^
+main.cpp: In function 'void test()':
+main.cpp:46:71: error: conversion from 'test()::__lambda3' to non-scalar type 'std::function<void(int)>' requested
+    function<void(int)> funcTion2 = [local](auto a){ cout << a << endl;};
+                                                                       ^
