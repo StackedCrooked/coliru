@@ -1,0 +1,37 @@
+main.cpp:8:12: error: no matching constructor for initialization of 'std::vector<std::string>'
+    return {il};
+           ^~~~
+main.cpp:14:27: note: in instantiation of function template specialization 'make_vector<const char *>' requested here
+    auto do_not_compile = make_vector( { "uie","uieui","ueueuieuie" } ); 
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:256:7: note: candidate constructor not viable: no known conversion from 'std::initializer_list<const char *>' to 'const allocator_type' (aka 'const std::allocator<std::basic_string<char> >') for 1st argument
+      vector(const allocator_type& __a)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:269:7: note: candidate constructor not viable: no known conversion from 'std::initializer_list<const char *>' to 'size_type' (aka 'unsigned long') for 1st argument
+      vector(size_type __n, const allocator_type& __a = allocator_type())
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:310:7: note: candidate constructor not viable: no known conversion from 'std::initializer_list<const char *>' to 'const std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > &' for 1st argument
+      vector(const vector& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:327:7: note: candidate constructor not viable: no known conversion from 'std::initializer_list<const char *>' to 'std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > &&' for 1st argument
+      vector(vector&& __x) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:364:7: note: candidate constructor not viable: no known conversion from 'initializer_list<const char *>' to 'initializer_list<value_type>' for 1st argument
+      vector(initializer_list<value_type> __l,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:392:9: note: candidate constructor template not viable: requires at least 2 arguments, but 1 was provided
+        vector(_InputIterator __first, _InputIterator __last,
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:248:7: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      vector()
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:281:7: note: candidate constructor not viable: requires at least 2 arguments, but 1 was provided
+      vector(size_type __n, const value_type& __value,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:331:7: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+      vector(const vector& __x, const allocator_type& __a)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:340:7: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+      vector(vector&& __rv, const allocator_type& __m)
+      ^
+1 error generated.
