@@ -1,0 +1,59 @@
+main.cpp:25:30: error: 'Clock' does not name a type
+         void increment(const Clock::time_point& start_time)
+                              ^
+main.cpp:25:47: error: expected unqualified-id before '&' token
+         void increment(const Clock::time_point& start_time)
+                                               ^
+main.cpp:25:47: error: expected ')' before '&' token
+main.cpp:25:47: error: expected ';' at end of member declaration
+main.cpp:25:49: error: 'start_time' does not name a type
+         void increment(const Clock::time_point& start_time)
+                                                 ^
+main.cpp:37:9: error: 'nanoseconds' does not name a type
+         nanoseconds mTotalTime;
+         ^
+main.cpp:60:9: error: 'Clock' does not name a type
+         Clock::time_point mStartTime;
+         ^
+main.cpp:70:5: error: 'array' in namespace 'std' does not name a type
+     std::array<Info, 10> mArray;
+     ^
+main.cpp: In constructor 'BenchmarkTimer<T>::Info::Info()':
+main.cpp:7:45: error: class 'BenchmarkTimer<T>::Info' does not have any field named 'mTotalTime'
+         Info() : mFunctionName(), mCount(), mTotalTime()
+                                             ^
+main.cpp: In destructor 'BenchmarkTimer<T>::Info::~Info()':
+main.cpp:15:21: error: 'Critical' was not declared in this scope
+                 log(Critical)
+                     ^
+main.cpp:15:29: error: there are no arguments to 'log' that depend on a template parameter, so a declaration of 'log' must be available [-fpermissive]
+                 log(Critical)
+                             ^
+main.cpp:15:29: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:16:25: error: 'mTotalTime' was not declared in this scope
+                     << (mTotalTime.count() / 1000)
+                         ^
+main.cpp:19:31: error: 'GetTypeNameWithoutNamespaces' was not declared in this scope
+                     << " " << GetTypeNameWithoutNamespaces<T>() << "::" << mFunctionName
+                               ^
+main.cpp:19:61: error: expected primary-expression before '>' token
+                     << " " << GetTypeNameWithoutNamespaces<T>() << "::" << mFunctionName
+                                                             ^
+main.cpp:19:63: error: expected primary-expression before ')' token
+                     << " " << GetTypeNameWithoutNamespaces<T>() << "::" << mFunctionName
+                                                               ^
+main.cpp: In constructor 'BenchmarkTimer<T>::Timer::Timer(const char*, BenchmarkTimer<T>::Info&)':
+main.cpp:43:13: error: class 'BenchmarkTimer<T>::Timer' does not have any field named 'mStartTime'
+             mStartTime(Clock::now()),
+             ^
+main.cpp:43:24: error: 'Clock' has not been declared
+             mStartTime(Clock::now()),
+                        ^
+main.cpp: In destructor 'BenchmarkTimer<T>::Timer::~Timer()':
+main.cpp:57:29: error: 'mStartTime' was not declared in this scope
+             mInfo.increment(mStartTime);
+                             ^
+main.cpp: In member function 'BenchmarkTimer<T>::Timer BenchmarkTimer<T>::start(int, const char*)':
+main.cpp:66:28: error: 'mArray' was not declared in this scope
+         return Timer(name, mArray[index]);
+                            ^
