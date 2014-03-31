@@ -1,0 +1,15 @@
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, const _T2&) [with _T1 = S; _T2 = S]':
+/usr/include/c++/4.8/bits/stl_uninitialized.h:187:48:   required from 'static void std::__uninitialized_fill_n<_TrivialValueType>::__uninit_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = S*; _Size = long unsigned int; _Tp = S; bool _TrivialValueType = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:224:35:   required from 'void std::uninitialized_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = S*; _Size = long unsigned int; _Tp = S]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:334:50:   required from 'void std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, std::allocator<_Tp2>&) [with _ForwardIterator = S*; _Size = long unsigned int; _Tp = S; _Tp2 = S]'
+/usr/include/c++/4.8/bits/stl_vector.h:1215:32:   required from 'void std::vector<_Tp, _Alloc>::_M_fill_initialize(std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = S; _Alloc = std::allocator<S>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = S]'
+/usr/include/c++/4.8/bits/stl_vector.h:298:40:   required from 'std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = S; _Alloc = std::allocator<S>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = S; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<S>]'
+main.cpp:16:21:   required from here
+main.cpp:9:2: error: 'S::S(const S&)' is private
+  S( const S& ) { std::cout << "copy" << std::endl; }
+  ^
+In file included from /usr/include/c++/4.8/vector:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_construct.h:83:7: error: within this context
+       ::new(static_cast<void*>(__p)) _T1(__value);
+       ^
