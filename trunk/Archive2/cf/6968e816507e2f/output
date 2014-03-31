@@ -1,0 +1,14 @@
+main.cpp:25:41: error: no viable conversion from 'partial_functor_t<int (*)(int, int, int, int, int), int>' to 'int (*)(int, int, int, int, int)'
+        return partial(partial_functor_t<F, T>{f, std::forward<T>(t)}, std::forward<Args>(args) ...);
+                                               ^
+main.cpp:25:9: note: in instantiation of function template specialization 'partial<partial_functor_t<int (*)(int, int, int, int, int), int>, int>' requested here
+        return partial(partial_functor_t<F, T>{f, std::forward<T>(t)}, std::forward<Args>(args) ...);
+               ^
+main.cpp:35:12: note: in instantiation of function template specialization 'partial<int (*)(int, int, int, int, int), int, int>' requested here
+        auto f1 = partial(sum, 1, 2);
+                  ^
+main.cpp:25:41: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        return partial(partial_functor_t<F, T>{f, std::forward<T>(t)}, std::forward<Args>(args) ...);
+                                               ^~~~~~~~~~~~~~~~~~~~~
+                                               {                    }
+1 warning and 1 error generated.
