@@ -31,6 +31,8 @@ echo "${id}" | sed 's,/,,'
 
     # perform svn add BEFORE running the script
     # because we can get killed during run
+    # actual svn commit will be performed by a 
+    # maintenance script 
     svn add --force ${path}
 
     # use output of compile cache if available
@@ -43,8 +45,6 @@ echo "${id}" | sed 's,/,,'
 
     # run program, writing to output file in the archive
     ./build_and_run.sh >${path}/output 2>&1
-
-    svn ci ${path} -m "Adding $(basename $path)."
 
 } >/dev/null 2>&1
 
