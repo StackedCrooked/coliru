@@ -1,0 +1,20 @@
+main.cpp: In function 'int main()':
+main.cpp:4:155: warning: operation on 'buff' may be undefined [-Wsequence-point]
+ #define to32(buffer) ((unsigned int)(*buffer++) | ((unsigned int)(*buffer++) << 8) | ((unsigned int)(*buffer++) << 16) | ((unsigned int)(*buffer++) << 24))
+                                                                                                                                                           ^
+main.cpp:10:28: note: in expansion of macro 'to32'
+     unsigned int  result = to32(buff);
+                            ^
+main.cpp:4:155: warning: operation on 'buff' may be undefined [-Wsequence-point]
+ #define to32(buffer) ((unsigned int)(*buffer++) | ((unsigned int)(*buffer++) << 8) | ((unsigned int)(*buffer++) << 16) | ((unsigned int)(*buffer++) << 24))
+                                                                                                                                                           ^
+main.cpp:10:28: note: in expansion of macro 'to32'
+     unsigned int  result = to32(buff);
+                            ^
+main.cpp:4:155: warning: operation on 'buff' may be undefined [-Wsequence-point]
+ #define to32(buffer) ((unsigned int)(*buffer++) | ((unsigned int)(*buffer++) << 8) | ((unsigned int)(*buffer++) << 16) | ((unsigned int)(*buffer++) << 24))
+                                                                                                                                                           ^
+main.cpp:10:28: note: in expansion of macro 'to32'
+     unsigned int  result = to32(buff);
+                            ^
+result = 0xddccbbaa, *buffer = 0xee.
