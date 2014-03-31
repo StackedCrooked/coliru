@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -Wno-unused-value -pedantic main.cpp -lpthread -lboost_thread -lboost_system -lboost_chrono && ./a.out
