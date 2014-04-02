@@ -1,0 +1,23 @@
+main.cpp:23:19: error: template template argument has different template parameters than its corresponding template template parameter
+using neg = neg_f<F>::map<SEHE...>;
+                  ^
+main.cpp:22:33: note: template type parameter pack does not match template type parameter in template argument
+template <template <typename... SEHE> class F>
+                                ^
+main.cpp:9:20: note: previous template type parameter declared here
+template<template <typename> class F>
+                   ^
+main.cpp:23:26: error: expected ';' after alias declaration
+using neg = neg_f<F>::map<SEHE...>;
+                         ^
+                         ;
+main.cpp:26:9: error: use of undeclared identifier 'neg'
+    fun<neg<pred>>;
+        ^
+main.cpp:26:13: error: cannot refer to class template 'pred' without a template argument list
+    fun<neg<pred>>;
+            ^
+main.cpp:17:1: note: template is declared here
+using pred = expr<true>::type;  // e.g., pred = expr <true>;
+^
+4 errors generated.
