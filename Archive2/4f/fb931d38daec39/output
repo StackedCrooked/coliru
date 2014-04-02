@@ -1,0 +1,17 @@
+main.cpp:22:16: error: expected ';' after expression
+        a.foo<s, V>();
+               ^
+               ;
+main.cpp:22:19: error: expected unqualified-id
+        a.foo<s, V>();
+                  ^
+main.cpp:22:11: error: reference to non-static member function must be called
+        a.foo<s, V>();
+        ~~^~~
+main.cpp:29:7: note: in instantiation of function template specialization 'B<double>::foo<5, long>' requested here
+    b.foo<5, long>();
+      ^
+main.cpp:11:10: note: possible target for call
+    void foo(int i = s, V v = V()) {}
+         ^
+3 errors generated.
