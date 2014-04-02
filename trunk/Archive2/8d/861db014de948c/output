@@ -1,0 +1,17 @@
++ g++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:13:1: error: static assertion failed: Jabberwocky is killing user.
+ static_assert(is_trivial<A>::value, "Jabberwocky is killing user.");
+ ^
+main.cpp:14:1: error: static assertion failed: Jabberwocky is killing user.
+ static_assert(is_trivial<B>::value, "Jabberwocky is killing user.");
+ ^
+main.cpp: In function 'void rawcopy(const T&, T&)':
+main.cpp:20:17: error: 'is_trivially_copyable' was not declared in this scope
+   static_assert(is_trivially_copyable<T>::value, "Jabberwocky is killing user.");
+                 ^
+main.cpp:20:40: error: expected primary-expression before '>' token
+   static_assert(is_trivially_copyable<T>::value, "Jabberwocky is killing user.");
+                                        ^
+main.cpp:20:41: error: '::value' has not been declared
+   static_assert(is_trivially_copyable<T>::value, "Jabberwocky is killing user.");
+                                         ^
