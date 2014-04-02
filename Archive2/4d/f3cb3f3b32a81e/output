@@ -1,0 +1,16 @@
+main.cpp:23:23: error: use of class template 'neg_f<F>::map' requires template arguments
+using neg = neg_f<F>::map;
+                      ^
+main.cpp:13:5: note: template is declared here
+    using map = _not<F<T>{}>;
+    ^
+main.cpp:26:9: error: use of undeclared identifier 'neg'
+    fun<neg<pred>>;
+        ^
+main.cpp:26:13: error: cannot refer to class template 'pred' without a template argument list
+    fun<neg<pred>>;
+            ^
+main.cpp:17:1: note: template is declared here
+using pred = expr<true>::type;  // e.g., pred = expr <true>;
+^
+3 errors generated.
