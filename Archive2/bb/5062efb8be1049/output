@@ -1,0 +1,10 @@
+main.cpp:2:8: error: explicit specialization of non-template struct 'OuterInner'
+struct OuterInner<T, U> {};
+       ^         ~~~~~~
+main.cpp:11:8: warning: class template partial specialization contains a template parameter that can not be deduced; this partial specialization will never be used
+struct OuterInner<T, int> {};
+       ^~~~~~~~~~~~~~~~~~
+main.cpp:10:31: note: non-deducible template parameter 'U'
+template<typename T, typename U>
+                              ^
+1 warning and 1 error generated.
