@@ -1,0 +1,1 @@
+g++ -std=c++11 -O0 -pedantic -Wno-undefined-internal -pthread main.cpp && ./a.out
