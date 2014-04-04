@@ -1,0 +1,1 @@
+g++-4.8 -msse4 -lrt -O2 -Wall -pedantic -pthread main.cpp && ./a.out
