@@ -1,0 +1,1 @@
+|| g++ -std=c++0x -Wall -pedantic -g -O0 -isystem /mnt/LARGE/MODULAR_BOOST/modular-boost/boost/ test.cpp -o test -L ~/custom/boost/stage/lib/ -Wl,-rpath,/home/sehe/custom/boost/stage/lib -lboost_system -lboost_regex -lboost_thread -lpthread -lboost_iostreams -lboost_serialization -lrt -lboost_locale -lboost_filesystem
