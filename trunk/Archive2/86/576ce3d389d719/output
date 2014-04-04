@@ -1,0 +1,17 @@
+main.cpp:15:18: error: expected ']'
+    Foo f3 { [vec{std::move(vec)}] () {} }; // failed to compile
+                 ^
+main.cpp:15:14: note: to match this '['
+    Foo f3 { [vec{std::move(vec)}] () {} }; // failed to compile
+             ^
+main.cpp:15:36: warning: use of GNU 'missing =' extension in designator [-Wgnu-designator]
+    Foo f3 { [vec{std::move(vec)}] () {} }; // failed to compile
+                                   ^
+                                   = 
+main.cpp:15:37: error: expected expression
+    Foo f3 { [vec{std::move(vec)}] () {} }; // failed to compile
+                                    ^
+main.cpp:15:15: error: integral constant expression must have integral or unscoped enumeration type, not 'std::vector<int>'
+    Foo f3 { [vec{std::move(vec)}] () {} }; // failed to compile
+              ^~~
+1 warning and 3 errors generated.
