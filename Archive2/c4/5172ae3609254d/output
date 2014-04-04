@@ -1,0 +1,21 @@
+main.cpp: In function 'main':
+main.cpp:22:0: warning: ignoring #pragma STDC FENV_ACCESS [-Wunknown-pragmas]
+         #pragma STDC FENV_ACCESS ON
+ ^
+FLT_RADIX = 2
+
+scalbn(1.0,+1023)   = 8.98847e+307
+scalbn(1.0,-1074)   = 4.94066e-324
+scalbn(5.0,0)       = +5.0
+scalbn(+0.0,1)      = +0.0
+scalbn(-0.0,1)      = -0.0
+scalbn(+INFINITY,1) = +inf
+scalbn(-INFINITY,1) = -inf
+
+scalbn(1.0,1024)       = inf
+errno                  = 0
+FE_INEXACT,FE_OVERFLOW = 0x28
+
+scalbn(1.0,-1075)       = 0
+errno                   = 0
+FE_INEXACT,FE_UNDERFLOW = 0x30
