@@ -1,0 +1,16 @@
+main.cpp: In function 'int main()':
+main.cpp:28:7: error: cannot declare variable 'b_instance' to be of abstract type 'B'
+     B b_instance;
+       ^
+main.cpp:16:7: note:   because the following virtual functions are pure within 'B':
+ class B : public A
+       ^
+main.cpp:13:18: note: 	virtual void A::foo(X)
+     virtual void foo(X x) = 0; 
+                  ^
+main.cpp:18:10: error: 'void B::foo(Y)' is private
+     void foo(Y y) 
+          ^
+main.cpp:30:32: error: within this context
+     b_instance.foo( y_instance );
+                                ^
