@@ -13,11 +13,6 @@ get '/' do
 end
 
 
-get %r{\/tag=\w+} do
-    File.read('index.html')
-end
-
-
 get '/mobile' do |_|
     File.read('mobile.html')
 end
@@ -95,11 +90,13 @@ post '/compile' do
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
                 safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
 
-                # erase random key from hash if size > 5000
-                if $cache.size >= 5000
+                # erase random key from hash if size > 1000
+                if $cache.size >= 1000
                     $cache.delete $cache.keys.sample
                 end
-                $cache[request_text.hash] = result
+                if result.size < 1000
+                    $cache[request_text.hash] = result
+                end
             end
         end
         stream do |out|
