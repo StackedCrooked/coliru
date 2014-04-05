@@ -1,0 +1,15 @@
+main.cpp:23:2: error: expected ';' after struct
+}
+ ^
+ ;
+main.cpp:28:11: error: no matching conversion for functional-style cast from 'const char [16]' to 'Address' (aka 'Property<tag::address>')
+    c.set(Address("Sample Blvd. 42"));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:3:28: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const char [16]' to 'const Property<tag::address>' for 1st argument
+template <typename> struct Property { std::string value; };
+                           ^
+main.cpp:3:28: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'const char [16]' to 'Property<tag::address>' for 1st argument
+template <typename> struct Property { std::string value; };
+                           ^
+main.cpp:3:28: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+2 errors generated.
