@@ -1,0 +1,1 @@
+namespace a{void f(int);} namespace b{void f(const int);} using a::f;using b::f;
