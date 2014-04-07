@@ -1,0 +1,17 @@
+clang: warning: -lpthread: 'linker' input unused
+clang: warning: -lboost_thread: 'linker' input unused
+clang: warning: -lboost_system: 'linker' input unused
+clang: warning: -lrt: 'linker' input unused
+main.cpp:116:23: error: no matching member function for call to 'modify_key'
+                                if(m_pGlobalHash->modify_key(itToModify , f)==false)
+                                   ~~~~~~~~~~~~~~~^~~~~~~~~~
+main.cpp:180:18: note: in instantiation of function template specialization 'CrMultiParameterMultiIndex::ModifyKeyBy<IMEI_tag, IMEI_tag, unsigned int, unsigned int>' requested here
+        if(m_multiParam.ModifyKeyBy<IMEI_tag,IMEI_tag>( nFromImei,nToImei))
+                        ^
+/usr/local/include/boost/multi_index/ordered_index.hpp:455:8: note: candidate function [with Modifier = boost::function<void (unsigned int &)>] not viable: no known conversion from 'bidir_node_iterator<ordered_index_node<struct boost::multi_index::detail::index_node_base<struct UsersKey, class std::allocator<struct UsersKey> >>>' to 'bidir_node_iterator<ordered_index_node<struct boost::multi_index::detail::ordered_index_node<struct boost::multi_index::detail::index_node_base<struct UsersKey, class std::allocator<struct UsersKey> > >>>' for 1st argument
+  bool modify_key(iterator position,Modifier mod)
+       ^
+/usr/local/include/boost/multi_index/ordered_index.hpp:466:8: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+  bool modify_key(iterator position,Modifier mod,Rollback back)
+       ^
+1 error generated.
