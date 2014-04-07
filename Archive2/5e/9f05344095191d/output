@@ -1,0 +1,35 @@
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, const abc::MyClass&)':
+main.cpp:6:9: error: 'int abc::MyClass::i' is private
+     int i;
+         ^
+main.cpp:17:22: error: within this context
+     return out << mc.i;
+                      ^
+main.cpp: In function 'std::istream& operator>>(std::istream&, abc::MyClass&)':
+main.cpp:6:9: error: 'int abc::MyClass::i' is private
+     int i;
+         ^
+main.cpp:22:21: error: within this context
+     return in >> mc.i;
+                     ^
+main.cpp: In function 'int main()':
+main.cpp:28:15: error: ambiguous overload for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'abc::MyClass')
+     std::cout << mc << '\n';
+               ^
+main.cpp:28:15: note: candidates are:
+main.cpp:15:15: note: std::ostream& operator<<(std::ostream&, const abc::MyClass&)
+ std::ostream& operator<<(std::ostream& out, const abc::MyClass& mc)
+               ^
+main.cpp:8:26: note: std::ostream& abc::operator<<(std::ostream&, const abc::MyClass&)
+     friend std::ostream& operator<<(std::ostream& out, const MyClass& o);
+                          ^
+main.cpp:30:15: error: ambiguous overload for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'abc::MyClass')
+     std::cout << mc << '\n';
+               ^
+main.cpp:30:15: note: candidates are:
+main.cpp:15:15: note: std::ostream& operator<<(std::ostream&, const abc::MyClass&)
+ std::ostream& operator<<(std::ostream& out, const abc::MyClass& mc)
+               ^
+main.cpp:8:26: note: std::ostream& abc::operator<<(std::ostream&, const abc::MyClass&)
+     friend std::ostream& operator<<(std::ostream& out, const MyClass& o);
+                          ^
