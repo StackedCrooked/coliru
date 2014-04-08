@@ -1,0 +1,49 @@
+main.cpp:23:6: error: class member cannot be redeclared
+  A& operator=(const A& rhs)  //copy on write
+     ^
+main.cpp:15:6: note: previous declaration is here
+  A& operator=(const A& rhs)  //deep copy
+     ^
+main.cpp:39:3: error: unknown type name 'B'
+  B* b;
+  ^
+main.cpp:7:13: error: unknown type name 'B'
+    b = new B;
+            ^
+main.cpp:11:11: error: unknown type name 'B'
+  : b(new B(*rhs.b))
+          ^
+main.cpp:10:14: warning: unused parameter 'rhs' [-Wunused-parameter]
+  A(const A& rhs) //copy constructor
+             ^
+main.cpp:17:7: error: unknown type name 'B'
+      B* b1 = new B(*rhs.b);
+      ^
+main.cpp:17:19: error: unknown type name 'B'
+      B* b1 = new B(*rhs.b);
+                  ^
+main.cpp:15:25: warning: unused parameter 'rhs' [-Wunused-parameter]
+  A& operator=(const A& rhs)  //deep copy
+                        ^
+main.cpp:23:6: error: redefinition of 'operator='
+  A& operator=(const A& rhs)  //copy on write
+     ^
+main.cpp:15:6: note: previous definition is here
+  A& operator=(const A& rhs)  //deep copy
+     ^
+main.cpp:26:11: error: use of undeclared identifier 'NULL'
+      b = NULL;
+          ^
+main.cpp:33:7: error: use of undeclared identifier 'std'
+      std::swap(b, rhs.b);
+      ^
+main.cpp:31:18: warning: unused parameter 'rhs' [-Wunused-parameter]
+  A& operator=(A rhs) //copy and swap
+                 ^
+main.cpp:41:3: warning: no newline at end of file [-Wnewline-eof]
+};
+  ^
+main.cpp:39:6: warning: private field 'b' is not used [-Wunused-private-field]
+  B* b;
+     ^
+5 warnings and 9 errors generated.
