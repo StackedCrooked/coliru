@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:21:21: error: no match for 'operator==' (operand types are 'outer<double>::inner<int>' and 'outer<double>::inner<int>')
+     std::cout << (x == y) << '\n';  // Won't find the operator.
+                     ^
+main.cpp:21:21: note: candidate is:
+main.cpp:13:1: note: template<class T, class U> bool operator==(typename outer<T>::inner<U>, typename outer<T>::inner<U>)
+ operator == (typename outer<T>::template inner<U> lhs,
+ ^
+main.cpp:13:1: note:   template argument deduction/substitution failed:
+main.cpp:21:24: note:   couldn't deduce template parameter 'T'
+     std::cout << (x == y) << '\n';  // Won't find the operator.
+                        ^
