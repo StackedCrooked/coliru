@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -Wall -Werror -pedantic -pthread -Wsign-compare main.cpp && ./a.out
