@@ -1,0 +1,33 @@
+main.cpp: In function 'int main()':
+main.cpp:36:27: error: no matching function for call to 'wrap(main()::__lambda4&)'
+     auto wrap_cb = wrap(cb);
+                           ^
+main.cpp:36:27: note: candidates are:
+main.cpp:10:20: note: template<class R> std::function<R()> wrap(std::function<R()>)
+ std::function<R()> wrap(std::function<R()> f)
+                    ^
+main.cpp:10:20: note:   template argument deduction/substitution failed:
+main.cpp:36:27: note:   'main()::__lambda4' is not derived from 'std::function<R()>'
+     auto wrap_cb = wrap(cb);
+                           ^
+main.cpp:16:22: note: template<class R, class T0> std::function<R(T0)> wrap(std::function<R(T0)>)
+ std::function<R(T0)> wrap(std::function<R(T0)> f)
+                      ^
+main.cpp:16:22: note:   template argument deduction/substitution failed:
+main.cpp:36:27: note:   'main()::__lambda4' is not derived from 'std::function<R(T0)>'
+     auto wrap_cb = wrap(cb);
+                           ^
+main.cpp:22:26: note: template<class R, class T0, class T1> std::function<R(T0, T1)> wrap(std::function<R(T0, T1)>)
+ std::function<R(T0, T1)> wrap(std::function<R(T0, T1)> f)
+                          ^
+main.cpp:22:26: note:   template argument deduction/substitution failed:
+main.cpp:36:27: note:   'main()::__lambda4' is not derived from 'std::function<R(T0, T1)>'
+     auto wrap_cb = wrap(cb);
+                           ^
+main.cpp:28:30: note: template<class R, class T0, class T1, class T2> std::function<R(T0, T1, T2)> wrap(std::function<R(T0, T1, T2)>)
+ std::function<R(T0, T1, T2)> wrap(std::function<R(T0, T1, T2)> f)
+                              ^
+main.cpp:28:30: note:   template argument deduction/substitution failed:
+main.cpp:36:27: note:   'main()::__lambda4' is not derived from 'std::function<R(T0, T1, T2)>'
+     auto wrap_cb = wrap(cb);
+                           ^
