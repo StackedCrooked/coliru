@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'make_unique_helper(std::false_type, Args&& ...) [with T = Derived; Args = {}; std::false_type = std::integral_constant<bool, false>]::__lambda0':
+main.cpp:14:82:   required from 'struct make_unique_helper(std::false_type, Args&& ...) [with T = Derived; Args = {}; std::false_type = std::integral_constant<bool, false>]::__lambda0'
+main.cpp:14:107:   required from 'std::unique_ptr<T, void (*)(void*)> make_unique_helper(std::false_type, Args&& ...) [with T = Derived; Args = {}; std::false_type = std::integral_constant<bool, false>]'
+main.cpp:28:80:   required from 'std::unique_ptr<T, void (*)(void*)> make_unique(Args&& ...) [with T = Derived; Args = {}]'
+main.cpp:58:65:   required from here
+main.cpp:14:92: warning: deleting object of polymorphic class type 'Derived' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+   return std::unique_ptr<T, void(*)(void*)>(new T(std::forward<Args>(args)...), [](void*t){delete (T*)t;} );
+                                                                                            ^
+Derived::Fun
+Derived::~Derived
