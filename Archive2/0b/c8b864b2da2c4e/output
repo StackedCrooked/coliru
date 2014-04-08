@@ -1,0 +1,8 @@
+main.cpp: In instantiation of 'void CrMultiParameterMultiIndex<MultiIndexType>::RemoveBy(SearchingKey&) [with TagType = IMSI_tag; SearchingKey = long unsigned int; MultiIndexType = boost::multi_index::multi_index_container<UsersKey, UsersKey_indices>]':
+main.cpp:91:42:   required from here
+main.cpp:69:61: error: request for member 'get<IMSI_tag>' in '((CrMultiParameterMultiIndex<boost::multi_index::multi_index_container<UsersKey, UsersKey_indices> >*)this)->CrMultiParameterMultiIndex<boost::multi_index::multi_index_container<UsersKey, UsersKey_indices> >::m_pGlobalHash', which is of pointer type 'GlobalHash* {aka boost::multi_index::multi_index_container<UsersKey, UsersKey_indices>*}' (maybe you meant to use '->' ?)
+   IndexType & l_Index = m_pGlobalHash.template get<TagType>();
+                                                             ^
+main.cpp:73:10: error: request for member 'get<IMSI_tag>' in '((CrMultiParameterMultiIndex<boost::multi_index::multi_index_container<UsersKey, UsersKey_indices> >*)this)->CrMultiParameterMultiIndex<boost::multi_index::multi_index_container<UsersKey, UsersKey_indices> >::m_pGlobalHash', which is of pointer type 'GlobalHash* {aka boost::multi_index::multi_index_container<UsersKey, UsersKey_indices>*}' (maybe you meant to use '->' ?)
+   if( it != m_pGlobalHash.template get<TagType>().end() )
+          ^
