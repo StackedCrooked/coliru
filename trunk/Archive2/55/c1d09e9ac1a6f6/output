@@ -1,0 +1,26 @@
+main.cpp: In instantiation of 'hook_function<TFunc>::hook_function(T&&) [with T = main()::__lambda0; TFunc = void(int, int)]':
+main.cpp:65:2:   required from here
+main.cpp:10:11: warning: 'hook_function<void(int, int)>::original' will be initialized after [-Wreorder]
+  FuncType original;
+           ^
+main.cpp:23:33: warning:   base 'std::function<void(int, int)>' [-Wreorder]
+   , FuncType(std::forward<T>(fn))
+                                 ^
+main.cpp:21:2: warning:   when initialized here [-Wreorder]
+  hook_function(T&& fn) 
+  ^
+main.cpp: In instantiation of 'hook_function<TFunc>::hook_function(T&&) [with T = main()::__lambda1; TFunc = void(const std::basic_string<char>&)]':
+main.cpp:72:3:   required from here
+main.cpp:10:11: warning: 'hook_function<void(const std::basic_string<char>&)>::original' will be initialized after [-Wreorder]
+  FuncType original;
+           ^
+main.cpp:23:33: warning:   base 'std::function<void(const std::basic_string<char>&)>' [-Wreorder]
+   , FuncType(std::forward<T>(fn))
+                                 ^
+main.cpp:21:2: warning:   when initialized here [-Wreorder]
+  hook_function(T&& fn) 
+  ^
+Called.
+100 200
+Called.
+theCallback: Callback constructor.
