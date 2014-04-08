@@ -1,0 +1,37 @@
+main.cpp:18:6: error: class member cannot be redeclared
+  A& operator=(const A& rhs)  //second
+     ^
+main.cpp:10:6: note: previous declaration is here
+  A& operator=(const A& rhs)  //first
+     ^
+main.cpp:28:3: error: unknown type name 'B'
+  B* b;
+  ^
+main.cpp:7:13: error: unknown type name 'B'
+    b = new B;
+            ^
+main.cpp:12:7: error: unknown type name 'B'
+      B* b1 = new B(*rhs.b);
+      ^
+main.cpp:12:19: error: unknown type name 'B'
+      B* b1 = new B(*rhs.b);
+                  ^
+main.cpp:10:25: warning: unused parameter 'rhs' [-Wunused-parameter]
+  A& operator=(const A& rhs)  //first
+                        ^
+main.cpp:18:6: error: redefinition of 'operator='
+  A& operator=(const A& rhs)  //second
+     ^
+main.cpp:10:6: note: previous definition is here
+  A& operator=(const A& rhs)  //first
+     ^
+main.cpp:21:11: error: use of undeclared identifier 'NULL'
+      b = NULL;
+          ^
+main.cpp:30:3: warning: no newline at end of file [-Wnewline-eof]
+};
+  ^
+main.cpp:28:6: warning: private field 'b' is not used [-Wunused-private-field]
+  B* b;
+     ^
+3 warnings and 7 errors generated.
