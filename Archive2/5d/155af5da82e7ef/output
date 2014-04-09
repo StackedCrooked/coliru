@@ -1,0 +1,30 @@
+main.cpp:129:51: error: 'N' was not declared in this scope
+ device_id_t lexical_cast<device_id_t>(char (&str)[N])
+                                                   ^
+main.cpp:129:13: error: template-id 'lexical_cast<device_id_t>' for 'device_id_t lexical_cast(...)' does not match any template declaration
+ device_id_t lexical_cast<device_id_t>(char (&str)[N])
+             ^
+main.cpp:136:13: error: template-id 'lexical_cast<device_id_t>' for 'device_id_t lexical_cast(const char*)' does not match any template declaration
+ device_id_t lexical_cast<device_id_t>(const char* str)
+             ^
+In file included from /usr/local/include/boost/type_traits/detail/has_binary_operator.hpp:14:0,
+                 from /usr/local/include/boost/type_traits/has_left_shift.hpp:43,
+                 from /usr/local/include/boost/lexical_cast.hpp:165,
+                 from main.cpp:2:
+/usr/local/include/boost/type_traits/is_convertible.hpp: In instantiation of 'const bool boost::detail::is_convertible_basic_impl<device_id_t, boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> > >::value':
+/usr/local/include/boost/type_traits/is_convertible.hpp:354:5:   required from 'const bool boost::detail::is_convertible_impl<device_id_t, boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> > >::value'
+/usr/local/include/boost/type_traits/is_convertible.hpp:480:1:   required from 'struct boost::is_convertible<device_id_t, boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> > >'
+/usr/local/include/boost/multiprecision/detail/number_compare.hpp:81:8:   required from 'struct boost::multiprecision::detail::is_valid_mixed_compare<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> >, device_id_t>'
+/usr/local/include/boost/multiprecision/detail/number_compare.hpp:104:4:   required by substitution of 'template<class Backend, boost::multiprecision::expression_template_option ExpressionTemplates, class Arithmetic> typename boost::enable_if_c<boost::multiprecision::detail::is_valid_mixed_compare<boost::multiprecision::number<Backend, ExpressionTemplates>, Val>::value, bool>::type boost::multiprecision::operator==(const boost::multiprecision::number<Backend, ExpressionTemplates>&, const Arithmetic&) [with Backend = boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void>; boost::multiprecision::expression_template_option ExpressionTemplates = (boost::multiprecision::expression_template_option)0u; Arithmetic = device_id_t]'
+main.cpp:170:5:   required from here
+/usr/local/include/boost/type_traits/is_convertible.hpp:146:64: error: 'boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> >' is an inaccessible base of 'device_id_t'
+         sizeof( boost::detail::checker<To>::_m_check(_m_from, 0) )
+                                                                ^
+/usr/local/include/boost/type_traits/is_convertible.hpp:131:41: error:   initializing argument 1 of 'static boost::type_traits::yes_type boost::detail::checker<T>::_m_check(T, int) [with T = boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<128u, 128u, (boost::multiprecision::cpp_integer_type)0u, (boost::multiprecision::cpp_int_check_type)0u, void> >; boost::type_traits::yes_type = char]'
+     static boost::type_traits::yes_type _m_check(T, int);
+                                         ^
+main.cpp: In instantiation of 'T1 lexical_cast(const T2&) [with T1 = device_id_t; T2 = char [33]]':
+main.cpp:170:5:   required from here
+main.cpp:120:4: warning: unused parameter 'x' [-Wunused-parameter]
+ T1 lexical_cast(const T2& x)
+    ^
