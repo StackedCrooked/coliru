@@ -1,0 +1,278 @@
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+    PRINT((a)(b)(c));
+    ^
+main.cpp:9:71: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                                                      ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:78: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:73: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                        ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:32:97: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_P'
+# define BOOST_PP_SEQ_FOR_EACH_P(r, x) BOOST_PP_DEC(BOOST_PP_SEQ_SIZE(BOOST_PP_TUPLE_ELEM(3, 2, x)))
+                                                                                                ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:47:156: note: expanded from macro 'BOOST_PP_TUPLE_ELEM'
+#        define BOOST_PP_TUPLE_ELEM(size, n, tuple) BOOST_PP_TUPLE_ELEM_I(BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_, n) BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_E_, size) tuple)
+                                                                                                                                                           ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:92: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                           ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:68: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                   ^
+note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+<scratch space>:20:1: note: expanded from here
+BOOST_PP_TUPLE_ELEM_E_3
+^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:52:56: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_E_3'
+#    define BOOST_PP_TUPLE_ELEM_E_3(e0, e1, e2) (e0, e1, e2, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                                       ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:48:42: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_I'
+#        define BOOST_PP_TUPLE_ELEM_I(x) x
+                                         ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:78: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:78: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:279:86: note: expanded from macro 'BOOST_PP_FOR_1_C'
+# define BOOST_PP_FOR_1_C(c, s, p, o, m) BOOST_PP_IIF(c, m, BOOST_PP_TUPLE_EAT_2)(2, s) BOOST_PP_IIF(c, BOOST_PP_FOR_2, BOOST_PP_TUPLE_EAT_4)(BOOST_PP_EXPR_IIF(c, o)(2, s), p, o, m)
+                                                                                     ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:94: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                                                                             ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:142: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:87: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                      ^
+note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:73: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                                                        ^
+/usr/local/include/boost/preprocessor/tuple/rem.hpp:44:49: note: expanded from macro 'BOOST_PP_TUPLE_REM_3'
+# define BOOST_PP_TUPLE_REM_3(e0, e1, e2) e0, e1, e2
+                                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:44:76: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_IM'
+#    define BOOST_PP_SEQ_FOR_EACH_M_IM(r, im) BOOST_PP_SEQ_FOR_EACH_M_I(r, im)
+                                                                           ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:142: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:87: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                      ^
+note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:43: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                          ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:44:47: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_IM'
+#    define BOOST_PP_SEQ_FOR_EACH_M_IM(r, im) BOOST_PP_SEQ_FOR_EACH_M_I(r, im)
+                                              ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:49:70: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_I'
+# define BOOST_PP_SEQ_FOR_EACH_M_I(r, macro, data, seq) macro(r, data, BOOST_PP_SEQ_HEAD(seq))
+                                                                     ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:78: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:78: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:279:170: note: expanded from macro 'BOOST_PP_FOR_1_C'
+# define BOOST_PP_FOR_1_C(c, s, p, o, m) BOOST_PP_IIF(c, m, BOOST_PP_TUPLE_EAT_2)(2, s) BOOST_PP_IIF(c, BOOST_PP_FOR_2, BOOST_PP_TUPLE_EAT_4)(BOOST_PP_EXPR_IIF(c, o)(2, s), p, o, m)
+                                                                                                                                                                         ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:35:69: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_O'
+#    define BOOST_PP_SEQ_FOR_EACH_O(r, x) BOOST_PP_SEQ_FOR_EACH_O_I x
+                                                                    ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:117: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                    ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:84: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                   ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:23:73: note: expanded from macro 'BOOST_PP_FOR_2'
+# define BOOST_PP_FOR_2(s, p, o, m) BOOST_PP_FOR_2_C(BOOST_PP_BOOL(p(3, s)), s, p, o, m)
+                                                                        ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:32:97: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_P'
+# define BOOST_PP_SEQ_FOR_EACH_P(r, x) BOOST_PP_DEC(BOOST_PP_SEQ_SIZE(BOOST_PP_TUPLE_ELEM(3, 2, x)))
+                                                                                                ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:47:156: note: expanded from macro 'BOOST_PP_TUPLE_ELEM'
+#        define BOOST_PP_TUPLE_ELEM(size, n, tuple) BOOST_PP_TUPLE_ELEM_I(BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_, n) BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_E_, size) tuple)
+                                                                                                                                                           ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:92: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                           ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:81: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+<scratch space>:20:1: note: expanded from here
+BOOST_PP_TUPLE_ELEM_E_3
+^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:52:56: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_E_3'
+#    define BOOST_PP_TUPLE_ELEM_E_3(e0, e1, e2) (e0, e1, e2, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                                       ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:48:42: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_I'
+#        define BOOST_PP_TUPLE_ELEM_I(x) x
+                                         ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:117: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                    ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:84: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                   ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:23:78: note: expanded from macro 'BOOST_PP_FOR_2'
+# define BOOST_PP_FOR_2(s, p, o, m) BOOST_PP_FOR_2_C(BOOST_PP_BOOL(p(3, s)), s, p, o, m)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:280:86: note: expanded from macro 'BOOST_PP_FOR_2_C'
+# define BOOST_PP_FOR_2_C(c, s, p, o, m) BOOST_PP_IIF(c, m, BOOST_PP_TUPLE_EAT_2)(3, s) BOOST_PP_IIF(c, BOOST_PP_FOR_3, BOOST_PP_TUPLE_EAT_4)(BOOST_PP_EXPR_IIF(c, o)(3, s), p, o, m)
+                                                                                     ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:94: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                                                                             ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:142: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:87: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                      ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:73: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                                                        ^
+/usr/local/include/boost/preprocessor/tuple/rem.hpp:44:49: note: expanded from macro 'BOOST_PP_TUPLE_REM_3'
+# define BOOST_PP_TUPLE_REM_3(e0, e1, e2) e0, e1, e2
+                                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:44:76: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_IM'
+#    define BOOST_PP_SEQ_FOR_EACH_M_IM(r, im) BOOST_PP_SEQ_FOR_EACH_M_I(r, im)
+                                                                           ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:142: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:87: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                      ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:43:43: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M'
+#    define BOOST_PP_SEQ_FOR_EACH_M(r, x) BOOST_PP_SEQ_FOR_EACH_M_IM(r, BOOST_PP_TUPLE_REM_3 x)
+                                          ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:44:47: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_IM'
+#    define BOOST_PP_SEQ_FOR_EACH_M_IM(r, im) BOOST_PP_SEQ_FOR_EACH_M_I(r, im)
+                                              ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:49:70: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_I'
+# define BOOST_PP_SEQ_FOR_EACH_M_I(r, macro, data, seq) macro(r, data, BOOST_PP_SEQ_HEAD(seq))
+                                                                     ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:117: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                    ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:84: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                   ^
+note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:23:78: note: expanded from macro 'BOOST_PP_FOR_2'
+# define BOOST_PP_FOR_2(s, p, o, m) BOOST_PP_FOR_2_C(BOOST_PP_BOOL(p(3, s)), s, p, o, m)
+                                                                             ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:280:170: note: expanded from macro 'BOOST_PP_FOR_2_C'
+# define BOOST_PP_FOR_2_C(c, s, p, o, m) BOOST_PP_IIF(c, m, BOOST_PP_TUPLE_EAT_2)(3, s) BOOST_PP_IIF(c, BOOST_PP_FOR_3, BOOST_PP_TUPLE_EAT_4)(BOOST_PP_EXPR_IIF(c, o)(3, s), p, o, m)
+                                                                                                                                                                         ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:35:69: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_O'
+#    define BOOST_PP_SEQ_FOR_EACH_O(r, x) BOOST_PP_SEQ_FOR_EACH_O_I x
+                                                                    ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:117: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                                                    ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:84: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                   ^
+note: (skipping 8 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:24:73: note: expanded from macro 'BOOST_PP_FOR_3'
+# define BOOST_PP_FOR_3(s, p, o, m) BOOST_PP_FOR_3_C(BOOST_PP_BOOL(p(4, s)), s, p, o, m)
+                                                                        ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:32:97: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_P'
+# define BOOST_PP_SEQ_FOR_EACH_P(r, x) BOOST_PP_DEC(BOOST_PP_SEQ_SIZE(BOOST_PP_TUPLE_ELEM(3, 2, x)))
+                                                                                                ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:47:156: note: expanded from macro 'BOOST_PP_TUPLE_ELEM'
+#        define BOOST_PP_TUPLE_ELEM(size, n, tuple) BOOST_PP_TUPLE_ELEM_I(BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_, n) BOOST_PP_CAT(BOOST_PP_TUPLE_ELEM_E_, size) tuple)
+                                                                                                                                                           ^
+main.cpp:13:5: error: empty macro arguments are a C99 feature [-Werror,-Wc99-extensions]
+main.cpp:9:33: note: expanded from macro 'PRINT'
+#define PRINT(seq) std::cout << BOOST_PP_SEQ_FOR_EACH(PRINT_ONE_COMMA,,REST(seq)) PRINT_ONE(LAST(seq)) << '\n';
+                                ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:92: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                                           ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:81: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                                ^
+note: (skipping 8 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+<scratch space>:20:1: note: expanded from here
+BOOST_PP_TUPLE_ELEM_E_3
+^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:52:56: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_E_3'
+#    define BOOST_PP_TUPLE_ELEM_E_3(e0, e1, e2) (e0, e1, e2, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                                       ^
+/usr/local/include/boost/preprocessor/tuple/elem.hpp:48:42: note: expanded from macro 'BOOST_PP_TUPLE_ELEM_I'
+#        define BOOST_PP_TUPLE_ELEM_I(x) x
+                                         ^
+main.cpp:14:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+}
+ ^
+16 errors generated.
