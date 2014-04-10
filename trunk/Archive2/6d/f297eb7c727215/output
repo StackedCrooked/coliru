@@ -1,0 +1,39 @@
+main.cpp:14:15: warning: 'constexpr' non-static member function will not be implicitly 'const' in C++1y; add 'const' to avoid a change in behavior [-Wconstexpr-not-const]
+    constexpr operator uintptr_t () { return reinterpret_cast<uintptr_t>(p); }
+              ^
+                                    const
+main.cpp:14:15: error: non-literal type 'MyEnum' cannot have constexpr members
+main.cpp:4:7: note: 'MyEnum' is not literal because it is not an aggregate and has no constexpr constructors other than copy or move constructors
+class MyEnum {
+      ^
+main.cpp:14:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+    constexpr operator uintptr_t () { return reinterpret_cast<uintptr_t>(p); }
+              ^
+main.cpp:14:46: note: reinterpret_cast is not allowed in a constant expression
+    constexpr operator uintptr_t () { return reinterpret_cast<uintptr_t>(p); }
+                                             ^
+main.cpp:27:14: error: case value is not a constant expression
+        case MyEnum::BETA:
+             ^~~~~~~~~~~~
+main.cpp:14:74: note: read of non-constexpr variable 'BETA' is not allowed in a constant expression
+    constexpr operator uintptr_t () { return reinterpret_cast<uintptr_t>(p); }
+                                                                         ^
+main.cpp:27:14: note: in call to '&BETA->operator unsigned long()'
+        case MyEnum::BETA:
+             ^
+main.cpp:18:16: note: declared here
+MyEnum MyEnum::BETA = MyEnum::B();
+               ^
+main.cpp:24:14: error: case value is not a constant expression
+        case MyEnum::ALFA:
+             ^~~~~~~~~~~~
+main.cpp:14:74: note: read of non-constexpr variable 'ALFA' is not allowed in a constant expression
+    constexpr operator uintptr_t () { return reinterpret_cast<uintptr_t>(p); }
+                                                                         ^
+main.cpp:24:14: note: in call to '&ALFA->operator unsigned long()'
+        case MyEnum::ALFA:
+             ^
+main.cpp:17:16: note: declared here
+MyEnum MyEnum::ALFA = MyEnum::A();
+               ^
+1 warning and 4 errors generated.
