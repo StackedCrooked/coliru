@@ -1,0 +1,53 @@
+main.cpp:7:21: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using base_ptr    = std::unique_ptr<Base>;
+                    ^
+main.cpp:7:26: error: no type named 'unique_ptr' in namespace 'std'
+using base_ptr    = std::unique_ptr<Base>;
+                    ~~~~~^
+main.cpp:7:36: error: expected ';' after alias declaration
+using base_ptr    = std::unique_ptr<Base>;
+                                   ^
+                                   ;
+main.cpp:8:21: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using derived_ptr = std::unique_ptr<Derived>;
+                    ^
+main.cpp:8:26: error: no type named 'unique_ptr' in namespace 'std'
+using derived_ptr = std::unique_ptr<Derived>;
+                    ~~~~~^
+main.cpp:8:36: error: expected ';' after alias declaration
+using derived_ptr = std::unique_ptr<Derived>;
+                                   ^
+                                   ;
+main.cpp:13:9: error: unknown type name 'derived_ptr'
+        derived_ptr d(new Derived);
+        ^
+main.cpp:14:9: error: unknown type name 'base_ptr'
+        base_ptr oops(std::move(d)); // best not, this is the problem case
+        ^
+main.cpp:14:28: error: no type named 'move' in namespace 'std'
+        base_ptr oops(std::move(d)); // best not, this is the problem case
+                      ~~~~~^
+main.cpp:14:22: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+        base_ptr oops(std::move(d)); // best not, this is the problem case
+                     ^~~~~~~~~~~~~~
+main.cpp:14:23: note: add a pair of parentheses to declare a variable
+        base_ptr oops(std::move(d)); // best not, this is the problem case
+                      ^
+                      (
+main.cpp:18:9: error: unknown type name 'derived_ptr'
+        derived_ptr d(new Derived);
+        ^
+main.cpp:19:9: error: unknown type name 'derived_ptr'
+        derived_ptr ok(std::move(d)); // this could be the case for your pimpls, many class members etc.
+        ^
+main.cpp:19:29: error: no type named 'move' in namespace 'std'
+        derived_ptr ok(std::move(d)); // this could be the case for your pimpls, many class members etc.
+                       ~~~~~^
+main.cpp:19:23: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+        derived_ptr ok(std::move(d)); // this could be the case for your pimpls, many class members etc.
+                      ^~~~~~~~~~~~~~
+main.cpp:19:24: note: add a pair of parentheses to declare a variable
+        derived_ptr ok(std::move(d)); // this could be the case for your pimpls, many class members etc.
+                       ^
+                       (
+4 warnings and 10 errors generated.
