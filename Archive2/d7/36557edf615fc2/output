@@ -1,0 +1,33 @@
+clang: warning: -lpthread: 'linker' input unused
+clang: warning: -lboost_thread: 'linker' input unused
+clang: warning: -lboost_system: 'linker' input unused
+clang: warning: -lrt: 'linker' input unused
+main.cpp:24:91: error: no member named 'UsersKey' in 'HashEntry'; did you mean simply 'UsersKey'?
+typedef bmi::hashed_unique<bmi::tag<struct IMSI_tag>,  bmi::member<HashEntry, uint64_t , &HashEntry::UsersKey::IMSI>,  boost::hash<uint64_t>, std::equal_to<uint64_t> > hashed_by_IMSI;
+                                                                                          ^~~~~~~~~~~~~~~~~~~
+                                                                                          UsersKey
+main.cpp:11:8: note: 'UsersKey' declared here
+struct UsersKey {
+       ^
+main.cpp:24:90: error: non-type template argument of type 'uint64_t UsersKey::*' cannot be converted to a value of type 'unsigned long HashEntry::*'
+typedef bmi::hashed_unique<bmi::tag<struct IMSI_tag>,  bmi::member<HashEntry, uint64_t , &HashEntry::UsersKey::IMSI>,  boost::hash<uint64_t>, std::equal_to<uint64_t> > hashed_by_IMSI;
+                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/multi_index/member.hpp:131:49: note: template parameter is declared here
+template<class Class,typename Type,Type Class::*PtrToMember>
+                                                ^
+main.cpp:24:141: error: expected unqualified-id
+typedef bmi::hashed_unique<bmi::tag<struct IMSI_tag>,  bmi::member<HashEntry, uint64_t , &HashEntry::UsersKey::IMSI>,  boost::hash<uint64_t>, std::equal_to<uint64_t> > hashed_by_IMSI;
+                                                                                                                                            ^
+main.cpp:28:21: error: use of undeclared identifier 'hashed_by_IMSI'
+  bmi::indexed_by<  hashed_by_IMSI > UsersKey_hash_indices;
+                    ^
+main.cpp:35:5: error: expected unqualified-id
+    > GlobalHash;
+    ^
+main.cpp:37:5: error: unknown type name 'GlobalHash'
+    GlobalHash* hash = new GlobalHash(); // not important
+    ^
+main.cpp:37:28: error: unknown type name 'GlobalHash'
+    GlobalHash* hash = new GlobalHash(); // not important
+                           ^
+7 errors generated.
