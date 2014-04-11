@@ -1,0 +1,14 @@
+main.cpp:1:27: error: 'std::size_t' has not been declared
+ template<typename T, std::size_t N> void foo(T(&x)[N]);
+                           ^
+main.cpp: In function 'int main()':
+main.cpp:7:10: error: call of overloaded 'foo(int [2])' is ambiguous
+     foo(x);
+          ^
+main.cpp:7:10: note: candidates are:
+main.cpp:1:42: note: void foo(T (&)[N]) [with T = int; int N = 2]
+ template<typename T, std::size_t N> void foo(T(&x)[N]);
+                                          ^
+main.cpp:2:42: note: void foo(T*) [with T = int]
+ template<typename T>                void foo(T *x); 
+                                          ^
