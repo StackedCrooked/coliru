@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:9:10: error: call of overloaded 'foo(int [2])' is ambiguous
+     foo(x);
+          ^
+main.cpp:9:10: note: candidates are:
+main.cpp:3:42: note: void foo(T (&)[N]) [with T = int; long unsigned int N = 2ul]
+ template<typename T, std::size_t N> void foo(T(&x)[N]);
+                                          ^
+main.cpp:4:42: note: void foo(T*) [with T = int]
+ template<typename T>                void foo(T *x); 
+                                          ^
