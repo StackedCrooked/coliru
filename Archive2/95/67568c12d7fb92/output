@@ -1,0 +1,26 @@
+main.cpp: In member function 'MyString& MyString::operator=(std::string)':
+main.cpp:20:10: warning: reference to local variable 'result' returned [-Wreturn-local-addr]
+ MyString result(s);
+          ^
+main.cpp: In member function 'MyString& MyString::operator=(char*)':
+main.cpp:25:10: warning: reference to local variable 'result' returned [-Wreturn-local-addr]
+ MyString result(val);
+          ^
+main.cpp: In member function 'std::string& MyString::operator()(int, int)':
+main.cpp:29:8: warning: reference to local variable 'result' returned [-Wreturn-local-addr]
+ string result = value.substr(i, j);
+        ^
+main.cpp: In function 'int main()':
+main.cpp:46:48: error: conversion from 'const char [4]' to non-scalar type 'MyString' requested
+ MyString SArray[4] = {"big","me","about","take"};
+                                                ^
+main.cpp:46:48: error: conversion from 'const char [3]' to non-scalar type 'MyString' requested
+main.cpp:46:48: error: conversion from 'const char [6]' to non-scalar type 'MyString' requested
+main.cpp:46:48: error: conversion from 'const char [5]' to non-scalar type 'MyString' requested
+main.cpp:54:20: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+     s2 = s1;    s1 = "ijkl-";
+                    ^
+main.cpp: In function 'int CompareString(const void*, const void*)':
+main.cpp:42:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
