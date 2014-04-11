@@ -1,0 +1,11 @@
+clang version 3.5 (trunk 198621)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++11 -fsanitize=undefined -Wall -Wextra -Wconversion -pedantic -O3 -Wall -pthread main.cpp
++ ./a.out
+==19207==WARNING: readlink("/proc/self/exe") failed with errno 2, some stack frames may not be symbolized
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_tree.h:697:25: runtime error: downcast of address 0x00000104da80 with insufficient space for an object of type '_Rb_tree_node<std::pair<const std::tuple<long long (*)(int), int>, long long> >'
+0x00000104da80: note: pointer points here
+ 00 00 00 00  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  80 da 04 01 00 00 00 00  80 da 04 01
+              ^ 
+fibonacci(50) = 12586269025
