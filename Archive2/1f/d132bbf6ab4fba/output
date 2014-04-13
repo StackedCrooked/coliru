@@ -1,0 +1,27 @@
+main.cpp:44:41: error: expected template-id before 'map'
+ using neg = typename neg_f<F>::template map;
+                                         ^
+main.cpp: In substitution of 'template<template<class> class F> using neg = typename neg_f::map [with F = pred]':
+main.cpp:58:13:   required from here
+main.cpp:44:44: error: 'typename neg_f<pred>::map' names 'template<class T> using map = _not<true>', which is not a type
+ using neg = typename neg_f<F>::template map;
+                                            ^
+main.cpp: In function 'int main()':
+main.cpp:58:16: error: invalid type in declaration before ';' token
+     neg<pred> t;
+                ^
+main.cpp:56:27: warning: unused variable 'tf' [-Wunused-variable]
+     neg_f<pred>::map<foo> tf;
+                           ^
+main.cpp:57:27: warning: unused variable 'ftf' [-Wunused-variable]
+     fun<neg_f<pred>::map> ftf;
+                           ^
+main.cpp:58:15: warning: unused variable 't' [-Wunused-variable]
+     neg<pred> t;
+               ^
+main.cpp:59:16: warning: unused variable 't1' [-Wunused-variable]
+     neg1<pred> t1;
+                ^
+main.cpp:60:15: warning: unused variable 't2' [-Wunused-variable]
+     neg2<foo> t2;
+               ^
