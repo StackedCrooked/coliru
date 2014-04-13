@@ -1,0 +1,42 @@
+In file included from main.cpp:5:
+In file included from /usr/local/include/boost/fusion/include/algorithm.hpp:10:
+In file included from /usr/local/include/boost/fusion/algorithm.hpp:10:
+In file included from /usr/local/include/boost/fusion/algorithm/iteration.hpp:12:
+In file included from /usr/local/include/boost/fusion/algorithm/iteration/for_each.hpp:11:
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:106:13: error: no matching function for call to object of type 'const serial_in'
+            f(*i0);
+            ^
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:125:74: note: in instantiation of function template specialization 'boost::fusion::detail::for_each_unrolled<1>::call<boost::fusion::basic_iterator<boost::fusion::struct_iterator_tag, boost::fusion::random_access_traversal_tag, points, 0>, serial_in>' requested here
+        for_each_unrolled<result_of::distance<begin, end>::type::value>::call(fusion::begin(seq), f);
+                                                                         ^
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:132:17: note: in instantiation of function template specialization 'boost::fusion::detail::for_each_dispatch<points, serial_in>' requested here
+        detail::for_each_dispatch(seq, f, typename traits::category_of<Sequence>::type());
+                ^
+/usr/local/include/boost/fusion/algorithm/iteration/for_each.hpp:37:17: note: in instantiation of function template specialization 'boost::fusion::detail::for_each<points, serial_in>' requested here
+        detail::for_each(seq, f, typename traits::is_segmented<Sequence>::type());
+                ^
+main.cpp:192:20: note: in instantiation of function template specialization 'boost::fusion::for_each<points, serial_in>' requested here
+    boost::fusion::for_each( v, (serial_in(ia)) );
+                   ^
+main.cpp:246:2: note: in instantiation of function template specialization 'de_serialize<points>' requested here
+        de_serialize(ia, po);
+        ^
+main.cpp:143:10: note: candidate function not viable: 'this' argument has type 'const serial_in', but method is not marked const
+    void operator() (T & v , typename std::enable_if<!boost::fusion::traits::is_sequence<T>::value>::type* = 0 ) 
+         ^
+main.cpp:155:10: note: candidate function not viable: 'this' argument has type 'const serial_in', but method is not marked const
+    void operator() (boost::fusion::extension::adt_attribute_proxy<Class,N,Const>& v , typename std::enable_if<!boost::fusion::traits::is_sequence<typename boost::fusion::result_of::value_at_c<Class,N>::type>::value>::type* = 0 ) 
+         ^
+main.cpp:149:54: note: candidate template ignored: disabled by 'enable_if' [with T = boost::fusion::extension::adt_attribute_proxy<points, 0, false>]
+    void operator() (T & v , typename std::enable_if<boost::fusion::traits::is_sequence<T>::value>::type* = 0  ) 
+                                                     ^
+main.cpp:161:112: note: candidate template ignored: disabled by 'enable_if' [with Class = points, N = 0, Const = false]
+    void operator() (boost::fusion::extension::adt_attribute_proxy<Class,N,Const>& v , typename std::enable_if<boost::fusion::traits::is_sequence<typename boost::fusion::result_of::value_at_c<Class,N>::type>::value>::type* = 0 ) 
+                                                                                                               ^
+main.cpp:167:10: note: candidate template ignored: could not match 'vector' against 'adt_attribute_proxy'
+    void operator()( std::vector<type_t> & v ) 
+         ^
+main.cpp:183:10: note: candidate template ignored: could not match 'list' against 'adt_attribute_proxy'
+    void operator()( std::list<T> & v ) 
+         ^
+1 error generated.
