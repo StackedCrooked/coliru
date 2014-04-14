@@ -1,0 +1,18 @@
+main.cpp:27:14: warning: variable 'b' is uninitialized when used within its own initialization [-Wuninitialized]
+    B b  = B(b);
+      ~      ^
+1 warning generated.
+/tmp/main-e6fb01.o: In function `main':
+main.cpp:(.text+0x1b): undefined reference to `std::cout'
+main.cpp:(.text+0x23): undefined reference to `std::ostream::operator<<(int)'
+main.cpp:(.text+0x2b): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)'
+main.cpp:(.text+0x33): undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'
+/tmp/main-e6fb01.o: In function `__cxx_global_var_init':
+main.cpp:(.text.startup+0x11): undefined reference to `std::ios_base::Init::Init()'
+main.cpp:(.text.startup+0x19): undefined reference to `std::ios_base::Init::~Init()'
+/tmp/main-e6fb01.o: In function `B::B(B const&)':
+main.cpp:(.text._ZN1BC2ERKS_[_ZN1BC2ERKS_]+0xc): undefined reference to `std::cout'
+main.cpp:(.text._ZN1BC2ERKS_[_ZN1BC2ERKS_]+0x33): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+main.cpp:(.text._ZN1BC2ERKS_[_ZN1BC2ERKS_]+0x3b): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)'
+main.cpp:(.text._ZN1BC2ERKS_[_ZN1BC2ERKS_]+0x43): undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
