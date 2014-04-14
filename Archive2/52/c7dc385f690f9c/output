@@ -1,0 +1,78 @@
+In file included from /usr/include/c++/4.8/random:35:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp:20:16: error: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     int data = 10;
+                ^
+main.cpp: In function 'int main()':
+main.cpp:25:26: error: 'placeholders' is not a namespace-name
+     using namespace std::placeholders;  // for _1, _2, _3...
+                          ^
+main.cpp:25:38: error: expected namespace-name before ';' token
+     using namespace std::placeholders;  // for _1, _2, _3...
+                                      ^
+main.cpp:31:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto f1 = std::bind(f, _2, _1, 42, std::cref(n), n);
+     ^
+main.cpp:31:10: error: 'f1' does not name a type
+     auto f1 = std::bind(f, _2, _1, 42, std::cref(n), n);
+          ^
+main.cpp:33:18: error: 'f1' was not declared in this scope
+     f1(1, 2, 1001); // 1 is bound by _1, 2 is bound by _2, 1001 is unused
+                  ^
+main.cpp:36:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto f2 = std::bind(f, _3, std::bind(g, _3), _3, 4, 5);
+     ^
+main.cpp:36:10: error: 'f2' does not name a type
+     auto f2 = std::bind(f, _3, std::bind(g, _3), _3, 4, 5);
+          ^
+main.cpp:37:18: error: 'f2' was not declared in this scope
+     f2(10, 11, 12);
+                  ^
+main.cpp:40:5: error: 'default_random_engine' is not a member of 'std'
+     std::default_random_engine e;
+     ^
+main.cpp:40:32: error: expected ';' before 'e'
+     std::default_random_engine e;
+                                ^
+main.cpp:41:5: error: 'uniform_int_distribution' is not a member of 'std'
+     std::uniform_int_distribution<> d(0, 10);
+     ^
+main.cpp:41:35: error: expected primary-expression before '>' token
+     std::uniform_int_distribution<> d(0, 10);
+                                   ^
+main.cpp:41:44: error: 'd' was not declared in this scope
+     std::uniform_int_distribution<> d(0, 10);
+                                            ^
+main.cpp:42:5: error: 'function' is not a member of 'std'
+     std::function<int()> rnd = std::bind(d, e);
+     ^
+main.cpp:42:26: error: 'rnd' was not declared in this scope
+     std::function<int()> rnd = std::bind(d, e);
+                          ^
+main.cpp:42:32: error: 'bind' is not a member of 'std'
+     std::function<int()> rnd = std::bind(d, e);
+                                ^
+main.cpp:42:45: error: 'e' was not declared in this scope
+     std::function<int()> rnd = std::bind(d, e);
+                                             ^
+main.cpp:49:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto f3 = std::bind(&Foo::print_sum, &foo, 95, _1);
+     ^
+main.cpp:49:10: error: 'f3' does not name a type
+     auto f3 = std::bind(&Foo::print_sum, &foo, 95, _1);
+          ^
+main.cpp:50:9: error: 'f3' was not declared in this scope
+     f3(5);
+         ^
+main.cpp:53:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto f4 = std::bind(&Foo::data, _1);
+     ^
+main.cpp:53:10: error: 'f4' does not name a type
+     auto f4 = std::bind(&Foo::data, _1);
+          ^
+main.cpp:54:24: error: 'f4' was not declared in this scope
+     std::cout << f4(foo) << '\n';
+                        ^
