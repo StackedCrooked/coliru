@@ -1,0 +1,45 @@
+In file included from main.cpp:2:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:60:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:739:11: error: overload resolution selected deleted operator '='
+        *__first = __value;
+        ~~~~~~~~ ^ ~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algobase.h:786:23: note: in instantiation of function template specialization 'std::__fill_n_a<std::atomic<int> *, unsigned long, std::atomic<int> >' requested here
+      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
+                      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:515:9: note: in instantiation of function template specialization 'std::fill_n<std::atomic<int> *, unsigned long, std::atomic<int> >' requested here
+          std::fill_n(__first, __n, _ValueType());
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:544:2: note: in instantiation of function template specialization 'std::__uninitialized_default_n_1<true>::__uninit_default_n<std::atomic<int> *, unsigned long>' requested here
+        __uninit_default_n(__first, __n);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:605:12: note: in instantiation of function template specialization 'std::__uninitialized_default_n<std::atomic<int> *, unsigned long>' requested here
+    { std::__uninitialized_default_n(__first, __n); }
+           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:1224:7: note: in instantiation of function template specialization 'std::__uninitialized_default_n_a<std::atomic<int> *, unsigned long, std::atomic<int> >' requested here
+        std::__uninitialized_default_n_a(this->_M_impl._M_start, __n, 
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:271:9: note: in instantiation of member function 'std::vector<std::atomic<int>, std::allocator<std::atomic<int> > >::_M_default_initialize' requested here
+      { _M_default_initialize(__n); }
+        ^
+main.cpp:6:35: note: in instantiation of member function 'std::vector<std::atomic<int>, std::allocator<std::atomic<int> > >::vector' requested here
+    std::vector<std::atomic<int>> foo(40u);
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/atomic:602:15: note: candidate function has been explicitly deleted
+      atomic& operator=(const atomic&) = delete;
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/atomic_base.h:360:22: note: candidate function has been explicitly deleted
+      __atomic_base& operator=(const __atomic_base&) = delete;
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/atomic:603:15: note: candidate function has been explicitly deleted
+      atomic& operator=(const atomic&) volatile = delete;
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/atomic_base.h:361:22: note: candidate function has been explicitly deleted
+      __atomic_base& operator=(const __atomic_base&) volatile = delete;
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/atomic_base.h:373:7: note: candidate function
+      operator=(__int_type __i) noexcept
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/atomic_base.h:380:7: note: candidate function
+      operator=(__int_type __i) volatile noexcept
+      ^
+1 error generated.
