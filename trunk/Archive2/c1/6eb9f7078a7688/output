@@ -1,0 +1,18 @@
+main.cpp: In function 'void conduce_back(F&&, A&& ...)':
+main.cpp:7:9: error: 'size_v' was not declared in this scope
+       ++size_v;
+         ^
+main.cpp:10:7: error: 'T' was not declared in this scope
+       T & t ( * (new (&back()) T(std::forward<A>(a)...)));
+       ^
+main.cpp:10:29: error: there are no arguments to 'back' that depend on a template parameter, so a declaration of 'back' must be available [-fpermissive]
+       T & t ( * (new (&back()) T(std::forward<A>(a)...)));
+                             ^
+main.cpp:10:29: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:10:32: error: expected type-specifier before 'T'
+       T & t ( * (new (&back()) T(std::forward<A>(a)...)));
+                                ^
+main.cpp:10:32: error: expected ')' before 'T'
+main.cpp:15:9: error: 't' was not declared in this scope
+       f(t);
+         ^
