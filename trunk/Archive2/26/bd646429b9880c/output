@@ -1,0 +1,44 @@
+In file included from main.cpp:10:
+In file included from /usr/local/include/boost/archive/text_iarchive.hpp:24:
+In file included from /usr/local/include/boost/archive/basic_text_iarchive.hpp:31:
+In file included from /usr/local/include/boost/archive/detail/common_iarchive.hpp:23:
+In file included from /usr/local/include/boost/archive/detail/interface_iarchive.hpp:22:
+In file included from /usr/local/include/boost/archive/detail/iserializer.hpp:47:
+In file included from /usr/local/include/boost/serialization/extended_type_info_typeid.hpp:37:
+/usr/local/include/boost/serialization/access.hpp:118:11: error: no member named 'serialize' in 'StructB'
+        t.serialize(ar, file_version);
+        ~ ^
+/usr/local/include/boost/serialization/serialization.hpp:69:13: note: in instantiation of function template specialization 'boost::serialization::access::serialize<boost::archive::text_oarchive, StructB>' requested here
+    access::serialize(ar, t, static_cast<unsigned int>(file_version));
+            ^
+/usr/local/include/boost/serialization/serialization.hpp:128:9: note: in instantiation of function template specialization 'boost::serialization::serialize<boost::archive::text_oarchive, StructB>' requested here
+        serialize(ar, t, v);
+        ^
+/usr/local/include/boost/archive/detail/oserializer.hpp:148:27: note: in instantiation of function template specialization 'boost::serialization::serialize_adl<boost::archive::text_oarchive, StructB>' requested here
+    boost::serialization::serialize_adl(
+                          ^
+/usr/local/include/boost/serialization/singleton.hpp:106:7: note: in instantiation of member function 'boost::archive::detail::oserializer<boost::archive::text_oarchive, StructB>::save_object_data' requested here
+class singleton_wrapper : public T
+      ^
+/usr/local/include/boost/serialization/singleton.hpp:141:16: note: in instantiation of member function 'boost::serialization::singleton<boost::archive::detail::oserializer<boost::archive::text_oarchive, StructB> >::get_instance' requested here
+        return get_instance();
+               ^
+/usr/local/include/boost/archive/detail/oserializer.hpp:257:20: note: (skipping 9 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+                >::get_const_instance()
+                   ^
+main.cpp:40:38: note: in instantiation of function template specialization 'serialize_container<std::list<StructB, std::allocator<StructB> > >::save<StructB>' requested here
+                simple_serializer<current_type_t>::save(oa, boost::fusion::at<index_t>(sequence));
+                                                   ^
+main.cpp:41:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<2> >::save' requested here
+                sequence_iterator<sequence_t, next_index_t>::save(oa, sequence);
+                                                             ^
+main.cpp:41:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<1> >::save' requested here
+                sequence_iterator<sequence_t, next_index_t>::save(oa, sequence);
+                                                             ^
+main.cpp:127:40: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<0> >::save' requested here
+                sequence_iterator_final<sequence_t>::save(oa, sequence);
+                                                     ^
+main.cpp:295:30: note: in instantiation of member function 'serialize_sequence<StructA>::save' requested here
+        simple_serializer<StructA>::save(oa, sa_in);
+                                    ^
+1 error generated.
