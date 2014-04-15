@@ -1,0 +1,32 @@
+main.cpp:6:10: warning: unused variable 'x' [-Wunused-variable]
+    auto x{ ([&]{ args = 42; }(), 0)... };
+         ^
+main.cpp:12:5: note: in instantiation of function template specialization 'foo<volatile int &, volatile int &, volatile int &, volatile int &>' requested here
+    foo(i, j, k, l);
+    ^
+1 warning generated.
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	movl	$42, -4(%rsp)
+	movl	$42, -8(%rsp)
+	movl	$42, -12(%rsp)
+	movl	$42, -16(%rsp)
+	movl	$42, -4(%rsp)
+	movl	$42, -8(%rsp)
+	movl	$42, -12(%rsp)
+	movl	$42, -16(%rsp)
+	xorl	%eax, %eax
+	ret
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits
