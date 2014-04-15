@@ -1,0 +1,1 @@
+g++ -std=c++11 -Os -g -Wall -pedantic -pthread main.cpp && time ./a.out
