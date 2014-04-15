@@ -21,7 +21,7 @@ echo "Starting new instance..."
     source logger.source
     while true ; do
         ./run.sh && echo "*** WEBSERVER QUIT! *** " || echo "*** WEBSERVER CRASHED! ***" 1>&2
-        sleep 5
+        sleep 60
         echo "Restarting webserver."
     done
 ) & disown
