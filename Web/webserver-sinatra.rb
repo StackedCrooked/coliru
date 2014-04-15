@@ -45,20 +45,6 @@ post '/feedback' do
 end
 
 
-get '/hash' do
-    content_type :txt
-    Thread.new do
-        result = ""
-        $mutex.synchronize do
-            result = $cache.to_s
-        end
-        stream do |out|
-            out << result
-        end
-    end.join
-end
-
-
 get '/feedback' do
     Thread.new do
         stream do |out|
@@ -77,27 +63,15 @@ post '/compile' do
         result = ""
         $mutex.synchronize do
             request_text = request.body.read
-            cached_result = $cache[request_text.hash]
-            if cached_result
-                result = cached_result
-            else
-                json_obj = JSON.parse(request_text)
-                id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-                dir = "/tmp/coliru/#{id}"
-                FileUtils.mkdir_p(dir)
+            json_obj = JSON.parse(request_text)
+            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
 
-                File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-                File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
 
-                # erase random key from hash if size > 1000
-                if $cache.size >= 1000
-                    $cache.delete $cache.keys.sample
-                end
-                if result.size < 1000
-                    $cache[request_text.hash] = result
-                end
-            end
         end
         stream do |out|
             out << result
@@ -267,7 +241,6 @@ end
 
 set :port, ENV['COLIRU_PORT']
 $mutex = Mutex.new
-$cache = {}
 
 options '/*' do
   response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
