@@ -1,0 +1,1 @@
+set -x; g++-4.6 -std=c++03 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -lboost_thread -lboost_system && ./a.out
