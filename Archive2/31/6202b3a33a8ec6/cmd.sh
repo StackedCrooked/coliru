@@ -1,0 +1,2 @@
+clang++  -std=c++03 -fsanitize=undefined -O0  -W -Wall -Wextra  -Wconversion -pedantic   main.cpp && ./a.out
+##clang++  -std=c++11 -fsanitize=undefined -O0  -W -Wall -Wextra  -Wconversion -pedantic   main.cpp && ./a.out
