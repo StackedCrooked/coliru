@@ -1,0 +1,13 @@
+main.cpp: In lambda function:
+main.cpp:14:56: error: parameter packs not expanded with '...':
+         do_in_order([&](){loop_body(std::forward<Args>(args));}...);
+                                                        ^
+main.cpp:14:56: note:         'args'
+main.cpp:14:62: error: parameter packs not expanded with '...':
+         do_in_order([&](){loop_body(std::forward<Args>(args));}...);
+                                                              ^
+main.cpp:14:62: note:         'Args'
+main.cpp: In function 'void f(Args&& ...)':
+main.cpp:14:64: error: expansion pattern '<lambda>' contains no argument packs
+         do_in_order([&](){loop_body(std::forward<Args>(args));}...);
+                                                                ^
