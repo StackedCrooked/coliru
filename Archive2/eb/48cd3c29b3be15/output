@@ -1,0 +1,17 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:627:
+In file included from /usr/include/c++/v1/memory:606:
+/usr/include/c++/v1/atomic:561:13: error: _Atomic cannot be applied to type 'std::__1::unique_ptr<int, std::__1::default_delete<int> >' which is not trivially copyable
+    mutable _Atomic(_Tp) __a_;
+            ^
+/usr/include/c++/v1/atomic:730:14: note: in instantiation of template class 'std::__1::__atomic_base<std::__1::unique_ptr<int, std::__1::default_delete<int> >, false>' requested here
+    : public __atomic_base<_Tp>
+             ^
+main.cpp:9:39: note: in instantiation of template class 'std::__1::atomic<std::__1::unique_ptr<int, std::__1::default_delete<int> > >' requested here
+    std::atomic<std::unique_ptr<int>> a;
+                                      ^
+1 error generated.
