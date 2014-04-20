@@ -1,0 +1,53 @@
+main.cpp:3:33: error: too few arguments provided to function-like macro invocation
+BOOST_TTI_HAS_TEMPLATE(Template1)
+                                ^
+/usr/local/include/boost/tti/has_template.hpp:338:9: note: macro 'BOOST_TTI_HAS_TEMPLATE' defined here
+#define BOOST_TTI_HAS_TEMPLATE(name,params) \
+        ^
+main.cpp:4:33: error: too few arguments provided to function-like macro invocation
+BOOST_TTI_HAS_TEMPLATE(Template2)
+                                ^
+/usr/local/include/boost/tti/has_template.hpp:338:9: note: macro 'BOOST_TTI_HAS_TEMPLATE' defined here
+#define BOOST_TTI_HAS_TEMPLATE(name,params) \
+        ^
+main.cpp:3:1: error: unknown type name 'BOOST_TTI_HAS_TEMPLATE'
+BOOST_TTI_HAS_TEMPLATE(Template1)
+^
+main.cpp:5:33: error: too few arguments provided to function-like macro invocation
+BOOST_TTI_HAS_TEMPLATE(Template3)
+                                ^
+/usr/local/include/boost/tti/has_template.hpp:338:9: note: macro 'BOOST_TTI_HAS_TEMPLATE' defined here
+#define BOOST_TTI_HAS_TEMPLATE(name,params) \
+        ^
+main.cpp:4:23: error: expected ';' after top level declarator
+BOOST_TTI_HAS_TEMPLATE(Template2)
+                      ^
+                      ;
+main.cpp:16:20: error: use of undeclared identifier 'has_template_Template1'
+    static_assert( has_template_Template1<Top>::value, ""); // true
+                   ^
+main.cpp:16:43: error: use of undeclared identifier 'Top'
+    static_assert( has_template_Template1<Top>::value, ""); // true
+                                          ^
+main.cpp:16:49: error: no member named 'value' in the global namespace
+    static_assert( has_template_Template1<Top>::value, ""); // true
+                                              ~~^
+main.cpp:17:20: error: use of undeclared identifier 'has_template_Template2'
+    static_assert( has_template_Template2<Top>::value, ""); // true
+                   ^
+main.cpp:17:43: error: use of undeclared identifier 'Top'
+    static_assert( has_template_Template2<Top>::value, ""); // true
+                                          ^
+main.cpp:17:49: error: no member named 'value' in the global namespace
+    static_assert( has_template_Template2<Top>::value, ""); // true
+                                              ~~^
+main.cpp:18:20: error: use of undeclared identifier 'has_template_Template3'
+    static_assert(!has_template_Template3<Top>::value, ""); // false, not all typename/class template parameters
+                   ^
+main.cpp:18:43: error: use of undeclared identifier 'Top'
+    static_assert(!has_template_Template3<Top>::value, ""); // false, not all typename/class template parameters
+                                          ^
+main.cpp:18:49: error: no member named 'value' in the global namespace
+    static_assert(!has_template_Template3<Top>::value, ""); // false, not all typename/class template parameters
+                                              ~~^
+14 errors generated.
