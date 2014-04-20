@@ -1,0 +1,1 @@
+g++ -std=c++03 -Os -march=native -pedantic main.cpp -lboost_system -lboost_serialization && ./a.out && cat test.txt
