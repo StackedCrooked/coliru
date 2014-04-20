@@ -1,0 +1,753 @@
+	.file	"main.cpp"
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align	8
+.LCPI0_0:
+	.quad	4646008373400043520     # double 415
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin0:
+	.cfi_lsda 3, .Lexception0
+# BB#0:                                 # %._crit_edge.i.._crit_edge.i_crit_edge.i.lr.ph
+	pushq	%rbp
+.Ltmp19:
+	.cfi_def_cfa_offset 16
+	pushq	%r15
+.Ltmp20:
+	.cfi_def_cfa_offset 24
+	pushq	%r14
+.Ltmp21:
+	.cfi_def_cfa_offset 32
+	pushq	%r13
+.Ltmp22:
+	.cfi_def_cfa_offset 40
+	pushq	%r12
+.Ltmp23:
+	.cfi_def_cfa_offset 48
+	pushq	%rbx
+.Ltmp24:
+	.cfi_def_cfa_offset 56
+	subq	$2632, %rsp             # imm = 0xA48
+.Ltmp25:
+	.cfi_def_cfa_offset 2688
+.Ltmp26:
+	.cfi_offset %rbx, -56
+.Ltmp27:
+	.cfi_offset %r12, -48
+.Ltmp28:
+	.cfi_offset %r13, -40
+.Ltmp29:
+	.cfi_offset %r14, -32
+.Ltmp30:
+	.cfi_offset %r15, -24
+.Ltmp31:
+	.cfi_offset %rbp, -16
+	movl	$42, 128(%rsp)
+	movl	$-1187214701, 132(%rsp) # imm = 0xFFFFFFFFB93C8A93
+	movl	$1895908407, 136(%rsp)  # imm = 0x71014437
+	movq	$3, 2624(%rsp)
+	movl	$1895908407, %ecx       # imm = 0x71014437
+	movl	$3, %eax
+	jmp	.LBB0_1
+	.align	16, 0x90
+.LBB0_2:                                # %._crit_edge.i.._crit_edge.i_crit_edge.i.._crit_edge.i.._crit_edge.i_crit_edge.i_crit_edge
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movl	128(%rsp,%rcx,4), %ecx
+.LBB0_1:                                # %._crit_edge.i.._crit_edge.i_crit_edge.i
+                                        # =>This Inner Loop Header: Depth=1
+	movl	%ecx, %edx
+	shrl	$30, %edx
+	xorl	%ecx, %edx
+	imull	$1812433253, %edx, %ecx # imm = 0x6C078965
+	movl	%eax, %edx
+	addl	%ecx, %edx
+	movl	%edx, 128(%rsp,%rax,4)
+	movq	2624(%rsp), %rcx
+	leaq	1(%rcx), %rax
+	movq	%rax, 2624(%rsp)
+	cmpq	$623, %rax              # imm = 0x26F
+	jbe	.LBB0_2
+# BB#3:                                 # %_ZN5boost6random19normal_distributionIdEC2ERKdS4_.exit
+	vxorps	%xmm0, %xmm0, %xmm0
+	vmovaps	%xmm0, 96(%rsp)
+	movb	$0, 120(%rsp)
+	movq	$0, 112(%rsp)
+	leaq	128(%rsp), %rax
+	movq	%rax, 32(%rsp)
+	movq	$0, 40(%rsp)
+	movabsq	$4607182418800017408, %rax # imm = 0x3FF0000000000000
+	movq	%rax, 48(%rsp)
+	movb	120(%rsp), %al
+	movb	%al, 80(%rsp)
+	movq	112(%rsp), %rax
+	movq	%rax, 72(%rsp)
+	movq	96(%rsp), %rax
+	movq	104(%rsp), %rcx
+	movq	%rcx, 64(%rsp)
+	movq	%rax, 56(%rsp)
+	movb	95(%rsp), %al
+	movb	%al, 87(%rsp)
+	movw	93(%rsp), %ax
+	movw	%ax, 85(%rsp)
+	movl	89(%rsp), %eax
+	movl	%eax, 81(%rsp)
+.Ltmp0:
+	movl	$800000, %edi           # imm = 0xC3500
+	callq	_Znwm
+	movq	%rax, %rbx
+	movq	%rbx, 8(%rsp)           # 8-byte Spill
+.Ltmp1:
+# BB#4:                                 # %.noexc
+	xorl	%esi, %esi
+	movl	$800000, %edx           # imm = 0xC3500
+	movq	%rbx, %rdi
+	callq	memset
+.Ltmp3:
+	movl	$800000, %edi           # imm = 0xC3500
+	callq	_Znwm
+	movq	%rax, %r14
+.Ltmp4:
+# BB#5:                                 # %.lr.ph.i
+	movq	%r14, %r13
+	addq	$800000, %r13           # imm = 0xC3500
+	leaq	40(%rsp), %rdi
+	leaq	128(%rsp), %rsi
+	callq	_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_
+	vmulsd	.LCPI0_0(%rip), %xmm0, %xmm0
+	vmovsd	%xmm0, 16(%rsp)         # 8-byte Spill
+	xorl	%r15d, %r15d
+	movq	%r14, %r12
+	.align	16, 0x90
+.LBB0_6:                                # =>This Inner Loop Header: Depth=1
+	vmovsd	(%rbx,%r15), %xmm0
+	vmovsd	%xmm0, 24(%rsp)         # 8-byte Spill
+	movq	32(%rsp), %rsi
+	leaq	40(%rsp), %rdi
+	callq	_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_
+	vmovsd	16(%rsp), %xmm1         # 8-byte Reload
+	vmulsd	%xmm0, %xmm1, %xmm0
+	vmovsd	24(%rsp), %xmm1         # 8-byte Reload
+	vaddsd	%xmm0, %xmm1, %xmm0
+	cmpq	%r13, %r14
+	jne	.LBB0_7
+# BB#10:                                #   in Loop: Header=BB0_6 Depth=1
+	subq	%r12, %r13
+	movq	%r13, %r14
+	sarq	$3, %r14
+	movq	%r14, %rbx
+	movl	$1, %eax
+	cmoveq	%rax, %rbx
+	addq	%r14, %rbx
+	setb	%al
+	movq	%rbx, %rcx
+	shrq	$61, %rcx
+	setne	%cl
+	orb	%al, %cl
+	movabsq	$2305843009213693951, %rax # imm = 0x1FFFFFFFFFFFFFFF
+	cmovneq	%rax, %rbx
+	movl	$0, %ebp
+	testq	%rbx, %rbx
+	je	.LBB0_15
+# BB#11:                                #   in Loop: Header=BB0_6 Depth=1
+	vmovsd	%xmm0, 24(%rsp)         # 8-byte Spill
+	movq	%rbx, %rax
+	shrq	$61, %rax
+	jne	.LBB0_12
+.LBB0_13:                               # %_ZN9__gnu_cxx13new_allocatorIdE8allocateEmPKv.exit.i.i.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	leaq	(,%rbx,8), %rdi
+.Ltmp6:
+	callq	_Znwm
+	movq	%rax, %rbp
+.Ltmp7:
+# BB#14:                                # %.noexc13
+                                        #   in Loop: Header=BB0_6 Depth=1
+	vmovsd	24(%rsp), %xmm0         # 8-byte Reload
+.LBB0_15:                               # %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	leaq	(,%r14,8), %rax
+	addq	%rbp, %rax
+	je	.LBB0_17
+# BB#16:                                #   in Loop: Header=BB0_6 Depth=1
+	vmovsd	%xmm0, (%rax)
+.LBB0_17:                               # %_ZNSt16allocator_traitsISaIdEE9constructIdJdEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS0_PT_DpOS3_.exit.i.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	testq	%r14, %r14
+	je	.LBB0_19
+# BB#18:                                #   in Loop: Header=BB0_6 Depth=1
+	movq	%rbp, %rdi
+	movq	%r12, %rsi
+	movq	%r13, %rdx
+	callq	memmove
+.LBB0_19:                               #   in Loop: Header=BB0_6 Depth=1
+	testq	%r12, %r12
+	je	.LBB0_21
+# BB#20:                                #   in Loop: Header=BB0_6 Depth=1
+	movq	%r12, %rdi
+	callq	_ZdlPv
+.LBB0_21:                               # %_ZNSt6vectorIdSaIdEE19_M_emplace_back_auxIJdEEEvDpOT_.exit.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	leaq	8(%rbp,%r14,8), %r14
+	leaq	(%rbp,%rbx,8), %r13
+	movq	%rbp, %r12
+	movq	8(%rsp), %rbx           # 8-byte Reload
+	jmp	.LBB0_22
+	.align	16, 0x90
+.LBB0_7:                                #   in Loop: Header=BB0_6 Depth=1
+	testq	%r14, %r14
+	je	.LBB0_9
+# BB#8:                                 #   in Loop: Header=BB0_6 Depth=1
+	vmovsd	%xmm0, (%r14)
+.LBB0_9:                                # %_ZNSt16allocator_traitsISaIdEE9constructIdJdEEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS0_PT_DpOS3_.exit.i.i.i.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	addq	$8, %r14
+.LBB0_22:                               # %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSEOd.exit.i
+                                        #   in Loop: Header=BB0_6 Depth=1
+	addq	$8, %r15
+	cmpq	$800000, %r15           # imm = 0xC3500
+	jne	.LBB0_6
+	jmp	.LBB0_23
+.LBB0_12:                               #   in Loop: Header=BB0_6 Depth=1
+.Ltmp9:
+	callq	_ZSt17__throw_bad_allocv
+.Ltmp10:
+	jmp	.LBB0_13
+.LBB0_30:                               # %.nonloopexit
+.Ltmp11:
+	jmp	.LBB0_31
+.LBB0_23:                               # %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESt20back_insert_iteratorIS5_EZ4mainE3$_0ET0_T_SB_SA_T1_.exit
+	testq	%r12, %r12
+	je	.LBB0_25
+# BB#24:
+	movq	%r12, %rdi
+	callq	_ZdlPv
+.LBB0_25:                               # %_ZNSt6vectorIdSaIdEED2Ev.exit10
+	testq	%rbx, %rbx
+	je	.LBB0_27
+# BB#26:
+	movq	%rbx, %rdi
+	callq	_ZdlPv
+.LBB0_27:                               # %_ZNSt6vectorIdSaIdEED2Ev.exit9
+	xorl	%eax, %eax
+	addq	$2632, %rsp             # imm = 0xA48
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	ret
+.LBB0_28:
+.Ltmp2:
+	movq	%rax, %rbx
+	movq	%rbx, %rdi
+	callq	_Unwind_Resume
+.LBB0_36:                               # %.thread
+.Ltmp5:
+	movq	%rbx, 8(%rsp)           # 8-byte Spill
+	movq	%rax, %rbx
+	jmp	.LBB0_33
+.LBB0_29:                               # %.loopexit
+.Ltmp8:
+.LBB0_31:
+	movq	%rax, %rbx
+	testq	%r12, %r12
+	je	.LBB0_33
+# BB#32:
+	movq	%r12, %rdi
+	callq	_ZdlPv
+.LBB0_33:                               # %_ZNSt6vectorIdSaIdEED2Ev.exit8
+	cmpq	$0, 8(%rsp)             # 8-byte Folded Reload
+	je	.LBB0_35
+# BB#34:
+	movq	8(%rsp), %rdi           # 8-byte Reload
+	callq	_ZdlPv
+.LBB0_35:                               # %_ZNSt6vectorIdSaIdEED2Ev.exit
+	movq	%rbx, %rdi
+	callq	_Unwind_Resume
+.Ltmp32:
+	.size	main, .Ltmp32-main
+	.cfi_endproc
+.Leh_func_end0:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table0:
+.Lexception0:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.byte	93                      # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	91                      # Call site table length
+.Lset0 = .Ltmp0-.Leh_func_begin0        # >> Call Site 1 <<
+	.long	.Lset0
+.Lset1 = .Ltmp1-.Ltmp0                  #   Call between .Ltmp0 and .Ltmp1
+	.long	.Lset1
+.Lset2 = .Ltmp2-.Leh_func_begin0        #     jumps to .Ltmp2
+	.long	.Lset2
+	.byte	0                       #   On action: cleanup
+.Lset3 = .Ltmp1-.Leh_func_begin0        # >> Call Site 2 <<
+	.long	.Lset3
+.Lset4 = .Ltmp3-.Ltmp1                  #   Call between .Ltmp1 and .Ltmp3
+	.long	.Lset4
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset5 = .Ltmp3-.Leh_func_begin0        # >> Call Site 3 <<
+	.long	.Lset5
+.Lset6 = .Ltmp4-.Ltmp3                  #   Call between .Ltmp3 and .Ltmp4
+	.long	.Lset6
+.Lset7 = .Ltmp5-.Leh_func_begin0        #     jumps to .Ltmp5
+	.long	.Lset7
+	.byte	0                       #   On action: cleanup
+.Lset8 = .Ltmp6-.Leh_func_begin0        # >> Call Site 4 <<
+	.long	.Lset8
+.Lset9 = .Ltmp7-.Ltmp6                  #   Call between .Ltmp6 and .Ltmp7
+	.long	.Lset9
+.Lset10 = .Ltmp8-.Leh_func_begin0       #     jumps to .Ltmp8
+	.long	.Lset10
+	.byte	0                       #   On action: cleanup
+.Lset11 = .Ltmp7-.Leh_func_begin0       # >> Call Site 5 <<
+	.long	.Lset11
+.Lset12 = .Ltmp9-.Ltmp7                 #   Call between .Ltmp7 and .Ltmp9
+	.long	.Lset12
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset13 = .Ltmp9-.Leh_func_begin0       # >> Call Site 6 <<
+	.long	.Lset13
+.Lset14 = .Ltmp10-.Ltmp9                #   Call between .Ltmp9 and .Ltmp10
+	.long	.Lset14
+.Lset15 = .Ltmp11-.Leh_func_begin0      #     jumps to .Ltmp11
+	.long	.Lset15
+	.byte	0                       #   On action: cleanup
+.Lset16 = .Ltmp10-.Leh_func_begin0      # >> Call Site 7 <<
+	.long	.Lset16
+.Lset17 = .Leh_func_end0-.Ltmp10        #   Call between .Ltmp10 and .Leh_func_end0
+	.long	.Lset17
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	__cxx_global_var_init1,@function
+__cxx_global_var_init1:                 # @__cxx_global_var_init1
+# BB#0:
+	cmpb	$0, _ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE(%rip)
+	jne	.LBB1_2
+# BB#1:
+	movq	$1, _ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE(%rip)
+.LBB1_2:
+	ret
+.Ltmp33:
+	.size	__cxx_global_var_init1, .Ltmp33-__cxx_global_var_init1
+
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align	8
+.LCPI2_0:
+	.quad	4618760256179416344     # double 6.2831853071795862
+.LCPI2_5:
+	.quad	4463067230724161536     # double 2.3283064365386963E-10
+.LCPI2_6:
+	.quad	4607182418800017408     # double 1
+.LCPI2_7:
+	.quad	-4611686018427387904    # double -2
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI2_1:
+	.long	2147483648              # 0x80000000
+	.long	2147483648              # 0x80000000
+	.long	2147483648              # 0x80000000
+	.long	2147483648              # 0x80000000
+.LCPI2_2:
+	.long	2147483646              # 0x7ffffffe
+	.long	2147483646              # 0x7ffffffe
+	.long	2147483646              # 0x7ffffffe
+	.long	2147483646              # 0x7ffffffe
+.LCPI2_3:
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+.LCPI2_4:
+	.long	2567483615              # 0x9908b0df
+	.long	2567483615              # 0x9908b0df
+	.long	2567483615              # 0x9908b0df
+	.long	2567483615              # 0x9908b0df
+	.section	.text._ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_,"axG",@progbits,_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_,comdat
+	.weak	_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_
+	.align	16, 0x90
+	.type	_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_,@function
+_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_: # @_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp36:
+	.cfi_def_cfa_offset 16
+	subq	$16, %rsp
+.Ltmp37:
+	.cfi_def_cfa_offset 32
+.Ltmp38:
+	.cfi_offset %rbx, -16
+	movq	%rdi, %rbx
+	cmpb	$0, 40(%rbx)
+	je	.LBB2_1
+# BB#20:
+	vmovsd	32(%rbx), %xmm0
+	vmovsd	%xmm0, 8(%rsp)          # 8-byte Spill
+	movb	$0, 40(%rbx)
+	vmovsd	16(%rbx), %xmm0
+	vmulsd	.LCPI2_0(%rip), %xmm0, %xmm0
+	callq	sin
+	jmp	.LBB2_21
+.LBB2_1:
+	movq	2496(%rsi), %rcx
+	vmovdqa	.LCPI2_1(%rip), %xmm9
+	vmovdqa	.LCPI2_2(%rip), %xmm1
+	vmovdqa	.LCPI2_3(%rip), %xmm2
+	vpxor	%xmm8, %xmm8, %xmm8
+	vmovdqa	.LCPI2_4(%rip), %xmm3
+	movl	$-2147483648, %r8d      # imm = 0xFFFFFFFF80000000
+	vmovsd	.LCPI2_5(%rip), %xmm5
+	vmovsd	.LCPI2_6(%rip), %xmm4
+	.align	16, 0x90
+.LBB2_2:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB2_5 Depth 2
+                                        #     Child Loop BB2_7 Depth 2
+	cmpq	$624, %rcx              # imm = 0x270
+	jne	.LBB2_3
+# BB#4:                                 #   in Loop: Header=BB2_2 Depth=1
+	movl	(%rsi), %edx
+	xorl	%ecx, %ecx
+	.align	16, 0x90
+.LBB2_5:                                #   Parent Loop BB2_2 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	andl	$-2147483648, %edx      # imm = 0xFFFFFFFF80000000
+	movl	4(%rsi,%rcx,4), %eax
+	movl	%eax, %edi
+	andl	$2147483646, %edi       # imm = 0x7FFFFFFE
+	orl	%edx, %edi
+	shrl	%edi
+	movl	%eax, %edx
+	andl	$1, %edx
+	negl	%edx
+	andl	$-1727483681, %edx      # imm = 0xFFFFFFFF9908B0DF
+	xorl	1588(%rsi,%rcx,4), %edx
+	xorl	%edi, %edx
+	movl	%edx, (%rsi,%rcx,4)
+	leaq	1(%rcx), %rdi
+	movl	%eax, %edx
+	movq	%rdi, %rcx
+	cmpq	$222, %rdi
+	jne	.LBB2_5
+# BB#6:                                 # %.preheader9.i8
+                                        #   in Loop: Header=BB2_2 Depth=1
+	movl	892(%rsi), %ecx
+	movl	896(%rsi), %edx
+	movl	900(%rsi), %edi
+	vmovd	888(%rsi), %xmm7
+	vpinsrd	$1, %ecx, %xmm7, %xmm7
+	vpinsrd	$2, %edx, %xmm7, %xmm7
+	vpinsrd	$3, %edi, %xmm7, %xmm7
+	vpand	%xmm9, %xmm7, %xmm7
+	movl	904(%rsi), %eax
+	vmovd	%ecx, %xmm6
+	vpinsrd	$1, %edx, %xmm6, %xmm6
+	vpinsrd	$2, %edi, %xmm6, %xmm6
+	vpinsrd	$3, %eax, %xmm6, %xmm6
+	vpand	%xmm1, %xmm6, %xmm0
+	vpor	%xmm7, %xmm0, %xmm0
+	vpsrld	$1, %xmm0, %xmm0
+	vpand	%xmm2, %xmm6, %xmm6
+	vpsubd	%xmm6, %xmm8, %xmm6
+	vpand	%xmm3, %xmm6, %xmm6
+	vpxor	2476(%rsi), %xmm6, %xmm6
+	vpxor	%xmm0, %xmm6, %xmm0
+	vmovdqu	%xmm0, 888(%rsi)
+	andl	$-2147483648, %eax      # imm = 0xFFFFFFFF80000000
+	movl	908(%rsi), %ecx
+	movl	%ecx, %edx
+	andl	$2147483646, %edx       # imm = 0x7FFFFFFE
+	orl	%eax, %edx
+	shrl	%edx
+	movl	%ecx, %eax
+	andl	$1, %eax
+	negl	%eax
+	andl	$-1727483681, %eax      # imm = 0xFFFFFFFF9908B0DF
+	xorl	2492(%rsi), %eax
+	xorl	%edx, %eax
+	movl	%eax, 904(%rsi)
+	xorl	%edx, %edx
+	.align	16, 0x90
+.LBB2_7:                                #   Parent Loop BB2_2 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	andl	$-2147483648, %ecx      # imm = 0xFFFFFFFF80000000
+	movl	912(%rsi,%rdx,4), %eax
+	movl	%eax, %edi
+	andl	$2147483646, %edi       # imm = 0x7FFFFFFE
+	orl	%ecx, %edi
+	shrl	%edi
+	movl	%eax, %ecx
+	andl	$1, %ecx
+	negl	%ecx
+	andl	$-1727483681, %ecx      # imm = 0xFFFFFFFF9908B0DF
+	xorl	(%rsi,%rdx,4), %ecx
+	xorl	%edi, %ecx
+	movl	%ecx, 908(%rsi,%rdx,4)
+	incq	%rdx
+	movl	%eax, %ecx
+	cmpq	$396, %rdx              # imm = 0x18C
+	jne	.LBB2_7
+# BB#8:                                 # %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE5twistEv.exit13
+                                        #   in Loop: Header=BB2_2 Depth=1
+	movl	2492(%rsi), %eax
+	andl	%r8d, %eax
+	movl	(%rsi), %edx
+	movl	%edx, %ecx
+	andl	$2147483646, %ecx       # imm = 0x7FFFFFFE
+	orl	%eax, %ecx
+	shrl	%ecx
+	movl	%edx, %eax
+	andl	$1, %eax
+	negl	%eax
+	andl	$-1727483681, %eax      # imm = 0xFFFFFFFF9908B0DF
+	xorl	1584(%rsi), %eax
+	xorl	%ecx, %eax
+	movl	%eax, 2492(%rsi)
+	movq	$0, 2496(%rsi)
+	xorl	%ecx, %ecx
+	jmp	.LBB2_9
+	.align	16, 0x90
+.LBB2_3:                                # %._ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit.i4_crit_edge
+                                        #   in Loop: Header=BB2_2 Depth=1
+	movl	(%rsi,%rcx,4), %edx
+.LBB2_9:                                # %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit.i4
+                                        #   in Loop: Header=BB2_2 Depth=1
+	incq	%rcx
+	movq	%rcx, 2496(%rsi)
+	movl	%edx, %eax
+	shrl	$11, %eax
+	xorl	%edx, %eax
+	movl	%eax, %edx
+	shll	$7, %edx
+	andl	$-1658038656, %edx      # imm = 0xFFFFFFFF9D2C5680
+	xorl	%eax, %edx
+	movl	%edx, %eax
+	shll	$15, %eax
+	andl	$-272236544, %eax       # imm = 0xFFFFFFFFEFC60000
+	xorl	%edx, %eax
+	movl	%eax, %edx
+	shrl	$18, %edx
+	xorl	%eax, %edx
+	vcvtsi2sdq	%rdx, %xmm0, %xmm0
+	vmulsd	%xmm5, %xmm0, %xmm7
+	vucomisd	%xmm7, %xmm4
+	jbe	.LBB2_2
+# BB#10:                                # %_ZN5boost6random6detail14new_uniform_01IdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_.exit5
+	vmovsd	%xmm7, 16(%rbx)
+	vpxor	%xmm8, %xmm8, %xmm8
+	movl	$-2147483648, %r8d      # imm = 0xFFFFFFFF80000000
+	.align	16, 0x90
+.LBB2_11:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB2_14 Depth 2
+                                        #     Child Loop BB2_16 Depth 2
+	cmpq	$624, %rcx              # imm = 0x270
+	jne	.LBB2_12
+# BB#13:                                #   in Loop: Header=BB2_11 Depth=1
+	movl	(%rsi), %edx
+	xorl	%ecx, %ecx
+	.align	16, 0x90
+.LBB2_14:                               #   Parent Loop BB2_11 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	andl	$-2147483648, %edx      # imm = 0xFFFFFFFF80000000
+	movl	4(%rsi,%rcx,4), %eax
+	movl	%eax, %edi
+	andl	$2147483646, %edi       # imm = 0x7FFFFFFE
+	orl	%edx, %edi
+	shrl	%edi
+	movl	%eax, %edx
+	andl	$1, %edx
+	negl	%edx
+	andl	$-1727483681, %edx      # imm = 0xFFFFFFFF9908B0DF
+	xorl	1588(%rsi,%rcx,4), %edx
+	xorl	%edi, %edx
+	movl	%edx, (%rsi,%rcx,4)
+	leaq	1(%rcx), %rdi
+	movl	%eax, %edx
+	movq	%rdi, %rcx
+	cmpq	$222, %rdi
+	jne	.LBB2_14
+# BB#15:                                # %.preheader9.i
+                                        #   in Loop: Header=BB2_11 Depth=1
+	movl	892(%rsi), %ecx
+	movl	896(%rsi), %edx
+	movl	900(%rsi), %edi
+	vmovd	888(%rsi), %xmm0
+	vpinsrd	$1, %ecx, %xmm0, %xmm0
+	vpinsrd	$2, %edx, %xmm0, %xmm0
+	vpinsrd	$3, %edi, %xmm0, %xmm0
+	vpand	%xmm9, %xmm0, %xmm0
+	movl	904(%rsi), %eax
+	vmovd	%ecx, %xmm7
+	vpinsrd	$1, %edx, %xmm7, %xmm7
+	vpinsrd	$2, %edi, %xmm7, %xmm7
+	vpinsrd	$3, %eax, %xmm7, %xmm7
+	vpand	%xmm1, %xmm7, %xmm6
+	vpor	%xmm0, %xmm6, %xmm0
+	vpsrld	$1, %xmm0, %xmm0
+	vpand	%xmm2, %xmm7, %xmm6
+	vpsubd	%xmm6, %xmm8, %xmm6
+	vpand	%xmm3, %xmm6, %xmm6
+	vpxor	2476(%rsi), %xmm6, %xmm6
+	vpxor	%xmm0, %xmm6, %xmm0
+	vmovdqu	%xmm0, 888(%rsi)
+	andl	$-2147483648, %eax      # imm = 0xFFFFFFFF80000000
+	movl	908(%rsi), %ecx
+	movl	%ecx, %edx
+	andl	$2147483646, %edx       # imm = 0x7FFFFFFE
+	orl	%eax, %edx
+	shrl	%edx
+	movl	%ecx, %eax
+	andl	$1, %eax
+	negl	%eax
+	andl	$-1727483681, %eax      # imm = 0xFFFFFFFF9908B0DF
+	xorl	2492(%rsi), %eax
+	xorl	%edx, %eax
+	movl	%eax, 904(%rsi)
+	xorl	%edx, %edx
+	.align	16, 0x90
+.LBB2_16:                               #   Parent Loop BB2_11 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	andl	$-2147483648, %ecx      # imm = 0xFFFFFFFF80000000
+	movl	912(%rsi,%rdx,4), %eax
+	movl	%eax, %edi
+	andl	$2147483646, %edi       # imm = 0x7FFFFFFE
+	orl	%ecx, %edi
+	shrl	%edi
+	movl	%eax, %ecx
+	andl	$1, %ecx
+	negl	%ecx
+	andl	$-1727483681, %ecx      # imm = 0xFFFFFFFF9908B0DF
+	xorl	(%rsi,%rdx,4), %ecx
+	xorl	%edi, %ecx
+	movl	%ecx, 908(%rsi,%rdx,4)
+	incq	%rdx
+	movl	%eax, %ecx
+	cmpq	$396, %rdx              # imm = 0x18C
+	jne	.LBB2_16
+# BB#17:                                # %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE5twistEv.exit
+                                        #   in Loop: Header=BB2_11 Depth=1
+	movl	2492(%rsi), %eax
+	andl	%r8d, %eax
+	movl	(%rsi), %edx
+	movl	%edx, %ecx
+	andl	$2147483646, %ecx       # imm = 0x7FFFFFFE
+	orl	%eax, %ecx
+	shrl	%ecx
+	movl	%edx, %eax
+	andl	$1, %eax
+	negl	%eax
+	andl	$-1727483681, %eax      # imm = 0xFFFFFFFF9908B0DF
+	xorl	1584(%rsi), %eax
+	xorl	%ecx, %eax
+	movl	%eax, 2492(%rsi)
+	movq	$0, 2496(%rsi)
+	xorl	%ecx, %ecx
+	jmp	.LBB2_18
+	.align	16, 0x90
+.LBB2_12:                               # %._ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit.i_crit_edge
+                                        #   in Loop: Header=BB2_11 Depth=1
+	movl	(%rsi,%rcx,4), %edx
+.LBB2_18:                               # %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit.i
+                                        #   in Loop: Header=BB2_11 Depth=1
+	incq	%rcx
+	movq	%rcx, 2496(%rsi)
+	movl	%edx, %eax
+	shrl	$11, %eax
+	xorl	%edx, %eax
+	movl	%eax, %edx
+	shll	$7, %edx
+	andl	$-1658038656, %edx      # imm = 0xFFFFFFFF9D2C5680
+	xorl	%eax, %edx
+	movl	%edx, %eax
+	shll	$15, %eax
+	andl	$-272236544, %eax       # imm = 0xFFFFFFFFEFC60000
+	xorl	%edx, %eax
+	movl	%eax, %edx
+	shrl	$18, %edx
+	xorl	%eax, %edx
+	vcvtsi2sdq	%rdx, %xmm0, %xmm0
+	vmulsd	%xmm5, %xmm0, %xmm7
+	vucomisd	%xmm7, %xmm4
+	jbe	.LBB2_11
+# BB#19:
+	vmovsd	%xmm7, 24(%rbx)
+	vsubsd	%xmm7, %xmm4, %xmm0
+	callq	log
+	vmulsd	.LCPI2_7(%rip), %xmm0, %xmm0
+	callq	sqrt
+	vmovsd	%xmm0, 8(%rsp)          # 8-byte Spill
+	vmovsd	%xmm0, 32(%rbx)
+	movb	$1, 40(%rbx)
+	vmovsd	16(%rbx), %xmm0
+	vmulsd	.LCPI2_0(%rip), %xmm0, %xmm0
+	callq	cos
+.LBB2_21:
+	vmovsd	8(%rsp), %xmm1          # 8-byte Reload
+	vmulsd	%xmm0, %xmm1, %xmm0
+	vmulsd	8(%rbx), %xmm0, %xmm0
+	vaddsd	(%rbx), %xmm0, %xmm0
+	addq	$16, %rsp
+	popq	%rbx
+	ret
+.Ltmp39:
+	.size	_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_, .Ltmp39-_ZN5boost6random19normal_distributionIdEclINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEEEdRT_
+	.cfi_endproc
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__I_a,@function
+_GLOBAL__I_a:                           # @_GLOBAL__I_a
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp41:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp42:
+	.size	_GLOBAL__I_a, .Ltmp42-_GLOBAL__I_a
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,@object # @_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE
+	.section	.bss._ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,"aGw",@nobits,_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,comdat
+	.weak	_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE
+_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE:
+	.zero	1
+	.size	_ZN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE, 1
+
+	.type	_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,@object # @_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE
+	.section	.bss._ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,"aGw",@nobits,_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE,comdat
+	.weak	_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE
+	.align	8
+_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE:
+	.quad	0                       # 0x0
+	.size	_ZGVN5boost4math7lanczos19lanczos_initializerINS1_12lanczos17m64EeE11initializerE, 8
+
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	__cxx_global_var_init1
+	.quad	_GLOBAL__I_a
+
+	.ident	"clang version 3.5 (trunk 198621)"
+	.section	".note.GNU-stack","",@progbits
