@@ -1,0 +1,58 @@
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iostream:39:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:38:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ios:42:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/ios_base.h:41:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/locale_classes.h:40:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/string:41:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/allocator.h:46:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/new_allocator.h:93:7: error: multiple overloads of 'address' instantiate to the same signature 'const_pointer (const_reference) const noexcept'
+      address(const_reference __x) const _GLIBCXX_NOEXCEPT
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/allocator.h:92:29: note: in instantiation of template class '__gnu_cxx::new_allocator<const int>' requested here
+    class allocator: public __allocator_base<_Tp>
+                            ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/alloc_traits.h:90:24: note: in instantiation of template class 'std::allocator<const int>' requested here
+      typedef typename _Alloc::value_type value_type;
+                       ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/alloc_traits.h:123:5: note: in instantiation of template class 'std::allocator_traits<std::allocator<const int> >' requested here
+  : std::allocator_traits<_Alloc>
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:74:35: note: in instantiation of template class '__gnu_cxx::__alloc_traits<std::allocator<const int> >' requested here
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:210:30: note: in instantiation of template class 'std::_Vector_base<const int, std::allocator<const int> >' requested here
+    class vector : protected _Vector_base<_Tp, _Alloc>
+                             ^
+main.cpp:5:28: note: in instantiation of template class 'std::vector<const int, std::allocator<const int> >' requested here
+    std::vector<const int> vec;
+                           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/new_allocator.h:89:7: note: previous declaration is here
+      address(reference __x) const _GLIBCXX_NOEXCEPT
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ext/new_allocator.h:110:9: error: no matching function for call to 'operator delete'
+      { ::operator delete(__p); }
+        ^~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:174:12: note: in instantiation of member function '__gnu_cxx::new_allocator<const int>::deallocate' requested here
+          _M_impl.deallocate(__p, __n);
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:160:9: note: in instantiation of member function 'std::_Vector_base<const int, std::allocator<const int> >::_M_deallocate' requested here
+      { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_vector.h:248:7: note: in instantiation of member function 'std::_Vector_base<const int, std::allocator<const int> >::~_Vector_base' requested here
+      vector()
+      ^
+main.cpp:5:28: note: in instantiation of member function 'std::vector<const int, std::allocator<const int> >::vector' requested here
+    std::vector<const int> vec;
+                           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/new:95:6: note: candidate function not viable: no known conversion from 'pointer' (aka 'const int *') to 'void *' for 1st argument; take the address of the argument with &
+void operator delete(void*) _GLIBCXX_USE_NOEXCEPT
+     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/new:103:6: note: candidate function not viable: requires 2 arguments, but 1 was provided
+void operator delete(void*, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/new:115:13: note: candidate function not viable: requires 2 arguments, but 1 was provided
+inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
+            ^
+2 errors generated.
