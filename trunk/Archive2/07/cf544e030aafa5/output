@@ -1,0 +1,33 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:627:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'int' cannot bind to lvalue of type 'int'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, int &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/memory:4281:26: note: in instantiation of function template specialization 'std::__1::__shared_ptr_emplace<int, std::__1::allocator<int> >::__shared_ptr_emplace<int>' requested here
+    ::new(__hold2.get()) _CntrlBlk(__a2, _VSTD::forward<_Args>(__args)...);
+                         ^
+/usr/include/c++/v1/memory:4640:29: note: in instantiation of function template specialization 'std::__1::shared_ptr<int>::make_shared<int>' requested here
+    return shared_ptr<_Tp>::make_shared(_VSTD::forward<_Args>(__args)...);
+                            ^
+main.cpp:11:20: note: in instantiation of function template specialization 'std::__1::make_shared<int, int>' requested here
+    auto sp = std::make_shared<int>(12);
+                   ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:627:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
