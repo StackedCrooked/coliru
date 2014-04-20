@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -march=native -mavx -pedantic main.cpp -S -o main.s && cat main.s
