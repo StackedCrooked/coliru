@@ -1,0 +1,29 @@
+main.cpp: In instantiation of 'detail::memoization<F>::operator()(Args&& ...) const [with Args = {int&}; F = main()::__lambda1; decltype (declval<F>()((forward<Args>)(detail::memoization::operator()::args)...)) = int]::__lambda0':
+main.cpp:24:71:   required from 'struct detail::memoization<F>::operator()(Args&& ...) const [with Args = {int&}; F = main()::__lambda1; decltype (declval<F>()((forward<Args>)(detail::memoization::operator()::args)...)) = int]::__lambda0'
+main.cpp:22:13:   required from 'decltype (declval<F>()((forward<Args>)(detail::memoization::operator()::args)...)) detail::memoization<F>::operator()(Args&& ...) const [with Args = {int&}; F = main()::__lambda1; decltype (declval<F>()((forward<Args>)(detail::memoization::operator()::args)...)) = int]'
+main.cpp:49:25:   required from here
+main.cpp:15:69: internal compiler error: Segmentation fault
+             auto tuple = std::make_tuple(std::forward<Args>(args)...);
+                                                                     ^
+libbacktrace could not find executable to open
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
+Preprocessed source stored into /tmp/ccHPqO2h.out file, please attach this to your bugreport.
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 34, in <module>
+    pr.write(open(apport.fileutils.make_report_path(pr), 'w'))
+IOError: [Errno 30] Read-only file system: '/var/crash/_usr_lib_gcc_x86_64-linux-gnu_4.8_cc1plus.2002.crash'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/apport_python_hook.py", line 95, in apport_excepthook
+    pr.add_proc_info()
+  File "/usr/lib/python2.7/dist-packages/apport/report.py", line 432, in add_proc_info
+    raise ValueError('invalid process')
+ValueError: invalid process
+
+Original exception was:
+Traceback (most recent call last):
+  File "/usr/share/apport/gcc_ice_hook", line 34, in <module>
+    pr.write(open(apport.fileutils.make_report_path(pr), 'w'))
+IOError: [Errno 30] Read-only file system: '/var/crash/_usr_lib_gcc_x86_64-linux-gnu_4.8_cc1plus.2002.crash'
