@@ -1,0 +1,16 @@
+main.cpp:15:20: error: 'v' is a private member of 'template_class<char>'
+        cout << t2.v << endl;
+                   ^
+main.cpp:21:5: note: in instantiation of member function 'foo' requested here
+    foo(t);
+    ^
+main.cpp:6:7: note: implicitly declared private here
+    T v;
+      ^
+main.cpp:14:12: error: 'v' is a private member of 'template_class<char>'
+        t2.v = 'c'; // (3)why accessible too even if instantiated with [T=int]?
+           ^
+main.cpp:6:7: note: implicitly declared private here
+    T v;
+      ^
+2 errors generated.
