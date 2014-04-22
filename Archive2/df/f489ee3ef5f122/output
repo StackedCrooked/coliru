@@ -1,0 +1,29 @@
+main.cpp:7:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+pow(2.0,2.0)      = 4.0
+sqrt(4.0)         = 2.0
+pow(0.0,0.0)      = 1.0
+pow(INFINITY,2.0) = inf
+pow(NAN,2.0)      = nan
+
+pow(2.0,1024.0)   = inf
+Success
+current exceptions raised:  FE_INEXACT FE_OVERFLOW
+
+pow(-1.0,2.1)     = -nan
+Numerical argument out of domain
+current exceptions raised:  FE_INVALID
+
+pow(0.0,-1.0)     = inf
+Success
+current exceptions raised:  none
+
+pow(0.0,-2.0)     = inf
+Numerical result out of range
+current exceptions raised:  FE_DIVBYZERO
+
+pow(0.0,-INFINITY) = inf
+Success
+current exceptions raised:  none
