@@ -1,0 +1,18 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:16:7: error: explicit specialization of non-template class 'TreeNode'
+class TreeNode<T>{
+      ^       ~~~
+main.cpp:25:10: error: unknown type name 'T'
+template<T>* insert(TreeNode<T>*& root, T searchItem){
+         ^
+main.cpp:25:30: error: use of undeclared identifier 'T'
+template<T>* insert(TreeNode<T>*& root, T searchItem){
+                             ^
+main.cpp:25:30: error: use of undeclared identifier 'T'
+main.cpp:25:41: error: unknown type name 'T'
+template<T>* insert(TreeNode<T>*& root, T searchItem){
+                                        ^
+main.cpp:25:14: error: C++ requires a type specifier for all declarations
+template<T>* insert(TreeNode<T>*& root, T searchItem){
+           ~ ^
+6 errors generated.
