@@ -1,0 +1,1 @@
+clang++ -stdlib=libc++ -lcxxrt -ldl -std=c++1y -Wall -Wextra -Werror -pedantic -Os main.cpp && ./a.out
