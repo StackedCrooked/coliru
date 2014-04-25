@@ -1,0 +1,20 @@
+main.cpp:21:5: warning: 'deprecated_foo_macro' is deprecated: FOO() macro is deprecated, use foo() function instead. [-Wdeprecated-declarations]
+    FOO(42);
+    ^
+main.cpp:17:52: note: expanded from macro 'FOO'
+#define FOO(x) do{ std::cout << x << "\n"; detail::deprecated_foo_macro(); }while(false)
+                                                   ^
+main.cpp:14:5: note: 'deprecated_foo_macro' declared here
+    DETAIL_DEPRECATED_MACRO(FOO, foo)
+    ^
+main.cpp:10:66: note: expanded from macro 'DETAIL_DEPRECATED_MACRO'
+    inline void __attribute__((DETAIL_DEPRECATED_MSG(name, fn))) DETAIL_DEPRECATED_FN(name, fn) {}
+                                                                 ^
+main.cpp:4:40: note: expanded from macro 'DETAIL_DEPRECATED_FN'
+#define DETAIL_DEPRECATED_FN(name, fn) deprecated_##fn##_macro()
+                                       ^
+<scratch space>:165:1: note: expanded from here
+deprecated_foo_macro
+^
+1 warning generated.
+42
