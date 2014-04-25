@@ -1,0 +1,22 @@
+main.cpp: In instantiation of 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 1ul>, 4ul, 1ul, 2ul, 3ul>':
+main.cpp:13:12:   recursively required from 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 3ul>, 2ul, 1ul>'
+main.cpp:13:12:   required from 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 4ul>, 1ul>'
+main.cpp:37:8:   required from 'struct integer_range<long unsigned int, 1ul, 5ul, true>'
+main.cpp:51:23:   required from here
+main.cpp:13:12: error: ambiguous class template instantiation for 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 0ul>, 5ul, 1ul, 2ul, 3ul, 4ul>'
+     struct increasing_integer_range<Int, std::integral_constant<Int, C>, P, N...> :
+            ^
+main.cpp:13:12: error: candidates are: struct details::increasing_integer_range<Int, std::integral_constant<Int, C>, P, N ...>
+main.cpp:23:12: error:                 struct details::increasing_integer_range<Int, std::integral_constant<Int, 0>, P, N ...>
+     struct increasing_integer_range<Int, std::integral_constant<Int, 0>, P, N...>:
+            ^
+main.cpp:13:12: error: invalid use of incomplete type 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 0ul>, 5ul, 1ul, 2ul, 3ul, 4ul>'
+     struct increasing_integer_range<Int, std::integral_constant<Int, C>, P, N...> :
+            ^
+main.cpp:11:12: error: declaration of 'struct details::increasing_integer_range<long unsigned int, std::integral_constant<long unsigned int, 0ul>, 5ul, 1ul, 2ul, 3ul, 4ul>'
+     struct increasing_integer_range;
+            ^
+main.cpp: In function 'int main()':
+main.cpp:51:23: warning: unused variable 'foo' [-Wunused-variable]
+     index_range<1, 5> foo;
+                       ^
