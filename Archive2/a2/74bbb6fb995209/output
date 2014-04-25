@@ -1,0 +1,13 @@
+main.cpp:7:5: error: expected expression
+    ...?
+    ^
+main.cpp:31:5: error: unknown type name 'HANDLE'
+    HANDLE hnd = 3;
+    ^
+main.cpp:32:10: error: use of undeclared identifier 'CloseHandle'
+    WRAP(CloseHandle)(hnd);
+         ^
+main.cpp:28:31: note: expanded from macro 'WRAP'
+#define WRAP(X) Wrap<decltype(X),X>()
+                              ^
+3 errors generated.
