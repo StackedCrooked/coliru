@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:9:31: error: no matching function for call to 'f()'
+     std::cout << f<(int *)42>() << std::endl;
+                               ^
+main.cpp:9:31: note: candidate is:
+main.cpp:4:16: note: template<int* P> constexpr int* f()
+ constexpr int* f() { return P; }
+                ^
+main.cpp:4:16: note:   template argument deduction/substitution failed:
+main.cpp:9:31: error: could not convert template argument '42u' to 'int*'
+     std::cout << f<(int *)42>() << std::endl;
+                               ^
