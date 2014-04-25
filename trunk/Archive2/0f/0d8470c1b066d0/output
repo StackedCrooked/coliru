@@ -1,0 +1,79 @@
+; ModuleID = 'main.cpp'
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.Base = type { %struct.BaseVTableLayout* }
+%struct.BaseVTableLayout = type { {}* }
+
+@_ZL13DerivedVTable = internal constant { i32 (%struct.Base*)* } { i32 (%struct.Base*)* @_Z19Derived_virtualCallP4Base }, align 8
+
+; Function Attrs: nounwind readnone uwtable
+define i32 @_Z19Derived_virtualCallP4Base(%struct.Base* nocapture readnone) #0 {
+  ret i32 42
+}
+
+; Function Attrs: uwtable
+define i32 @_Z3addPP4Basem(%struct.Base** nocapture readonly %array, i64 %size) #1 {
+  %1 = icmp eq i64 %size, 0
+  br i1 %1, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %0, %.lr.ph
+  %total.02 = phi i32 [ %9, %.lr.ph ], [ 0, %0 ]
+  %i.01 = phi i64 [ %10, %.lr.ph ], [ 0, %0 ]
+  %2 = getelementptr inbounds %struct.Base** %array, i64 %i.01
+  %3 = load %struct.Base** %2, align 8, !tbaa !1
+  %4 = getelementptr inbounds %struct.Base* %3, i64 0, i32 0
+  %5 = load %struct.BaseVTableLayout** %4, align 8, !tbaa !5
+  tail call void @_Z6opaqueP4Base(%struct.Base* %3)
+  store %struct.BaseVTableLayout* %5, %struct.BaseVTableLayout** %4, align 8, !tbaa !5
+  %6 = bitcast %struct.BaseVTableLayout* %5 to i32 (%struct.Base*)**
+  %7 = load i32 (%struct.Base*)** %6, align 8, !tbaa !7
+  %8 = tail call i32 %7(%struct.Base* %3)
+  %9 = add nsw i32 %8, %total.02
+  store %struct.BaseVTableLayout* %5, %struct.BaseVTableLayout** %4, align 8, !tbaa !5
+  %10 = add i64 %i.01, 1
+  %11 = icmp eq i64 %10, %size
+  br i1 %11, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %0
+  %total.0.lcssa = phi i32 [ 0, %0 ], [ %9, %.lr.ph ]
+  ret i32 %total.0.lcssa
+}
+
+declare void @_Z6opaqueP4Base(%struct.Base*) #2
+
+; Function Attrs: uwtable
+define i32 @_Z4funcv() #1 {
+.lr.ph.i:
+  %d0 = alloca %struct.Base, align 8
+  %d1 = alloca %struct.Base, align 8
+  %d2 = alloca %struct.Base, align 8
+  %0 = getelementptr inbounds %struct.Base* %d0, i64 0, i32 0
+  store %struct.BaseVTableLayout* bitcast ({ i32 (%struct.Base*)* }* @_ZL13DerivedVTable to %struct.BaseVTableLayout*), %struct.BaseVTableLayout** %0, align 8, !tbaa !5
+  %1 = getelementptr inbounds %struct.Base* %d1, i64 0, i32 0
+  store %struct.BaseVTableLayout* bitcast ({ i32 (%struct.Base*)* }* @_ZL13DerivedVTable to %struct.BaseVTableLayout*), %struct.BaseVTableLayout** %1, align 8, !tbaa !5
+  %2 = getelementptr inbounds %struct.Base* %d2, i64 0, i32 0
+  store %struct.BaseVTableLayout* bitcast ({ i32 (%struct.Base*)* }* @_ZL13DerivedVTable to %struct.BaseVTableLayout*), %struct.BaseVTableLayout** %2, align 8, !tbaa !5
+  call void @_Z6opaqueP4Base(%struct.Base* %d0)
+  store %struct.BaseVTableLayout* bitcast ({ i32 (%struct.Base*)* }* @_ZL13DerivedVTable to %struct.BaseVTableLayout*), %struct.BaseVTableLayout** %0, align 8, !tbaa !5
+  call void @_Z6opaqueP4Base(%struct.Base* %d1)
+  store %struct.BaseVTableLayout* bitcast ({ i32 (%struct.Base*)* }* @_ZL13DerivedVTable to %struct.BaseVTableLayout*), %struct.BaseVTableLayout** %1, align 8, !tbaa !5
+  call void @_Z6opaqueP4Base(%struct.Base* %d2)
+  ret i32 126
+}
+
+attributes #0 = { nounwind readnone uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #2 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = metadata !{metadata !"clang version 3.4 (tags/RELEASE_34/final 206911)"}
+!1 = metadata !{metadata !2, metadata !2, i64 0}
+!2 = metadata !{metadata !"any pointer", metadata !3, i64 0}
+!3 = metadata !{metadata !"omnipotent char", metadata !4, i64 0}
+!4 = metadata !{metadata !"Simple C/C++ TBAA"}
+!5 = metadata !{metadata !6, metadata !2, i64 0}
+!6 = metadata !{metadata !"_ZTS4Base", metadata !2, i64 0}
+!7 = metadata !{metadata !8, metadata !2, i64 0}
+!8 = metadata !{metadata !"_ZTS16BaseVTableLayout", metadata !2, i64 0}
