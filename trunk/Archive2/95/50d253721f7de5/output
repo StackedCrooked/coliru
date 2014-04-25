@@ -1,0 +1,14 @@
++ cat main.cpp
++ clang -O3 -Wall -Wextra -Wconversion -pedantic main.c
+main.c:7:19: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+    uint8_t var [ length ];
+                  ^~~~~~
+main.c:7:19: note: initializer of 'length' is not a constant expression
+main.c:6:20: note: declared here
+    const unsigned length = (uint8_t) ( (8.0/CHAR_BIT) * 18 );
+                   ^
+main.c:7:13: warning: unused variable 'var' [-Wunused-variable]
+    uint8_t var [ length ];
+            ^
+2 warnings generated.
++ ./a.out
