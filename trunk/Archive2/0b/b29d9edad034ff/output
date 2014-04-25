@@ -1,0 +1,65 @@
+main.cpp:1:26: error: parameter declared 'auto'
+ auto takeWhile = [](auto pred){ return [=](auto xs){
+                          ^
+main.cpp: In lambda function:
+main.cpp:1:49: error: parameter declared 'auto'
+ auto takeWhile = [](auto pred){ return [=](auto xs){
+                                                 ^
+main.cpp: In lambda function:
+main.cpp:2:18: warning: ISO C++ does not allow initializers in lambda expression capture lists [-Wpedantic]
+     return [=, p = boost::make_optional(pred)]() mutable -> decltype(xs()){
+                  ^
+main.cpp:2:20: error: 'boost' was not declared in this scope
+     return [=, p = boost::make_optional(pred)]() mutable -> decltype(xs()){
+                    ^
+main.cpp:2:73: error: 'xs' was not declared in this scope
+     return [=, p = boost::make_optional(pred)]() mutable -> decltype(xs()){
+                                                                         ^
+main.cpp:2:73: error: 'xs' was not declared in this scope
+main.cpp: In lambda function:
+main.cpp:5:25: error: 'xs' was not declared in this scope
+             decltype(xs()) v;
+                         ^
+main.cpp:5:29: error: invalid type in declaration before ';' token
+             decltype(xs()) v;
+                             ^
+main.cpp:6:39: error: invalid type argument of unary '*' (have 'int')
+             if (p && (v = xs()) && p(*v))
+                                       ^
+main.cpp:8:17: error: 'boost' is not a class, namespace, or enumeration
+             p = boost::none;
+                 ^
+main.cpp:10:16: error: 'boost' is not a class, namespace, or enumeration
+         return boost::none;
+                ^
+main.cpp: At global scope:
+main.cpp:14:26: error: parameter declared 'auto'
+ auto dropWhile = [](auto pred){ return [=](auto xs){
+                          ^
+main.cpp: In lambda function:
+main.cpp:14:49: error: parameter declared 'auto'
+ auto dropWhile = [](auto pred){ return [=](auto xs){
+                                                 ^
+main.cpp: In lambda function:
+main.cpp:15:18: warning: ISO C++ does not allow initializers in lambda expression capture lists [-Wpedantic]
+     return [=, p = boost::make_optional(pred)]() mutable {
+                  ^
+main.cpp:15:20: error: 'boost' was not declared in this scope
+     return [=, p = boost::make_optional(pred)]() mutable {
+                    ^
+main.cpp: In lambda function:
+main.cpp:18:25: error: 'xs' was not declared in this scope
+             decltype(xs()) v;
+                         ^
+main.cpp:18:29: error: invalid type in declaration before ';' token
+             decltype(xs()) v;
+                             ^
+main.cpp:19:37: error: invalid type argument of unary '*' (have 'int')
+             while ((v = xs()) && p(*v))
+                                     ^
+main.cpp:21:17: error: 'boost' is not a class, namespace, or enumeration
+             p = boost::none;
+                 ^
+main.cpp:23:19: error: 'xs' was not declared in this scope
+         return xs();
+                   ^
