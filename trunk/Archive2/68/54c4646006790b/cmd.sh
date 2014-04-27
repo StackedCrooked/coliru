@@ -1,0 +1,1 @@
+g++-4.8 -O2 -Wall main.cpp -lboost_system && ./a.out

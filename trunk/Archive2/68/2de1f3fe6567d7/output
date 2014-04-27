@@ -1,0 +1,28 @@
++ g++ -std=c++1y -O3 -Wall -Wextra -pedantic -Werror -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:19:12: error: call of overloaded 'f(int)' is ambiguous
+     C{}.f(1);
+            ^
+main.cpp:19:12: note: candidates are:
+main.cpp:4:5: note: void C::f(int) const
+     f(int) const &
+     ^
+main.cpp:8:5: note: void C::f(int)
+     f(int) &
+     ^
+main.cpp:12:5: note: void C::f(int)
+     f(int) &&
+     ^
+main.cpp:23:10: error: call of overloaded 'f(int)' is ambiguous
+     c.f(1);
+          ^
+main.cpp:23:10: note: candidates are:
+main.cpp:4:5: note: void C::f(int) const
+     f(int) const &
+     ^
+main.cpp:8:5: note: void C::f(int)
+     f(int) &
+     ^
+main.cpp:12:5: note: void C::f(int)
+     f(int) &&
+     ^
