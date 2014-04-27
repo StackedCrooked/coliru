@@ -1,0 +1,1 @@
+g++-4.8 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp && ./a.out | sed -e 's, ,,g' | perl -pe 's,^.*?T=,,g' | sed -e 's,\],,'
