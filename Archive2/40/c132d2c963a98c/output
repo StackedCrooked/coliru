@@ -1,0 +1,31 @@
+main.cpp:30:12: error: unknown type name 'declspec'
+    static declspec(__stdcall) R call(Ps...Vs) const
+           ^
+main.cpp:30:30: error: expected member name or ';' after declaration specifiers
+    static declspec(__stdcall) R call(Ps...Vs) const
+    ~~~~~~~~~~~~~~~          ^
+main.cpp:46:12: error: unknown type name 'declspec'
+    static declspec(__stdcall) void call(Ps...Vs) const
+           ^
+main.cpp:46:30: error: expected member name or ';' after declaration specifiers
+    static declspec(__stdcall) void call(Ps...Vs) const
+    ~~~~~~~~~~~~~~~          ^
+main.cpp:66:18: error: no member named 'call' in 'Wrap<int (const char *, int), &OpenHandle>'
+    HANDLE hnd = WrapOpenHandle("file.txt", 3);
+                 ^~~~~~~~~~~~~~
+main.cpp:62:24: note: expanded from macro 'WrapOpenHandle'
+#define WrapOpenHandle WRAP(OpenHandle)
+                       ^~~~~~~~~~~~~~~~
+main.cpp:53:38: note: expanded from macro 'WRAP'
+#define WRAP(X) Wrap<decltype(X),X>::call
+                ~~~~~~~~~~~~~~~~~~~~~^
+main.cpp:67:5: error: no type named 'call' in 'Wrap<void (int), &CloseHandle>'
+    WrapCloseHandle(hnd);
+    ^~~~~~~~~~~~~~~
+main.cpp:63:25: note: expanded from macro 'WrapCloseHandle'
+#define WrapCloseHandle WRAP(CloseHandle)
+                        ^~~~~~~~~~~~~~~~~
+main.cpp:53:38: note: expanded from macro 'WRAP'
+#define WRAP(X) Wrap<decltype(X),X>::call
+                ~~~~~~~~~~~~~~~~~~~~~^
+6 errors generated.
