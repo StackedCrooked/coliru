@@ -1,0 +1,9 @@
++ clang++ -O0 -Wall -pedantic -Wextra -pthread -std=c++1y main.cpp
++ ./a.out
++ cat main.cpp
++ clang -O0 -Wall -pedantic -Wextra -pthread -std=c11 main.c
+main.c:6:26: warning: expression is not an integer constant expression; folding it to a constant is a GNU extension [-Wgnu-folding-constant]
+    enum {array_length = (uint8_t)((8.0 / CHAR_BIT) * 18)};
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
++ ./a.out
