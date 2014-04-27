@@ -1,0 +1,12 @@
++ clang++ -O3 -std=c++11 -stdlib=libc++ main.cpp -lsupc++
+main.cpp:6:7: warning: conversion from string literal to 'char *' is deprecated [-Wc++11-compat-deprecated-writable-strings]
+  foo("Hello World!\n");
+      ^
+1 warning generated.
++ ./a.out
++ g++-4.8 -O3 -std=c++11 main.cpp
+main.cpp: In function 'int main()':
+main.cpp:6:23: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   foo("Hello World!\n");
+                       ^
++ ./a.out
