@@ -1,0 +1,1 @@
+set -x; g++-4.6 -std=c++0x -O3 -Wall -Wextra -pedantic main.cpp && ./a.out
