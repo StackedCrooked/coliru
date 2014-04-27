@@ -1,0 +1,1 @@
+clang++ -std=c++03 -Os -Wall -pedantic main.cpp -pthread -lboost_system -lboost_thread && ./a.out
