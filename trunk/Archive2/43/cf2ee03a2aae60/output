@@ -1,0 +1,31 @@
+main.cpp:15:21: error: 'auto' not allowed in lambda parameter
+    A() : m_foos([](auto f1, auto f2){ return f1.x < f2.x; })
+                    ^~~~
+main.cpp:15:30: error: 'auto' not allowed in lambda parameter
+    A() : m_foos([](auto f1, auto f2){ return f1.x < f2.x; })
+                             ^~~~
+main.cpp:15:11: error: no matching constructor for initialization of 'std::set<Foo, bool (*)(const Foo &, const Foo &)>'
+    A() : m_foos([](auto f1, auto f2){ return f1.x < f2.x; })
+          ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:148:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:15:18>' to 'bool (*const)(const Foo &, const Foo &)' for 1st argument
+      set(const _Compare& __comp,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:193:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:15:18>' to 'const std::set<Foo, bool (*)(const Foo &, const Foo &), std::allocator<Foo> >' for 1st argument
+      set(const set& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:204:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:15:18>' to 'std::set<Foo, bool (*)(const Foo &, const Foo &), std::allocator<Foo> >' for 1st argument
+      set(set&& __x)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:218:7: note: candidate constructor not viable: no known conversion from '<lambda at main.cpp:15:18>' to 'initializer_list<value_type>' for 1st argument
+      set(initializer_list<value_type> __l,
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:163:2: note: candidate constructor template not viable: requires 2 arguments, but 1 was provided
+        set(_InputIterator __first, _InputIterator __last)
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:180:2: note: candidate constructor template not viable: requires at least 3 arguments, but 1 was provided
+        set(_InputIterator __first, _InputIterator __last,
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_set.h:139:7: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      set()
+      ^
+3 errors generated.
