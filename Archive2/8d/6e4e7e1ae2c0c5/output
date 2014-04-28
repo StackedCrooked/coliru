@@ -1,0 +1,25 @@
+main.cpp:5:35: error: calling a private constructor of class 'S'
+    return std::unique_ptr<T>(new T{std::forward<Args>(args)...});
+                                  ^
+main.cpp:11:16: note: in instantiation of function template specialization 'make_unique<S>' requested here
+        return make_unique<S>(std::forward<Args>(args)...);
+               ^
+main.cpp:19:18: note: in instantiation of function template specialization 'S::create<>' requested here
+    auto s1 = S::create(); // OK
+                 ^
+main.cpp:15:5: note: declared private here
+    S() = default;
+    ^
+main.cpp:5:35: error: calling a private constructor of class 'S'
+    return std::unique_ptr<T>(new T{std::forward<Args>(args)...});
+                                  ^
+main.cpp:11:16: note: in instantiation of function template specialization 'make_unique<S, int>' requested here
+        return make_unique<S>(std::forward<Args>(args)...);
+               ^
+main.cpp:20:18: note: in instantiation of function template specialization 'S::create<int>' requested here
+    auto s2 = S::create(0); // Compilation error
+                 ^
+main.cpp:14:5: note: declared private here
+    S(int) {}
+    ^
+2 errors generated.
