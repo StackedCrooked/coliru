@@ -1,0 +1,37 @@
+main.cpp:35:27: error: 'R(Ps ...)' is not a valid type for a template non-type parameter
+ struct Wrap<R(Ps...), func>
+                           ^
+main.cpp:51:30: error: 'void(Ps ...)' is not a valid type for a template non-type parameter
+ struct Wrap<void(Ps...), func>
+                              ^
+main.cpp: In function 'int main()':
+main.cpp:65:35: error: 'int(const char*, int)' is not a valid type for a template non-type parameter
+ #define WRAP(X) Wrap<decltype(X),X>::call
+                                   ^
+main.cpp:74:24: note: in expansion of macro 'WRAP'
+ #define WrapOpenHandle WRAP(OpenHandle)
+                        ^
+main.cpp:78:18: note: in expansion of macro 'WrapOpenHandle'
+     HANDLE hnd = WrapOpenHandle("file.txt", 3);
+                  ^
+main.cpp:65:35: error: 'void(int)' is not a valid type for a template non-type parameter
+ #define WRAP(X) Wrap<decltype(X),X>::call
+                                   ^
+main.cpp:75:25: note: in expansion of macro 'WRAP'
+ #define WrapCloseHandle WRAP(CloseHandle)
+                         ^
+main.cpp:79:5: note: in expansion of macro 'WrapCloseHandle'
+     WrapCloseHandle(hnd);
+     ^
+main.cpp:79:20: error: invalid type in declaration before '(' token
+     WrapCloseHandle(hnd);
+                    ^
+main.cpp:65:38: warning: unused variable 'call' [-Wunused-variable]
+ #define WRAP(X) Wrap<decltype(X),X>::call
+                                      ^
+main.cpp:75:25: note: in expansion of macro 'WRAP'
+ #define WrapCloseHandle WRAP(CloseHandle)
+                         ^
+main.cpp:79:5: note: in expansion of macro 'WrapCloseHandle'
+     WrapCloseHandle(hnd);
+     ^

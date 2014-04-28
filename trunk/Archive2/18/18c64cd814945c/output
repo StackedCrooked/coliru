@@ -1,0 +1,18 @@
+main.cpp: In instantiation of 'std::unique_ptr<T> make_unique(Args&& ...) [with T = derived<int>; Args = {}]':
+main.cpp:24:57:   required from here
+main.cpp:20:49: error: cannot allocate an object of abstract type 'derived<int>'
+     return { new T(std::forward<Args>(args)...) };
+                                                 ^
+main.cpp:11:8: note:   because the following virtual functions are pure within 'derived<int>':
+ struct derived : public base  {
+        ^
+main.cpp:7:17: note: 	virtual int base::test(int)
+     virtual int test(int) = 0;
+                 ^
+main.cpp:20:49: error: could not convert '{<expression error>}' from '<brace-enclosed initializer list>' to 'std::unique_ptr<derived<int>, std::default_delete<derived<int> > >'
+     return { new T(std::forward<Args>(args)...) };
+                                                 ^
+main.cpp: In function 'std::unique_ptr<T> make_unique(Args&& ...) [with T = derived<int>; Args = {}]':
+main.cpp:21:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
