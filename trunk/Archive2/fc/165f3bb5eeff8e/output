@@ -1,0 +1,70 @@
+main.cpp:117:42: error: non-const lvalue reference to type 'boost::property_tree::ptree' (aka 'basic_ptree<std::string, std::string>') cannot bind to a value of unrelated type 'std::basic_string<char>'
+                                simple_serializer<type_t>::read_json(tree_node_y, type_val);
+                                                                     ^~~~~~~~~~~
+main.cpp:46:38: note: in instantiation of function template specialization 'serialize_container<std::vector<int, std::allocator<int> > >::read_json<int>' requested here
+                simple_serializer<current_type_t>::read_json(pt, boost::fusion::at<index_t>(sequence));
+                                                   ^
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<1> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:92:40: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<0> >::read_json' requested here
+                sequence_iterator_final<sequence_t>::read_json(pt, sequence);
+                                                     ^
+main.cpp:178:30: note: in instantiation of member function 'serialize_sequence<StructA>::read_json' requested here
+        simple_serializer<StructA>::read_json( pt , sa_in);
+                                    ^
+main.cpp:74:62: note: passing argument to parameter 'pt' here
+        static inline void read_json( boost::property_tree::ptree  &pt, type_t& t) 
+                                                                    ^
+main.cpp:117:42: error: non-const lvalue reference to type 'boost::property_tree::ptree' (aka 'basic_ptree<std::string, std::string>') cannot bind to a value of unrelated type 'std::basic_string<char>'
+                                simple_serializer<type_t>::read_json(tree_node_y, type_val);
+                                                                     ^~~~~~~~~~~
+main.cpp:46:38: note: in instantiation of function template specialization 'serialize_container<std::vector<StructB, std::allocator<StructB> > >::read_json<StructB>' requested here
+                simple_serializer<current_type_t>::read_json(pt, boost::fusion::at<index_t>(sequence));
+                                                   ^
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<2> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<1> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:92:40: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<0> >::read_json' requested here
+                sequence_iterator_final<sequence_t>::read_json(pt, sequence);
+                                                     ^
+main.cpp:178:30: note: in instantiation of member function 'serialize_sequence<StructA>::read_json' requested here
+        simple_serializer<StructA>::read_json( pt , sa_in);
+                                    ^
+main.cpp:90:62: note: passing argument to parameter 'pt' here
+        static inline void read_json( boost::property_tree::ptree  &pt, sequence_t& sequence) 
+                                                                    ^
+main.cpp:46:3: error: no matching function for call to 'read_json'
+                simple_serializer<current_type_t>::read_json(pt, boost::fusion::at<index_t>(sequence));
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructB, mpl_::int_<1> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:92:40: note: in instantiation of member function 'sequence_iterator<StructB, mpl_::int_<0> >::read_json' requested here
+                sequence_iterator_final<sequence_t>::read_json(pt, sequence);
+                                                     ^
+main.cpp:117:32: note: in instantiation of member function 'serialize_sequence<StructB>::read_json' requested here
+                                simple_serializer<type_t>::read_json(tree_node_y, type_val);
+                                                           ^
+main.cpp:46:38: note: in instantiation of function template specialization 'serialize_container<std::vector<StructB, std::allocator<StructB> > >::read_json<StructB>' requested here
+                simple_serializer<current_type_t>::read_json(pt, boost::fusion::at<index_t>(sequence));
+                                                   ^
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<2> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:48:48: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<1> >::read_json' requested here
+                sequence_iterator<sequence_t, next_index_t>::read_json(pt, sequence);
+                                                             ^
+main.cpp:92:40: note: in instantiation of member function 'sequence_iterator<StructA, mpl_::int_<0> >::read_json' requested here
+                sequence_iterator_final<sequence_t>::read_json(pt, sequence);
+                                                     ^
+main.cpp:178:30: note: in instantiation of member function 'serialize_sequence<StructA>::read_json' requested here
+        simple_serializer<StructA>::read_json( pt , sa_in);
+                                    ^
+main.cpp:106:14: note: candidate template ignored: substitution failure [with type_t = int]
+        static void read_json( boost::property_tree::ptree  &pt, std::vector<type_t> &t) 
+                    ^
+3 errors generated.
