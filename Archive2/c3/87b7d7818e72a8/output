@@ -1,0 +1,11 @@
+main.cpp:13:5: warning: 'deprecated_foo_macro' is deprecated [-Wdeprecated-declarations]
+    FOO(42);
+    ^
+main.cpp:9:52: note: expanded from macro 'FOO'
+#define FOO(x) do{ std::cout << x << "\n"; detail::deprecated_foo_macro(); }while(false)
+                                                   ^
+main.cpp:5:17: note: 'deprecated_foo_macro' declared here
+    inline void deprecated_foo_macro() {
+                ^
+1 warning generated.
+42
