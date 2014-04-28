@@ -1,0 +1,137 @@
+* any{T}; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+* any{any&}; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+* any{any&&}; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+* any <- T; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+* any <- any&; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+* any <- any&&; any._<T>() :
+
+[0] bool        : 1
+[1] char        : A
+[2] int         : 6
+[3] double      : 3.14
+[4] const char* : hello,
+[5] vector<int> : 6 5 4 3 2 1 0 
+[6] double      : 2.71
+[7] string      : world!
+
+there are 2 elements of type 'double' in vector a
+
+* type check :
+
+[0] is long / bool        : 0 / 1
+[1] is long / char        : 0 / 1
+[2] is long / int         : 0 / 1
+[3] is long / double      : 0 / 1
+[4] is long / const char* : 0 / 1
+[5] is long / vector<int> : 0 / 1
+[6] is long / double      : 0 / 1
+[7] is long / string      : 0 / 1
+
+* swap:
+
+[5] vector<int> : 6 5 4 3 2 1 0 
+[7] string      : world!
+[5] string      : world!
+[7] vector<int> : 6 5 4 3 2 1 0 
+
+* T&(any&); any._<T>() :
+
+[0] bool        : 0
+[1] char        : B
+[2] int         : 8
+[3] double      : -3.14
+[4] const char* : Hello,
+[5] vector<int> : 6 5 -2 3 -2 1 0 
+[6] double      : -2.71
+[7] string      : World! ...
+
+* T&&(any&&); any._<T>() :
+
+[0] bool        : 1
+[1] char        : C
+[2] int         : 12
+[3] double      : 3.14159
+[4] const char* : HEllo,
+[5] vector<int> : 6 5 -2 -4 -2 -4 0 
+[6] double      : 2.71828
+[7] string      : WOrld! ... !!!
+
+* T{any&}; T :
+
+[0] bool        : 1
+[1] char        : C
+[2] int         : 12
+[3] double      : 3.14159
+[4] const char* : HEllo,
+[5] vector<int> : 6 5 -2 -4 -2 -4 0 
+[6] double      : 2.71828
+[7] string      : WOrld! ... !!!
+
+* T{any&&}; T :
+
+[0] bool        : 1
+[1] char        : C
+[2] int         : 12
+[3] double      : 3.14159
+[4] const char* : HEllo,
+[5] vector<int> : 6 5 -2 -4 -2 -4 0 
+[6] double      : 2.71828
+[7] string      : WOrld! ... !!!
+
+* exceptions:
+
+e = 4
+exception caught, e = 4
+e = 1 2 3 
+exception caught, e = 1 2 3 
+
