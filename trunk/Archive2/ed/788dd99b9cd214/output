@@ -1,0 +1,111 @@
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:9:8: warning: ISO C++ forbids variable length array 'b' [-Wvla]
+ int b[a]; 
+        ^
+main.cpp:14:23: error: no matching function for call to 'begin(int [(((sizetype)(((ssizetype)a) + -1)) + 1)])'
+ std::sort(std::begin(b), std::end(b)); 
+                       ^
+main.cpp:14:23: note: candidates are:
+In file included from /usr/include/c++/4.8/utility:74:0,
+                 from /usr/include/c++/4.8/algorithm:60,
+                 from main.cpp:3:
+/usr/include/c++/4.8/initializer_list:89:5: note: template<class _Tp> constexpr const _Tp* std::begin(std::initializer_list<_Tp>)
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+/usr/include/c++/4.8/initializer_list:89:5: note:   template argument deduction/substitution failed:
+main.cpp:14:23: note:   mismatched types 'std::initializer_list<_Tp>' and 'int*'
+ std::sort(std::begin(b), std::end(b)); 
+                       ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:48:5: note: template<class _Container> decltype (__cont.begin()) std::begin(_Container&)
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:48:5: note:   template argument deduction/substitution failed:
+main.cpp:14:23: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                       ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:58:5: note: template<class _Container> decltype (__cont.begin()) std::begin(const _Container&)
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:58:5: note:   template argument deduction/substitution failed:
+main.cpp:14:23: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                       ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:87:5: note: template<class _Tp, long unsigned int _Nm> _Tp* std::begin(_Tp (&)[_Nm])
+     begin(_Tp (&__arr)[_Nm])
+     ^
+/usr/include/c++/4.8/bits/range_access.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:14:23: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                       ^
+main.cpp:14:36: error: no matching function for call to 'end(int [(((sizetype)(((ssizetype)a) + -1)) + 1)])'
+ std::sort(std::begin(b), std::end(b)); 
+                                    ^
+main.cpp:14:36: note: candidates are:
+In file included from /usr/include/c++/4.8/utility:74:0,
+                 from /usr/include/c++/4.8/algorithm:60,
+                 from main.cpp:3:
+/usr/include/c++/4.8/initializer_list:99:5: note: template<class _Tp> constexpr const _Tp* std::end(std::initializer_list<_Tp>)
+     end(initializer_list<_Tp> __ils) noexcept
+     ^
+/usr/include/c++/4.8/initializer_list:99:5: note:   template argument deduction/substitution failed:
+main.cpp:14:36: note:   mismatched types 'std::initializer_list<_Tp>' and 'int*'
+ std::sort(std::begin(b), std::end(b)); 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:68:5: note: template<class _Container> decltype (__cont.end()) std::end(_Container&)
+     end(_Container& __cont) -> decltype(__cont.end())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:68:5: note:   template argument deduction/substitution failed:
+main.cpp:14:36: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:78:5: note: template<class _Container> decltype (__cont.end()) std::end(const _Container&)
+     end(const _Container& __cont) -> decltype(__cont.end())
+     ^
+/usr/include/c++/4.8/bits/range_access.h:78:5: note:   template argument deduction/substitution failed:
+main.cpp:14:36: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                                    ^
+In file included from /usr/include/c++/4.8/string:51:0,
+                 from /usr/include/c++/4.8/random:41,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:65,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/range_access.h:97:5: note: template<class _Tp, long unsigned int _Nm> _Tp* std::end(_Tp (&)[_Nm])
+     end(_Tp (&__arr)[_Nm])
+     ^
+/usr/include/c++/4.8/bits/range_access.h:97:5: note:   template argument deduction/substitution failed:
+main.cpp:14:36: note:   variable-sized array type 'int [(((sizetype)(((ssizetype)a) + -1)) + 1)]' is not a valid template argument
+ std::sort(std::begin(b), std::end(b)); 
+                                    ^
+main.cpp:8:15: warning: ignoring return value of 'int scanf(const char*, ...)', declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d",&a); 
+               ^
+main.cpp:12:18: warning: ignoring return value of 'int scanf(const char*, ...)', declared with attribute warn_unused_result [-Wunused-result]
+ scanf("%d",&b[i]); 
+                  ^
