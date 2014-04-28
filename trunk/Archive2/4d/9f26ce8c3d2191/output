@@ -1,0 +1,39 @@
+main.cpp:8:15: error: 'boost' does not name a type
+       typedef boost::vertex_property_tag kind;
+               ^
+main.cpp:9:15: error: 'size_t' in namespace 'std' does not name a type
+       static  std::size_t const num;
+               ^
+main.cpp:12:2: error: 'size_t' in namespace 'std' does not name a type
+  std::size_t const NodeInfoPropertyTag::num = (std::size_t) &NodeInfoPropertyTag::num;
+  ^
+main.cpp:15:10: error: 'boost' does not name a type
+  typedef boost::property <NodeInfoPropertyTag, NodeInfo>  NodeProperty;
+          ^
+main.cpp:16:10: error: 'boost' does not name a type
+  typedef boost::property <EdgeInfoPropertyTag, EdgeInfo>  EdgeProperty;
+          ^
+main.cpp:19:10: error: 'boost' does not name a type
+  typedef boost::adjacency_list <vecS, vecS, undirectedS, NodeProperty, EdgeProperty, no_property, listS>   Graph_t;
+          ^
+main.cpp:22:2: error: 'Graph_t' does not name a type
+  Graph_t  G;
+  ^
+main.cpp:23:11: error: 'graph_traits' does not name a type
+   typedef graph_traits<Graph_t>::vertex_descriptor   vd_t;
+           ^
+main.cpp:26:3: error: 'EdgeInfo' does not name a type
+   EdgeInfo   einfo;   //initialize edgeinfo  for edge property -->such as timestamp
+   ^
+main.cpp:29:3: error: 'vd_t' does not name a type
+   vd_t  v = add_vertex (ninfo1, G)   //add a vertex in G with property ninfo1 
+   ^
+main.cpp:47:19: error: 'boost' has not been declared
+  typedef typename boost::property_map <Graph_t, NodeInfoPropertyTag>::type  NodeMap;
+                   ^
+main.cpp:47:39: error: expected unqualified-id before '<' token
+  typedef typename boost::property_map <Graph_t, NodeInfoPropertyTag>::type  NodeMap;
+                                       ^
+main.cpp:49:2: error: 'EdgeInfo' does not name a type
+  EdgeInfo  einfo = boost::get (EdgeMap, e)
+  ^
