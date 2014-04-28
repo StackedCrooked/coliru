@@ -1,0 +1,13 @@
+main.cpp:9:12: warning: variable 'it2' is uninitialized when used here [-Wuninitialized]
+    assert(it2 == nullptr);
+           ^~~
+/usr/include/assert.h:92:5: note: expanded from macro 'assert'
+  ((expr)                                                               \
+    ^
+main.cpp:7:17: note: initialize the variable 'it2' to silence this warning
+    the_type it2;
+                ^
+                 = nullptr
+1 warning generated.
+a.out: main.cpp:9: int main(): Assertion `it2 == nullptr' failed.
+bash: line 7: 22961 Aborted                 (core dumped) ./a.out
