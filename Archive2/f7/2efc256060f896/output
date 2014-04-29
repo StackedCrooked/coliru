@@ -1,0 +1,8 @@
+main.cpp:18:20: error: cannot pass non-trivial object of type 'mapped_type' (aka 'std::basic_string<char>') to variadic function; expected type from format string was 'char *' [-Wnon-pod-varargs]
+    printf("%s\n", m1["foo"]);
+            ~~     ^~~~~~~~~
+main.cpp:18:20: note: did you mean to call the c_str() method?
+    printf("%s\n", m1["foo"]);
+                   ^
+                            .c_str()
+1 error generated.
