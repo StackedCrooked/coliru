@@ -1,0 +1,28 @@
+main.cpp:11:25: error: expected nested-name-specifier before 'T'
+     template < typename T (*function)( const U& u1, const U& u2 ) >
+                         ^
+main.cpp:11:16: error: declaration of 'int T'
+     template < typename T (*function)( const U& u1, const U& u2 ) >
+                ^
+main.cpp:8:10: error:  shadows template parm 'class T'
+ template<typename T, typename U >
+          ^
+main.cpp:11:27: error: expected '>' before '(' token
+     template < typename T (*function)( const U& u1, const U& u2 ) >
+                           ^
+main.cpp:14:9: error: 'T' does not name a type
+         T operator()( const U& first, const U& second )
+         ^
+main.cpp:27:32: error: wrong number of template arguments (3, should be 2)
+ create_functor< bool, int, int >::functor< &less_than > less_than_int;
+                                ^
+main.cpp:9:8: error: provided for 'template<class T, class U> struct create_functor'
+ struct create_functor
+        ^
+main.cpp:27:42: error: expected initializer before '<' token
+ create_functor< bool, int, int >::functor< &less_than > less_than_int;
+                                          ^
+main.cpp: In function 'int main()':
+main.cpp:38:41: error: 'less_than_int' was not declared in this scope
+     sort( sample.begin(), sample.end(), less_than_int );
+                                         ^
