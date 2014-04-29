@@ -7,5 +7,4 @@ if [ "$(whoami)" != "root" ] ; then
     exit 1
 fi
 
-./repair-permissions.sh & disown
 setsid sudo -u webserver -E ruby webserver-sinatra.rb -o ${COLIRU_URL}
