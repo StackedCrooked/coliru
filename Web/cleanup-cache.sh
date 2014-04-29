@@ -18,6 +18,7 @@ while true ; do
     [ "$(($(cache_size) > $max))" == "1" ] && {
         echo "$0: $(cache_size) > $max => delete $(random_cache_entry)"
         rm -rf ../CompileArchive/$(random_cache_entry)
+        continue
     } || {
         echo "$0: $(cache_size) <= $max. Ok allow cache to grow."
     }
