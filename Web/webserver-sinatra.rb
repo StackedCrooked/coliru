@@ -71,7 +71,7 @@ post '/compile' do
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-
+            FileUtils.rmtree(dir)
         end
         stream do |out|
             out << result

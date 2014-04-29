@@ -27,12 +27,6 @@ echo "Starting new instance..."
 ) & disown
 
 
-# Clean the chroot tmp folder after 1000 seconds.
-{ sleep 1000 ; rm -rf /var/chroot/tmp/* ; } & disown
-
-# Clear the coliru temp dir after 1000 seconds 
-{ sleep 1000 ; rm -rf /tmp/coliru/* ; } & disown
-
 # Start the pgid killer (for killing timed out sandbox processes)
 ./pgid_killer.sh & disown
 
