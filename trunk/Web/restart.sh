@@ -40,4 +40,4 @@ setsid ./defunct-restarter.sh & disown
 iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
 
 # Schedule a future reboot (because we crash all the time)
-setsid bash -c "sleep 21600 ; reboot" & disown
+setsid bash -c "sleep 43200 ; reboot" & disown
