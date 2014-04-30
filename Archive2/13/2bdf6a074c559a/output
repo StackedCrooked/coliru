@@ -1,0 +1,7 @@
+main.cpp:15:5: error: no matching function for call to 'f'
+    f<int, int, int, float>();
+    ^~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:11:73: note: candidate template ignored: substitution failure [with Ts = <int, int, int, float>]: no matching function for call to 'are_same'
+template <class... Ts> typename std::enable_if<are_same<Ts...>()>::type f() {} 
+                                               ~~~~~~~~                 ^
+1 error generated.
