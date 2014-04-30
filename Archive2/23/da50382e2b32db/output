@@ -1,0 +1,58 @@
+main.cpp:1:3: error: invalid preprocessing directive #Include
+ # Include <stdio.h> 
+   ^
+main.cpp: In function 'principal':
+main.cpp:7:5: error: unknown type name 'charlas'
+     charlas A [ ]  =  "Haga la prueba." ; 
+     ^
+main.cpp:7:5: error: wide character array initialized from non-wide string
+main.cpp:8:5: error: unknown type name 'Char'
+     Char  * B =  malloc ( strlen ( A )  +  1 ) ; 
+     ^
+main.cpp:8:5: error: passing argument 1 of 'strlen' from incompatible pointer type
+In file included from main.cpp:3:0:
+/usr/include/string.h:399:15: note: expected 'const char *' but argument is of type 'int *'
+ extern size_t strlen (__const char *__s)
+               ^
+main.cpp:9:5: error: passing argument 1 of 'strcpy' from incompatible pointer type
+     strcpy ( B, A ) ; 
+     ^
+In file included from /usr/include/features.h:357:0,
+                 from /usr/include/stdlib.h:25,
+                 from main.cpp:2:
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:1: note: expected 'char * restrict' but argument is of type 'int *'
+ __NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+ ^
+main.cpp:9:5: error: passing argument 2 of 'strcpy' from incompatible pointer type
+     strcpy ( B, A ) ; 
+     ^
+In file included from /usr/include/features.h:357:0,
+                 from /usr/include/stdlib.h:25,
+                 from main.cpp:2:
+/usr/include/x86_64-linux-gnu/bits/string3.h:103:1: note: expected 'const char * restrict' but argument is of type 'int *'
+ __NTH (strcpy (char *__restrict __dest, __const char *__restrict __src))
+ ^
+main.cpp:11:5: error: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+     printf ( " A =% s ​​\ n B =% s ​​" , A, B ) ;
+     ^
+main.cpp:11:5: warning: incompatible implicit declaration of built-in function 'printf' [enabled by default]
+main.cpp:11:14: error: unknown escape sequence: '\040'
+     printf ( " A =% s ​​\ n B =% s ​​" , A, B ) ;
+              ^
+main.cpp:11:5: warning: ' ' flag used with '%s' gnu_printf format [-Wformat=]
+     printf ( " A =% s ​​\ n B =% s ​​" , A, B ) ;
+     ^
+main.cpp:11:5: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int *' [-Wformat=]
+main.cpp:11:5: warning: ' ' flag used with '%s' gnu_printf format [-Wformat=]
+main.cpp:11:5: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int *' [-Wformat=]
+main.cpp:13:5: error: 'devolver' undeclared (first use in this function)
+     devolver  0 ; 
+     ^
+main.cpp:13:5: note: each undeclared identifier is reported only once for each function it appears in
+main.cpp:13:5: warning: statement with no effect [-Wunused-value]
+main.cpp:13:15: error: expected ';' before numeric constant
+     devolver  0 ; 
+               ^
+main.cpp:14:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
