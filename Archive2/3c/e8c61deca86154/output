@@ -1,0 +1,7 @@
+main.cpp:8:9: error: static_assert failed "ERROR STRING"
+        static_assert(std::is_same<decltype(T::foo(std::declval<int>())), int>::value, "ERROR STRING");
+        ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:18:7: note: in instantiation of member function 'Base<Bad>::~Base' requested here
+class Bad : public Base<Bad>
+      ^
+1 error generated.
