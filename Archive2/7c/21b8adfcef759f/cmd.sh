@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wextra -pedantic main.cpp -ftemplate-depth=230 -ftemplate-backtrace-limit=0 && ./a.out
