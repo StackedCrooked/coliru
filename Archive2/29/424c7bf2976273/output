@@ -1,0 +1,33 @@
+main.cpp:22:11: error: no viable conversion from 'A' to 'B'
+        B&&      br(ar);            // 3. error: no viable conversion from A to B
+                 ^  ~~
+main.cpp:5:35: note: candidate function [with T = B] not viable: no known conversion from 'A' to 'A' for object argument
+    template<typename T> explicit operator T&&       () &&;
+                                  ^
+main.cpp:10:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'A' to 'const B &' for 1st argument
+struct B {};
+       ^
+main.cpp:10:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'A' to 'B &&' for 1st argument
+struct B {};
+       ^
+main.cpp:6:32: note: candidate function [with T = B]
+        template<typename T> explicit operator T&        () &;
+                                      ^
+main.cpp:7:32: note: candidate function [with T = B]
+        template<typename T> explicit operator const T&  () const&;
+                                      ^
+main.cpp:27:11: error: call to constructor of 'B' is ambiguous
+        B        cm(std::move(a));  // 7. error: call to constructor of B ambiguous
+                 ^  ~~~~~~~~~~~~
+main.cpp:10:8: note: candidate is the implicit copy constructor
+struct B {};
+       ^
+main.cpp:10:8: note: candidate is the implicit move constructor
+main.cpp:28:11: error: call to constructor of 'B' is ambiguous
+        B        ct(A{});           // 8. error: call to constructor of B ambiguous
+                 ^  ~~~
+main.cpp:10:8: note: candidate is the implicit copy constructor
+struct B {};
+       ^
+main.cpp:10:8: note: candidate is the implicit move constructor
+3 errors generated.
