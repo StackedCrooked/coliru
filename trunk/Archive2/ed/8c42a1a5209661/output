@@ -1,0 +1,166 @@
+main.cpp: In instantiation of 'void func<Ret(Args ...)>::reset_impl(T, I, int_seq<Ns ...>, Bs&& ...) [with T = void (test::*)(int, int); I = test*; Bs = {}; int ...Ns = {0, 1}; Ret = void; Args = {int, int}]':
+main.cpp:37:118:   required from 'void func<Ret(Args ...)>::reset(T, I, Bound&& ...) [with T = void (test::*)(int, int); I = test*; Bound = {}; Ret = void; Args = {int, int}]'
+main.cpp:59:25:   required from here
+main.cpp:43:11: error: no match for call to '(std::_Bind<std::_Mem_fn<void (test::*)(int, int)>(test*, fake_placeholder<0>, fake_placeholder<1>)>) (int, int)'
+     f(1, 2);
+           ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.8.2/functional:1280:11: note: candidates are:
+     class _Bind<_Functor(_Bound_args...)>
+           ^
+/usr/local/include/c++/4.8.2/functional:1351:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<void (test::*)(int, int)>; _Bound_args = {test*, fake_placeholder<0>, fake_placeholder<1>}]
+  operator()(_Args&&... __args)
+  ^
+/usr/local/include/c++/4.8.2/functional:1351:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1347:37: error: no match for call to '(std::_Mem_fn<void (test::*)(int, int)>) (test*&, fake_placeholder<0>&, int)'
+  = decltype( std::declval<_Functor>()(
+                                     ^
+/usr/local/include/c++/4.8.2/functional:541:11: note: candidates are:
+     class _Mem_fn<_Res (_Class::*)(_ArgTypes...)>
+           ^
+/usr/local/include/c++/4.8.2/functional:587:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:587:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1347:37: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test*&, std::tuple<int, int> >((* & std::declval<test*&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test*') to type 'test&'
+  = decltype( std::declval<_Functor>()(
+                                     ^
+/usr/local/include/c++/4.8.2/functional:592:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:592:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1347:37: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test*&, std::tuple<int, int> >((* & std::declval<test*&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test*') to type 'test&&'
+  = decltype( std::declval<_Functor>()(
+                                     ^
+/usr/local/include/c++/4.8.2/functional:600:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class* __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:600:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:607:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&&, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Tp&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:607:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:616:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(std::reference_wrapper<_Tp>, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(reference_wrapper<_Tp> __ref, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:616:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1347:37: note:   mismatched types 'std::reference_wrapper<_Tp>' and 'test*'
+  = decltype( std::declval<_Functor>()(
+                                     ^
+/usr/local/include/c++/4.8.2/functional:1365:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<void (test::*)(int, int)>; _Bound_args = {test*, fake_placeholder<0>, fake_placeholder<1>}]
+  operator()(_Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:1365:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1361:53: error: no match for call to '(const std::_Mem_fn<void (test::*)(int, int)>) (test* const&, const fake_placeholder<0>&, int)'
+          typename add_const<_Functor>::type>::type>()(
+                                                     ^
+/usr/local/include/c++/4.8.2/functional:541:11: note: candidates are:
+     class _Mem_fn<_Res (_Class::*)(_ArgTypes...)>
+           ^
+/usr/local/include/c++/4.8.2/functional:587:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:587:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1361:53: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* const&, std::tuple<int, int> >((* & std::declval<test* const&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* const') to type 'test&'
+          typename add_const<_Functor>::type>::type>()(
+                                                     ^
+/usr/local/include/c++/4.8.2/functional:592:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:592:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1361:53: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* const&, std::tuple<int, int> >((* & std::declval<test* const&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* const') to type 'test&&'
+          typename add_const<_Functor>::type>::type>()(
+                                                     ^
+/usr/local/include/c++/4.8.2/functional:600:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class* __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:600:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:607:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&&, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Tp&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:607:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:616:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(std::reference_wrapper<_Tp>, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(reference_wrapper<_Tp> __ref, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:616:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1361:53: note:   mismatched types 'std::reference_wrapper<_Tp>' and 'test*'
+          typename add_const<_Functor>::type>::type>()(
+                                                     ^
+/usr/local/include/c++/4.8.2/functional:1379:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<void (test::*)(int, int)>; _Bound_args = {test*, fake_placeholder<0>, fake_placeholder<1>}]
+  operator()(_Args&&... __args) volatile
+  ^
+/usr/local/include/c++/4.8.2/functional:1379:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1375:70: error: no match for call to '(volatile std::_Mem_fn<void (test::*)(int, int)>) (test* volatile&, volatile fake_placeholder<0>&, int)'
+                        typename add_volatile<_Functor>::type>::type>()(
+                                                                      ^
+/usr/local/include/c++/4.8.2/functional:541:11: note: candidates are:
+     class _Mem_fn<_Res (_Class::*)(_ArgTypes...)>
+           ^
+/usr/local/include/c++/4.8.2/functional:587:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:587:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1375:70: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* volatile&, std::tuple<int, int> >((* & std::declval<test* volatile&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* volatile') to type 'test&'
+                        typename add_volatile<_Functor>::type>::type>()(
+                                                                      ^
+/usr/local/include/c++/4.8.2/functional:592:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:592:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1375:70: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* volatile&, std::tuple<int, int> >((* & std::declval<test* volatile&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* volatile') to type 'test&&'
+                        typename add_volatile<_Functor>::type>::type>()(
+                                                                      ^
+/usr/local/include/c++/4.8.2/functional:600:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class* __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:600:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:607:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&&, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Tp&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:607:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:616:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(std::reference_wrapper<_Tp>, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(reference_wrapper<_Tp> __ref, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:616:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1375:70: note:   mismatched types 'std::reference_wrapper<_Tp>' and 'test*'
+                        typename add_volatile<_Functor>::type>::type>()(
+                                                                      ^
+/usr/local/include/c++/4.8.2/functional:1393:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<void (test::*)(int, int)>; _Bound_args = {test*, fake_placeholder<0>, fake_placeholder<1>}]
+  operator()(_Args&&... __args) const volatile
+  ^
+/usr/local/include/c++/4.8.2/functional:1393:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1389:64: error: no match for call to '(const volatile std::_Mem_fn<void (test::*)(int, int)>) (test* const volatile&, const volatile fake_placeholder<0>&, int)'
+                        typename add_cv<_Functor>::type>::type>()(
+                                                                ^
+/usr/local/include/c++/4.8.2/functional:541:11: note: candidates are:
+     class _Mem_fn<_Res (_Class::*)(_ArgTypes...)>
+           ^
+/usr/local/include/c++/4.8.2/functional:587:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:587:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1389:64: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* const volatile&, std::tuple<int, int> >((* & std::declval<test* const volatile&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* const volatile') to type 'test&'
+                        typename add_cv<_Functor>::type>::type>()(
+                                                                ^
+/usr/local/include/c++/4.8.2/functional:592:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&&, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:592:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1389:64: note:   cannot convert 'std::_Mu<test*, false, false>().std::_Mu<_Arg, false, false>::operator()<test* const volatile&, std::tuple<int, int> >((* & std::declval<test* const volatile&>()), (* & std::declval<std::tuple<int, int>&>()))' (type 'test* const volatile') to type 'test&&'
+                        typename add_cv<_Functor>::type>::type>()(
+                                                                ^
+/usr/local/include/c++/4.8.2/functional:600:2: note: template<class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _Args&& ...) const [with _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Class* __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:600:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:607:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&&, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(_Tp&& __object, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:607:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:616:2: note: template<class _Tp, class ... _Args, class _Req> _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(std::reference_wrapper<_Tp>, _Args&& ...) const [with _Tp = _Tp; _Args = {_Args ...}; _Req = _Req; _Res = void; _Class = test; _ArgTypes = {int, int}]
+  operator()(reference_wrapper<_Tp> __ref, _Args&&... __args) const
+  ^
+/usr/local/include/c++/4.8.2/functional:616:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.8.2/functional:1389:64: note:   mismatched types 'std::reference_wrapper<_Tp>' and 'test*'
+                        typename add_cv<_Functor>::type>::type>()(
+                                                                ^
