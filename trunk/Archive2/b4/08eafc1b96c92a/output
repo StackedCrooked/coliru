@@ -1,0 +1,20 @@
+main.cpp: In function 'T* allocateEffect(Us ...)':
+main.cpp:3:5: error: 'unique_ptr' is not a member of 'std'
+     std::unique_ptr<char[], decltype(free_some_memory)> raw(allocate_some_memory(sizeof(T)),free_some_memory);
+     ^
+main.cpp:3:21: error: expected primary-expression before 'char'
+     std::unique_ptr<char[], decltype(free_some_memory)> raw(allocate_some_memory(sizeof(T)),free_some_memory);
+                     ^
+main.cpp:3:21: error: expected ';' before 'char'
+main.cpp:4:19: error: 'raw' was not declared in this scope
+     T* ret = new (raw.get()) T(std::forward<Us>(vs)...);
+                   ^
+main.cpp:4:32: error: 'forward' is not a member of 'std'
+     T* ret = new (raw.get()) T(std::forward<Us>(vs)...);
+                                ^
+main.cpp:4:47: error: expected primary-expression before '>' token
+     T* ret = new (raw.get()) T(std::forward<Us>(vs)...);
+                                               ^
+main.cpp:4:49: error: 'vs' was not declared in this scope
+     T* ret = new (raw.get()) T(std::forward<Us>(vs)...);
+                                                 ^
