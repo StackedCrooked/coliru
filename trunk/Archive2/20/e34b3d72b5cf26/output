@@ -1,0 +1,54 @@
+main.cpp: In function 'std::istream& operator>>(std::istream&, coordinates&)':
+main.cpp:12:12: error: no match for 'operator>>' (operand types are 'std::istream {aka std::basic_istream<char>}' and 'int')
+ {return in >> coord.x >> coord.y;}
+            ^
+main.cpp:12:12: note: candidates are:
+main.cpp:11:15: note: std::istream& operator>>(std::istream&, coordinates&)
+ std::istream& operator>>(std::istream& in, coordinates& coord)
+               ^
+main.cpp:11:15: note:   no known conversion for argument 2 from 'int' to 'coordinates&'
+In file included from /usr/local/include/c++/4.8.2/string:53:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.tcc:996:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator>>(basic_istream<_CharT, _Traits>& __in,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.tcc:996:5: note:   template argument deduction/substitution failed:
+main.cpp:12:21: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+ {return in >> coord.x >> coord.y;}
+                     ^
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, coordinates&)':
+main.cpp:14:13: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'int')
+ {return out << coord.x << ' ' << coord.y;}
+             ^
+main.cpp:14:13: note: candidates are:
+main.cpp:13:15: note: std::ostream& operator<<(std::ostream&, coordinates&)
+ std::ostream& operator<<(std::ostream& out, coordinates& coord)
+               ^
+main.cpp:13:15: note:   no known conversion for argument 2 from 'int' to 'coordinates&'
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2753:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2753:5: note:   template argument deduction/substitution failed:
+main.cpp:14:22: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+ {return out << coord.x << ' ' << coord.y;}
+                      ^
+main.cpp: At global scope:
+main.cpp:25:1: error: 'ship_type' does not name a type
+ ship_type ship_type_from_string(const std::string& type)
+ ^
+main.cpp:34:23: error: 'ship_type' was not declared in this scope
+ const char* to_string(ship_type type)
+                       ^
+main.cpp:35:1: error: expected ',' or ';' before '{' token
+ {
+ ^
+main.cpp: In function 'std::istream& operator>>(std::istream&, coordinates&)':
+main.cpp:12:34: warning: control reaches end of non-void function [-Wreturn-type]
+ {return in >> coord.x >> coord.y;}
+                                  ^
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, coordinates&)':
+main.cpp:14:42: warning: control reaches end of non-void function [-Wreturn-type]
+ {return out << coord.x << ' ' << coord.y;}
+                                          ^
