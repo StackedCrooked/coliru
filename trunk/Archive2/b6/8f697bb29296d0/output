@@ -1,0 +1,29 @@
++ clang++ -O0 -Wall -pedantic -Wextra -Wconversion -pthread -std=c++1y main.cpp
+main.cpp:4:19: error: static_assert expression is not an integral constant expression
+    static_assert(std::pow(2, 2) < 5, "foobar");
+                  ^~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/cmath:437:14: note: non-constexpr function 'pow' cannot be used in a constant expression
+      return pow(__type(__x), __type(__y));
+             ^
+main.cpp:4:19: note: in call to 'pow(2, 2)'
+    static_assert(std::pow(2, 2) < 5, "foobar");
+                  ^
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:155:13: note: declared here
+__MATHCALL (pow,, (_Mdouble_ __x, _Mdouble_ __y));
+            ^
+/usr/include/math.h:55:25: note: expanded from macro '__MATHCALL'
+  __MATHDECL (_Mdouble_,function,suffix, args)
+                        ^
+/usr/include/math.h:57:22: note: expanded from macro '__MATHDECL'
+  __MATHDECL_1(type, function,suffix, args); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+1 error generated.
