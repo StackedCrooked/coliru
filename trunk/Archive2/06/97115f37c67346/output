@@ -1,0 +1,16 @@
+main.cpp:12:14: error: no matching function for call to 'forward'
+    auto x = LIFT(func);
+             ^~~~~~~~~~
+main.cpp:4:64: note: expanded from macro 'LIFT'
+#define LIFT(f) [](auto&&... as) -> decltype(auto){ return (f)(std::forward(as)...); }
+                                                               ^~~~~~~~~~~~
+main.cpp:13:6: note: in instantiation of function template specialization 'main()::<anonymous class>::operator()<int>' requested here
+    x(1);
+     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/move.h:76:5: note: candidate template ignored: couldn't infer template argument '_Tp'
+    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/move.h:87:5: note: candidate template ignored: couldn't infer template argument '_Tp'
+    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    ^
+1 error generated.
