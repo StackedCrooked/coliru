@@ -1,0 +1,15 @@
++ g++-4.8 -O0 -Wall -pedantic -Wextra -Wconversion -pthread -fno-builtin -std=c++1y main.cpp
+main.cpp: In function 'int main()':
+main.cpp:4:5: error: non-constant condition for static assertion
+     static_assert(std::pow(2, 2) < 5, "foobar");
+     ^
+main.cpp:4:32: error: 'constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = int; typename __gnu_cxx::__promote_2<_Tp, _Up>::__type = double]' called in a constant expression
+     static_assert(std::pow(2, 2) < 5, "foobar");
+                                ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/cmath:434:5: note: 'constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = int; typename __gnu_cxx::__promote_2<_Tp, _Up>::__type = double]' is not usable as a constexpr function because:
+     pow(_Tp __x, _Up __y)
+     ^
+/usr/include/c++/4.8/cmath:437:42: error: call to non-constexpr function 'double pow(double, double)'
+       return pow(__type(__x), __type(__y));
+                                          ^
