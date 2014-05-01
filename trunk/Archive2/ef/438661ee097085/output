@@ -1,0 +1,167 @@
+main.cpp:66:4: error: call to constructor of 'C' is ambiguous
+        C direct_move_expl(std::move(a));  // 1. call to constructor of C ambiguous
+          ^                ~~~~~~~~~~~~
+main.cpp:25:8: note: candidate is the implicit copy constructor
+struct C {};
+       ^
+main.cpp:25:8: note: candidate is the implicit move constructor
+main.cpp:67:4: error: call to constructor of 'C' is ambiguous
+        C direct_temp_expl(A{});           // (same)
+          ^                ~~~
+main.cpp:25:8: note: candidate is the implicit copy constructor
+struct C {};
+       ^
+main.cpp:25:8: note: candidate is the implicit move constructor
+main.cpp:69:4: error: call to constructor of 'C' is ambiguous
+        C direct_move_impl(std::move(b));  // 2. call to constructor of C ambiguous
+          ^                ~~~~~~~~~~~~
+main.cpp:25:8: note: candidate is the implicit copy constructor
+struct C {};
+       ^
+main.cpp:25:8: note: candidate is the implicit move constructor
+main.cpp:70:4: error: call to constructor of 'C' is ambiguous
+        C direct_temp_impl(B{});           // (same)
+          ^                ~~~
+main.cpp:25:8: note: candidate is the implicit copy constructor
+struct C {};
+       ^
+main.cpp:25:8: note: candidate is the implicit move constructor
+main.cpp:72:4: error: no viable conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'C'
+        C copy_move_expl = std::move(a);  // 3. no viable conversion from A to C
+          ^                ~~~~~~~~~~~~
+main.cpp:25:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'const C &' for 1st argument
+struct C {};
+       ^
+main.cpp:25:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'C &&' for 1st argument
+struct C {};
+       ^
+main.cpp:73:4: error: no viable conversion from 'A' to 'C'
+        C copy_temp_expl = A{};           // (same)
+          ^                ~~~
+main.cpp:25:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'A' to 'const C &' for 1st argument
+struct C {};
+       ^
+main.cpp:25:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'A' to 'C &&' for 1st argument
+struct C {};
+       ^
+main.cpp:84:4: error: no viable conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'D' (aka 'flexi<int>')
+        D copy_move_expl_flexi = std::move(a);  // F3. no viable conversion from A to D
+          ^                      ~~~~~~~~~~~~
+main.cpp:28:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'const flexi<int> &' for 1st argument
+struct flexi
+       ^
+main.cpp:28:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'typename std::remove_reference<A &>::type' (aka 'A') to 'flexi<int> &&' for 1st argument
+struct flexi
+       ^
+main.cpp:37:3: note: candidate template ignored: disabled by 'enable_if' [with A = <A>]
+                all(std::is_convertible<A, T>{}...),
+                ^
+main.cpp:85:4: error: no viable conversion from 'A' to 'D' (aka 'flexi<int>')
+        D copy_temp_expl_flexi = A{};           // (same)
+          ^                      ~~~
+main.cpp:28:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'A' to 'const flexi<int> &' for 1st argument
+struct flexi
+       ^
+main.cpp:28:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'A' to 'flexi<int> &&' for 1st argument
+struct flexi
+       ^
+main.cpp:37:3: note: candidate template ignored: disabled by 'enable_if' [with A = <A>]
+                all(std::is_convertible<A, T>{}...),
+                ^
+main.cpp:87:4: error: conversion from 'typename std::remove_reference<B &>::type' (aka 'B') to 'D' (aka 'flexi<int>') is ambiguous
+        D copy_move_impl_flexi = std::move(b);  // F4. conversion from B to D ambiguous
+          ^                      ~~~~~~~~~~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+main.cpp:22:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator const T&  () const&;
+                             ^
+main.cpp:88:4: error: conversion from 'B' to 'D' (aka 'flexi<int>') is ambiguous
+        D copy_temp_impl_flexi = B{};           // (same)
+          ^                      ~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+main.cpp:22:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator const T&  () const&;
+                             ^
+main.cpp:90:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'typename std::remove_reference<A &>::type' (aka 'A') is ambiguous
+        D&& ref_direct_move_expl_flexi(std::move(a));  // R1. OK
+            ^                          ~~~~~~~~~~~~
+main.cpp:5:35: note: candidate function [with T = flexi<int>]
+    template<typename T> explicit operator T&&       () &&;
+                                  ^
+main.cpp:50:11: note: candidate constructor [with A = <A>, $1 = 0]
+        explicit flexi(A&&...);
+                 ^
+main.cpp:91:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'A' is ambiguous
+        D&& ref_direct_temp_expl_flexi(A{});           // (same)
+            ^                          ~~~
+main.cpp:5:35: note: candidate function [with T = flexi<int>]
+    template<typename T> explicit operator T&&       () &&;
+                                  ^
+main.cpp:50:11: note: candidate constructor [with A = <A>, $1 = 0]
+        explicit flexi(A&&...);
+                 ^
+main.cpp:93:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'typename std::remove_reference<B &>::type' (aka 'B') is ambiguous
+        D&& ref_direct_move_impl_flexi(std::move(b));  // R2. initialization of D&& from B ambiguous
+            ^                          ~~~~~~~~~~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+main.cpp:94:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'B' is ambiguous
+        D&& ref_direct_temp_impl_flexi(B{});           // (same)
+            ^                          ~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+main.cpp:96:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'typename std::remove_reference<A &>::type' (aka 'A') is ambiguous
+        D&& ref_copy_move_expl_flexi(std::move(a));  // R3. OK
+            ^                        ~~~~~~~~~~~~
+main.cpp:5:35: note: candidate function [with T = flexi<int>]
+    template<typename T> explicit operator T&&       () &&;
+                                  ^
+main.cpp:50:11: note: candidate constructor [with A = <A>, $1 = 0]
+        explicit flexi(A&&...);
+                 ^
+main.cpp:97:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'A' is ambiguous
+        D&& ref_copy_temp_expl_flexi(A{});           // (same)
+            ^                        ~~~
+main.cpp:5:35: note: candidate function [with T = flexi<int>]
+    template<typename T> explicit operator T&&       () &&;
+                                  ^
+main.cpp:50:11: note: candidate constructor [with A = <A>, $1 = 0]
+        explicit flexi(A&&...);
+                 ^
+main.cpp:99:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'typename std::remove_reference<B &>::type' (aka 'B') is ambiguous
+        D&& ref_copy_move_impl_flexi = std::move(b);  // R4. initialization of D&& from B ambiguous
+            ^                          ~~~~~~~~~~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+main.cpp:100:6: error: reference initialization of type 'D &&' (aka 'flexi<int> &&') with initializer of type 'B' is ambiguous
+        D&& ref_copy_temp_impl_flexi = B{};           // (same)
+            ^                          ~~~
+main.cpp:20:23: note: candidate function [with T = flexi<int>]
+        template<typename T> operator T&&       () &&;
+                             ^
+main.cpp:47:2: note: candidate constructor [with A = <B>, $1 = 0]
+        flexi(A&&...);
+        ^
+18 errors generated.
