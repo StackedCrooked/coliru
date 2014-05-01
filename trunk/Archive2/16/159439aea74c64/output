@@ -1,0 +1,14 @@
++ clang++ -O3 -Wall -Wextra -Wconversion -pedantic -std=c++11 main.cpp
+main.cpp:4:1: error: 'auto' return without trailing return type
+auto foo() {
+^
+main.cpp:5:12: warning: implicit conversion from 'long long' to 'int' changes value from 1234567890123456789 to 2112454933 [-Wconstant-conversion]
+    return 1234567890123456789LL;
+    ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~
+1 warning and 1 error generated.
++ g++-4.8 -O3 -Wall -Wextra -Wconversion -pedantic -std=c++11 main.cpp
+main.cpp:4:10: warning: 'foo' function uses 'auto' type specifier without trailing return type [enabled by default]
+ auto foo() {
+          ^
++ ./a.out
+8
