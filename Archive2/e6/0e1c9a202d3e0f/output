@@ -1,0 +1,7 @@
+main.cpp:6:42: error: a non-type template parameter cannot have type 'typename Foo::type' (aka 'void')
+template <typename T, typename T::type...>
+                                         ^
+main.cpp:11:5: note: while substituting prior template arguments into non-type template parameter [with T = Foo]
+    Bar<Foo, void()> b;
+    ^~~~~~~~~~~~~~~~
+1 error generated.
