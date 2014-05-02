@@ -1,0 +1,25 @@
+main.cpp:29:53: error: use 'template' keyword to treat 'array_container' as a dependent template name
+using a_type = basic_data_object<String,Allocator>::array_container<T>;
+                                                    ^
+                                                    template 
+main.cpp:29:16: error: expected a type
+using a_type = basic_data_object<String,Allocator>::array_container<T>;
+               ^
+main.cpp:29:33: error: expected ';' after alias declaration
+using a_type = basic_data_object<String,Allocator>::array_container<T>;
+                                ^
+                                ;
+main.cpp:32:49: error: use of undeclared identifier 'a_type'; did you mean 'wctype'?
+struct get_data_object_value<String, Allocator, a_type<String,Allocator,T>>
+                                                ^~~~~~
+                                                wctype
+/usr/include/wctype.h:172:17: note: 'wctype' declared here
+extern wctype_t wctype (__const char *__property) __THROW;
+                ^
+main.cpp:32:56: error: 'String' does not refer to a value
+struct get_data_object_value<String, Allocator, a_type<String,Allocator,T>>
+                                                       ^
+main.cpp:31:20: note: declared here
+template <typename String, template<class> class Allocator, typename T>
+                   ^
+5 errors generated.
