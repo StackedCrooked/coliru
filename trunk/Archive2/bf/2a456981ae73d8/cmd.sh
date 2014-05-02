@@ -1,0 +1,1 @@
+clang -x c -std=c99 -O0 -Wall -Wextra  -Wconversion -pedantic -fsanitize=undefined -pthread main.cpp && ./a.out
