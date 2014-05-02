@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -O0 main.cpp -lboost_timer -lboost_system && ./a.out
