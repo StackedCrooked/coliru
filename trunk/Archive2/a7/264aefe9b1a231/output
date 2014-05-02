@@ -1,0 +1,13 @@
+main.cpp:6:40: error: invalid application of 'sizeof' to an incomplete type 'Triple<container, int>'
+        static const std::size_t foo = sizeof(T);
+                                       ^~~~~~~~~
+main.cpp:14:40: note: in instantiation of member class 'container<Triple<container, int> >::iterator' requested here
+  typename Container<Triple>::iterator prev, next;
+                                       ^
+main.cpp:17:24: note: in instantiation of template class 'Triple<container, int>' requested here
+Triple<container, int> t;
+                       ^
+main.cpp:12:8: note: definition of 'Triple<container, int>' is not complete until the closing '}'
+struct Triple {
+       ^
+1 error generated.
