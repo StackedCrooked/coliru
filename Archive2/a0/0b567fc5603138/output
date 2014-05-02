@@ -1,0 +1,22 @@
+main.cpp: In instantiation of 'void Fill() [with T1 = int; Tn = {double}]':
+main.cpp:20:22:   required from here
+main.cpp:14:14: error: call of overloaded 'Fill()' is ambiguous
+     Fill<T1>();
+              ^
+main.cpp:14:14: note: candidates are:
+main.cpp:8:6: note: void Fill() [with T = int]
+ void Fill(){
+      ^
+main.cpp:13:6: note: void Fill() [with T1 = int; Tn = {}]
+ void Fill(){
+      ^
+main.cpp:15:17: error: call of overloaded 'Fill()' is ambiguous
+     Fill<Tn...>();
+                 ^
+main.cpp:15:17: note: candidates are:
+main.cpp:8:6: note: void Fill() [with T = double]
+ void Fill(){
+      ^
+main.cpp:13:6: note: void Fill() [with T1 = double; Tn = {}]
+ void Fill(){
+      ^
