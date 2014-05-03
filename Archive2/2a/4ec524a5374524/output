@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:15:18:   in constexpr expansion of 'delta{}.delta::next<int>(4)'
+main.cpp:7:42: error: 'constexpr void delta::inc(I&) const [with I = int]' called in a constant expression
+     constexpr I next(I i) { return inc(i), i; }
+                                          ^
+main.cpp:4:17: note: 'constexpr void delta::inc(I&) const [with I = int]' is not usable as a constexpr function because:
+  constexpr void inc(I& i) { ++i; }
+                 ^
+main.cpp:4:17: error: invalid return type 'void' of constexpr function 'constexpr void delta::inc(I&) const [with I = int]'
+main.cpp:15:19: note: in template argument for type 'int' 
+  A<delta{}.next(4)>{};
+                   ^
