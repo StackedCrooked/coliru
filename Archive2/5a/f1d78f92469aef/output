@@ -1,0 +1,20 @@
+main.cpp:5:22: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+  unsigned int a = 1 << 32;
+               ~   ~~^~~~~
+main.cpp:6:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  unsigned long int b = 1 << 32;
+                    ~   ~~^~~~~
+main.cpp:9:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:5:22: warning: shift count >= width of type [-Wshift-count-overflow]
+  unsigned int a = 1 << 32;
+                     ^  ~~
+main.cpp:6:27: warning: shift count >= width of type [-Wshift-count-overflow]
+  unsigned long int b = 1 << 32;
+                          ^  ~~
+5 warnings generated.
+main.cpp:5:22: runtime error: shift exponent 32 is too large for 32-bit type 'int'
+main.cpp:6:27: runtime error: shift exponent 32 is too large for 32-bit type 'int'
+4 8
+4283543 0
