@@ -1,0 +1,32 @@
+main.cpp: In instantiation of 'Action<TFunc, TArgs>::Action(TInnerFunc&&, TInnerArgs&& ...) [with TInnerFunc = void (ExClass::*)()const; TInnerArgs = {ExClass&}; TFunc = void (ExClass::*)()const; TArgs = {ExClass&}]':
+main.cpp:36:98:   required from 'Action<TFunc, TArgs ...> make_action(TFunc&&, TArgs&& ...) [with TFunc = void (ExClass::*)()const; TArgs = {ExClass&}]'
+main.cpp:44:60:   required from here
+main.cpp:24:91: error: no matching function for call to 'std::_Bind<std::_Mem_fn<void (ExClass::*)()const>(ExClass)>::_Bind(void (ExClass::*)()const, ExClass&)'
+             : m_bound(std::forward<TInnerFunc>(functor), std::forward<TInnerArgs>(args)...)
+                                                                                           ^
+main.cpp:24:91: note: candidates are:
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.8.2/functional:1341:7: note: std::_Bind<_Functor(_Bound_args ...)>::_Bind(std::_Bind<_Functor(_Bound_args ...)>&&) [with _Functor = std::_Mem_fn<void (ExClass::*)()const>; _Bound_args = {ExClass}]
+       _Bind(_Bind&& __b)
+       ^
+/usr/local/include/c++/4.8.2/functional:1341:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.8.2/functional:1339:7: note: std::_Bind<_Functor(_Bound_args ...)>::_Bind(const std::_Bind<_Functor(_Bound_args ...)>&) [with _Functor = std::_Mem_fn<void (ExClass::*)()const>; _Bound_args = {ExClass}]
+       _Bind(const _Bind&) = default;
+       ^
+/usr/local/include/c++/4.8.2/functional:1339:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.8.2/functional:1335:11: note: template<class ... _Args> std::_Bind<_Functor(_Bound_args ...)>::_Bind(_Functor&&, _Args&& ...)
+  explicit _Bind(_Functor&& __f, _Args&&... __args)
+           ^
+/usr/local/include/c++/4.8.2/functional:1335:11: note:   template argument deduction/substitution failed:
+main.cpp:24:91: note:   cannot convert 'std::forward<void (ExClass::*)()const>((* & functor))' (type 'void (ExClass::*)()const') to type 'std::_Mem_fn<void (ExClass::*)()const>&&'
+             : m_bound(std::forward<TInnerFunc>(functor), std::forward<TInnerArgs>(args)...)
+                                                                                           ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.8.2/functional:1330:11: note: template<class ... _Args> std::_Bind<_Functor(_Bound_args ...)>::_Bind(const _Functor&, _Args&& ...)
+  explicit _Bind(const _Functor& __f, _Args&&... __args)
+           ^
+/usr/local/include/c++/4.8.2/functional:1330:11: note:   template argument deduction/substitution failed:
+main.cpp:24:91: note:   cannot convert 'std::forward<void (ExClass::*)()const>((* & functor))' (type 'void (ExClass::*)()const') to type 'const std::_Mem_fn<void (ExClass::*)()const>&'
+             : m_bound(std::forward<TInnerFunc>(functor), std::forward<TInnerArgs>(args)...)
+                                                                                           ^
+bash: line 7: ./main: No such file or directory
