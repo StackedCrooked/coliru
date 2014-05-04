@@ -1,0 +1,13 @@
+main.cpp:15:4: error: non-type template argument is not a constant expression
+        A<delta{}.next(4)>{};
+          ^~~~~~~~~~~~~~~
+main.cpp:7:29: note: non-constexpr function 'inc<int>' cannot be used in a constant expression
+    constexpr I next(I i) { inc(i); return i; }
+                            ^
+main.cpp:15:4: note: in call to '&{  }->next(4)'
+        A<delta{}.next(4)>{};
+          ^
+main.cpp:4:7: note: declared here
+        void inc(I& i) { ++i; }
+             ^
+1 error generated.
