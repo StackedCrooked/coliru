@@ -1,0 +1,9 @@
+main.cpp: In instantiation of 'void func(Ts ...) [with Ts = {int, int, int}]':
+main.cpp:16:13:   required from here
+main.cpp:7:9: warning: unused variable 'res' [-Wunused-variable]
+     int res[size] = {1,args...,2};
+         ^
+main.cpp:10:9: warning: unused variable 'dummy' [-Wunused-variable]
+     int dummy[sizeof...(Ts)] = { (std::cout << args << "T", 0)... };
+         ^
+1T5T8T
