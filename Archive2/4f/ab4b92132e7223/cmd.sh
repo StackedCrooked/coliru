@@ -1,0 +1,1 @@
+export OMP_NUM_THREADS=1 && g++-4.8 -std=c++11 -O2 -Wall -pedantic -fopenmp -pthread main.cpp && ./a.out 1000 1000
