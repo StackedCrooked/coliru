@@ -1,0 +1,1 @@
+set -x; g++ -std=c++11 -S -O2 -Wall -Wextra -pedantic main.cpp -o main.S && cat main.S
