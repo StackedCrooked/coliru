@@ -1,0 +1,16 @@
++ ln -s /Archive2/f6/63cd838c7b8ec2/main.cpp nonius.hpp
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic main.cpp
+main.cpp: In function 'float abs_ugly(float)':
+main.cpp:26:40: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   (*reinterpret_cast<std::uint32_t*>(&f)) &= 0x7fffffff;
+                                        ^
+In file included from main.cpp:13:0:
+main.cpp: In lambda function:
+main.cpp:45:22: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+       volatile float temp;
+                      ^
+nonius.hpp:736:108: note: in definition of macro 'NONIUS_BENCHMARK'
+     namespace { static ::nonius::benchmark_registrar NONIUS_DETAIL_UNIQUE_NAME(benchmark_registrar) (name, __VA_ARGS__); }
+                                                                                                            ^
++ ./a.out
+./build_and_run.sh: line 32: 10721 Killed                  setsid sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
