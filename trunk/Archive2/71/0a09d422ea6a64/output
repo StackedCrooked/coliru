@@ -1,0 +1,261 @@
+main.cpp:10:14: error: declaration of 'class type'
+     template<class type, int depth> struct blockstep_tuple;
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:11:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,1> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:12:34: error: declaration of 'typedef class std::tuple<type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 1>::type'
+         typedef std::tuple<type> type; 
+                                  ^
+main.cpp:11:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,1> {
+              ^
+main.cpp:16:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,2> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:17:39: error: declaration of 'typedef class std::tuple<type, type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 2>::type'
+         typedef std::tuple<type,type> type; 
+                                       ^
+main.cpp:16:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,2> {
+              ^
+main.cpp:21:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,3> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:22:44: error: declaration of 'typedef class std::tuple<type, type, type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 3>::type'
+         typedef std::tuple<type,type,type> type; 
+                                            ^
+main.cpp:21:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,3> {
+              ^
+main.cpp:26:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,4> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:27:49: error: declaration of 'typedef class std::tuple<type, type, type, type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 4>::type'
+         typedef std::tuple<type,type,type,type> type; 
+                                                 ^
+main.cpp:26:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,4> {
+              ^
+main.cpp:31:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,5> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:32:54: error: declaration of 'typedef class std::tuple<type, type, type, type, type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 5>::type'
+         typedef std::tuple<type,type,type,type,type> type; 
+                                                      ^
+main.cpp:31:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,5> {
+              ^
+main.cpp:36:14: error: declaration of 'class type'
+     template<class type> struct blockstep_tuple<type,6> {
+              ^
+main.cpp:7:10: error:  shadows template parm 'class type'
+ template<class type, type blockstep, type max, int count>
+          ^
+main.cpp:37:59: error: declaration of 'typedef class std::tuple<type, type, type, type, type, type> blockstep_iterator<type, blockstep, max, count>::blockstep_tuple<type, 6>::type'
+         typedef std::tuple<type,type,type,type,type,type> type; 
+                                                           ^
+main.cpp:36:14: error:  shadows template parm 'class type'
+     template<class type> struct blockstep_tuple<type,6> {
+              ^
+main.cpp: In instantiation of 'class blockstep_iterator<int, 2, 4, 3>':
+main.cpp:141:39:   required from here
+main.cpp:41:56: error: no type named 'type' in 'struct blockstep_iterator<int, 2, 4, 3>::blockstep_tuple<int, 3>'
+     typedef typename blockstep_tuple<type,count>::type tuptype;
+                                                        ^
+main.cpp: In instantiation of 'blockstep_iterator<type, blockstep, max, count>::blockstep_iterator(blockstep_end) [with type = int; type blockstep = 2; type max = 4; int count = 3]':
+main.cpp:141:59:   required from here
+main.cpp:78:71: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+     blockstep_iterator(blockstep_end) :block(get_max()), cur(get_max()) {}    
+                                                                       ^
+main.cpp:78:54: error: 'get_max' was not declared in this scope
+     blockstep_iterator(blockstep_end) :block(get_max()), cur(get_max()) {}    
+                                                      ^
+main.cpp:78:71: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+     blockstep_iterator(blockstep_end) :block(get_max()), cur(get_max()) {}    
+                                                                       ^
+main.cpp: In instantiation of 'blockstep_iterator<type, blockstep, max, count>::blockstep_iterator() [with type = int; type blockstep = 2; type max = 4; int count = 3]':
+main.cpp:142:43:   required from here
+main.cpp:77:50: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+     blockstep_iterator() :block(get_step()), cur() {}    
+                                                  ^
+main.cpp:77:42: error: 'get_step' was not declared in this scope
+     blockstep_iterator() :block(get_step()), cur() {}    
+                                          ^
+main.cpp:77:50: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+     blockstep_iterator() :block(get_step()), cur() {}    
+                                                  ^
+main.cpp: In instantiation of 'bool operator!=(const blockstep_iterator<int, 2, 4, 3>&, const blockstep_iterator<int, 2, 4, 3>&)':
+main.cpp:142:53:   required from here
+main.cpp:117:105: error: 'const class blockstep_iterator<int, 2, 4, 3>' has no member named 'cur'
+     friend bool operator!=(const blockstep_iterator& lhs, const blockstep_iterator& rhs) {return lhs.cur!=rhs.cur;}
+                                                                                                         ^
+main.cpp:117:105: error: 'const class blockstep_iterator<int, 2, 4, 3>' has no member named 'cur'
+main.cpp: In instantiation of 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]':
+main.cpp:142:79:   required from here
+main.cpp:105:23: error: 'get_max' was not declared in this scope
+         cur = get_max();
+                       ^
+main.cpp:105:13: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         cur = get_max();
+             ^
+main.cpp: In instantiation of 'const std::tuple<type, type, type>& blockstep_iterator<type, blockstep, max, count>::operator*() [with type = int; type blockstep = 2; type max = 4; int count = 3; blockstep_iterator<type, blockstep, max, count>::reference = const std::tuple<int, int, int>&]':
+main.cpp:142:79:   required from here
+main.cpp:113:35: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+     reference operator*() {return cur;}
+                                   ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 2; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:87:25:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:49:78: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                              ^
+main.cpp:49:53: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                     ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), void>::type blockstep_iterator<type, blockstep, max, count>::reset_subblock() [with int index = 2; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), void>::type = void]':
+main.cpp:88:23:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:54:71: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                                                       ^
+main.cpp:54:46: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                              ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 1; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:89:25:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:49:78: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                              ^
+main.cpp:49:53: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                     ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), void>::type blockstep_iterator<type, blockstep, max, count>::reset_subblock() [with int index = 1; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), void>::type = void]':
+main.cpp:90:23:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:54:71: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                                                       ^
+main.cpp:54:46: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                              ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 0; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:91:25:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:49:78: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                              ^
+main.cpp:49:53: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                     ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), void>::type blockstep_iterator<type, blockstep, max, count>::reset_subblock() [with int index = 0; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), void>::type = void]':
+main.cpp:92:23:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:54:71: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                                                       ^
+main.cpp:54:46: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         reset_subblock() {std::get<index>(cur) = std::get<index>(block)-blockstep;}
+                                              ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_block() [with int index = 2; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:100:22:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:59:47: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                               ^
+main.cpp:59:113: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                 ^
+main.cpp:59:88: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                        ^
+main.cpp:59:137: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                                         ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), void>::type blockstep_iterator<type, blockstep, max, count>::reset_block() [with int index = 2; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), void>::type = void]':
+main.cpp:101:20:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:64:45: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         reset_block() {std::get<index>(block)=blockstep; std::get<index>(cur) = 0;}
+                                             ^
+main.cpp:64:77: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         reset_block() {std::get<index>(block)=blockstep; std::get<index>(cur) = 0;}
+                                                                             ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_block() [with int index = 1; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:102:22:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:59:47: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                               ^
+main.cpp:59:113: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                 ^
+main.cpp:59:88: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                        ^
+main.cpp:59:137: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                                         ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), void>::type blockstep_iterator<type, blockstep, max, count>::reset_block() [with int index = 1; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), void>::type = void]':
+main.cpp:103:20:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:64:45: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         reset_block() {std::get<index>(block)=blockstep; std::get<index>(cur) = 0;}
+                                             ^
+main.cpp:64:77: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         reset_block() {std::get<index>(block)=blockstep; std::get<index>(cur) = 0;}
+                                                                             ^
+main.cpp: In instantiation of 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_block() [with int index = 0; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:104:22:   required from 'blockstep_iterator<type, blockstep, max, count>& blockstep_iterator<type, blockstep, max, count>::operator++() [with type = int; type blockstep = 2; type max = 4; int count = 3]'
+main.cpp:142:79:   required from here
+main.cpp:59:47: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                               ^
+main.cpp:59:113: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                 ^
+main.cpp:59:88: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::cur'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                        ^
+main.cpp:59:137: error: using invalid field 'blockstep_iterator<type, blockstep, max, count>::block'
+         inc_block() {if (std::get<index>(block)>=max) return false; std::get<index>(cur) = std::get<index>(block); std::get<index>(block)+=blockstep; return true;}
+                                                                                                                                         ^
+main.cpp: In member function 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 2; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:49:80: warning: control reaches end of non-void function [-Wreturn-type]
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                                ^
+main.cpp: In member function 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 1; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:49:80: warning: control reaches end of non-void function [-Wreturn-type]
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                                ^
+main.cpp: In member function 'typename std::enable_if<(index < count), bool>::type blockstep_iterator<type, blockstep, max, count>::inc_subblock() [with int index = 0; type = int; type blockstep = 2; type max = 4; int count = 3; typename std::enable_if<(index < count), bool>::type = bool]':
+main.cpp:49:80: warning: control reaches end of non-void function [-Wreturn-type]
+         inc_subblock() {return ++std::get<index>(cur) < std::get<index>(block);}
+                                                                                ^
+main.cpp: In member function 'const std::tuple<type, type, type>& blockstep_iterator<type, blockstep, max, count>::operator*() [with type = int; type blockstep = 2; type max = 4; int count = 3; blockstep_iterator<type, blockstep, max, count>::reference = const std::tuple<int, int, int>&]':
+main.cpp:113:39: warning: control reaches end of non-void function [-Wreturn-type]
+     reference operator*() {return cur;}
+                                       ^
+main.cpp: In function 'bool operator!=(const blockstep_iterator<int, 2, 4, 3>&, const blockstep_iterator<int, 2, 4, 3>&)':
+main.cpp:117:115: warning: control reaches end of non-void function [-Wreturn-type]
+     friend bool operator!=(const blockstep_iterator& lhs, const blockstep_iterator& rhs) {return lhs.cur!=rhs.cur;}
+                                                                                                                   ^
