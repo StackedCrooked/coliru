@@ -1,0 +1,17 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic main.cpp
+main.cpp: In function 'float abs_ugly(float)':
+main.cpp:23:40: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   (*reinterpret_cast<std::uint32_t*>(&f)) &= 0x7fffffff;
+                                        ^
+main.cpp: In function 'int main()':
+main.cpp:41:18: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+   volatile float temp;
+                  ^
++ ./a.out
+random number generation: 4282 ms
+naive template abs: 201 ms
+ugly bitfiddling abs: 237 ms
+std::abs: 187 ms
+::fabsf: 189 ms
+naive template abs: 389 ms
+naive template abs: 193 ms
