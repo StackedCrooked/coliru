@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:22:36: error: ambiguous class template instantiation for 'struct eval<foo<int>, int>'
+     std::cout << eval<foo<int>,int>::value << std::endl;
+                                    ^
+main.cpp:7:8: error: candidates are: struct eval<F<Fs ...>, Arg, Args ...>
+ struct eval<F<Fs...>,Arg,Args...>
+        ^
+main.cpp:15:8: error:                 struct eval<foo<Args ...>, Args ...>
+ struct eval<foo<Args...>,Args...>
+        ^
+main.cpp:22:18: error: incomplete type 'eval<foo<int>, int>' used in nested name specifier
+     std::cout << eval<foo<int>,int>::value << std::endl;
+                  ^
