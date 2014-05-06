@@ -1,0 +1,390 @@
+In file included from /usr/local/include/c++/4.8.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h: In instantiation of 'void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = Pairs::iterator]':
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2211:62:   required from 'void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = Pairs::iterator]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5453:47:   required from 'void std::sort(_RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+main.cpp:77:42:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2140:11: error: array must be initialized with a brace-enclosed initializer
+   __val = _GLIBCXX_MOVE(*__i);
+           ^
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2142:17: error: no match for 'operator=' (operand types are 'Pair' and 'std::remove_reference<int (&)[2]>::type {aka int [2]}')
+        *__first = _GLIBCXX_MOVE(__val);
+                 ^
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2142:17: note: candidate is:
+main.cpp:11:16: note: Pair& Pair::operator=(const Pair&)
+         Pair & operator= ( const Pair & rhs ) { _data[0] = rhs.first(); _data[1] = rhs.second(); }
+                ^
+main.cpp:11:16: note:   no known conversion for argument 1 from 'std::remove_reference<int (&)[2]>::type {aka int [2]}' to 'const Pair&'
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h: In instantiation of 'void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = Pairs::iterator]':
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5299:51:   required from 'void std::partial_sort(_RAIter, _RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2310:60:   required from 'void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Pairs::iterator; _Size = long int]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5452:36:   required from 'void std::sort(_RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+main.cpp:77:42:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: error: no match for 'operator<' (operand types are 'Pairs::iterator' and 'Pairs::iterator')
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:220:5: note: template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:220:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::pair<_T1, _T2>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:297:5: note: template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator<(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:297:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::reverse_iterator<_Iterator>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:347:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator<(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:347:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::reverse_iterator<_Iterator>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1055:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator<(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1055:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::move_iterator<_Iterator>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1061:5: note: template<class _Iterator> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator<(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1061:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::move_iterator<_Iterator>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2569:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2569:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2581:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2581:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2593:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2593:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   mismatched types 'const _CharT*' and 'Pairs::iterator'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/vector:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/random.h:34,
+                 from /usr/local/include/c++/4.8.2/random:50,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_vector.h:1420:5: note: template<class _Tp, class _Alloc> bool std::operator<(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator<(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_vector.h:1420:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::vector<_Tp, _Alloc>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/tuple:39:0,
+                 from /usr/local/include/c++/4.8.2/functional:55,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/array:238:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+     ^
+/usr/local/include/c++/4.8.2/array:238:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::array<_Tp, _Nm>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+In file included from /usr/local/include/c++/4.8.2/functional:55:0,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/tuple:822:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator<(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator<(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.8.2/tuple:822:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1934:54: note:   'Pairs::iterator' is not derived from 'const std::tuple<_Elements ...>'
+       for (_RandomAccessIterator __i = __middle; __i < __last; ++__i)
+                                                      ^
+/usr/local/include/c++/4.8.2/bits/stl_algo.h: In instantiation of '_RandomAccessIterator std::__unguarded_partition(_RandomAccessIterator, _RandomAccessIterator, const _Tp&) [with _RandomAccessIterator = Pairs::iterator; _Tp = Pair]':
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2283:70:   required from '_RandomAccessIterator std::__unguarded_partition_pivot(_RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = Pairs::iterator]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2315:54:   required from 'void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Pairs::iterator; _Size = long int]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5452:36:   required from 'void std::sort(_RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+main.cpp:77:42:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: error: no match for 'operator<' (operand types are 'Pairs::iterator' and 'Pairs::iterator')
+    if (!(__first < __last))
+                  ^
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:220:5: note: template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:220:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::pair<_T1, _T2>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:297:5: note: template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator<(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:297:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::reverse_iterator<_Iterator>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:347:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator<(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:347:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::reverse_iterator<_Iterator>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1055:5: note: template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator<(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1055:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::move_iterator<_Iterator>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1061:5: note: template<class _Iterator> bool std::operator<(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator<(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1061:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::move_iterator<_Iterator>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2569:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2569:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2581:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2581:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2593:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2593:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   mismatched types 'const _CharT*' and 'Pairs::iterator'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/vector:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/random.h:34,
+                 from /usr/local/include/c++/4.8.2/random:50,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:65,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_vector.h:1420:5: note: template<class _Tp, class _Alloc> bool std::operator<(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator<(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_vector.h:1420:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::vector<_Tp, _Alloc>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/tuple:39:0,
+                 from /usr/local/include/c++/4.8.2/functional:55,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/array:238:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+     ^
+/usr/local/include/c++/4.8.2/array:238:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::array<_Tp, _Nm>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/functional:55:0,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.8.2/algorithm:62,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/tuple:822:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator<(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator<(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.8.2/tuple:822:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.8.2/algorithm:62:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2247:18: note:   'Pairs::iterator' is not derived from 'const std::tuple<_Elements ...>'
+    if (!(__first < __last))
+                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_heap.h: In instantiation of 'void std::make_heap(_RAIter, _RAIter) [with _RAIter = Pairs::iterator]':
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:1933:39:   required from 'void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator) [with _RandomAccessIterator = Pairs::iterator]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5299:51:   required from 'void std::partial_sort(_RAIter, _RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:2310:60:   required from 'void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Pairs::iterator; _Size = long int]'
+/usr/local/include/c++/4.8.2/bits/stl_algo.h:5452:36:   required from 'void std::sort(_RAIter, _RAIter) [with _RAIter = Pairs::iterator]'
+main.cpp:77:42:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_heap.h:406:25: error: array must be initialized with a brace-enclosed initializer
+    _ValueType __value = _GLIBCXX_MOVE(*(__first + __parent));
+                         ^
