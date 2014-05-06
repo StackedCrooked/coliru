@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:11:21: error: 'j' is not a valid template argument for type 'const int&' because object 'j' has not external linkage
+     f<int const, j>();  // not valid template argument: 'j' has not external linkage
+                     ^
+main.cpp:11:21: error: no matching function for call to 'f()'
+main.cpp:11:21: note: candidate is:
+main.cpp:6:6: note: template<class T, T& <anonymous> > void f()
+ void f() {}
+      ^
+main.cpp:6:6: note:   substitution of deduced template arguments resulted in errors seen above
