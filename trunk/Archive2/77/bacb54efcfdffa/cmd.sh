@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 -pthread main.cpp && echo "line abc def line line ghi jkl line" | ./a.out
