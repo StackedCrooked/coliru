@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wextra -pedantic main.cpp -ftemplate-depth=231 -O3 && ./a.out
