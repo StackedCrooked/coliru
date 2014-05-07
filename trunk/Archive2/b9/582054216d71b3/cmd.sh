@@ -1,0 +1,1 @@
+g++ -std=c++11 -march=native -Wall -pedantic main.cpp && ./a.out
