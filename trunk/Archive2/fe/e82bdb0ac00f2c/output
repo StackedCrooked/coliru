@@ -1,0 +1,17 @@
+main.cpp:78:49: warning: multiple unsequenced modifications to '_pass' [-Wunsequenced]
+                raw [ +(rawch - "<<") ] [ _pass = phx::bind(copy, _1, phx::ref(out)) ] 
+                                                ^
+1 warning generated.
+this is a side effect while parsing
+parse result: success
+Streamed output:
+
+Greeting is bye world!
+Side effects are (done) and <<other>> vars are untouched
+Empty <<>> macros are ok, as are stray '>>' pairs.
+<<nested <<macros>> (bye?) work>>
+The order of expansion (evaluation) is _eager_: 'We meet again' will expand to the same as 'We meet again'
+Lastly you can do algorithmic stuff too: eyb in reverse!
+You can escape <<hello>> (not expanded to 'bye')
+Demonstrate how it <<avoids <<nesting>> macros>>.
+
