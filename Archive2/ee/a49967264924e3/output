@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:30:35: error: ambiguous class template instantiation for 'struct eval<foo<int>, list<int>, void>'
+     std::cout << evl<foo<int>,int>::value << std::endl;
+                                   ^
+main.cpp:12:8: error: candidates are: struct eval<F<Fs ...>, list<Args ...>, typename std::enable_if<(sizeof (Args ...) > 0)>::type>
+ struct eval<F<Fs...>,list<Args...>,typename std::enable_if<(sizeof...(Args) > 0)>::type>
+        ^
+main.cpp:20:8: error:                 struct eval<foo<placeholders ...>, list<Args ...> >
+ struct eval<foo<placeholders...>,list<Args...>>
+        ^
+main.cpp:30:18: error: incomplete type 'evl<foo<int>, int> {aka eval<foo<int>, list<int>, void>}' used in nested name specifier
+     std::cout << evl<foo<int>,int>::value << std::endl;
+                  ^
