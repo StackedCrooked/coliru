@@ -1,0 +1,19 @@
+In file included from /usr/include/c++/4.8/tuple:39:0,
+                 from /usr/include/c++/4.8/functional:55,
+                 from /usr/include/c++/4.8/bits/stl_algo.h:66,
+                 from /usr/include/c++/4.8/algorithm:62,
+                 from /usr/local/include/boost/utility/swap.hpp:24,
+                 from /usr/local/include/boost/swap.hpp:10,
+                 from /usr/local/include/boost/utility/value_init.hpp:30,
+                 from /usr/local/include/boost/mpl/for_each.hpp:28,
+                 from main.cpp:2:
+/usr/include/c++/4.8/array: In instantiation of 'constexpr _Tp& std::get(std::array<_Tp, _Nm>&) [with long unsigned int _Int = 10ul; _Tp = long unsigned int; long unsigned int _Nm = 10ul]':
+main.cpp:16:35:   required from 'void Lambda::operator()(U) [with U = mpl_::integral_c<long unsigned int, 11ul>]'
+/usr/local/include/boost/mpl/for_each.hpp:79:111:   recursively required from 'static void boost::mpl::aux::for_each_impl<false>::execute(Iterator*, LastIterator*, TransformFunc*, F) [with Iterator = boost::mpl::r_iter<mpl_::integral_c<long unsigned int, 2ul> >; LastIterator = boost::mpl::r_iter<mpl_::integral_c<long unsigned int, 12ul> >; TransformFunc = boost::mpl::identity<mpl_::na>; F = Lambda]'
+/usr/local/include/boost/mpl/for_each.hpp:79:111:   required from 'static void boost::mpl::aux::for_each_impl<false>::execute(Iterator*, LastIterator*, TransformFunc*, F) [with Iterator = boost::mpl::r_iter<mpl_::integral_c<long unsigned int, 1ul> >; LastIterator = boost::mpl::r_iter<mpl_::integral_c<long unsigned int, 12ul> >; TransformFunc = boost::mpl::identity<mpl_::na>; F = Lambda]'
+/usr/local/include/boost/mpl/for_each.hpp:101:97:   required from 'void boost::mpl::for_each(F, Sequence*, TransformOp*) [with Sequence = boost::mpl::range_c<long unsigned int, 1ul, 12ul>; TransformOp = boost::mpl::identity<mpl_::na>; F = Lambda]'
+/usr/local/include/boost/mpl/for_each.hpp:111:38:   required from 'void boost::mpl::for_each(F, Sequence*) [with Sequence = boost::mpl::range_c<long unsigned int, 1ul, 12ul>; F = Lambda]'
+main.cpp:25:46:   required from here
+/usr/include/c++/4.8/array:270:7: error: static assertion failed: index is out of bounds
+       static_assert(_Int < _Nm, "index is out of bounds");
+       ^
