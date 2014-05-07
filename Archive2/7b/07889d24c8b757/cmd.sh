@@ -1,0 +1,1 @@
+clang++ -O2 -pedantic -pthread main.cpp && ./a.out
