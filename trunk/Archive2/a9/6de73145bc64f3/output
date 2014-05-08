@@ -1,0 +1,18 @@
+main.cpp: In instantiation of 'decltype (((current == i) ? p.el0 :  p.el1)) get_my(PairT, int, int) [with PairT = my_pair<double, double>; decltype (((current == i) ? p.el0 :  p.el1)) = double&]':
+main.cpp:38:27:   required from here
+main.cpp:17:6: warning: reference to local variable 'p' returned [-Wreturn-local-addr]
+ auto get_my(PairT p, int i,  int current = 0) -> decltype( current == i ? p.el0 : p.el1 ){
+      ^
+main.cpp: In instantiation of 'decltype (((current == i) ? p.el0 :  p.el1)) get_my(PairT, int, int) [with PairT = double; decltype (((current == i) ? p.el0 :  p.el1)) = <type error>]':
+main.cpp:21:42:   required from 'decltype (((current == i) ? p.el0 :  p.el1)) get_my(PairT, int, int) [with PairT = my_pair<double, double>; decltype (((current == i) ? p.el0 :  p.el1)) = <type error>]'
+main.cpp:38:27:   required from here
+main.cpp:19:18: error: request for member 'el0' in 'p', which is of non-class type 'double'
+         return p.el0;
+                  ^
+main.cpp:21:42: error: request for member 'el1' in 'p', which is of non-class type 'double'
+         return get_my(p.el1, i, current++);
+                                          ^
+main.cpp: In function 'decltype (((current == i) ? p.el0 :  p.el1)) get_my(PairT, int, int) [with PairT = double; decltype (((current == i) ? p.el0 :  p.el1)) = <type error>]':
+main.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
