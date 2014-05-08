@@ -1,0 +1,14 @@
+main.cpp:11:27: warning: field 'b' is uninitialized when used here [-Wuninitialized]
+    int a = init( "A::a", b + 66 ) ; // *** bad *** b is used before it is initialised
+                          ^
+main.cpp:15:5: note: during field initialization in this constructor
+    A() // member initialisation in order of declaration ie. first a, then b, then c
+    ^
+1 warning generated.
+initialise A::a with 66
+initialise A::b with 88
+initialise A::c with 10
+in A::constructor body
+assign 154 to A::a
+assign 123 to A::b
+assign 0 to A::c
