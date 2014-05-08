@@ -1,0 +1,384 @@
+main.cpp: In member function 'std::vector<T>& many_vectors<V>::data()':
+main.cpp:48:14: error: 'get' is not a member of 'std'
+     { return std::get<index_of<T, V...>::value>(_data); }
+              ^
+main.cpp: In member function 'const std::vector<T>& many_vectors<V>::data() const':
+main.cpp:52:14: error: 'get' is not a member of 'std'
+     { return std::get<index_of<T, V...>::value>(_data); }
+              ^
+main.cpp: In instantiation of 'class many_vectors<RIVDataRecord<int>, RIVDataRecord<float> >':
+main.cpp:75:59:   required from here
+main.cpp:43:35: error: 'many_vectors<V>::_data' has incomplete type
+     std::tuple<std::vector<V>...> _data;
+                                   ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:9:
+/usr/include/c++/4.8/bits/stl_pair.h:83:11: error: declaration of 'class std::tuple<std::vector<RIVDataRecord<int>, std::allocator<RIVDataRecord<int> > >, std::vector<RIVDataRecord<float>, std::allocator<RIVDataRecord<float> > > >'
+     class tuple;
+           ^
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:9:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'struct __gnu_cxx::new_allocator<RIVDataRecord<int>&>':
+/usr/include/c++/4.8/bits/allocator.h:92:11:   required from 'class std::allocator<RIVDataRecord<int>&>'
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:63:26: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       typedef _Tp*       pointer;
+                          ^
+/usr/include/c++/4.8/ext/new_allocator.h:64:26: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       typedef const _Tp* const_pointer;
+                          ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:9:
+/usr/include/c++/4.8/bits/allocator.h: In instantiation of 'class std::allocator<RIVDataRecord<int>&>':
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/allocator.h:97:26: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       typedef _Tp*       pointer;
+                          ^
+/usr/include/c++/4.8/bits/allocator.h:98:26: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       typedef const _Tp* const_pointer;
+                          ^
+In file included from /usr/include/c++/4.8/ext/alloc_traits.h:36:0,
+                 from /usr/include/c++/4.8/bits/stl_construct.h:61,
+                 from /usr/include/c++/4.8/vector:62,
+                 from main.cpp:10:
+/usr/include/c++/4.8/bits/alloc_traits.h: In instantiation of 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >':
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: error: forming pointer to reference type 'std::allocator_traits<std::allocator<RIVDataRecord<int>&> >::value_type {aka RIVDataRecord<int>&}'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<int>&> >::_S_pointer_helper(std::allocator<RIVDataRecord<int>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note: template<class _Tp> static typename _Tp::pointer std::allocator_traits<_Alloc>::_S_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<int>&> >::_S_const_pointer_helper(std::allocator<RIVDataRecord<int>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note: template<class _Tp> static typename _Tp::const_pointer std::allocator_traits<_Alloc>::_S_const_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<int>&> >::_S_void_pointer_helper(std::allocator<RIVDataRecord<int>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note: template<class _Tp> static typename _Tp::void_pointer std::allocator_traits<_Alloc>::_S_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h: In substitution of 'template<class _Tp> static typename _Tp::void_pointer std::allocator_traits<_Alloc>::_S_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>] [with _Tp = std::allocator<RIVDataRecord<int>&>]':
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: error: no type named 'void_pointer' in 'class std::allocator<RIVDataRecord<int>&>'
+/usr/include/c++/4.8/bits/alloc_traits.h: In instantiation of 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >':
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<int>&> >::_S_const_void_pointer_helper(std::allocator<RIVDataRecord<int>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note: template<class _Tp> static typename _Tp::const_void_pointer std::allocator_traits<_Alloc>::_S_const_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h: In substitution of 'template<class _Tp> static typename _Tp::const_void_pointer std::allocator_traits<_Alloc>::_S_const_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<int>&>] [with _Tp = std::allocator<RIVDataRecord<int>&>]':
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: error: no type named 'const_void_pointer' in 'class std::allocator<RIVDataRecord<int>&>'
+In file included from /usr/include/c++/4.8/bits/stl_construct.h:61:0,
+                 from /usr/include/c++/4.8/vector:62,
+                 from main.cpp:10:
+/usr/include/c++/4.8/ext/alloc_traits.h: In instantiation of 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >':
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/ext/alloc_traits.h:137:23: error: no members matching '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >::_Base_type {aka std::allocator_traits<std::allocator<RIVDataRecord<int>&> >}::allocate' in '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >::_Base_type {aka struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >}'
+     using _Base_type::allocate;
+                       ^
+/usr/include/c++/4.8/ext/alloc_traits.h:138:23: error: no members matching '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >::_Base_type {aka std::allocator_traits<std::allocator<RIVDataRecord<int>&> >}::deallocate' in '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<int>&> >::_Base_type {aka struct std::allocator_traits<std::allocator<RIVDataRecord<int>&> >}'
+     using _Base_type::deallocate;
+                       ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:10:
+/usr/include/c++/4.8/bits/stl_vector.h: In instantiation of 'class std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >':
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+/usr/include/c++/4.8/bits/stl_vector.h:237:20: error: no members matching 'std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >::_Base {aka std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >}::_M_allocate' in 'std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >::_Base {aka struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >}'
+       using _Base::_M_allocate;
+                    ^
+/usr/include/c++/4.8/bits/stl_vector.h:238:20: error: no members matching 'std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >::_Base {aka std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >}::_M_deallocate' in 'std::vector<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >::_Base {aka struct std::_Vector_base<RIVDataRecord<int>&, std::allocator<RIVDataRecord<int>&> >}'
+       using _Base::_M_deallocate;
+                    ^
+/usr/include/c++/4.8/bits/stl_vector.h:878:7: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       data() _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:886:7: error: forming pointer to reference type 'RIVDataRecord<int>&'
+       data() const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:919:7: error: 'void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = RIVDataRecord<int>&; _Alloc = std::allocator<RIVDataRecord<int>&>; std::vector<_Tp, _Alloc>::value_type = RIVDataRecord<int>&]' cannot be overloaded
+       push_back(value_type&& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: error: with 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = RIVDataRecord<int>&; _Alloc = std::allocator<RIVDataRecord<int>&>; std::vector<_Tp, _Alloc>::value_type = RIVDataRecord<int>&]'
+       push_back(const value_type& __x)
+       ^
+In file included from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/4.8/bits/allocator.h:46,
+                 from /usr/include/c++/4.8/string:41,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:9:
+/usr/include/c++/4.8/ext/new_allocator.h: In instantiation of 'struct __gnu_cxx::new_allocator<RIVDataRecord<float>&>':
+/usr/include/c++/4.8/bits/allocator.h:92:11:   required from 'class std::allocator<RIVDataRecord<float>&>'
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/ext/new_allocator.h:63:26: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       typedef _Tp*       pointer;
+                          ^
+/usr/include/c++/4.8/ext/new_allocator.h:64:26: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       typedef const _Tp* const_pointer;
+                          ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:9:
+/usr/include/c++/4.8/bits/allocator.h: In instantiation of 'class std::allocator<RIVDataRecord<float>&>':
+/usr/include/c++/4.8/bits/alloc_traits.h:90:43:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/allocator.h:97:26: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       typedef _Tp*       pointer;
+                          ^
+/usr/include/c++/4.8/bits/allocator.h:98:26: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       typedef const _Tp* const_pointer;
+                          ^
+In file included from /usr/include/c++/4.8/ext/alloc_traits.h:36:0,
+                 from /usr/include/c++/4.8/bits/stl_construct.h:61,
+                 from /usr/include/c++/4.8/vector:62,
+                 from main.cpp:10:
+/usr/include/c++/4.8/bits/alloc_traits.h: In instantiation of 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >':
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: error: forming pointer to reference type 'std::allocator_traits<std::allocator<RIVDataRecord<float>&> >::value_type {aka RIVDataRecord<float>&}'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<float>&> >::_S_pointer_helper(std::allocator<RIVDataRecord<float>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note: template<class _Tp> static typename _Tp::pointer std::allocator_traits<_Alloc>::_S_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(pointer, value_type*)
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:100:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<float>&> >::_S_const_pointer_helper(std::allocator<RIVDataRecord<float>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note: template<class _Tp> static typename _Tp::const_pointer std::allocator_traits<_Alloc>::_S_const_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:109:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<float>&> >::_S_void_pointer_helper(std::allocator<RIVDataRecord<float>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note: template<class _Tp> static typename _Tp::void_pointer std::allocator_traits<_Alloc>::_S_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h: In substitution of 'template<class _Tp> static typename _Tp::void_pointer std::allocator_traits<_Alloc>::_S_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>] [with _Tp = std::allocator<RIVDataRecord<float>&>]':
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:120:1: error: no type named 'void_pointer' in 'class std::allocator<RIVDataRecord<float>&>'
+/usr/include/c++/4.8/bits/alloc_traits.h: In instantiation of 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >':
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: error: no matching function for call to 'std::allocator_traits<std::allocator<RIVDataRecord<float>&> >::_S_const_void_pointer_helper(std::allocator<RIVDataRecord<float>&>*)'
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note: candidate is:
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note: template<class _Tp> static typename _Tp::const_void_pointer std::allocator_traits<_Alloc>::_S_const_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>]
+ _GLIBCXX_ALLOC_TR_NESTED_TYPE(const_void_pointer,
+ ^
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/alloc_traits.h: In substitution of 'template<class _Tp> static typename _Tp::const_void_pointer std::allocator_traits<_Alloc>::_S_const_void_pointer_helper(_Tp*) [with _Tp = _Tp; _Alloc = std::allocator<RIVDataRecord<float>&>] [with _Tp = std::allocator<RIVDataRecord<float>&>]':
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1:   required from 'struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/ext/alloc_traits.h:121:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/alloc_traits.h:131:1: error: no type named 'const_void_pointer' in 'class std::allocator<RIVDataRecord<float>&>'
+In file included from /usr/include/c++/4.8/bits/stl_construct.h:61:0,
+                 from /usr/include/c++/4.8/vector:62,
+                 from main.cpp:10:
+/usr/include/c++/4.8/ext/alloc_traits.h: In instantiation of 'struct __gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >':
+/usr/include/c++/4.8/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+/usr/include/c++/4.8/bits/stl_vector.h:210:11:   required from 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >'
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/ext/alloc_traits.h:137:23: error: no members matching '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >::_Base_type {aka std::allocator_traits<std::allocator<RIVDataRecord<float>&> >}::allocate' in '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >::_Base_type {aka struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >}'
+     using _Base_type::allocate;
+                       ^
+/usr/include/c++/4.8/ext/alloc_traits.h:138:23: error: no members matching '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >::_Base_type {aka std::allocator_traits<std::allocator<RIVDataRecord<float>&> >}::deallocate' in '__gnu_cxx::__alloc_traits<std::allocator<RIVDataRecord<float>&> >::_Base_type {aka struct std::allocator_traits<std::allocator<RIVDataRecord<float>&> >}'
+     using _Base_type::deallocate;
+                       ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from main.cpp:10:
+/usr/include/c++/4.8/bits/stl_vector.h: In instantiation of 'class std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >':
+main.cpp:56:7:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+/usr/include/c++/4.8/bits/stl_vector.h:237:20: error: no members matching 'std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >::_Base {aka std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >}::_M_allocate' in 'std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >::_Base {aka struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >}'
+       using _Base::_M_allocate;
+                    ^
+/usr/include/c++/4.8/bits/stl_vector.h:238:20: error: no members matching 'std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >::_Base {aka std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >}::_M_deallocate' in 'std::vector<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >::_Base {aka struct std::_Vector_base<RIVDataRecord<float>&, std::allocator<RIVDataRecord<float>&> >}'
+       using _Base::_M_deallocate;
+                    ^
+/usr/include/c++/4.8/bits/stl_vector.h:878:7: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       data() _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:886:7: error: forming pointer to reference type 'RIVDataRecord<float>&'
+       data() const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:919:7: error: 'void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = RIVDataRecord<float>&; _Alloc = std::allocator<RIVDataRecord<float>&>; std::vector<_Tp, _Alloc>::value_type = RIVDataRecord<float>&]' cannot be overloaded
+       push_back(value_type&& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: error: with 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = RIVDataRecord<float>&; _Alloc = std::allocator<RIVDataRecord<float>&>; std::vector<_Tp, _Alloc>::value_type = RIVDataRecord<float>&]'
+       push_back(const value_type& __x)
+       ^
+main.cpp: In instantiation of 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+main.cpp:48:47: error: using invalid field 'many_vectors<V>::_data'
+     { return std::get<index_of<T, V...>::value>(_data); }
+                                               ^
+main.cpp: In instantiation of 'struct index_of<RIVDataRecord<int>&, RIVDataRecord<float> >':
+main.cpp:13:52:   required from 'struct index_of<RIVDataRecord<int>&, RIVDataRecord<int>, RIVDataRecord<float> >'
+main.cpp:48:22:   required from 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+main.cpp:13:52: error: wrong number of template arguments (1, should be 2 or more)
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+                                                    ^
+main.cpp:13:8: error: provided for 'template<class T, class U, class ... V> struct index_of'
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+        ^
+main.cpp: In instantiation of 'struct index_of<RIVDataRecord<int>&, RIVDataRecord<int>, RIVDataRecord<float> >':
+main.cpp:48:22:   required from 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+main.cpp:13:52: error: 'value' is not a member of 'index_of<RIVDataRecord<int>&, RIVDataRecord<float> >'
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+                                                    ^
+main.cpp: In instantiation of 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:83:24:   required from here
+main.cpp:48:22: error: 'value' is not a member of 'index_of<RIVDataRecord<int>&, RIVDataRecord<int>, RIVDataRecord<float> >'
+     { return std::get<index_of<T, V...>::value>(_data); }
+                      ^
+main.cpp: In instantiation of 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+main.cpp:48:47: error: using invalid field 'many_vectors<V>::_data'
+     { return std::get<index_of<T, V...>::value>(_data); }
+                                               ^
+main.cpp: In instantiation of 'struct index_of<RIVDataRecord<float>&, RIVDataRecord<float> >':
+main.cpp:13:52:   required from 'struct index_of<RIVDataRecord<float>&, RIVDataRecord<int>, RIVDataRecord<float> >'
+main.cpp:48:22:   required from 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+main.cpp:13:52: error: wrong number of template arguments (1, should be 2 or more)
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+                                                    ^
+main.cpp:13:8: error: provided for 'template<class T, class U, class ... V> struct index_of'
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+        ^
+main.cpp: In instantiation of 'struct index_of<RIVDataRecord<float>&, RIVDataRecord<int>, RIVDataRecord<float> >':
+main.cpp:48:22:   required from 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+main.cpp:13:52: error: 'value' is not a member of 'index_of<RIVDataRecord<float>&, RIVDataRecord<float> >'
+ struct index_of : std::integral_constant<size_t, 1 + index_of<T, V...>::value>
+                                                    ^
+main.cpp: In instantiation of 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:56:11:   required from 'void many_vectors<V>::push_back(T&&) [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]'
+main.cpp:84:24:   required from here
+main.cpp:48:22: error: 'value' is not a member of 'index_of<RIVDataRecord<float>&, RIVDataRecord<int>, RIVDataRecord<float> >'
+     { return std::get<index_of<T, V...>::value>(_data); }
+                      ^
+main.cpp: In member function 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<int>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:48:57: warning: control reaches end of non-void function [-Wreturn-type]
+     { return std::get<index_of<T, V...>::value>(_data); }
+                                                         ^
+main.cpp: In member function 'std::vector<T>& many_vectors<V>::data() [with T = RIVDataRecord<float>&; V = {RIVDataRecord<int>, RIVDataRecord<float>}]':
+main.cpp:48:57: warning: control reaches end of non-void function [-Wreturn-type]
+     { return std::get<index_of<T, V...>::value>(_data); }
+                                                         ^
