@@ -1,0 +1,28 @@
+main.cpp:62:14: warning: expression result unused [-Wunused-value]
+            ("is",   ast::op_is);
+             ^~~~
+main.cpp:62:22: warning: expression result unused [-Wunused-value]
+            ("is",   ast::op_is);
+                     ^~~~~~~~~~
+main.cpp:62:22: warning: expression result unused [-Wunused-value]
+            ("is",   ast::op_is);
+                     ^~~~~~~~~~
+main.cpp:101:34: note: in instantiation of member function 'parser<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, 0> >::parser' requested here
+    parser<decltype(f), Skipper> p;
+                                 ^
+main.cpp:129:15: note: in instantiation of function template specialization 'doParse<std::basic_string<char>, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, 0> >' requested here
+    bool ok = doParse(input, qi::space);
+              ^
+3 warnings generated.
+Pair Test 
+parse success
+No Of Key-Value Pairs=  4
+( [book.author_id] = 1234 )
+( [book.isbn] LIKE xy99 )
+( [book.type] = abc )
+( [book.lang] IS NULL )
+book.author_id = '1234' and book.isbn like 'xy99' and book.type = 'abc' and book.lang IS null
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.004s
