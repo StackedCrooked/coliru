@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -c -march=native -Wall -pedantic main.cpp
