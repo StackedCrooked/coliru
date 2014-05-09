@@ -1,0 +1,35 @@
+<expr_>
+  <try>B = Z(1) + Z(2).Z(2)</try>
+  <rule_>
+    <try>B = Z(1) + Z(2).Z(2)</try>
+    <var_>
+      <try>B = Z(1) + Z(2).Z(2)</try>
+      <success> = Z(1) + Z(2).Z(2).</success>
+      <attributes>[[B]]</attributes>
+    </var_>
+    <sum_>
+      <try> Z(1) + Z(2).Z(2).C</try>
+      <prod_>
+        <try> Z(1) + Z(2).Z(2).C</try>
+        <seq_>
+          <try> Z(1) + Z(2).Z(2).C</try>
+          <atom_>
+            <try> Z(1) + Z(2).Z(2).C</try>
+            <var_>
+              <try>(1) + Z(2).Z(2).C</try>
+              <fail/>
+            </var_>
+            <fail/>
+          </atom_>
+          <fail/>
+        </seq_>
+        <fail/>
+      </prod_>
+      <fail/>
+    </sum_>
+    <fail/>
+  </rule_>
+  <fail/>
+</expr_>
+expectation_failure at '(1) + Z(2).Z(2).C'
+unparsed: 'B = Z(1) + Z(2).Z(2).C'
