@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -pthread -c -march=native -Wall -pedantic main.cpp -lboost_system -lboost_serialization
