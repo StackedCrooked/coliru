@@ -64,7 +64,7 @@ post '/compile' do
         $mutex.synchronize do
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
-            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            id = "#{Time.now.utc.to_f}"
             dir = "/tmp/coliru/#{id}"
             FileUtils.mkdir_p(dir)
 
