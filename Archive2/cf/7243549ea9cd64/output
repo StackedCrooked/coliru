@@ -1,0 +1,70 @@
+main.cpp:5:1: error: 'inline' can only appear on functions
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+^
+main.cpp:5:10: warning: variable templates are a C++1y extension [-Wc++1y-extensions]
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+         ^
+main.cpp:5:14: error: use of undeclared identifier 'types'
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+             ^
+main.cpp:5:20: error: 'Args' does not refer to a value
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+                   ^
+main.cpp:4:35: note: declared here
+template <typename T, typename... Args>
+                                  ^
+main.cpp:5:59: error: expected ';' at end of declaration
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+                                                          ^
+                                                          ;
+main.cpp:5:60: error: expected unqualified-id
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+                                                           ^
+main.cpp:11:8: error: unknown type name 'nil_t'
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+       ^
+main.cpp:11:1: error: 'inline' can only appear on functions
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+^
+main.cpp:10:1: error: extraneous 'template<>' in declaration of variable 'get'
+template <>
+^~~~~~~~~~~
+main.cpp:11:19: error: use of undeclared identifier 'types'
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+                  ^
+main.cpp:11:25: error: use of undeclared identifier 'nil_t'
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+                        ^
+main.cpp:11:31: error: expected expression
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+                              ^
+main.cpp:11:58: error: expected ';' at end of declaration
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+                                                         ^
+                                                         ;
+main.cpp:11:59: error: expected unqualified-id
+inline nil_t get( types<nil_t>, lua_State* L, int index ) {
+                                                          ^
+main.cpp:18:1: error: 'inline' can only appear on functions
+inline bool get( types<bool>, lua_State* L, int index ) {
+^
+main.cpp:17:1: error: extraneous 'template<>' in declaration of variable 'get'
+template<>
+^~~~~~~~~~
+main.cpp:18:13: error: redefinition of 'get' as different kind of symbol
+inline bool get( types<bool>, lua_State* L, int index ) {
+            ^
+main.cpp:5:10: note: previous definition is here
+inline T get(types<Args...>, lua_State* L, int index = -1) {
+         ^
+main.cpp:18:18: error: use of undeclared identifier 'types'
+inline bool get( types<bool>, lua_State* L, int index ) {
+                 ^
+main.cpp:18:28: error: expected '(' for function-style cast or type construction
+inline bool get( types<bool>, lua_State* L, int index ) {
+                       ~~~~^
+main.cpp:18:29: error: expected expression
+inline bool get( types<bool>, lua_State* L, int index ) {
+                            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.
