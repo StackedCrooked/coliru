@@ -1,0 +1,17 @@
+main.cpp:17:3: error: 'unique_ptr' in namespace 'std' does not name a type
+   std::unique_ptr<MaterialBase> _base;
+   ^
+main.cpp: In member function 'void Material::some_interface_function()':
+main.cpp:3:35: error: '_base' was not declared in this scope
+   void some_interface_function(){ _base->some_interface_function(); }
+                                   ^
+main.cpp: In constructor 'Material::Material(T)':
+main.cpp:15:7: error: class 'Material' does not have any field named '_base'
+     : _base(make_unique<ActualMaterial<T>>(v)) {}
+       ^
+main.cpp:15:13: error: 'make_unique' was not declared in this scope
+     : _base(make_unique<ActualMaterial<T>>(v)) {}
+             ^
+main.cpp:15:41: error: expected primary-expression before '>' token
+     : _base(make_unique<ActualMaterial<T>>(v)) {}
+                                         ^
