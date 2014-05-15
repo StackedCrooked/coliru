@@ -1,0 +1,16 @@
++ clang++ -O0 -Wall -Wextra -Wconversion -pedantic -std=c++1y main.cpp
+main.cpp:15:16: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        size = s; 
+             ~ ^
+main.cpp:39:14: note: in instantiation of member function 'C<int>::C' requested here
+    C<int>   c1( 5 );
+             ^
+main.cpp:27:6: error: constructor for 'C' creates a delegation cycle [-Wdelegating-ctor-cycles]
+    :C<T>( c2 )
+     ^
+1 warning and 1 error generated.
++ g++-4.8 -O0 -Wall -Wextra -Wconversion -pedantic -std=c++1y main.cpp
++ ./a.out
+Constructor 1
+Constructor 2
+bash: line 9: 16084 Segmentation fault      (core dumped) ./a.out
