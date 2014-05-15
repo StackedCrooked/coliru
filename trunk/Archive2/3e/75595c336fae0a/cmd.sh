@@ -1,0 +1,1 @@
+g++ --version && clang --version
