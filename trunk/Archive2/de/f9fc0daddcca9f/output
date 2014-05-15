@@ -1,0 +1,26 @@
+main.cpp:29:44: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting 'template<class T, int i, int current> constexpr decltype (get_my<T, i, (current + 1)>(t.el1)) get_my(const T&, typename std::enable_if<(i != current)>::type*) [with T = my_pair<int, my_pair<B, double> >; int i = 1; int current = 900]'
+     decltype( get_my<T, i, current+1>(t.el1) )
+                                            ^
+main.cpp:29:44:   recursively required by substitution of 'template<class T, int i, int current> constexpr decltype (get_my<T, i, (current + 1)>(t.el1)) get_my(const T&, typename std::enable_if<(i != current)>::type*) [with T = my_pair<int, my_pair<B, double> >; int i = 1; int current = 1]'
+main.cpp:29:44:   required by substitution of 'template<class T, int i, int current> constexpr decltype (get_my<T, i, (current + 1)>(t.el1)) get_my(const T&, typename std::enable_if<(i != current)>::type*) [with T = my_pair<int, my_pair<B, double> >; int i = 1; int current = 0]'
+main.cpp:47:42:   required from here
+
+main.cpp: In function 'int main()':
+main.cpp:47:42: error: no matching function for call to 'get_my(my_pair<int, my_pair<B, double> >&)'
+     auto el1 = get_my<decltype(p1), 1>(p1);
+                                          ^
+main.cpp:47:42: note: candidates are:
+main.cpp:22:16: note: template<class T, int i, int current> constexpr decltype (t.el0) get_my(const T&, typename std::enable_if<(i == current)>::type*)
+ auto constexpr get_my(const T& t, typename std::enable_if< i==current >::type* = 0) -> decltype(t.el0)
+                ^
+main.cpp:22:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, int i, int current> constexpr decltype (t.el0) get_my(const T&, typename std::enable_if<(i == current)>::type*) [with T = my_pair<int, my_pair<B, double> >; int i = 1; int current = 0]':
+main.cpp:47:42:   required from here
+main.cpp:22:16: error: no type named 'type' in 'struct std::enable_if<false, void>'
+main.cpp:28:16: note: template<class T, int i, int current> constexpr decltype (get_my<T, i, (current + 1)>(t.el1)) get_my(const T&, typename std::enable_if<(i != current)>::type*)
+ auto constexpr get_my(const T& t, typename std::enable_if< i!=current >::type* = 0) ->
+                ^
+main.cpp:28:16: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:48:9: warning: unused variable 't' [-Wunused-variable]
+     int t =1;
+         ^
