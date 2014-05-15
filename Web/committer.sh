@@ -17,14 +17,14 @@ source logger.source
 
 # First remove all svn locks.
 (
-    cd ${COLIRU_ARCHIVE2}
+    cd ${COLIRU_ARCHIVE2} || exit
 
     ls | grep svn_lock | xargs rm -rf
 
     # Cleanup svn
-    svn up
-    svn cleanup
-    svn up
+    #svn up
+    #svn cleanup
+    #svn up
 )
  
 commit() {
