@@ -1,0 +1,18 @@
++ clang++ -O0 -Wall -Wextra -Wconversion -pedantic -std=c++1y main.cpp
+main.cpp:52:30: error: use of undeclared identifier 'createDelegate'
+   Delegate< void(int) > d = createDelegate< Test, &Test::test >(&t);
+                             ^
+main.cpp:52:46: error: 'Test' does not refer to a value
+   Delegate< void(int) > d = createDelegate< Test, &Test::test >(&t);
+                                             ^
+main.cpp:39:8: note: declared here
+struct Test
+       ^
+main.cpp:52:59: error: definition or redeclaration of 'test' not allowed inside a function
+   Delegate< void(int) > d = createDelegate< Test, &Test::test >(&t);
+                                                    ~~~~~~^
+main.cpp:52:63: error: expected ';' at end of declaration
+   Delegate< void(int) > d = createDelegate< Test, &Test::test >(&t);
+                                                              ^
+                                                              ;
+4 errors generated.
