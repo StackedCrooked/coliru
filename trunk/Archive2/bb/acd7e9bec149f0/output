@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:72:10: warning: variable 'list' set but not used [-Wunused-but-set-variable]
+     auto list = make_variadic(1, 2, 3);
+          ^
+main.cpp: In substitution of 'template<class Arg0, class ... Args> decltype (std::fill(make_variadic<Arg0>(value0), make_variadic::values ...)) make_variadic(Arg0, Args ...) [with Arg0 = int; Args = {}]':
+main.cpp:48:43:   required from 'decltype (std::fill(make_variadic<Arg0>(value0), make_variadic::values ...)) make_variadic(Arg0, Args ...) [with Arg0 = int; Args = {int, int}; decltype (std::fill(make_variadic<Arg0>(value0), make_variadic::values ...)) = Variadic<int, Variadic<int, Variadic<int, Void> > >]'
+main.cpp:72:38:   required from here
+main.cpp:47:119: error: expansion pattern '#'nontype_argument_pack' not supported by dump_expr#<expression error>' contains no argument packs
+ static inline auto make_variadic(Arg0 value0, Args... values) -> decltype( fill(make_variadic<Arg0>(value0), values...) ) {
+                                                                                                                       ^
