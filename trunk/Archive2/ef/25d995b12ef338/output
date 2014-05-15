@@ -1,0 +1,36 @@
++ clang++ -O3 -Wall -pedantic -Wextra -Wconversion -pthread -std=c++1y main.cpp
+main.cpp:11:15: error: static_assert expression is not an integral constant expression
+static_assert(f(), ""); // L2: Error, can not modify A::a in constexpr
+              ^~~
+main.cpp:3:23: note: modification of object of const-qualified type 'const int' is not allowed in a constant expression
+    constexpr A() { a = 1; }
+                      ^
+main.cpp:7:17: note: in call to 'A()'
+    constexpr A a;
+                ^
+main.cpp:11:15: note: in call to 'f()'
+static_assert(f(), ""); // L2: Error, can not modify A::a in constexpr
+              ^
+1 error generated.
++ g++-4.8 -O3 -Wall -pedantic -Wextra -Wconversion -pthread -std=c++1y main.cpp
+main.cpp: In constructor 'constexpr A::A()':
+main.cpp:3:28: error: constexpr constructor does not have empty body
+     constexpr A() { a = 1; }
+                            ^
+main.cpp: In function 'constexpr bool f()':
+main.cpp:7:17: error: call to non-constexpr function 'A::A()'
+     constexpr A a;
+                 ^
+main.cpp:8:5: error: non-constant condition for static assertion
+     static_assert(a.a == 1, ""); // L1: OK
+     ^
+main.cpp:10:1: error: body of constexpr function 'constexpr bool f()' not a return-statement
+ }
+ ^
+main.cpp: At global scope:
+main.cpp:11:1: error: non-constant condition for static assertion
+ static_assert(f(), ""); // L2: Error, can not modify A::a in constexpr
+ ^
+main.cpp:11:17: error: 'constexpr bool f()' called in a constant expression
+ static_assert(f(), ""); // L2: Error, can not modify A::a in constexpr
+                 ^
