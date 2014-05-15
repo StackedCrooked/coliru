@@ -1,0 +1,19 @@
+main.cpp:23:21: warning: ISO C++ forbids zero-size array 'vertices' [-Wpedantic]
+     Vertex vertices[];
+                     ^
+main.cpp:26:6: warning: ISO C++ forbids declaration of 'main' with no type [-Wpedantic]
+ main()
+      ^
+main.cpp: In function 'int main()':
+main.cpp:38:68: warning: format '%i' expects argument of type 'int', but argument 2 has type 'VertexChunk1*' [-Wformat=]
+     printf("Are the chunk pointers equal? %i, %i\n", chunk1, chunk2);
+                                                                    ^
+main.cpp:38:68: warning: format '%i' expects argument of type 'int', but argument 3 has type 'VertexChunk2*' [-Wformat=]
+main.cpp:39:92: warning: format '%i' expects argument of type 'int', but argument 2 has type 'Vertex*' [-Wformat=]
+     printf("Are the vertices pointers equal? %i, %i\n", &chunk1->vertices, chunk2->vertices);
+                                                                                            ^
+main.cpp:39:92: warning: format '%i' expects argument of type 'int', but argument 3 has type 'Vertex*' [-Wformat=]
+Are the chunk pointers equal? 799293786, 799293786
+Are the vertices pointers equal? 799293794, 799293794
+Try to access chunk1.vertices: 3140.203613
+Try to access chunk2.vertices: 3140.203613
