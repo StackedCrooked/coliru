@@ -1,0 +1,76 @@
+input: 1, 2;
+<start>
+  <try>1, 2;</try>
+  <start>
+    <try>1, 2;</try>
+    <success>, 2;</success>
+    <attributes>[1]</attributes>
+  </start>
+  <start>
+    <try> 2;</try>
+    <success>;</success>
+    <attributes>[2]</attributes>
+  </start>
+  <success>;</success>
+  <attributes>[[1, 2]]</attributes>
+</start>
+result: 1, 2, 
+<start>
+  <try>[1][,][2][;]</try>
+  <start>
+    <try>[1][,][2][;]</try>
+    <success>[,][2][;]</success>
+    <attributes>[1]</attributes>
+  </start>
+  <start>
+    <try>[2][;]</try>
+    <success>[;]</success>
+    <attributes>[2]</attributes>
+  </start>
+  <success>[;]</success>
+  <attributes>[[1, 2]]</attributes>
+</start>
+result: 1, 2, 
+input: 3, 4, 5;
+<start>
+  <try>3, 4, 5;</try>
+  <start>
+    <try>3, 4, 5;</try>
+    <success>, 4, 5;</success>
+    <attributes>[3]</attributes>
+  </start>
+  <start>
+    <try> 4, 5;</try>
+    <success>, 5;</success>
+    <attributes>[4]</attributes>
+  </start>
+  <start>
+    <try> 5;</try>
+    <success>;</success>
+    <attributes>[5]</attributes>
+  </start>
+  <success>;</success>
+  <attributes>[[3, 4, 5]]</attributes>
+</start>
+result: 3, 4, 5, 
+<start>
+  <try>[3][,][4][,][5][;]</try>
+  <start>
+    <try>[3][,][4][,][5][;]</try>
+    <success>[,][4][,][5][;]</success>
+    <attributes>[3]</attributes>
+  </start>
+  <start>
+    <try>[4][,][5][;]</try>
+    <success>[,][5][;]</success>
+    <attributes>[4]</attributes>
+  </start>
+  <start>
+    <try>[5][;]</try>
+    <success>[;]</success>
+    <attributes>[5]</attributes>
+  </start>
+  <success>[;]</success>
+  <attributes>[[3, 4, 5]]</attributes>
+</start>
+result: 3, 4, 5, 
