@@ -1,0 +1,1 @@
+g++ -m32 -std=c++0x -Wall -O3 -Os -fno-exceptions -fno-rtti -flto -masm=intel -e_Main -nostdlib -O3 -Os -flto -s main.cpp
