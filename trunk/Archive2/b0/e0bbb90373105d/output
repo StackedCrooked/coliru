@@ -1,0 +1,23 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text.startup:
+
+0000000000000000 <main>:
+int main() {
+    int x = 2147447412;
+    int base = 1;
+   0:	b8 01 00 00 00       	mov    eax,0x1
+   5:	0f 1f 00             	nop    DWORD PTR [rax]
+    while (base * 10 <= x) 
+   8:	8d 04 80             	lea    eax,[rax+rax*4]
+   b:	01 c0                	add    eax,eax
+   d:	3d 74 72 ff 7f       	cmp    eax,0x7fff7274
+  12:	7e f4                	jle    8 <main+0x8>
+        base *= 10; // this loop will run forever.
+    
+    while ((long long)(base * 10) <= (long long)(x)) 
+        base *= 10; // this loop still will run forever
+  14:	31 c0                	xor    eax,eax
+  16:	c3                   	ret    
