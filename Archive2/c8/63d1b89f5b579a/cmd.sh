@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -Wextra -pedantic -pthread main.cpp /usr/local/lib64/libstdc++.so.6 && ./a.out
