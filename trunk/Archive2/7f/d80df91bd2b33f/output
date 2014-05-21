@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:15:18: error: call of overloaded 'foo(int, char)' is ambiguous
+     foo f1(1, 'c');
+                  ^
+main.cpp:15:18: note: candidates are:
+main.cpp:8:5: note: foo::foo(unsigned char, int)
+     foo(unsigned char x, int y=0) : x_(y), y_(x) {}
+     ^
+main.cpp:7:5: note: foo::foo(int, unsigned char)
+     foo(int x, unsigned char y=0) : x_(x), y_(y) {}
+     ^
