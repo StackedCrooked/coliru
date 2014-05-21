@@ -1,0 +1,1 @@
+for f in {a..z}.py; do echo "# filename $f" > $f; done; sed -i -f main.cpp ?.py; head ?.py
