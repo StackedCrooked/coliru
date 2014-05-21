@@ -1,0 +1,16 @@
+main.cpp:17:13: error: no matching function for call to 'get_last'
+    int t = get_last(3, 4, 5);
+            ^~~~~~~~
+main.cpp:6:6: note: candidate template ignored: substitution failure [with first = int, rest_ts = <int, int>]: call to function 'get_last' that is neither visible in the template definition nor found by argument-dependent lookup
+auto get_last(first&&, rest_ts&&...r) ->decltype(get_last(std::forward<rest_ts>(r)...)) {return get_last(std::forward<rest_ts>(r)...);}
+     ^                                           ~~~~~~~~
+main.cpp:4:9: note: candidate function template not viable: requires single argument 'f', but 3 arguments were provided
+first&& get_last(first&& f) {return std::forward<first>(f);}
+        ^
+main.cpp:18:13: error: no matching function for call to 'get_last2'
+    int u = get_last2(3, 4, 5);
+            ^~~~~~~~~
+main.cpp:11:8: note: candidate template ignored: couldn't infer template argument 'last'
+last&& get_last2(rest_ts&&..., last&& l) {return std::forward<last>(l);}
+       ^
+2 errors generated.
