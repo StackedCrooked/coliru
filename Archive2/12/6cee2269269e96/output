@@ -1,0 +1,34 @@
+main.cpp:16:65: error: call to function 'f' that is neither visible in the template definition nor found by argument-dependent lookup
+constexpr auto f_helper(T && t, Ts && ... ts) noexcept(noexcept(f(ts...))) {
+                                                                ^
+main.cpp:16:16: note: in instantiation of exception specification for 'f_helper<int &, unsigned int &, unsigned long &>' requested here
+constexpr auto f_helper(T && t, Ts && ... ts) noexcept(noexcept(f(ts...))) {
+               ^
+main.cpp:21:58: note: in instantiation of function template specialization '<anonymous namespace>::f_helper<int &, unsigned int &, unsigned long &>' requested here
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+                                                         ^
+main.cpp:21:16: note: in instantiation of exception specification for 'f<bool, int, unsigned int, unsigned long>' requested here
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+               ^
+main.cpp:28:5: note: in instantiation of function template specialization '<anonymous namespace>::f<bool, int, unsigned int, unsigned long>' requested here
+    f(true, 0, 5u, 3ul);
+    ^
+main.cpp:21:16: note: 'f' should be declared prior to the call site
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+               ^
+main.cpp:17:12: error: call to function 'f' that is neither visible in the template definition nor found by argument-dependent lookup
+    return f(ts...);
+           ^
+main.cpp:21:58: note: in instantiation of function template specialization '<anonymous namespace>::f_helper<int &, unsigned int &, unsigned long &>' requested here
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+                                                         ^
+main.cpp:21:16: note: in instantiation of exception specification for 'f<bool, int, unsigned int, unsigned long>' requested here
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+               ^
+main.cpp:28:5: note: in instantiation of function template specialization '<anonymous namespace>::f<bool, int, unsigned int, unsigned long>' requested here
+    f(true, 0, 5u, 3ul);
+    ^
+main.cpp:21:16: note: 'f' should be declared prior to the call site
+constexpr auto f(T && t, Ts && ... ts) noexcept(noexcept(f_helper(ts...))) {
+               ^
+2 errors generated.
