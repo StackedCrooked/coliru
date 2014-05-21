@@ -1,0 +1,21 @@
+main.cpp:20:91: error: expected a qualified name after 'typename'
+    template <typename T, typename = typename std::enable_if<!( std::is_integral<typename unqualified<T>::type>::value )>::type>
+                                                                                          ^
+main.cpp:20:91: error: unknown type name 'unqualified'
+main.cpp:20:107: error: no type named 'type' in the global namespace
+    template <typename T, typename = typename std::enable_if<!( std::is_integral<typename unqualified<T>::type>::value )>::type>
+                                                                                                        ~~^
+main.cpp:20:111: error: expected ')'
+    template <typename T, typename = typename std::enable_if<!( std::is_integral<typename unqualified<T>::type>::value )>::type>
+                                                                                                              ^
+main.cpp:20:63: note: to match this '('
+    template <typename T, typename = typename std::enable_if<!( std::is_integral<typename unqualified<T>::type>::value )>::type>
+                                                              ^
+main.cpp:20:122: error: expected ',' or '>' in template-parameter-list
+    template <typename T, typename = typename std::enable_if<!( std::is_integral<typename unqualified<T>::type>::value )>::type>
+                                                                                                                         ^
+main.cpp:24:2: error: expected ';' after struct
+}
+ ^
+ ;
+6 errors generated.
