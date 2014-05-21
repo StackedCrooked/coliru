@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'void std::vector<_Tp, _Alloc>::_M_insert_aux(std::vector<_Tp, _Alloc>::iterator, const _Tp&) [with _Tp = A; _Alloc = std::allocator<A>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<A*, std::vector<A> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = A*]':
+/usr/include/c++/4.8/bits/stl_vector.h:913:28:   required from 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = A; _Alloc = std::allocator<A>; std::vector<_Tp, _Alloc>::value_type = A]'
+main.cpp:10:23:   required from here
+main.cpp:3:8: error: non-static reference member 'int& A::f', can't use default assignment operator
+ struct A {
+        ^
+In file included from /usr/include/c++/4.8/vector:69:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/vector.tcc:335:16: note: synthesized method 'A& A::operator=(const A&)' first required here 
+    *__position = __x_copy;
+                ^
