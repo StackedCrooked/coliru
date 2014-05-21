@@ -1,0 +1,1 @@
+main = putStr $ show $ if True then 42 else 3.14
