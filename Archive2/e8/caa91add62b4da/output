@@ -1,0 +1,22 @@
+-----
+     1	#include <iostream>
+     2	#include <fstream>
+     3	#include <cstdlib>
+     4	
+     5	bool copy_stream( std::istream& in, std::ostream& out ) 
+     6	{ return out << in.rdbuf() && in.get() == std::char_traits<char>::eof() && out ; }
+     7	
+     8	bool copy_file( const std::string& input_file_name, const std::string& output_file_name )
+     9	{
+    10	    if( input_file_name == output_file_name ) return true ;
+    11	
+    12	    std::ifstream in( input_file_name, std::ios::binary ) ;
+    13	    std::ofstream out( output_file_name, std::ios::binary ) ;
+    14	    return copy_stream( in, out ) ;
+    15	}
+    16	
+    17	int main ()
+    18	{
+    19	    if( copy_file( __FILE__, "/tmp/copy_of_this_file" ) )
+    20	        std::system( "/bin/cat -n /tmp/copy_of_this_file" ) ;
+    21	}
