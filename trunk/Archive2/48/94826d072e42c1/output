@@ -1,0 +1,16 @@
+main.cpp:32:30: error: no matching function for call to 'get_last'
+        :current(begin?first:get_last(rest...)), ranges{{first, rest...}},range_index(begin?1:num_ranges*2-1)
+                             ^~~~~~~~
+main.cpp:95:9: note: in instantiation of function template specialization 'concatenated_range_iterator<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, 3>::concatenated_range_iterator<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > >' requested here
+        concatenated_range_iterator<base,sizeof...(rest_ts)/2+1>(true, first, rest...),
+        ^
+main.cpp:108:18: note: in instantiation of function template specialization 'concatenate_ranges<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > >' requested here
+    auto range = concatenate_ranges(vars0.begin(), vars0.end(), vars1.begin(), vars1.end(), vars2.begin(), vars2.end());
+                 ^
+main.cpp:9:6: note: candidate template ignored: substitution failure [with first = __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &, rest_ts = <__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &, __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &>]: no matching function for call to 'get_last'
+auto get_last(first&&, rest_ts&&...r) ->decltype(get_last(std::forward<rest_ts>(r)...)) {return get_last(std::forward<rest_ts>(r)...);}
+     ^                                           ~~~~~~~~
+main.cpp:7:9: note: candidate function template not viable: requires single argument 'f', but 5 arguments were provided
+first&& get_last(first&& f) {return std::forward<first>(f);}
+        ^
+1 error generated.
