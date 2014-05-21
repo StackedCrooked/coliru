@@ -1,0 +1,1 @@
+g++-4.8 -g -std=c++1y -Wall -Wextra -pedantic-errors -O3 -pthread -c main.cpp && objdump -d -M intel -S main.o
