@@ -1,0 +1,22 @@
+main.cpp:6:12: error: 'unique_ptr' in namespace 'std' does not name a type
+     static std::unique_ptr<Letter> construct(LetterEnum c);
+            ^
+main.cpp:32:1: error: 'unique_ptr' in namespace 'std' does not name a type
+ std::unique_ptr<Letter> Letter::construct(LetterEnum c) 
+ ^
+main.cpp: In function 'int main()':
+main.cpp:44:5: error: 'cin' is not a member of 'std'
+     std::cin >> c;
+     ^
+main.cpp:46:5: error: 'unique_ptr' is not a member of 'std'
+     std::unique_ptr<Letter> ptr = Letter::construct(c);    
+     ^
+main.cpp:46:27: error: expected primary-expression before '>' token
+     std::unique_ptr<Letter> ptr = Letter::construct(c);    
+                           ^
+main.cpp:46:29: error: 'ptr' was not declared in this scope
+     std::unique_ptr<Letter> ptr = Letter::construct(c);    
+                             ^
+main.cpp:46:35: error: 'construct' is not a member of 'Letter'
+     std::unique_ptr<Letter> ptr = Letter::construct(c);    
+                                   ^
