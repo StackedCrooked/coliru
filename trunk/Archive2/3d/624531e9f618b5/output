@@ -1,0 +1,72 @@
+	.file	"main.cpp"
+	.text
+	.globl	_Z3sumPKij
+	.align	16, 0x90
+	.type	_Z3sumPKij,@function
+_Z3sumPKij:                             # @_Z3sumPKij
+	.cfi_startproc
+# BB#0:
+                                        # kill: ESI<def> ESI<kill> RSI<def>
+	xorl	%eax, %eax
+	testl	%esi, %esi
+	je	.LBB0_8
+# BB#1:                                 # %tailrecurse.preheader
+	leal	-1(%rsi), %r9d
+	incq	%r9
+	movabsq	$8589934584, %rax       # imm = 0x1FFFFFFF8
+	movq	%r9, %rcx
+	andq	%rax, %rcx
+	xorl	%edx, %edx
+	andq	%r9, %rax
+	pxor	%xmm0, %xmm0
+	je	.LBB0_2
+# BB#3:                                 # %vector.body.preheader
+	subl	%ecx, %esi
+	leaq	(%rdi,%rax,4), %r8
+	pxor	%xmm0, %xmm0
+	xorl	%edx, %edx
+	pxor	%xmm1, %xmm1
+	.align	16, 0x90
+.LBB0_4:                                # %vector.body
+                                        # =>This Inner Loop Header: Depth=1
+	movdqa	%xmm1, %xmm2
+	movdqa	%xmm0, %xmm3
+	movdqu	(%rdi,%rdx,4), %xmm0
+	movdqu	16(%rdi,%rdx,4), %xmm1
+	paddd	%xmm3, %xmm0
+	paddd	%xmm2, %xmm1
+	addq	$8, %rdx
+	cmpq	%rdx, %rax
+	jne	.LBB0_4
+# BB#5:
+	movq	%r8, %rdi
+	movq	%rax, %rdx
+	jmp	.LBB0_6
+.LBB0_2:
+	pxor	%xmm1, %xmm1
+.LBB0_6:                                # %middle.block
+	paddd	%xmm1, %xmm0
+	movdqa	%xmm0, %xmm1
+	movhlps	%xmm1, %xmm1            # xmm1 = xmm1[1,1]
+	paddd	%xmm0, %xmm1
+	pshufd	$1, %xmm1, %xmm0        # xmm0 = xmm1[1,0,0,0]
+	paddd	%xmm1, %xmm0
+	movd	%xmm0, %eax
+	cmpq	%rdx, %r9
+	je	.LBB0_8
+	.align	16, 0x90
+.LBB0_7:                                # %tailrecurse
+                                        # =>This Inner Loop Header: Depth=1
+	addl	(%rdi), %eax
+	addq	$4, %rdi
+	decl	%esi
+	jne	.LBB0_7
+.LBB0_8:                                # %tailrecurse._crit_edge
+	ret
+.Ltmp0:
+	.size	_Z3sumPKij, .Ltmp0-_Z3sumPKij
+	.cfi_endproc
+
+
+	.ident	"clang version 3.4 (tags/RELEASE_34/final 206911)"
+	.section	".note.GNU-stack","",@progbits

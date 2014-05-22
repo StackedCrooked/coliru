@@ -1,0 +1,124 @@
+------ clang++ --------
+	.file	"main.cpp"
+	.text
+	.globl	_ZN9recursive8getIndexEi
+	.align	16, 0x90
+	.type	_ZN9recursive8getIndexEi,@function
+_ZN9recursive8getIndexEi:               # @_ZN9recursive8getIndexEi
+	.cfi_startproc
+# BB#0:
+	.align	16, 0x90
+.LBB0_1:                                # %tailrecurse
+                                        # =>This Inner Loop Header: Depth=1
+	movl	%edi, %ecx
+	movslq	%ecx, %rax
+	movl	arr(,%rax,4), %edi
+	xorl	%eax, %eax
+	cmpl	$-1, %edi
+	je	.LBB0_3
+# BB#2:                                 #   in Loop: Header=BB0_1 Depth=1
+	cmpl	%ecx, %edi
+	movl	%ecx, %eax
+	jne	.LBB0_1
+.LBB0_3:
+	ret
+.Ltmp0:
+	.size	_ZN9recursive8getIndexEi, .Ltmp0-_ZN9recursive8getIndexEi
+	.cfi_endproc
+
+	.globl	_ZN9iterative8getIndexEi
+	.align	16, 0x90
+	.type	_ZN9iterative8getIndexEi,@function
+_ZN9iterative8getIndexEi:               # @_ZN9iterative8getIndexEi
+	.cfi_startproc
+# BB#0:
+	.align	16, 0x90
+.LBB1_1:                                # =>This Inner Loop Header: Depth=1
+	movl	%edi, %eax
+	movslq	%eax, %rcx
+	movl	arr(,%rcx,4), %edi
+	cmpl	$-1, %edi
+	je	.LBB1_3
+# BB#2:                                 #   in Loop: Header=BB1_1 Depth=1
+	cmpl	%eax, %edi
+	jne	.LBB1_1
+.LBB1_3:
+	xorl	%ecx, %ecx
+	cmpl	$-1, %edi
+	cmovel	%ecx, %eax
+	ret
+.Ltmp1:
+	.size	_ZN9iterative8getIndexEi, .Ltmp1-_ZN9iterative8getIndexEi
+	.cfi_endproc
+
+
+	.ident	"clang version 3.4 (tags/RELEASE_34/final 206911)"
+	.section	".note.GNU-stack","",@progbits
+------ g++ --------
+	.file	"main.cpp"
+	.text
+	.p2align 4,,15
+	.globl	_ZN9recursive8getIndexEi
+	.type	_ZN9recursive8getIndexEi, @function
+_ZN9recursive8getIndexEi:
+.LFB0:
+	.cfi_startproc
+	.p2align 4,,10
+	.p2align 3
+.L3:
+	movslq	%edi, %rax
+	movl	arr(,%rax,4), %edx
+	cmpl	$-1, %edx
+	je	.L4
+	cmpl	%edx, %edi
+	je	.L5
+	movl	%edx, %edi
+	jmp	.L3
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	xorl	%eax, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	movl	%edi, %eax
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	_ZN9recursive8getIndexEi, .-_ZN9recursive8getIndexEi
+	.p2align 4,,15
+	.globl	_ZN9iterative8getIndexEi
+	.type	_ZN9iterative8getIndexEi, @function
+_ZN9iterative8getIndexEi:
+.LFB1:
+	.cfi_startproc
+	.p2align 4,,10
+	.p2align 3
+.L11:
+	movslq	%edi, %rax
+	movl	arr(,%rax,4), %edx
+	cmpl	%edi, %edx
+	je	.L8
+	cmpl	$-1, %edx
+	je	.L12
+	movl	%edx, %edi
+	jmp	.L11
+	.p2align 4,,10
+	.p2align 3
+.L8:
+	cmpl	$-1, %edi
+	je	.L12
+	movl	%edi, %eax
+	.p2align 4,,4
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L12:
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_ZN9iterative8getIndexEi, .-_ZN9iterative8getIndexEi
+	.ident	"GCC: (GNU) 4.8.2"
+	.section	.note.GNU-stack,"",@progbits
