@@ -1,0 +1,16 @@
+main.cpp:27:10: warning: 'derived::f' hides overloaded virtual functions [-Woverloaded-virtual]
+    void f( complex<double> );
+         ^
+main.cpp:7:18: note: hidden overloaded virtual function 'base::f' declared here: type mismatch at 1st parameter ('int' vs 'complex<double>')
+    virtual void f( int );
+                 ^
+main.cpp:8:18: note: hidden overloaded virtual function 'base::f' declared here: type mismatch at 1st parameter ('double' vs 'complex<double>')
+    virtual void f( double );
+                 ^
+1 warning generated.
+base::f(double)
+derived::f(complex)
+base::f(double)
+10
+derived::g() 20
+derived::g() 10
