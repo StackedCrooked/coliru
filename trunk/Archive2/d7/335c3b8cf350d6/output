@@ -1,0 +1,17 @@
++ clang++ -O0 -Wall -Wextra -Wconversion -pedantic -std=c++03 main.cpp
++ ./a.out
+operator| non-member
++ clang++ -O0 -Wall -Wextra -Wconversion -pedantic -std=c++11 main.cpp
+main.cpp:23:5: error: use of overloaded operator '|' is ambiguous (with operand types 'Alice' and 'Alice')
+  a | b;
+  ~ ^ ~
+main.cpp:6:8: note: candidate function [with A = Alice]
+  void operator|(const A& /*a*/) const
+       ^
+main.cpp:13:6: note: candidate function [with A = Alice]
+void operator|(const A& /*a*/, const Alice& /*alice*/)
+     ^
+1 error generated.
++ g++-4.8 -O0 -Wall -Wextra -Wconversion -pedantic -std=c++11 main.cpp
++ ./a.out
+operator| non-member
