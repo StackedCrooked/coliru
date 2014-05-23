@@ -1,0 +1,10 @@
+main.cpp:41:14: error: no matching function for call to 'dynamic_pointer_cast'
+    auto y = std::dynamic_pointer_cast<Y>(std::move(x));
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr_base.h:1206:5: note: candidate template ignored: could not match '__shared_ptr' against 'unique_ptr'
+    dynamic_pointer_cast(const __shared_ptr<_Tp1, _Lp>& __r) noexcept
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr.h:447:5: note: candidate template ignored: could not match 'shared_ptr' against 'unique_ptr'
+    dynamic_pointer_cast(const shared_ptr<_Tp1>& __r) noexcept
+    ^
+1 error generated.
