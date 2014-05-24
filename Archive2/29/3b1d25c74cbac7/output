@@ -1,0 +1,100 @@
+	.file	"main.cpp"
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI0_0:
+	.long	0                       # 0x0
+	.long	1                       # 0x1
+	.long	2                       # 0x2
+	.long	3                       # 0x3
+.LCPI0_1:
+	.long	4                       # 0x4
+	.long	5                       # 0x5
+	.long	6                       # 0x6
+	.long	7                       # 0x7
+.LCPI0_2:
+	.long	1065353216              # float 1.000000e+00
+	.long	1065353216              # float 1.000000e+00
+	.long	1065353216              # float 1.000000e+00
+	.long	1065353216              # float 1.000000e+00
+.LCPI0_3:
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align	4
+.LCPI0_4:
+	.long	1065353216              # float 1
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:                                 # %vector.ph
+	pxor	%xmm0, %xmm0
+	xorl	%eax, %eax
+	movdqa	.LCPI0_0(%rip), %xmm8
+	movdqa	.LCPI0_1(%rip), %xmm9
+	movaps	.LCPI0_2(%rip), %xmm3
+	movaps	.LCPI0_3(%rip), %xmm4
+	pxor	%xmm5, %xmm5
+	.align	16, 0x90
+.LBB0_1:                                # %vector.body
+                                        # =>This Inner Loop Header: Depth=1
+	movdqa	%xmm5, %xmm6
+	movdqa	%xmm0, %xmm7
+	movd	%eax, %xmm0
+	pshufd	$0, %xmm0, %xmm5        # xmm5 = xmm0[0,0,0,0]
+	movdqa	%xmm5, %xmm0
+	paddd	%xmm8, %xmm0
+	paddd	%xmm9, %xmm5
+	xorps	%xmm1, %xmm1
+	cmpleps	%xmm0, %xmm1
+	xorps	%xmm2, %xmm2
+	cmpleps	%xmm5, %xmm2
+	cmpleps	%xmm3, %xmm0
+	cmpleps	%xmm3, %xmm5
+	andps	%xmm1, %xmm0
+	andps	%xmm2, %xmm5
+	andps	%xmm4, %xmm0
+	andps	%xmm4, %xmm5
+	paddd	%xmm7, %xmm0
+	paddd	%xmm6, %xmm5
+	addl	$8, %eax
+	cmpl	$-8, %eax
+	jne	.LBB0_1
+# BB#2:                                 # %middle.block
+	paddd	%xmm0, %xmm5
+	movdqa	%xmm5, %xmm0
+	movhlps	%xmm0, %xmm0            # xmm0 = xmm0[1,1]
+	paddd	%xmm5, %xmm0
+	pshufd	$1, %xmm0, %xmm1        # xmm1 = xmm0[1,0,0,0]
+	paddd	%xmm0, %xmm1
+	movd	%xmm1, %eax
+	movl	$-8, %ecx
+	pxor	%xmm0, %xmm0
+	movss	.LCPI0_4(%rip), %xmm1
+	.align	16, 0x90
+.LBB0_3:                                # =>This Inner Loop Header: Depth=1
+	movl	%eax, %esi
+	movd	%ecx, %xmm2
+	ucomiss	%xmm0, %xmm2
+	setae	%al
+	ucomiss	%xmm2, %xmm1
+	setae	%dl
+	andb	%al, %dl
+	movzbl	%dl, %eax
+	addl	%esi, %eax
+	incl	%ecx
+	cmpl	$-1, %ecx
+	jne	.LBB0_3
+# BB#4:
+	ret
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.4 (tags/RELEASE_34/final 206911)"
+	.section	".note.GNU-stack","",@progbits
