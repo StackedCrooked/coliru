@@ -1,0 +1,36 @@
+main.cpp:1:5: error: 'pair' in namespace 'std' does not name a type
+     std::pair<std::array<Vector3i,4>::iterator,std::array<Vector3i,4>::iterator> minMaxL
+     ^
+main.cpp:2:129: error: expected unqualified-id before ')' token
+     = std::minmax_element(myArray.myArray.begin(), myArray.myArray.end(), [](Vector3i &vv, Vector3i &ww){ return vv.y < ww.y ; });
+                                                                                                                                 ^
+main.cpp:3:5: error: 'pair' in namespace 'std' does not name a type
+     std::pair<std::array<Vector3i,4>::reverse_iterator,std::array<Vector3i,4>::reverse_iterator> minMaxR
+     ^
+main.cpp:4:128: error: expected unqualified-id before ')' token
+  = std::minmax_element(myArray.myArray.rend(), myArray.myArray.rbegin(), [](Vector3i &vv, Vector3i &ww){ return vv.y < ww.y ; });
+                                                                                                                                ^
+main.cpp:7:26: error: 'minMaxL' was not declared in this scope
+     int top_left_index = minMaxL.second - myArray.myArray.begin() ;
+                          ^
+main.cpp:7:43: error: 'myArray' was not declared in this scope
+     int top_left_index = minMaxL.second - myArray.myArray.begin() ;
+                                           ^
+main.cpp:8:27: error: 'minMaxL' was not declared in this scope
+     int down_left_index = minMaxL.first - myArray.myArray.begin() ;
+                           ^
+main.cpp:8:43: error: 'myArray' was not declared in this scope
+     int down_left_index = minMaxL.first - myArray.myArray.begin() ;
+                                           ^
+main.cpp:10:27: error: 'minMaxR' was not declared in this scope
+     int top_right_index = minMaxR.second - myArray.myArray.rend() ;
+                           ^
+main.cpp:10:44: error: 'myArray' was not declared in this scope
+     int top_right_index = minMaxR.second - myArray.myArray.rend() ;
+                                            ^
+main.cpp:11:28: error: 'minMaxR' was not declared in this scope
+     int down_right_index = minMaxR.first - myArray.myArray.rend() ;
+                            ^
+main.cpp:11:44: error: 'myArray' was not declared in this scope
+     int down_right_index = minMaxR.first - myArray.myArray.rend() ;
+                                            ^
