@@ -1,0 +1,19 @@
+main.cpp:17:18: error: no matching function for call to 'apply'
+    std::cout << apply(add, 1)(2, 3)   << '\n';
+                 ^~~~~
+main.cpp:12:6: note: candidate template ignored: couldn't infer template argument 'Func'
+auto apply(Func fn, Args... args) {
+     ^
+main.cpp:18:18: error: no matching function for call to 'apply'
+    std::cout << apply(add, 3, 4, 5)() << '\n';
+                 ^~~~~
+main.cpp:12:6: note: candidate template ignored: couldn't infer template argument 'Func'
+auto apply(Func fn, Args... args) {
+     ^
+main.cpp:19:18: error: no matching function for call to 'apply'
+    std::cout << apply(add)(33, 6, 3)  << '\n';
+                 ^~~~~
+main.cpp:12:6: note: candidate template ignored: couldn't infer template argument 'Func'
+auto apply(Func fn, Args... args) {
+     ^
+3 errors generated.
