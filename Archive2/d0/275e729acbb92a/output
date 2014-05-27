@@ -1,0 +1,14 @@
++ clang++ -std=c++1y -O2 -Wall -Wextra -pedantic main.cpp
+main.cpp:37:3: error: call to 'invoke' is ambiguous
+  invoke(&wat::foo, wat{});
+  ^~~~~~
+main.cpp:9:6: note: candidate function [with F = void (wat::*)(), T1 = wat, Args = <>]
+auto invoke( F f, T1&& t1, Args&&... args )
+     ^
+main.cpp:15:6: note: candidate function [with F = void (wat::*)(), T1 = wat, Args = <>]
+auto invoke( F f, T1 t1, Args&&... args )
+     ^
+main.cpp:29:6: note: candidate function [with F = void (wat::*)(), Args = <wat>]
+auto invoke( F&& f, Args&&... args )
+     ^
+1 error generated.
