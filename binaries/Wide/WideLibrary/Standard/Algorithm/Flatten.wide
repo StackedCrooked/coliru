@@ -1,0 +1,22 @@
+module Standard {
+    module Algorithm {
+        Flatten() {
+            return function(range) {
+                return function()[range := Utility.Move(range), first := true, begin := decltype(range())->decay()] {
+                    if (first) {
+                        begin = range();
+                        first = false;
+                    }
+                    if (~begin) { return decltype((*begin)())->decay(Containers.None); }
+                    var := (*begin)();
+                    while(~var) {
+                        begin = range();
+                        if (~begin) { return Containers.None; }
+                        var = (*begin)();
+                    }
+                    return Utility.Move(var);
+                };
+            };
+        }
+    }
+}

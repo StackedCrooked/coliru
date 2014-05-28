@@ -1,0 +1,35 @@
+module Standard {
+    module Memory {
+        Malloc(size) {
+            return Windows.HeapAlloc(Windows.GetProcessHeap(), 0, size);
+        }
+        Free(ptr) {
+            Windows.HeapFree(Windows.GetProcessHeap(), 0, reinterpret_cast(decltype(Malloc(5))->decay, ptr));
+        }
+
+        UniquePtr(t) {
+            return type {
+                ptr := t->pointer;
+
+                destroy() { if (ptr) { ptr->~type(); Free(ptr); ptr = null; } }
+
+                type(decltype(null)->decay empty) : ptr(null) {}
+                type(this->decay->rvalue other) : ptr(other.ptr) { other.ptr = null; }
+
+                type(decltype(ptr)->decay pointer)
+                   : ptr(pointer) {}
+
+                operator=(this->decay->rvalue other) {
+                    destroy();
+                    ptr = other.ptr;
+                    other.ptr = null;
+                    return this;
+                }
+
+                ~type() { destroy(); }
+
+                get() { return ptr; }
+            };
+        }
+    }
+}

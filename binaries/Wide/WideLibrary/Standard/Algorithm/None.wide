@@ -1,0 +1,9 @@
+module Standard {
+    module Algorithms {
+        None(pred) {
+            return function(range)[pred := Utility.Move(pred)] {
+                return All(function(val)[pred := Utility.Move(pred)] { return ~pred(val); })(Utility.Move(range));
+            };
+        }
+    }
+}

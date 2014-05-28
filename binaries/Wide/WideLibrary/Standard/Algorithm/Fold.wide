@@ -1,0 +1,18 @@
+module Standard {
+    module Algorithm {
+        Fold(pred) {
+            return function(range)[pred := Utility.Move(pred)] {
+                var := range();
+                return Fold(Utility.Move(pred), *Utility.Move(var))(Utility.Move(range));
+            };
+        }
+        Fold(pred, initial) {
+            return function(range)[pred := Utility.Move(pred), initial := Utility.Move(initial)] {
+                var := range();
+                if (~var)
+                    return Utility.Move(initial);
+                return Fold(Utility.Move(pred), pred(Utility.Move(initial), *Utility.Move(var)))(Utility.Move(range));
+            };
+        }
+    }
+}

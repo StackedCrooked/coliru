@@ -1,0 +1,15 @@
+module Standard {
+    module Algorithm {
+        Take(count) {
+            return function(range)[count := count] {
+                return function()[range := Utility.Move(range), begin := 0] {
+                    if(begin ~= count) {
+                        ++begin;
+                        return range();
+                    }
+                    return Containers.None;
+                };
+            };
+        }
+    }
+}

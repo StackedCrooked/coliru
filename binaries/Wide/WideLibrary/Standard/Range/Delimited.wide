@@ -1,0 +1,10 @@
+module Standard {
+    module Range {
+        Delimited(begin, end) {
+            return function()[begin := Utility.Move(begin), end := Utility.Move(end)] {
+                if (begin ~= end) return Containers.Optional(decltype(begin)->decay)(begin++);
+                return Containers.None;
+            };
+        }
+    }
+}

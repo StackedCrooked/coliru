@@ -1,0 +1,14 @@
+module Standard {
+    module Algorithms {
+        Count() {
+            return Count(function(val) { return true; });
+        }
+        Count(pred) {
+            return function(range)[pred := Utility.Move(pred)] {
+                count := 0;
+                range | Filter(Utility.Move(pred)) | ForEach(function(val) { ++count; });
+                return count;
+            };
+        }
+    }
+}

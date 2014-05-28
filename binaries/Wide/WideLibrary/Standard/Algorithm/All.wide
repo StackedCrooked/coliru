@@ -1,0 +1,15 @@
+module Standard {
+    module Algorithms {
+        All(pred) {
+            return function(range)[pred := Utility.Move(pred)] {
+                result := true;
+                var := range();
+                while(result & var) {
+                    result = pred(*var);
+                    var = range();
+                }
+                return result;
+            };
+        }
+    }
+}

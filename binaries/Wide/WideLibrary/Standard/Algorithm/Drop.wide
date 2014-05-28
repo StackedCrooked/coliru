@@ -1,0 +1,15 @@
+module Standard {
+    module Algorithm {
+        Drop(count) {
+            return function(range)[count := count] {
+                return function()[range := Utility.Move(range), begin := 0] {
+                    while(begin ~= count) {
+                        range();
+                        ++begin;
+                    }
+                    return range();
+                };
+            };
+        }
+    }
+}

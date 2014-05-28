@@ -1,0 +1,18 @@
+module Standard {
+    module Memory {
+        Malloc(size) {
+            return Windows.Header.HeapAlloc(
+                Windows.Header.GetProcessHeap(),
+                cpp.macro(Windows.Header, "HEAP_GENERATE_EXCEPTIONS"),
+                size
+            );
+        }
+        Free(pointer, size) {
+            Windows.Header.HeapFree(
+                Windows.Header.GetProcessHeap(),
+                0,
+                pointer
+            );
+        }
+    }
+}

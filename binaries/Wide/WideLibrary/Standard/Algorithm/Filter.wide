@@ -1,0 +1,16 @@
+module Standard {
+    module Algorithm {
+        Filter(pred) {
+            return function(range)[pred := Utility.Move(pred)] {
+                return function()[range := Utility.Move(range), pred := Utility.Move(pred)] {
+                     var := range();
+                     while(var) {
+                         if (pred(*var)) return Utility.Move(var);
+                         var = range();
+                     }
+                     return Containers.None;
+                };
+            };
+        }
+    }
+}

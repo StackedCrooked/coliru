@@ -1,0 +1,14 @@
+module Standard {
+    module Algorithm {
+        Find(func) {
+            return function(range)[func := Utility.Move(func)] {
+                var := range();
+                while (var) {
+                    if (func(*var)) return Utility.Move(var);
+                    var = range();
+                }
+                return Containers.None;
+            };
+        }
+    }
+}
