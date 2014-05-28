@@ -1,0 +1,13 @@
+main.cpp:20:18: error: no matching function for call to 'min'
+    std::cout << min(10, 11, 9, 10, 16, 19, 8);
+                 ^~~
+main.cpp:15:16: note: candidate template ignored: substitution failure [with T = int, U = int, Args = <int, int, int, int, int>]: no matching function for call to 'min'
+constexpr auto min(T&& t, U&& u, Args&&... args) -> decltype(min(min(std::forward<T>(t), std::forward<U>(u)), std::forward<Args>(args)...)) {
+               ^                                             ~~~
+main.cpp:5:13: note: candidate function template not viable: requires single argument 't', but 7 arguments were provided
+constexpr T min(T&& t) {
+            ^
+main.cpp:10:16: note: candidate function template not viable: requires 2 arguments, but 7 were provided
+constexpr auto min(T&& t, U&& u) -> decltype(u < t ? std::forward<U>(u) : std::forward<T>(t)) {
+               ^
+1 error generated.
