@@ -1,0 +1,11 @@
++ g++-4.8 -O0 -Wall -Wextra -Wconversion -pedantic -Wno-unused-variable -Wno-unused-parameter -std=c++11 -pthread main.cpp
+main.cpp: In lambda function:
+main.cpp:17:20: error: assignment of member 'Bar::x' in read-only object
+             bar->x = 42;
+                    ^
+main.cpp:18:16: error: increment of read-only variable 'bar'
+             bar++;
+                ^
+main.cpp:19:24: error: assignment of read-only variable 'I_AM_CONST'
+             I_AM_CONST = 10;
+                        ^
