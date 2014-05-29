@@ -1,0 +1,14 @@
+Inside foo().
+Constructing HeapInteger #1.
+Destructing HeapInteger #1.
+Move-constructing HeapInteger #2 from HeapInteger #0.
+Destructing HeapInteger #0.
+Destructing HeapInteger #2.
+*** glibc detected *** ./a.out: double free or corruption (out): 0x0000000000400af0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7eb96)[0x7f7dcc00db96]
+./a.out[0x400ccb]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f7dcbfb076d]
+./a.out[0x400b19]
+======= Memory map: ========
+bash: line 7: 11580 Aborted                 (core dumped) ./a.out

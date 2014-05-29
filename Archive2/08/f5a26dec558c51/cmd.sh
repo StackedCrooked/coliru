@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -Wall -fno-elide-constructors -pthread main.cpp && ./a.out
