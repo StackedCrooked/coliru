@@ -1,0 +1,77 @@
++ g++-4.8 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -c main.cpp
+main.cpp: In function 'std::stringstream getss()':
+main.cpp:5:22: error: use of deleted function 'std::basic_stringstream<char>::basic_stringstream(const std::basic_stringstream<char>&)'
+    return std::move(q);
+                      ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/sstream:502:11: note: 'std::basic_stringstream<char>::basic_stringstream(const std::basic_stringstream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_stringstream : public basic_iostream<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/sstream:502:11: error: use of deleted function 'std::basic_iostream<char>::basic_iostream(const std::basic_iostream<char>&)'
+In file included from /usr/include/c++/4.8/sstream:38:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/istream:795:11: note: 'std::basic_iostream<char>::basic_iostream(const std::basic_iostream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_iostream
+           ^
+/usr/include/c++/4.8/istream:795:11: error: use of deleted function 'std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)'
+/usr/include/c++/4.8/istream:58:11: note: 'std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_istream : virtual public basic_ios<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/istream:58:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+In file included from /usr/include/c++/4.8/ios:44:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/sstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_ios.h:66:11: note: 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ios : public ios_base
+           ^
+In file included from /usr/include/c++/4.8/ios:42:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/sstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/ios_base.h:786:5: error: 'std::ios_base::ios_base(const std::ios_base&)' is private
+     ios_base(const ios_base&);
+     ^
+In file included from /usr/include/c++/4.8/ios:44:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/sstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_ios.h:66:11: error: within this context
+     class basic_ios : public ios_base
+           ^
+In file included from /usr/include/c++/4.8/sstream:38:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/istream:795:11: error: use of deleted function 'std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)'
+     class basic_iostream
+           ^
+In file included from /usr/include/c++/4.8/istream:39:0,
+                 from /usr/include/c++/4.8/sstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ostream:58:11: note: 'std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ostream : virtual public basic_ios<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/ostream:58:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+In file included from /usr/include/c++/4.8/sstream:38:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/istream:795:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+     class basic_iostream
+           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/sstream:502:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+     class basic_stringstream : public basic_iostream<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/sstream:502:11: error: use of deleted function 'std::basic_stringbuf<char>::basic_stringbuf(const std::basic_stringbuf<char>&)'
+/usr/include/c++/4.8/sstream:64:11: note: 'std::basic_stringbuf<char>::basic_stringbuf(const std::basic_stringbuf<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_stringbuf : public basic_streambuf<_CharT, _Traits>
+           ^
+In file included from /usr/include/c++/4.8/ios:43:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/sstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/streambuf:802:7: error: 'std::basic_streambuf<_CharT, _Traits>::basic_streambuf(const std::basic_streambuf<_CharT, _Traits>&) [with _CharT = char; _Traits = std::char_traits<char>]' is private
+       basic_streambuf(const basic_streambuf& __sb)
+       ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/sstream:64:11: error: within this context
+     class basic_stringbuf : public basic_streambuf<_CharT, _Traits>
+           ^
