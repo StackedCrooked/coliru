@@ -1,0 +1,37 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
+In file included from main.cpp:3:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/vector:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_construct.h:75:38: error: call to implicitly-deleted copy constructor of 'std::basic_ofstream<char>'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<std::basic_ofstream<char>, std::basic_ofstream<char> >' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:117:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::basic_ofstream<char> *>, std::basic_ofstream<char> *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:258:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::move_iterator<std::basic_ofstream<char> *>, std::basic_ofstream<char> *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_uninitialized.h:279:19: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::move_iterator<std::basic_ofstream<char> *>, std::basic_ofstream<char> *, std::basic_ofstream<char> >' requested here
+      return std::__uninitialized_copy_a
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:413:15: note: in instantiation of function template specialization 'std::__uninitialized_move_if_noexcept_a<std::basic_ofstream<char> *, std::basic_ofstream<char> *, std::allocator<std::basic_ofstream<char> > >' requested here
+              = std::__uninitialized_move_if_noexcept_a
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/vector.tcc:101:4: note: in instantiation of function template specialization 'std::vector<std::basic_ofstream<char>, std::allocator<std::basic_ofstream<char> > >::_M_emplace_back_aux<std::basic_string<char> >' requested here
+          _M_emplace_back_aux(std::forward<_Args>(__args)...);
+          ^
+main.cpp:9:4: note: in instantiation of function template specialization 'std::vector<std::basic_ofstream<char>, std::allocator<std::basic_ofstream<char> > >::emplace_back<std::basic_string<char> >' requested here
+        v.emplace_back(std::string("file1.txt"));
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/fstream:599:28: note: copy constructor of 'basic_ofstream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ostream<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_ofstream : public basic_ostream<_CharT,_Traits>
+                           ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:58:27: note: copy constructor of 'basic_ostream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ios<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_ostream : virtual public basic_ios<_CharT, _Traits>
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_ios.h:66:23: note: copy constructor of 'basic_ios<char, std::char_traits<char> >' is implicitly deleted because base class 'std::ios_base' has an inaccessible copy constructor
+    class basic_ios : public ios_base
+                      ^
+1 error generated.
