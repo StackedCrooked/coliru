@@ -1,0 +1,28 @@
+main.cpp:1:1: warning: 'auto' type specifier is incompatible with C++98 [-Wc++98-compat]
+auto a = 100000000000000000;     // ok
+^~~~
+main.cpp:1:6: warning: no previous extern declaration for non-static variable 'a' [-Wmissing-variable-declarations]
+auto a = 100000000000000000;     // ok
+     ^
+main.cpp:2:1: warning: 'auto' type specifier is incompatible with C++98 [-Wc++98-compat]
+auto b = 10000000000000000000;   // unsigned
+^~~~
+main.cpp:2:10: warning: integer constant is larger than the largest signed integer type
+auto b = 10000000000000000000;   // unsigned
+         ^
+main.cpp:2:6: warning: no previous extern declaration for non-static variable 'b' [-Wmissing-variable-declarations]
+auto b = 10000000000000000000;   // unsigned
+     ^
+main.cpp:3:1: warning: 'auto' type specifier is incompatible with C++98 [-Wc++98-compat]
+auto c = 100000000000000000000;  // too large for its type
+^~~~
+main.cpp:3:10: error: integer constant is larger than the largest unsigned integer type
+auto c = 100000000000000000000;  // too large for its type
+         ^
+main.cpp:3:6: warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+auto c = 100000000000000000000;  // too large for its type
+     ^
+main.cpp:3:59: warning: C++98 requires newline at end of file [-Wc++98-compat-pedantic]
+auto c = 100000000000000000000;  // too large for its type
+                                                          ^
+8 warnings and 1 error generated.
