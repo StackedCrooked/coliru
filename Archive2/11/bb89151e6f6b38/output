@@ -1,0 +1,23 @@
+main.cpp:10:3: error: incomplete result type 'f' in function definition
+f dirty1( T t ) {
+  ^
+main.cpp:7:8: note: forward declaration of 'f'
+struct f;
+       ^
+main.cpp:11:12: error: initialization of incomplete type 'f'
+    return f( t );
+           ^
+main.cpp:7:8: note: forward declaration of 'f'
+struct f;
+       ^
+main.cpp:16:8: error: redefinition of 't'
+    f( t );
+       ^
+main.cpp:15:16: note: previous definition is here
+void dirty2( T t ) {
+               ^
+main.cpp:25:2: error: expected ';' after struct
+}
+ ^
+ ;
+4 errors generated.
