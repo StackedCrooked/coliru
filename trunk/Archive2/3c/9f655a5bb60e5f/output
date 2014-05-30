@@ -1,0 +1,53 @@
+Using built-in specs.
+COLLECT_GCC=g++-4.7
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.7/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.7.3-2ubuntu1~12.04' --with-bugurl=file:///usr/share/doc/gcc-4.7/README.Bugs --enable-languages=c,c++,go,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.7 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.7 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --with-system-zlib --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.7.3 (Ubuntu/Linaro 4.7.3-2ubuntu1~12.04) 
+In file included from /usr/include/c++/4.7/bits/move.h:57:0,
+                 from /usr/include/c++/4.7/bits/stl_pair.h:61,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/type_traits: In instantiation of 'struct std::_Result_of_impl<false, false, std::_Mem_fn<void (Foo::*)()>, std::shared_ptr<Foo> >':
+/usr/include/c++/4.7/type_traits:1857:12:   required from 'class std::result_of<std::_Mem_fn<void (Foo::*)()>(std::shared_ptr<Foo>)>'
+/usr/include/c++/4.7/functional:1563:61:   required from 'struct std::_Bind_simple<std::_Mem_fn<void (Foo::*)()>(std::shared_ptr<Foo>)>'
+/usr/include/c++/4.7/thread:133:9:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (Foo::*)(); _Args = {std::shared_ptr<Foo>&}]'
+main.cpp:10:32:   required from here
+/usr/include/c++/4.7/type_traits:1834:9: error: no match for call to '(std::_Mem_fn<void (Foo::*)()>) (std::shared_ptr<Foo>)'
+In file included from /usr/include/c++/4.7/memory:81:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/functional:525:11: note: candidates are:
+/usr/include/c++/4.7/functional:548:7: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _ArgTypes ...) const [with _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:548:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:553:7: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _ArgTypes ...) const [with _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:553:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:559:2: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&, _ArgTypes ...) const [with _Tp = std::shared_ptr<Foo>; _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:559:2: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'std::shared_ptr<Foo>&'
+In file included from /usr/include/c++/4.7/bits/move.h:57:0,
+                 from /usr/include/c++/4.7/bits/stl_pair.h:61,
+                 from /usr/include/c++/4.7/bits/stl_algobase.h:65,
+                 from /usr/include/c++/4.7/bits/char_traits.h:41,
+                 from /usr/include/c++/4.7/ios:41,
+                 from /usr/include/c++/4.7/ostream:40,
+                 from /usr/include/c++/4.7/iostream:40,
+                 from main.cpp:1:
+/usr/include/c++/4.7/type_traits: In instantiation of 'struct std::_Result_of_impl<false, false, std::_Mem_fn<void (Foo::*)()>, Foo>':
+/usr/include/c++/4.7/type_traits:1857:12:   required from 'class std::result_of<std::_Mem_fn<void (Foo::*)()>(Foo)>'
+/usr/include/c++/4.7/functional:1563:61:   required from 'struct std::_Bind_simple<std::_Mem_fn<void (Foo::*)()>(Foo)>'
+/usr/include/c++/4.7/thread:133:9:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (Foo::*)(); _Args = {Foo&}]'
+main.cpp:11:33:   required from here
+/usr/include/c++/4.7/type_traits:1834:9: error: no match for call to '(std::_Mem_fn<void (Foo::*)()>) (Foo)'
+In file included from /usr/include/c++/4.7/memory:81:0,
+                 from main.cpp:2:
+/usr/include/c++/4.7/functional:525:11: note: candidates are:
+/usr/include/c++/4.7/functional:548:7: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class&, _ArgTypes ...) const [with _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:548:7: note:   no known conversion for argument 1 from 'Foo' to 'Foo&'
+/usr/include/c++/4.7/functional:553:7: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Class*, _ArgTypes ...) const [with _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:553:7: note:   no known conversion for argument 1 from 'Foo' to 'Foo*'
+/usr/include/c++/4.7/functional:559:2: note: _Res std::_Mem_fn<_Res (_Class::*)(_ArgTypes ...)>::operator()(_Tp&, _ArgTypes ...) const [with _Tp = Foo; _Res = void; _Class = Foo; _ArgTypes = {}]
+/usr/include/c++/4.7/functional:559:2: note:   no known conversion for argument 1 from 'Foo' to 'Foo&'
