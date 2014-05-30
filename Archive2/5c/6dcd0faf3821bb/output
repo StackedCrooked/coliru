@@ -1,0 +1,7 @@
+main.cpp:2:52: error: calling a protected constructor of class 'Base'
+struct Derived: Base { Derived() noexcept(noexcept(Base(42))) : Base(42) { static_assert(!noexcept(Derived()), "Err"); } };
+                                                   ^
+main.cpp:1:34: note: protected constructor can only be used to construct a base class subobject
+class Base { protected: explicit Base(int); };
+                                 ^
+1 error generated.
