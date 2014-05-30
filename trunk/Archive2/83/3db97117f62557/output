@@ -1,0 +1,2084 @@
+main.cpp: In function 'int main()':
+main.cpp:21:22: error: cannot bind 'std::ostream {aka std::basic_ostream<char>}' lvalue to 'std::basic_ostream<char>&&'
+              cout << it << endl;
+                      ^
+In file included from /usr/local/include/c++/4.8.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ostream:602:5: error:   initializing argument 1 of 'std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >]'
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+main.cpp:22:16: error: cannot convert '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'int' in assignment
+              n = (it - 48);
+                ^
+main.cpp:28:21: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                     ^
+main.cpp:28:21: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:28:24: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                        ^
+main.cpp:28:34: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                  ^
+main.cpp:28:34: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:28:37: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                     ^
+main.cpp:28:47: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                               ^
+main.cpp:28:47: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:28:50: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                  ^
+main.cpp:28:60: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                            ^
+main.cpp:28:60: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:28:63: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+              if (it == '+' || it == '-' || it == '/' || it == '*')
+                                                               ^
+main.cpp:38:28: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+                     if (it == '+')
+                            ^
+main.cpp:38:28: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+                     if (it == '+')
+                               ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:38:31: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+                     if (it == '+')
+                               ^
+main.cpp:44:33: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+                     else if (it == '-')
+                                 ^
+main.cpp:44:33: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+                     else if (it == '-')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:44:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+                     else if (it == '-')
+                                    ^
+main.cpp:49:33: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+                     else if (it == '/')
+                                 ^
+main.cpp:49:33: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+                     else if (it == '/')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:49:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+                     else if (it == '/')
+                                    ^
+main.cpp:62:33: error: no match for 'operator==' (operand types are 'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' and 'char')
+                     else if (it == '*')
+                                 ^
+main.cpp:62:33: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/iosfwd:40:0,
+                 from /usr/local/include/c++/4.8.2/ios:38,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.8.2/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::fpos<_StateT>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::pair<_T1, _T2>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:291:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:341:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1031:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:1037:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::move_iterator<_Iterator>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:41:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::allocator<_CharT>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2486:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2493:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2507:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   mismatched types 'const _CharT*' and '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/string:52:0,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/basic_string.h:2519:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.8.2/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:247:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::_Deque_iterator<_Tp, _Ref, _Ptr>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/deque:64:0,
+                 from /usr/local/include/c++/4.8.2/stack:60,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator==(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_deque.h:1957:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::deque<_Tp, _Alloc>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/stack:61:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note: template<class _Tp, class _Seq> bool std::operator==(const std::stack<_Tp, _Seq>&, const std::stack<_Tp, _Seq>&)
+     operator==(const stack<_Tp, _Seq>& __x, const stack<_Tp, _Seq>& __y)
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_stack.h:243:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const std::stack<_Tp, _Seq>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.8.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.8.2/string:41,
+                 from /usr/local/include/c++/4.8.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.8.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.8.2/ios:42,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.8.2/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   'std::basic_string<char>::const_iterator {aka __gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >}' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:811:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'char'
+                     else if (it == '*')
+                                    ^
+In file included from /usr/local/include/c++/4.8.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.8.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.8.2/ios:40,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.8.2/bits/stl_iterator.h:805:5: note:   template argument deduction/substitution failed:
+main.cpp:62:36: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorR, _Container>' and 'char'
+                     else if (it == '*')
+                                    ^
