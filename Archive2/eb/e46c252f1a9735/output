@@ -1,0 +1,19 @@
+main.cpp:10:3: error: incomplete result type 'f' in function definition
+f dirty1( T t ) {
+  ^
+main.cpp:7:8: note: forward declaration of 'f'
+struct f;
+       ^
+main.cpp:11:12: error: initialization of incomplete type 'f'
+    return f( t );
+           ^
+main.cpp:7:8: note: forward declaration of 'f'
+struct f;
+       ^
+main.cpp:16:10: error: variable has incomplete type 'f'
+    auto usef = f( t );
+         ^
+main.cpp:7:8: note: forward declaration of 'f'
+struct f;
+       ^
+3 errors generated.
