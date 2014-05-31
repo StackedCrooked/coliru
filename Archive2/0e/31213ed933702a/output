@@ -1,0 +1,14 @@
+In file included from /usr/local/include/c++/4.8.2/vector:62:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.8.2/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = Widgets; _Args = {const Widgets&}]':
+/usr/local/include/c++/4.8.2/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Widgets*, std::vector<Widgets> >; _ForwardIterator = Widgets*; bool _TrivialValueTypes = false]'
+/usr/local/include/c++/4.8.2/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Widgets*, std::vector<Widgets> >; _ForwardIterator = Widgets*]'
+/usr/local/include/c++/4.8.2/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const Widgets*, std::vector<Widgets> >; _ForwardIterator = Widgets*; _Tp = Widgets]'
+/usr/local/include/c++/4.8.2/bits/stl_vector.h:316:32:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = Widgets; _Alloc = std::allocator<Widgets>]'
+main.cpp:46:65:   required from here
+/usr/local/include/c++/4.8.2/bits/stl_construct.h:75:7: error: use of deleted function 'Widgets::Widgets(const Widgets&)'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+main.cpp:10:12: note: 'Widgets::Widgets(const Widgets&)' is implicitly declared as deleted because 'Widgets' declares a move constructor or move assignment operator
+     struct Widgets{
+            ^
