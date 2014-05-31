@@ -1,0 +1,1 @@
+gcc -m32 -Wall -Wextra -pedantic -S main.cpp -o main.S && cat main.S
