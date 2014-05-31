@@ -1,0 +1,59 @@
+main.cpp:1:20: error: explicit specialization of non-template struct 'plus'
+template <> struct plus<void> {
+                   ^   ~~~~~~
+main.cpp:3:17: error: use of undeclared identifier 'std'
+    -> decltype(std::forward<T>(t) + std::forward<U>(u));
+                ^
+main.cpp:3:30: error: 'T' does not refer to a value
+    -> decltype(std::forward<T>(t) + std::forward<U>(u));
+                             ^
+main.cpp:2:19: note: declared here
+  template <class T, class U> auto operator()(T&& t, U&& u) const
+                  ^
+main.cpp:3:38: error: use of undeclared identifier 'std'
+    -> decltype(std::forward<T>(t) + std::forward<U>(u));
+                                     ^
+main.cpp:3:51: error: 'U' does not refer to a value
+    -> decltype(std::forward<T>(t) + std::forward<U>(u));
+                                                  ^
+main.cpp:2:28: note: declared here
+  template <class T, class U> auto operator()(T&& t, U&& u) const
+                           ^
+main.cpp:6:1: error: C++ requires a type specifier for all declarations
+operator() returns std::forward<T>(t) + std::forward<U>(u).
+^~~~~~~~
+main.cpp:6:1: error: 'operator()' cannot be the name of a variable or data member
+main.cpp:6:11: error: expected ';' after top level declarator
+operator() returns std::forward<T>(t) + std::forward<U>(u).
+          ^
+          ;
+main.cpp:13:1: error: C++ requires a type specifier for all declarations
+operator() returns std::forward<T>(t) - std::forward<U>(u).
+^~~~~~~~
+main.cpp:13:1: error: 'operator()' cannot be the name of a variable or data member
+main.cpp:13:11: error: expected ';' after top level declarator
+operator() returns std::forward<T>(t) - std::forward<U>(u).
+          ^
+          ;
+main.cpp:20:1: error: C++ requires a type specifier for all declarations
+operator() returns std::forward<T>(t) * std::forward<U>(u).
+^~~~~~~~
+main.cpp:20:1: error: 'operator()' cannot be the name of a variable or data member
+main.cpp:20:11: error: expected ';' after top level declarator
+operator() returns std::forward<T>(t) * std::forward<U>(u).
+          ^
+          ;
+main.cpp:27:1: error: C++ requires a type specifier for all declarations
+operator() returns std::forward<T>(t) / std::forward<U>(u).
+^~~~~~~~
+main.cpp:27:1: error: 'operator()' cannot be the name of a variable or data member
+main.cpp:27:11: error: expected ';' after top level declarator
+operator() returns std::forward<T>(t) / std::forward<U>(u).
+          ^
+          ;
+main.cpp:34:1: error: C++ requires a type specifier for all declarations
+operator() returns std::forward<T>(t) % std::forward<U>(u).
+^~~~~~~~
+main.cpp:34:1: error: 'operator()' cannot be the name of a variable or data member
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
