@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O0 -Wall main.cpp -lgmp -lgmpxx && ./a.out
