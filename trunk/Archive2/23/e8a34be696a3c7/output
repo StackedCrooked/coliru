@@ -1,0 +1,566 @@
+main.cpp:348:1: warning: 'Quantizer' defined as a class template here but previously declared as a struct template [-Wmismatched-tags]
+class Quantizer<float>
+^
+main.cpp:345:1: note: did you mean class here?
+struct Quantizer;
+^~~~~~
+class
+main.cpp:355:1: warning: 'Quantizer' defined as a class template here but previously declared as a struct template [-Wmismatched-tags]
+class Quantizer<double>
+^
+main.cpp:345:1: note: did you mean class here?
+struct Quantizer;
+^~~~~~
+class
+2 warnings generated.
+; ModuleID = 'main.cpp'
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external global i8
+@llvm.global_ctors = appending global [1 x { i32, void ()* }] [{ i32, void ()* } { i32 65535, void ()* @_GLOBAL__I_a }]
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define double @lgamma(double %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call double @__lgamma_r_finite(double %__d, i32* %__local_signgam) #4
+  ret double %1
+}
+
+; Function Attrs: nounwind
+declare double @__lgamma_r_finite(double, i32*) #1
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define float @lgammaf(float %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call float @__lgammaf_r_finite(float %__d, i32* %__local_signgam) #4
+  ret float %1
+}
+
+; Function Attrs: nounwind
+declare float @__lgammaf_r_finite(float, i32*) #1
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define x86_fp80 @lgammal(x86_fp80 %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call x86_fp80 @__lgammal_r_finite(x86_fp80 %__d, i32* %__local_signgam) #4
+  ret x86_fp80 %1
+}
+
+; Function Attrs: nounwind
+declare x86_fp80 @__lgammal_r_finite(x86_fp80, i32*) #1
+
+; Function Attrs: alwaysinline nounwind uwtable
+define double @gamma(double %__d) #2 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call double @__lgamma_r_finite(double %__d, i32* %__local_signgam) #4
+  ret double %1
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define float @gammaf(float %__d) #2 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call float @__lgammaf_r_finite(float %__d, i32* %__local_signgam) #4
+  ret float %1
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define x86_fp80 @gammal(x86_fp80 %__d) #2 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = call x86_fp80 @__lgammal_r_finite(x86_fp80 %__d, i32* %__local_signgam) #4
+  ret x86_fp80 %1
+}
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define double @tgamma(double %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = invoke double @__gamma_r_finite(double %__d, i32* %__local_signgam)
+          to label %2 unwind label %9
+
+; <label>:2                                       ; preds = %0
+  %3 = load i32* %__local_signgam, align 4, !tbaa !1
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %7
+
+; <label>:5                                       ; preds = %2
+  %6 = fsub fast double -0.000000e+00, %1
+  br label %7
+
+; <label>:7                                       ; preds = %2, %5
+  %8 = phi double [ %6, %5 ], [ %1, %2 ]
+  ret double %8
+
+; <label>:9                                       ; preds = %0
+  %10 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          filter [0 x i8*] zeroinitializer
+  %11 = extractvalue { i8*, i32 } %10, 0
+  call void @__cxa_call_unexpected(i8* %11) #5
+  unreachable
+}
+
+declare double @__gamma_r_finite(double, i32*) #3
+
+declare i32 @__gxx_personality_v0(...)
+
+declare void @__cxa_call_unexpected(i8*)
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define float @tgammaf(float %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = invoke float @__gammaf_r_finite(float %__d, i32* %__local_signgam)
+          to label %2 unwind label %9
+
+; <label>:2                                       ; preds = %0
+  %3 = load i32* %__local_signgam, align 4, !tbaa !1
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %7
+
+; <label>:5                                       ; preds = %2
+  %6 = fsub fast float -0.000000e+00, %1
+  br label %7
+
+; <label>:7                                       ; preds = %2, %5
+  %8 = phi float [ %6, %5 ], [ %1, %2 ]
+  ret float %8
+
+; <label>:9                                       ; preds = %0
+  %10 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          filter [0 x i8*] zeroinitializer
+  %11 = extractvalue { i8*, i32 } %10, 0
+  call void @__cxa_call_unexpected(i8* %11) #5
+  unreachable
+}
+
+declare float @__gammaf_r_finite(float, i32*) #3
+
+; Function Attrs: alwaysinline nounwind readnone uwtable
+define x86_fp80 @tgammal(x86_fp80 %__d) #0 {
+  %__local_signgam = alloca i32, align 4
+  store i32 0, i32* %__local_signgam, align 4, !tbaa !1
+  %1 = invoke x86_fp80 @__gammal_r_finite(x86_fp80 %__d, i32* %__local_signgam)
+          to label %2 unwind label %9
+
+; <label>:2                                       ; preds = %0
+  %3 = load i32* %__local_signgam, align 4, !tbaa !1
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %7
+
+; <label>:5                                       ; preds = %2
+  %6 = fsub fast x86_fp80 0xK80000000000000000000, %1
+  br label %7
+
+; <label>:7                                       ; preds = %2, %5
+  %8 = phi x86_fp80 [ %6, %5 ], [ %1, %2 ]
+  ret x86_fp80 %8
+
+; <label>:9                                       ; preds = %0
+  %10 = landingpad { i8*, i32 } personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*)
+          filter [0 x i8*] zeroinitializer
+  %11 = extractvalue { i8*, i32 } %10, 0
+  call void @__cxa_call_unexpected(i8* %11) #5
+  unreachable
+}
+
+declare x86_fp80 @__gammal_r_finite(x86_fp80, i32*) #3
+
+declare void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"*) #3
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(%"class.std::ios_base::Init"*) #1
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(void (i8*)*, i8*, i8*) #4
+
+define internal void @_GLOBAL__I_a() section ".text.startup" {
+  tail call void @_ZNSt8ios_base4InitC1Ev(%"class.std::ios_base::Init"* @_ZStL8__ioinit)
+  %1 = tail call i32 @__cxa_atexit(void (i8*)* bitcast (void (%"class.std::ios_base::Init"*)* @_ZNSt8ios_base4InitD1Ev to void (i8*)*), i8* getelementptr inbounds (%"class.std::ios_base::Init"* @_ZStL8__ioinit, i64 0, i32 0), i8* @__dso_handle) #4
+  ret void
+}
+
+attributes #0 = { alwaysinline nounwind readnone uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "stack-protector-buffer-size"="8" "unsafe-fp-math"="true" "use-soft-float"="false" }
+attributes #1 = { nounwind "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "stack-protector-buffer-size"="8" "unsafe-fp-math"="true" "use-soft-float"="false" }
+attributes #2 = { alwaysinline nounwind uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "stack-protector-buffer-size"="8" "unsafe-fp-math"="true" "use-soft-float"="false" }
+attributes #3 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "stack-protector-buffer-size"="8" "unsafe-fp-math"="true" "use-soft-float"="false" }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn nounwind }
+
+!llvm.ident = !{!0}
+
+!0 = metadata !{metadata !"clang version 3.4 (tags/RELEASE_34/final 206911)"}
+!1 = metadata !{metadata !2, metadata !2, i64 0}
+!2 = metadata !{metadata !"int", metadata !3, i64 0}
+!3 = metadata !{metadata !"omnipotent char", metadata !4, i64 0}
+!4 = metadata !{metadata !"Simple C/C++ TBAA"}
+main.cpp:348:1: warning: 'Quantizer' defined as a class template here but previously declared as a struct template [-Wmismatched-tags]
+class Quantizer<float>
+^
+main.cpp:345:1: note: did you mean class here?
+struct Quantizer;
+^~~~~~
+class
+main.cpp:355:1: warning: 'Quantizer' defined as a class template here but previously declared as a struct template [-Wmismatched-tags]
+class Quantizer<double>
+^
+main.cpp:345:1: note: did you mean class here?
+struct Quantizer;
+^~~~~~
+class
+2 warnings generated.
+	.file	"main.cpp"
+	.text
+	.globl	lgamma
+	.align	16, 0x90
+	.type	lgamma,@function
+lgamma:                                 # @lgamma
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+	leaq	4(%rsp), %rdi
+	callq	__lgamma_r_finite
+	popq	%rax
+	ret
+.Ltmp2:
+	.size	lgamma, .Ltmp2-lgamma
+	.cfi_endproc
+
+	.globl	lgammaf
+	.align	16, 0x90
+	.type	lgammaf,@function
+lgammaf:                                # @lgammaf
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp4:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+	leaq	4(%rsp), %rdi
+	callq	__lgammaf_r_finite
+	popq	%rax
+	ret
+.Ltmp5:
+	.size	lgammaf, .Ltmp5-lgammaf
+	.cfi_endproc
+
+	.globl	lgammal
+	.align	16, 0x90
+	.type	lgammal,@function
+lgammal:                                # @lgammal
+	.cfi_startproc
+# BB#0:
+	subq	$24, %rsp
+.Ltmp7:
+	.cfi_def_cfa_offset 32
+	fldt	32(%rsp)
+	movl	$0, 20(%rsp)
+	fstpt	(%rsp)
+	leaq	20(%rsp), %rdi
+	callq	__lgammal_r_finite
+	addq	$24, %rsp
+	ret
+.Ltmp8:
+	.size	lgammal, .Ltmp8-lgammal
+	.cfi_endproc
+
+	.globl	gamma
+	.align	16, 0x90
+	.type	gamma,@function
+gamma:                                  # @gamma
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp10:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+	leaq	4(%rsp), %rdi
+	callq	__lgamma_r_finite
+	popq	%rax
+	ret
+.Ltmp11:
+	.size	gamma, .Ltmp11-gamma
+	.cfi_endproc
+
+	.globl	gammaf
+	.align	16, 0x90
+	.type	gammaf,@function
+gammaf:                                 # @gammaf
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp13:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+	leaq	4(%rsp), %rdi
+	callq	__lgammaf_r_finite
+	popq	%rax
+	ret
+.Ltmp14:
+	.size	gammaf, .Ltmp14-gammaf
+	.cfi_endproc
+
+	.globl	gammal
+	.align	16, 0x90
+	.type	gammal,@function
+gammal:                                 # @gammal
+	.cfi_startproc
+# BB#0:
+	subq	$24, %rsp
+.Ltmp16:
+	.cfi_def_cfa_offset 32
+	fldt	32(%rsp)
+	movl	$0, 20(%rsp)
+	fstpt	(%rsp)
+	leaq	20(%rsp), %rdi
+	callq	__lgammal_r_finite
+	addq	$24, %rsp
+	ret
+.Ltmp17:
+	.size	gammal, .Ltmp17-gammal
+	.cfi_endproc
+
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI6_0:
+	.quad	-9223372036854775808    # double -0.000000e+00
+	.quad	-9223372036854775808    # double -0.000000e+00
+	.text
+	.globl	tgamma
+	.align	16, 0x90
+	.type	tgamma,@function
+tgamma:                                 # @tgamma
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin6:
+	.cfi_lsda 3, .Lexception6
+# BB#0:
+	pushq	%rax
+.Ltmp22:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+.Ltmp18:
+	leaq	4(%rsp), %rdi
+	callq	__gamma_r_finite
+.Ltmp19:
+# BB#1:
+	cmpl	$0, 4(%rsp)
+	jns	.LBB6_3
+# BB#2:
+	xorpd	.LCPI6_0(%rip), %xmm0
+.LBB6_3:
+	popq	%rax
+	ret
+.LBB6_4:
+.Ltmp20:
+	movq	%rax, %rdi
+	callq	__cxa_call_unexpected
+.Ltmp23:
+	.size	tgamma, .Ltmp23-tgamma
+	.cfi_endproc
+.Leh_func_end6:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table6:
+.Lexception6:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	"\236\200\200"          # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	26                      # Call site table length
+.Lset0 = .Ltmp18-.Leh_func_begin6       # >> Call Site 1 <<
+	.long	.Lset0
+.Lset1 = .Ltmp19-.Ltmp18                #   Call between .Ltmp18 and .Ltmp19
+	.long	.Lset1
+.Lset2 = .Ltmp20-.Leh_func_begin6       #     jumps to .Ltmp20
+	.long	.Lset2
+	.byte	1                       #   On action: 1
+.Lset3 = .Ltmp19-.Leh_func_begin6       # >> Call Site 2 <<
+	.long	.Lset3
+.Lset4 = .Leh_func_end6-.Ltmp19         #   Call between .Ltmp19 and .Leh_func_end6
+	.long	.Lset4
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.byte	127                     # >> Action Record 1 <<
+                                        #   Filter TypeInfo -1
+	.byte	0                       #   No further actions
+                                        # >> Filter TypeInfos <<
+	.byte	0
+	.align	4
+
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI7_0:
+	.long	2147483648              # float -0.000000e+00
+	.long	2147483648              # float -0.000000e+00
+	.long	2147483648              # float -0.000000e+00
+	.long	2147483648              # float -0.000000e+00
+	.text
+	.globl	tgammaf
+	.align	16, 0x90
+	.type	tgammaf,@function
+tgammaf:                                # @tgammaf
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin7:
+	.cfi_lsda 3, .Lexception7
+# BB#0:
+	pushq	%rax
+.Ltmp28:
+	.cfi_def_cfa_offset 16
+	movl	$0, 4(%rsp)
+.Ltmp24:
+	leaq	4(%rsp), %rdi
+	callq	__gammaf_r_finite
+.Ltmp25:
+# BB#1:
+	cmpl	$0, 4(%rsp)
+	jns	.LBB7_3
+# BB#2:
+	xorps	.LCPI7_0(%rip), %xmm0
+.LBB7_3:
+	popq	%rax
+	ret
+.LBB7_4:
+.Ltmp26:
+	movq	%rax, %rdi
+	callq	__cxa_call_unexpected
+.Ltmp29:
+	.size	tgammaf, .Ltmp29-tgammaf
+	.cfi_endproc
+.Leh_func_end7:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table7:
+.Lexception7:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	"\236\200\200"          # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	26                      # Call site table length
+.Lset5 = .Ltmp24-.Leh_func_begin7       # >> Call Site 1 <<
+	.long	.Lset5
+.Lset6 = .Ltmp25-.Ltmp24                #   Call between .Ltmp24 and .Ltmp25
+	.long	.Lset6
+.Lset7 = .Ltmp26-.Leh_func_begin7       #     jumps to .Ltmp26
+	.long	.Lset7
+	.byte	1                       #   On action: 1
+.Lset8 = .Ltmp25-.Leh_func_begin7       # >> Call Site 2 <<
+	.long	.Lset8
+.Lset9 = .Leh_func_end7-.Ltmp25         #   Call between .Ltmp25 and .Leh_func_end7
+	.long	.Lset9
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.byte	127                     # >> Action Record 1 <<
+                                        #   Filter TypeInfo -1
+	.byte	0                       #   No further actions
+                                        # >> Filter TypeInfos <<
+	.byte	0
+	.align	4
+
+	.text
+	.globl	tgammal
+	.align	16, 0x90
+	.type	tgammal,@function
+tgammal:                                # @tgammal
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin8:
+	.cfi_lsda 3, .Lexception8
+# BB#0:
+	subq	$24, %rsp
+.Ltmp34:
+	.cfi_def_cfa_offset 32
+	fldt	32(%rsp)
+	movl	$0, 20(%rsp)
+.Ltmp30:
+	fstpt	(%rsp)
+	leaq	20(%rsp), %rdi
+	callq	__gammal_r_finite
+.Ltmp31:
+# BB#1:
+	cmpl	$0, 20(%rsp)
+	jns	.LBB8_3
+# BB#2:
+	fchs
+.LBB8_3:
+	addq	$24, %rsp
+	ret
+.LBB8_4:
+	fstp	%st(0)
+.Ltmp32:
+	movq	%rax, %rdi
+	callq	__cxa_call_unexpected
+.Ltmp35:
+	.size	tgammal, .Ltmp35-tgammal
+	.cfi_endproc
+.Leh_func_end8:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table8:
+.Lexception8:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	"\236\200\200"          # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	26                      # Call site table length
+.Lset10 = .Ltmp30-.Leh_func_begin8      # >> Call Site 1 <<
+	.long	.Lset10
+.Lset11 = .Ltmp31-.Ltmp30               #   Call between .Ltmp30 and .Ltmp31
+	.long	.Lset11
+.Lset12 = .Ltmp32-.Leh_func_begin8      #     jumps to .Ltmp32
+	.long	.Lset12
+	.byte	1                       #   On action: 1
+.Lset13 = .Ltmp31-.Leh_func_begin8      # >> Call Site 2 <<
+	.long	.Lset13
+.Lset14 = .Leh_func_end8-.Ltmp31        #   Call between .Ltmp31 and .Leh_func_end8
+	.long	.Lset14
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.byte	127                     # >> Action Record 1 <<
+                                        #   Filter TypeInfo -1
+	.byte	0                       #   No further actions
+                                        # >> Filter TypeInfos <<
+	.byte	0
+	.align	4
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__I_a,@function
+_GLOBAL__I_a:                           # @_GLOBAL__I_a
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp37:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp38:
+	.size	_GLOBAL__I_a, .Ltmp38-_GLOBAL__I_a
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__I_a
+
+	.ident	"clang version 3.4 (tags/RELEASE_34/final 206911)"
+	.section	".note.GNU-stack","",@progbits
