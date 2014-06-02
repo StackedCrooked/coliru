@@ -1,11 +1,11 @@
 module Standard {
     module Algorithm {
         Append(range2) {
-            return function(range1)[range2 := Utility.Move(range2)] {
-                return function()[first := true, range1 := Utility.Move(range1), range2 := Utility.Move(range2)] {
+            return function(range1)[range2 := move(range2)] {
+                return function()[first := true, range1 := move(range1), range2 := move(range2)] {
                     if (first) {
                         var := range1();
-                        if (var) return Utility.Move(var);
+                        if (var) return move(var);
                         first = false;
                     }
                     return range2();

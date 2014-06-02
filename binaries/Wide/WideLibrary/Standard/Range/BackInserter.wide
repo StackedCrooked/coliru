@@ -1,7 +1,7 @@
 module Standard {
     module Range {
-        BackInserter(auto->lvalue container) {
-            return function(val)[&] { container.push_back(Utility.Move(val)); };
+        BackInserter(container := auto.lvalue) {
+            return function(val)[&] { container.push_back(move(val)); };
         }
     }
 }

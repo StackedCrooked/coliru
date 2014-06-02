@@ -1,69 +1,11 @@
 module Standard {
     module IO {
         using Windows := cpp("WideLibrary/test2.h");
-        /*type Read {}
-        type Write {}
-        type ReadWrite {}
-        type IStream {
-            type(Windows.HANDLE han)
-                : file(han) {}
-            type(IStream->rvalue other)
-                : file(other.file) { other.file = null; }
-            file := Windows.HANDLE;
-            operator()() {
-                buffer := uint8();
-                bytesread := uint32();
-                result := Windows.ReadFile(
-                    file,
-                    reinterpret_cast(void->pointer, &buffer),
-                    1,
-                    &bytesread,
-                    null
-                );
-                if (bytesread == 0)
-                    return Containers.Optional!(uint8)(Containers.None);
-                return Containers.Optional!(uint8)(buffer);
-            }
-            operator()(uint8 val) {
-                byteswritten := uint32();
-                Windows.WriteFile(
-                    file,
-                    reinterpret_cast(void->pointer, &val),
-                    1,
-                    &byteswritten,
-                    null
-                );
-            }
-            ~type() {
-                if (file)
-                    Windows.CloseHandle(file);
-            }
-        }
-        GetDesiredAccess(Read r) { return 2147483648; } // GENERIC_READ
-        GetDesiredAccess(Write w) { return 1073741824; } // GENERIC_WRITE
-        GetDesiredAccess(ReadWrite rw) { return GetDesiredAccess(Read()) | GetDesiredAccess(Write()); }
-        Stream(std.string path, tag) {
-            handle := Windows.CreateFileA(
-                path.c_str(),
-                GetDesiredAccess(tag),
-                1,
-                null,
-                3,
-                1000000000,
-                null
-            );
-
-            return IStream(handle);
-        }
-        Stream(std.string path) {
-            return Stream(Utility.Move(path), Read());
-        }*/
-
-        Out(uint8 val) {
+        Out(val := uint8) {
             byteswritten := uint32();
             Windows.WriteConsoleA(
                 Windows.GetStdout(),
-                reinterpret_cast(void->pointer, &val),
+                reinterpret_cast(void.pointer, &val),
                 1,
                 &byteswritten,
                 null

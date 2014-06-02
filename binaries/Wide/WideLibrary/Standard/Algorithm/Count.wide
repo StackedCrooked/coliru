@@ -4,9 +4,9 @@ module Standard {
             return Count(function(val) { return true; });
         }
         Count(pred) {
-            return function(range)[pred := Utility.Move(pred)] {
+            return function(range)[pred := move(pred)] {
                 count := 0;
-                range | Filter(Utility.Move(pred)) | ForEach(function(val) { ++count; });
+                range | Filter(move(pred)) | ForEach(function(val) { ++count; });
                 return count;
             };
         }

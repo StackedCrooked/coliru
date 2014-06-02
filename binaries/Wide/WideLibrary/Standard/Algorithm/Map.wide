@@ -1,10 +1,10 @@
 module Standard {
     module Algorithm {
         Map(fun) {
-            return function(range)[fun := Utility.Move(fun)] {
-                return function()[range := Utility.Move(range), fun := Utility.Move(fun)] {
+            return function(range)[fun := move(fun)] {
+                return function()[range := move(range), fun := move(fun)] {
                      var := range();
-                     if (var) return Containers.Optional(decltype(fun(*std.move(var)))->decay)(fun(*Utility.Move(var)));
+                     if (var) return Containers.Optional(decltype(fun(*move(var))).decay)(fun(*move(var)));
                      return Containers.None;
                 };
             };

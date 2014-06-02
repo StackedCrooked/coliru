@@ -1,10 +1,10 @@
 module Standard {
     module Range {
-        StreamInserter(auto.lvalue stream) {
-            return function(val)[&] { stream << Utility.Move(val); };
+        StreamInserter(stream := auto.lvalue) {
+            return function(val)[&] { stream << move(val); };
         }
-        StreamInserter(auto.rvalue stream) {
-            return function(val)[stream := Utility.Move(stream)] { stream << Utility.Move(val); };
+        StreamInserter(stream := auto.rvalue) {
+            return function(val)[stream := move(stream)] { stream << move(val); };
         }
     }
 }

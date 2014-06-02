@@ -1,56 +1,6 @@
 module Standard {
     module Containers {
-        /*Optional(t) {
-            return type {
-                present := bool;
-                storage := std.aligned_storage!(t->size, t->alignment).type;
-
-                get() { return reinterpret_cast(t->pointer, &storage); }
-                destroy() { get()->~type(); present = false; }
-                place(auto->lvalue arg) { t->emplace(get(), arg); }
-                place(auto->rvalue arg) { t->emplace(get(), std.move(arg)); }
-
-                type() : present(false) {}
-
-                type(decltype(None)->decay arg) : present(false) {}
-
-                type(t->lvalue arg) { place(arg); }
-                type(t->rvalue arg) { place(std.move(arg)); }
-
-                type(Optional(t)->lvalue arg) { if (arg.present) place(*arg); }
-                type(Optional(t)->rvalue arg) { if (arg.present) place(*std.move(arg)); }
-
-                operator=(decltype(None)->decay arg) {
-                    if (present) destroy();
-                    return this;
-                }
-
-                operator=(Optional(t)->lvalue arg) {
-                    if (present) { 
-                        if (!arg.present)
-                            return this = None;
-                        *this = *arg;
-                    } else
-                        if (arg.present) place(*arg);
-                    return Optional(t)->lvalue(this);
-                }
-                operator=(Optional(t)->rvalue arg) {
-                    if (present) {
-                        if (!arg.present)
-                            return this = None;
-                        *this = *std.move(arg));
-                    } else
-                        if (arg.present) place(*std.move(arg));
-                    return Optional(t)->lvalue(this);
-                }
-
-                operator*(Optional(t)->lvalue this) { return t->lvalue(*get()); }
-                operator*(Optional(t)->rvalue this) { return std.move(*get()); }
-
-                ~type() { if (present) destroy(); }
-            };
-        }*/
-        using Optional := cpp("<Wide/WideLibrary/test.h>").Wide.Util.optional;
-        using None := cpp("<Wide/WideLibrary/test.h>").Wide.Util.none;
+        using Optional := cpp("<WideLibrary/test.h>").Wide.Util.optional;
+        using None := cpp("<WideLibrary/test.h>").Wide.Util.none;
     }
 }

@@ -1,8 +1,8 @@
 module Standard {
     module Algorithm {
         TakeWhile(pred) {
-            return function(range)[pred := Utility.Move(pred)] {
-                return function()[range := Utility.Move(range), done := false, pred := Utility.Move(pred)] {
+            return function(range)[pred := move(pred)] {
+                return function()[range := move(range), done := false, pred := move(pred)] {
                     if(~done) {
                         var := range();
                         if (~var | ~pred(*var)) { done = true; var = Containers.None; }

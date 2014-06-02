@@ -1,8 +1,8 @@
 module Standard {
     module Algorithms {
         Any(pred) {
-            return function(range)[pred := Utility.Move(pred)] {
-                return ~All(function(val)[pred := Utility.Move(pred)] { return ~pred(val); })(Utility.Move(range));
+            return function(range)[pred := move(pred)] {
+                return ~All(function(val)[pred := move(pred)] { return ~pred(val); })(move(range));
             };
         }
     }

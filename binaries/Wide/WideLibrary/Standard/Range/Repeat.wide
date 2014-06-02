@@ -1,14 +1,14 @@
 module Standard {
     module Range {
         Repeat(n, val) {
-            return function()[curr := 0, n := n, val := Utility.Move(val)] {
-                if (curr ~= n) { ++curr; return Containers.Optional(decltype(val)->decay)(val); }
+            return function()[curr := 0, n := n, val := move(val)] {
+                if (curr ~= n) { ++curr; return Containers.Optional(decltype(val).decay)(val); }
                 return Containers.None;
             };
         }
         Repeat(val) {
-            return function()[val := Utility.Move(val)] {
-                return Containers.Optional(decltype(val)->decay)(val);
+            return function()[val := move(val)] {
+                return Containers.Optional(decltype(val).decay)(val);
             };
         }
     }
