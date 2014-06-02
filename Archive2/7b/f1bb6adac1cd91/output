@@ -1,0 +1,17 @@
+main.cpp:28:5: error: ambiguous partial specializations of 'foo<3, void, 0, 0, 0, 0>'
+    my_foo<3>::print();
+    ^
+main.cpp:11:8: note: partial specialization matches [with Version = 3, ii = <0, 0, 0, 0>]
+struct foo<Version, enable_if_t<(Version > 0)>, ii...>
+       ^
+main.cpp:17:8: note: partial specialization matches [with Version = 3, ii = <0, 0, 0>]
+struct foo<Version, enable_if_t<(Version > 2)>, 0, ii...>
+       ^
+main.cpp:28:16: error: use of undeclared identifier 'print'; did you mean 'foo<1, void, 0, 0, 0, 0>::print'?
+    my_foo<3>::print();
+               ^~~~~
+               foo<1, void, 0, 0, 0, 0>::print
+main.cpp:13:17: note: 'foo<1, void, 0, 0, 0, 0>::print' declared here
+    static void print() { std::cout << "version 0\n"; }
+                ^
+2 errors generated.
