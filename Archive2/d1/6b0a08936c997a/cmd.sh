@@ -1,0 +1,1 @@
+/usr/local/bin/Wide/CLI main.cpp --stdlib="/usr/local/bin/Wide/WideLibrary" && g++ a.o
