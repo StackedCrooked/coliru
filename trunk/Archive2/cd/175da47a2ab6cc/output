@@ -1,0 +1,11 @@
+main.cpp:10:53: warning: sizeof on array function parameter will return size of 'const char *' instead of 'const char [100]' [-Wsizeof-array-argument]
+    std::cout << "sizeof(bar::an_array): " << sizeof(an_array) << '\n' ; // size of pointer
+                                                    ^
+main.cpp:8:22: note: declared here
+void bar( const char an_array[100] ) // an_array is not an array, it is a pointer
+                     ^
+1 warning generated.
+array: 100
+pointer: 8
+sizeof(foo::an_array): 100
+sizeof(bar::an_array): 8
