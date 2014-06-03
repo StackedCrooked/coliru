@@ -1,0 +1,13 @@
+main.cpp: In instantiation of 'void myFunc(T) [with T = int]':
+main.cpp:27:13:   required from here
+main.cpp:20:6: warning: unused parameter 'data' [-Wunused-parameter]
+ void myFunc(T data)
+      ^
+main.cpp: In instantiation of 'void myFunc(T) [with T = long unsigned int]':
+main.cpp:28:15:   required from here
+main.cpp:22:5: error: static assertion failed: T not allowed
+     static_assert( is_any_of<T, int, char, std::string>{}, "T not allowed");
+     ^
+main.cpp:20:6: warning: unused parameter 'data' [-Wunused-parameter]
+ void myFunc(T data)
+      ^
