@@ -1,0 +1,1 @@
+cat /usr/local/bin/Wide.sh
