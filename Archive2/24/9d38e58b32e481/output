@@ -1,0 +1,9 @@
+main.cpp:4:91: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+template<char... cs> auto operator"" _cs() -> std::array<char, sizeof...(cs)+1> { return {cs..., '\0'}; }
+                                                                                          ^~~~~~~~~~~
+                                                                                          {          }
+main.cpp:8:21: note: in instantiation of function template specialization 'operator "" _cs<'5', '5'>' requested here
+    std::cout << (55_cs).data();
+                    ^
+1 warning generated.
+55
