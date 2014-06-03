@@ -1,0 +1,10 @@
++ clang++ -std=c++11 -O2 -Wall -Wno-unused-variable -pthread main.cpp
+main.cpp:13:40: error: redefinition of 'value' with a different type: 'const decltype(foo<T>::value)' vs 'const <anonymous enum at main.cpp:5:1>'
+const decltype (foo<T>::value) foo<T>::value;
+                                       ^
+main.cpp:9:23: note: previous definition is here
+    static const auto value = A;
+                      ^
+1 error generated.
++ g++-4.8 -std=c++11 -O2 -Wall -Wno-unused-variable -pthread main.cpp
++ ./a.out
