@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O0 -Wall -Wextra -pedantic main.cpp && ./a.out && g++-4.8 -std=c++11 -O0 -S main.cpp -o - | grep to_chars -C 3 | c++filt
