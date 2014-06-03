@@ -9,4 +9,29 @@ ln -s "$(dirname $0)/Wide/WideLibrary" .
 export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Invoke the CLI with the user parameters.
-/usr/local/bin/Wide/CLI --stdlib="/usr/local/bin/Wide/WideLibrary" "$@"
+/usr/local/bin/Wide/CLI \
+    --stdlib="/usr/local/bin/Wide/WideLibrary" \
+	--include="/usr/local/include/c++/4.8.2" \
+	--include="/usr/local/include/c++/4.8.2/x86_64-unknown-linux-gnu" \
+	--include="/usr/local/include/c++/4.8.2/backward" \
+	--include="/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include" \
+	--include="/usr/local/include" \
+	--include="/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/include-fixed" \
+	--include="/usr/include/x86_64-linux-gnu" \
+	--include="/usr/include" \
+	"$@"
+ 
+
+ .
+
+ 
+
+
+
+ 
+
+ 
+
+ 
+
+ 
