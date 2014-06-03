@@ -25,6 +25,7 @@ ulimit -f 4000
 ulimit -t 20
 export LD_LIBRARY_PATH=/usr/local/lib
 cd /tmp/${jobid}
+title() { true ; }
 set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
