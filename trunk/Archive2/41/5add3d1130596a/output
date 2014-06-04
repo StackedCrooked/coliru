@@ -1,0 +1,12 @@
++ clang++ -std=c++11 -fsanitize=undefined -Wall -Wextra -Wconversion -pedantic -O0 -Wall -pthread main.cpp
+main.cpp:15:12: warning: implicit conversion changes signedness: 'unsigned int' to 'int' [-Wsign-conversion]
+    int z= -c;
+        ~  ^~
+main.cpp:15:9: warning: unused variable 'z' [-Wunused-variable]
+    int z= -c;
+        ^
+2 warnings generated.
++ ./a.out
+-15
+-15
+-15
