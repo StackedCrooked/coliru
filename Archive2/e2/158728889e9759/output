@@ -1,0 +1,60 @@
+main.cpp:13:35: error: use of undeclared identifier 'OutputDebugStringA'
+    ~DebugOutImpl()  {ss << '\n'; OutputDebugStringA(ss.str().c_str());}
+                                  ^
+main.cpp:31:43: error: use of undeclared identifier 'CP_THREAD_ACP'
+        std::string r(WideCharToMultiByte(CP_THREAD_ACP, 0, ptr, len, nullptr, 0, 0, 0), '\0');
+                                          ^
+main.cpp:32:37: error: no member named 'system_error' in namespace 'std'
+        if (r.size()==0) throw std::system_error(GetLastError(), std::system_category());
+                               ~~~~~^
+main.cpp:32:50: error: use of undeclared identifier 'GetLastError'
+        if (r.size()==0) throw std::system_error(GetLastError(), std::system_category());
+                                                 ^
+main.cpp:33:38: error: use of undeclared identifier 'CP_THREAD_ACP'
+        if (0 == WideCharToMultiByte(CP_THREAD_ACP, 0, ptr, len, &r[0], r.size(), 0, 0))
+                                     ^
+main.cpp:34:24: error: no member named 'system_error' in namespace 'std'
+            throw std::system_error(GetLastError(), std::system_category(), "error converting wide string to narrow");
+                  ~~~~~^
+main.cpp:34:37: error: use of undeclared identifier 'GetLastError'
+            throw std::system_error(GetLastError(), std::system_category(), "error converting wide string to narrow");
+                                    ^
+main.cpp:30:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+        if (len == -1) len = wcslen(ptr);        
+            ~~~ ^  ~~
+main.cpp:38:95: error: no member named 'vsnprintf_s' in the global namespace; did you mean simply 'vsnprintf_s'?
+    static int vsnprintf_s(char* buffer, int bufsize, const char* format, va_list ap) {return ::vsnprintf_s(buffer, bufsize, _TRUNCATE, format, ap);}
+                                                                                              ^~~~~~~~~~~~~
+                                                                                              vsnprintf_s
+main.cpp:39:16: note: 'vsnprintf_s' declared here
+    static int vsnprintf_s(wchar_t* buffer, int bufsize, const wchar_t* format, va_list ap) {return ::vswprintf_s(buffer, bufsize, format, ap);}
+               ^
+main.cpp:38:126: error: use of undeclared identifier '_TRUNCATE'
+    static int vsnprintf_s(char* buffer, int bufsize, const char* format, va_list ap) {return ::vsnprintf_s(buffer, bufsize, _TRUNCATE, format, ap);}
+                                                                                                                             ^
+main.cpp:38:67: warning: unused parameter 'format' [-Wunused-parameter]
+    static int vsnprintf_s(char* buffer, int bufsize, const char* format, va_list ap) {return ::vsnprintf_s(buffer, bufsize, _TRUNCATE, format, ap);}
+                                                                  ^
+main.cpp:38:83: warning: unused parameter 'ap' [-Wunused-parameter]
+    static int vsnprintf_s(char* buffer, int bufsize, const char* format, va_list ap) {return ::vsnprintf_s(buffer, bufsize, _TRUNCATE, format, ap);}
+                                                                                  ^
+main.cpp:39:101: error: no member named 'vswprintf_s' in the global namespace; did you mean 'vsnprintf_s'?
+    static int vsnprintf_s(wchar_t* buffer, int bufsize, const wchar_t* format, va_list ap) {return ::vswprintf_s(buffer, bufsize, format, ap);}
+                                                                                                    ^~~~~~~~~~~~~
+                                                                                                    vsnprintf_s
+main.cpp:39:16: note: 'vsnprintf_s' declared here
+    static int vsnprintf_s(wchar_t* buffer, int bufsize, const wchar_t* format, va_list ap) {return ::vswprintf_s(buffer, bufsize, format, ap);}
+               ^
+main.cpp:54:5: error: use of undeclared identifier 'Chooks'
+    Chooks = 5 for $1
+    ^
+main.cpp:54:20: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+    Chooks = 5 for $1
+                   ^
+main.cpp:55:19: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+    Sheep = 1 for $1
+                  ^
+main.cpp:56:18: warning: '$' in identifier [-Wdollar-in-identifier-extension]
+    Cows = 1 for $5
+                 ^
+6 warnings and 11 errors generated.

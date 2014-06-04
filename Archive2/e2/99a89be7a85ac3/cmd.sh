@@ -1,0 +1,1 @@
+g++-4.8 -std=c++0x -g -O2 /Archive2/97/887fdb0d0ace1a/main.cpp -c -o lib.o && g++-4.8 -std=c++0x -g -O2 main.cpp -c -o main.o && g++-4.8 main.o lib.o -o main && ./main
