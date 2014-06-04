@@ -1,0 +1,1 @@
+clang++ -std=c++0x -ftemplate-backtrace-limit=0 main.cpp && ./a.out
