@@ -1,0 +1,20 @@
++ clang++ -std=c++11 -pedantic -Wall -Wextra main.cpp
++ ./a.out
++ g++-4.8 -std=c++11 -pedantic -Wall -Wextra main.cpp
+In file included from /usr/include/c++/4.8/deque:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = std::atomic<int>; _Args = {std::atomic<int>}]':
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<std::atomic<int>*>; _ForwardIterator = std::atomic<int>*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<std::atomic<int>*>; _ForwardIterator = std::atomic<int>*]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<std::atomic<int>*>; _ForwardIterator = std::atomic<int>*; _Tp = std::atomic<int>]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:281:69:   required from '_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = std::atomic<int>*; _ForwardIterator = std::atomic<int>*; _Allocator = std::allocator<std::atomic<int> >]'
+/usr/include/c++/4.8/bits/vector.tcc:415:43:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {int}; _Tp = std::atomic<int>; _Alloc = std::allocator<std::atomic<int> >]'
+/usr/include/c++/4.8/bits/vector.tcc:101:54:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {int}; _Tp = std::atomic<int>; _Alloc = std::allocator<std::atomic<int> >]'
+main.cpp:24:27:   required from here
+/usr/include/c++/4.8/bits/stl_construct.h:75:7: error: use of deleted function 'std::atomic<int>::atomic(const std::atomic<int>&)'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
+In file included from main.cpp:6:0:
+/usr/include/c++/4.8/atomic:601:7: error: declared here
+       atomic(const atomic&) = delete;
+       ^
