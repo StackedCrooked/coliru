@@ -1,0 +1,84 @@
+main.cpp: In instantiation of 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux_struct<N, RefConverter>::operator()(Visitor&&) const [with Visitor = hg::variant_detail::DtorVisitor<Asteroid, ExplodingAsteroid>; long unsigned int N = 1ul; RefConverter = hg::variant<Asteroid, ExplodingAsteroid>::lvalue_ref_converter; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<Visitor>::type::result_type = void]':
+main.cpp:427:79:   required from 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux(Visitor&&) [with long unsigned int N = 1ul; RefConverter = hg::variant<Asteroid, ExplodingAsteroid>::lvalue_ref_converter; Visitor = hg::variant_detail::DtorVisitor<Asteroid, ExplodingAsteroid>; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<Visitor>::type::result_type = void]'
+main.cpp:326:25:   required from 'typename std::remove_reference<T>::type::result_type hg::variant<Types>::visit(Visitor&&) & [with Visitor = hg::variant_detail::DtorVisitor<Asteroid, ExplodingAsteroid>; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<T>::type::result_type = void]'
+main.cpp:297:54:   required from 'hg::variant<Types>::~variant() [with Types = {Asteroid, ExplodingAsteroid}]'
+/usr/include/c++/4.8/bits/stl_construct.h:93:7:   required from 'void std::_Destroy(_Tp*) [with _Tp = hg::variant<Asteroid, ExplodingAsteroid>]'
+/usr/include/c++/4.8/bits/stl_construct.h:103:46:   required from 'static void std::_Destroy_aux<<anonymous> >::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*; bool <anonymous> = false]'
+/usr/include/c++/4.8/bits/stl_construct.h:127:27:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*]'
+/usr/include/c++/4.8/bits/stl_construct.h:151:31:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*; _Tp = hg::variant<Asteroid, ExplodingAsteroid>]'
+/usr/include/c++/4.8/bits/stl_vector.h:416:30:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = hg::variant<Asteroid, ExplodingAsteroid>; _Alloc = std::allocator<hg::variant<Asteroid, ExplodingAsteroid> >]'
+main.cpp:540:56:   required from here
+main.cpp:416:40: error: request for member 'operator()' is ambiguous
+                 std::forward<Visitor>(v)(
+                                        ^
+main.cpp:134:10: note: candidates are: void hg::variant_detail::DtorVisitorImpl<Type>::operator()(Type&) const [with Type = ExplodingAsteroid]
+     void operator()(Type &v) const noexcept {
+          ^
+main.cpp:134:10: note:                 void hg::variant_detail::DtorVisitorImpl<Type>::operator()(Type&) const [with Type = Asteroid]
+main.cpp:421:83: error: return-statement with a value, in function returning 'void' [-fpermissive]
+               : visit_aux_struct<N-1,RefConverter>(this_)(std::forward<Visitor>(v));
+                                                                                   ^
+main.cpp: In instantiation of 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux_struct<N, RefConverter>::operator()(Visitor&&) const [with Visitor = hg::variant_detail::DtorVisitor<SpaceShip, ApolloSpacecraft>; long unsigned int N = 1ul; RefConverter = hg::variant<SpaceShip, ApolloSpacecraft>::lvalue_ref_converter; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<Visitor>::type::result_type = void]':
+main.cpp:427:79:   required from 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux(Visitor&&) [with long unsigned int N = 1ul; RefConverter = hg::variant<SpaceShip, ApolloSpacecraft>::lvalue_ref_converter; Visitor = hg::variant_detail::DtorVisitor<SpaceShip, ApolloSpacecraft>; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<Visitor>::type::result_type = void]'
+main.cpp:326:25:   required from 'typename std::remove_reference<T>::type::result_type hg::variant<Types>::visit(Visitor&&) & [with Visitor = hg::variant_detail::DtorVisitor<SpaceShip, ApolloSpacecraft>; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<T>::type::result_type = void]'
+main.cpp:297:54:   required from 'hg::variant<Types>::~variant() [with Types = {SpaceShip, ApolloSpacecraft}]'
+/usr/include/c++/4.8/bits/stl_construct.h:93:7:   required from 'void std::_Destroy(_Tp*) [with _Tp = hg::variant<SpaceShip, ApolloSpacecraft>]'
+/usr/include/c++/4.8/bits/stl_construct.h:103:46:   required from 'static void std::_Destroy_aux<<anonymous> >::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; bool <anonymous> = false]'
+/usr/include/c++/4.8/bits/stl_construct.h:127:27:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*]'
+/usr/include/c++/4.8/bits/stl_construct.h:151:31:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; _Tp = hg::variant<SpaceShip, ApolloSpacecraft>]'
+/usr/include/c++/4.8/bits/stl_vector.h:416:30:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = hg::variant<SpaceShip, ApolloSpacecraft>; _Alloc = std::allocator<hg::variant<SpaceShip, ApolloSpacecraft> >]'
+main.cpp:544:56:   required from here
+main.cpp:416:40: error: request for member 'operator()' is ambiguous
+                 std::forward<Visitor>(v)(
+                                        ^
+main.cpp:134:10: note: candidates are: void hg::variant_detail::DtorVisitorImpl<Type>::operator()(Type&) const [with Type = ApolloSpacecraft]
+     void operator()(Type &v) const noexcept {
+          ^
+main.cpp:134:10: note:                 void hg::variant_detail::DtorVisitorImpl<Type>::operator()(Type&) const [with Type = SpaceShip]
+main.cpp:421:83: error: return-statement with a value, in function returning 'void' [-fpermissive]
+               : visit_aux_struct<N-1,RefConverter>(this_)(std::forward<Visitor>(v));
+                                                                                   ^
+main.cpp: In instantiation of 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux_struct<N, RefConverter>::operator()(Visitor&&) const [with Visitor = hg::variant_detail::MoveVisitor<hg::variant<Asteroid, ExplodingAsteroid>, Asteroid, ExplodingAsteroid>; long unsigned int N = 1ul; RefConverter = hg::variant<Asteroid, ExplodingAsteroid>::lvalue_ref_converter; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<Visitor>::type::result_type = void]':
+main.cpp:427:79:   required from 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux(Visitor&&) [with long unsigned int N = 1ul; RefConverter = hg::variant<Asteroid, ExplodingAsteroid>::lvalue_ref_converter; Visitor = hg::variant_detail::MoveVisitor<hg::variant<Asteroid, ExplodingAsteroid>, Asteroid, ExplodingAsteroid>; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<Visitor>::type::result_type = void]'
+main.cpp:326:25:   required from 'typename std::remove_reference<T>::type::result_type hg::variant<Types>::visit(Visitor&&) & [with Visitor = hg::variant_detail::MoveVisitor<hg::variant<Asteroid, ExplodingAsteroid>, Asteroid, ExplodingAsteroid>; Types = {Asteroid, ExplodingAsteroid}; typename std::remove_reference<T>::type::result_type = void]'
+main.cpp:224:75:   required from 'hg::variant<Types>::variant(hg::variant<Types>&&) [with Types = {Asteroid, ExplodingAsteroid}]'
+/usr/include/c++/4.8/bits/stl_construct.h:75:7:   required from 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = hg::variant<Asteroid, ExplodingAsteroid>; _Args = {hg::variant<Asteroid, ExplodingAsteroid>}]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<hg::variant<Asteroid, ExplodingAsteroid>*>; _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<hg::variant<Asteroid, ExplodingAsteroid>*>; _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<hg::variant<Asteroid, ExplodingAsteroid>*>; _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*; _Tp = hg::variant<Asteroid, ExplodingAsteroid>]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:281:69:   required from '_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = hg::variant<Asteroid, ExplodingAsteroid>*; _ForwardIterator = hg::variant<Asteroid, ExplodingAsteroid>*; _Allocator = std::allocator<hg::variant<Asteroid, ExplodingAsteroid> >]'
+/usr/include/c++/4.8/bits/vector.tcc:415:43:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {Asteroid}; _Tp = hg::variant<Asteroid, ExplodingAsteroid>; _Alloc = std::allocator<hg::variant<Asteroid, ExplodingAsteroid> >]'
+/usr/include/c++/4.8/bits/vector.tcc:101:54:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {Asteroid}; _Tp = hg::variant<Asteroid, ExplodingAsteroid>; _Alloc = std::allocator<hg::variant<Asteroid, ExplodingAsteroid> >]'
+main.cpp:541:36:   required from here
+main.cpp:416:40: error: request for member 'operator()' is ambiguous
+                 std::forward<Visitor>(v)(
+                                        ^
+main.cpp:161:10: note: candidates are: void hg::variant_detail::MoveVisitorImpl<MoveVisitor, Type>::operator()(Type&) const [with MoveVisitor = hg::variant_detail::MoveVisitor<hg::variant<Asteroid, ExplodingAsteroid>, Asteroid, ExplodingAsteroid>; Type = ExplodingAsteroid]
+     void operator()(Type &v) const noexcept {
+          ^
+main.cpp:161:10: note:                 void hg::variant_detail::MoveVisitorImpl<MoveVisitor, Type>::operator()(Type&) const [with MoveVisitor = hg::variant_detail::MoveVisitor<hg::variant<Asteroid, ExplodingAsteroid>, Asteroid, ExplodingAsteroid>; Type = Asteroid]
+main.cpp:421:83: error: return-statement with a value, in function returning 'void' [-fpermissive]
+               : visit_aux_struct<N-1,RefConverter>(this_)(std::forward<Visitor>(v));
+                                                                                   ^
+main.cpp: In instantiation of 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux_struct<N, RefConverter>::operator()(Visitor&&) const [with Visitor = hg::variant_detail::MoveVisitor<hg::variant<SpaceShip, ApolloSpacecraft>, SpaceShip, ApolloSpacecraft>; long unsigned int N = 1ul; RefConverter = hg::variant<SpaceShip, ApolloSpacecraft>::lvalue_ref_converter; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<Visitor>::type::result_type = void]':
+main.cpp:427:79:   required from 'typename std::remove_reference<Visitor>::type::result_type hg::variant<Types>::visit_aux(Visitor&&) [with long unsigned int N = 1ul; RefConverter = hg::variant<SpaceShip, ApolloSpacecraft>::lvalue_ref_converter; Visitor = hg::variant_detail::MoveVisitor<hg::variant<SpaceShip, ApolloSpacecraft>, SpaceShip, ApolloSpacecraft>; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<Visitor>::type::result_type = void]'
+main.cpp:326:25:   required from 'typename std::remove_reference<T>::type::result_type hg::variant<Types>::visit(Visitor&&) & [with Visitor = hg::variant_detail::MoveVisitor<hg::variant<SpaceShip, ApolloSpacecraft>, SpaceShip, ApolloSpacecraft>; Types = {SpaceShip, ApolloSpacecraft}; typename std::remove_reference<T>::type::result_type = void]'
+main.cpp:224:75:   required from 'hg::variant<Types>::variant(hg::variant<Types>&&) [with Types = {SpaceShip, ApolloSpacecraft}]'
+/usr/include/c++/4.8/bits/stl_construct.h:75:7:   required from 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = hg::variant<SpaceShip, ApolloSpacecraft>; _Args = {hg::variant<SpaceShip, ApolloSpacecraft>}]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<hg::variant<SpaceShip, ApolloSpacecraft>*>; _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; bool _TrivialValueTypes = false]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:117:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = std::move_iterator<hg::variant<SpaceShip, ApolloSpacecraft>*>; _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:258:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = std::move_iterator<hg::variant<SpaceShip, ApolloSpacecraft>*>; _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; _Tp = hg::variant<SpaceShip, ApolloSpacecraft>]'
+/usr/include/c++/4.8/bits/stl_uninitialized.h:281:69:   required from '_ForwardIterator std::__uninitialized_move_if_noexcept_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; _ForwardIterator = hg::variant<SpaceShip, ApolloSpacecraft>*; _Allocator = std::allocator<hg::variant<SpaceShip, ApolloSpacecraft> >]'
+/usr/include/c++/4.8/bits/vector.tcc:415:43:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {SpaceShip}; _Tp = hg::variant<SpaceShip, ApolloSpacecraft>; _Alloc = std::allocator<hg::variant<SpaceShip, ApolloSpacecraft> >]'
+/usr/include/c++/4.8/bits/vector.tcc:101:54:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {SpaceShip}; _Tp = hg::variant<SpaceShip, ApolloSpacecraft>; _Alloc = std::allocator<hg::variant<SpaceShip, ApolloSpacecraft> >]'
+main.cpp:545:38:   required from here
+main.cpp:416:40: error: request for member 'operator()' is ambiguous
+                 std::forward<Visitor>(v)(
+                                        ^
+main.cpp:161:10: note: candidates are: void hg::variant_detail::MoveVisitorImpl<MoveVisitor, Type>::operator()(Type&) const [with MoveVisitor = hg::variant_detail::MoveVisitor<hg::variant<SpaceShip, ApolloSpacecraft>, SpaceShip, ApolloSpacecraft>; Type = ApolloSpacecraft]
+     void operator()(Type &v) const noexcept {
+          ^
+main.cpp:161:10: note:                 void hg::variant_detail::MoveVisitorImpl<MoveVisitor, Type>::operator()(Type&) const [with MoveVisitor = hg::variant_detail::MoveVisitor<hg::variant<SpaceShip, ApolloSpacecraft>, SpaceShip, ApolloSpacecraft>; Type = SpaceShip]
+main.cpp:421:83: error: return-statement with a value, in function returning 'void' [-fpermissive]
+               : visit_aux_struct<N-1,RefConverter>(this_)(std::forward<Visitor>(v));
+                                                                                   ^
