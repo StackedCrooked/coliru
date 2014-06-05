@@ -1,0 +1,216 @@
+In file included from main.cpp:6:
+In file included from /usr/local/include/boost/property_tree/ptree.hpp:17:
+/usr/local/include/boost/property_tree/stream_translator.hpp:33:15: error: invalid operands to binary expression ('std::basic_ostream<char, char_traits<char> >' and 'const std::pair<std::basic_string<char>, int>')
+            s << e;
+            ~ ^  ~
+/usr/local/include/boost/property_tree/stream_translator.hpp:199:25: note: in instantiation of member function 'boost::property_tree::customize_stream<char, std::char_traits<char>, std::pair<std::basic_string<char>, int>, void>::insert' requested here
+            customized::insert(oss, v);
+                        ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:804:39: note: in instantiation of member function 'boost::property_tree::stream_translator<char, std::char_traits<char>, std::allocator<char>, std::pair<std::basic_string<char>, int> >::put_value' requested here
+        if(optional<data_type> o = tr.put_value(value)) {
+                                      ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:826:25: note: in instantiation of function template specialization 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<char>, std::less<std::basic_string<char> > >::put_value<std::pair<std::basic_string<char>, int>, boost::property_tree::stream_translator<char, std::char_traits<char>, std::allocator<char>, std::pair<std::basic_string<char>, int> > >' requested here
+            child.get().put_value(value, tr);
+                        ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:840:16: note: in instantiation of function template specialization 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<char>, std::less<std::basic_string<char> > >::put<std::pair<std::basic_string<char>, int>, boost::property_tree::stream_translator<char, std::char_traits<char>, std::allocator<char>, std::pair<std::basic_string<char>, int> > >' requested here
+        return put(path, value,
+               ^
+main.cpp:22:15: note: in instantiation of function template specialization 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<char>, std::less<std::basic_string<char> > >::put<std::pair<std::basic_string<char>, int> >' requested here
+        ptree.put("items", std::pair<std::string, int>("aa", 23));
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:245:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const void *' for 1st argument; take the address of the argument with &
+      operator<<(const void* __p)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:108:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to '__ostream_type &(*)(__ostream_type &)' for 1st argument
+      operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:117:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to '__ios_type &(*)(__ios_type &)' for 1st argument
+      operator<<(__ios_type& (*__pf)(__ios_type&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:127:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::ios_base &(*)(std::ios_base &)' for 1st argument
+      operator<<(ios_base& (*__pf) (ios_base&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:166:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'long' for 1st argument
+      operator<<(long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:170:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'unsigned long' for 1st argument
+      operator<<(unsigned long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:174:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'bool' for 1st argument
+      operator<<(bool __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:178:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'short' for 1st argument
+      operator<<(short __n);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:181:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'unsigned short' for 1st argument
+      operator<<(unsigned short __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:189:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'int' for 1st argument
+      operator<<(int __n);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:192:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'unsigned int' for 1st argument
+      operator<<(unsigned int __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:201:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'long long' for 1st argument
+      operator<<(long long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:205:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'unsigned long long' for 1st argument
+      operator<<(unsigned long long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:220:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'double' for 1st argument
+      operator<<(double __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:224:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'float' for 1st argument
+      operator<<(float __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:232:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'long double' for 1st argument
+      operator<<(long double __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:270:7: note: candidate function not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to '__streambuf_type *' (aka 'basic_streambuf<char, std::char_traits<char> > *') for 1st argument
+      operator<<(__streambuf_type* __sb);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:476:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'char' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:482:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:488:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'signed char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:493:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'unsigned char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:530:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:543:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const signed char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:548:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const unsigned char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:602:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>, _Tp = std::pair<std::basic_string<char>, int>] not viable: no known conversion from 'std::basic_ostream<char, char_traits<char> >' to 'basic_ostream<char, std::char_traits<char> > &&' for 1st argument
+    operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/ostream.tcc:321:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const char *' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1150:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'const std::bernoulli_distribution' for 2nd argument
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:76:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::_Resetiosflags' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Resetiosflags __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:106:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::_Setiosflags' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Setiosflags __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:140:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::_Setbase' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Setbase __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:205:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::_Setprecision' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Setprecision __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:235:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const std::pair<std::basic_string<char>, int>' to 'std::_Setw' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Setw __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:471:5: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'std::pair<std::basic_string<char>, int>')
+    operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:2753:5: note: candidate template ignored: could not match 'basic_string' against 'pair'
+    operator<<(basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:513:5: note: candidate template ignored: could not match 'const _CharT *' against 'std::pair<std::basic_string<char>, int>'
+    operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr.h:66:5: note: candidate template ignored: could not match '__shared_ptr' against 'pair'
+    operator<<(std::basic_ostream<_Ch, _Tr>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.h:1277:5: note: candidate template ignored: could not match 'independent_bits_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:156:5: note: candidate template ignored: could not match 'linear_congruential_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:477:5: note: candidate template ignored: could not match 'mersenne_twister_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:632:5: note: candidate template ignored: could not match 'subtract_with_carry_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:702:5: note: candidate template ignored: could not match 'discard_block_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:831:5: note: candidate template ignored: could not match 'shuffle_order_engine' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1029:5: note: candidate template ignored: could not match 'uniform_int_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1088:5: note: candidate template ignored: could not match 'uniform_real_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1232:5: note: candidate template ignored: could not match 'geometric_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1347:5: note: candidate template ignored: could not match 'negative_binomial_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1552:5: note: candidate template ignored: could not match 'poisson_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1817:5: note: candidate template ignored: could not match 'binomial_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1881:5: note: candidate template ignored: could not match 'exponential_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2048:5: note: candidate template ignored: could not match 'normal_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2113:5: note: candidate template ignored: could not match 'lognormal_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2186:5: note: candidate template ignored: could not match 'chi_squared_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2273:5: note: candidate template ignored: could not match 'cauchy_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2350:5: note: candidate template ignored: could not match 'fisher_f_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2425:5: note: candidate template ignored: could not match 'student_t_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2594:5: note: candidate template ignored: could not match 'gamma_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2672:5: note: candidate template ignored: could not match 'weibull_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2748:5: note: candidate template ignored: could not match 'extreme_value_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2884:5: note: candidate template ignored: could not match 'discrete_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:3094:5: note: candidate template ignored: could not match 'piecewise_constant_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:3310:5: note: candidate template ignored: could not match 'piecewise_linear_distribution' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/local/include/boost/optional/optional_io.hpp:43:1: note: candidate template ignored: could not match 'optional' against 'pair'
+operator<<(std::basic_ostream<CharType, CharTrait>& out, optional<T> const& v)
+^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bitset:1521:5: note: candidate template ignored: could not match 'bitset' against 'pair'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:175:5: note: candidate template ignored: could not match '_Setfill' against 'pair'
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Setfill<_CharT> __f)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/iomanip:308:5: note: candidate template ignored: could not match '_Put_money' against 'pair'
+    operator<<(basic_ostream<_CharT, _Traits>& __os, _Put_money<_MoneyT> __f)
+    ^
+1 error generated.
