@@ -1,0 +1,100 @@
+main.cpp: In function 'int main()':
+main.cpp:82:69: error: no matching function for call to 'Shared<Car>::dispatch(main()::__lambda6)'
+     auto age1 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                                                     ^
+main.cpp:82:69: note: candidate is:
+main.cpp:32:10: note: template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car]
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+          ^
+main.cpp:32:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car] [with F = main()::__lambda6]':
+main.cpp:82:69:   required from here
+main.cpp:32:67: error: no match for call to '(main()::__lambda6) (Car)'
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:82:29: note: candidates are:
+     auto age1 = a.dispatch([](Car & c) { return c.increment_age(); });
+                             ^
+main.cpp:32:67: note: unsigned int (*)(Car&) <conversion>
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:32:67: note:   candidate expects 2 arguments, 2 provided
+main.cpp:82:38: note: main()::__lambda6
+     auto age1 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                      ^
+main.cpp:82:38: note:   no known conversion for argument 1 from 'Car' to 'Car&'
+main.cpp:83:69: error: no matching function for call to 'Shared<Car>::dispatch(main()::__lambda7)'
+     auto age2 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                                                     ^
+main.cpp:83:69: note: candidate is:
+main.cpp:32:10: note: template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car]
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+          ^
+main.cpp:32:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car] [with F = main()::__lambda7]':
+main.cpp:83:69:   required from here
+main.cpp:32:67: error: no match for call to '(main()::__lambda7) (Car)'
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:83:29: note: candidates are:
+     auto age2 = a.dispatch([](Car & c) { return c.increment_age(); });
+                             ^
+main.cpp:32:67: note: unsigned int (*)(Car&) <conversion>
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:32:67: note:   candidate expects 2 arguments, 2 provided
+main.cpp:83:38: note: main()::__lambda7
+     auto age2 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                      ^
+main.cpp:83:38: note:   no known conversion for argument 1 from 'Car' to 'Car&'
+main.cpp:84:69: error: no matching function for call to 'Shared<Car>::dispatch(main()::__lambda8)'
+     auto age3 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                                                     ^
+main.cpp:84:69: note: candidate is:
+main.cpp:32:10: note: template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car]
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+          ^
+main.cpp:32:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car] [with F = main()::__lambda8]':
+main.cpp:84:69:   required from here
+main.cpp:32:67: error: no match for call to '(main()::__lambda8) (Car)'
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:84:29: note: candidates are:
+     auto age3 = a.dispatch([](Car & c) { return c.increment_age(); });
+                             ^
+main.cpp:32:67: note: unsigned int (*)(Car&) <conversion>
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:32:67: note:   candidate expects 2 arguments, 2 provided
+main.cpp:84:38: note: main()::__lambda8
+     auto age3 = a.dispatch([](Car & c) { return c.increment_age(); });
+                                      ^
+main.cpp:84:38: note:   no known conversion for argument 1 from 'Car' to 'Car&'
+main.cpp: In instantiation of 'Shared<T>::~Shared() [with T = Car]':
+main.cpp:81:17:   required from here
+main.cpp:27:58: error: no matching function for call to 'Shared<Car>::dispatch(Shared<T>::~Shared() [with T = Car]::__lambda4)'
+         dispatch([](T&) -> int { throw QuitException(); });
+                                                          ^
+main.cpp:27:58: note: candidate is:
+main.cpp:32:10: note: template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car]
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+          ^
+main.cpp:32:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F> std::future<decltype (f(declval<T>()))> Shared<T>::dispatch(F) [with F = F; T = Car] [with F = Shared<T>::~Shared() [with T = Car]::__lambda4]':
+main.cpp:27:58:   required from 'Shared<T>::~Shared() [with T = Car]'
+main.cpp:81:17:   required from here
+main.cpp:32:67: error: no match for call to '(Shared<T>::~Shared() [with T = Car]::__lambda4) (Car)'
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:27:19: note: candidates are:
+         dispatch([](T&) -> int { throw QuitException(); });
+                   ^
+main.cpp:32:67: note: int (*)(Car&) <conversion>
+     auto dispatch(F f) -> std::future<decltype(f(std::declval<T>()))>
+                                                                   ^
+main.cpp:32:67: note:   candidate expects 2 arguments, 2 provided
+main.cpp:27:28: note: Shared<T>::~Shared() [with T = Car]::__lambda4
+         dispatch([](T&) -> int { throw QuitException(); });
+                            ^
+main.cpp:27:28: note:   no known conversion for argument 1 from 'Car' to 'Car&'
