@@ -1,0 +1,50 @@
+default 0(3)
+
+func(foo);
+copy 0 -> 1(3)
+move 1 -> 2(3)
+destructor 2(3)
+destructor 1(0)
+
+func(std::move(foo));
+move 0 -> 3(3)
+move 3 -> 4(3)
+destructor 4(3)
+destructor 3(0)
+
+func(Foo());
+default 5(18)
+move 5 -> 6(18)
+destructor 6(18)
+destructor 5(0)
+
+lambda copy
+default 7(53)
+copy 7 -> 8(53)
+copy 8 -> 9(53)
+move 9 -> 10(53)
+destructor 10(53)
+destructor 9(0)
+destructor 8(53)
+destructor 7(53)
+
+lambda move
+default 11(10)
+move 11 -> 12(10)
+copy 12 -> 13(10)
+move 13 -> 14(10)
+destructor 14(10)
+destructor 13(0)
+destructor 12(10)
+destructor 11(0)
+
+mutable lambda move
+default 15(122)
+move 15 -> 16(122)
+move 16 -> 17(122)
+move 17 -> 18(122)
+destructor 18(122)
+destructor 17(0)
+destructor 16(0)
+destructor 15(0)
+destructor 0(0)
