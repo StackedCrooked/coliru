@@ -1,0 +1,13 @@
++ clang -x c -std=c99 -fsanitize=undefined -Wall -Wextra -Wconversion -Weverything -O0 -pedantic main.cpp
+main.cpp:4:11: warning: variable length array used [-Wvla]
+   int arr[4 * !!flag1 + 2 * !!flag2] ;
+          ^
+main.cpp:5:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:4:8: warning: unused variable 'arr' [-Wunused-variable]
+   int arr[4 * !!flag1 + 2 * !!flag2] ;
+       ^
+3 warnings generated.
++ ./a.out
+main.cpp:4:12: runtime error: variable length array bound evaluates to non-positive value 0
