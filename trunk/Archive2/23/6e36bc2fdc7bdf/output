@@ -1,0 +1,30 @@
++ clang++ -std=c++11 -pedantic -Wall -Wextra main.cpp
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/algorithm:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:2287:11: error: no matching function for call to object of type 'vecotrCompare'
+          while (__comp(*__first, __pivot))
+                 ^~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:2319:19: note: in instantiation of function template specialization 'std::__unguarded_partition<__gnu_cxx::__normal_iterator<std::pair<std::basic_string<char>, block *> *, std::vector<std::pair<std::basic_string<char>, block *>, std::allocator<std::pair<std::basic_string<char>, block *> > > >, std::pair<std::basic_string<char>, block *>, vecotrCompare>' requested here
+      return std::__unguarded_partition(__first + 1, __last, *__first, __comp);
+                  ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:2360:11: note: in instantiation of function template specialization 'std::__unguarded_partition_pivot<__gnu_cxx::__normal_iterator<std::pair<std::basic_string<char>, block *> *, std::vector<std::pair<std::basic_string<char>, block *>, std::allocator<std::pair<std::basic_string<char>, block *> > > >, vecotrCompare>' requested here
+            std::__unguarded_partition_pivot(__first, __last, __comp);
+                 ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:5512:9: note: in instantiation of function template specialization 'std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::basic_string<char>, block *> *, std::vector<std::pair<std::basic_string<char>, block *>, std::allocator<std::pair<std::basic_string<char>, block *> > > >, long, vecotrCompare>' requested here
+          std::__introsort_loop(__first, __last,
+               ^
+main.cpp:30:5: note: in instantiation of function template specialization 'std::sort<__gnu_cxx::__normal_iterator<std::pair<std::basic_string<char>, block *> *, std::vector<std::pair<std::basic_string<char>, block *>, std::allocator<std::pair<std::basic_string<char>, block *> > > >, vecotrCompare>' requested here
+    sort(myVector.begin(), myVector.end(), vecotrCompare());
+    ^
+main.cpp:17:10: note: candidate function not viable: 2nd argument ('const std::pair<std::basic_string<char>, block *>') would lose const qualifier
+    bool operator()(pair< string, block*> &left, pair< string, block*> &right) const {
+         ^
+In file included from main.cpp:1:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/algorithm:62:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/stl_algo.h:2290:11: error: no matching function for call to object of type 'vecotrCompare'
+          while (__comp(__pivot, *__last))
+                 ^~~~~~
+main.cpp:17:10: note: candidate function not viable: 1st argument ('const std::pair<std::basic_string<char>, block *>') would lose const qualifier
+    bool operator()(pair< string, block*> &left, pair< string, block*> &right) const {
+         ^
+2 errors generated.
