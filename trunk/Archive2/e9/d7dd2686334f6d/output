@@ -1,0 +1,25 @@
+main.cpp:9:46: warning: extension used [-Wlanguage-extension-token]
+    func_sig func = (func_sig) dlsym(handle, __FUNCDNAME__);
+                                             ^
+main.cpp:21:47: warning: extension used [-Wlanguage-extension-token]
+    static func_sig func = get_func<func_sig>(__FUNCDNAME__);
+                                              ^
+main.cpp:27:47: warning: extension used [-Wlanguage-extension-token]
+    static func_sig func = get_func<func_sig>(__FUNCDNAME__);
+                                              ^
+3 warnings generated.
+/tmp/main-84fe7e.o: In function `main':
+main.cpp:(.text+0xe0): undefined reference to `dlopen'
+main.cpp:(.text+0x17b): undefined reference to `dlclose'
+main.cpp:(.text+0x198): undefined reference to `dlerror'
+/tmp/main-84fe7e.o: In function `void (*get_func<void (*)(int)>(char const*))(int)':
+main.cpp:(.text._Z8get_funcIPFviEET_PKc[_Z8get_funcIPFviEET_PKc]+0x5): undefined reference to `dlerror'
+main.cpp:(.text._Z8get_funcIPFviEET_PKc[_Z8get_funcIPFviEET_PKc]+0x16): undefined reference to `dlsym'
+main.cpp:(.text._Z8get_funcIPFviEET_PKc[_Z8get_funcIPFviEET_PKc]+0x1e): undefined reference to `dlerror'
+main.cpp:(.text._Z8get_funcIPFviEET_PKc[_Z8get_funcIPFviEET_PKc]+0x88): undefined reference to `dlclose'
+/tmp/main-84fe7e.o: In function `void (*get_func<void (*)(float)>(char const*))(float)':
+main.cpp:(.text._Z8get_funcIPFvfEET_PKc[_Z8get_funcIPFvfEET_PKc]+0x5): undefined reference to `dlerror'
+main.cpp:(.text._Z8get_funcIPFvfEET_PKc[_Z8get_funcIPFvfEET_PKc]+0x16): undefined reference to `dlsym'
+main.cpp:(.text._Z8get_funcIPFvfEET_PKc[_Z8get_funcIPFvfEET_PKc]+0x1e): undefined reference to `dlerror'
+main.cpp:(.text._Z8get_funcIPFvfEET_PKc[_Z8get_funcIPFvfEET_PKc]+0x88): undefined reference to `dlclose'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
