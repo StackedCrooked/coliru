@@ -1,0 +1,1 @@
+clang++ -O2 -Wall -pedantic -fms-extensions -ldl -std=c++11 main.cpp && ./a.out
