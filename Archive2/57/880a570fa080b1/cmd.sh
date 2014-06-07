@@ -1,0 +1,1 @@
+clang++ -Wall -std=c++11 -pedantic -pthread main.cpp && echo "1 100.23 2356.44" | ./a.out
