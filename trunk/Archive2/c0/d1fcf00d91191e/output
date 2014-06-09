@@ -1,0 +1,19 @@
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of '_IIter std::find(_IIter, _IIter, const _Tp&) [with _IIter = SimpleIterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > >; _Tp = int]':
+main.cpp:55:37:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:4464:44: error: no matching function for call to '__iterator_category(SimpleIterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > >&)'
+            std::__iterator_category(__first));
+                                            ^
+/usr/include/c++/4.8/bits/stl_algo.h:4464:44: note: candidate is:
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.8/algorithm:61,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_iterator_base_types.h:201:5: note: template<class _Iter> typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&)
+     __iterator_category(const _Iter&)
+     ^
+/usr/include/c++/4.8/bits/stl_iterator_base_types.h:201:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/bits/stl_iterator_base_types.h: In substitution of 'template<class _Iter> typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&) [with _Iter = SimpleIterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > >]':
+/usr/include/c++/4.8/bits/stl_algo.h:4464:44:   required from '_IIter std::find(_IIter, _IIter, const _Tp&) [with _IIter = SimpleIterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > >; _Tp = int]'
+main.cpp:55:37:   required from here
+/usr/include/c++/4.8/bits/stl_iterator_base_types.h:201:5: error: no type named 'iterator_category' in 'struct std::iterator_traits<SimpleIterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > > >'
