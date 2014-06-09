@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -Wno-unused-variable -Wno-multichar -Wno-four-char-constants -pedantic -pthread main.cpp && ./a.out
