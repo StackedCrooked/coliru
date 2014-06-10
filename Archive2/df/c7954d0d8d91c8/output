@@ -1,0 +1,5 @@
+main.cpp: In instantiation of 'void func2(Handler&&) [with Handler = main()::__lambda0]':
+main.cpp:12:15:   required from here
+main.cpp:7:107: error: conversion from 'std::_Bind_helper<false, void (&)(int, main()::__lambda0&&), int, main()::__lambda0>::type {aka std::_Bind<void (*(int, main()::__lambda0))(int, main()::__lambda0&&)>}' to non-scalar type 'std::function<void(int, main()::__lambda0)>' requested
+     std::function<void (int, Handler)> funcB = std::bind(func1<Handler>, 1, std::forward<Handler>(handler));
+                                                                                                           ^
