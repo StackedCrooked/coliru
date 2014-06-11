@@ -1,0 +1,13 @@
+main.cpp:18:16: error: non-const lvalue reference to type 'X<int>' cannot bind to a value of unrelated type 'int'
+        return *var;
+               ^~~~
+main.cpp:28:2: note: in instantiation of function template specialization 'doInit<X<int>>' requested here
+        MAGICAL_INIT(x); // don't pass any arguments
+        ^
+main.cpp:23:27: note: expanded from macro 'MAGICAL_INIT'
+#define MAGICAL_INIT(...) doInit(__VA_ARGS__)
+                          ^
+main.cpp:20:12: error: non-const lvalue reference to type 'X<int>' cannot bind to a value of unrelated type 'int'
+    return var.init(std::forward<Args>(args)...);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
