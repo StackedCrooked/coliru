@@ -1,0 +1,57 @@
+clang version 3.4 (tags/RELEASE_34/final 206911)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type '<lambda at main.cpp:7:36>' cannot bind to lvalue of type '<lambda at main.cpp:7:36>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, <lambda at main.cpp:7:36> &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1278:26: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:7:36>, std::__1::allocator<<lambda at main.cpp:7:36> >, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:7:36: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:7:36> >' requested here
+    std::function<void ()> funcA = [handler = std::move(handler)]() { func1(1, std::move(handler)); };
+                                   ^
+main.cpp:15:5: note: in instantiation of function template specialization 'func2<int (*)(int)>' requested here
+    func2(&f); // this just a sample, I am using functor as argument in real code
+    ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'allocator<[...]>' cannot bind to lvalue of type 'allocator<[...]>'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, std::__1::allocator<<lambda at main.cpp:7:36> > &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/functional:1286:34: note: in instantiation of member function 'std::__1::__function::__func<<lambda at main.cpp:7:36>, std::__1::allocator<<lambda at main.cpp:7:36> >, void ()>::__func' requested here
+            ::new (__hold.get()) _FF(_VSTD::move(__f), allocator<_Fp>(__a));
+                                 ^
+main.cpp:7:36: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<<lambda at main.cpp:7:36> >' requested here
+    std::function<void ()> funcA = [handler = std::move(handler)]() { func1(1, std::move(handler)); };
+                                   ^
+main.cpp:15:5: note: in instantiation of function template specialization 'func2<int (*)(int)>' requested here
+    func2(&f); // this just a sample, I am using functor as argument in real code
+    ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:465:
+In file included from /usr/include/c++/v1/memory:599:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4 errors generated.
