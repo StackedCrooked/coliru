@@ -11,4 +11,5 @@
     cat *
     type g++ && g++ --version
     type clang++ && clang++ --version
+    /usr/local/bin/Wide/CLI --version
 ) 2>&1 | shasum | awk '{print $1}' | cut -c -16
