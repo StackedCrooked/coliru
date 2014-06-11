@@ -1,0 +1,1 @@
+clang++ -O2 -Wall -pedantic -pthread -std=c++11 -fms-extensions main.cpp && ./a.out
