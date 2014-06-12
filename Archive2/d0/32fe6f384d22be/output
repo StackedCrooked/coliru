@@ -1,0 +1,25 @@
+main.cpp:14:54: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = A; B = B]’
+ auto operator==(const A& a, const B& b) -> decltype(b==a) 
+                                                      ^
+main.cpp:14:54:   recursively required by substitution of ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = B; B = A]’
+main.cpp:14:54:   required by substitution of ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = A; B = B]’
+main.cpp:26:8:   required from here
+
+main.cpp:14:54: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = B; B = A]’
+main.cpp:14:54:   recursively required by substitution of ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = A; B = B]’
+main.cpp:14:54:   required by substitution of ‘template<class A, class B> decltype ((b == a)) operator==(const A&, const B&) [with A = B; B = A]’
+main.cpp:27:8:   required from here
+
+main.cpp: In function ‘int main()’:
+main.cpp:27:6: error: no match for ‘operator==’ (operand types are ‘B’ and ‘A’)
+     b==a;
+      ^
+main.cpp:27:6: note: candidates are:
+main.cpp:10:6: note: bool operator==(const A&, const B&)
+ bool operator==(const A& a, const B& b) 
+      ^
+main.cpp:10:6: note:   no known conversion for argument 1 from ‘B’ to ‘const A&’
+main.cpp:14:6: note: template<class A, class B> decltype ((b == a)) operator==(const A&, const B&)
+ auto operator==(const A& a, const B& b) -> decltype(b==a) 
+      ^
+main.cpp:14:6: note:   substitution of deduced template arguments resulted in errors seen above
