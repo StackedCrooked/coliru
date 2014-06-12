@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:266:89: error: no matching function for call to 'std::ctype<char>::ctype(std::locale)'
+     const std::type_info& ti = typeid(std::use_facet<std::ctype<char>(std::cout.getloc()));
+                                                                                         ^
+main.cpp:266:89: note: candidates are:
+In file included from /usr/local/include/c++/4.8.2/bits/basic_ios.h:37:0,
+                 from /usr/local/include/c++/4.8.2/ios:44,
+                 from /usr/local/include/c++/4.8.2/ostream:38,
+                 from /usr/local/include/c++/4.8.2/iostream:39,
+                 from main.cpp:238:
+/usr/local/include/c++/4.8.2/bits/locale_facets.h:724:7: note: std::ctype<char>::ctype(std::__c_locale, const mask*, bool, std::size_t)
+       ctype(__c_locale __cloc, const mask* __table = 0, bool __del = false,
+       ^
+/usr/local/include/c++/4.8.2/bits/locale_facets.h:724:7: note:   no known conversion for argument 1 from 'std::locale' to 'std::__c_locale {aka __locale_struct*}'
+/usr/local/include/c++/4.8.2/bits/locale_facets.h:711:7: note: std::ctype<char>::ctype(const mask*, bool, std::size_t)
+       ctype(const mask* __table = 0, bool __del = false, size_t __refs = 0);
+       ^
+/usr/local/include/c++/4.8.2/bits/locale_facets.h:711:7: note:   no known conversion for argument 1 from 'std::locale' to 'const mask* {aka const short unsigned int*}'
+main.cpp:266:44: error: parse error in template argument list
+     const std::type_info& ti = typeid(std::use_facet<std::ctype<char>(std::cout.getloc()));
+                                            ^
+main.cpp:266:44: error: insufficient contextual information to determine type
