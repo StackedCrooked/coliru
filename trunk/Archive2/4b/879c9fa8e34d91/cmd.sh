@@ -1,0 +1,1 @@
+g++ -Wall -D SORTED -pedantic main.cpp && ./a.out
