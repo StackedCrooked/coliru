@@ -1,0 +1,13 @@
+main.cpp:11:21: error: call to constructor of 'cat' is ambiguous
+cat meow() { return cat{}; }
+                    ^~~~~
+main.cpp:7:5: note: candidate constructor
+    cat(cat&&) = default;
+    ^
+main.cpp:8:5: note: candidate constructor
+    cat(cat&&, ...) {};
+    ^
+main.cpp:5:5: note: candidate constructor
+    cat(cat const&) = default;
+    ^
+1 error generated.

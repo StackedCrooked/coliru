@@ -1,0 +1,13 @@
+main.cpp:12:28: error: call to constructor of 'cat' is ambiguous
+cat purr() { cat c; return static_cast<cat&&>(c); }
+                           ^~~~~~~~~~~~~~~~~~~~~
+main.cpp:7:5: note: candidate constructor
+    cat(cat&&) = default;
+    ^
+main.cpp:8:5: note: candidate constructor
+    cat(cat&&, ...) {};
+    ^
+main.cpp:5:5: note: candidate constructor
+    cat(cat const&) = default;
+    ^
+1 error generated.
