@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -fsanitize=undefined -Wall -Wextra -Wconversion -pedantic -O0  -Wall -pthread  main.cpp && ./a.out
