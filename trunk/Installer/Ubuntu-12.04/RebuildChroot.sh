@@ -26,12 +26,16 @@ archive="/Archive"
 archive2="/Archive2"
 mount_dir_into_chroot ${archive} ${archive2} /usr /bin /var /lib /lib64 /etc/alternatives
 
+# Add manpath.config to chroot
+cp /etc/manpath.config ${CHROOT}/etc/manpath.config
+chown sandbox:coliru ${CHROOT}/etc/manpath.config
+
 
 # Add /dev/null and /dev/random to the chroot
 #
 # Based on the instructions found here:
 #  http://www.losurs.org/docs/howto/Chroot-BIND-2.html
-mkdir -p /var/chroot/dev
+mkdir -p /var/chroot/dev/fd
 
 file /var/chroot/dev/null || {
     mknod /var/chroot/dev/null c 1 3  
@@ -55,4 +59,5 @@ file /var/chroot/dev/random || {
 # permissions for the sandbox users.
 mkdir -p ${CHROOT}/tmp
 chown -R sandbox:coliru ${CHROOT}/tmp
+chown -R sandbox:coliru ${CHROOT}/dev
 
