@@ -1,0 +1,31 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:624:
+/usr/include/c++/v1/type_traits:2761:19: error: invalid application of 'sizeof' to an incomplete type 'void'
+    static_assert(sizeof(_Tp) > 0, "Type must be complete.");
+                  ^~~~~~~~~~~
+/usr/include/c++/v1/type_traits:2778:15: note: in instantiation of template class 'std::__1::__check_complete<void>' requested here
+    : private __check_complete<_Rp>
+              ^
+/usr/include/c++/v1/type_traits:2947:15: note: in instantiation of template class 'std::__1::__check_complete<void (*)(int &, int &)>' requested here
+    : private __check_complete<_Fp>
+              ^
+/usr/include/c++/v1/type_traits:2958:11: note: in instantiation of template class 'std::__1::__invokable_imp<void (*)(int &, int &), int &, int &>' requested here
+          __invokable_imp<_Fp, _Args...>::value>
+          ^
+/usr/include/c++/v1/functional:1642:31: note: in instantiation of template class 'std::__1::__invokable<void (*)(int &, int &), int &, int &>' requested here
+    static const bool value = __invokable<_Fp,
+                              ^
+/usr/include/c++/v1/functional:1654:18: note: in instantiation of template class 'std::__1::_is_valid_bind_return<void (*)(int &, int &), std::__1::tuple<std::__1::placeholders::__ph<2>, std::__1::placeholders::__ph<1> >, std::__1::tuple<int &, int &> >' requested here
+          bool = _is_valid_bind_return<_Fp, _BoundArgs, _TupleUj>::value>
+                 ^
+/usr/include/c++/v1/functional:1749:18: note: in instantiation of default argument for '__bind_return<void (*)(int &, int &), std::__1::tuple<std::__1::placeholders::__ph<2>, std::__1::placeholders::__ph<1> >, std::__1::tuple<int &, int &> >' required here
+        typename __bind_return<_Fd, _Td, tuple<_Args&&...> >::type
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/functional:1750:9: note: while substituting deduced template arguments into function template 'operator()' [with _Args = <int &, int &>]
+        operator()(_Args&& ...__args)
+        ^
+1 error generated.
