@@ -1,0 +1,1 @@
+g++-4.8 main.cpp -std=c++11 -Wall -pedantic -pedantic-errors -Wextra -lm  && ./a.out <<< "1 2 3 4 5"
