@@ -1,0 +1,44 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+
+int main() {
+    int p;
+    
+    p = pow(2, 10);
+    std::cout << p;
+   0:	50                   	push   rax
+   1:	bf 00 00 00 00       	mov    edi,0x0
+   6:	be 00 04 00 00       	mov    esi,0x400
+   b:	e8 00 00 00 00       	call   10 <main+0x10>
+  10:	bf 00 00 00 00       	mov    edi,0x0
+  15:	be 00 08 00 00       	mov    esi,0x800
+    
+    p = 2<<10;
+    std::cout << p;
+  1a:	e8 00 00 00 00       	call   1f <main+0x1f>
+  1f:	31 c0                	xor    eax,eax
+  21:	5a                   	pop    rdx
+  22:	c3                   	ret    
+
+Disassembly of section .text.startup:
+
+0000000000000000 <_GLOBAL__I_a>:
+  extern wostream wclog;	/// Linked to standard error (buffered)
+#endif
+  //@}
+
+  // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  static ios_base::Init __ioinit;
+   0:	50                   	push   rax
+   1:	bf 00 00 00 00       	mov    edi,0x0
+   6:	e8 00 00 00 00       	call   b <_GLOBAL__I_a+0xb>
+   b:	bf 00 00 00 00       	mov    edi,0x0
+  10:	be 00 00 00 00       	mov    esi,0x0
+  15:	ba 00 00 00 00       	mov    edx,0x0
+  1a:	58                   	pop    rax
+  1b:	e9 00 00 00 00       	jmp    20 <_GLOBAL__I_a+0x20>
