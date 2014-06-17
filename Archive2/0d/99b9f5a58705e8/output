@@ -1,0 +1,21 @@
++ clang++ -std=c++11 -O0 -Wall -Wextra -pedantic -Wno-unused-variable main.cpp
+main.cpp:79:9: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        std::make_tuple(1),
+        ^~~~~~~~~~~~~~~~~~~
+main.cpp:61:24: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned long') [-Wsign-compare]
+    for (auto i = 0; i < arr.size(); ++i)
+                     ~ ^ ~~~~~~~~~~
+main.cpp:71:5: note: in instantiation of function template specialization 'tuple_array_map<<lambda at main.cpp:71:21>, std::array<std::tuple<double>, 5>, double>' requested here
+    tuple_array_map([&](const typename TupleArr::value_type& t) {
+    ^
+main.cpp:90:5: note: in instantiation of function template specialization 'tuple_array_map<double (*)(double), std::array<std::tuple<double>, 5>, double, void>' requested here
+    tuple_array_map(f1, tuples);
+    ^
+main.cpp:61:24: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned long') [-Wsign-compare]
+    for (auto i = 0; i < arr.size(); ++i)
+                     ~ ^ ~~~~~~~~~~
+main.cpp:92:5: note: in instantiation of function template specialization 'tuple_array_map<double (*)(const std::tuple<double> &), std::array<std::tuple<double>, 5>, double>' requested here
+    tuple_array_map(f2, tuples);
+    ^
+3 warnings generated.
++ ./a.out
