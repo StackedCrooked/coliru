@@ -1,0 +1,242 @@
+In file included from main.cpp:2:
+In file included from /usr/local/include/boost/spirit/include/qi.hpp:16:
+In file included from /usr/local/include/boost/spirit/home/qi.hpp:14:
+In file included from /usr/local/include/boost/spirit/home/qi/action.hpp:14:
+In file included from /usr/local/include/boost/spirit/home/qi/action/action.hpp:16:
+In file included from /usr/local/include/boost/spirit/home/qi/detail/attributes.hpp:12:
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1226:17: error: invalid operands to binary expression ('std::basic_ostream<char>' and 'const termcxx::parser::context')
+            out << val;
+            ~~~ ^  ~~~
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1242:13: note: in instantiation of function template specialization 'boost::spirit::traits::print_attribute_debug<std::basic_ostream<char>, termcxx::parser::context, void>::call_impl3<termcxx::parser::context>' requested here
+            call_impl3(out, val, fusion::traits::is_sequence<T_>());
+            ^
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1277:13: note: in instantiation of function template specialization 'boost::spirit::traits::print_attribute_debug<std::basic_ostream<char>, termcxx::parser::context, void>::call_impl2<termcxx::parser::context>' requested here
+            call_impl2(out, val, is_container<T_>());
+            ^
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1283:13: note: in instantiation of function template specialization 'boost::spirit::traits::print_attribute_debug<std::basic_ostream<char>, termcxx::parser::context, void>::call_impl<termcxx::parser::context>' requested here
+            call_impl(out, val, not_is_variant<T>());
+            ^
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1303:40: note: in instantiation of member function 'boost::spirit::traits::print_attribute_debug<std::basic_ostream<char>, termcxx::parser::context, void>::call' requested here
+        print_attribute_debug<Out, T>::call(out, val);
+                                       ^
+/usr/local/include/boost/spirit/home/support/attributes.hpp:1196:33: note: in instantiation of function template specialization 'boost::spirit::traits::print_attribute<std::basic_ostream<char>, termcxx::parser::context>' requested here
+                spirit::traits::print_attribute(out, val);
+                                ^
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:32:9: note: (skipping 14 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        f(*first);
+        ^
+/usr/local/include/boost/function/function_template.hpp:1069:5: note: in instantiation of function template specialization 'boost::function4<bool, boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, const boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> > &, const boost::spirit::unused_type &>::function4<boost::spirit::qi::debug_handler<boost::spirit::basic_istream_iterator<char, std::char_traits<char> >, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> >, boost::spirit::unused_type, boost::spirit::qi::simple_trace> >' requested here
+    base_type(f)
+    ^
+/usr/local/include/boost/function/function_template.hpp:1124:5: note: in instantiation of function template specialization 'boost::function<bool (boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, const boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> > &, const boost::spirit::unused_type &)>::function<boost::spirit::qi::debug_handler<boost::spirit::basic_istream_iterator<char, std::char_traits<char> >, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> >, boost::spirit::unused_type, boost::spirit::qi::simple_trace> >' requested here
+    self_type(f).swap(*this);
+    ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/debug_handler.hpp:122:13: note: in instantiation of function template specialization 'boost::function<bool (boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, const boost::spirit::basic_istream_iterator<char, std::char_traits<char> > &, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> > &, const boost::spirit::unused_type &)>::operator=<boost::spirit::qi::debug_handler<boost::spirit::basic_istream_iterator<char, std::char_traits<char> >, boost::spirit::context<boost::fusion::cons<termcxx::parser::context &, boost::fusion::nil_>, boost::fusion::vector0<void> >, boost::spirit::unused_type, boost::spirit::qi::simple_trace> >' requested here
+        r.f = debug_handler(r.f, trace(), r.name());
+            ^
+main.cpp:64:13: note: in instantiation of function template specialization 'boost::spirit::qi::debug<boost::spirit::basic_istream_iterator<char, std::char_traits<char> >, termcxx::parser::context (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>' requested here
+            BOOST_SPIRIT_DEBUG_NODES((start)(def_first_line)(def_subsequent_line)(definition)(empty_line)(comment_line))
+            ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/debug_handler.hpp:142:27: note: expanded from macro 'BOOST_SPIRIT_DEBUG_NODES'
+    BOOST_PP_SEQ_FOR_EACH(BOOST_SPIRIT_DEBUG_NODE_A, _, seq)                    \
+                          ^
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:26:67: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH'
+#    define BOOST_PP_SEQ_FOR_EACH(macro, data, seq) BOOST_PP_FOR((macro, data, seq (nil)), BOOST_PP_SEQ_FOR_EACH_P, BOOST_PP_SEQ_FOR_EACH_O, BOOST_PP_SEQ_FOR_EACH_M)
+                                                                  ^
+/usr/local/include/boost/preprocessor/repetition/detail/for.hpp:22:78: note: expanded from macro 'BOOST_PP_FOR_1'
+# define BOOST_PP_FOR_1(s, p, o, m) BOOST_PP_FOR_1_C(BOOST_PP_BOOL(p(2, s)), s, p, o, m)
+                                                                             ^
+note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/usr/local/include/boost/preprocessor/seq/for_each.hpp:49:57: note: expanded from macro 'BOOST_PP_SEQ_FOR_EACH_M_I'
+# define BOOST_PP_SEQ_FOR_EACH_M_I(r, macro, data, seq) macro(r, data, BOOST_PP_SEQ_HEAD(seq))
+                                                        ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/debug_handler.hpp:138:5: note: expanded from macro 'BOOST_SPIRIT_DEBUG_NODE_A'
+    BOOST_SPIRIT_DEBUG_NODE(name);                                              \
+    ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/debug_handler.hpp:131:53: note: expanded from macro 'BOOST_SPIRIT_DEBUG_NODE'
+    #define BOOST_SPIRIT_DEBUG_NODE(r)  r.name(#r); debug(r)
+                                                    ^
+main.cpp:81:33: note: in instantiation of member function 'termcxx::parser::parser<boost::spirit::basic_istream_iterator<char, std::char_traits<char> > >::parser' requested here
+    termcxx::parser::parser<It> g;
+                                ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:245:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'const void *' for 1st argument; take the address of the argument with &
+      operator<<(const void* __p)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:108:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to '__ostream_type &(*)(__ostream_type &)' for 1st argument
+      operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:117:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to '__ios_type &(*)(__ios_type &)' for 1st argument
+      operator<<(__ios_type& (*__pf)(__ios_type&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:127:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'std::ios_base &(*)(std::ios_base &)' for 1st argument
+      operator<<(ios_base& (*__pf) (ios_base&))
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:166:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'long' for 1st argument
+      operator<<(long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:170:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'unsigned long' for 1st argument
+      operator<<(unsigned long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:174:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'bool' for 1st argument
+      operator<<(bool __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:178:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'short' for 1st argument
+      operator<<(short __n);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:181:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'unsigned short' for 1st argument
+      operator<<(unsigned short __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:189:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'int' for 1st argument
+      operator<<(int __n);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:192:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'unsigned int' for 1st argument
+      operator<<(unsigned int __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:201:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'long long' for 1st argument
+      operator<<(long long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:205:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'unsigned long long' for 1st argument
+      operator<<(unsigned long long __n)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:220:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'double' for 1st argument
+      operator<<(double __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:224:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'float' for 1st argument
+      operator<<(float __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:232:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to 'long double' for 1st argument
+      operator<<(long double __f)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:270:7: note: candidate function not viable: no known conversion from 'const termcxx::parser::context' to '__streambuf_type *' (aka 'basic_streambuf<char, std::char_traits<char> > *') for 1st argument
+      operator<<(__streambuf_type* __sb);
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:476:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'char' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:482:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:488:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'signed char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:493:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'unsigned char' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:530:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:543:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const signed char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:548:5: note: candidate function [with _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const unsigned char *' for 2nd argument
+    operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:602:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>, _Tp = termcxx::parser::context] not viable: no known conversion from 'std::basic_ostream<char>' to 'basic_ostream<char, std::char_traits<char> > &&' for 1st argument
+    operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/ostream.tcc:321:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const char *' for 2nd argument
+    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+    ^
+/usr/local/include/boost/spirit/home/support/unused.hpp:81:17: note: candidate function [with Out = std::basic_ostream<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const detail::unused_only' for 2nd argument
+    inline Out& operator<<(Out& out, detail::unused_only const&)
+                ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1150:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const std::bernoulli_distribution' for 2nd argument
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/local/include/boost/spirit/home/support/info.hpp:150:10: note: candidate function [with Out = std::basic_ostream<char>] not viable: no known conversion from 'const termcxx::parser::context' to 'const boost::spirit::info' for 2nd argument
+    Out& operator<<(Out& out, info const& what)
+         ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:471:5: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'termcxx::parser::context')
+    operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/basic_string.h:2753:5: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const termcxx::parser::context'
+    operator<<(basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/ostream:513:5: note: candidate template ignored: could not match 'const _CharT *' against 'termcxx::parser::context'
+    operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/shared_ptr.h:66:5: note: candidate template ignored: could not match '__shared_ptr<type-parameter-0-2, _Lp>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_Ch, _Tr>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.h:1277:5: note: candidate template ignored: could not match 'independent_bits_engine<type-parameter-0-0, __w, type-parameter-0-2>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:156:5: note: candidate template ignored: could not match 'linear_congruential_engine<type-parameter-0-0, __a, __c, __m>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:477:5: note: candidate template ignored: could not match 'mersenne_twister_engine<type-parameter-0-0, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:632:5: note: candidate template ignored: could not match 'subtract_with_carry_engine<type-parameter-0-0, __w, __s, __r>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:702:5: note: candidate template ignored: could not match 'discard_block_engine<type-parameter-0-0, __p, __r>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:831:5: note: candidate template ignored: could not match 'shuffle_order_engine<type-parameter-0-0, __k>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1029:5: note: candidate template ignored: could not match 'uniform_int_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1088:5: note: candidate template ignored: could not match 'uniform_real_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1232:5: note: candidate template ignored: could not match 'geometric_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1347:5: note: candidate template ignored: could not match 'negative_binomial_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1552:5: note: candidate template ignored: could not match 'poisson_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1817:5: note: candidate template ignored: could not match 'binomial_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:1881:5: note: candidate template ignored: could not match 'exponential_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2048:5: note: candidate template ignored: could not match 'normal_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2113:5: note: candidate template ignored: could not match 'lognormal_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2186:5: note: candidate template ignored: could not match 'chi_squared_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2273:5: note: candidate template ignored: could not match 'cauchy_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2350:5: note: candidate template ignored: could not match 'fisher_f_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2425:5: note: candidate template ignored: could not match 'student_t_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2594:5: note: candidate template ignored: could not match 'gamma_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2672:5: note: candidate template ignored: could not match 'weibull_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2748:5: note: candidate template ignored: could not match 'extreme_value_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:2884:5: note: candidate template ignored: could not match 'discrete_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:3094:5: note: candidate template ignored: could not match 'piecewise_constant_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bits/random.tcc:3310:5: note: candidate template ignored: could not match 'piecewise_linear_distribution<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/bitset:1521:5: note: candidate template ignored: could not match 'bitset<_Nb>' against 'const termcxx::parser::context'
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/complex:524:5: note: candidate template ignored: could not match 'complex<type-parameter-0-0>' against 'const termcxx::parser::context'
+    operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+    ^
+1 error generated.
