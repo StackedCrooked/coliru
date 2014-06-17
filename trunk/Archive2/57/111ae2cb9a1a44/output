@@ -1,0 +1,18 @@
+main.cpp:4:17: warning: unused parameter 'arg' [-Wunused-parameter]
+T bar(const int arg)
+                ^
+main.cpp:12:39: error: 'dummy' declared as an array with a negative size
+  struct SignificantName { char dummy[-1]; };
+                                      ^~
+main.cpp:10:27: warning: unused parameter 'arg' [-Wunused-parameter]
+std::string bar(const int arg)
+                          ^
+2 warnings and 1 error generated.
+main.cpp: In function 'T bar(int) [with T = std::basic_string<char>]':
+main.cpp:12:41: error: size of array 'dummy' is negative
+   struct SignificantName { char dummy[-1]; };
+                                         ^
+main.cpp: At global scope:
+main.cpp:10:13: warning: unused parameter 'arg' [-Wunused-parameter]
+ std::string bar(const int arg)
+             ^
