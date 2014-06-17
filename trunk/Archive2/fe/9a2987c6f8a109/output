@@ -1,0 +1,47 @@
++ clang++ -v -std=c++11 -O0 -Wall -Wextra -pedantic -Wno-unused-variable main.cpp
+clang version 3.4 (tags/RELEASE_34/final 206911)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -v -resource-dir /usr/local/bin/../lib/clang/3.4 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.4/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -Wall -Wextra -Wno-unused-variable -pedantic -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1402962627-119536976 -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-slp -o /tmp/main-294920.o -x c++ main.cpp
+clang -cc1 version 3.4 based upon LLVM 3.4 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/x86_64-linux-gnu"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/c++/4.8/backward
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../include/x86_64-linux-gnu/c++/4.8
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.4/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+main.cpp:79:9: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+        std::make_tuple(1),
+        ^~~~~~~~~~~~~~~~~~~
+main.cpp:61:24: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned long') [-Wsign-compare]
+    for (auto i = 0; i < arr.size(); ++i)
+                     ~ ^ ~~~~~~~~~~
+main.cpp:71:5: note: in instantiation of function template specialization 'tuple_array_map<<lambda at main.cpp:71:21>, std::array<std::tuple<double>, 5>, double>' requested here
+    tuple_array_map([&](const typename TupleArr::value_type& t) {
+    ^
+main.cpp:90:5: note: in instantiation of function template specialization 'tuple_array_map<double (*)(double), std::array<std::tuple<double>, 5>, double, void>' requested here
+    tuple_array_map(f1, tuples);
+    ^
+main.cpp:61:24: warning: comparison of integers of different signs: 'int' and 'size_type' (aka 'unsigned long') [-Wsign-compare]
+    for (auto i = 0; i < arr.size(); ++i)
+                     ~ ^ ~~~~~~~~~~
+main.cpp:92:5: note: in instantiation of function template specialization 'tuple_array_map<double (*)(const std::tuple<double> &), std::array<std::tuple<double>, 5>, double>' requested here
+    tuple_array_map(f2, tuples);
+    ^
+3 warnings generated.
+ "/usr/bin/ld" --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o a.out /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/lib -L/usr/lib /tmp/main-294920.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
++ ./a.out
