@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:90:70: error: no matching function for call to 'client::Factory<client::Window>::create()'
+     auto w = client::Factory<client::Window>::create<client::Button>();
+                                                                      ^
+main.cpp:90:70: note: candidate is:
+main.cpp:68:9: note: template<class T> static T* client::Factory<T1, T2>::create(typename std::enable_if<(std::is_same<T, typename client::select<client::Window, T1, T2>::type>::value || std::is_same<T, typename client::select<client::Button, T1, T2>::type>::value)>::type*) [with T = T; T1 = client::Window; T2 = client::None]
+         create(
+         ^
+main.cpp:68:9: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> static T* client::Factory<T1, T2>::create(typename std::enable_if<(std::is_same<T, typename client::select<client::Window, T1, T2>::type>::value || std::is_same<T, typename client::select<client::Button, T1, T2>::type>::value)>::type*) [with T = client::Button]':
+main.cpp:90:70:   required from here
+main.cpp:68:9: error: no type named 'type' in 'struct std::enable_if<false, void>'
