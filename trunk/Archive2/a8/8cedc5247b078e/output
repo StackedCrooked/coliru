@@ -1,0 +1,8 @@
++ gcc -x c -std=c99 -O0 -W -Wall -Wextra -Wconversion -pedantic -S main.cpp
+main.cpp: In function 'main':
+main.cpp:5:21: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+     double          x;
+                     ^
++ cat main.s
++ grep log
+	call	log
