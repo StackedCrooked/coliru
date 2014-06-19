@@ -320,7 +320,7 @@ def log_request(rid, method, message)
   current_time = DateTime.now.strftime('%s').to_i
   elapsed_time = current_time - $start_time
   request_rate = 60.0 * rid / elapsed_time
-  request_rate = (100 * request_rate).round / 100
+  request_rate = (100 * request_rate).round / 100.0
   $stderr.puts "request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
 end
 
