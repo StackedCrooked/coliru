@@ -1,0 +1,32 @@
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.section	.text.startup,"ax",@progbits
+.LHOTB0:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	xor	esi, esi
+	xor	edi, edi
+	call	_Z1fii
+	mov	esi, 1000000000
+	mov	edi, 1
+	call	_Z1fii
+	mov	esi, 2000000000
+	mov	edi, 2
+	call	_Z1fii
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE0:
+	.section	.text.startup
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
