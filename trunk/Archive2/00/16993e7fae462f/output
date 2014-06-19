@@ -1,0 +1,15 @@
+main.cpp: In function 'Behavior<Drawing> circleFollowsMouse(Behavior<Point2D>)':
+main.cpp:66:35: error: no matching function for call to 'map(Drawing (&)(Point2D), Behavior<Point2D>&)'
+ {   return map (circleAt, mousePos);  }
+                                   ^
+main.cpp:66:35: note: candidate is:
+main.cpp:53:13: note: template<class R, class A> Behavior<T> map(std::function<R(A)>, Behavior<A>)
+ Behavior<R> map 
+             ^
+main.cpp:53:13: note:   template argument deduction/substitution failed:
+main.cpp:66:35: note:   mismatched types 'std::function<R(A)>' and 'Drawing (*)(Point2D)'
+ {   return map (circleAt, mousePos);  }
+                                   ^
+main.cpp:66:39: warning: control reaches end of non-void function [-Wreturn-type]
+ {   return map (circleAt, mousePos);  }
+                                       ^
