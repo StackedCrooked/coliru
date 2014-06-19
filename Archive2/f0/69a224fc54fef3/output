@@ -1,0 +1,13 @@
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/type_traits: In substitution of 'template<class _Tp> using result_of_t = typename std::result_of::type [with _Tp = int(bool)]':
+main.cpp:8:38:   required from here
+/usr/local/include/c++/4.9.0/type_traits:2198:54: error: no type named 'type' in 'class std::result_of<int(bool)>'
+     using result_of_t = typename result_of<_Tp>::type;
+                                                      ^
+main.cpp: In function 'int main()':
+main.cpp:8:42: error: invalid type in declaration before '=' token
+     std::result_of_t<decltype(A::foo)> a = 3;
+                                          ^
+main.cpp:9:49: error: expected primary-expression before ',' token
+     static_assert(std::is_same<decltype(a), int>, "ACK");
+                                                 ^
