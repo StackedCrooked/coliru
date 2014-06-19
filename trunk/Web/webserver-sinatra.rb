@@ -64,9 +64,9 @@ post '/compile' do
     Thread.new do 
         result = ""
         rid = $request_id += 1
-        log_request(rid, __method__, "waiting")
+        log_request(rid, "/compile", "waiting")
         $mutex.synchronize do
-            log_request(rid, __method__, "running")
+            log_request(rid, "/compile", "running")
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
             id = "#{Time.now.utc.to_f}"
@@ -77,7 +77,7 @@ post '/compile' do
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
             FileUtils.rmtree(dir)
-            log_request(rid, __method__, "done")
+            log_request(rid, "/compile", "done")
         end
         stream do |out|
             out << result
@@ -123,9 +123,9 @@ post '/share' do
     Thread.new do
         result = ''
         rid = $request_id += 1
-        log_request(rid, __method__, "waiting")
+        log_request(rid, "/share", "waiting")
         $mutex.synchronize do
-            log_request(rid, __method__, "running")
+            log_request(rid, "/share", "running")
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
             dir = "/tmp/coliru/#{id}"
             FileUtils.mkdir_p(dir)
@@ -140,7 +140,7 @@ post '/share' do
                 skip = (b == '\n')
                 result += b
             end
-            log_request(rid, __method__, "done")
+            log_request(rid, "/share", "done")
         end
         stream { |out| out << result }
     end.join
@@ -314,7 +314,12 @@ def safe_popen(cmd)
     end
 end
 
+$start_time = DateTime.now.strftime('%s').to_i
+
 def log_request(rid, method, message)
-  $stderr.puts "request_id=#{rid} method=\"#{method}\" time=#{DateTime.now.strftime('%H:%M:%S.%L').to_s} message=#{message}"
+  current_time = DateTime.now.strftime('%s').to_i
+  elapsed_time = current_time - $start_time
+  request_rate = 60.0 * rid / elapsed_time
+  $stderr.puts "request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
 end
 
