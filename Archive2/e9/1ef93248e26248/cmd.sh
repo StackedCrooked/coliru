@@ -1,0 +1,1 @@
+g++-4.9 -g -c main.cpp && objdump -d -M intel -S main.o

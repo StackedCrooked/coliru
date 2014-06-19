@@ -1,0 +1,72 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+#include <iostream>
+ 
+int main()
+{
+   0:	55                   	push   rbp
+   1:	48 89 e5             	mov    rbp,rsp
+   4:	48 83 ec 10          	sub    rsp,0x10
+    for (int i = 0; i < 4; ++i)
+   8:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+   f:	eb 26                	jmp    37 <main+0x37>
+		std::cout << i*1000000000 << std::endl;
+  11:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  14:	69 c0 00 ca 9a 3b    	imul   eax,eax,0x3b9aca00
+  1a:	89 c6                	mov    esi,eax
+  1c:	bf 00 00 00 00       	mov    edi,0x0
+  21:	e8 00 00 00 00       	call   26 <main+0x26>
+  26:	be 00 00 00 00       	mov    esi,0x0
+  2b:	48 89 c7             	mov    rdi,rax
+  2e:	e8 00 00 00 00       	call   33 <main+0x33>
+#include <iostream>
+ 
+int main()
+{
+    for (int i = 0; i < 4; ++i)
+  33:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  37:	83 7d fc 03          	cmp    DWORD PTR [rbp-0x4],0x3
+  3b:	7e d4                	jle    11 <main+0x11>
+		std::cout << i*1000000000 << std::endl;
+  3d:	b8 00 00 00 00       	mov    eax,0x0
+  42:	c9                   	leave  
+  43:	c3                   	ret    
+
+0000000000000044 <_Z41__static_initialization_and_destruction_0ii>:
+  44:	55                   	push   rbp
+  45:	48 89 e5             	mov    rbp,rsp
+  48:	48 83 ec 10          	sub    rsp,0x10
+  4c:	89 7d fc             	mov    DWORD PTR [rbp-0x4],edi
+  4f:	89 75 f8             	mov    DWORD PTR [rbp-0x8],esi
+  52:	83 7d fc 01          	cmp    DWORD PTR [rbp-0x4],0x1
+  56:	75 27                	jne    7f <_Z41__static_initialization_and_destruction_0ii+0x3b>
+  58:	81 7d f8 ff ff 00 00 	cmp    DWORD PTR [rbp-0x8],0xffff
+  5f:	75 1e                	jne    7f <_Z41__static_initialization_and_destruction_0ii+0x3b>
+  extern wostream wclog;	/// Linked to standard error (buffered)
+#endif
+  //@}
+
+  // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  static ios_base::Init __ioinit;
+  61:	bf 00 00 00 00       	mov    edi,0x0
+  66:	e8 00 00 00 00       	call   6b <_Z41__static_initialization_and_destruction_0ii+0x27>
+  6b:	ba 00 00 00 00       	mov    edx,0x0
+  70:	be 00 00 00 00       	mov    esi,0x0
+  75:	bf 00 00 00 00       	mov    edi,0x0
+  7a:	e8 00 00 00 00       	call   7f <_Z41__static_initialization_and_destruction_0ii+0x3b>
+  7f:	c9                   	leave  
+  80:	c3                   	ret    
+
+0000000000000081 <_GLOBAL__sub_I_main>:
+  81:	55                   	push   rbp
+  82:	48 89 e5             	mov    rbp,rsp
+  85:	be ff ff 00 00       	mov    esi,0xffff
+  8a:	bf 01 00 00 00       	mov    edi,0x1
+  8f:	e8 b0 ff ff ff       	call   44 <_Z41__static_initialization_and_destruction_0ii>
+  94:	5d                   	pop    rbp
+  95:	c3                   	ret    
