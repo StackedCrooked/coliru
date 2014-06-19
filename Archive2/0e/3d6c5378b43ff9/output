@@ -1,0 +1,24 @@
+main.cpp: In instantiation of 'class Timer<void()>':
+main.cpp:83:27:   required from here
+main.cpp:73:5: error: field 'Timer<void()>::onTimeout' invalidly declared function type
+   F onTimeout;
+     ^
+main.cpp: In function 'Timer<void()> CreateTimer()':
+main.cpp:90:16: error: could not convert 'timer' from 'Timer<CreateTimer()::__lambda0>' to 'Timer<void()>'
+  return( timer );
+                ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:97:16: error: no matching function for call to 'Timer<void()>::Timer()'
+  Timer<void()> timer;
+                ^
+main.cpp:97:16: note: candidates are:
+main.cpp:23:12: note: Timer<F>::Timer(F, int) [with F = void()]
+   explicit Timer(F callback, int seconds) : onTimeout(std::move(callback))
+            ^
+main.cpp:23:12: note:   candidate expects 2 arguments, 0 provided
+main.cpp:12:7: note: constexpr Timer<void()>::Timer(const Timer<void()>&)
+ class Timer
+       ^
+main.cpp:12:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:12:7: note: constexpr Timer<void()>::Timer(Timer<void()>&&)
+main.cpp:12:7: note:   candidate expects 1 argument, 0 provided
