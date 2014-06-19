@@ -59,16 +59,14 @@ get '/feedback' do
 end
 
 
-def log(message)
-  $stderr.puts "#{DateTime.now.strftime('%H:%M:%S.%L')}: #{message}"
-end
-
+$request_id = 0
 post '/compile' do
     Thread.new do 
         result = ""
-        log "/compile: try to get mutex lock..."
+        rid = $request_id += 1
+        log_request(rid, "/compile: try to get mutex lock...")
         $mutex.synchronize do
-            log "/compile: obtained mutex lock"
+            log_request(rid, "/compile: obtained mutex lock")
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
             id = "#{Time.now.utc.to_f}"
@@ -77,12 +75,12 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            log "/compile: starting program"
+            log_request(rid, "/compile: starting program")
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-            log "/compile: program finished."
+            log_request(rid, "/compile: program finished.")
             FileUtils.rmtree(dir)
         end
-        log "/compile: unlocked mutex"
+        log_request(rid, "/compile: unlocked mutex")
         stream do |out|
             out << result
         end
@@ -312,5 +310,9 @@ def safe_popen(cmd)
     rescue Exception => e
         yield e.to_s
     end
+end
+
+def log_request(rid, message)
+  $stderr.puts "#{DateTime.now.strftime('%H:%M:%S.%L').to_s}(request_id=#{rid}): #{message}"
 end
 
