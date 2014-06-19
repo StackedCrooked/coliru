@@ -1,0 +1,38 @@
+	.file	"main.cpp"
+	.text
+	.globl	_Z3fooRi
+	.align	16, 0x90
+	.type	_Z3fooRi,@function
+_Z3fooRi:                               # @_Z3fooRi
+	.cfi_startproc
+# BB#0:
+	pushq	%rbp
+.Ltmp2:
+	.cfi_def_cfa_offset 16
+.Ltmp3:
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+.Ltmp4:
+	.cfi_def_cfa_register %rbp
+	subq	$16, %rsp
+	leaq	_ZNSt3__14coutE, %rax
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rdi
+	movl	(%rdi), %ecx
+	movl	%ecx, %edx
+	addl	$1, %edx
+	movl	%edx, (%rdi)
+	movq	%rax, %rdi
+	movl	%ecx, %esi
+	callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+	movq	%rax, -16(%rbp)         # 8-byte Spill
+	addq	$16, %rsp
+	popq	%rbp
+	ret
+.Ltmp5:
+	.size	_Z3fooRi, .Ltmp5-_Z3fooRi
+	.cfi_endproc
+
+
+	.ident	"clang version 3.4 (tags/RELEASE_34/final 206911)"
+	.section	".note.GNU-stack","",@progbits
