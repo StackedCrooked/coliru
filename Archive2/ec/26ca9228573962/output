@@ -1,0 +1,124 @@
+main.cpp: In function 'int main()':
+main.cpp:6:18: warning: iteration 3u invokes undefined behavior [-Waggressive-loop-optimizations]
+   std::cout << i*1000000000 << std::endl;
+                  ^
+main.cpp:5:5: note: containing loop
+     for (int i = 0; i < 4; ++i)
+     ^
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZNKSt5ctypeIcE8do_widenEc:
+
+0000000000000000 <_ZNKSt5ctypeIcE8do_widenEc>:
+       *  @param __c  The char to convert.
+       *  @return  The converted character.
+      */
+      virtual char_type
+      do_widen(char __c) const
+      { return __c; }
+   0:	89 f0                	mov    eax,esi
+   2:	c3                   	ret    
+
+Disassembly of section .text.startup:
+
+0000000000000000 <main>:
+#include <iostream>
+ 
+int main()
+{
+   0:	41 54                	push   r12
+   2:	55                   	push   rbp
+    for (int i = 0; i < 4; ++i)
+   3:	45 31 e4             	xor    r12d,r12d
+#include <iostream>
+ 
+int main()
+{
+   6:	53                   	push   rbx
+    for (int i = 0; i < 4; ++i)
+		std::cout << i*1000000000 << std::endl;
+   7:	44 89 e6             	mov    esi,r12d
+   a:	bf 00 00 00 00       	mov    edi,0x0
+   f:	e8 00 00 00 00       	call   14 <main+0x14>
+  14:	48 89 c5             	mov    rbp,rax
+   *  for more on this subject.
+  */
+  template<typename _CharT, typename _Traits>
+    inline basic_ostream<_CharT, _Traits>&
+    endl(basic_ostream<_CharT, _Traits>& __os)
+    { return flush(__os.put(__os.widen('\n'))); }
+  17:	48 8b 00             	mov    rax,QWORD PTR [rax]
+       *  Additional l10n notes are at
+       *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/localization.html
+      */
+      char_type
+      widen(char __c) const
+      { return __check_facet(_M_ctype).widen(__c); }
+  1a:	48 8b 40 e8          	mov    rax,QWORD PTR [rax-0x18]
+  1e:	48 8b 9c 05 f0 00 00 	mov    rbx,QWORD PTR [rbp+rax*1+0xf0]
+  25:	00 
+
+  template<typename _Facet>
+    inline const _Facet&
+    __check_facet(const _Facet* __f)
+    {
+      if (!__f)
+  26:	48 85 db             	test   rbx,rbx
+  29:	74 4b                	je     76 <main+0x76>
+       *  @return  The converted character.
+      */
+      char_type
+      widen(char __c) const
+      {
+	if (_M_widen_ok)
+  2b:	80 7b 38 00          	cmp    BYTE PTR [rbx+0x38],0x0
+  2f:	74 1f                	je     50 <main+0x50>
+  31:	0f be 73 43          	movsx  esi,BYTE PTR [rbx+0x43]
+  35:	48 89 ef             	mov    rdi,rbp
+  38:	41 81 c4 00 ca 9a 3b 	add    r12d,0x3b9aca00
+  3f:	e8 00 00 00 00       	call   44 <main+0x44>
+   *  This manipulator simply calls the stream's @c flush() member function.
+  */
+  template<typename _CharT, typename _Traits>
+    inline basic_ostream<_CharT, _Traits>&
+    flush(basic_ostream<_CharT, _Traits>& __os)
+    { return __os.flush(); }
+  44:	48 89 c7             	mov    rdi,rax
+  47:	e8 00 00 00 00       	call   4c <main+0x4c>
+  4c:	eb b9                	jmp    7 <main+0x7>
+  4e:	66 90                	xchg   ax,ax
+	  return _M_widen[static_cast<unsigned char>(__c)];
+	this->_M_widen_init();
+  50:	48 89 df             	mov    rdi,rbx
+  53:	e8 00 00 00 00       	call   58 <main+0x58>
+	return this->do_widen(__c);
+  58:	48 8b 03             	mov    rax,QWORD PTR [rbx]
+  5b:	be 0a 00 00 00       	mov    esi,0xa
+  60:	48 8b 40 30          	mov    rax,QWORD PTR [rax+0x30]
+  64:	48 3d 00 00 00 00    	cmp    rax,0x0
+  6a:	74 c9                	je     35 <main+0x35>
+  6c:	48 89 df             	mov    rdi,rbx
+  6f:	ff d0                	call   rax
+  71:	0f be f0             	movsx  esi,al
+  74:	eb bf                	jmp    35 <main+0x35>
+	__throw_bad_cast();
+  76:	e8 00 00 00 00       	call   7b <main+0x7b>
+  7b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+0000000000000080 <_GLOBAL__sub_I_main>:
+  80:	48 83 ec 08          	sub    rsp,0x8
+  extern wostream wclog;	/// Linked to standard error (buffered)
+#endif
+  //@}
+
+  // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  static ios_base::Init __ioinit;
+  84:	bf 00 00 00 00       	mov    edi,0x0
+  89:	e8 00 00 00 00       	call   8e <_GLOBAL__sub_I_main+0xe>
+  8e:	ba 00 00 00 00       	mov    edx,0x0
+  93:	be 00 00 00 00       	mov    esi,0x0
+  98:	bf 00 00 00 00       	mov    edi,0x0
+  9d:	48 83 c4 08          	add    rsp,0x8
+  a1:	e9 00 00 00 00       	jmp    a6 <_GLOBAL__sub_I_main+0x26>
