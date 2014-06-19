@@ -1,5 +1,6 @@
 require 'rubygems' # must be first!
 require 'fileutils'
+require 'date'
 require 'json'
 require 'net/http'
 require 'popen4'
@@ -58,10 +59,16 @@ get '/feedback' do
 end
 
 
+def log(message)
+  $stderr.puts "#{DateTime.now.strftime('%H:%M:%S.%L')}: #{message}"
+end
+
 post '/compile' do
     Thread.new do 
         result = ""
+        log "/compile: try to get mutex lock..."
         $mutex.synchronize do
+            log "/compile: obtained mutex lock"
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
             id = "#{Time.now.utc.to_f}"
@@ -70,9 +77,12 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            log "/compile: starting program"
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+            log "/compile: program finished."
             FileUtils.rmtree(dir)
         end
+        log "/compile: unlocked mutex"
         stream do |out|
             out << result
         end
