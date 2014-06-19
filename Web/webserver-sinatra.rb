@@ -64,9 +64,9 @@ post '/compile' do
     Thread.new do 
         result = ""
         rid = $request_id += 1
-        log_request(rid, "/compile: try to get mutex lock...")
+        log_request(rid, __method__, "waiting")
         $mutex.synchronize do
-            log_request(rid, "/compile: obtained mutex lock")
+            log_request(rid, __method__, "running")
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
             id = "#{Time.now.utc.to_f}"
@@ -75,12 +75,10 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            log_request(rid, "/compile: starting program")
             safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-            log_request(rid, "/compile: program finished.")
             FileUtils.rmtree(dir)
+            log_request(rid, __method__, "done")
         end
-        log_request(rid, "/compile: unlocked mutex")
         stream do |out|
             out << result
         end
@@ -124,7 +122,10 @@ end
 post '/share' do
     Thread.new do
         result = ''
+        rid = $request_id += 1
+        log_request(rid, __method__, "waiting")
         $mutex.synchronize do
+            log_request(rid, __method__, "running")
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
             dir = "/tmp/coliru/#{id}"
             FileUtils.mkdir_p(dir)
@@ -139,6 +140,7 @@ post '/share' do
                 skip = (b == '\n')
                 result += b
             end
+            log_request(rid, __method__, "done")
         end
         stream { |out| out << result }
     end.join
@@ -312,7 +314,7 @@ def safe_popen(cmd)
     end
 end
 
-def log_request(rid, message)
-  $stderr.puts "#{DateTime.now.strftime('%H:%M:%S.%L').to_s}(request_id=#{rid}): #{message}"
+def log_request(rid, method, message)
+  $stderr.puts "request_id=#{rid} method=\"#{method}\" time=#{DateTime.now.strftime('%H:%M:%S.%L').to_s} message=#{message}"
 end
 
