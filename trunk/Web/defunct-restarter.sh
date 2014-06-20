@@ -8,5 +8,5 @@ while true ; do
         echo "There are $count processes. This is suspiciously high. I will restart the webserver."
         setsid ./restart.sh & disown
     fi
-    sleep 60
+    sleep 120
 done
