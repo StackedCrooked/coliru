@@ -34,7 +34,7 @@ echo "Starting new instance..."
 ./cleanup-cache.sh & disown
 
 # Start the defunct processes monitor
-setsid ./defunct-restarter.sh & disown
+./defunct-restarter.sh
 
 # Disable network access
 iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
