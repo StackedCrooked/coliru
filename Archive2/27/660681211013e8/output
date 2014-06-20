@@ -1,0 +1,56 @@
+main.cpp:3:18: error: use of undeclared identifier 'std'
+using bit_pair = std::bitset<2>;
+                 ^
+main.cpp:3:29: error: expected ';' after alias declaration
+using bit_pair = std::bitset<2>;
+                            ^
+                            ;
+main.cpp:5:1: error: unknown type name 'bit_pair'
+bit_pair bits_for(nucleobase x) {
+^
+main.cpp:7:36: error: use of undeclared identifier 'bit_pair'
+        case nucleobase::a: return bit_pair("00"); break;
+                                   ^
+main.cpp:8:36: error: use of undeclared identifier 'bit_pair'
+        case nucleobase::c: return bit_pair("10"); break;
+                                   ^
+main.cpp:9:36: error: use of undeclared identifier 'bit_pair'
+        case nucleobase::g: return bit_pair("01"); break;
+                                   ^
+main.cpp:10:36: error: use of undeclared identifier 'bit_pair'
+        case nucleobase::t: return bit_pair("11"); break;
+                                   ^
+main.cpp:14:27: error: unknown type name 'bit_pair'
+nucleobase nucleobase_for(bit_pair x) {
+                          ^
+main.cpp:27:5: error: use of undeclared identifier 'std'
+    std::array<std::bitset<2>, N> bits;
+    ^
+main.cpp:27:16: error: use of undeclared identifier 'std'
+    std::array<std::bitset<2>, N> bits;
+               ^
+main.cpp:27:30: error: expected expression
+    std::array<std::bitset<2>, N> bits;
+                             ^
+main.cpp:27:35: error: use of undeclared identifier 'bits'
+    std::array<std::bitset<2>, N> bits;
+                                  ^
+main.cpp:28:5: error: use of undeclared identifier 'bits'
+    bits[0] = bits_for(nucleobase::a);
+    ^
+main.cpp:29:5: error: use of undeclared identifier 'bits'
+    bits[1] = bits_for(nucleobase::c);
+    ^
+main.cpp:30:5: error: use of undeclared identifier 'std'
+    std::cout << (nucleobase_for(bits[0]) == nucleobase::a);
+    ^
+main.cpp:30:34: error: use of undeclared identifier 'bits'
+    std::cout << (nucleobase_for(bits[0]) == nucleobase::a);
+                                 ^
+main.cpp:31:5: error: use of undeclared identifier 'std'
+    std::cout << (nucleobase_for(bits[1]) == nucleobase::t);
+    ^
+main.cpp:31:34: error: use of undeclared identifier 'bits'
+    std::cout << (nucleobase_for(bits[1]) == nucleobase::t);
+                                 ^
+18 errors generated.
