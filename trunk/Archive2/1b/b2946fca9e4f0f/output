@@ -1,0 +1,34 @@
++ g++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread main.cpp
+In file included from /usr/local/include/c++/4.9.0/bits/stl_iterator.h:66:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67,
+                 from /usr/local/include/c++/4.9.0/memory:62,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h: In instantiation of 'class std::__ptrtr_pointer_to<int>':
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:132:12:   required from 'struct std::pointer_traits<int>'
+main.cpp:12:17:   required by substitution of 'template<class U> static typename std::pointer_traits<U>::element_type remove_pointer_<T>::test(int) [with U = int]'
+main.cpp:17:33:   required from 'class remove_pointer_<int>'
+main.cpp:21:57:   required by substitution of 'template<class T> using remove_pointer = typename remove_pointer_::type [with T = int]'
+main.cpp:25:51:   required from here
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:119:57: error: invalid use of incomplete type 'struct std::__ptrtr_elt_type<int, false>'
+       typedef typename __ptrtr_elt_type<_Ptr>::__type   __orig_type;
+                                                         ^
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:45:12: error: declaration of 'struct std::__ptrtr_elt_type<int, false>'
+     struct __ptrtr_elt_type;
+            ^
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:120:62: error: invalid use of incomplete type 'struct std::__ptrtr_elt_type<int, false>'
+       typedef typename __ptrtr_not_void<__orig_type>::__type __element_type;
+                                                              ^
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:45:12: error: declaration of 'struct std::__ptrtr_elt_type<int, false>'
+     struct __ptrtr_elt_type;
+            ^
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h: In instantiation of 'struct std::pointer_traits<int>':
+main.cpp:12:17:   required by substitution of 'template<class U> static typename std::pointer_traits<U>::element_type remove_pointer_<T>::test(int) [with U = int]'
+main.cpp:17:33:   required from 'class remove_pointer_<int>'
+main.cpp:21:57:   required by substitution of 'template<class T> using remove_pointer = typename remove_pointer_::type [with T = int]'
+main.cpp:25:51:   required from here
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:137:57: error: invalid use of incomplete type 'struct std::__ptrtr_elt_type<int, false>'
+       typedef typename __ptrtr_elt_type<_Ptr>::__type   element_type;
+                                                         ^
+/usr/local/include/c++/4.9.0/bits/ptr_traits.h:45:12: error: declaration of 'struct std::__ptrtr_elt_type<int, false>'
+     struct __ptrtr_elt_type;
+            ^
