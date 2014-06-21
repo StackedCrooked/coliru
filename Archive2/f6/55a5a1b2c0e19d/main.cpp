@@ -1,0 +1,1 @@
+for i in clang++ g++ g++-4.6 g++-4.7 g++-4.8 g++-4.9 ; do printf "\n\n$i => $(which $i) \nversion: \n$($i --version | while read line ; do echo "    $line" ; done)" ; done
