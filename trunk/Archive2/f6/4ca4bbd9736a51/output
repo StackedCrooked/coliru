@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:19:24: error: no matching function for call to 'A<S, int>::foo(S)'
+     A<S, int>().foo(S{});
+                        ^
+main.cpp:19:24: note: candidates are:
+main.cpp:6:10: note: void A<T, W>::foo(W) [with T = S; W = int]
+     void foo(W) { }
+          ^
+main.cpp:6:10: note:   no known conversion for argument 1 from 'S' to 'int'
+main.cpp:9:10: note: template<class X, typename std::enable_if<(! std::is_same<X, int>::value), void>::type* <anonymous> > void A<T, W>::foo(T, X*) [with X = X; typename std::enable_if<(! std::is_same<X, W>::value)>::type* <anonymous> = <enumerator>; T = S; W = int]
+     void foo(T, X* = 0) { }
+          ^
+main.cpp:9:10: note:   template argument deduction/substitution failed:
+main.cpp:8:68: error: could not convert template argument '0' to 'std::enable_if<true, void>::type* {aka void*}'
+       typename std::enable_if<!std::is_same<X, W>::value>::type* = 0>
+                                                                    ^
+main.cpp:13:10: note: template<class X, typename std::enable_if<((! std::is_same<X, S>::value) && (! std::is_same<X, int>::value)), void>::type* <anonymous> > void A<T, W>::foo(int, X*) [with X = X; typename std::enable_if<((! std::is_same<X, T>::value) && (! std::is_same<X, W>::value))>::type* <anonymous> = <enumerator>; T = S; W = int]
+     void foo(int, X* = 0) { }
+          ^
+main.cpp:13:10: note:   template argument deduction/substitution failed:
+main.cpp:19:24: note:   cannot convert 'S{}' (type 'S') to type 'int'
+     A<S, int>().foo(S{});
+                        ^
