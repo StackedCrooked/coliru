@@ -1,5 +1,42 @@
 module Standard {
     module Containers {
+        /*template(t) type Optional {
+        private:
+            storage := Standard.Memory.AlignedStorage(t);
+            present := false;
+            place(arg := t) {
+                t.emplace(reinterpret_cast(t.pointer, &storage), move(arg)); 
+                present = true;
+            }
+            destroy() {
+                if (present) {
+                    this->~type();
+                    present = false;
+                }
+            }
+        public:
+            type() {}
+            type(arg := t) { place(move(arg)); }
+            type(arg := Optional(t).lvalue) { if (arg.present) place(*arg); }
+            type(arg := Optional(t).rvalue) { if (arg.present) place(*move(arg)); }
+            type(arg := decltype(null)) {}
+
+            operator=(arg := decltype(null)) { destroy(); return this; }
+            operator=(arg := t) { destroy(); place(t); return this; }
+            operator=(arg := Optional(t)) {
+                destroy(); 
+                if (arg.present) 
+                    place(*move(arg));
+                return this;                     
+            }
+
+            operator*(this := Optional(t).lvalue) { return *reinterpret_cast(t.pointer, &storage); }
+            operator*(this := Optional(t).rvalue) { return move(*reinterpret_cast(t.pointer, &storage)); }
+
+            operator?() { return present; }
+
+            ~type() { destroy(); }
+        }*/
         using Optional := cpp("<WideLibrary/test.h>").Wide.Util.optional;
         using None := cpp("<WideLibrary/test.h>").Wide.Util.none;
     }
