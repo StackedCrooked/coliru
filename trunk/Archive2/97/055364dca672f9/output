@@ -1,0 +1,12 @@
+main.cpp:7:43: error: 'bind<R ...>' in namespace 'std' does not name a type
+ template<typename... R> using bind = std::bind<R...>;   // error
+                                           ^
+main.cpp: In function 'int main()':
+main.cpp:22:10: error: 'bind' is not a member of 'my_space'
+     fn = my_space::bind(foo);
+          ^
+main.cpp:22:10: note: suggested alternative:
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.0/functional:1650:5: note:   'std::bind'
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
