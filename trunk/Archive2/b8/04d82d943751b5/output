@@ -1,0 +1,28 @@
+main.cpp: In function 'int main()':
+main.cpp:10:58: error: parameter declared 'auto'
+     std::for_each(temp.begin(),temp.end(),[](const auto &value){
+                                                          ^
+main.cpp: In lambda function:
+main.cpp:11:22: error: 'value' was not declared in this scope
+         std::cout << value << std::endl;
+                      ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of '_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_List_iterator<std::basic_string<char> >; _Funct = main()::__lambda0]':
+main.cpp:12:6:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:4440:14: error: no match for call to '(main()::__lambda0) (std::basic_string<char>&)'
+  __f(*__first);
+              ^
+main.cpp:10:44: note: candidates are:
+     std::for_each(temp.begin(),temp.end(),[](const auto &value){
+                                            ^
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/stl_algo.h:4440:14: note: void (*)() <conversion>
+  __f(*__first);
+              ^
+/usr/include/c++/4.8/bits/stl_algo.h:4440:14: note:   candidate expects 1 argument, 2 provided
+main.cpp:10:63: note: main()::__lambda0
+     std::for_each(temp.begin(),temp.end(),[](const auto &value){
+                                                               ^
+main.cpp:10:63: note:   candidate expects 0 arguments, 1 provided
