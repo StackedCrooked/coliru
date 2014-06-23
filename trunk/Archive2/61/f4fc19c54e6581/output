@@ -1,0 +1,13 @@
+main.cpp:17:15: warning: field 'array' will be initialized after base 'Base' [-Wreorder]
+    Child() : array(new int[10]), Base(array) {}
+              ^
+main.cpp:17:40: warning: field 'array' is uninitialized when used here [-Wuninitialized]
+    Child() : array(new int[10]), Base(array) {}
+                                       ^
+main.cpp:20:13: error: use of undeclared identifier 'cout'
+            cout << array[i] << endl;
+            ^
+main.cpp:20:33: error: use of undeclared identifier 'endl'
+            cout << array[i] << endl;
+                                ^
+2 warnings and 2 errors generated.
