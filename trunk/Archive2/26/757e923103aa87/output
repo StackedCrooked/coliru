@@ -1,0 +1,5 @@
+void test(int)
+void test(int, PrimeFactor<2, B>) [B = true]
+void test(int, PrimeFactor<N, B>, Tail &&...) [N = 3, B = true, Tail = <PrimeFactor<2, true> &>]
+void test(int, PrimeFactor<N, B>, Tail &&...) [N = 5, B = true, Tail = <PrimeFactor<3, true> &, PrimeFactor<2, true> &>]
+void test(int, PrimeFactor<N, B>, Tail &&...) [N = 7, B = false, Tail = <PrimeFactor<5, true> &, PrimeFactor<3, true> &, PrimeFactor<2, true> &>]
