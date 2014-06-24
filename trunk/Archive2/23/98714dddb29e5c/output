@@ -1,0 +1,31 @@
+main.cpp: In member function 'void C<T>::f()':
+main.cpp:25:11: error: 'X' was not declared in this scope
+         T<X> b;
+           ^
+main.cpp:25:12: error: template argument 1 is invalid
+         T<X> b;
+            ^
+main.cpp:25:15: error: invalid type in declaration before ';' token
+         T<X> b;
+               ^
+main.cpp:26:13: error: the value of 'X' is not usable in a constant expression
+         b.A<X>::f();
+             ^
+main.cpp:25:11: note: 'X' was not declared 'constexpr'
+         T<X> b;
+           ^
+main.cpp:26:14: error: type/value mismatch at argument 1 in template parameter list for 'template<class T> class A'
+         b.A<X>::f();
+              ^
+main.cpp:26:14: error:   expected a type, got 'X'
+main.cpp: In function 'int main()':
+main.cpp:32:12: error: type/value mismatch at argument 1 in template parameter list for 'template<template<class X> class T> class C'
+     C<B<int>> c;
+            ^
+main.cpp:32:12: error:   expected a class template, got 'B<int>'
+main.cpp:32:16: error: invalid type in declaration before ';' token
+     C<B<int>> c;
+                ^
+main.cpp:33:7: error: request for member 'f' in 'c', which is of non-class type 'int'
+     c.f();
+       ^
