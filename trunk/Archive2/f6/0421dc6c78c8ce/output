@@ -1,0 +1,20 @@
+main.cpp:9:10: error: 'aligned_storage_t' in namespace 'std' does not name a template type
+     std::aligned_storage_t<sizeof(T), alignof(T)> data[N];
+          ^
+main.cpp: In member function 'void static_vector<T, N>::emplace_back(Args&& ...)':
+main.cpp:16:13: error: 'data' was not declared in this scope
+         new(data+m_size) T(std::forward<Args>(args)...);
+             ^
+main.cpp: In member function 'const T& static_vector<T, N>::operator[](size_t) const':
+main.cpp:24:65: error: 'data' was not declared in this scope
+         return *static_cast<const T*>(static_cast<const void*>(&data[pos]));
+                                                                 ^
+main.cpp: In destructor 'static_vector<T, N>::~static_vector()':
+main.cpp:30:60: error: 'data' was not declared in this scope
+             static_cast<const T*>(static_cast<const void*>(data+pos))->~T();
+                                                            ^
+main.cpp: In instantiation of 'const T& static_vector<T, N>::operator[](size_t) const [with T = std::basic_string<char>; long unsigned int N = 10ul; size_t = long unsigned int]':
+main.cpp:40:22:   required from here
+main.cpp:25:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
