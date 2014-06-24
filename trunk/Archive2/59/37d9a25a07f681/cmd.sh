@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -O2 main.cpp && ./a.out
