@@ -1,0 +1,1 @@
+g++ -O2 -Wall -pedantic -pthread main.cpp -lboost_log -lboost_log_setup -lboost_log -lboost_filesystem -lboost_date_time -lboost_thread -lboost_system && ./a.out
