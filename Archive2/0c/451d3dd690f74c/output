@@ -1,0 +1,19 @@
+# 1 "main.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "main.cpp"
+# 24 "main.cpp"
+struct A{};
+struct B{A a;};
+
+int main()
+{
+    B b;
+
+    using t = addRefU<decltype(b), decltype(b.a)>;
+
+    auto &&k = static_cast<VARARG(REF, b, a)>(b.a);
+    auto &&k1 = static_cast<addRefU<decltype(b), decltype(b.a)> >(b.a);
+
+    return 0;
+}
