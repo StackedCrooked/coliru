@@ -1,0 +1,6 @@
+main.cpp:4:65: error: 'constexpr' needed for in-class initialization of static data member 'const void* C::noop1' of non-integral type [-fpermissive]
+     static const void* noop1 = reinterpret_cast<const void*>(0x1);
+                                                                 ^
+main.cpp:5:70: error: invalid static_cast from type 'int' to type 'const void*'
+     static constexpr const void* noop2 = static_cast<const void*>(0x1);
+                                                                      ^
