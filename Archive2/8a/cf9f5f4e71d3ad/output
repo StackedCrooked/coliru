@@ -1,0 +1,23 @@
++ g++-4.9 -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+main.cpp:6:1: error: static assertion failed: const int(&)[10]
+ static_assert(std::is_same<decltype((const int[10]){ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }),const int(&)[10]>::value, "const int(&)[10]");
+ ^
++ g++-4.8 -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+main.cpp:5:1: error: static assertion failed: const int[10]
+ static_assert(std::is_same<decltype((const int[10]){ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }),const int[10]>::value, "const int[10]");
+ ^
+main.cpp:9:1: error: static assertion failed: foo{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }
+ static_assert(std::is_same<decltype(foo{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }),const int[10]>::value, "foo{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }");
+ ^
+main.cpp:13:1: error: static assertion failed: Identity<const int[10]>{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }
+ static_assert(std::is_same<decltype(Identity<const int[10]>{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }),const int[10]>::value, "Identity<const int[10]>{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }");
+ ^
++ g++-4.7 -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+main.cpp:5:1: error: static assertion failed: const int[10]
+main.cpp:9:1: error: static assertion failed: foo{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }
+main.cpp:13:1: error: static assertion failed: Identity<const int[10]>{ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }
++ clang++ -std=c++11 -O3 -Wall -Wextra -pthread main.cpp
+main.cpp:6:1: error: static_assert failed "const int(&)[10]"
+static_assert(std::is_same<decltype((const int[10]){ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }),const int(&)[10]>::value, "const int(&)[10]");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
