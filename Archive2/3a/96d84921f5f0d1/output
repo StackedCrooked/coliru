@@ -1,0 +1,24 @@
+main.cpp: In function 'int main()':
+main.cpp:33:11: error: no matching function for call to 'Base::foo(NoEnum&)'
+   b.foo(ne);
+           ^
+main.cpp:33:11: note: candidates are:
+main.cpp:10:16: note: virtual void Base::foo(int&)
+   virtual void foo(int&) { cout << "int\n"; }
+                ^
+main.cpp:10:16: note:   no known conversion for argument 1 from 'NoEnum' to 'int&'
+main.cpp:12:16: note: virtual void Base::foo(bool&)
+   virtual void foo(bool&) { cout << "bool\n"; }
+                ^
+main.cpp:12:16: note:   no known conversion for argument 1 from 'NoEnum' to 'bool&'
+main.cpp:13:16: note: virtual void Base::foo(std::string&)
+   virtual void foo(string&) { cout << "string\n"; }
+                ^
+main.cpp:13:16: note:   no known conversion for argument 1 from 'NoEnum' to 'std::string& {aka std::basic_string<char>&}'
+main.cpp:16:8: note: template<class E> void Base::foo(E&, typename std::enable_if<std::is_enum<_Tp>::value>::type*)
+   void foo(E& e, typename std::enable_if< std::is_enum<E>::value >::type *ignore=0) {
+        ^
+main.cpp:16:8: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class E> void Base::foo(E&, typename std::enable_if<std::is_enum<_Tp>::value>::type*) [with E = NoEnum]':
+main.cpp:33:11:   required from here
+main.cpp:16:8: error: no type named 'type' in 'struct std::enable_if<false, void>'
