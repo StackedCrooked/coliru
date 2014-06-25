@@ -1,0 +1,13 @@
+main.cpp:21:12: warning: 'Derived2::user_defined_function' hides overloaded virtual function [-Woverloaded-virtual]
+       int user_defined_function(float, int, double);
+           ^
+main.cpp:8:18: note: hidden overloaded virtual function 'Base<int (float, int, int)>::user_defined_function' declared here: type mismatch at 3rd parameter ('int' vs 'double')
+       virtual R user_defined_function(Args...) = 0;
+                 ^
+main.cpp:27:18: error: variable type 'Derived2' is an abstract class
+        Derived2 d2;
+                 ^
+main.cpp:8:18: note: unimplemented pure virtual method 'user_defined_function' in 'Derived2'
+       virtual R user_defined_function(Args...) = 0;
+                 ^
+1 warning and 1 error generated.
