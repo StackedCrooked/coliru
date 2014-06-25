@@ -1,0 +1,14 @@
++ clang++ -std=c++1y -O0 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter main.cpp
+main.cpp:6:12: error: invalid operands to binary expression ('foo' and 'foo')
+{ return x < y ? x : y; }
+         ~ ^ ~
+main.cpp:18:4: note: in instantiation of function template specialization 'min1<foo, foo>' requested here
+   min1(foo{}, foo{}); // error - invalid operands to <
+   ^
+main.cpp:21:4: error: no matching function for call to 'min2'
+   min2(foo{}, foo{}); // no matching function min2
+   ^~~~
+main.cpp:9:43: note: candidate template ignored: disabled by 'enable_if' [with T = foo, U = foo]
+          class = typename std::enable_if<std::is_integral<T>::value &&
+                                          ^
+2 errors generated.
