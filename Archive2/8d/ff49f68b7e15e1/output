@@ -1,0 +1,133 @@
+main.cpp: In function 'int main()':
+main.cpp:28:18: error: expected type-specifier before 'VARARG'
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                  ^
+main.cpp:32:40: note: in expansion of macro 'REF'
+ #define CAST_REF2(val, p1) static_cast<REF(val, p1)>(val.p1)
+                                        ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:28:18: error: expected '>' before 'VARARG'
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                  ^
+main.cpp:32:40: note: in expansion of macro 'REF'
+ #define CAST_REF2(val, p1) static_cast<REF(val, p1)>(val.p1)
+                                        ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:28:18: error: expected '(' before 'VARARG'
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                  ^
+main.cpp:32:40: note: in expansion of macro 'REF'
+ #define CAST_REF2(val, p1) static_cast<REF(val, p1)>(val.p1)
+                                        ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:28:25: error: 'REF' was not declared in this scope
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                         ^
+main.cpp:32:40: note: in expansion of macro 'REF'
+ #define CAST_REF2(val, p1) static_cast<REF(val, p1)>(val.p1)
+                                        ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:49:29: error: 'a' was not declared in this scope
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                             ^
+main.cpp:28:30: note: in definition of macro 'REF'
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                              ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:28:41: error: 'VARARG' was not declared in this scope
+ #define REF(...) VARARG(REF, __VA_ARGS__)
+                                         ^
+main.cpp:32:40: note: in expansion of macro 'REF'
+ #define CAST_REF2(val, p1) static_cast<REF(val, p1)>(val.p1)
+                                        ^
+main.cpp:19:40: note: in expansion of macro 'CAST_REF2'
+ #define VARARG_IMPL2(base, count, ...) base##count(__VA_ARGS__)
+                                        ^
+main.cpp:20:39: note: in expansion of macro 'VARARG_IMPL2'
+ #define VARARG_IMPL(base, count, ...) VARARG_IMPL2(base, count, __VA_ARGS__)
+                                       ^
+main.cpp:21:27: note: in expansion of macro 'VARARG_IMPL'
+ #define VARARG(base, ...) VARARG_IMPL(base, VA_NARGS(__VA_ARGS__), __VA_ARGS__)
+                           ^
+main.cpp:36:23: note: in expansion of macro 'VARARG'
+ #define CAST_REF(...) VARARG(CAST_REF, __VA_ARGS__)
+                       ^
+main.cpp:49:17: note: in expansion of macro 'CAST_REF'
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                 ^
+main.cpp:49:31: error: expected ')' before ';' token
+     auto &&k1 = CAST_REF(b, a); // NOT work
+                               ^
+main.cpp:48:12: warning: unused variable 'k' [-Wunused-variable]
+     auto &&k = CAST_REF2(b, a); // work
+            ^
