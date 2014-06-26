@@ -1,0 +1,35 @@
+main.cpp:8:36: error: 'std::index_sequence' has not been declared
+ auto a2t_impl(const Array& a, std::index_sequence<I...>)
+                                    ^
+main.cpp:8:50: error: expected ',' or '...' before '<' token
+ auto a2t_impl(const Array& a, std::index_sequence<I...>)
+                                                  ^
+main.cpp:14:56: error: expected type-specifier
+ template<typename T, std::size_t N, typename Indices = std::make_index_sequence<N>>
+                                                        ^
+main.cpp:14:56: error: expected '>'
+main.cpp:26:28: error: 'std::index_sequence' has not been declared
+                       std::index_sequence<Is...>)
+                            ^
+main.cpp:26:42: error: expected ',' or '...' before '<' token
+                       std::index_sequence<Is...>)
+                                          ^
+main.cpp: In function 'std::basic_ostream<_CharT, _Traits>& operator<<(std::basic_ostream<_CharT, _Traits>&, const std::tuple<_Tail ...>&)':
+main.cpp:37:29: error: 'index_sequence_for' is not a member of 'std'
+     print_tuple_impl(os, t, std::index_sequence_for<Args...>{});
+                             ^
+main.cpp:37:57: error: expected primary-expression before '...' token
+     print_tuple_impl(os, t, std::index_sequence_for<Args...>{});
+                                                         ^
+main.cpp: In function 'int main()':
+main.cpp:46:27: error: no matching function for call to 'a2t(std::array<int, 4ul>&)'
+     auto tuple = a2t(array);
+                           ^
+main.cpp:46:27: note: candidate is:
+main.cpp:15:6: note: template<class T, long unsigned int N, class Indices> decltype (a2t_impl(a, Indices())) a2t(const std::array<_Tp, _Nm>&)
+ auto a2t(const std::array<T, N>& a)
+      ^
+main.cpp:15:6: note:   template argument deduction/substitution failed:
+main.cpp:48:61: error: template argument 1 is invalid
+                                std::tuple<int, int, int, int>>::value, "");
+                                                             ^
