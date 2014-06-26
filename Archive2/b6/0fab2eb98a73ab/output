@@ -1,0 +1,40 @@
+1) "Base = Derived"
+Base::operator=(Base)
+
+2) "Derived = Derived"
+Derived::operator=(Derived)
+
+3) "Base&(Derived) = Derived"
+Base::operator=(Base)
+
+---------------------------------------
+4) "Base&(SubDerived) = Derived"
+SubDerived::operator=(Base)
+
+5) "Base&(SubDerived) = SubDerived"
+SubDerived::operator=(Base)
+
+---------------------------------------
+7) "Derived&(SubDerived) = Derived"
+Derived::operator=(Derived)
+
+8) "Derived&(SubDerived) = SubDerived"
+Derived::operator=(Derived)
+
+---------------------------------------
+9) "SubDerived = SubDerived"
+SubDerived::operator=(SubDerived)
+
+10)"SubDerived = Derived"
+SubDerived::operator=(Derived)
+
+---------------------------------------
+11)"SubDerived&(Final) = Base"
+Final::operator=(Base)
+
+12)"Derived&(Final) = Derived"
+Derived::operator=(Derived)
+
+13)"SubDerived&(Final) = SubDerived"
+SubDerived::operator=(SubDerived)
+
