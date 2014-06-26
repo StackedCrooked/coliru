@@ -1,0 +1,63 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'void produce()':
+main.cpp:10:29: error: 'BUFFER_SIZE' was not declared in this scope
+   for (auto i = 0u; i < 2 * BUFFER_SIZE; ++i) {
+                             ^
+main.cpp:11:41: error: 'mu' was not declared in this scope
+     std::unique_lock<std::mutex> locker(mu);
+                                         ^
+main.cpp:12:5: error: 'full' was not declared in this scope
+     full.wait(locker, [] {return vec.size() < BUFFER_SIZE;});
+     ^
+main.cpp: In lambda function:
+main.cpp:12:34: error: 'vec' was not declared in this scope
+     full.wait(locker, [] {return vec.size() < BUFFER_SIZE;});
+                                  ^
+main.cpp:12:47: error: 'BUFFER_SIZE' is not captured
+     full.wait(locker, [] {return vec.size() < BUFFER_SIZE;});
+                                               ^
+main.cpp: In function 'void produce()':
+main.cpp:13:22: error: 'vec' was not declared in this scope
+     auto was_empty = vec.empty();
+                      ^
+main.cpp:18:9: error: 'empty' was not declared in this scope
+         empty.notify_one();
+         ^
+main.cpp:21:33: error: 'slp' was not declared in this scope
+     std::this_thread::sleep_for(slp);
+                                 ^
+main.cpp: In function 'void consume()':
+main.cpp:28:41: error: 'mu' was not declared in this scope
+     std::unique_lock<std::mutex> locker(mu);
+                                         ^
+main.cpp:29:12: error: 'vec' was not declared in this scope
+     while (vec.empty()) {
+            ^
+main.cpp:30:11: error: 'done' was not declared in this scope
+       if (done) {
+           ^
+main.cpp:33:7: error: 'empty' was not declared in this scope
+       empty.wait(locker);
+       ^
+main.cpp:36:18: error: 'vec' was not declared in this scope
+     auto value = vec.back();
+                  ^
+main.cpp:40:5: error: 'full' was not declared in this scope
+     full.notify_one();
+     ^
+main.cpp: In function 'int main()':
+main.cpp:46:3: error: 'vec' was not declared in this scope
+   vec.reserve(BUFFER_SIZE*2);
+   ^
+main.cpp:46:15: error: 'BUFFER_SIZE' was not declared in this scope
+   vec.reserve(BUFFER_SIZE*2);
+               ^
+main.cpp:65:38: error: 'mu' was not declared in this scope
+     std::lock_guard<std::mutex> lock(mu);
+                                      ^
+main.cpp:66:5: error: 'done' was not declared in this scope
+     done = true;
+     ^
+main.cpp:68:3: error: 'empty' was not declared in this scope
+   empty.notify_one();
+   ^
