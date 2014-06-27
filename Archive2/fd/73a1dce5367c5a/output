@@ -1,0 +1,10 @@
+main.cpp:51:59: error: non-const lvalue reference to type 'B' cannot bind to a value of unrelated type 'decltype(data)' (aka 'A')
+                    [&](decltype(data)& data){ return fn1(data); },
+                                                          ^~~~
+main.cpp:58:21: note: in instantiation of function template specialization 'Test::go<false>' requested here
+    Test().template go<false>();
+                    ^
+main.cpp:28:12: note: passing argument to parameter 'a' here
+int fn1(B &a){
+           ^
+1 error generated.
