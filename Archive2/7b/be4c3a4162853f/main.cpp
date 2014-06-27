@@ -1,0 +1,2 @@
+#include <string>
+string s;
