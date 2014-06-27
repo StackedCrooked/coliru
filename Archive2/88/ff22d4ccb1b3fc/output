@@ -1,0 +1,24 @@
+main.cpp:2:6: error: redefinition of 'f'
+void f(int []) {}
+     ^
+main.cpp:1:6: note: previous definition is here
+void f(int *) {}
+     ^
+1 error generated.
+TranslationUnitDecl 0x2dd4f90 <<invalid sloc>>
+|-TypedefDecl 0x2dd54d0 <<invalid sloc>> __int128_t '__int128'
+|-TypedefDecl 0x2dd5530 <<invalid sloc>> __uint128_t 'unsigned __int128'
+|-TypedefDecl 0x2dd58f0 <<invalid sloc>> __builtin_va_list '__va_list_tag [1]'
+|-FunctionDecl 0x2dd5a40 <main.cpp:1:1, col:16> f 'void (int *)'
+| |-ParmVarDecl 0x2dd5980 <col:8, col:13> 'int *'
+| `-CompoundStmt 0x2dd5ae8 <col:15, col:16>
+|-FunctionDecl 0x2e1e020 prev 0x2dd5a40 <line:2:1, col:17> f 'void (int *)'
+| |-ParmVarDecl 0x2dd5b80 <col:8, col:13> 'int *':'int *'
+| `-CompoundStmt 0x2e1e0c8 <col:16, col:17> invalid
+`-FunctionDecl 0x2e1e130 <line:4:1, line:6:1> main 'int (void)'
+  `-CompoundStmt 0x2e1e378 <line:4:12, line:6:1>
+    `-CallExpr 0x2e1e330 <line:5:3, col:12> 'void'
+      |-ImplicitCastExpr 0x2e1e318 <col:3> 'void (*)(int *)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x2e1e298 <col:3> 'void (int *)' lvalue Function 0x2e1e020 'f' 'void (int *)'
+      `-ImplicitCastExpr 0x2e1e360 <col:5> 'int *':'int *' <NullToPointer>
+        `-CXXNullPtrLiteralExpr 0x2e1e280 <col:5> 'nullptr_t'
