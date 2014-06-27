@@ -1,0 +1,10 @@
+main.cpp:72:37: error: non-const lvalue reference to type 'B' cannot bind to a value of unrelated type 'A'
+                    [&]{ return fn1(data); },
+                                    ^~~~
+main.cpp:79:21: note: in instantiation of function template specialization 'Test::go<false>' requested here
+    Test().template go<false>();
+                    ^
+main.cpp:50:16: note: passing argument to parameter 'a' here
+    int fn1(B &a){
+               ^
+1 error generated.
