@@ -1,0 +1,13 @@
+main.cpp:18:7: error: no matching constructor for initialization of 'B &'
+   B& b_copy = {A{}};
+      ^        ~~~~~
+main.cpp:4:5: note: candidate constructor not viable: no known conversion from 'A' to 'int' for 1st argument
+    B(int){ std::cout << "B constructor\n";}
+    ^
+main.cpp:6:5: note: candidate constructor not viable: no known conversion from 'A' to 'const B &' for 1st argument
+    B(const B&) { std::cout << "B copy contructor \n";}
+    ^
+main.cpp:7:5: note: candidate constructor not viable: no known conversion from 'A' to 'B &&' for 1st argument
+    B(B&&) { std::cout << "B move contructor \n";}
+    ^
+1 error generated.
