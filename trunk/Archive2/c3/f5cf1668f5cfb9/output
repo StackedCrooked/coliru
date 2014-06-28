@@ -1,0 +1,61 @@
+main.cpp:1:1: error: unknown type name 'Seems'
+Seems pretty straightforwared.  With the macro variant, there's two structures. if the first template parameter is `true`, then that code gets instantiated, otherwise the other gets instantiated.  The other branch of code is never instantiated, so the problems don't occur.
+^
+main.cpp:1:13: error: expected ';' after top level declarator
+Seems pretty straightforwared.  With the macro variant, there's two structures. if the first template parameter is `true`, then that code gets instantiated, otherwise the other gets instantiated.  The other branch of code is never instantiated, so the problems don't occur.
+            ^
+            ;
+main.cpp:1:266: error: invalid suffix on literal; C++11 requires a space between literal and identifier [-Wreserved-user-defined-literal]
+Seems pretty straightforwared.  With the macro variant, there's two structures. if the first template parameter is `true`, then that code gets instantiated, otherwise the other gets instantiated.  The other branch of code is never instantiated, so the problems don't occur.
+                                                                                                                                                                                                                                                                         ^
+                                                                                                                                                                                                                                                                          
+main.cpp:22:21: error: use of undeclared identifier 'if_else'
+        auto data = if_else<do_it>(
+                    ^
+main.cpp:23:32: error: use of undeclared identifier 'B'
+                    []{ return B(); },
+                               ^
+main.cpp:24:32: error: use of undeclared identifier 'A'
+                    []{ return A(); }
+                               ^
+main.cpp:26:9: error: use of undeclared identifier 'std'
+        std::cout << std::is_same<decltype(data), A>::value;
+        ^
+main.cpp:26:22: error: use of undeclared identifier 'std'
+        std::cout << std::is_same<decltype(data), A>::value;
+                     ^
+main.cpp:26:49: error: expected '(' for function-style cast or type construction
+        std::cout << std::is_same<decltype(data), A>::value;
+                                  ~~~~~~~~~~~~~~^
+main.cpp:26:51: error: use of undeclared identifier 'A'
+        std::cout << std::is_same<decltype(data), A>::value;
+                                                  ^
+main.cpp:26:55: error: no member named 'value' in the global namespace
+        std::cout << std::is_same<decltype(data), A>::value;
+                                                    ~~^
+main.cpp:27:9: error: unknown type name 'lambda1'
+        lambda1 lam1(this,data);
+        ^
+main.cpp:27:22: error: invalid use of 'this' outside of a non-static member function
+        lambda1 lam1(this,data);
+                     ^
+main.cpp:28:9: error: unknown type name 'lambda2'
+        lambda2 lam2(this,data);
+        ^
+main.cpp:28:22: error: invalid use of 'this' outside of a non-static member function
+        lambda2 lam2(this,data);
+                     ^
+main.cpp:30:9: error: use of undeclared identifier 'std'
+        std::cout << if_else<do_it>(lam1, lam2);
+        ^
+main.cpp:30:22: error: use of undeclared identifier 'if_else'
+        std::cout << if_else<do_it>(lam1, lam2);
+                     ^
+main.cpp:33:1: error: unknown type name 'So'
+So this means when `go<false>` is instantiated, `data` is of type `B`, and when it generates the code for the `lam1` and `lam2` lambdas, it fails to create the `lambda1::operator()` because it can't pass a `B` to a function expecting an `A`.  It can't pass these objects to the `if_else` functions, because they can't be instantiated!
+^
+main.cpp:33:4: error: expected unqualified-id
+So this means when `go<false>` is instantiated, `data` is of type `B`, and when it generates the code for the `lam1` and `lam2` lambdas, it fails to create the `lambda1::operator()` because it can't pass a `B` to a function expecting an `A`.  It can't pass these objects to the `if_else` functions, because they can't be instantiated!
+   ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
