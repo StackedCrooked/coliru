@@ -1,0 +1,16 @@
+main.cpp: In function 'int main()':
+main.cpp:39:47: error: no matching function for call to 'set_function(const char [11], <unresolved overloaded function type>)'
+     set_function<int>("overloaded", overloaded);
+                                               ^
+main.cpp:39:47: note: candidates are:
+main.cpp:22:6: note: template<class T, class ... Args> void set_function(T&&, Args&& ...)
+ void set_function(T&& key, Args&&... args) {
+      ^
+main.cpp:22:6: note:   template argument deduction/substitution failed:
+main.cpp:39:47: note:   cannot convert '"overloaded"' (type 'const char [11]') to type 'int&&'
+     set_function<int>("overloaded", overloaded);
+                                               ^
+main.cpp:28:6: note: void set_function(T&&, Args&& ...) [with Fx = {int}; T = const char (&)[11]; Args = {}]
+ void set_function(T&& key, Args&&... args) {
+      ^
+main.cpp:28:6: note:   candidate expects 1 argument, 2 provided
