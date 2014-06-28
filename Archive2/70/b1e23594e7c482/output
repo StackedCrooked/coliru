@@ -1,0 +1,54 @@
+main.cpp:34:5: error: ambiguous partial specializations of 'index_type_<32, void>'
+    index_type_<32>::type index1;
+    ^
+main.cpp:9:8: note: partial specialization matches [with N = 32]
+struct index_type_<N, typename std::enable_if<N <= 0xFF>::type>
+       ^
+main.cpp:15:8: note: partial specialization matches [with N = 32]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFF>::type>
+       ^
+main.cpp:21:8: note: partial specialization matches [with N = 32]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFF>::type>
+       ^
+main.cpp:27:8: note: partial specialization matches [with N = 32]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFFFFFFFFFF>::type>
+       ^
+main.cpp:35:5: error: ambiguous partial specializations of 'index_type_<232122, void>'
+    index_type_<232122>::type index2;
+    ^
+main.cpp:21:8: note: partial specialization matches [with N = 232122]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFF>::type>
+       ^
+main.cpp:27:8: note: partial specialization matches [with N = 232122]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFFFFFFFFFF>::type>
+       ^
+main.cpp:35:31: error: use of undeclared identifier 'index2'; did you mean 'index1'?
+    index_type_<232122>::type index2;
+                              ^~~~~~
+                              index1
+main.cpp:34:27: note: 'index1' declared here
+    index_type_<32>::type index1;
+                          ^
+main.cpp:36:5: error: ambiguous partial specializations of 'index_type_<992532523, void>'
+    index_type_<992532523>::type index3;
+    ^
+main.cpp:21:8: note: partial specialization matches [with N = 992532523]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFF>::type>
+       ^
+main.cpp:27:8: note: partial specialization matches [with N = 992532523]
+struct index_type_<N, typename std::enable_if<N <= 0xFFFFFFFFFFFFFFFF>::type>
+       ^
+main.cpp:36:34: error: use of undeclared identifier 'index3'; did you mean 'index1'?
+    index_type_<992532523>::type index3;
+                                 ^~~~~~
+                                 index1
+main.cpp:34:27: note: 'index1' declared here
+    index_type_<32>::type index1;
+                          ^
+main.cpp:40:38: error: use of undeclared identifier 'index2'
+    std::cout << "index2:" << sizeof(index2) << std::endl;
+                                     ^
+main.cpp:41:38: error: use of undeclared identifier 'index3'
+    std::cout << "index3:" << sizeof(index3) << std::endl;
+                                     ^
+7 errors generated.
