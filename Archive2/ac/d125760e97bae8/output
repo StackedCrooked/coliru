@@ -1,0 +1,58 @@
+main.cpp: In function 'int main()':
+main.cpp:58:22: error: no matching function for call to 'set(Y)'
+     set<int, int>(Y{});
+                      ^
+main.cpp:58:22: note: candidates are:
+main.cpp:8:6: note: template<class ... Args, class R> void set(R (*)(Args ...))
+ void set(R fun_ptr(Args...)){}
+      ^
+main.cpp:8:6: note:   template argument deduction/substitution failed:
+main.cpp:58:22: note:   mismatched types 'R (*)(Args ...)' and 'Y'
+     set<int, int>(Y{});
+                      ^
+main.cpp:11:6: note: template<class Sig> void set(Sig*)
+ void set(Sig* fun_ptr){}
+      ^
+main.cpp:11:6: note:   template argument deduction/substitution failed:
+main.cpp:58:22: error: wrong number of template arguments (2, should be 1)
+     set<int, int>(Y{});
+                      ^
+main.cpp:14:6: note: template<class ... Args, class R, class C> void set(R (C::*)(Args ...))
+ void set(R (C::*mem_ptr)(Args...)){}
+      ^
+main.cpp:14:6: note:   template argument deduction/substitution failed:
+main.cpp:58:22: note:   mismatched types 'R (C::*)(Args ...)' and 'Y'
+     set<int, int>(Y{});
+                      ^
+main.cpp:17:6: note: template<class Sig, class C> void set(Sig C::*)
+ void set(Sig C::* mem_ptr){}
+      ^
+main.cpp:17:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Sig, class C> void set(Sig C::*) [with Sig = int; C = int]':
+main.cpp:58:22:   required from here
+main.cpp:17:6: error: creating pointer to member of non-class type 'int'
+main.cpp:30:6: note: template<class Sig, class F> decltype (set_i(type<Sig>{}, f)) set(F)
+ auto set(F f)
+      ^
+main.cpp:30:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Sig, class F> decltype (set_i(type<Sig>{}, f)) set(F) [with Sig = int; F = int]':
+main.cpp:58:22:   required from here
+main.cpp:31:37: error: no matching function for call to 'set_i(type<int>, int&)'
+     -> decltype(set_i(type<Sig>{}, f))
+                                     ^
+main.cpp:31:37: note: candidates are:
+main.cpp:23:6: note: template<class ... Args, class F, class> void set_i(type<Args ...>, F)
+ void set_i(type<Args...>, F f){}
+      ^
+main.cpp:23:6: note:   template argument deduction/substitution failed:
+main.cpp:22:5: error: no type named 'type' in 'class std::result_of<int&(int)>'
+     class = typename std::result_of<F&(Args...)>::type> // SFINAE
+     ^
+main.cpp:27:6: note: template<class R, class ... Args, class F, class E> void set_i(type<R(Args ...)>, F)
+ void set_i(type<R(Args...)>, F f){}
+      ^
+main.cpp:27:6: note:   template argument deduction/substitution failed:
+main.cpp:31:37: note:   mismatched types 'R(Args ...)' and 'int'
+     -> decltype(set_i(type<Sig>{}, f))
+                                     ^
+main.cpp:31:37: note:   'type<int>' is not derived from 'type<R(Args ...)>'
