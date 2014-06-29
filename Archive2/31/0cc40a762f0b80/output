@@ -1,0 +1,17 @@
+main.cpp: In function 'int main()':
+main.cpp:9:9: error: no matching function for call to 'g(int)'
+     g(42);
+         ^
+main.cpp:9:9: note: candidate is:
+main.cpp:5:6: note: template<class T> decltype (f(v)) g(T)
+ auto g(T v) -> decltype(f(v)){}
+      ^
+main.cpp:5:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> decltype (f(v)) g(T) [with T = int]':
+main.cpp:9:9:   required from here
+main.cpp:5:28: error: use of deleted function 'void f(int)'
+ auto g(T v) -> decltype(f(v)){}
+                            ^
+main.cpp:1:6: note: declared here
+ void f(int) = delete;
+      ^
