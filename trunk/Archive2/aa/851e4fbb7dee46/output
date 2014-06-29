@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:21:39: error: no matching function for call to 'timer(main()::<lambda()>)'
+     std::cout << timer([](){return 5;});
+                                       ^
+main.cpp:21:39: note: candidate is:
+main.cpp:9:6: note: template<class R, class ... Args> std::pair<double, R> timer(R (*)(Args ...), Args ...)
+ auto timer(R (*fn)(Args...), Args... args)
+      ^
+main.cpp:9:6: note:   template argument deduction/substitution failed:
+main.cpp:21:39: note:   mismatched types 'R (*)(Args ...)' and 'main()::<lambda()>'
+     std::cout << timer([](){return 5;});
+                                       ^
+main.cpp:21:40: error: expected '}' at end of input
+     std::cout << timer([](){return 5;});
+                                        ^
