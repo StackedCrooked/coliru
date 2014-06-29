@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:8:47: error: use of deleted function 'void set_function(Key&&, Args&& ...) [with Sig = {int}; Key = const char (&)[11]; Args = {}]'
+     set_function<int>("overloaded", overloaded);
+                                               ^
+main.cpp:2:6: note: declared here
+ void set_function(Key&& key, Args&&... args) = delete;
+      ^
+main.cpp:8:47: error: too many arguments to function 'void set_function(Key&&, Args&& ...) [with Sig = {int}; Key = const char (&)[11]; Args = {}]'
+     set_function<int>("overloaded", overloaded);
+                                               ^
+main.cpp:2:6: note: declared here
+ void set_function(Key&& key, Args&&... args) = delete;
+      ^
