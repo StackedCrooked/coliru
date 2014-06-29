@@ -1,0 +1,7 @@
+main.cpp: In function 'int main()':
+main.cpp:8:73: error: use of deleted function 'void set_function(Key&&, Args&& ...) [with Sig = {int}; Key = const char (&)[11]; Args = {int (*)(int)}]'
+     set_function<int>("overloaded", static_cast<int(*)(int)>(overloaded));
+                                                                         ^
+main.cpp:2:6: note: declared here
+ void set_function(Key&& key, Args&&... args) = delete;
+      ^
