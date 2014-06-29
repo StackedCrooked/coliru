@@ -1,0 +1,14 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter main.cpp
+main.cpp:6:12: error: invalid operands to binary expression ('foo' and 'foo')
+{ return x < y ? x : y; }
+         ~ ^ ~
+main.cpp:21:4: note: in instantiation of function template specialization 'min1<foo, foo>' requested here
+   min1(foo{}, foo{}); // error - invalid operands to <
+   ^
+main.cpp:24:4: error: no matching function for call to 'min2'
+   min2(foo{}, foo{}); // no matching function min2
+   ^~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:2182:44: note: candidate template ignored: disabled by 'enable_if' [with T = foo, U = foo, $2 = <>]
+    using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+                                           ^
+2 errors generated.
