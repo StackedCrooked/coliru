@@ -1,0 +1,29 @@
+main.cpp:11:29: error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+    const char c_x_arr[] = {0x81};                       // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                            ^~~~
+main.cpp:11:29: note: override this message by inserting an explicit cast
+    const char c_x_arr[] = {0x81};                       // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                            ^~~~
+                            static_cast<char>( )
+main.cpp:12:42: error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+    constexpr const char ce_c_x_arr[] = {0x81};          // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                         ^~~~
+main.cpp:12:42: note: override this message by inserting an explicit cast
+    constexpr const char ce_c_x_arr[] = {0x81};          // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                         ^~~~
+                                         static_cast<char>( )
+main.cpp:13:38: error: constant expression evaluates to 129 which cannot be narrowed to type 'signed char' [-Wc++11-narrowing]
+    signed const char s_c_x_arr[] = {0x81};              // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                     ^~~~
+main.cpp:13:38: note: override this message by inserting an explicit cast
+    signed const char s_c_x_arr[] = {0x81};              // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                     ^~~~
+                                     static_cast<signed char>( )
+main.cpp:14:51: error: constant expression evaluates to 129 which cannot be narrowed to type 'signed char' [-Wc++11-narrowing]
+    constexpr signed const char ce_s_c_x_arr[] = {0x81}; // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                                  ^~~~
+main.cpp:14:51: note: override this message by inserting an explicit cast
+    constexpr signed const char ce_s_c_x_arr[] = {0x81}; // error: constant expression evaluates to 129 which cannot be narrowed to type 'char' [-Wc++11-narrowing]
+                                                  ^~~~
+                                                  static_cast<signed char>( )
+4 errors generated.
