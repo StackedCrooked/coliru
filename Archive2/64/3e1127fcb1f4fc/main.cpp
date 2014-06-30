@@ -1,0 +1,24 @@
+#include <string>
+#include <iostream>
+
+int main() {
+    // brute force counting
+    int count = 0;
+    for ( int i = 0; i <= 9999; ++i ) {
+        std::string istr = std::to_string( i );
+        while ( istr.size() < 4 )
+            istr.insert( 0, 1, '0' );
+        for ( std::size_t p = 0; p < 4; ++p ) {
+            const char& c = istr[p];
+            auto find = istr.find( c );
+            if ( find == p )
+                continue;
+            if ( find != std::string::npos ) {
+                ++count;
+                break;
+            }
+        }
+    }
+    std::cout << count << std::endl;
+    return 0;
+}
