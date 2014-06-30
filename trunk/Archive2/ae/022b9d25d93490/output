@@ -1,0 +1,23 @@
+main.cpp:31:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp:38:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp: In instantiation of 'auto if_else(std::true_type, datatype&&, FN1&&, FN2&&) [with datatype = B&; FN1 = Test::go() [with bool do_it = true]::<lambda()>; FN2 = Test::go() [with bool do_it = true]::<lambda(A&)>; std::true_type = std::integral_constant<bool, true>]':
+main.cpp:62:17:   required from 'void Test::go() [with bool do_it = true]'
+main.cpp:68:30:   required from here
+main.cpp:5:40: warning: unused parameter 'data' [-Wunused-parameter]
+ auto if_else(std::true_type,datatype&& data, FN1 &&fn1, FN2 &&) 
+                                        ^
+main.cpp: In instantiation of 'int Test::fn1(Ba&) [with Ba = A]':
+main.cpp:59:61:   required from 'Test::go()::<lambda()> [with bool do_it = false]'
+main.cpp:59:56:   required from 'struct Test::go() [with bool do_it = false]::<lambda()>'
+main.cpp:62:17:   required from 'void Test::go() [with bool do_it = false]'
+main.cpp:67:31:   required from here
+main.cpp:29:25: error: 'struct A' has no member named 'h'
+     std::cout << "fn1 " << a.h;
+                         ^
+main.cpp:30:14: error: 'struct A' has no member named 'h'
+     return a.h;
+              ^

@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp &&  printf '1\n3 3\n1 2 3\n1 2 3\n 1 2 3' |./a.out
