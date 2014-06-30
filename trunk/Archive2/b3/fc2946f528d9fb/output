@@ -1,0 +1,9 @@
++ clang++ -std=c++11 -fsanitize=undefined -Wall -Wextra -Wconversion -pedantic -O0 -Wall -pthread main.cpp
+main.cpp:15:10: warning: unused variable 'vp1' [-Wunused-variable]
+  void * vp1 = reinterpret_cast<void*>(foo::ptr) ;
+         ^
+main.cpp:17:16: warning: unused variable 'vp2' [-Wunused-variable]
+  const void * vp2 = reinterpret_cast<const void*>( C::noop ) ;
+               ^
+2 warnings generated.
++ ./a.out
