@@ -1,0 +1,10 @@
+main.cpp:12:14: warning: unused parameter 'a' [-Wunused-parameter]
+ A f(const A &a, A b, A *c) { return *c; }
+              ^
+main.cpp:12:19: warning: unused parameter 'b' [-Wunused-parameter]
+ A f(const A &a, A b, A *c) { return *c; }
+                   ^
+main.cpp: In function 'int main()':
+main.cpp:14:20: error: taking address of temporary [-fpermissive]
+     f(1, A(2), &A(3));
+                    ^
