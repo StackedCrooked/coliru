@@ -1,0 +1,89 @@
+	.file	"main.cpp"
+	.section	.text.unlikely._ZN7Derived3fooEv,"axG",@progbits,_ZN7Derived3fooEv,comdat
+	.align 2
+.LCOLDB0:
+	.section	.text._ZN7Derived3fooEv,"axG",@progbits,_ZN7Derived3fooEv,comdat
+.LHOTB0:
+	.align 2
+	.p2align 4,,15
+	.weak	_ZN7Derived3fooEv
+	.type	_ZN7Derived3fooEv, @function
+_ZN7Derived3fooEv:
+.LFB1:
+	.cfi_startproc
+	jmp	_Z13call_from_foov
+	.cfi_endproc
+.LFE1:
+	.size	_ZN7Derived3fooEv, .-_ZN7Derived3fooEv
+	.section	.text.unlikely._ZN7Derived3fooEv,"axG",@progbits,_ZN7Derived3fooEv,comdat
+.LCOLDE0:
+	.section	.text._ZN7Derived3fooEv,"axG",@progbits,_ZN7Derived3fooEv,comdat
+.LHOTE0:
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB1:
+	.section	.text.startup,"ax",@progbits
+.LHOTB1:
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_d, @function
+_GLOBAL__sub_I_d:
+.LFB18:
+	.cfi_startproc
+	movq	$_ZTV7Derived+16, d(%rip)
+	jmp	_Z13call_from_foov
+	.cfi_endproc
+.LFE18:
+	.size	_GLOBAL__sub_I_d, .-_GLOBAL__sub_I_d
+	.section	.text.unlikely
+.LCOLDE1:
+	.section	.text.startup
+.LHOTE1:
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_d
+	.weak	_ZTI4Base
+	.section	.rodata._ZTI4Base,"aG",@progbits,_ZTI4Base,comdat
+	.align 16
+	.type	_ZTI4Base, @object
+	.size	_ZTI4Base, 16
+_ZTI4Base:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTS4Base
+	.weak	_ZTS4Base
+	.section	.rodata._ZTS4Base,"aG",@progbits,_ZTS4Base,comdat
+	.type	_ZTS4Base, @object
+	.size	_ZTS4Base, 6
+_ZTS4Base:
+	.string	"4Base"
+	.weak	_ZTI7Derived
+	.section	.rodata._ZTI7Derived,"aG",@progbits,_ZTI7Derived,comdat
+	.align 16
+	.type	_ZTI7Derived, @object
+	.size	_ZTI7Derived, 24
+_ZTI7Derived:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTS7Derived
+	.quad	_ZTI4Base
+	.weak	_ZTS7Derived
+	.section	.rodata._ZTS7Derived,"aG",@progbits,_ZTS7Derived,comdat
+	.type	_ZTS7Derived, @object
+	.size	_ZTS7Derived, 9
+_ZTS7Derived:
+	.string	"7Derived"
+	.weak	_ZTV7Derived
+	.section	.rodata._ZTV7Derived,"aG",@progbits,_ZTV7Derived,comdat
+	.align 16
+	.type	_ZTV7Derived, @object
+	.size	_ZTV7Derived, 24
+_ZTV7Derived:
+	.quad	0
+	.quad	_ZTI7Derived
+	.quad	_ZN7Derived3fooEv
+	.globl	d
+	.bss
+	.align 8
+	.type	d, @object
+	.size	d, 8
+d:
+	.zero	8
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
