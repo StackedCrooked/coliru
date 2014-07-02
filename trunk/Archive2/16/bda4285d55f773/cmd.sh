@@ -1,0 +1,1 @@
+g++-4.8 -x c main.cpp -std=c99 -Wall -pedantic -pedantic-errors -Wextra -lm  && ./a.out  <<< "1 2 3 4"
