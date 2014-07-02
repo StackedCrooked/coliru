@@ -1,0 +1,20 @@
+main.cpp:26:5: error: no member named 'setw' in namespace 'std'; did you mean 'getw'?
+ c<<std::setw(10)   <<std::setprecision(3)<<std::hexfloat<<3.14159;
+    ^~~~~~~~~
+    getw
+/usr/include/stdio.h:616:12: note: 'getw' declared here
+extern int getw (FILE *__stream);
+           ^
+main.cpp:26:15: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int'
+ c<<std::setw(10)   <<std::setprecision(3)<<std::hexfloat<<3.14159;
+              ^~
+/usr/include/stdio.h:616:24: note: passing argument to parameter '__stream' here
+extern int getw (FILE *__stream);
+                       ^
+main.cpp:26:28: error: no member named 'setprecision' in namespace 'std'
+ c<<std::setw(10)   <<std::setprecision(3)<<std::hexfloat<<3.14159;
+                      ~~~~~^
+main.cpp:26:50: error: no member named 'hexfloat' in namespace 'std'
+ c<<std::setw(10)   <<std::setprecision(3)<<std::hexfloat<<3.14159;
+                                            ~~~~~^
+4 errors generated.
