@@ -1,0 +1,85 @@
+main.cpp: In function 'int main()':
+main.cpp:193:18: error: no matching function for call to 'resolve(Z)'
+     resolve( Z{} );
+                  ^
+main.cpp:193:18: note: candidates are:
+main.cpp:145:6: note: template<class ... Args, class R> R (* resolve(R (*)(Args ...)))(Args ...)
+ auto resolve ( R fun_ptr( Args... ) ) -> R (*)( Args... ) { 
+      ^
+main.cpp:145:6: note:   template argument deduction/substitution failed:
+main.cpp:193:18: note:   mismatched types 'R (*)(Args ...)' and 'Z'
+     resolve( Z{} );
+                  ^
+main.cpp:150:6: note: template<class Sig> Sig* resolve(Sig*)
+ Sig* resolve( Sig* fun_ptr ) { 
+      ^
+main.cpp:150:6: note:   template argument deduction/substitution failed:
+main.cpp:193:18: note:   mismatched types 'Sig*' and 'Z'
+     resolve( Z{} );
+                  ^
+main.cpp:155:6: note: template<class ... Args, class R, class C> R (C::* resolve(R (C::*)(Args ...)))(Args ...)
+ auto resolve ( R( C::*mem_ptr )( Args... ) ) -> R( C::* )( Args... ) {
+      ^
+main.cpp:155:6: note:   template argument deduction/substitution failed:
+main.cpp:193:18: note:   mismatched types 'R (C::*)(Args ...)' and 'Z'
+     resolve( Z{} );
+                  ^
+main.cpp:160:10: note: template<class Sig, class C> Sig C::* resolve(Sig C::*)
+ Sig C::* resolve( Sig C::* mem_ptr ) {
+          ^
+main.cpp:160:10: note:   template argument deduction/substitution failed:
+main.cpp:193:18: note:   mismatched types 'Sig C::*' and 'Z'
+     resolve( Z{} );
+                  ^
+main.cpp:165:6: note: template<class ... Sig, class F> decltype (detail::resolve_i(types<Args ...>(), forward<F>(f))) resolve(F&&)
+ auto resolve( F&& f ) -> decltype(detail::resolve_i( types<Sig...>( ), std::forward<F>( f ) )) {
+      ^
+main.cpp:165:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class ... Sig, class F> decltype (detail::resolve_i(types<Args ...>(), forward<F>(f))) resolve(F&&) [with Sig = {}; F = Z]':
+main.cpp:193:18:   required from here
+main.cpp:165:93: error: no matching function for call to 'resolve_i(types<>, Z)'
+ auto resolve( F&& f ) -> decltype(detail::resolve_i( types<Sig...>( ), std::forward<F>( f ) )) {
+                                                                                             ^
+main.cpp:165:93: note: candidates are:
+main.cpp:108:10: note: template<class R, class ... Args, class F, class> R (std::remove_cv<typename std::remove_reference<_Arg>::type>::type::* detail::resolve_i(types<R(Args ...)>, F&&))(Args ...)
+     auto resolve_i ( types<R( Args... )>, F&& f ) -> R( unqualified_t<F>::* )( Args... ) { 
+          ^
+main.cpp:108:10: note:   template argument deduction/substitution failed:
+main.cpp:165:93: note:   candidate expects 1 argument, 0 provided
+ auto resolve( F&& f ) -> decltype(detail::resolve_i( types<Sig...>( ), std::forward<F>( f ) )) {
+                                                                                             ^
+main.cpp:165:93: note:   'types<>' is not derived from 'types<R(Args ...)>'
+main.cpp:124:10: note: template<class F> decltype (detail::resolve_f(detail::has_deducible_signature<typename std::remove_cv<typename std::remove_reference<_From>::type>::type>{}, forward<F>(f))) detail::resolve_i(types<>, F&&)
+     auto resolve_i( types<>, F&& f ) -> decltype(resolve_f( has_deducible_signature<unqualified_t<F>>{}, std::forward<F>(f) )) {
+          ^
+main.cpp:124:10: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F> decltype (detail::resolve_f(detail::has_deducible_signature<typename std::remove_cv<typename std::remove_reference<_From>::type>::type>{}, forward<F>(f))) detail::resolve_i(types<>, F&&) [with F = Z]':
+main.cpp:165:93:   required by substitution of 'template<class ... Sig, class F> decltype (detail::resolve_i(types<Args ...>(), forward<F>(f))) resolve(F&&) [with Sig = {}; F = Z]'
+main.cpp:193:18:   required from here
+main.cpp:124:125: error: no matching function for call to 'resolve_f(detail::has_deducible_signature<Z>, Z)'
+     auto resolve_i( types<>, F&& f ) -> decltype(resolve_f( has_deducible_signature<unqualified_t<F>>{}, std::forward<F>(f) )) {
+                                                                                                                             ^
+main.cpp:124:125: note: candidates are:
+main.cpp:114:10: note: template<class F> decltype (detail::resolve_i(types<typename function_traits<decltype (& typename std::remove_cv<typename std::remove_reference<_From>::type>::type:: operator()), has_deducible_signature<decltype (& typename std::remove_cv<typename std::remove_reference<_From>::type>::type:: operator())>::value>::signature_type>(), forward<F>(f))) detail::resolve_f(std::true_type, F&&)
+     auto resolve_f( std::true_type, F&& f ) -> decltype(resolve_i( types<function_signature_t<decltype(&unqualified_t<F>::operator())>>( ), std::forward<F>(f) )) {
+          ^
+main.cpp:114:10: note:   template argument deduction/substitution failed:
+main.cpp:124:125: note:   cannot convert 'detail::has_deducible_signature<Z>{}' (type 'detail::has_deducible_signature<Z>') to type 'std::true_type {aka std::integral_constant<bool, true>}'
+     auto resolve_i( types<>, F&& f ) -> decltype(resolve_f( has_deducible_signature<unqualified_t<F>>{}, std::forward<F>(f) )) {
+                                                                                                                             ^
+main.cpp:119:10: note: template<class F> void detail::resolve_f(std::false_type, F&&)
+     void resolve_f( std::false_type, F&& f ) {
+          ^
+main.cpp:119:10: note:   template argument deduction/substitution failed:
+main.cpp:124:125: note:   cannot convert 'detail::has_deducible_signature<Z>{}' (type 'detail::has_deducible_signature<Z>') to type 'std::false_type {aka std::integral_constant<bool, false>}'
+     auto resolve_i( types<>, F&& f ) -> decltype(resolve_f( has_deducible_signature<unqualified_t<F>>{}, std::forward<F>(f) )) {
+                                                                                                                             ^
+main.cpp: In substitution of 'template<class ... Sig, class F> decltype (detail::resolve_i(types<Args ...>(), forward<F>(f))) resolve(F&&) [with Sig = {}; F = Z]':
+main.cpp:193:18:   required from here
+main.cpp:129:10: note: template<class ... Args, class F, class R> decltype (detail::resolve_i(types<R(Args ...)>(), forward<F>(f))) detail::resolve_i(types<Args ...>, F&&)
+     auto resolve_i( types<Args...>, F&& f ) -> decltype(resolve_i( types<R( Args... )>( ), std::forward<F>(f) )) {
+          ^
+main.cpp:129:10: note:   template argument deduction/substitution failed:
+main.cpp:128:38: error: no type named 'type' in 'class std::result_of<Z&()>'
+     template<class... Args, class F, class R = typename std::result_of<F&( Args... )>::type>
+                                      ^
