@@ -1,0 +1,38 @@
+In file included from /usr/local/include/c++/4.9.0/string:53:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc: In instantiation of 'void std::basic_string<_CharT, _Traits, _Alloc>::_Rep::_M_destroy(const _Alloc&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]':
+/usr/local/include/c++/4.9.0/bits/basic_string.h:249:19:   required from 'void std::basic_string<_CharT, _Traits, _Alloc>::_Rep::_M_dispose(const _Alloc&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:547:9:   required from 'std::basic_string<_CharT, _Traits, _Alloc>::~basic_string() [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+main.cpp:82:12:   required from here
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:449:7: error: no matching function for call to 'Allocator<char>::Allocator(const Allocator<char16_t>&)'
+       _Raw_bytes_alloc(__a).deallocate(reinterpret_cast<char*>(this), __size);
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:449:7: note: candidates are:
+main.cpp:54:12: note: Allocator<T>::Allocator(const Allocator<T>&) [with T = char]
+     inline Allocator(Allocator const&) {}
+            ^
+main.cpp:54:12: note:   no known conversion for argument 1 from 'const Allocator<char16_t>' to 'const Allocator<char>&'
+main.cpp:48:12: note: Allocator<T>::Allocator() [with T = char]
+     inline Allocator() {}
+            ^
+main.cpp:48:12: note:   candidate expects 0 arguments, 1 provided
+In file included from /usr/local/include/c++/4.9.0/string:53:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc: In instantiation of 'static std::basic_string<_CharT, _Traits, _Alloc>::_Rep* std::basic_string<_CharT, _Traits, _Alloc>::_Rep::_S_create(std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]':
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:138:55:   required from 'static _CharT* std::basic_string<_CharT, _Traits, _Alloc>::_S_construct(_InIterator, _InIterator, const _Alloc&, std::forward_iterator_tag) [with _FwdIterator = const char16_t*; _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:1743:56:   required from 'static _CharT* std::basic_string<_CharT, _Traits, _Alloc>::_S_construct_aux(_InIterator, _InIterator, const _Alloc&, std::__false_type) [with _InIterator = const char16_t*; _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:1764:58:   required from 'static _CharT* std::basic_string<_CharT, _Traits, _Alloc>::_S_construct(_InIterator, _InIterator, const _Alloc&) [with _InIterator = const char16_t*; _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:215:26:   required from 'std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = Allocator<char16_t>]'
+main.cpp:82:12:   required from here
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:607:64: error: no matching function for call to 'Allocator<char>::Allocator(const Allocator<char16_t>&)'
+       void* __place = _Raw_bytes_alloc(__alloc).allocate(__size);
+                                                                ^
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:607:64: note: candidates are:
+main.cpp:54:12: note: Allocator<T>::Allocator(const Allocator<T>&) [with T = char]
+     inline Allocator(Allocator const&) {}
+            ^
+main.cpp:54:12: note:   no known conversion for argument 1 from 'const Allocator<char16_t>' to 'const Allocator<char>&'
+main.cpp:48:12: note: Allocator<T>::Allocator() [with T = char]
+     inline Allocator() {}
+            ^
+main.cpp:48:12: note:   candidate expects 0 arguments, 1 provided
