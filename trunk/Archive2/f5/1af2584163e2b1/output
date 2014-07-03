@@ -1,0 +1,10 @@
+main.cpp:10:19: error: non-type template argument refers to object 'a' that does not have linkage
+    return foo<T, a>{};
+                  ^
+main.cpp:17:14: note: in instantiation of function template specialization 'unpack<int, 10>' requested here
+    auto x = unpack(arr);
+             ^
+main.cpp:8:17: note: non-type template argument refers to object here
+auto unpack(T (&a)[N])
+                ^
+1 error generated.
