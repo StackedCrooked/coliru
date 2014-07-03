@@ -1,0 +1,16 @@
+main.cpp:9:12: error: no viable conversion from 'int' to 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >')
+    string available = 50;
+           ^           ~~
+/usr/include/c++/v1/string:1186:5: note: candidate constructor not viable: no known conversion from 'int' to 'const std::__1::basic_string<char> &' for 1st argument
+    basic_string(const basic_string& __str);
+    ^
+/usr/include/c++/v1/string:1190:5: note: candidate constructor not viable: no known conversion from 'int' to 'std::__1::basic_string<char> &&' for 1st argument
+    basic_string(basic_string&& __str)
+    ^
+/usr/include/c++/v1/string:1195:31: note: candidate constructor not viable: no known conversion from 'int' to 'const_pointer' (aka 'const char *') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY basic_string(const_pointer __s);
+                              ^
+/usr/include/c++/v1/string:1216:5: note: candidate constructor not viable: no known conversion from 'int' to 'initializer_list<value_type>' for 1st argument
+    basic_string(initializer_list<value_type> __il);
+    ^
+1 error generated.
