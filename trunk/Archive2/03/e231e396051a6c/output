@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:8:20: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+      bar("Hahahaha"); // Works
+                    ^
+main.cpp:9:20: error: invalid initialization of reference of type 'char (&)[4]' from expression of type 'const char [9]'
+      foo("Hahahaha"); //Doesn't work
+                    ^
+main.cpp:3:6: note: in passing argument 1 of 'void foo(char (&)[4])'
+ void foo(char (&blah)[4]);
+      ^
