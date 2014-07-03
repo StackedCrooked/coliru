@@ -1,0 +1,37 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:626:
+/usr/include/c++/v1/utility:256:15: error: no viable overloaded '='
+        first = __p.first;
+        ~~~~~ ^ ~~~~~~~~~
+main.cpp:14:12: note: in instantiation of member function 'std::__1::pair<const std::__1::basic_string<char>, const double>::operator=' requested here
+    pValue = (*iter).second;
+           ^
+/usr/include/c++/v1/string:1223:19: note: candidate function not viable: 'this' argument has type 'const std::__1::basic_string<char>', but method is not marked const
+    basic_string& operator=(const basic_string& __str);
+                  ^
+/usr/include/c++/v1/string:1226:19: note: candidate function not viable: 'this' argument has type 'const std::__1::basic_string<char>', but method is not marked const
+    basic_string& operator=(basic_string&& __str)
+                  ^
+/usr/include/c++/v1/string:1230:45: note: candidate function not viable: 'this' argument has type 'const std::__1::basic_string<char>', but method is not marked const
+    _LIBCPP_INLINE_VISIBILITY basic_string& operator=(const_pointer __s) {return assign(__s);}
+                                            ^
+/usr/include/c++/v1/string:1231:19: note: candidate function not viable: 'this' argument has type 'const std::__1::basic_string<char>', but method is not marked const
+    basic_string& operator=(value_type __c);
+                  ^
+/usr/include/c++/v1/string:1234:19: note: candidate function not viable: 'this' argument has type 'const std::__1::basic_string<char>', but method is not marked const
+    basic_string& operator=(initializer_list<value_type> __il) {return assign(__il.begin(), __il.size());}
+                  ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:434:
+In file included from /usr/include/c++/v1/algorithm:626:
+/usr/include/c++/v1/utility:257:16: error: read-only variable is not assignable
+        second = __p.second;
+        ~~~~~~ ^
+2 errors generated.
