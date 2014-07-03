@@ -1,0 +1,45 @@
+main.cpp: In function 'int main()':
+main.cpp:5:15: error: ambiguous overload for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'std::nullptr_t')
+     std::cout << nullptr << std::endl;
+               ^
+main.cpp:5:15: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ostream:548:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:543:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:530:5: note: std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*) [with _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note: std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*) [with _CharT = char; _Traits = std::char_traits<char>]
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
