@@ -1,0 +1,18 @@
+main.cpp: In instantiation of 'static std::size_t utility::size_getter<T>::size(U&&) [with U = int (&)[100]; T = std::remove_reference<int (&)[100]>; std::size_t = long unsigned int]':
+main.cpp:29:15:   required from 'void foo(T&&) [with T = int (&)[100]]'
+main.cpp:35:15:   required from here
+main.cpp:9:31: error: request for member 'size' in 'value', which is of non-class type 'int [100]'
+             return value.size();
+                               ^
+main.cpp: In instantiation of 'static std::size_t utility::size_getter<T>::size(U&&) [with U = int (&)[200]; T = std::remove_reference<int (&)[200]>; std::size_t = long unsigned int]':
+main.cpp:29:15:   required from 'void foo(T&&) [with T = int (&)[200]]'
+main.cpp:38:15:   required from here
+main.cpp:9:31: error: request for member 'size' in 'value', which is of non-class type 'int [200]'
+main.cpp: In static member function 'static std::size_t utility::size_getter<T>::size(U&&) [with U = int (&)[100]; T = std::remove_reference<int (&)[100]>; std::size_t = long unsigned int]':
+main.cpp:10:9: warning: control reaches end of non-void function [-Wreturn-type]
+         }
+         ^
+main.cpp: In static member function 'static std::size_t utility::size_getter<T>::size(U&&) [with U = int (&)[200]; T = std::remove_reference<int (&)[200]>; std::size_t = long unsigned int]':
+main.cpp:10:9: warning: control reaches end of non-void function [-Wreturn-type]
+         }
+         ^
