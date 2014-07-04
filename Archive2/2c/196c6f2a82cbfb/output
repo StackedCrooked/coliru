@@ -1,0 +1,10 @@
+main.cpp:11:22: error: non-type template argument refers to object 'a' that does not have linkage
+    return foo<T, N, a>{};
+                     ^
+main.cpp:18:27: note: in instantiation of function template specialization 'unpack<int, 2>' requested here
+    using pack = decltype(unpack(arr));
+                          ^
+main.cpp:9:33: note: non-type template argument refers to object here
+constexpr auto unpack(T const (&a)[N])
+                                ^
+1 error generated.
