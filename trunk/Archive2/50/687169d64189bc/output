@@ -1,0 +1,10 @@
+main.cpp:2:16: warning: field 'b_' will be initialized after field 'a_' [-Wreorder]
+    S(int x) : b_{x}, a_{2 * b_} {}
+               ^
+main.cpp:2:30: warning: field 'b_' is uninitialized when used here [-Wuninitialized]
+    S(int x) : b_{x}, a_{2 * b_} {}
+                             ^
+main.cpp:5:9: warning: private field 'a_' is not used [-Wunused-private-field]
+    int a_;
+        ^
+3 warnings generated.
