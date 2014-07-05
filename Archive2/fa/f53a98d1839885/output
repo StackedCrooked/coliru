@@ -1,0 +1,25 @@
+main.cpp:8:1: error: too few arguments provided to function-like macro invocation
+BAR((1, 2, 3))
+^
+main.cpp:6:46: note: expanded from macro 'BAR'
+#define BAR(tup) FOO(BOOST_PP_TUPLE_ENUM(tup))
+                                             ^
+main.cpp:3:9: note: macro 'FOO' defined here
+#define FOO(a, b, c) a-b-c
+        ^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOO
+1 error generated.
