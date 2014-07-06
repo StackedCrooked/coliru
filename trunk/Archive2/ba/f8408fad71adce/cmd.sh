@@ -1,0 +1,1 @@
+clang++ -std=c++1y -stdlib=libc++ -fconstexpr-backtrace-limit=0 -fconstexpr-depth=27 -fconstexpr-steps=1271242 -Weverything -Wno-c++98-compat main.cpp -lsupc++ && ./a.out
