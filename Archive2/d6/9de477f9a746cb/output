@@ -1,0 +1,25 @@
+main.cpp: In instantiation of 'Test::go()::<lambda()> [with bool do_it = false]':
+main.cpp:52:51:   required from 'struct Test::go() [with bool do_it = false]::<lambda()>'
+main.cpp:55:17:   required from 'void Test::go() [with bool do_it = false]'
+main.cpp:61:31:   required from here
+main.cpp:52:58: error: no matching function for call to 'Test::fn1(std::conditional<false, B, A>::type&)'
+                             [&]{ return this->fn1(data); },
+                                                          ^
+main.cpp:52:58: note: candidate is:
+main.cpp:34:5: note: int Test::fn1(B&)
+ int fn1(B &a){
+     ^
+main.cpp:34:5: note:   no known conversion for argument 1 from 'std::conditional<false, B, A>::type {aka A}' to 'B&'
+main.cpp: In substitution of 'template<class FN1, class FN2, class ... Args> decltype (forward<FN2>(fn2)((forward<Args>)(if_else::args)...)) if_else(std::false_type, FN1&&, FN2&&, Args&& ...) [with FN1 = Test::go() [with bool do_it = false]::<lambda()>&; FN2 = Test::go() [with bool do_it = false]::<lambda()>&; Args = {}]':
+main.cpp:19:96:   required by substitution of 'template<bool do_it, class FN1, class FN2, class ... Args> decltype (if_else(std::integral_constant<bool, do_it>{}, fn1, fn2, (forward<Args>)(if_else::args)...)) if_else(FN1&&, FN2&&, Args&& ...) [with bool do_it = false; FN1 = Test::go() [with bool do_it = false]::<lambda()>; FN2 = Test::go() [with bool do_it = false]::<lambda()>; Args = {}]'
+main.cpp:55:17:   required from 'void Test::go() [with bool do_it = false]'
+main.cpp:61:31:   required from here
+main.cpp:13:34: error: use of 'Test::go()::<lambda()> [with bool do_it = false]' before deduction of 'auto'
+ -> decltype(std::forward<FN2>(fn2)(std::forward<Args>(args)...)) {
+                                  ^
+'
+Internal compiler error: Error reporting routines re-entered.
+libbacktrace could not find executable to open
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <http://gcc.gnu.org/bugs.html> for instructions.
