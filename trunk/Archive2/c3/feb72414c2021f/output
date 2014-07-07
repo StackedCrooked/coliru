@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:24:5: error: 'MyDerivedClass' is not a template
+     MyDerivedClass<int>* d = new MyDerivedClass;
+     ^
+main.cpp:25:21: error: no matching function for call to 'MyDerivedClass::DoSomething(int)'
+     d->DoSomething(0); // "virtual DoSomething(int, int)";
+                     ^
+main.cpp:25:21: note: candidate is:
+main.cpp:18:18: note: virtual void MyDerivedClass::DoSomething(int, const int&)
+     virtual void DoSomething(int n, const int& myInt)
+                  ^
+main.cpp:18:18: note:   candidate expects 2 arguments, 1 provided
