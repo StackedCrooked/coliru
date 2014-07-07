@@ -1,0 +1,22 @@
+In file included from main.cpp:1:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/cstddef:51:11: error: no member named 'max_align_t' in the global namespace
+  using ::max_align_t;
+        ~~^
+main.cpp:8:23: error: use of 'operator->' on type 'Loop<int>' would invoke a sequence of more than 256 'operator->' calls
+    Loop<int> i, j = i->hooray;
+                     ~^
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int *>'
+template<class T> struct Loop { Loop<T*> operator->(); };
+                                         ^
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int **>'
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int ***>'
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int ****>'
+main.cpp:3:42: note: (skipping 248 'operator->'s in backtrace)
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int *************************************************************************************************************************************************************************************************************************************************************>'
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int **************************************************************************************************************************************************************************************************************************************************************>'
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int ***************************************************************************************************************************************************************************************************************************************************************>'
+main.cpp:3:42: note: 'operator->' declared here produces an object of type 'Loop<int ****************************************************************************************************************************************************************************************************************************************************************>'
+main.cpp:8:23: note: use -foperator-arrow-depth=N to increase 'operator->' limit
+    Loop<int> i, j = i->hooray;
+                      ^
+2 errors generated.
