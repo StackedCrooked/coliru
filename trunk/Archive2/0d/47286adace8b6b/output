@@ -1,0 +1,10 @@
+main.cpp:8:43: error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+  using type = decltype(std::declval<F>()(std::declval<Args>()...));
+                                          ^~~~~~~~~~~~~~~~~~~~
+main.cpp:12:1: note: in instantiation of template class 'result_of<void (*(int))(int &)>' requested here
+typename result_of<Call>::type f(int){}
+^
+main.cpp:12:32: note: while substituting explicitly-specified template arguments into function template 'f' 
+typename result_of<Call>::type f(int){}
+                               ^
+1 error generated.
