@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip> 
+#include <boost/multiprecision/cpp_dec_float.hpp> 
+#include <boost/math/special_functions/round.hpp>
+
+typedef boost::multiprecision::number<boost::multiprecision::cpp_dec_float<20> > cpp_dec_float_20;
+
+inline cpp_dec_float_20 dec_round(const cpp_dec_float_20& v, int p)
+{
+    const cpp_dec_float_20 DEC_TEN = 10;
+    cpp_dec_float_20 dec_p = boost::multiprecision::pow(DEC_TEN, p); // need cache
+    return boost::math::round(v * dec_p) / dec_p;
+}
+
+int main()
+{
+    cpp_dec_float_20 b = 8000;
+    b /= 3;
+    std::cout << std::setprecision(30);
+    std::cout << std::numeric_limits<cpp_dec_float_20>::digits << std::endl;
+    std::cout << "result = " << b << std::endl;
+    std::cout << "rounded result = " << boost::math::round(b) << std::endl;
+    std::cout << "rounded result = " << dec_round(b, -1) << std::endl;
+    
+    cpp_dec_float_20 b2("2666.67");
+    cpp_dec_float_20 b3 = dec_round(b, 2);
+    std::cout << " equal? " << (dec_round(b, 2) == b2) << std::endl;
+    std::cout << " diff = " << (b3 - b2) << std::endl;
+    
+    return 0;
+}
