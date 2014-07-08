@@ -1,0 +1,51 @@
+main.cpp: In member function 'const value_type* LocalAllocator<T>::address(LocalAllocator<T>::const_reference)':
+main.cpp:37:56: error: 'r' was not declared in this scope
+     const_pointer address(const_reference s) { return &r; }
+                                                        ^
+main.cpp: In member function 'bool LocalAllocator<T>::operator==(const LocalAllocator<T>&) const':
+main.cpp:43:65: error: 'Memory' was not declared in this scope
+     bool operator==(const LocalAllocator& other) const { return Memory == other.Memory; }
+                                                                 ^
+main.cpp: In function 'int main()':
+main.cpp:70:5: error: 'LARGE_INTEGER' was not declared in this scope
+     LARGE_INTEGER frequency;        // ticks per second
+     ^
+main.cpp:71:19: error: expected ';' before 't1'
+     LARGE_INTEGER t1, t2;           // ticks
+                   ^
+main.cpp:75:32: error: 'frequency' was not declared in this scope
+     QueryPerformanceFrequency(&frequency);
+                                ^
+main.cpp:75:41: error: 'QueryPerformanceFrequency' was not declared in this scope
+     QueryPerformanceFrequency(&frequency);
+                                         ^
+main.cpp:81:9: error: 'size_t' does not name a type
+         size_t operator()(int x) const { return x; }
+         ^
+main.cpp:83:5: error: 'boost' has not been declared
+     boost::unordered_map<int, int, custom_hash, std::equal_to<int>, LocalAllocator<std::pair<const int, int>>> dict(
+     ^
+main.cpp:83:26: error: expected primary-expression before 'int'
+     boost::unordered_map<int, int, custom_hash, std::equal_to<int>, LocalAllocator<std::pair<const int, int>>> dict(
+                          ^
+main.cpp:91:5: error: 'string' is not a member of 'std'
+     std::string str;
+     ^
+main.cpp:92:30: error: 't1' was not declared in this scope
+     QueryPerformanceCounter(&t1);
+                              ^
+main.cpp:92:32: error: 'QueryPerformanceCounter' was not declared in this scope
+     QueryPerformanceCounter(&t1);
+                                ^
+main.cpp:95:9: error: 'dict' was not declared in this scope
+         dict[i]=i;
+         ^
+main.cpp:98:30: error: 't2' was not declared in this scope
+     QueryPerformanceCounter(&t2);
+                              ^
+main.cpp:102:5: error: 'cout' is not a member of 'std'
+     std::cout << elapsedTime << " ms insert time\n";
+     ^
+main.cpp:104:5: error: 'cin' is not a member of 'std'
+     std::cin >> input; //don't want console to disappear
+     ^
