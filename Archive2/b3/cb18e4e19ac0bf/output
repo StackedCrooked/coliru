@@ -1,0 +1,46 @@
+main.cpp: In function 'int main()':
+main.cpp:18:31: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+         std::auto_ptr<Foo> pf1(new Foo(1));
+                               ^
+main.cpp:19:31: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+         std::auto_ptr<Foo> pf2(new Foo(2));
+                               ^
+main.cpp:21:27: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     std::auto_ptr<Foo> pf3(new Foo(3));
+                           ^
+main.cpp:22:24: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     std::auto_ptr<Foo> pf4 = pf3;
+                        ^
+main.cpp:25:27: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     std::auto_ptr<Foo> pf6(new Foo(6));
+                           ^
+main.cpp:27:27: warning: 'auto_ptr' is deprecated (declared at /usr/local/include/c++/4.9.0/backward/auto_ptr.h:87) [-Wdeprecated-declarations]
+     std::auto_ptr<Foo> pf5(new int);
+                           ^
+main.cpp:27:35: error: no matching function for call to 'std::auto_ptr<Foo>::auto_ptr(int*)'
+     std::auto_ptr<Foo> pf5(new int);
+                                   ^
+main.cpp:27:35: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/memory:84:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:260:7: note: std::auto_ptr< <template-parameter-1-1> >::auto_ptr(std::auto_ptr_ref<_Tp>) [with _Tp = Foo]
+       auto_ptr(auto_ptr_ref<element_type> __ref) throw()
+       ^
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:260:7: note:   no known conversion for argument 1 from 'int*' to 'std::auto_ptr_ref<Foo>'
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:125:9: note: template<class _Tp1> std::auto_ptr< <template-parameter-1-1> >::auto_ptr(std::auto_ptr<_Up>&)
+         auto_ptr(auto_ptr<_Tp1>& __a) throw() : _M_ptr(__a.release()) { }
+         ^
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:125:9: note:   template argument deduction/substitution failed:
+main.cpp:27:35: note:   mismatched types 'std::auto_ptr<_Up>' and 'int*'
+     std::auto_ptr<Foo> pf5(new int);
+                                   ^
+In file included from /usr/local/include/c++/4.9.0/memory:84:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:112:7: note: std::auto_ptr< <template-parameter-1-1> >::auto_ptr(std::auto_ptr< <template-parameter-1-1> >&) [with _Tp = Foo]
+       auto_ptr(auto_ptr& __a) throw() : _M_ptr(__a.release()) { }
+       ^
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:112:7: note:   no known conversion for argument 1 from 'int*' to 'std::auto_ptr<Foo>&'
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:103:7: note: std::auto_ptr< <template-parameter-1-1> >::auto_ptr(std::auto_ptr< <template-parameter-1-1> >::element_type*) [with _Tp = Foo; std::auto_ptr< <template-parameter-1-1> >::element_type = Foo]
+       auto_ptr(element_type* __p = 0) throw() : _M_ptr(__p) { }
+       ^
+/usr/local/include/c++/4.9.0/backward/auto_ptr.h:103:7: note:   no known conversion for argument 1 from 'int*' to 'std::auto_ptr<Foo>::element_type* {aka Foo*}'
