@@ -1,0 +1,47 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/memory:63:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:46:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:120:23: error: call to implicitly-deleted copy constructor of 'std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:253:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > >::construct<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:399:4: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > > >::_S_construct<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &>' requested here
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable_policy.h:1957:28: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > > >::construct<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &>' requested here
+            __value_alloc_traits::construct(__a, __n->_M_valptr(),
+                                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable_policy.h:180:16: note: in instantiation of function template specialization 'std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, false> > >::_M_allocate_node<const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &>' requested here
+        { return _M_h._M_allocate_node(std::forward<_Arg>(__arg)); }
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable.h:1669:8: note: in instantiation of function template specialization 'std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, false> > >::operator()<const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &>' requested here
+        __n = __node_gen(std::forward<_Arg>(__v));
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable_policy.h:723:13: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert<const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > &, std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, false> > > >' requested here
+        return __h._M_insert(__v, __node_gen, __unique_keys());
+                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable.h:803:14: note: in instantiation of member function 'std::__detail::_Insert_base<int, std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::insert' requested here
+              this->insert(*__f);
+                    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable.h:403:9: note: in instantiation of function template specialization 'std::_Hashtable<int, std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable<const std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > *>' requested here
+      : _Hashtable(__l.begin(), __l.end(), __n, __hf, _H2(), _Hash(), __eql,
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:219:4: note: in instantiation of member function 'std::_Hashtable<int, std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >, std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_Hashtable' requested here
+        : _M_h(__l, __n, __hf, __eql, __a)
+          ^
+main.cpp:16:17: note: in instantiation of member function 'std::unordered_map<int, std::unique_ptr<Foo, std::default_delete<Foo> >, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > > > >::unordered_map' requested here
+    IntToFooMap map {
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_pair.h:127:17: note: explicitly defaulted function was implicitly deleted here
+      constexpr pair(const pair&) = default;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_pair.h:102:11: note: copy constructor of 'pair<const int, std::unique_ptr<Foo, std::default_delete<Foo> > >' is implicitly deleted because field 'second' has a deleted copy constructor
+      _T2 second;                /// @c second is a copy of the second object
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unique_ptr.h:356:7: note: function has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+1 error generated.
