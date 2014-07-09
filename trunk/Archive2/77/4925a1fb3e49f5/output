@@ -1,0 +1,19 @@
+main.cpp:22:22: error: no viable conversion from 'fileUnstructuredView' to 'std::string *' (aka 'basic_string<char> *')
+        std::string* s = p;
+                     ^   ~
+main.cpp:8:51: note: candidate template ignored: disabled by 'enable_if' [with T = std::basic_string<char>]
+            class enabled=typename std::enable_if<std::is_pod<T>::value>::type
+                                                  ^
+main.cpp:11:20: error: cannot initialize return object of type 'int *' with an lvalue of type 'void *'
+            return view;
+                   ^~~~
+main.cpp:20:18: note: in instantiation of function template specialization 'fileUnstructuredView::operator int *<int, void>' requested here
+        int* i = p;
+                 ^
+main.cpp:11:20: error: cannot initialize return object of type 'a *' with an lvalue of type 'void *'
+            return view;
+                   ^~~~
+main.cpp:21:16: note: in instantiation of function template specialization 'fileUnstructuredView::operator struct a *<a, void>' requested here
+        a* b = p;
+               ^
+3 errors generated.
