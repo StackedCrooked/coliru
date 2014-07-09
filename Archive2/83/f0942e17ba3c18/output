@@ -1,0 +1,48 @@
+main.cpp:2:30: error: 'uint8_t' does not name a type
+ void OnesComplementSum(const uint8_t * inData, int inLength, uint32_t& sum)
+                              ^
+main.cpp:2:62: error: 'uint32_t' has not been declared
+ void OnesComplementSum(const uint8_t * inData, int inLength, uint32_t& sum)
+                                                              ^
+main.cpp: In function 'void OnesComplementSum(const int*, int, int&)':
+main.cpp:4:11: error: 'uint16_t' does not name a type
+     const uint16_t * data = reinterpret_cast<const uint16_t *>(inData);
+           ^
+main.cpp:6:5: error: 'uint32_t' was not declared in this scope
+     uint32_t a[4] = { 0, 0, 0, 0 };
+     ^
+main.cpp:9:9: error: 'a' was not declared in this scope
+         a[0] += data[0];
+         ^
+main.cpp:9:17: error: 'data' was not declared in this scope
+         a[0] += data[0];
+                 ^
+main.cpp:16:12: error: 'a' was not declared in this scope
+     sum += a[0];
+            ^
+main.cpp:24:15: error: 'Reduce' was not declared in this scope
+     Reduce(sum);
+               ^
+main.cpp:29:17: error: 'data' was not declared in this scope
+         sum += *data++;
+                 ^
+main.cpp:35:28: error: 'uint16_t' does not name a type
+         sum += static_cast<uint16_t>(*(reinterpret_cast<const uint8_t *>(data)));
+                            ^
+main.cpp:35:63: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+         sum += static_cast<uint16_t>(*(reinterpret_cast<const uint8_t *>(data)));
+                                                               ^
+main.cpp:35:63: error: expected '>' before 'uint8_t'
+main.cpp:35:63: error: expected '(' before 'uint8_t'
+main.cpp:35:63: error: 'uint8_t' was not declared in this scope
+main.cpp:35:72: error: expected primary-expression before '>' token
+         sum += static_cast<uint16_t>(*(reinterpret_cast<const uint8_t *>(data)));
+                                                                        ^
+main.cpp:35:74: error: 'data' was not declared in this scope
+         sum += static_cast<uint16_t>(*(reinterpret_cast<const uint8_t *>(data)));
+                                                                          ^
+main.cpp:35:81: error: expected ')' before ';' token
+         sum += static_cast<uint16_t>(*(reinterpret_cast<const uint8_t *>(data)));
+                                                                                 ^
+	.file	"main.cpp"
+	.intel_syntax noprefix
