@@ -1,0 +1,116 @@
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:75:38: error: no matching constructor for initialization of 'element'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:515:8: note: in instantiation of function template specialization 'std::_Construct<element>' requested here
+                std::_Construct(std::__addressof(*__cur));
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:570:2: note: in instantiation of function template specialization 'std::__uninitialized_default_n_1<false>::__uninit_default_n<element *, unsigned long>' requested here
+        __uninit_default_n(__first, __n);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:631:12: note: in instantiation of function template specialization 'std::__uninitialized_default_n<element *, unsigned long>' requested here
+    { std::__uninitialized_default_n(__first, __n); }
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:1304:7: note: in instantiation of function template specialization 'std::__uninitialized_default_n_a<element *, unsigned long, element>' requested here
+        std::__uninitialized_default_n_a(this->_M_impl._M_start, __n, 
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:279:9: note: in instantiation of member function 'std::vector<element, std::allocator<element> >::_M_default_initialize' requested here
+      { _M_default_initialize(__n); }
+        ^
+main.cpp:14:26: note: in instantiation of member function 'std::vector<element, std::allocator<element> >::vector' requested here
+    std::vector<element> source(10), destination;
+                         ^
+main.cpp:6:5: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+    element(element&&) = default;
+    ^
+main.cpp:9:5: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+    element(const element&) = delete;
+    ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/iostream:39:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ios:42:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/ios_base.h:41:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/locale_classes.h:40:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/string:41:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:46:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:120:23: error: calling a private constructor of class 'element'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:253:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<element>::construct<element, element>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:399:4: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<element> >::_S_construct<element, element>' requested here
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:96:21: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<element> >::construct<element, element>' requested here
+            _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish,
+                           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:932:9: note: in instantiation of function template specialization 'std::vector<element, std::allocator<element> >::emplace_back<element>' requested here
+      { emplace_back(std::move(__x)); }
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:446:13: note: in instantiation of member function 'std::vector<element, std::allocator<element> >::push_back' requested here
+        container->push_back(std::move(__value));
+                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:355:18: note: in instantiation of member function 'std::back_insert_iterator<std::vector<element, std::allocator<element> > >::operator=' requested here
+              *__result = std::move(*__first);
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:396:36: note: in instantiation of function template specialization 'std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<element *, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:432:23: note: in instantiation of function template specialization 'std::__copy_move_a<true, element *, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:497:19: note: in instantiation of function template specialization 'std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<element *, std::vector<element, std::allocator<element> > >, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+      return std::__copy_move_a2<true>(std::__miter_base(__first),
+                  ^
+main.cpp:15:10: note: in instantiation of function template specialization 'std::move<__gnu_cxx::__normal_iterator<element *, std::vector<element, std::allocator<element> > >, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+    std::move(std::begin(source), std::end(source), std::back_inserter(destination)); // will it work?
+         ^
+main.cpp:6:5: note: implicitly declared private here
+    element(element&&) = default;
+    ^
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:75:38: error: calling a private constructor of class 'element'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<element, element>' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:125:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<element *>, element *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:278:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::move_iterator<element *>, element *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:299:19: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::move_iterator<element *>, element *, element>' requested here
+      return std::__uninitialized_copy_a
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:418:15: note: in instantiation of function template specialization 'std::__uninitialized_move_if_noexcept_a<element *, element *, std::allocator<element> >' requested here
+              = std::__uninitialized_move_if_noexcept_a
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:101:4: note: (skipping 3 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+          _M_emplace_back_aux(std::forward<_Args>(__args)...);
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:355:18: note: in instantiation of member function 'std::back_insert_iterator<std::vector<element, std::allocator<element> > >::operator=' requested here
+              *__result = std::move(*__first);
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:396:36: note: in instantiation of function template specialization 'std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<element *, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:432:23: note: in instantiation of function template specialization 'std::__copy_move_a<true, element *, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:497:19: note: in instantiation of function template specialization 'std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<element *, std::vector<element, std::allocator<element> > >, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+      return std::__copy_move_a2<true>(std::__miter_base(__first),
+                  ^
+main.cpp:15:10: note: in instantiation of function template specialization 'std::move<__gnu_cxx::__normal_iterator<element *, std::vector<element, std::allocator<element> > >, std::back_insert_iterator<std::vector<element, std::allocator<element> > > >' requested here
+    std::move(std::begin(source), std::end(source), std::back_inserter(destination)); // will it work?
+         ^
+main.cpp:6:5: note: implicitly declared private here
+    element(element&&) = default;
+    ^
+3 errors generated.
