@@ -1,0 +1,19 @@
+main.cpp:15:6: error: type 'std::shared_ptr<test []>' does not provide a subscript operator
+    a[0].a = 10;
+    ~^~
+main.cpp:17:19: error: type 'std::shared_ptr<test []>' does not provide a subscript operator
+    printf("%d", a[0].a);
+                 ~^~
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/memory:82:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:52:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr_base.h:871:11: error: cannot initialize a member subobject of type 'test *[]' with an lvalue of type 'test *'
+        : _M_ptr(__p), _M_refcount(__p)
+          ^      ~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:113:11: note: in instantiation of function template specialization 'std::__shared_ptr<test [], 2>::__shared_ptr<test>' requested here
+        : __shared_ptr<_Tp>(__p) { }
+          ^
+main.cpp:13:14: note: in instantiation of function template specialization 'std::shared_ptr<test []>::shared_ptr<test>' requested here
+    auto a = std::shared_ptr<test[]>(new test[10]);
+             ^
+3 errors generated.
