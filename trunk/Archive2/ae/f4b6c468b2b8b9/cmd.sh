@@ -1,0 +1,1 @@
+g++-4.9 -std=c++11 -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out
