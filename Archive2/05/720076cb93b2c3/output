@@ -1,0 +1,30 @@
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:75:38: error: no matching constructor for initialization of 'element'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:515:8: note: in instantiation of function template specialization 'std::_Construct<element>' requested here
+                std::_Construct(std::__addressof(*__cur));
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:570:2: note: in instantiation of function template specialization 'std::__uninitialized_default_n_1<false>::__uninit_default_n<element *, unsigned long>' requested here
+        __uninit_default_n(__first, __n);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:631:12: note: in instantiation of function template specialization 'std::__uninitialized_default_n<element *, unsigned long>' requested here
+    { std::__uninitialized_default_n(__first, __n); }
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:1304:7: note: in instantiation of function template specialization 'std::__uninitialized_default_n_a<element *, unsigned long, element>' requested here
+        std::__uninitialized_default_n_a(this->_M_impl._M_start, __n, 
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:279:9: note: in instantiation of member function 'std::vector<element, std::allocator<element> >::_M_default_initialize' requested here
+      { _M_default_initialize(__n); }
+        ^
+main.cpp:14:26: note: in instantiation of member function 'std::vector<element, std::allocator<element> >::vector' requested here
+    std::vector<element> source(10), destination;
+                         ^
+main.cpp:6:5: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+    element(element&&) = default;
+    ^
+main.cpp:9:5: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+    element(const element&) = delete;
+    ^
+1 error generated.
