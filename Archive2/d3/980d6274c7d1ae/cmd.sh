@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Warray-bounds -Wall -pedantic -pthread `pwd`/main.cpp && ./a.out
