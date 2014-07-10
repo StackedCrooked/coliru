@@ -1,0 +1,68 @@
+{
+const main_implementation<char> a('c');
+  impl(T&&)
+const main_implementation<large> b(large(3,5));
+  impl(T&&)
+const value_ptr<main_interface, buf_size> ptr0;
+const value_ptr<main_interface, buf_size> ptr1(a);
+  impl(const impl&)
+const value_ptr<main_interface, buf_size> ptr2(b);
+  impl(const impl&)
+const value_ptr<main_interface, buf_size> ptr3(ptr0);
+const value_ptr<main_interface, buf_size> ptr4(ptr1);
+  impl(const impl&)
+const value_ptr<main_interface, buf_size> ptr5(ptr2);
+  impl(const impl&)
+value_ptr<main_interface, buf_size> ptr6 = value_ptr<main_interface, buf_size>{ptr0};
+value_ptr<main_interface, buf_size> ptr7 = value_ptr<main_interface, buf_size>{ptr1};
+  impl(const impl&)
+value_ptr<main_interface, buf_size> ptr8 = value_ptr<main_interface, buf_size>{ptr2};
+  impl(const impl&)
+value_ptr<main_interface, buf_size> t;
+t = ptr0;
+t = ptr1;
+  impl(const impl&)
+t = ptr2;
+  ~impl()
+  impl(const impl&)
+t = ptr1;
+  ~impl()
+  impl(const impl&)
+t = ptr0;
+  ~impl()
+t = ptr2;
+  impl(const impl&)
+t = ptr0;
+  ~impl()
+t = value_ptr<main_interface, buf_size>{ptr0};
+t = value_ptr<main_interface, buf_size>{ptr1};
+  impl(const impl&)
+  impl(impl&&)
+  ~impl()
+t = value_ptr<main_interface, buf_size>{ptr2};
+  impl(const impl&)
+  ~impl()
+  impl(impl&&)
+  ~impl()
+t = nullptr;
+  ~impl()
+swap(ptr6, ptr7);
+swap(ptr7, ptr8);
+swap(ptr8, ptr6);
+swap(ptr8, ptr7);
+swap(ptr7, ptr6);
+swap(ptr8, ptr6);
+ptr6->write(std::cout);
+  3,5
+
+std::cout << *ptr8;
+  c
+}
+  ~impl()
+  ~impl()
+  ~impl()
+  ~impl()
+  ~impl()
+  ~impl()
+  ~impl()
+  ~impl()
