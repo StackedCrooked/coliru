@@ -1,0 +1,65 @@
+main.cpp:38:116: error: invalid use of non-static data member 'index'
+    friend reference_iterator operator+(const reference_iterator& it, size_type o) {return reference_iterator(*it, index+o);}
+                                                                                                                   ^~~~~
+main.cpp:39:116: error: invalid use of non-static data member 'index'
+    friend reference_iterator operator+(size_type o, const reference_iterator& it) {return reference_iterator(*it, index+o);}
+                                                                                                                   ^~~~~
+main.cpp:43:116: error: invalid use of non-static data member 'index'
+    friend reference_iterator operator-(const reference_iterator& it, size_type o) {return reference_iterator(*it, index-o);}
+                                                                                                                   ^~~~~
+In file included from main.cpp:3:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/iterator:64:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ios:42:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/ios_base.h:41:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/locale_classes.h:40:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/string:48:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_function.h:366:27: error: cannot form a reference to 'void'
+      operator()(const _Tp& __x, const _Tp& __y) const
+                          ^
+main.cpp:78:110: note: in instantiation of template class 'std::less<void>' requested here
+    bool operator<(const bi_vec& r) const {return std::lexicographical_compare(first, last, r.first, r.last, std::less<void>());}
+                                                                                                             ^
+In file included from main.cpp:3:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/iterator:64:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ios:42:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/ios_base.h:41:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/locale_classes.h:40:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/string:48:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_function.h:357:27: error: cannot form a reference to 'void'
+      operator()(const _Tp& __x, const _Tp& __y) const
+                          ^
+main.cpp:79:110: note: in instantiation of template class 'std::greater<void>' requested here
+    bool operator>(const bi_vec& r) const {return std::lexicographical_compare(first, last, r.first, r.last, std::greater<void>());}
+                                                                                                             ^
+main.cpp:137:40: error: use of undeclared identifier 'allocator'
+    size_type max_size() const {return allocator::max_size();}
+                                       ^
+main.cpp:237:78: error: expected ')'
+    {return _insert(loc, f, l, std::iterator_traits<outit>::iterator_category{});}
+                                                                             ^
+main.cpp:237:20: note: to match this '('
+    {return _insert(loc, f, l, std::iterator_traits<outit>::iterator_category{});}
+                   ^
+main.cpp:249:35: error: use of undeclared identifier 'allocator'; did you mean 'std::allocator'?
+            std::deque<value_type,allocator> t(f,l);
+                                  ^~~~~~~~~
+                                  std::allocator
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:92:11: note: 'std::allocator' declared here
+    class allocator: public __allocator_base<_Tp>
+          ^
+main.cpp:249:35: error: no template named 'allocator'; did you mean 'std::allocator'?
+            std::deque<value_type,allocator> t(f,l);
+                                  ^~~~~~~~~
+                                  std::allocator
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:92:11: note: 'std::allocator' declared here
+    class allocator: public __allocator_base<_Tp>
+          ^
+main.cpp:249:35: error: use of class template 'allocator' requires template arguments
+            std::deque<value_type,allocator> t(f,l);
+                                  ^~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:92:11: note: template is declared here
+    class allocator: public __allocator_base<_Tp>
+          ^
+10 errors generated.
