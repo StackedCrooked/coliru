@@ -15,7 +15,10 @@
 (
     cd "${INPUT_FILES_DIR}"
     echo cache_invalidator=2
-    /usr/local/bin/Wide/CLI --version
+
+    # Wide requires boost lib in /usr/local/lib
+    LD_LIBRARY_PATH="/usr/local/lib" /usr/local/bin/Wide/CLI --version
+
     type g++ && g++ --version
     type clang++ && clang++ --version
     cat main.cpp
