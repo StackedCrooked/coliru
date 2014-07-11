@@ -1,0 +1,10 @@
+main.cpp:1:55: error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+template <class T> T& forward(T& t) noexcept { return static_cast<T&&>(t); }
+                                                      ^~~~~~~~~~~~~~~~~~~
+main.cpp:5:20: note: in instantiation of function template specialization 'forward<int>' requested here
+void test(T&& t) { forward<T>(t); } 
+                   ^
+main.cpp:8:5: note: in instantiation of function template specialization 'test<int>' requested here
+    test(0);
+    ^
+1 error generated.
