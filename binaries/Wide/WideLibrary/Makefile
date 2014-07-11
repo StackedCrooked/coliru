@@ -23,7 +23,7 @@ ifeq ($(config),debug32)
   OBJDIR     = ../Obj/WideLibrary/x32
   TARGETDIR  = ../Build/x86/Debug
   TARGET     = $(TARGETDIR)/libWideLibrary.a
-  DEFINES   += -DTEAMCITY=213
+  DEFINES   += -DTEAMCITY=214
   INCLUDES  += -I../..
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -m32 -std=c++11 -D __STDC_CONSTANT_MACROS -D __STDC_LIMIT_MACROS -fPIC
@@ -48,7 +48,7 @@ ifeq ($(config),release32)
   OBJDIR     = obj/x32
   TARGETDIR  = ../..
   TARGET     = $(TARGETDIR)/libWideLibrary.a
-  DEFINES   += -DTEAMCITY=213
+  DEFINES   += -DTEAMCITY=214
   INCLUDES  += -I../..
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -m32 -std=c++11 -D __STDC_CONSTANT_MACROS -D __STDC_LIMIT_MACROS -fPIC
@@ -73,7 +73,7 @@ ifeq ($(config),debug64)
   OBJDIR     = ../Obj/WideLibrary/x64/Debug
   TARGETDIR  = ../Build/x64/Debug
   TARGET     = $(TARGETDIR)/libWideLibrary.a
-  DEFINES   += -DTEAMCITY=213
+  DEFINES   += -DTEAMCITY=214
   INCLUDES  += -I../..
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -m64 -std=c++11 -D __STDC_CONSTANT_MACROS -D __STDC_LIMIT_MACROS -fPIC
@@ -98,7 +98,7 @@ ifeq ($(config),release64)
   OBJDIR     = ../Obj/WideLibrary/x64/Release
   TARGETDIR  = ../Build/x64/Release
   TARGET     = $(TARGETDIR)/libWideLibrary.a
-  DEFINES   += -DTEAMCITY=213
+  DEFINES   += -DTEAMCITY=214
   INCLUDES  += -I../..
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -m64 -std=c++11 -D __STDC_CONSTANT_MACROS -D __STDC_LIMIT_MACROS -fPIC
