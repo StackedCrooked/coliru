@@ -1,0 +1,70 @@
+main.cpp: In function 'int main()':
+main.cpp:18:51: error: no matching function for call to 'std::map<int, float>::map(PulseCompare)'
+     std::map<int,float> pulsemap(PulseCompare(256));
+                                                   ^
+main.cpp:18:51: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/map:61:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_map.h:270:9: note: template<class _InputIterator> std::map<_Key, _Tp, _Compare, _Alloc>::map(_InputIterator, _InputIterator, const _Compare&, const allocator_type&)
+         map(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:270:9: note:   template argument deduction/substitution failed:
+main.cpp:18:51: note:   candidate expects 4 arguments, 1 provided
+     std::map<int,float> pulsemap(PulseCompare(256));
+                                                   ^
+In file included from /usr/local/include/c++/4.9.0/map:61:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_map.h:253:9: note: template<class _InputIterator> std::map<_Key, _Tp, _Compare, _Alloc>::map(_InputIterator, _InputIterator)
+         map(_InputIterator __first, _InputIterator __last)
+         ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:253:9: note:   template argument deduction/substitution failed:
+main.cpp:18:51: note:   candidate expects 2 arguments, 1 provided
+     std::map<int,float> pulsemap(PulseCompare(256));
+                                                   ^
+In file included from /usr/local/include/c++/4.9.0/map:61:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_map.h:236:9: note: template<class _InputIterator> std::map<_Key, _Tp, _Compare, _Alloc>::map(_InputIterator, _InputIterator, const allocator_type&)
+         map(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:236:9: note:   template argument deduction/substitution failed:
+main.cpp:18:51: note:   candidate expects 3 arguments, 1 provided
+     std::map<int,float> pulsemap(PulseCompare(256));
+                                                   ^
+In file included from /usr/local/include/c++/4.9.0/map:61:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_map.h:230:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(std::initializer_list<std::pair<const _Key, _Tp> >, const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(initializer_list<value_type> __l, const allocator_type& __a)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:230:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/stl_map.h:224:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(std::map<_Key, _Tp, _Compare, _Alloc>&&, const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(map&& __m, const allocator_type& __a)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:224:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/stl_map.h:220:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(const std::map<_Key, _Tp, _Compare, _Alloc>&, const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(const map& __m, const allocator_type& __a)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:220:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/stl_map.h:216:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(const allocator_type& __a)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:216:7: note:   no known conversion for argument 1 from 'PulseCompare' to 'const allocator_type& {aka const std::allocator<std::pair<const int, float> >&}'
+/usr/local/include/c++/4.9.0/bits/stl_map.h:208:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(std::initializer_list<std::pair<const _Key, _Tp> >, const _Compare&, const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(initializer_list<value_type> __l,
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:208:7: note:   no known conversion for argument 1 from 'PulseCompare' to 'std::initializer_list<std::pair<const int, float> >'
+/usr/local/include/c++/4.9.0/bits/stl_map.h:193:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(std::map<_Key, _Tp, _Compare, _Alloc>&&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >]
+       map(map&& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:193:7: note:   no known conversion for argument 1 from 'PulseCompare' to 'std::map<int, float>&&'
+/usr/local/include/c++/4.9.0/bits/stl_map.h:182:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(const std::map<_Key, _Tp, _Compare, _Alloc>&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >]
+       map(const map& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:182:7: note:   no known conversion for argument 1 from 'PulseCompare' to 'const std::map<int, float>&'
+/usr/local/include/c++/4.9.0/bits/stl_map.h:171:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map(const _Compare&, const allocator_type&) [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >; std::map<_Key, _Tp, _Compare, _Alloc>::allocator_type = std::allocator<std::pair<const int, float> >]
+       map(const _Compare& __comp,
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:171:7: note:   no known conversion for argument 1 from 'PulseCompare' to 'const std::less<int>&'
+/usr/local/include/c++/4.9.0/bits/stl_map.h:162:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::map() [with _Key = int; _Tp = float; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, float> >]
+       map()
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:162:7: note:   candidate expects 0 arguments, 1 provided
