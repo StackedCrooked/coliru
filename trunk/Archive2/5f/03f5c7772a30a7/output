@@ -1,0 +1,23 @@
++ clang++ -O3 -std=c++11 -march=native -Wall -Wextra -Winline -pedantic -pthread main.cpp
+main.cpp:7:9: warning: anonymous types declared in an anonymous union are an extension [-Wnested-anon-types]
+        struct
+        ^
+main.cpp:25:15: error: static_assert expression is not an integral constant expression
+static_assert(PointerData(true, false, false)._i == 1, "PointerData not supported");
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:25:47: note: read of member '_i' of union with active member '_s' is not allowed in a constant expression
+static_assert(PointerData(true, false, false)._i == 1, "PointerData not supported");
+                                              ^
+main.cpp:26:15: error: static_assert expression is not an integral constant expression
+static_assert(PointerData(false, true, false)._i == 2, "PointerData not supported");
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:26:47: note: read of member '_i' of union with active member '_s' is not allowed in a constant expression
+static_assert(PointerData(false, true, false)._i == 2, "PointerData not supported");
+                                              ^
+main.cpp:27:15: error: static_assert expression is not an integral constant expression
+static_assert(PointerData(false, false, true)._i == 4, "PointerData not supported");
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:27:47: note: read of member '_i' of union with active member '_s' is not allowed in a constant expression
+static_assert(PointerData(false, false, true)._i == 4, "PointerData not supported");
+                                              ^
+1 warning and 3 errors generated.
