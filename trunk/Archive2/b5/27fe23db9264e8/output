@@ -1,0 +1,13 @@
++ g++ -O3 -std=c++11 -march=native -Wall -Wextra -Winline -pedantic -pthread main.cpp
+main.cpp:25:1: error: non-constant condition for static assertion
+ static_assert(PointerData(true, false, false)._i == 1, "PointerData not supported");
+ ^
+main.cpp:25:1: error: accessing 'PointerData::<anonymous union>::_i' member instead of initialized 'PointerData::<anonymous union>::_s' member in constant expression
+main.cpp:26:1: error: non-constant condition for static assertion
+ static_assert(PointerData(false, true, false)._i == 2, "PointerData not supported");
+ ^
+main.cpp:26:1: error: accessing 'PointerData::<anonymous union>::_i' member instead of initialized 'PointerData::<anonymous union>::_s' member in constant expression
+main.cpp:27:1: error: non-constant condition for static assertion
+ static_assert(PointerData(false, false, true)._i == 4, "PointerData not supported");
+ ^
+main.cpp:27:1: error: accessing 'PointerData::<anonymous union>::_i' member instead of initialized 'PointerData::<anonymous union>::_s' member in constant expression
