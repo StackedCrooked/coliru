@@ -39,7 +39,11 @@ post '/feedback' do
     Thread.new do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
-                file.puts(request.body.read.gsub('NOTE', 'IAMGAY'))
+                text = request.body.read.gsub('NOTE', 'IAMGAY').split("\n")[0]
+                if text == ''
+                    return 
+                end
+                file.puts(text)
             end
         end
     end.join
