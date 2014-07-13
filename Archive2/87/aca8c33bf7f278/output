@@ -1,0 +1,18 @@
+g++ (GCC) 4.9.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp:20:7: error: no unique final overrider for 'virtual void A::foo()' in 'C'
+ class C : public B1, public B2 {};
+       ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:24:7: error: request for member 'foo' is ambiguous
+   el->foo(); /* WHAT HAPPENS? */
+       ^
+main.cpp:17:17: note: candidates are: virtual void B2::foo()
+   override void foo();
+                 ^
+main.cpp:12:17: note:                 virtual void B1::foo()
+   override void foo();
+                 ^
