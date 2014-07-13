@@ -1,0 +1,13 @@
+main.cpp: In static member function 'static void* A::operator new(std::size_t, C*)':
+main.cpp:11:44: warning: address of local variable 'a' returned [-Wreturn-local-addr]
+     void* operator new(std::size_t, C*){ A a; return &a; }
+                                            ^
+main.cpp: At global scope:
+main.cpp:16:20: error: no matching function for call to 'A::operator new(sizetype, C*, C*)'
+ A *a= new (&c, &c) A;
+                    ^
+main.cpp:16:20: note: candidate is:
+main.cpp:11:11: note: static void* A::operator new(std::size_t, C*)
+     void* operator new(std::size_t, C*){ A a; return &a; }
+           ^
+main.cpp:11:11: note:   candidate expects 2 arguments, 3 provided
