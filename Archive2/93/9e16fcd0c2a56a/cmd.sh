@@ -1,0 +1,3 @@
+echo -e '\nclang++ without -ftrapv' && clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out
+echo -e '\ng++ without -ftrapv' && g++-4.9 -std=c++11 -O3 -Wall -Wextra -pedantic-errors main.cpp && ./a.out
+echo -e '\nclang++ with -ftrapv' && clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors -ftrapv main.cpp -lsupc++ && ./a.out || echo 'undefined behaviour generated a trap'

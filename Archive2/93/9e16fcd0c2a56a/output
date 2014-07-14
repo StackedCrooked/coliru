@@ -1,0 +1,16 @@
+
+clang++ without -ftrapv
+a == 2147483647  b == 2147483647
+just before engendering undefined behaviour
+after ++a, a is greater than b
+
+g++ without -ftrapv
+a == 2147483647  b == 2147483647
+just before engendering undefined behaviour
+after ++a, a is less than b
+
+clang++ with -ftrapv
+a == 2147483647  b == 2147483647
+just before engendering undefined behaviour
+bash: line 10: 13572 Illegal instruction     (core dumped) ./a.out
+undefined behaviour generated a trap
