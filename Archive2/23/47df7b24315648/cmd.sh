@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out -p1 -p2 -p3 -myparam -p4 -p5 -p6
