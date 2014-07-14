@@ -1,0 +1,42 @@
+main.cpp: In member function 'void Semaphore::take()':
+main.cpp:20:57: error: no matching function for call to 'atomic_fetch_and(std::atomic_char*, bool)'
+         while (!std::atomic_fetch_and(&m_signaled, false)) {
+                                                         ^
+main.cpp:20:57: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/atomic:1044:5: note: template<class _ITp> _ITp std::atomic_fetch_and(std::__atomic_base<_ITp>*, _ITp)
+     atomic_fetch_and(__atomic_base<_ITp>* __a, _ITp __i) noexcept
+     ^
+/usr/include/c++/4.8/atomic:1044:5: note:   template argument deduction/substitution failed:
+main.cpp:20:57: note:   deduced conflicting types for parameter '_ITp' ('char' and 'bool')
+         while (!std::atomic_fetch_and(&m_signaled, false)) {
+                                                         ^
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/atomic:1049:5: note: template<class _ITp> _ITp std::atomic_fetch_and(volatile std::__atomic_base<_ITp>*, _ITp)
+     atomic_fetch_and(volatile __atomic_base<_ITp>* __a, _ITp __i) noexcept
+     ^
+/usr/include/c++/4.8/atomic:1049:5: note:   template argument deduction/substitution failed:
+main.cpp:20:57: note:   deduced conflicting types for parameter '_ITp' ('char' and 'bool')
+         while (!std::atomic_fetch_and(&m_signaled, false)) {
+                                                         ^
+main.cpp: In member function 'void Semaphore::put()':
+main.cpp:27:47: error: no matching function for call to 'atomic_fetch_or(std::atomic_char*, bool)'
+         std::atomic_fetch_or(&m_signaled, true);
+                                               ^
+main.cpp:27:47: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/atomic:1054:5: note: template<class _ITp> _ITp std::atomic_fetch_or(std::__atomic_base<_ITp>*, _ITp)
+     atomic_fetch_or(__atomic_base<_ITp>* __a, _ITp __i) noexcept
+     ^
+/usr/include/c++/4.8/atomic:1054:5: note:   template argument deduction/substitution failed:
+main.cpp:27:47: note:   deduced conflicting types for parameter '_ITp' ('char' and 'bool')
+         std::atomic_fetch_or(&m_signaled, true);
+                                               ^
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/atomic:1059:5: note: template<class _ITp> _ITp std::atomic_fetch_or(volatile std::__atomic_base<_ITp>*, _ITp)
+     atomic_fetch_or(volatile __atomic_base<_ITp>* __a, _ITp __i) noexcept
+     ^
+/usr/include/c++/4.8/atomic:1059:5: note:   template argument deduction/substitution failed:
+main.cpp:27:47: note:   deduced conflicting types for parameter '_ITp' ('char' and 'bool')
+         std::atomic_fetch_or(&m_signaled, true);
+                                               ^
