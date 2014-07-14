@@ -1,0 +1,47 @@
+main.cpp:14:60: error: macro "ENABLE_IF" passed 2 arguments, but takes just 1
+   template <typename U, ENABLE_IF(std::is_convertible<U, T>)>
+                                                            ^
+main.cpp:23:61: error: macro "ENABLE_IF" passed 2 arguments, but takes just 1
+   template <typename F, ENABLE_IF(!std::is_convertible<F, T>)>
+                                                             ^
+main.cpp:14:25: error: 'ENABLE_IF' has not been declared
+   template <typename U, ENABLE_IF(std::is_convertible<U, T>)>
+                         ^
+main.cpp:23:25: error: 'ENABLE_IF' has not been declared
+   template <typename F, ENABLE_IF(!std::is_convertible<F, T>)>
+                         ^
+main.cpp:24:5: error: 'template<class T> template<class F, int <anonymous> > T optional<T>::value_or(const F&) const' cannot be overloaded
+   T value_or(F const& f) const
+     ^
+main.cpp:15:5: error: with 'template<class T> template<class U, int <anonymous> > T optional<T>::value_or(const U&) const'
+   T value_or(U const& v) const
+     ^
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:1:
+main.cpp: In function 'int main()':
+main.cpp:41:24: error: no matching function for call to 'optional<int>::value_or(int)'
+   assert (oi.value_or(1) == 1);
+                        ^
+main.cpp:41:24: note: candidate is:
+main.cpp:15:5: note: template<class U, int <anonymous> > T optional<T>::value_or(const U&) const [with U = U; int <anonymous> = <enumerator>; T = int]
+   T value_or(U const& v) const
+     ^
+main.cpp:15:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:1:
+main.cpp:41:24: note:   couldn't deduce template parameter '<anonymous>'
+   assert (oi.value_or(1) == 1);
+                        ^
+main.cpp:42:27: error: no matching function for call to 'optional<int>::value_or(int (*)())'
+   assert (oi.value_or(&def) == -1);
+                           ^
+main.cpp:42:27: note: candidate is:
+main.cpp:15:5: note: template<class U, int <anonymous> > T optional<T>::value_or(const U&) const [with U = U; int <anonymous> = <enumerator>; T = int]
+   T value_or(U const& v) const
+     ^
+main.cpp:15:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.8/cassert:43:0,
+                 from main.cpp:1:
+main.cpp:42:27: note:   couldn't deduce template parameter '<anonymous>'
+   assert (oi.value_or(&def) == -1);
+                           ^
