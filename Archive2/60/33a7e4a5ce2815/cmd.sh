@@ -1,0 +1,1 @@
+set -x; g++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out; clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -Wextra -pedantic -pthread main.cpp -lsupc++ && ./a.out
