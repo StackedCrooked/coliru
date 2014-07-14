@@ -1,0 +1,16 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:34:15: warning: unused variable 'a1' [-Wunused-variable]
+   auto const& a1 = a.get(); // 1. Return const reference to a_
+               ^
++ ./a.out
+Value of a = 3
+Value of a = 5
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -Wextra -pedantic -pthread main.cpp -lsupc++
+main.cpp:34:15: warning: unused variable 'a1' [-Wunused-variable]
+  auto const& a1 = a.get(); // 1. Return const reference to a_
+              ^
+1 warning generated.
++ ./a.out
+Value of a = 3
+Value of a = 5
