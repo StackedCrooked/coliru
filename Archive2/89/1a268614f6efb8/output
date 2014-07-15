@@ -1,0 +1,37 @@
+
+
+*** g++ 4.9 ***
+g++-4.9 (GCC) 4.9.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ok compiled cleanly
+
+
+*** g++ 4.8 ***
+g++-4.8 (Ubuntu 4.8.1-2ubuntu1~12.04) 4.8.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp: In constructor 'Sales_data::Sales_data(std::istream&)':
+main.cpp:14:45: error: no matching function for call to 'Sales_data::Sales_data()'
+         Sales_data(istream &is): Sales_data() { read(is, *this) ; }
+                                             ^
+main.cpp:14:45: note: candidates are:
+main.cpp:14:9: note: Sales_data::Sales_data(std::istream&)
+         Sales_data(istream &is): Sales_data() { read(is, *this) ; }
+         ^
+main.cpp:14:9: note:   candidate expects 1 argument, 0 provided
+main.cpp:10:9: note: Sales_data::Sales_data(const string&, unsigned int, double)
+         Sales_data(const string &s, unsigned n, double p): bookNo(s), units_sold(n),    revenue(p*n) {}
+         ^
+main.cpp:10:9: note:   candidate expects 3 arguments, 0 provided
+main.cpp:5:7: note: Sales_data::Sales_data(const Sales_data&)
+ class Sales_data
+       ^
+main.cpp:5:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:7: note: Sales_data::Sales_data(Sales_data&&)
+main.cpp:5:7: note:   candidate expects 1 argument, 0 provided
+*** not ok (errors) ***
