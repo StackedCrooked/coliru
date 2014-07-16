@@ -1,0 +1,20 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -Wall -Wextra -Wconversion -Weverything -pedantic -O0 -Wall -pthread main.cpp
+main.cpp:8:10: warning: definition of implicit copy constructor for 'Base' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated]
+    Base operator=(Base ob2)
+         ^
+main.cpp:11:16: note: implicit copy constructor for 'Base' first required here
+        return *this;
+               ^
+main.cpp:8:25: warning: unused parameter 'ob2' [-Wunused-parameter]
+    Base operator=(Base ob2)
+                        ^
+main.cpp:19:28: warning: unused parameter 'ob2' [-Wunused-parameter]
+    Derived operator=(Base ob2)
+                           ^
+main.cpp:36:2: warning: C++98 requires newline at end of file [-Wc++98-compat-pedantic]
+}
+ ^
+4 warnings generated.
++ ./a.out
+Using Base operator=() 
+Using Derived operator=() 
