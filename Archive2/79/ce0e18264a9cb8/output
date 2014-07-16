@@ -1,0 +1,11 @@
+main.cpp:4:12: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    int foo();
+           ^~
+main.cpp:4:12: note: replace parentheses with an initializer to declare a variable
+    int foo();
+           ^~
+            = 0
+main.cpp:6:5: error: static_assert failed "Not a function pointer"
+    static_assert(std::is_same<decltype(foo), int(*)()>::value, "Not a function pointer");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning and 1 error generated.
