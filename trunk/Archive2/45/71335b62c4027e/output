@@ -1,0 +1,16 @@
+main.cpp: In instantiation of 'void AddItem(const D&) [with D = Unrelated]':
+main.cpp:21:24:   required from here
+main.cpp:15:5: error: no matching function for call to 'std::vector<std::unique_ptr<Base> >::push_back(std::_MakeUniq<Unrelated>::__single_object)'
+     vec.push_back(make_unique<D>(thing));
+     ^
+main.cpp:15:5: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:913:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::unique_ptr<Base>; _Alloc = std::allocator<std::unique_ptr<Base> >; std::vector<_Tp, _Alloc>::value_type = std::unique_ptr<Base>]
+       push_back(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:913:7: note:   no known conversion for argument 1 from 'std::_MakeUniq<Unrelated>::__single_object {aka std::unique_ptr<Unrelated, std::default_delete<Unrelated> >}' to 'const value_type& {aka const std::unique_ptr<Base>&}'
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:931:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::unique_ptr<Base>; _Alloc = std::allocator<std::unique_ptr<Base> >; std::vector<_Tp, _Alloc>::value_type = std::unique_ptr<Base>]
+       push_back(value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:931:7: note:   no known conversion for argument 1 from 'std::_MakeUniq<Unrelated>::__single_object {aka std::unique_ptr<Unrelated, std::default_delete<Unrelated> >}' to 'std::vector<std::unique_ptr<Base> >::value_type&& {aka std::unique_ptr<Base>&&}'
