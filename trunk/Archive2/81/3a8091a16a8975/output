@@ -1,0 +1,37 @@
+main.cpp: In function 'main':
+main.cpp:16:5: error: assignment of read-only location '*ptr_to_const'
+     *ptr_to_const = 0;          /* NOK: cannot modify the target  */
+     ^
+main.cpp:19:5: error: assignment of read-only variable 'const_ptr'
+     const_ptr  = NULL;          /* NOK: cannot modify the pointer */
+     ^
+main.cpp:20:5: error: assignment of read-only location '*const_ptr_to_const'
+     *const_ptr_to_const = 0;    /* NOK: cannot modify the target  */
+     ^
+main.cpp:21:5: error: assignment of read-only variable 'const_ptr_to_const'
+     const_ptr_to_const  = NULL; /* NOK: cannot modify the pointer */
+     ^
+main.cpp:25:46: error: initialization discards 'const' qualifier from pointer target type
+     int * j_ptr                            = &j; /* NOK: int* <== const int* */
+                                              ^
+main.cpp:27:46: error: initialization discards 'const' qualifier from pointer target type
+     int * const j_const_ptr                = &j; /* NOK: int* <== const int* */
+                                              ^
+main.cpp:32:5: error: assignment of read-only location '*j_ptr_to_const'
+     *j_ptr_to_const = 0;          /* NOK: cannot modify the target  */
+     ^
+main.cpp:35:5: error: assignment of read-only variable 'j_const_ptr'
+     j_const_ptr  = NULL;          /* NOK: cannot modify the pointer */
+     ^
+main.cpp:36:5: error: assignment of read-only location '*j_const_ptr_to_const'
+     *j_const_ptr_to_const = 0;    /* NOK: cannot modify the target  */
+     ^
+main.cpp:37:5: error: assignment of read-only variable 'j_const_ptr_to_const'
+     j_const_ptr_to_const  = NULL; /* NOK: cannot modify the pointer */
+     ^
+main.cpp:24:15: warning: unused variable 'jj' [-Wunused-variable]
+     int const jj = 0;                            /* also valid               */
+               ^
+main.cpp:12:22: warning: unused variable 'c_p_t_c' [-Wunused-variable]
+     const int* const c_p_t_c             = &i;   /* also valid */
+                      ^
