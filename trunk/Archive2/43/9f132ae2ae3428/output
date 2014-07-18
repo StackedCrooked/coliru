@@ -1,0 +1,54 @@
+main.cpp: In constructor 'MaliciousLock::MaliciousLock(SimulatedFSB&, const char*)':
+main.cpp:130:17: warning: 'MaliciousLock::_name' will be initialized after [-Wreorder]
+     char const* _name;
+                 ^
+main.cpp:129:9: warning:   'int MaliciousLock::_waiters' [-Wreorder]
+     int _waiters;
+         ^
+main.cpp:61:5: warning:   when initialized here [-Wreorder]
+     MaliciousLock (SimulatedFSB& fsb, char const* lname) :
+     ^
+t2 naive_lock(l2,l1)t1 naive_lock(l1,l2)
+
+lock(l2)
+lock(l1)
+generation: 1
+t2 got l2
+t2 try_lock(l1)
+unlock(l2)
+t1 got l1
+t1 try_lock(l2)
+unlock(l1)
+generation: 2
+lock(l1)
+lock(l2)
+generation: 3
+t2 got l1
+t2 try_lock(l2)
+t1 got l2
+t1 try_lock(l1)
+unlock(l2)
+generation: 4
+unlock(l1)
+lock(l1)
+generation: 5
+t1 got l1
+t1 try_lock(l2)
+lock(l2)
+generation: 6
+t1 try_lock(l2) OK
+t1 done
+unlock(l1)
+generation: 7
+unlock(l2)
+generation: 8
+t2 got l2
+t2 try_lock(l1)
+generation: 9
+t2 try_lock(l1) OK
+t2 done
+unlock(l2)
+generation: 10
+unlock(l1)
+generation: 11
+generation: 12
