@@ -1,0 +1,65 @@
+main.cpp: In function 'int main()':
+main.cpp:169:44: error: no matching function for call to 'Combiner<BigDataA, BigDataB>::Combiner(BigDataA&, BigDataB&)'
+     Combiner<BigDataA, BigDataB> comb4(a, b);
+                                            ^
+main.cpp:169:44: note: candidates are:
+main.cpp:125:5: note: Combiner<T1, T2>::Combiner(Combiner<T1, T2>&&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(Combiner && rhs) 
+     ^
+main.cpp:125:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:118:5: note: Combiner<T1, T2>::Combiner(const Combiner<T1, T2>&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(const Combiner & rhs) 
+     ^
+main.cpp:118:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:108:5: note: Combiner<T1, T2>::Combiner() [with T1 = BigDataA; T2 = BigDataB]
+     Combiner() : aData(), bData()
+     ^
+main.cpp:108:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp:170:74: error: no matching function for call to 'Combiner<BigDataA, BigDataB>::Combiner(BigDataA, BigDataB)'
+     Combiner<BigDataA, BigDataB> comb5(comb3.getAdata(), comb3.getBdata());
+                                                                          ^
+main.cpp:170:74: note: candidates are:
+main.cpp:125:5: note: Combiner<T1, T2>::Combiner(Combiner<T1, T2>&&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(Combiner && rhs) 
+     ^
+main.cpp:125:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:118:5: note: Combiner<T1, T2>::Combiner(const Combiner<T1, T2>&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(const Combiner & rhs) 
+     ^
+main.cpp:118:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:108:5: note: Combiner<T1, T2>::Combiner() [with T1 = BigDataA; T2 = BigDataB]
+     Combiner() : aData(), bData()
+     ^
+main.cpp:108:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp:173:59: error: no matching function for call to 'Combiner<BigDataA, BigDataB>::Combiner(BigDataA&, BigDataB)'
+     Combiner<BigDataA, BigDataB> comb6(a, comb3.getBdata());
+                                                           ^
+main.cpp:173:59: note: candidates are:
+main.cpp:125:5: note: Combiner<T1, T2>::Combiner(Combiner<T1, T2>&&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(Combiner && rhs) 
+     ^
+main.cpp:125:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:118:5: note: Combiner<T1, T2>::Combiner(const Combiner<T1, T2>&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(const Combiner & rhs) 
+     ^
+main.cpp:118:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:108:5: note: Combiner<T1, T2>::Combiner() [with T1 = BigDataA; T2 = BigDataB]
+     Combiner() : aData(), bData()
+     ^
+main.cpp:108:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp:174:59: error: no matching function for call to 'Combiner<BigDataA, BigDataB>::Combiner(BigDataA, BigDataB&)'
+     Combiner<BigDataA, BigDataB> comb7(comb3.getAdata(), b);    
+                                                           ^
+main.cpp:174:59: note: candidates are:
+main.cpp:125:5: note: Combiner<T1, T2>::Combiner(Combiner<T1, T2>&&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(Combiner && rhs) 
+     ^
+main.cpp:125:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:118:5: note: Combiner<T1, T2>::Combiner(const Combiner<T1, T2>&) [with T1 = BigDataA; T2 = BigDataB]
+     Combiner(const Combiner & rhs) 
+     ^
+main.cpp:118:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:108:5: note: Combiner<T1, T2>::Combiner() [with T1 = BigDataA; T2 = BigDataB]
+     Combiner() : aData(), bData()
+     ^
+main.cpp:108:5: note:   candidate expects 0 arguments, 2 provided
