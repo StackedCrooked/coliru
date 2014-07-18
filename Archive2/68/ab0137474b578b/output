@@ -1,0 +1,19 @@
+main.cpp:33:13: error: conversion function from 'base' to 'const std::reference_wrapper<base>' invokes a deleted function
+    test(L{ base{}, derived{}, other_derived<int>{}});
+            ^~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/functional:411:7: note: function has been explicitly marked deleted here
+      reference_wrapper(_Tp&&) = delete;
+      ^
+main.cpp:33:21: error: conversion function from 'derived' to 'const std::reference_wrapper<base>' invokes a deleted function
+    test(L{ base{}, derived{}, other_derived<int>{}});
+                    ^~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/functional:411:7: note: function has been explicitly marked deleted here
+      reference_wrapper(_Tp&&) = delete;
+      ^
+main.cpp:33:32: error: conversion function from 'other_derived<int>' to 'const std::reference_wrapper<base>' invokes a deleted function
+    test(L{ base{}, derived{}, other_derived<int>{}});
+                               ^~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/functional:411:7: note: function has been explicitly marked deleted here
+      reference_wrapper(_Tp&&) = delete;
+      ^
+3 errors generated.
