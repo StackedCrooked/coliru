@@ -1,0 +1,42 @@
+main.cpp: In function 'int main()':
+main.cpp:10:28: error: no match for call to '(boost::function<int(std::basic_string<char>)>) (int, const char [4])'
+     std::cout << f(1, "aaa");
+                            ^
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:0,
+                 from /usr/local/include/boost/function/detail/function_iterate.hpp:14,
+                 from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52,
+                 from /usr/local/include/boost/function.hpp:64,
+                 from main.cpp:1:
+/usr/local/include/boost/function/function_template.hpp:1048:7: note: candidate is:
+ class function<BOOST_FUNCTION_PARTIAL_SPEC>
+       ^
+/usr/local/include/boost/function/function_template.hpp:761:17: note: boost::function1<R, T1>::result_type boost::function1<R, T1>::operator()(T0) const [with R = int; T0 = std::basic_string<char>; boost::function1<R, T1>::result_type = int]
+     result_type operator()(BOOST_FUNCTION_PARMS) const
+                 ^
+/usr/local/include/boost/function/function_template.hpp:761:17: note:   candidate expects 1 argument, 2 provided
+In file included from /usr/local/include/boost/bind.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/bind/bind.hpp: In instantiation of 'R boost::_bi::list2<A1, A2>::operator()(boost::_bi::type<R>, F&, A&, long int) [with R = int; F = int (*)(int, std::basic_string<char>); A = boost::_bi::list1<std::basic_string<char>&>; A1 = boost::arg<1>; A2 = boost::arg<2>]':
+/usr/local/include/boost/bind/bind_template.hpp:32:59:   required from 'boost::_bi::bind_t<R, F, L>::result_type boost::_bi::bind_t<R, F, L>::operator()(A1&) [with A1 = std::basic_string<char>; R = int; F = int (*)(int, std::basic_string<char>); L = boost::_bi::list2<boost::arg<1>, boost::arg<2> >; boost::_bi::bind_t<R, F, L>::result_type = int]'
+/usr/local/include/boost/function/function_template.hpp:132:42:   required from 'static R boost::detail::function::function_obj_invoker1<FunctionObj, R, T0>::invoke(boost::detail::function::function_buffer&, T0) [with FunctionObj = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>]'
+/usr/local/include/boost/function/function_template.hpp:934:38:   required from 'void boost::function1<R, T1>::assign_to(Functor) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>]'
+/usr/local/include/boost/function/function_template.hpp:722:7:   required from 'boost::function1<R, T1>::function1(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+/usr/local/include/boost/function/function_template.hpp:1069:16:   required from 'boost::function<R(T0)>::function(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+main.cpp:9:67:   required from here
+/usr/local/include/boost/bind/bind.hpp:303:41: error: cannot convert 'std::basic_string<char>' to 'int' in argument passing
+         return unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_]);
+                                         ^
+In file included from /usr/local/include/boost/bind/bind.hpp:29:0,
+                 from /usr/local/include/boost/bind.hpp:22,
+                 from main.cpp:2:
+/usr/local/include/boost/bind/arg.hpp: In instantiation of 'boost::arg<I>::arg(const T&) [with T = boost::arg<2>(); int I = 1]':
+/usr/local/include/boost/bind/bind.hpp:303:63:   required from 'R boost::_bi::list2<A1, A2>::operator()(boost::_bi::type<R>, F&, A&, long int) [with R = int; F = int (*)(int, std::basic_string<char>); A = boost::_bi::list1<std::basic_string<char>&>; A1 = boost::arg<1>; A2 = boost::arg<2>]'
+/usr/local/include/boost/bind/bind_template.hpp:32:59:   required from 'boost::_bi::bind_t<R, F, L>::result_type boost::_bi::bind_t<R, F, L>::operator()(A1&) [with A1 = std::basic_string<char>; R = int; F = int (*)(int, std::basic_string<char>); L = boost::_bi::list2<boost::arg<1>, boost::arg<2> >; boost::_bi::bind_t<R, F, L>::result_type = int]'
+/usr/local/include/boost/function/function_template.hpp:132:42:   required from 'static R boost::detail::function::function_obj_invoker1<FunctionObj, R, T0>::invoke(boost::detail::function::function_buffer&, T0) [with FunctionObj = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>]'
+/usr/local/include/boost/function/function_template.hpp:934:38:   required from 'void boost::function1<R, T1>::assign_to(Functor) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>]'
+/usr/local/include/boost/function/function_template.hpp:722:7:   required from 'boost::function1<R, T1>::function1(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+/usr/local/include/boost/function/function_template.hpp:1069:16:   required from 'boost::function<R(T0)>::function(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = boost::_bi::bind_t<int, int (*)(int, std::basic_string<char>), boost::_bi::list2<boost::arg<1>, boost::arg<2> > >; R = int; T0 = std::basic_string<char>; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+main.cpp:9:67:   required from here
+/usr/local/include/boost/bind/arg.hpp:37:22: error: size of array is negative
+         typedef char T_must_be_placeholder[ I == is_placeholder<T>::value? 1: -1 ];
+                      ^
