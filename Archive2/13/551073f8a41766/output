@@ -1,0 +1,16 @@
+In file included from /usr/local/include/c++/4.9.0/vector:60:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_algobase.h: In instantiation of 'static _OI std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m(_II, _II, _OI) [with _II = ClassWithConstMember*; _OI = ClassWithConstMember*]':
+/usr/local/include/c++/4.9.0/bits/stl_algobase.h:396:70:   required from '_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = true; _II = ClassWithConstMember*; _OI = ClassWithConstMember*]'
+/usr/local/include/c++/4.9.0/bits/stl_algobase.h:434:38:   required from '_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = true; _II = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >; _OI = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >]'
+/usr/local/include/c++/4.9.0/bits/stl_algobase.h:498:47:   required from '_OI std::move(_II, _II, _OI) [with _II = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >; _OI = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >]'
+/usr/local/include/c++/4.9.0/bits/vector.tcc:142:2:   required from 'std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::_M_erase(std::vector<_Tp, _Alloc>::iterator) [with _Tp = ClassWithConstMember; _Alloc = std::allocator<ClassWithConstMember>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = ClassWithConstMember*]'
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1150:51:   required from 'std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = ClassWithConstMember; _Alloc = std::allocator<ClassWithConstMember>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<ClassWithConstMember*, std::vector<ClassWithConstMember> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = ClassWithConstMember*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const ClassWithConstMember*, std::vector<ClassWithConstMember> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const ClassWithConstMember*]'
+main.cpp:26:35:   required from here
+/usr/local/include/c++/4.9.0/bits/stl_algobase.h:355:18: error: use of deleted function 'ClassWithConstMember& ClassWithConstMember::operator=(const ClassWithConstMember&)'
+        *__result = std::move(*__first);
+                  ^
+main.cpp:4:7: note: 'ClassWithConstMember& ClassWithConstMember::operator=(const ClassWithConstMember&)' is implicitly deleted because the default definition would be ill-formed:
+ class ClassWithConstMember
+       ^
+main.cpp:4:7: error: non-static const member 'const int ClassWithConstMember::m_const', can't use default assignment operator
