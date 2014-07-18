@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wall -ftrapv main.cpp -o stdint16 && ./stdint16
