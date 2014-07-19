@@ -1,0 +1,48 @@
+In file included from /usr/include/c++/4.8/chrono:35:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp: In function 'int main()':
+main.cpp:18:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto t_start = std::chrono::high_resolution_clock::now();
+     ^
+main.cpp:18:10: error: 't_start' does not name a type
+     auto t_start = std::chrono::high_resolution_clock::now();
+          ^
+main.cpp:19:5: error: 'thread' is not a member of 'std'
+     std::thread t1(f); 
+     ^
+main.cpp:19:17: error: expected ';' before 't1'
+     std::thread t1(f); 
+                 ^
+main.cpp:20:5: error: 'thread' is not a member of 'std'
+     std::thread t2(f); // f() is called on two threads
+     ^
+main.cpp:20:17: error: expected ';' before 't2'
+     std::thread t2(f); // f() is called on two threads
+                 ^
+main.cpp:21:5: error: 't1' was not declared in this scope
+     t1.join();
+     ^
+main.cpp:22:5: error: 't2' was not declared in this scope
+     t2.join();
+     ^
+main.cpp:24:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto t_end = std::chrono::high_resolution_clock::now();
+     ^
+main.cpp:24:10: error: 't_end' does not name a type
+     auto t_end = std::chrono::high_resolution_clock::now();
+          ^
+main.cpp:30:23: error: 'std::chrono' has not been declared
+               << std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count()
+                       ^
+main.cpp:30:50: error: 'std::chrono' has not been declared
+               << std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count()
+                                                  ^
+main.cpp:30:72: error: 't_end' was not declared in this scope
+               << std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count()
+                                                                        ^
+main.cpp:30:80: error: 't_start' was not declared in this scope
+               << std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count()
+                                                                                ^
