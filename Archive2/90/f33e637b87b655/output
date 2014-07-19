@@ -1,0 +1,27 @@
+In file included from main.cpp:2:
+In file included from /usr/include/c++/v1/unordered_map:318:
+In file included from /usr/include/c++/v1/__hash_table:16:
+In file included from /usr/include/c++/v1/memory:589:
+/usr/include/c++/v1/type_traits:771:38: error: implicit instantiation of undefined template 'std::__1::hash<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >'
+    : public integral_constant<bool, __is_empty(_Tp)> {};
+                                     ^
+/usr/include/c++/v1/unordered_map:328:54: note: in instantiation of template class 'std::__1::is_empty<std::__1::hash<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >' requested here
+template <class _Key, class _Tp, class _Hash, bool = is_empty<_Hash>::value
+                                                     ^
+/usr/include/c++/v1/unordered_map:679:13: note: in instantiation of default argument for '__unordered_map_hasher<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, int, std::__1::hash<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > >' required here
+    typedef __unordered_map_hasher<key_type, mapped_type, hasher>   __hasher;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:8:41: note: in instantiation of template class 'std::__1::unordered_map<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, int, std::__1::hash<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >, std::__1::equal_to<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, int> > >' requested here
+    std::unordered_map<std::string,int> myMap;
+                                        ^
+/usr/include/c++/v1/memory:3082:29: note: template is declared here
+template <class _Tp> struct hash;
+                            ^
+main.cpp:9:17: error: implicit instantiation of undefined template 'std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >'
+    std::string str = "test1";
+                ^
+/usr/include/c++/v1/iosfwd:188:28: note: template is declared here
+    class _LIBCPP_TYPE_VIS basic_string;
+                           ^
+2 errors generated.
+1
