@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:36:41: error: cannot convert 'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' to 'int' in initialization
+     > int_rule_ = int_[_val = new int(_1)];
+                                         ^
+main.cpp:42:10: warning: unused variable 'result_' [-Wunused-variable]
+     auto result_ = phrase_parse(text_.begin(), text_.end(), int_rule_, subject_);
+          ^
+In file included from /usr/local/include/boost/type_traits/type_with_alignment.hpp:19:0,
+                 from /usr/local/include/boost/smart_ptr/make_shared_object.hpp:18,
+                 from /usr/local/include/boost/smart_ptr/make_shared.hpp:15,
+                 from /usr/local/include/boost/make_shared.hpp:15,
+                 from main.cpp:5:
+/usr/local/include/boost/spirit/home/qi/detail/parse.hpp: In instantiation of 'static bool boost::spirit::qi::detail::phrase_parse_impl<Expr, typename boost::enable_if<boost::spirit::traits::matches<boost::spirit::qi::domain, Expr> >::type>::call(Iterator&, Iterator, const Expr&, const Skipper&, boost::spirit::qi::skip_flag) [with Iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; Skipper = boost::shared_ptr<int>; Expr = boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, boost::shared_ptr<int>()>]':
+/usr/local/include/boost/spirit/home/qi/parse.hpp:118:50:   required from 'bool boost::spirit::qi::phrase_parse(Iterator&, Iterator, const Expr&, const Skipper&, boost::spirit::qi::skip_flag) [with Iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; Expr = boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, boost::shared_ptr<int>()>; Skipper = boost::shared_ptr<int>]'
+/usr/local/include/boost/spirit/home/qi/parse.hpp:131:70:   required from 'bool boost::spirit::qi::phrase_parse(const Iterator&, Iterator, const Expr&, const Skipper&, boost::spirit::qi::skip_flag) [with Iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; Expr = boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, boost::shared_ptr<int>()>; Skipper = boost::shared_ptr<int>]'
+main.cpp:42:80:   required from here
+/usr/local/include/boost/spirit/home/qi/detail/parse.hpp:77:13: error: static assertion failed: error_invalid_expression
+             BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Skipper);
+             ^
