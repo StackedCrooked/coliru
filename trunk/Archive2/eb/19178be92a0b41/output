@@ -1,0 +1,13 @@
+main.cpp:6:5: error: static_assert failed "T must be integral"
+    static_assert(std::is_integral<T>{}, "T must be integral");
+    ^             ~~~~~~~~~~~~~~~~~~~~~
+main.cpp:18:28: note: in instantiation of template class 'foo<double>' requested here
+    operator<< <double>(x, 1.0);
+                           ^
+main.cpp:18:5: error: no matching function for call to 'operator<<'
+    operator<< <double>(x, 1.0);
+    ^~~~~~~~~~~~~~~~~~~
+main.cpp:10:9: note: candidate function [with T = double, Stream = int] not viable: no known conversion from 'double' to 'const foo<double>' for 2nd argument
+Stream& operator<<(Stream& p, foo<T> const&)
+        ^
+2 errors generated.
