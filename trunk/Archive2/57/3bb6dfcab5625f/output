@@ -1,0 +1,68 @@
+main.cpp: In function 'int main()':
+main.cpp:80:62: error: no matching function for call to 'A::A(const _1_type&)'
+     = (char_("a-zA-Z") > *char_("a-zA-Z0-9"))[_val = new A(_1)];
+                                                              ^
+main.cpp:80:62: note: candidates are:
+main.cpp:30:5: note: A::A(std::string&)
+     A(std::string& t) : Base(), text(t) {}
+     ^
+main.cpp:30:5: note:   no known conversion for argument 1 from 'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' to 'std::string& {aka std::basic_string<char>&}'
+main.cpp:28:5: note: A::A()
+     A() : Base(), text() {}
+     ^
+main.cpp:28:5: note:   candidate expects 0 arguments, 1 provided
+main.cpp:24:8: note: A::A(const A&)
+ struct A : Base {
+        ^
+main.cpp:24:8: note:   no known conversion for argument 1 from 'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' to 'const A&'
+main.cpp:83:30: error: no matching function for call to 'B::B(const _1_type&)'
+     = double_[_val = new B(_1)];
+                              ^
+main.cpp:83:30: note: candidates are:
+main.cpp:45:5: note: B::B(const double&)
+     B(const double& x) : Base(), value(x) {}
+     ^
+main.cpp:45:5: note:   no known conversion for argument 1 from 'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' to 'const double&'
+main.cpp:43:5: note: B::B()
+     B() : Base(), value(0) {}
+     ^
+main.cpp:43:5: note:   candidate expects 0 arguments, 1 provided
+main.cpp:39:8: note: constexpr B::B(const B&)
+ struct B : Base {
+        ^
+main.cpp:39:8: note:   no known conversion for argument 1 from 'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' to 'const B&'
+main.cpp:88:12: error: expected primary-expression before '[' token
+     = A_ptr[_val = dynamic_pointer_cast<Base>(_1)]
+            ^
+main.cpp:88:49: error: no matching function for call to 'dynamic_pointer_cast(const _1_type&)'
+     = A_ptr[_val = dynamic_pointer_cast<Base>(_1)]
+                                                 ^
+main.cpp:88:49: note: candidate is:
+In file included from /usr/local/include/boost/shared_ptr.hpp:17:0,
+                 from main.cpp:4:
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:808:42: note: template<class T, class U> boost::shared_ptr<X> boost::dynamic_pointer_cast(const boost::shared_ptr<U>&)
+ template<class T, class U> shared_ptr<T> dynamic_pointer_cast( shared_ptr<U> const & r ) BOOST_NOEXCEPT
+                                          ^
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:808:42: note:   template argument deduction/substitution failed:
+main.cpp:88:49: note:   'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' is not derived from 'const boost::shared_ptr<U>'
+     = A_ptr[_val = dynamic_pointer_cast<Base>(_1)]
+                                                 ^
+main.cpp:89:12: error: expected primary-expression before '[' token
+     | B_ptr[_val = dynamic_pointer_cast<Base>(_1)];
+            ^
+main.cpp:89:49: error: no matching function for call to 'dynamic_pointer_cast(const _1_type&)'
+     | B_ptr[_val = dynamic_pointer_cast<Base>(_1)];
+                                                 ^
+main.cpp:89:49: note: candidate is:
+In file included from /usr/local/include/boost/shared_ptr.hpp:17:0,
+                 from main.cpp:4:
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:808:42: note: template<class T, class U> boost::shared_ptr<X> boost::dynamic_pointer_cast(const boost::shared_ptr<U>&)
+ template<class T, class U> shared_ptr<T> dynamic_pointer_cast( shared_ptr<U> const & r ) BOOST_NOEXCEPT
+                                          ^
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:808:42: note:   template argument deduction/substitution failed:
+main.cpp:89:49: note:   'const _1_type {aka const boost::phoenix::actor<boost::spirit::argument<0> >}' is not derived from 'const boost::shared_ptr<U>'
+     | B_ptr[_val = dynamic_pointer_cast<Base>(_1)];
+                                                 ^
+main.cpp:95:63: error: 'int_rule_' was not declared in this scope
+     auto result_ = phrase_parse(text_.cbegin(), text_.cend(), int_rule_, ascii::space, subject_);
+                                                               ^
