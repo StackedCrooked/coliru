@@ -1,0 +1,1 @@
+g++ -Wall -pedantic -pthread main.cpp -c -E -P
