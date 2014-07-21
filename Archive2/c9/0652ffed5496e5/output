@@ -1,0 +1,66 @@
+main.cpp:25:10: error: no member named 'function' in namespace 'std'
+    std::function<void(int)> f_display = print_num;
+    ~~~~~^
+main.cpp:25:27: error: expected '(' for function-style cast or type construction
+    std::function<void(int)> f_display = print_num;
+                       ~~~^
+main.cpp:25:30: error: use of undeclared identifier 'f_display'
+    std::function<void(int)> f_display = print_num;
+                             ^
+main.cpp:26:5: error: use of undeclared identifier 'f_display'
+    f_display(-9);
+    ^
+main.cpp:29:10: error: no member named 'function' in namespace 'std'
+    std::function<void()> f_display_42 = []() { print_num(42); };
+    ~~~~~^
+main.cpp:29:27: error: use of undeclared identifier 'f_display_42'
+    std::function<void()> f_display_42 = []() { print_num(42); };
+                          ^
+main.cpp:29:42: error: expected expression
+    std::function<void()> f_display_42 = []() { print_num(42); };
+                                         ^
+main.cpp:30:5: error: use of undeclared identifier 'f_display_42'
+    f_display_42();
+    ^
+main.cpp:33:10: error: no member named 'function' in namespace 'std'
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+    ~~~~~^
+main.cpp:33:27: error: use of undeclared identifier 'f_display_31337'
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+                          ^
+main.cpp:33:50: error: no member named 'bind' in namespace 'std'; did you mean 'find'?
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+                                            ~~~~~^~~~
+                                                 find
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/streambuf_iterator.h:369:5: note: 'find' declared here
+    find(istreambuf_iterator<_CharT> __first,
+    ^
+main.cpp:33:45: error: no matching function for call to 'find'
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+                                            ^~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/streambuf_iterator.h:369:5: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+    find(istreambuf_iterator<_CharT> __first,
+    ^
+main.cpp:34:5: error: use of undeclared identifier 'f_display_31337'
+    f_display_31337();
+    ^
+main.cpp:37:10: error: no member named 'function' in namespace 'std'
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+    ~~~~~^
+main.cpp:37:24: error: expected expression
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+                       ^
+main.cpp:37:42: error: use of undeclared identifier 'f_add_display'
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+                                         ^
+main.cpp:39:5: error: use of undeclared identifier 'f_add_display'
+    f_add_display(foo, 1);
+    ^
+main.cpp:42:16: error: no member named 'placeholders' in namespace 'std'
+    using std::placeholders::_1;
+          ~~~~~^
+main.cpp:43:10: error: no member named 'function' in namespace 'std'
+    std::function<void(int)> f_add_display2= std::bind( &Foo::print_add, foo, _1 );
+    ~~~~~^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
