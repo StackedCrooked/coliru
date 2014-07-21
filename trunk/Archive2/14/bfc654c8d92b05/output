@@ -1,0 +1,20 @@
++ g++ -std=c++11 -O1 -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp: In instantiation of 'void Test(const T&) [with T = int(int)]':
+main.cpp:24:11:   required from here
+main.cpp:16:38: error: no type named 'type' in 'class std::result_of<int(int)>'
+     typename std::result_of<T>::type i2 = 2;
+                                      ^
+main.cpp: In instantiation of 'void Test(const T&) [with T = foo]':
+main.cpp:25:15:   required from here
+main.cpp:16:38: error: invalid use of incomplete type 'class std::result_of<foo>'
+In file included from /usr/local/include/c++/4.9.0/bits/move.h:57:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/type_traits:2010:11: error: declaration of 'class std::result_of<foo>'
+     class result_of;
+           ^
