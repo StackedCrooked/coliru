@@ -1,0 +1,50 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:2:15: error: variable or field 'timeExec' declared void
+ void timeExec(string name, Fun fun, Args&&... args) {
+               ^
+main.cpp:2:15: error: 'string' was not declared in this scope
+main.cpp:2:32: error: expected primary-expression before 'fun'
+ void timeExec(string name, Fun fun, Args&&... args) {
+                                ^
+main.cpp:2:41: error: expected primary-expression before '&&' token
+ void timeExec(string name, Fun fun, Args&&... args) {
+                                         ^
+main.cpp:2:43: error: expected primary-expression before '...' token
+ void timeExec(string name, Fun fun, Args&&... args) {
+                                           ^
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -Wextra -pedantic -pthread main.cpp -lsupc++
+main.cpp:2:15: error: unknown type name 'string'
+void timeExec(string name, Fun fun, Args&&... args) {
+              ^
+main.cpp:4:24: error: use of undeclared identifier 'chrono'
+    auto const start = chrono::steady_clock::now();
+                       ^
+main.cpp:7:13: error: use of undeclared identifier 'std'
+        fun(std::forward<Args>(args)...);
+            ^
+main.cpp:7:26: error: 'Args' does not refer to a value
+        fun(std::forward<Args>(args)...);
+                         ^
+main.cpp:1:41: note: declared here
+template<int N = 1, class Fun, class... Args>
+                                        ^
+main.cpp:10:22: error: use of undeclared identifier 'chrono'
+    auto const end = chrono::steady_clock::now();
+                     ^
+main.cpp:12:23: error: use of undeclared identifier 'chrono'
+    auto const diff = chrono::duration<double, milli>(end - start);
+                      ^
+main.cpp:12:46: error: expected '(' for function-style cast or type construction
+    auto const diff = chrono::duration<double, milli>(end - start);
+                                       ~~~~~~^
+main.cpp:12:48: error: declaration of variable 'milli' with type 'const auto' requires an initializer
+    auto const diff = chrono::duration<double, milli>(end - start);
+                                               ^
+main.cpp:12:53: error: expected ';' at end of declaration
+    auto const diff = chrono::duration<double, milli>(end - start);
+                                                    ^
+                                                    ;
+main.cpp:13:5: error: use of undeclared identifier 'cout'
+    cout << name << ": "<< diff.count() << " ms.\n";
+    ^
+10 errors generated.
