@@ -1,0 +1,20 @@
++ g++ -std=c++11 -O1 -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp: In instantiation of 'void Test(const T&) [with T = int(int)]':
+main.cpp:19:11:   required from here
+main.cpp:11:54: warning: unused variable 'i1' [-Wunused-variable]
+     decltype(std::declval<T>()(std::declval<int>())) i1 = 1; // ok
+                                                      ^
+main.cpp:12:51: warning: unused variable 'i2' [-Wunused-variable]
+     typename std::result_of<const T& (int)>::type i2 = 2; // compile error:
+                                                   ^
++ clang++ -std=c++11 -stdlib=libc++ -O1 -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp:11:54: warning: unused variable 'i1' [-Wunused-variable]
+    decltype(std::declval<T>()(std::declval<int>())) i1 = 1; // ok
+                                                     ^
+main.cpp:19:5: note: in instantiation of function template specialization 'Test<int (int)>' requested here
+    Test(f);
+    ^
+main.cpp:12:51: warning: unused variable 'i2' [-Wunused-variable]
+    typename std::result_of<const T& (int)>::type i2 = 2; // compile error:
+                                                  ^
+2 warnings generated.
