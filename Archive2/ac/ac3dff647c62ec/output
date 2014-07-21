@@ -1,0 +1,26 @@
+In file included from main.cpp:1:
+/usr/include/c++/v1/memory:4023:35: error: no viable overloaded '='
+                __e->__weak_this_ = *this;
+                ~~~~~~~~~~~~~~~~~ ^ ~~~~~
+/usr/include/c++/v1/memory:4060:5: note: in instantiation of function template specialization 'std::__1::shared_ptr<concept>::__enable_weak_this<model>' requested here
+    __enable_weak_this(__p);
+    ^
+main.cpp:22:25: note: in instantiation of function template specialization 'std::__1::shared_ptr<concept>::shared_ptr<model, void>' requested here
+    shared_ptr<concept> concept_ptr { new model };
+                        ^
+/usr/include/c++/v1/memory:4952:15: note: candidate function not viable: no known conversion from 'std::__1::shared_ptr<concept>' to 'const std::__1::weak_ptr<model>' for 1st argument
+    weak_ptr& operator=(weak_ptr const& __r) _NOEXCEPT;
+              ^
+/usr/include/c++/v1/memory:4963:15: note: candidate function not viable: no known conversion from 'std::__1::shared_ptr<concept>' to 'std::__1::weak_ptr<model>' for 1st argument
+    weak_ptr& operator=(weak_ptr&& __r) _NOEXCEPT;
+              ^
+/usr/include/c++/v1/memory:4959:9: note: candidate template ignored: could not match 'weak_ptr' against 'shared_ptr'
+        operator=(weak_ptr<_Yp> const& __r) _NOEXCEPT;
+        ^
+/usr/include/c++/v1/memory:4970:9: note: candidate template ignored: could not match 'weak_ptr' against 'shared_ptr'
+        operator=(weak_ptr<_Yp>&& __r) _NOEXCEPT;
+        ^
+/usr/include/c++/v1/memory:4977:13: note: candidate template ignored: disabled by 'enable_if' [with _Yp = concept]
+            is_convertible<_Yp*, element_type*>::value,
+            ^
+1 error generated.
