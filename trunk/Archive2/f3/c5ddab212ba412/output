@@ -1,0 +1,27 @@
+main.cpp:4:13: warning: unused parameter 'pi' [-Wunused-parameter]
+void f(int* pi)
+            ^
+main.cpp:9:16: warning: unused parameter 'pd' [-Wunused-parameter]
+void f(double* pd)
+               ^
+main.cpp:14:23: warning: unused parameter 'nullp' [-Wunused-parameter]
+void f(std::nullptr_t nullp)
+                      ^
+main.cpp:23:7: warning: variable 'pi' is uninitialized when used here [-Wuninitialized]
+    f(pi);
+      ^~
+main.cpp:21:12: note: initialize the variable 'pi' to silence this warning
+    int* pi; double* pd;
+           ^
+            = nullptr
+main.cpp:24:7: warning: variable 'pd' is uninitialized when used here [-Wuninitialized]
+    f(pd);
+      ^~
+main.cpp:21:24: note: initialize the variable 'pd' to silence this warning
+    int* pi; double* pd;
+                       ^
+                        = nullptr
+5 warnings generated.
+Pointer to integer overload
+Pointer to double overload
+null pointer overload
