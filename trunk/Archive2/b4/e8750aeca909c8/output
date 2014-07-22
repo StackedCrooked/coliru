@@ -1,0 +1,12 @@
++ clang -x c -std=c99 -fsanitize=undefined -Wall -Wextra -Wconversion -Weverything -O0 -pedantic main.cpp
+main.cpp:7:15: warning: initializing 'char *' with an expression of type 'const char [12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    char *s1={"hello world"} ;
+              ^~~~~~~~~~~~~
+main.cpp:10:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:7:11: warning: unused variable 's1' [-Wunused-variable]
+    char *s1={"hello world"} ;
+          ^
+3 warnings generated.
++ ./a.out
