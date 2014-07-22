@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:29:11: error: uninitialized const 'c' [-fpermissive]
+   C const c; // clang and gcc errors, msvc warns
+           ^
+main.cpp:8:8: note: 'const struct C' has no user-provided default constructor
+ struct C {
+        ^
+main.cpp:9:7: note: and the implicitly-defined constructor does not initialize 'int C::c'
+   int c;
+       ^
+main.cpp:29:11: warning: unused variable 'c' [-Wunused-variable]
+   C const c; // clang and gcc errors, msvc warns
+           ^
+----------
+main.cpp:26:11: error: default initialization of an object of const type 'const A' requires a user-provided default constructor
+  A const a1; // clang errors
+          ^
+main.cpp:28:11: error: default initialization of an object of const type 'const B' requires a user-provided default constructor
+  B const b; // clang errors
+          ^
+main.cpp:29:11: error: default initialization of an object of const type 'const C' requires a user-provided default constructor
+  C const c; // clang and gcc errors, msvc warns
+          ^
+main.cpp:30:11: error: default initialization of an object of const type 'const D' requires a user-provided default constructor
+  D const d; // clang errors
+          ^
+4 errors generated.
