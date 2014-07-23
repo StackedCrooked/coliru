@@ -7,7 +7,7 @@
 #   reboot # wait a while
 #   fvar_inc a => 3 
 [ "$#" == "1" ] || {
-    echo "Usage: $FUNCNAME filename" 1>&2
+    echo "Usage: $(basename $0) filename" 1>&2
     exit 1
 }
 
