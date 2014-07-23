@@ -1,0 +1,1 @@
+clang++ -Wall -Wextra -pedantic -O3 -std=c++1y -mtune=native -march=native -funroll-loops main.cpp && ./a.out
