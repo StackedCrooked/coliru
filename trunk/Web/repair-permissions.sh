@@ -9,11 +9,11 @@ chmod a+rw /var/log/syslog
 source coliru_env.source
 
 # The webserver needs write access to the archive.
-# Commented out because these two are very resource consuming.
-# Maybe they are not even needed anymore. Let's keep them
-# commented out for a while and see what happens.
-chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown
-#chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown
+# Only occasionally these are run because they are very resource consuming
+export day_counter="$(($(date +%s) / (24 * 60 * 60)))"
+[ "$(($(day_counter) % 3))" == "0" ] && { chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown ; }
+[ "$(($(day_counter) % 7))" == "0" ] && { chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown ; } 
+
 chmod a+rw .
 
 
