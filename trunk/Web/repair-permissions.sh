@@ -10,12 +10,12 @@ source coliru_env.source
 
 # The webserver needs write access to the archive.
 # Only occasionally these are run because they are very resource consuming
-export day_counter="$(($(date +%s) / (24 * 60 * 60)))"
-[ "$(($(day_counter) % 3))" == "0" ] && { chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown ; }
-[ "$(($(day_counter) % 7))" == "0" ] && { chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown ; } 
+export counter="$(./fvar_inc.sh repair-permissions-counter)"
+echo "counter=$counter"
+[ "$(($counter % 7))" == "0" ] && { echo chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown ; }
+[ "$(($counter % 11))" == "0" ] && { echo chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown ; } 
 
 chmod a+rw .
-
 
 # Cleanup temporary files
 rm -rf /tmp/coliru/* & disown
