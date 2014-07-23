@@ -1,0 +1,22 @@
+main.cpp:14:16: error: no viable conversion from 'tuple<struct C::Derived, struct C::Derived>' to 'tuple<struct Base &, struct Base &>'
+        return d;
+               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:540:17: note: candidate constructor not viable: no known conversion from 'std::tuple<Derived, Derived>' to 'const std::tuple<Base &, Base &> &' for 1st argument
+      constexpr tuple(const tuple&) = default;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:542:17: note: candidate constructor not viable: no known conversion from 'std::tuple<Derived, Derived>' to 'std::tuple<Base &, Base &> &&' for 1st argument
+      constexpr tuple(tuple&&) = default;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:545:12: note: candidate template ignored: disabled by 'enable_if' [with _U1 = C::Derived, _U2 = C::Derived]
+        enable_if<__and_<is_convertible<const _U1&, _T1>,
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:551:19: note: candidate template ignored: disabled by 'enable_if' [with _U1 = C::Derived, _U2 = C::Derived]
+               enable_if<__and_<is_convertible<_U1, _T1>,
+                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:559:19: note: candidate template ignored: could not match 'pair' against 'tuple'
+        constexpr tuple(const pair<_U1, _U2>& __in)
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/tuple:565:19: note: candidate template ignored: could not match 'pair' against 'tuple'
+        constexpr tuple(pair<_U1, _U2>&& __in)
+                  ^
+1 error generated.
