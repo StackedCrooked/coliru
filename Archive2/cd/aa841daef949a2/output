@@ -1,0 +1,19 @@
+In file included from main.cpp:8:0:
+Person.h: In member function 'std::string Person::toString()':
+Person.h:22:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: At global scope:
+main.cpp:15:1: error: prototype for 'Person::Person(std::string&, std::string&)' does not match any in class 'Person'
+ Person::Person(std::string &Name,std::string &Address) {
+ ^
+In file included from main.cpp:8:0:
+Person.h:11:7: error: candidates are: Person::Person(const Person&)
+ class Person {
+       ^
+Person.h:17:2: error:                 Person::Person(const string&, const string&)
+  Person(const std::string &Name,const std::string &Address);
+  ^
+main.cpp:10:1: error:                 Person::Person()
+ Person::Person(){
+ ^

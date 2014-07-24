@@ -1,0 +1,1 @@
+cp /Archive2/dc/a6fd8d5997d172/main.cpp Person.h && g++ -std=c++11 -O2 -Wall -pedantic -pthread -c main.cpp
