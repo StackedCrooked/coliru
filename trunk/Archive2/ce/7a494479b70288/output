@@ -1,0 +1,17 @@
+main.cpp: In function 'int main()':
+main.cpp:9:29: error: '_1' was not declared in this scope
+   auto f1 = std::bind(f, 1, _1, _2);
+                             ^
+main.cpp:9:29: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/functional:1004:34: note:   'std::placeholders::_1'
+     extern const _Placeholder<1> _1;
+                                  ^
+main.cpp:9:33: error: '_2' was not declared in this scope
+   auto f1 = std::bind(f, 1, _1, _2);
+                                 ^
+main.cpp:9:33: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/functional:1005:34: note:   'std::placeholders::_2'
+     extern const _Placeholder<2> _2;
+                                  ^
