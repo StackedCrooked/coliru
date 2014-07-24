@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O2 -fgnu-tm -pedantic -Wall -pthread main.cpp && ./a.out
