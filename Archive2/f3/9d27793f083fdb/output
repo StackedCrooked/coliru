@@ -1,0 +1,54 @@
+main.cpp:42:2: error: #error BITTYPES MUST BE DEFINED FOR THIS FILE TO WORK
+ #error BITTYPES MUST BE DEFINED FOR THIS FILE TO WORK
+  ^
+main.cpp:45:2: error: #error BITNAME MUST BE DEFINED FOR THIS FILE TO WORK
+ #error BITNAME MUST BE DEFINED FOR THIS FILE TO WORK
+  ^
+main.cpp:48:26: error: expected ';' or '{' before '__int64'
+ #define BITTYPE unsigned __int64
+                          ^
+main.cpp:72:31: note: in expansion of macro 'BITTYPE'
+     enum glue(BITNAME,Flag) : BITTYPE {NoFlags=0, BITTYPES AllFlags=BITTYPE(-1)};
+                               ^
+main.cpp:48:26: error: expected class-key before '__int64'
+ #define BITTYPE unsigned __int64
+                          ^
+main.cpp:72:31: note: in expansion of macro 'BITTYPE'
+     enum glue(BITNAME,Flag) : BITTYPE {NoFlags=0, BITTYPES AllFlags=BITTYPE(-1)};
+                               ^
+main.cpp:48:26: error: expected ';' at end of member declaration
+ #define BITTYPE unsigned __int64
+                          ^
+main.cpp:74:9: note: in expansion of macro 'BITTYPE'
+         BITTYPE BitField;
+         ^
+main.cpp:74:17: error: 'BitField' does not name a type
+         BITTYPE BitField;
+                 ^
+main.cpp:78:13: error: 'BITTYPES' does not name a type
+             BITTYPES
+             ^
+main.cpp:48:26: error: redeclaration of 'unsigned int BITNAMEBitfield::<anonymous union>::__int64'
+ #define BITTYPE unsigned __int64
+                          ^
+main.cpp:74:9: note: in expansion of macro 'BITTYPE'
+         BITTYPE BitField;
+         ^
+main.cpp:72:80: note: previous declaration 'int BITNAMEBitfield::__int64'
+     enum glue(BITNAME,Flag) : BITTYPE {NoFlags=0, BITTYPES AllFlags=BITTYPE(-1)};
+                                                                                ^
+main.cpp:81:76: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+     inline static const _TCHAR* const ToString(glue(BITNAME,BitNum) BITNAME)
+                                                                            ^
+main.cpp:72:40: error: 'NoFlags' was not declared in this scope
+     enum glue(BITNAME,Flag) : BITTYPE {NoFlags=0, BITTYPES AllFlags=BITTYPE(-1)};
+                                        ^
+main.cpp:72:60: error: expected '}' before 'AllFlags'
+     enum glue(BITNAME,Flag) : BITTYPE {NoFlags=0, BITTYPES AllFlags=BITTYPE(-1)};
+                                                            ^
+main.cpp:72:60: error: cannot convert '<brace-enclosed initializer list>' to 'int' in initialization
+main.cpp:72:60: error: expected ';' before 'AllFlags'
+main.cpp: In static member function 'static const char* const BITNAMEBitfield::ToString(BITNAMEBitfield::BITNAMEBitNum)':
+main.cpp:86:21: warning: statement has no effect [-Wunused-value]
+             BITTYPES;
+                     ^
