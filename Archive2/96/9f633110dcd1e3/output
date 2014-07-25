@@ -1,0 +1,38 @@
+main.cpp:46:2: error: #error BLOCKTYPES MUST BE DEFINED FOR THIS FILE TO WORK
+ #error BLOCKTYPES MUST BE DEFINED FOR THIS FILE TO WORK
+  ^
+main.cpp:49:2: error: #error BLOCKNAME MUST BE DEFINED FOR THIS FILE TO WORK
+ #error BLOCKNAME MUST BE DEFINED FOR THIS FILE TO WORK
+  ^
+main.cpp:77:37: error: expected ']' before numeric constant
+         BLOCKTYPE  Array[BLOCKTYPES 0];
+                                     ^
+main.cpp:81:13: error: 'BLOCKTYPES' does not name a type
+             BLOCKTYPES
+             ^
+main.cpp:52:19: error: expected ')' before 'int'
+ #define BLOCKTYPE int
+                   ^
+main.cpp:88:45: note: in expansion of macro 'BLOCKTYPE'
+     inline glue(BLOCKNAME,Block)(BLOCKTYPES BLOCKTYPE Extra=0) //extra value because SEPERATOR ends in comma :(  It's totally ignored.
+                                             ^
+main.cpp:98:78: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+     inline static const _TCHAR* const ToString(glue(BLOCKNAME,Enum) BLOCKNAME)
+                                                                              ^
+main.cpp: In copy constructor 'BLOCKNAMEBlock::BLOCKNAMEBlock(const BLOCKNAMEBlock&)':
+main.cpp:95:16: error: expected ';' before '}' token
+     {BLOCKTYPES}
+                ^
+main.cpp:95:16: warning: statement has no effect [-Wunused-value]
+main.cpp: At global scope:
+main.cpp:92:63: warning: unused parameter 'b' [-Wunused-parameter]
+     inline glue(BLOCKNAME,Block)(const glue(BLOCKNAME,Block)& b)
+                                                               ^
+main.cpp: In member function 'int BLOCKNAMEBlock::operator[](int)':
+main.cpp:97:13: error: 'Array' was not declared in this scope
+     {return Array[Index];}
+             ^
+main.cpp: In static member function 'static const char* const BLOCKNAMEBlock::ToString(BLOCKNAMEBlock::BLOCKNAMEEnum)':
+main.cpp:103:23: warning: statement has no effect [-Wunused-value]
+             BLOCKTYPES;
+                       ^
