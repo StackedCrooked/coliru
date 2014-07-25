@@ -1,0 +1,1 @@
+clang++ -std=c++1y -stdlib=libc++ main.cpp -lsupc++ -Wl,-x && ./a.out
