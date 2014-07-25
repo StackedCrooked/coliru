@@ -1,0 +1,20 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp -lsupc++
+main.cpp:27:1: error: static_assert failed "tmp_log error"
+static_assert(tmp_log<9,10>::result == 0, "tmp_log error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:30:1: error: static_assert failed "tmp_log error"
+static_assert(tmp_log<99,10>::result == 1, "tmp_log error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:31:1: error: static_assert failed "tmp_log error"
+static_assert(tmp_log<100,10>::result == 2, "tmp_log error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:39:1: error: static_assert failed "bits2use error"
+static_assert(bits2use<0>::result == 1, "bits2use error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:41:1: error: static_assert failed "bits2use error"
+static_assert(bits2use<2>::result == 2, "bits2use error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:43:1: error: static_assert failed "bits2use error"
+static_assert(bits2use<4>::result == 3, "bits2use error");
+^             ~~~~~~~~~~~~~~~~~~~~~~~~
+6 errors generated.
