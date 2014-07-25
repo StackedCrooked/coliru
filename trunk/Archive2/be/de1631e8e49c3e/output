@@ -1,0 +1,87 @@
+main.cpp:20:5: error: call to deleted function 'ref'
+    ref(a());
+    ^~~
+main.cpp:11:6: note: candidate function [with T = int] has been explicitly deleted
+void ref(const T&&) = delete;
+     ^
+main.cpp:8:6: note: candidate function [with T = int]
+void ref(const T&) {}
+     ^
+main.cpp:2:6: note: candidate function [with T = int] not viable: no known conversion from 'int' to 'volatile int &' for 1st argument
+void ref(volatile T&) {}
+     ^
+main.cpp:5:6: note: candidate function [with T = int] not viable: no known conversion from 'int' to 'const volatile int &' for 1st argument
+void ref(volatile const T&) {}
+     ^
+main.cpp:21:2: error: call to deleted function 'ref'
+        ref(b());
+        ^~~
+main.cpp:11:6: note: candidate function [with T = int] has been explicitly deleted
+void ref(const T&&) = delete;
+     ^
+main.cpp:8:6: note: candidate function [with T = int]
+void ref(const T&) {}
+     ^
+main.cpp:2:6: note: candidate function [with T = const int] not viable: no known conversion from 'const int' to 'volatile const int &' for 1st argument
+void ref(volatile T&) {}
+     ^
+main.cpp:5:6: note: candidate function [with T = int] not viable: no known conversion from 'const int' to 'const volatile int &' for 1st argument
+void ref(volatile const T&) {}
+     ^
+main.cpp:22:2: error: call to deleted function 'ref'
+        ref(c());
+        ^~~
+main.cpp:11:6: note: candidate function [with T = volatile int] has been explicitly deleted
+void ref(const T&&) = delete;
+     ^
+main.cpp:2:6: note: candidate function [with T = int] not viable: expects an l-value for 1st argument
+void ref(volatile T&) {}
+     ^
+main.cpp:5:6: note: candidate function [with T = int] not viable: no known conversion from 'volatile int' to 'const volatile int &' for 1st argument
+void ref(volatile const T&) {}
+     ^
+main.cpp:8:6: note: candidate function [with T = volatile int] not viable: no known conversion from 'volatile int' to 'const volatile int &' for 1st argument
+void ref(const T&) {}
+     ^
+main.cpp:23:2: error: call to deleted function 'ref'
+        ref(d());
+        ^~~
+main.cpp:11:6: note: candidate function [with T = volatile int] has been explicitly deleted
+void ref(const T&&) = delete;
+     ^
+main.cpp:2:6: note: candidate function [with T = const int] not viable: expects an l-value for 1st argument
+void ref(volatile T&) {}
+     ^
+main.cpp:5:6: note: candidate function [with T = int] not viable: expects an l-value for 1st argument
+void ref(volatile const T&) {}
+     ^
+main.cpp:8:6: note: candidate function [with T = volatile int] not viable: expects an l-value for 1st argument
+void ref(const T&) {}
+     ^
+4 errors generated.
+----------
+main.cpp: In function 'void test()':
+main.cpp:20:12: error: use of deleted function 'void ref(const T&&) [with T = int]'
+     ref(a());
+            ^
+main.cpp:11:6: note: declared here
+ void ref(const T&&) = delete;
+      ^
+main.cpp:21:9: error: use of deleted function 'void ref(const T&&) [with T = int]'
+  ref(b());
+         ^
+main.cpp:11:6: note: declared here
+ void ref(const T&&) = delete;
+      ^
+main.cpp:22:9: error: use of deleted function 'void ref(const T&&) [with T = volatile int]'
+  ref(c());
+         ^
+main.cpp:11:6: note: declared here
+ void ref(const T&&) = delete;
+      ^
+main.cpp:23:9: error: use of deleted function 'void ref(const T&&) [with T = volatile int]'
+  ref(d());
+         ^
+main.cpp:11:6: note: declared here
+ void ref(const T&&) = delete;
+      ^
