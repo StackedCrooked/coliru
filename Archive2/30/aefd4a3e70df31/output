@@ -1,0 +1,21 @@
++ g++ -std=c++1y -Wall -O3 -pthread -pedantic main.cpp
+main.cpp: In function 'std::vector<int>::iterator findelement(std::vector<int>&, int)':
+main.cpp:13:18: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if(*it=target)
+                  ^
++ ./a.out
+50+ clang++ -stdlib=libc++ -std=c++1y -O3 -Wall -pthread -pedantic main.cpp -lcxxrt -ldl
+main.cpp:13:11: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if(*it=target)
+       ~~~^~~~~~~
+main.cpp:13:11: note: place parentheses around the assignment to silence this warning
+    if(*it=target)
+          ^
+       (         )
+main.cpp:13:11: note: use '==' to turn this assignment into an equality comparison
+    if(*it=target)
+          ^
+          ==
+1 warning generated.
++ ./a.out
+50
