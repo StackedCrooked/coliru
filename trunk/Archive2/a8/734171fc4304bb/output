@@ -1,0 +1,31 @@
++ g++-4.9 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'static void Other::main(const Outer<T>&) [with T = double]':
+main.cpp:38:18:   required from here
+main.cpp:31:28: error: no matching function for call to 'testFunction(Outer<double>::Inner* const&)'
+     testFunction<T>(foo.ptr);  //this line is flagged as the error
+                            ^
+main.cpp:31:28: note: candidate is:
+main.cpp:22:6: note: template<class T> void testFunction(const typename Outer<T>::Inner*)
+ void testFunction (const typename Outer<T>::Inner* p)
+      ^
+main.cpp:22:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> void testFunction(const typename Outer<T>::Inner*) [with T = double]':
+main.cpp:31:28:   required from 'static void Other::main(const Outer<T>&) [with T = double]'
+main.cpp:38:18:   required from here
+main.cpp:9:10: error: 'struct Outer<double>::Inner' is private
+   struct Inner
+          ^
+main.cpp:22:6: error: within this context
+ void testFunction (const typename Outer<T>::Inner* p)
+      ^
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:31:5: error: no matching function for call to 'testFunction'
+    testFunction<T>(foo.ptr);  //this line is flagged as the error
+    ^~~~~~~~~~~~~~~
+main.cpp:38:12: note: in instantiation of function template specialization 'Other::main<double>' requested here
+    Other::main(o);
+           ^
+main.cpp:22:6: note: candidate template ignored: substitution failure [with T = double]: 'Inner' is a private member of 'Outer<double>'
+void testFunction (const typename Outer<T>::Inner* p)
+     ^                                      ~~~~~
+1 error generated.
