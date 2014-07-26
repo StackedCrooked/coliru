@@ -1,0 +1,45 @@
++ g++-4.9 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:28:13: error: no matching function for call to 'func(int, std::vector<float>&)'
+    func(1, e);
+             ^
+main.cpp:28:13: note: candidate is:
+main.cpp:16:6: note: template<class Container, class> decltype (container[0]) func(std::size_t, Container&&)
+ auto func(std::size_t i, Container&& container) -> decltype(container[0]) { 
+      ^
+main.cpp:16:6: note:   template argument deduction/substitution failed:
+main.cpp: In instantiation of 'decltype (container[0]) func(std::size_t, Container&&) [with Container = std::array<float, 2ul>&; <template-parameter-1-2> = void; decltype (container[0]) = float&; std::size_t = long unsigned int]':
+main.cpp:31:13:   required from here
+main.cpp:18:5: error: static assertion failed: bla bla bla
+     static_assert(matched<std::decay_t<Container>>::size >= 40 && matched<std::decay_t<Container>>::size <= 42, "bla bla bla");
+     ^
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:23:32: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+   std::array<float, 41> c = { 0 };
+                               ^
+                               {}
+main.cpp:24:38: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+   const std::array<float, 41> d = { 0 };
+                                     ^
+                                     {}
+main.cpp:28:4: error: no matching function for call to 'func'
+   func(1, e);
+   ^~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:2182:44: note: candidate template ignored: disabled by 'enable_if' [with Container = std::vector<float, std::allocator<float> > &]
+    using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+                                           ^
+main.cpp:29:36: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+   func(1, std::array<float, 41> { 0 });
+                                   ^
+                                   {}
+main.cpp:30:31: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+   std::array<float, 2> f = { 0 };
+                              ^
+                              {}
+main.cpp:18:5: error: static_assert failed "bla bla bla"
+    static_assert(matched<std::decay_t<Container>>::size >= 40 && matched<std::decay_t<Container>>::size <= 42, "bla bla bla");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:31:4: note: in instantiation of function template specialization 'func<std::array<float, 2> &, void>' requested here
+   func(1, f);
+   ^
+4 warnings and 2 errors generated.
