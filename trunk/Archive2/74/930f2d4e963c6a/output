@@ -1,0 +1,6 @@
+main.cpp: In instantiation of 'foo::foo()::<lambda(auto:1)> [with auto:1 = int]':
+main.cpp:5:7:   required from 'void run(const F&) [with F = foo::foo()::<lambda(auto:1)>]'
+main.cpp:10:31:   required from here
+main.cpp:10:27: error: cannot call member function 'void foo::work()' without object
+     { run([&](auto){ work(); }); } /* change auto to int and it works */
+                           ^
