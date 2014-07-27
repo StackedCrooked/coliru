@@ -1,0 +1,21 @@
+main.cpp: In function 'int main()':
+main.cpp:45:62: error: conversion from 'std::future<const std::basic_string<char>&>' to non-scalar type 'std::future<std::basic_string<char> >' requested
+     std::future<std::string> d = make_ready_future(get_name()); // error: return type mismatch from std::future<std::string&>
+                                                              ^
+main.cpp:47:30: error: redeclaration of 'std::future<std::basic_string<char> > d'
+     std::future<std::string> d = make_ready_future<std::string>(get_name()); // error: no matching overload
+                              ^
+main.cpp:45:30: note: 'std::future<std::basic_string<char> > d' previously declared here
+     std::future<std::string> d = make_ready_future(get_name()); // error: return type mismatch from std::future<std::string&>
+                              ^
+main.cpp:47:75: error: no matching function for call to 'make_ready_future(const string&)'
+     std::future<std::string> d = make_ready_future<std::string>(get_name()); // error: no matching overload
+                                                                           ^
+main.cpp:47:75: note: candidate is:
+main.cpp:6:6: note: template<class T> std::future<_Res> make_ready_future(T&&)
+ auto make_ready_future(T&& t) -> std::future<T>
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp:47:75: note:   cannot convert 'get_name()' (type 'const string {aka const std::basic_string<char>}') to type 'std::basic_string<char>&&'
+     std::future<std::string> d = make_ready_future<std::string>(get_name()); // error: no matching overload
+                                                                           ^
