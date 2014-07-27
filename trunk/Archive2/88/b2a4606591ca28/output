@@ -1,0 +1,15 @@
++ g++-4.9 -std=c++03 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:5:12: error: cannot declare reference to 'IREF {aka int&}'
+     IREF & c2 = c1;
+            ^
+main.cpp:6:13: error: cannot declare reference to 'int&', which is not a typedef or a template type argument
+     int & & c3 = c1;
+             ^
+main.cpp:6:13: error: cannot declare reference to 'int&'
+main.cpp:5:12: warning: unused variable 'c2' [-Wunused-variable]
+     IREF & c2 = c1;
+            ^
+main.cpp:6:13: warning: unused variable 'c3' [-Wunused-variable]
+     int & & c3 = c1;
+             ^
