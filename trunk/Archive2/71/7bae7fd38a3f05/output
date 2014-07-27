@@ -1,0 +1,19 @@
+main.cpp:15:15: error: constexpr constructor never produces a constant expression [-Winvalid-constexpr]
+    constexpr int_ptr()
+              ^
+main.cpp:16:11: note: non-literal type 'std::unique_ptr<int>' cannot be used in a constant expression
+        : std::unique_ptr<int>(), sequencer( nullptr ) {}
+          ^
+main.cpp:17:15: error: constexpr constructor never produces a constant expression [-Winvalid-constexpr]
+    constexpr int_ptr( nullptr_t )
+              ^
+main.cpp:18:11: note: non-literal type 'std::unique_ptr<int>' cannot be used in a constant expression
+        : std::unique_ptr<int>( nullptr ), sequencer( nullptr ) {}
+          ^
+main.cpp:25:5: error: unknown type name 'job_ptr'
+    job_ptr x;
+    ^
+main.cpp:20:10: warning: private field 'sequencer' is not used [-Wunused-private-field]
+    int* sequencer;
+         ^
+1 warning and 3 errors generated.
