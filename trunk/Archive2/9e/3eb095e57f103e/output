@@ -1,0 +1,10 @@
+main.cpp:25:10: error: cannot initialize a variable of type 'Opaque' (aka 'internal_data *') with an rvalue of type 'Internal<int> *'
+  Opaque o = Initialise(argc);
+         ^   ~~~~~~~~~~~~~~~~
+main.cpp:20:10: error: cannot initialize return object of type 'Internal<int> *' with an rvalue of type 'Opaque' (aka 'internal_data *')
+  return map_internal(t);
+         ^~~~~~~~~~~~~~~
+main.cpp:25:14: note: in instantiation of function template specialization 'Initialise<int>' requested here
+  Opaque o = Initialise(argc);
+             ^
+2 errors generated.
