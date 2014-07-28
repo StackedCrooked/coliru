@@ -1,0 +1,44 @@
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/algorithm:61,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h: In instantiation of 'std::insert_iterator<_Container>& std::insert_iterator<_Container>::operator=(typename _Container::value_type&&) [with _Container = const std::set<std::basic_string<char> >; typename _Container::value_type = std::basic_string<char>]':
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:4163:12:   required from '_OIter std::transform(_IIter, _IIter, _OIter, _UnaryOperation) [with _IIter = std::_Rb_tree_const_iterator<std::pair<const std::basic_string<char>, std::vector<Person*> > >; _OIter = std::insert_iterator<const std::set<std::basic_string<char> > >; _UnaryOperation = main()::<lambda(stVecPair)>]'
+main.cpp:19:56:   required from here
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:649:7: error: no matching function for call to 'std::set<std::basic_string<char> >::insert(std::set<std::basic_string<char> >::iterator&, std::remove_reference<std::basic_string<char>&>::type) const'
+  iter = container->insert(iter, std::move(__value));
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:649:7: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/set:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.0/bits/stl_set.h:499:7: note: std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(const value_type&) [with _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::value_type = std::basic_string<char>]
+       insert(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:499:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_set.h:508:7: note: std::pair<typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator, bool> std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >; typename std::_Rb_tree<_Key, _Key, std::_Identity<_Key>, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<_Key>::other>::const_iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::value_type = std::basic_string<char>]
+       insert(value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:508:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_set.h:536:7: note: std::set<_Key, _Compare, _Alloc>::iterator std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::const_iterator, const value_type&) [with _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::value_type = std::basic_string<char>] <near match>
+       insert(const_iterator __position, const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:536:7: note:   no known conversion for implicit 'this' parameter from 'const std::set<std::basic_string<char> >*' to 'std::set<std::basic_string<char> >*'
+/usr/local/include/c++/4.9.0/bits/stl_set.h:541:7: note: std::set<_Key, _Compare, _Alloc>::iterator std::set<_Key, _Compare, _Alloc>::insert(std::set<_Key, _Compare, _Alloc>::const_iterator, std::set<_Key, _Compare, _Alloc>::value_type&&) [with _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<std::basic_string<char> >; std::set<_Key, _Compare, _Alloc>::value_type = std::basic_string<char>] <near match>
+       insert(const_iterator __position, value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:541:7: note:   no known conversion for implicit 'this' parameter from 'const std::set<std::basic_string<char> >*' to 'std::set<std::basic_string<char> >*'
+/usr/local/include/c++/4.9.0/bits/stl_set.h:556:2: note: template<class _InputIterator> void std::set<_Key, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >]
+  insert(_InputIterator __first, _InputIterator __last)
+  ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:556:2: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/algorithm:61,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:649:7: note:   deduced conflicting types for parameter '_InputIterator' ('std::_Rb_tree_const_iterator<std::basic_string<char> >' and 'std::basic_string<char>')
+  iter = container->insert(iter, std::move(__value));
+       ^
+In file included from /usr/local/include/c++/4.9.0/set:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.0/bits/stl_set.h:568:7: note: void std::set<_Key, _Compare, _Alloc>::insert(std::initializer_list<_Tp>) [with _Key = std::basic_string<char>; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::basic_string<char> >]
+       insert(initializer_list<value_type> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_set.h:568:7: note:   candidate expects 1 argument, 2 provided
