@@ -1,0 +1,12 @@
+main.cpp:20:7: error: template parameters not deducible in partial specialization:
+ class B<T, true, booltype<false> > : public A {
+       ^
+main.cpp:20:7: note:         'U'
+main.cpp:26:7: error: template parameters not deducible in partial specialization:
+ class B<std::vector<T>, false, booltype<false> > : public A {
+       ^
+main.cpp:26:7: note:         'U'
+main.cpp:32:7: error: template parameters not deducible in partial specialization:
+ class B<std::vector<T>, false, booltype<std::is_base_of<A, T>::value> > : public A {
+       ^
+main.cpp:32:7: note:         'U'
