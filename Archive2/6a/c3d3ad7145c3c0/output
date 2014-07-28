@@ -1,0 +1,26 @@
+main.cpp: In function 'int main()':
+main.cpp:7:34: error: parameter declared 'auto'
+     int& (*fpi)(int*) = [](auto* a)->auto& { return *a; };
+                                  ^
+main.cpp:7:42: error: invalid use of 'auto'
+     int& (*fpi)(int*) = [](auto* a)->auto& { return *a; };
+                                          ^
+main.cpp: In lambda function:
+main.cpp:7:54: error: 'a' was not declared in this scope
+     int& (*fpi)(int*) = [](auto* a)->auto& { return *a; };
+                                                      ^
+main.cpp: In function 'int main()':
+main.cpp:7:57: error: cannot convert 'main()::__lambda0' to 'int& (*)(int*)' in initialization
+     int& (*fpi)(int*) = [](auto* a)->auto& { return *a; };
+                                                         ^
+main.cpp:8:6: error: 'a' was not declared in this scope
+     [a](){std::cout<<a<<'\n';}();
+      ^
+main.cpp: In lambda function:
+main.cpp:8:22: error: 'a' is not captured
+     [a](){std::cout<<a<<'\n';}();
+                      ^
+main.cpp: In function 'int main()':
+main.cpp:7:12: warning: unused variable 'fpi' [-Wunused-variable]
+     int& (*fpi)(int*) = [](auto* a)->auto& { return *a; };
+            ^
