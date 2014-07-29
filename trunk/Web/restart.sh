@@ -12,6 +12,11 @@ fi
 cd $(dirname $0)
 
 
+rm -rf /tmp/coliru ; mkdir -p /tmp/coliru ; chown -R coliru:webserver /tmp/coliru
+rm -f /tmp/cleanup ; touch /tmp/cleanup ; chown coliru:webserver /tmp/cleanup
+chown -R webserver:coliru /tmp
+
+
 echo "Killing any previously running instances..."
 ./kill-all.sh >/dev/null 2>&1
 
