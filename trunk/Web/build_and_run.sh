@@ -30,4 +30,4 @@ set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
 # Run the command in the chroot and create a new pgid.
-setsid sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
+sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
