@@ -19,6 +19,7 @@ chmod a+rw .
 
 # Cleanup temporary files
 rm -rf /tmp/coliru/* & disown
+chown -R webserver:coliru /tmp
 
 
 # Cleanup /var/chroot/tmp and make accessible for coliru
