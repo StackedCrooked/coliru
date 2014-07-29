@@ -1,0 +1,13 @@
++ clang -x c -std=c11 -fsanitize=undefined -Wall -Wextra -Wconversion -Weverything -O0 -pedantic main.cpp
+main.cpp:4:37: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ unsigned long x1 = 3 * 1024 * 1024 * 1024 ;
+               ~~   ~~~~~~~~~~~~~~~~^~~~~~
+main.cpp:5:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:4:16: warning: unused variable 'x1' [-Wunused-variable]
+ unsigned long x1 = 3 * 1024 * 1024 * 1024 ;
+               ^
+3 warnings generated.
++ ./a.out
+main.cpp:4:37: runtime error: signed integer overflow: 3145728 * 1024 cannot be represented in type 'int'
