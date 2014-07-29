@@ -22,7 +22,7 @@ echo "rm -rf ${jobdir}" >> /tmp/cleanup
 CMD="set -e
 ulimit -u 16
 ulimit -f 4000
-ulimit -t 20
+ulimit -t 10
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
 cd /tmp/${jobid}
 title() { true ; }
@@ -30,4 +30,4 @@ set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
 # Run the command in the chroot and create a new pgid.
-setsid sudo -u sandbox chroot ${CHROOT} bash -c "${CMD}"
+setsid sudo -u sandbox chroot ${CHROOT} timeout 20 bash -c "${CMD}"
