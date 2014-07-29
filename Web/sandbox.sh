@@ -33,6 +33,9 @@ mkdir -p ${COLIRU_COMPILE_ARCHIVE}/${id}
 # Kill any remaining sandbox processes
 ps -eouid,pgid | sed -E 's,^[[:space:]]+,,' | grep ^2002 | awk '{print $2}' >.pgid_killer
 
+pgid="$(ps -eopgid,ppid,pid | grep "$$" | head -n1 | perl -pe 's,\s*(\d+).*,\1,g')"
+{ sleep 20 && echo $pgid >.pgid_killer ; } & disown
+
 /bin/bash -c "exec > >(tee ${COLIRU_COMPILE_ARCHIVE}/${id}/output)
 exec 2>&1
 ./build_and_run.sh"

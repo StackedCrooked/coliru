@@ -79,7 +79,7 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| result += line }
             FileUtils.rmtree(dir)
             log_request(rid, "/compile", "done")
         end
@@ -106,7 +106,7 @@ post '/sh' do
             File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
         end
         stream do |out|
-            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| out << line }
         end
     end.join
 end
