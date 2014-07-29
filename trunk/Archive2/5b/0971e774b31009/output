@@ -1,0 +1,22 @@
+main.cpp:8:6: error: overloaded 'operator=' must be a non-static member function
+Foo& operator=(Foo& a, const Foo&b)
+     ^
+main.cpp:18:7: error: use of overloaded operator '=' is ambiguous (with operand types 'Foo' and 'Foo')
+    x = y;
+    ~ ^ ~
+main.cpp:3:8: note: candidate is the implicit copy assignment operator
+struct Foo
+       ^
+main.cpp:8:6: note: candidate function
+Foo& operator=(Foo& a, const Foo&b)
+     ^
+main.cpp:21:7: error: use of overloaded operator '=' is ambiguous (with operand types 'Foo' and 'Foo')
+    x = x;
+    ~ ^ ~
+main.cpp:3:8: note: candidate is the implicit copy assignment operator
+struct Foo
+       ^
+main.cpp:8:6: note: candidate function
+Foo& operator=(Foo& a, const Foo&b)
+     ^
+3 errors generated.
