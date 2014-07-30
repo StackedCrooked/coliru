@@ -1,0 +1,21 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/memory:64:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:93:16: error: object expression of non-scalar type 'std::basic_string<char> [2]' cannot be used in a pseudo-destructor expression
+    { __pointer->~_Tp(); }
+      ~~~~~~~~~^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:103:11: note: in instantiation of function template specialization 'std::_Destroy<std::basic_string<char> [2]>' requested here
+            std::_Destroy(std::__addressof(*__first));
+                 ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:127:2: note: in instantiation of function template specialization 'std::_Destroy_aux<false>::__destroy<std::basic_string<char> (*)[2]>' requested here
+        __destroy(__first, __last);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:151:7: note: in instantiation of function template specialization 'std::_Destroy<std::basic_string<char> (*)[2]>' requested here
+      _Destroy(__first, __last);
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:424:14: note: in instantiation of function template specialization 'std::_Destroy<std::basic_string<char> (*)[2], std::basic_string<char> [2]>' requested here
+      { std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+             ^
+main.cpp:33:31: note: in instantiation of member function 'std::vector<std::basic_string<char> [2], std::allocator<std::basic_string<char> [2]> >::~vector' requested here
+  std::vector<std::string[2]> v;
+                              ^
+1 error generated.
