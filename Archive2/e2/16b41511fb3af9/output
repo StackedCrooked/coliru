@@ -1,0 +1,19 @@
+main.cpp:6:18: warning: operator '<<' has lower precedence than '+'; '+' will be evaluated first [-Wshift-op-parentheses]
+    std::cout << ROUND(1 << 2);   
+                 ^~~~~~~~~~~~~
+main.cpp:3:26: note: expanded from macro 'ROUND'
+#define ROUND(a) ((int)(a+.5))
+                        ~^~~
+main.cpp:6:18: note: place parentheses around the '+' expression to silence this warning
+    std::cout << ROUND(1 << 2);   
+                 ^~~~~~~~~~~~~
+main.cpp:3:26: note: expanded from macro 'ROUND'
+#define ROUND(a) ((int)(a+.5))
+                        ~^~~
+main.cpp:6:26: error: invalid operands to binary expression ('int' and 'double')
+    std::cout << ROUND(1 << 2);   
+                 ~~~~~~~~^~~~~
+main.cpp:3:25: note: expanded from macro 'ROUND'
+#define ROUND(a) ((int)(a+.5))
+                        ^
+1 warning and 1 error generated.
