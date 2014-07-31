@@ -1,0 +1,1 @@
+clang++ -O2 main.cpp && ./a.out
