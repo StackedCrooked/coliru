@@ -1,0 +1,30 @@
+main.cpp:31:21: error: ISO C++ forbids declaration of 'no_default' with no type [-fpermissive]
+     no_default () = delete;
+                     ^
+main.cpp: In function 'int main()':
+main.cpp:43:20: error: 'no_default' was not declared in this scope
+     data_structure<no_default> ds_error; // 2
+                    ^
+main.cpp:43:30: error: template argument 1 is invalid
+     data_structure<no_default> ds_error; // 2
+                              ^
+main.cpp:43:40: error: invalid type in declaration before ';' token
+     data_structure<no_default> ds_error; // 2
+                                        ^
+main.cpp:42:25: warning: unused variable 'ds_ok' [-Wunused-variable]
+     data_structure<int> ds_ok;
+                         ^
+main.cpp:43:32: warning: unused variable 'ds_error' [-Wunused-variable]
+     data_structure<no_default> ds_error; // 2
+                                ^
+main.cpp: In instantiation of 'void swap(T&, T&) [with T = no_copy]':
+main.cpp:40:20:   required from here
+main.cpp:6:5: error: static assertion failed: Swap requires copying
+     static_assert(std::is_copy_constructible<T>::value,
+     ^
+main.cpp:11:14: error: use of deleted function 'no_copy::no_copy(const no_copy&)'
+     auto c = b;
+              ^
+main.cpp:25:5: error: declared here
+     no_copy ( const no_copy& ) = delete;
+     ^
