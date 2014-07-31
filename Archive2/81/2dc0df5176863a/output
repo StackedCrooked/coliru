@@ -1,0 +1,21 @@
+main.cpp: In instantiation of 'struct GetNthTypeOfNested<1u, Typer, int, float, double>':
+main.cpp:21:101:   required from 'void Typer<First, Args ...>::get() [with unsigned int N = 1u; First = int; Args = {float, double}]'
+main.cpp:28:41:   required from here
+main.cpp:6:12: error: ambiguous class template instantiation for 'struct GetNthTypeOfNested<0u, Typer, float, double>'
+     struct GetNthTypeOfNested<N, ClassName, FirstOfInsideClass, RestOfInsideClass...>:GetNthTypeOfNested<N - 1, ClassName, RestOfInsideClass...>{};
+            ^
+main.cpp:6:12: error: candidates are: struct GetNthTypeOfNested<N, ClassName, FirstOfInsideClass, RestOfInsideClass ...>
+main.cpp:8:12: error:                 struct GetNthTypeOfNested<0u, ClassName, InsideClass ...>
+     struct GetNthTypeOfNested<0, ClassName, InsideClass...>{
+            ^
+main.cpp:6:12: error: invalid use of incomplete type 'struct GetNthTypeOfNested<0u, Typer, float, double>'
+     struct GetNthTypeOfNested<N, ClassName, FirstOfInsideClass, RestOfInsideClass...>:GetNthTypeOfNested<N - 1, ClassName, RestOfInsideClass...>{};
+            ^
+main.cpp:4:97: error: declaration of 'struct GetNthTypeOfNested<0u, Typer, float, double>'
+    template <unsigned int N, template <class...> class ClassName, class ... InsideClass> struct GetNthTypeOfNested;
+                                                                                                 ^
+main.cpp: In instantiation of 'void Typer<First, Args ...>::get() [with unsigned int N = 1u; First = int; Args = {float, double}]':
+main.cpp:28:41:   required from here
+main.cpp:21:101: error: no type named 'type' in 'struct GetNthTypeOfNested<1u, Typer, int, float, double>'
+             std::cout << typeid(typename GetNthTypeOfNested<N, ::Typer, First, Args...>::type).name();
+                                                                                                     ^
