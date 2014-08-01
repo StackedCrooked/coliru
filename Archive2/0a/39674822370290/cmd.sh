@@ -1,0 +1,1 @@
+g++-4.9 -pedantic main.cpp && ./a.out
