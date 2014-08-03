@@ -1,0 +1,37 @@
++ clang++ -stdlib=libc++ -O3 -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:8:23: error: no viable conversion from 'shared_ptr<class Face>' to 'shared_ptr<class IFace>'
+    shared_ptr<IFace> s_iface = s_face; //works
+                      ^         ~~~~~~
+/usr/include/c++/v1/memory:3771:23: note: candidate constructor not viable: no known conversion from 'shared_ptr<Face>' to 'nullptr_t' for 1st argument
+    _LIBCPP_CONSTEXPR shared_ptr(nullptr_t) _NOEXCEPT;
+                      ^
+/usr/include/c++/v1/memory:3796:5: note: candidate constructor not viable: no known conversion from 'shared_ptr<Face>' to 'const std::__1::shared_ptr<IFace> &' for 1st argument
+    shared_ptr(const shared_ptr& __r) _NOEXCEPT;
+    ^
+/usr/include/c++/v1/memory:3802:5: note: candidate constructor not viable: no known conversion from 'shared_ptr<Face>' to 'std::__1::shared_ptr<IFace> &&' for 1st argument
+    shared_ptr(shared_ptr&& __r) _NOEXCEPT;
+    ^
+/usr/include/c++/v1/memory:3799:39: note: candidate template ignored: disabled by 'enable_if' [with _Yp = Face]
+                   typename enable_if<is_convertible<_Yp*, _Tp*>::value, __nat>::type = __nat())
+                                      ^
+/usr/include/c++/v1/memory:3804:39: note: candidate template ignored: disabled by 'enable_if' [with _Yp = Face]
+                   typename enable_if<is_convertible<_Yp*, _Tp*>::value, __nat>::type = __nat())
+                                      ^
+/usr/include/c++/v1/memory:3816:9: note: candidate template ignored: could not match 'auto_ptr' against 'shared_ptr'
+        shared_ptr(auto_ptr<_Yp>&& __r);
+        ^
+/usr/include/c++/v1/memory:3834:8: note: candidate template ignored: could not match 'unique_ptr' against 'shared_ptr'
+       shared_ptr(unique_ptr<_Yp, _Dp>&&,
+       ^
+/usr/include/c++/v1/memory:3843:8: note: candidate template ignored: could not match 'unique_ptr' against 'shared_ptr'
+       shared_ptr(unique_ptr<_Yp, _Dp>&&,
+       ^
+main.cpp:11:22: error: cannot cast 'Face' to its private base class 'IFace'
+    IFace* p_iface = p_face; //compiler complains (righteously) 
+                     ^
+main.cpp:4:26: note: implicitly declared private here
+class Face : /*private*/ IFace{};
+                         ^~~~~
+2 errors generated.
++ echo 1
+1
