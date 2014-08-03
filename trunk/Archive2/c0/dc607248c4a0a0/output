@@ -1,0 +1,38 @@
+g++ (GCC) 4.9.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp:13:47: error: invalid use of template-name 'std::chrono::duration' without an argument list
+         timed_execution(func_type func, const std::chrono::duration period) 
+                                               ^
+main.cpp:27:15: error: invalid use of template-name 'std::chrono::duration' without an argument list
+         const std::chrono::duration period_;
+               ^
+main.cpp: In constructor 'timed_execution::timed_execution(timed_execution::func_type, int)':
+main.cpp:15:15: error: class 'timed_execution' does not have any field named 'period_'
+             , period_(period)
+               ^
+main.cpp:16:38: error: 'timed_execution' is not a template
+             , thread_(std::bind(this,timed_execution<func_type>::threadFunc))
+                                      ^
+main.cpp:16:76: error: invalid use of non-static member function
+             , thread_(std::bind(this,timed_execution<func_type>::threadFunc))
+                                                                            ^
+main.cpp: In member function 'void timed_execution::threadFunc()':
+main.cpp:22:45: error: 'period_' was not declared in this scope
+                 std::this_thread::sleep_for(period_);
+                                             ^
+main.cpp: In function 'int main()':
+main.cpp:32:59: error: no matching function for call to 'timed_execution::timed_execution(void (&)(), std::chrono::milliseconds)'
+      timed_execution t(foo,std::chrono::milliseconds(2000));
+                                                           ^
+main.cpp:32:59: note: candidates are:
+main.cpp:13:9: note: timed_execution::timed_execution(timed_execution::func_type, int)
+         timed_execution(func_type func, const std::chrono::duration period) 
+         ^
+main.cpp:13:9: note:   no known conversion for argument 2 from 'std::chrono::milliseconds {aka std::chrono::duration<long int, std::ratio<1l, 1000l> >}' to 'int'
+main.cpp:11:12: note: timed_execution::timed_execution(timed_execution&&)
+     struct timed_execution {
+            ^
+main.cpp:11:12: note:   candidate expects 1 argument, 2 provided
