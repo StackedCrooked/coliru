@@ -1,0 +1,202 @@
++ g++ -O3 -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:40:15: error: no match for 'operator+' (operand types are 'int' and 'Foo<int>')
+     cout << 2 + a << endl; // outputs 12
+               ^
+main.cpp:40:15: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:334:5: note: template<class _Iterator> std::reverse_iterator<_Iterator> std::operator+(typename std::reverse_iterator<_Iterator>::difference_type, const std::reverse_iterator<_Iterator>&)
+     operator+(typename reverse_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:334:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   'Foo<int>' is not derived from 'const std::reverse_iterator<_Iterator>'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1150:5: note: template<class _Iterator> std::move_iterator<_Iterator> std::operator+(typename std::move_iterator<_Iterator>::difference_type, const std::move_iterator<_Iterator>&)
+     operator+(typename move_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1150:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   'Foo<int>' is not derived from 'const std::move_iterator<_Iterator>'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2384:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2384:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:53:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:692:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:692:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const _CharT*' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:53:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:708:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(_CharT __lhs, const basic_string<_CharT, _Traits, _Alloc>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:708:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   'Foo<int>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2421:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2421:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2437:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, _CharT)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2437:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2449:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2449:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2455:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2455:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2461:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2461:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2473:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2473:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'const _CharT*' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2479:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(_CharT __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2479:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   'Foo<int>' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2485:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2485:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2491:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, _CharT)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2491:5: note:   template argument deduction/substitution failed:
+main.cpp:40:17: note:   mismatched types 'std::basic_string<_CharT, _Traits, _Alloc>' and 'int'
+     cout << 2 + a << endl; // outputs 12
+                 ^
++ echo 1
+1
