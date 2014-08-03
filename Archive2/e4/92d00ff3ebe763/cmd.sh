@@ -1,0 +1,1 @@
+g++ -O0 -g -Wall -pedantic -pthread main.cpp && ./a.out
