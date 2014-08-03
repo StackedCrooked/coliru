@@ -1,0 +1,12 @@
++ g++ -O3 -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:45:17: error: ambiguous overload for 'operator+' (operand types are 'double' and 'Foo<int>')
+     cout << 2.1 + a << endl; // outputs 12
+                 ^
+main.cpp:45:17: note: candidates are:
+main.cpp:45:17: note: operator+(double, int) <built-in>
+main.cpp:26:16: note: Foo<int> operator+(Foo<int>, const Foo<int>&)
+     friend Foo operator+(Foo lhs, const Foo& rhs)
+                ^
++ echo 1
+1
