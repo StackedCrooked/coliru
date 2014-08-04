@@ -1,0 +1,1 @@
+set -x; clang++ -v -O3 -std=c++1y -Wall -Wextra -pedantic -pthread -c main.cpp
