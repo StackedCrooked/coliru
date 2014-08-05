@@ -1,0 +1,10 @@
+main.cpp:46:15: error: no viable conversion from 'decltype(o3)' (aka 'int (*)(int, int, int)') to 'struct <anonymous struct at main.cpp:46:5>'
+    struct {} _ = decltype(o3)();
+              ^   ~~~~~~~~~~~~~~
+main.cpp:46:5: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'decltype(o3)' (aka 'int (*)(int, int, int)') to 'const <anonymous struct at main.cpp:46:5> &' for 1st argument
+    struct {} _ = decltype(o3)();
+    ^             ~~~~~~~~~~~~~~
+main.cpp:46:5: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'decltype(o3)' (aka 'int (*)(int, int, int)') to '<anonymous struct at main.cpp:46:5> &&' for 1st argument
+    struct {} _ = decltype(o3)();
+    ^             ~~~~~~~~~~~~~~
+1 error generated.
