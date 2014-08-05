@@ -1,0 +1,41 @@
+main.cpp: In function 'int main()':
+main.cpp:26:66: warning: lambda expressions only available with -std=c++11 or -std=gnu++11
+     sig.connect([](int i) { std::cout << "(first)";  return i*2; });
+                                                                  ^
+main.cpp:26:67: error: no matching function for call to 'boost::signals2::signal<int(int), call_first<int> >::connect(main()::<lambda(int)>)'
+     sig.connect([](int i) { std::cout << "(first)";  return i*2; });
+                                                                   ^
+main.cpp:26:67: note: candidates are:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:0,
+                 from /usr/local/include/boost/signals2/preprocessed_signal.hpp:28,
+                 from /usr/local/include/boost/signals2/signal.hpp:36,
+                 from /usr/local/include/boost/signals2.hpp:19,
+                 from main.cpp:1:
+/usr/local/include/boost/signals2/detail/signal_template.hpp:662:18: note: boost::signals2::connection boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::connect(const slot_type&, boost::signals2::connect_position) [with R = int; T1 = int; Combiner = call_first<int>; Group = int; GroupCompare = std::less<int>; SlotFunction = boost::function<int(int)>; ExtendedSlotFunction = boost::function<int(const boost::signals2::connection&, int)>; Mutex = boost::signals2::mutex; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::slot_type = boost::signals2::slot1<int, int, boost::function<int(int)> >]
+       connection connect(const slot_type &slot, connect_position position = at_back)
+                  ^
+/usr/local/include/boost/signals2/detail/signal_template.hpp:662:18: note:   no known conversion for argument 1 from 'main()::<lambda(int)>' to 'const slot_type& {aka const boost::signals2::slot1<int, int, boost::function<int(int)> >&}'
+/usr/local/include/boost/signals2/detail/signal_template.hpp:666:18: note: boost::signals2::connection boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::connect(const group_type&, const slot_type&, boost::signals2::connect_position) [with R = int; T1 = int; Combiner = call_first<int>; Group = int; GroupCompare = std::less<int>; SlotFunction = boost::function<int(int)>; ExtendedSlotFunction = boost::function<int(const boost::signals2::connection&, int)>; Mutex = boost::signals2::mutex; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::group_type = int; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::slot_type = boost::signals2::slot1<int, int, boost::function<int(int)> >]
+       connection connect(const group_type &group,
+                  ^
+/usr/local/include/boost/signals2/detail/signal_template.hpp:666:18: note:   candidate expects 3 arguments, 1 provided
+main.cpp:29:66: warning: lambda expressions only available with -std=c++11 or -std=gnu++11
+     sig.connect([](int i) { std::cout << "(second)"; return i+2; });
+                                                                  ^
+main.cpp:29:67: error: no matching function for call to 'boost::signals2::signal<int(int), call_first<int> >::connect(main()::<lambda(int)>)'
+     sig.connect([](int i) { std::cout << "(second)"; return i+2; });
+                                                                   ^
+main.cpp:29:67: note: candidates are:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:0,
+                 from /usr/local/include/boost/signals2/preprocessed_signal.hpp:28,
+                 from /usr/local/include/boost/signals2/signal.hpp:36,
+                 from /usr/local/include/boost/signals2.hpp:19,
+                 from main.cpp:1:
+/usr/local/include/boost/signals2/detail/signal_template.hpp:662:18: note: boost::signals2::connection boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::connect(const slot_type&, boost::signals2::connect_position) [with R = int; T1 = int; Combiner = call_first<int>; Group = int; GroupCompare = std::less<int>; SlotFunction = boost::function<int(int)>; ExtendedSlotFunction = boost::function<int(const boost::signals2::connection&, int)>; Mutex = boost::signals2::mutex; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::slot_type = boost::signals2::slot1<int, int, boost::function<int(int)> >]
+       connection connect(const slot_type &slot, connect_position position = at_back)
+                  ^
+/usr/local/include/boost/signals2/detail/signal_template.hpp:662:18: note:   no known conversion for argument 1 from 'main()::<lambda(int)>' to 'const slot_type& {aka const boost::signals2::slot1<int, int, boost::function<int(int)> >&}'
+/usr/local/include/boost/signals2/detail/signal_template.hpp:666:18: note: boost::signals2::connection boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::connect(const group_type&, const slot_type&, boost::signals2::connect_position) [with R = int; T1 = int; Combiner = call_first<int>; Group = int; GroupCompare = std::less<int>; SlotFunction = boost::function<int(int)>; ExtendedSlotFunction = boost::function<int(const boost::signals2::connection&, int)>; Mutex = boost::signals2::mutex; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::group_type = int; boost::signals2::signal1<R, T1, Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::slot_type = boost::signals2::slot1<int, int, boost::function<int(int)> >]
+       connection connect(const group_type &group,
+                  ^
+/usr/local/include/boost/signals2/detail/signal_template.hpp:666:18: note:   candidate expects 3 arguments, 1 provided
