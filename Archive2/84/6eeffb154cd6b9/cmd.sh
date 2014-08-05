@@ -1,0 +1,1 @@
+set -x; g++ -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
