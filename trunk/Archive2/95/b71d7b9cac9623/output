@@ -1,0 +1,37 @@
+main.cpp:234:15: error: no matching function for call to 'resolve'
+    auto o1 = resolve<int>(overloaded);
+              ^~~~~~~~~~~~
+main.cpp:180:10: note: candidate function [with Sig = int] not viable: no overload of 'overloaded' matching 'int *' for 1st argument
+    Sig* resolve( Sig* fun_ptr ) {
+         ^
+main.cpp:175:10: note: candidate template ignored: couldn't infer template argument 'R'
+    auto resolve( R (*fun_ptr)( Args... ) ) -> R( *)( Args... ) {
+         ^
+main.cpp:185:10: note: candidate template ignored: couldn't infer template argument 'R'
+    auto resolve( R( C::*mem_ptr )( Args... ) ) -> R( C::* )( Args... ) {
+         ^
+main.cpp:190:14: note: candidate template ignored: couldn't infer template argument 'C'
+    Sig C::* resolve( Sig C::* mem_ptr ) {
+             ^
+main.cpp:195:10: note: candidate template ignored: couldn't infer template argument 'F'
+    auto resolve( F&& f ) -> decltype( detail::resolve_i( types<Sig...>( ), std::forward<F>( f ) ) ) {
+         ^
+main.cpp:236:15: error: no matching function for call to 'resolve'
+    auto o2 = resolve<int, int>(overloaded);
+              ^~~~~~~~~~~~~~~~~
+main.cpp:175:10: note: candidate template ignored: couldn't infer template argument 'R'
+    auto resolve( R (*fun_ptr)( Args... ) ) -> R( *)( Args... ) {
+         ^
+main.cpp:185:10: note: candidate template ignored: couldn't infer template argument 'R'
+    auto resolve( R( C::*mem_ptr )( Args... ) ) -> R( C::* )( Args... ) {
+         ^
+main.cpp:195:10: note: candidate template ignored: couldn't infer template argument 'F'
+    auto resolve( F&& f ) -> decltype( detail::resolve_i( types<Sig...>( ), std::forward<F>( f ) ) ) {
+         ^
+main.cpp:190:14: note: candidate template ignored: substitution failure [with Sig = int, C = int]: member pointer refers into non-class type 'int'
+    Sig C::* resolve( Sig C::* mem_ptr ) {
+    ~~~      ^
+main.cpp:180:10: note: candidate template ignored: invalid explicitly-specified argument for template parameter 'Sig'
+    Sig* resolve( Sig* fun_ptr ) {
+         ^
+2 errors generated.
