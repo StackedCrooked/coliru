@@ -1,0 +1,1 @@
+clang++ -Wall -x c++ -std=c++11 -fmacro-backtrace-limit=0  -Wno-unknown-pragmas main.cpp && ./a.out
