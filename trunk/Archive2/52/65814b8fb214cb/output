@@ -1,0 +1,13 @@
+main.cpp:38:15: error: no matching function for call to 'resolve'
+    auto o1 = resolve( id<int>{}, overloaded);
+              ^~~~~~~
+main.cpp:10:6: note: candidate template ignored: couldn't infer template argument 'R'
+auto resolve( id<Args...>, R (*fun_ptr)( typename through<Args>::type... ) ) -> R( *)( typename through<Args>::type... ) {
+     ^
+main.cpp:15:6: note: candidate function template not viable: requires single argument 'fun_ptr', but 2 arguments were provided
+auto resolve( R (*fun_ptr)( Args... ) ) -> R( *)( Args... ) {
+     ^
+main.cpp:20:6: note: candidate function template not viable: requires single argument 'fun_ptr', but 2 arguments were provided
+Sig* resolve( Sig* fun_ptr ) {
+     ^
+1 error generated.
