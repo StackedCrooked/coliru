@@ -1,0 +1,38 @@
++ g++-4.9 -std=c++1y -O0 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:31:16: warning: unused parameter 'yaml' [-Wunused-parameter]
+   A(YAML::Node yaml) {
+                ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:40:5: warning: variable 'a1' set but not used [-Wunused-but-set-variable]
+   A a1 = A(string(argv[1]));
+     ^
+main.cpp:41:5: warning: variable 'a2' set but not used [-Wunused-but-set-variable]
+   A a2 = A(argv[1]);
+     ^
+main.cpp: At global scope:
+main.cpp:38:14: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main(int argc, char** argv) {
+              ^
++ ./a.out abc
+Got
+Got
+Got
++ clang++ -std=c++1y -O0 -Wall -pedantic -pthread main.cpp
+main.cpp:39:6: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  A a(string(argv[1]));  // this is not a variable but a funtion declaration;  
+     ^~~~~~~~~~~~~~~~~
+main.cpp:39:7: note: add a pair of parentheses to declare a variable
+  A a(string(argv[1]));  // this is not a variable but a funtion declaration;  
+      ^
+      (              )
+main.cpp:40:5: warning: unused variable 'a1' [-Wunused-variable]
+  A a1 = A(string(argv[1]));
+    ^
+main.cpp:41:5: warning: unused variable 'a2' [-Wunused-variable]
+  A a2 = A(argv[1]);
+    ^
+3 warnings generated.
++ ./a.out abc
+Got
+Got
+Got
