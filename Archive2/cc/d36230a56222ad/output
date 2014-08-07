@@ -1,0 +1,11 @@
++ g++-4.9 -std=c++11 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+In file included from main.cpp:1:0:
+/usr/local/include/boost/any.hpp: In instantiation of 'boost::any::holder<ValueType>::holder(const ValueType&) [with ValueType = foo]':
+/usr/local/include/boost/any.hpp:204:39:   required from 'boost::any::placeholder* boost::any::holder<ValueType>::clone() const [with ValueType = foo]'
+main.cpp:19:1:   required from here
+/usr/local/include/boost/any.hpp:185:27: error: use of deleted function 'constexpr foo::foo(const foo&)'
+               : held(value)
+                           ^
+main.cpp:3:8: note: 'constexpr foo::foo(const foo&)' is implicitly declared as deleted because 'foo' declares a move constructor or move assignment operator
+ struct foo
+        ^
