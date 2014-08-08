@@ -1,0 +1,1 @@
+g++ -O3 -S -o - main.cpp
