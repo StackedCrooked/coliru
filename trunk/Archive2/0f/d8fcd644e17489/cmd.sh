@@ -1,0 +1,1 @@
+set -x; gcc -x c -O2 -Wall -pedantic -pthread main.cpp && ./a.out friday tuesday sunday
