@@ -1,0 +1,1 @@
+clang++ -std=c++1y -stdlib=libc++  -O0 -fno-elide-constructors -Wall -Wextra -pedantic -pthread -pedantic-errors main.cpp -lm  -lsupc++  && ./a.out
