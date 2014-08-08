@@ -1,0 +1,10 @@
+main.cpp:14:15: error: no viable conversion from 'pop_front<std::tuple<int, float, char> >::type' (aka 'tuple<float, char>') to 'struct <anonymous struct at main.cpp:14:5>'
+    struct {} _ = pop_front<std::tuple<int, float, char>>::type{};
+              ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:14:5: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'pop_front<std::tuple<int, float, char> >::type' (aka 'tuple<float, char>') to 'const <anonymous struct at main.cpp:14:5> &' for 1st argument
+    struct {} _ = pop_front<std::tuple<int, float, char>>::type{};
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:14:5: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'pop_front<std::tuple<int, float, char> >::type' (aka 'tuple<float, char>') to '<anonymous struct at main.cpp:14:5> &&' for 1st argument
+    struct {} _ = pop_front<std::tuple<int, float, char>>::type{};
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
