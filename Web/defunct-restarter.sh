@@ -11,6 +11,9 @@ get_sandbox_pids() {
 
 run() {
 
+    # Cleanup old pid files
+    rm -f "pid-*"
+
     while true ; do
 
         # Check if there are too many sandboxes
