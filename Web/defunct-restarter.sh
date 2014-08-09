@@ -9,26 +9,11 @@ get_sandbox_pids() {
 }
 
 
-# Checks for sandbox processes that have a lifetime that is too long
-# while true ; do 
-#     get_sandbox_pids | while read line ; do
-#         [ ! -f "$line" ] && {
-#             echo "We got a new pid: $line"
-#             echo "$(date +%s)" >$line
-#         } || { 
-#             elapsed="$(($(date +%s) - $(cat "$line")))"
-#             echo "$line has been active for $elapsed seconds"
-#             [ "$elapsed" -gt "60" ] && {
-#                 echo "Killing $line"
-#                 kill -9 "$line"
-#             }
-#         }
-#     done
-#     sleep 5
-# done  & disown
-
 run() {
+
     while true ; do
+
+        # Check if there are too many sandboxes
         sandbox_pids="$(get_sandbox_pids)"
         num_sandboxes="$(echo "$sandbox_pids" | wc -l)"
         while [ "$num_sandboxes" -gt "2" ] ; do 
@@ -41,7 +26,22 @@ run() {
             num_sandboxes="$(echo "$sandbox_pids" | wc -l)"
         done
 
-        # Count number of defunct processes
+        # Check for long-running sandboxes
+        get_sandbox_pids | while read line ; do
+            [ ! -f "$line" ] && {
+                echo "We got a new pid: $line"
+                echo "$(date +%s)" >$line
+            } || { 
+                elapsed="$(($(date +%s) - $(cat "$line")))"
+                echo "$line has been active for $elapsed seconds"
+                [ "$elapsed" -gt "60" ] && {
+                    echo "Killing $line"
+                    kill -9 "$line"
+                }
+            }
+        done
+
+        # Check for too many defunct processes
         count="$(ps -ef | grep 'sandbox\|2002\|2001' | wc -l)"
         if [ $count -gt 100 ] ; then
             echo "There are $count processes. This is suspiciously high. I will reboot the webserver in 5 minutes."
