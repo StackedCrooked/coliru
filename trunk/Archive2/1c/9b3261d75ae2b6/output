@@ -1,0 +1,11 @@
+main.cpp:10:25: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    vector<char> buffer (istream_iterator<char>(input), istream_iterator<char>( ));
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:10:26: note: add a pair of parentheses to declare a variable
+    vector<char> buffer (istream_iterator<char>(input), istream_iterator<char>( ));
+                         ^
+                         (                            )
+main.cpp:15:21: error: member reference base type 'vector<char> (istream_iterator<char>, istream_iterator<char> (*)())' is not a structure or union
+        copy( buffer.begin(), buffer.end(), std::ostream_iterator<char>(output));
+              ~~~~~~^~~~~~
+1 warning and 1 error generated.
