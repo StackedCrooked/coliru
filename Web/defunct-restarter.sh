@@ -30,13 +30,14 @@ run() {
         get_sandbox_pids | while read line ; do
             [ ! -f "$line" ] && {
                 echo "We got a new pid: $line"
-                echo "$(date +%s)" >$line
+                echo "$(date +%s)" >"pid-${line}"
             } || { 
-                elapsed="$(($(date +%s) - $(cat "$line")))"
+                elapsed="$(($(date +%s) - $(cat "pid-${line}")))"
                 echo "$line has been active for $elapsed seconds"
                 [ "$elapsed" -gt "60" ] && {
                     echo "Killing $line"
                     kill -9 "$line"
+                    rm -f "pid-${line}"
                 }
             }
         done
