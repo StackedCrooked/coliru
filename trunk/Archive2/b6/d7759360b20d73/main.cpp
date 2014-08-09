@@ -1,0 +1,4 @@
+#define TESTING
+#if defined(TESTING) && (TESTING == 1)
+    #error("HALP")
+#endif
