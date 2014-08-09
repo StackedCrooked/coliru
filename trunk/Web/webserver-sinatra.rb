@@ -314,6 +314,7 @@ def safe_popen(cmd)
         Process.wait @stdout.pid
         yield e.to_s
     rescue Exception => e
+        Process.wait @stdout.pid
         yield e.to_s
     end
 end
