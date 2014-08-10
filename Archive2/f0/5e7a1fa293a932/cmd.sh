@@ -1,0 +1,1 @@
+g++ -g -std=c++1y -O0 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -fno-elide-constructors main.cpp && ./a.out
