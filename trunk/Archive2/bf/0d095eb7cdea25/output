@@ -1,0 +1,3 @@
+template <typename T> struct EventTraits;
+class SomeClass;
+template <> struct EventTraits<SomeClass> { struct Started; struct Finished; typedef boost::fusion::map< boost::fusion::pair<Started,boost::signals2::signal<void()> > , boost::fusion::pair<Finished,boost::signals2::signal<void(int)> > > Events; }
