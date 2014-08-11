@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:32:51: error: use of deleted function 'foo::ExpectMovable::ExpectMovable(foo::ExpectMovable&&)'
+     foo::ExpectMovable newLocation = std::move(tmp);
+                                                   ^
+main.cpp:27:12: note: 'foo::ExpectMovable::ExpectMovable(foo::ExpectMovable&&)' is implicitly deleted because the default definition would be ill-formed:
+     struct ExpectMovable: MoveOnly, CopyOnly{};
+            ^
+main.cpp:27:12: error: use of deleted function 'foo::CopyOnly::CopyOnly(foo::CopyOnly&&)'
+main.cpp:23:9: note: declared here
+         CopyOnly(CopyOnly &&) = delete;
+         ^
