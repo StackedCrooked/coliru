@@ -1,0 +1,49 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
++ ./a.out
+
++ g++-4.9 -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp: In function 'int main(int, const char* const*)':
+main.cpp:9:42: error: no matching function for call to 'getline(std::ifstream, std::string&)'
+         getline (ifstream{argv[1]}, head1);
+                                          ^
+main.cpp:9:42: note: candidates are:
+In file included from /usr/include/stdio.h:931:0,
+                 from /usr/local/include/c++/4.9.0/cstdio:42,
+                 from /usr/local/include/c++/4.9.0/ext/string_conversions.h:43,
+                 from /usr/local/include/c++/4.9.0/bits/basic_string.h:2834,
+                 from /usr/local/include/c++/4.9.0/string:52,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/include/x86_64-linux-gnu/bits/stdio.h:116:1: note: __ssize_t getline(char**, size_t*, FILE*)
+ getline (char **__lineptr, size_t *__n, FILE *__stream)
+ ^
+/usr/include/x86_64-linux-gnu/bits/stdio.h:116:1: note:   candidate expects 3 arguments, 2 provided
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2812:5: note: std::basic_istream<_CharT, _Traits>& std::getline(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+     getline(basic_istream<_CharT, _Traits>& __is,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2812:5: note:   no known conversion for argument 1 from 'std::ifstream {aka std::basic_ifstream<char>}' to 'std::basic_istream<char>&'
+In file included from /usr/local/include/c++/4.9.0/string:53:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:1068:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_istream<_CharT, _Traits>& std::getline(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&, _CharT)
+     getline(basic_istream<_CharT, _Traits>& __in,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.tcc:1068:5: note:   template argument deduction/substitution failed:
+main.cpp:9:42: note:   candidate expects 3 arguments, 2 provided
+         getline (ifstream{argv[1]}, head1);
+                                          ^
