@@ -1,0 +1,76 @@
+main.cpp:8:7: error: deleted function 'virtual Left::~Left()'
+ class Left : public Top
+       ^
+main.cpp:5:13: error: overriding non-deleted function 'virtual Top::~Top()'
+     virtual ~Top(){}    
+             ^
+main.cpp:8:7: note: 'virtual Left::~Left()' is implicitly deleted because the default definition would be ill-formed:
+ class Left : public Top
+       ^
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:8:7: error: within this context
+ class Left : public Top
+       ^
+main.cpp:13:7: error: deleted function 'virtual Right::~Right()'
+ class Right : public Top
+       ^
+main.cpp:5:13: error: overriding non-deleted function 'virtual Top::~Top()'
+     virtual ~Top(){}    
+             ^
+main.cpp:13:7: note: 'virtual Right::~Right()' is implicitly deleted because the default definition would be ill-formed:
+ class Right : public Top
+       ^
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:13:7: error: within this context
+ class Right : public Top
+       ^
+main.cpp: In function 'int main()':
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:20:9: error: within this context
+     Top t;
+         ^
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:20:9: error: within this context
+     Top t;
+         ^
+main.cpp:21:10: error: use of deleted function 'Left::Left()'
+     Left l;
+          ^
+main.cpp:8:7: note: 'Left::Left()' is implicitly deleted because the default definition would be ill-formed:
+ class Left : public Top
+       ^
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:8:7: error: within this context
+ class Left : public Top
+       ^
+main.cpp:21:10: error: use of deleted function 'virtual Left::~Left()'
+     Left l;
+          ^
+main.cpp:22:11: error: use of deleted function 'Right::Right()'
+     Right r;
+           ^
+main.cpp:13:7: note: 'Right::Right()' is implicitly deleted because the default definition would be ill-formed:
+ class Right : public Top
+       ^
+main.cpp:5:13: error: 'virtual Top::~Top()' is private
+     virtual ~Top(){}    
+             ^
+main.cpp:13:7: error: within this context
+ class Right : public Top
+       ^
+main.cpp:22:11: error: use of deleted function 'virtual Right::~Right()'
+     Right r;
+           ^
+main.cpp:24:32: warning: dynamic_cast of 'Left l' to 'class Right*' can never succeed
+     if (dynamic_cast<Right*>(&l)) 
+                                ^
