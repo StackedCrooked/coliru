@@ -1,0 +1,1 @@
+set -x; clang++ -std=c++1y -O2 -Wall -pedantic -lboost_regex -pthread main.cpp && ./a.out
