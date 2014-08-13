@@ -1,0 +1,11 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -lboost_regex -pthread main.cpp
+main.cpp:46:19: error: no matching constructor for initialization of 'myobject<int>'
+    myobject<int> something3("oops");
+                  ^          ~~~~~~
+main.cpp:30:5: note: candidate constructor not viable: no known conversion from 'const char [5]' to 'const myobject<int>' for 1st argument
+    myobject( const myobject& other )
+    ^
+main.cpp:26:17: note: candidate template ignored: disabled by 'enable_if' [with Ts = <const char *>]
+                all_true< std::is_convertible<Ts, T>... >::value
+                ^
+1 error generated.
