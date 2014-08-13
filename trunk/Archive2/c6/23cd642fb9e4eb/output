@@ -1,0 +1,43 @@
+clang version 3.4 (tags/RELEASE_34/final 206911)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:4:101: error: no type named 'type' in 'std::__1::result_of<std::__1::tuple<int, short> (std::__1::tuple<int> &&, std::__1::tuple<short> &&)>'
+using type = typename std::result_of<decltype(std::tuple_cat<std::tuple<int>, std::tuple<short>>)>::type;
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+main.cpp:8:5: error: unknown type name 'type'
+    type t;
+    ^
+In file included from main.cpp:2:
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'int' cannot bind to lvalue of type 'int'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<0, int &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/tuple:1067:12: note: in instantiation of function template specialization 'std::__1::__tuple_cat<std::__1::tuple<>, std::__1::__tuple_indices<>, std::__1::__tuple_indices<0> >::operator()<std::__1::tuple<int>, std::__1::tuple<short>>' requested here
+    return __tuple_cat<tuple<>, __tuple_indices<>,
+           ^
+main.cpp:4:52: note: in instantiation of function template specialization 'std::__1::tuple_cat<std::__1::tuple<int>, std::__1::tuple<short> >' requested here
+using type = typename std::result_of<decltype(std::tuple_cat<std::tuple<int>, std::tuple<short>>)>::type;
+                                                   ^
+In file included from main.cpp:2:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/tuple:320:11: error: rvalue reference to type 'short' cannot bind to lvalue of type 'short'
+        : value(__t.get())
+          ^     ~~~~~~~~~
+/usr/include/c++/v1/tuple:444:8: note: in instantiation of member function 'std::__1::__tuple_leaf<1, short &&, false>::__tuple_leaf' requested here
+struct __tuple_impl<__tuple_indices<_Indx...>, _Tp...>
+       ^
+/usr/include/c++/v1/tuple:1067:12: note: in instantiation of function template specialization 'std::__1::__tuple_cat<std::__1::tuple<>, std::__1::__tuple_indices<>, std::__1::__tuple_indices<0> >::operator()<std::__1::tuple<int>, std::__1::tuple<short>>' requested here
+    return __tuple_cat<tuple<>, __tuple_indices<>,
+           ^
+main.cpp:4:52: note: in instantiation of function template specialization 'std::__1::tuple_cat<std::__1::tuple<int>, std::__1::tuple<short> >' requested here
+using type = typename std::result_of<decltype(std::tuple_cat<std::tuple<int>, std::tuple<short>>)>::type;
+                                                   ^
+In file included from main.cpp:2:
+/usr/include/c++/v1/tuple:321:10: error: static_assert failed "Can not copy a tuple with rvalue reference member"
+        {static_assert(!is_rvalue_reference<_Hp>::value, "Can not copy a tuple with rvalue reference member");}
+         ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6 errors generated.
