@@ -1,0 +1,48 @@
+clang version 3.4 (tags/RELEASE_34/final 206911)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+In file included from main.cpp:1:
+/usr/include/c++/v1/type_traits:2761:19: error: invalid application of 'sizeof' to an incomplete type 'void'
+    static_assert(sizeof(_Tp) > 0, "Type must be complete.");
+                  ^~~~~~~~~~~
+/usr/include/c++/v1/type_traits:2947:15: note: in instantiation of template class 'std::__1::__check_complete<void>' requested here
+    : private __check_complete<_Fp>
+              ^
+/usr/include/c++/v1/type_traits:2958:11: note: in instantiation of template class 'std::__1::__invokable_imp<void>' requested here
+          __invokable_imp<_Fp, _Args...>::value>
+          ^
+/usr/include/c++/v1/type_traits:2977:30: note: in instantiation of template class 'std::__1::__invokable<void>' requested here
+    : public __invoke_of_imp<__invokable<_Fp, _Args...>::value, _Fp, _Args...>
+                             ^
+/usr/include/c++/v1/type_traits:2983:14: note: in instantiation of template class 'std::__1::__invoke_of<void>' requested here
+    : public __invoke_of<_Fp, _Args...>
+             ^
+main.cpp:5:28: note: in instantiation of template class 'std::__1::result_of<void ()>' requested here
+using type = typename std::result_of<decltype(f)>::type;
+                           ^
+In file included from main.cpp:1:
+/usr/include/c++/v1/type_traits:2950:22: error: cannot pass expression of type 'typename add_rvalue_reference<void>::type' (aka 'void') to variadic constructor
+            __invoke(_VSTD::declval<_Fp>(), _VSTD::declval<_Args>()...)
+                     ^
+/usr/include/c++/v1/__config:323:15: note: expanded from macro '_VSTD'
+#define _VSTD std::_LIBCPP_NAMESPACE
+              ^
+/usr/include/c++/v1/type_traits:2958:11: note: in instantiation of template class 'std::__1::__invokable_imp<void>' requested here
+          __invokable_imp<_Fp, _Args...>::value>
+          ^
+/usr/include/c++/v1/type_traits:2977:30: note: in instantiation of template class 'std::__1::__invokable<void>' requested here
+    : public __invoke_of_imp<__invokable<_Fp, _Args...>::value, _Fp, _Args...>
+                             ^
+/usr/include/c++/v1/type_traits:2983:14: note: in instantiation of template class 'std::__1::__invoke_of<void>' requested here
+    : public __invoke_of<_Fp, _Args...>
+             ^
+main.cpp:5:28: note: in instantiation of template class 'std::__1::result_of<void ()>' requested here
+using type = typename std::result_of<decltype(f)>::type;
+                           ^
+main.cpp:5:52: error: no type named 'type' in 'std::__1::result_of<void ()>'
+using type = typename std::result_of<decltype(f)>::type;
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+main.cpp:9:5: error: unknown type name 'type'
+    type t;
+    ^
+4 errors generated.
