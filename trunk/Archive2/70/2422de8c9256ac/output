@@ -1,0 +1,10 @@
++ g++ -O2 -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:15:14: error: default type conversion can't deduce template argument for 'template<class T, typename std::enable_if<std::is_same<int, T>::value>::type* <anonymous> > Var::operator T() const'
+     switch (v)
+              ^
++ clang++ -O2 -std=c++11 -Wall -pedantic -pthread main.cpp
+main.cpp:15:5: error: statement requires expression of integer type ('Var' invalid)
+    switch (v)
+    ^       ~
+1 error generated.
