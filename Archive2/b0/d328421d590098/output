@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:5:23: error: expected identifier before numeric constant
+ char myArray3[10] = {[0 ... 9] = 0};
+                       ^
+main.cpp: In lambda function:
+main.cpp:5:32: error: expected '{' before '=' token
+ char myArray3[10] = {[0 ... 9] = 0};
+                                ^
+main.cpp: In function 'int main()':
+main.cpp:5:32: error: no match for 'operator=' (operand types are 'main()::<lambda()>' and 'int')
+main.cpp:5:32: note: candidate is:
+main.cpp:5:30: note: main()::<lambda()>& main()::<lambda()>::operator=(const main()::<lambda()>&) <deleted>
+ char myArray3[10] = {[0 ... 9] = 0};
+                              ^
+main.cpp:5:30: note:   no known conversion for argument 1 from 'int' to 'const main()::<lambda()>&'
+main.cpp:3:6: warning: unused variable 'myArray1' [-Wunused-variable]
+ char myArray1[10] = {0};
+      ^
+main.cpp:4:6: warning: unused variable 'myArray2' [-Wunused-variable]
+ char myArray2[10] = {0,};
+      ^
+main.cpp:5:6: warning: unused variable 'myArray3' [-Wunused-variable]
+ char myArray3[10] = {[0 ... 9] = 0};
+      ^
+main.cpp:6:6: warning: unused variable 'myArray4' [-Wunused-variable]
+ char myArray4[10] = {0,0,0,0,0,0,0,0,0,0};
+      ^
