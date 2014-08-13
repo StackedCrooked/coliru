@@ -65,28 +65,32 @@ end
 
 $request_id = 0
 post '/compile' do
-    Thread.new do 
-        result = ""
-        rid = $request_id += 1
-        log_request(rid, "/compile", "waiting")
-        $mutex.synchronize do
-            log_request(rid, "/compile", "running")
-            request_text = request.body.read
-            json_obj = JSON.parse(request_text)
-            id = "#{Time.now.utc.to_f}"
-            dir = "/tmp/coliru/#{id}"
-            FileUtils.mkdir_p(dir)
+    begin
+        Thread.new do 
+            result = ""
+            rid = $request_id += 1
+            log_request(rid, "/compile", "waiting")
+            $mutex.synchronize do
+                log_request(rid, "/compile", "running")
+                request_text = request.body.read
+                json_obj = JSON.parse(request_text)
+                id = "#{Time.now.utc.to_f}"
+                dir = "/tmp/coliru/#{id}"
+                FileUtils.mkdir_p(dir)
 
-            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-            FileUtils.rmtree(dir)
-            log_request(rid, "/compile", "done")
-        end
-        stream do |out|
-            out << result
-        end
-    end.join
+                File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+                File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+                FileUtils.rmtree(dir)
+                log_request(rid, "/compile", "done")
+            end
+            stream do |out|
+                out << result
+            end
+        end.join
+    rescue Exception => e
+        e.to_s
+    end
 end
 
 
