@@ -1,0 +1,62 @@
+main.cpp:7:16: error: use of undeclared identifier 'package'
+  catch (const package::Exception& e)                             
+               ^
+main.cpp:9:5: error: use of undeclared identifier 'jclass'; did you mean 'class'?
+    jclass jc = env->FindClass("group/package/Exception");        
+    ^~~~~~
+    class
+main.cpp:9:15: error: expected unqualified-id
+    jclass jc = env->FindClass("group/package/Exception");        
+              ^
+main.cpp:10:10: error: expected unqualified-id
+    if(jc) env->ThrowNew (jc, e.what());                          
+         ^
+main.cpp:10:10: error: variable declaration in condition must have an initializer
+main.cpp:10:12: error: use of undeclared identifier 'env'
+    if(jc) env->ThrowNew (jc, e.what());                          
+           ^
+main.cpp:10:27: error: 'jc' does not refer to a value
+    if(jc) env->ThrowNew (jc, e.what());                          
+                          ^
+main.cpp:9:12: note: declared here
+    jclass jc = env->FindClass("group/package/Exception");        
+           ^
+main.cpp:13:16: error: use of undeclared identifier 'std'
+  catch (const std::bad_alloc& e)                                 
+               ^
+main.cpp:16:5: error: use of undeclared identifier 'jclass'; did you mean 'class'?
+    jclass jc = env->FindClass("java/lang/OutOfMemoryError");     
+    ^~~~~~
+    class
+main.cpp:16:15: error: expected unqualified-id
+    jclass jc = env->FindClass("java/lang/OutOfMemoryError");     
+              ^
+main.cpp:17:10: error: expected unqualified-id
+    if(jc) env->ThrowNew (jc, e.what());                          
+         ^
+main.cpp:17:10: error: variable declaration in condition must have an initializer
+main.cpp:17:12: error: use of undeclared identifier 'env'
+    if(jc) env->ThrowNew (jc, e.what());                          
+           ^
+main.cpp:17:27: error: 'jc' does not refer to a value
+    if(jc) env->ThrowNew (jc, e.what());                          
+                          ^
+main.cpp:16:12: note: declared here
+    jclass jc = env->FindClass("java/lang/OutOfMemoryError");     
+           ^
+main.cpp:19:16: error: use of undeclared identifier 'std'
+  catch (const std::ios_base::failure& e)                         
+               ^
+main.cpp:22:5: error: use of undeclared identifier 'jclass'; did you mean 'class'?
+    jclass jc = env->FindClass("java/io/IOException");            
+    ^~~~~~
+    class
+main.cpp:22:15: error: expected unqualified-id
+    jclass jc = env->FindClass("java/io/IOException");            
+              ^
+main.cpp:23:10: error: expected unqualified-id
+    if(jc) env->ThrowNew (jc, e.what());                          
+         ^
+main.cpp:23:10: error: variable declaration in condition must have an initializer
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
