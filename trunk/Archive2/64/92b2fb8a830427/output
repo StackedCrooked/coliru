@@ -1,0 +1,11 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:29:17: error: no type named 'type' in 'std::enable_if<false, myobject<int>::placeholder>'; 'enable_if' cannot be used to disable this declaration
+                all_true< std::is_convertible<Ts, T>... >::value
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:50:26: note: in instantiation of template class 'myobject<int>::CheckVaradicArgs<char *>' requested here
+    : myobject( typename CheckVaradicArgs<Ts...>::type(), params... )
+                         ^
+main.cpp:61:19: note: in instantiation of function template specialization 'myobject<int>::myobject<char *>' requested here
+    myobject<int> something3(p);
+                  ^
+1 error generated.
