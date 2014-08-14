@@ -1,0 +1,13 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -pthread main.cpp
+main.cpp:8:53: error: specialization of 'template<class Type> MyLib::Enum<Type>::Enum()' in different namespace [-fpermissive]
+             template<> MyLib::Enum<type>::Enum (void)
+                                                     ^
+main.cpp:29:1: note: in expansion of macro 'DECLARE_ENUM'
+ DECLARE_ENUM (MyEnum)
+ ^
+main.cpp:13:5: error:   from definition of 'template<class Type> MyLib::Enum<Type>::Enum()' [-fpermissive]
+     Enum (void);
+     ^
++ clang++ -O2 -std=c++11 -Wall -pedantic -pthread main.cpp
++ ./a.out
+0
