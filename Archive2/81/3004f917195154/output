@@ -1,0 +1,847 @@
+main.cpp: In function 'int main()':
+main.cpp:425:12: warning: unused variable 'ReqEcl360' [-Wunused-variable]
+     double ReqEcl360 = fmod(ReqEcl * 360/Jiaozhong + 180, 360);
+            ^
+main.cpp:448:12: warning: variable 'ChSun' set but not used [-Wunused-but-set-variable]
+     double ChSun = ReqSun;
+            ^
+main.cpp:457:12: warning: unused variable 'SunAdd' [-Wunused-variable]
+     double SunAdd, SunSum;
+            ^
+main.cpp:457:20: warning: unused variable 'SunSum' [-Wunused-variable]
+     double SunAdd, SunSum;
+                    ^
+main.cpp:585:12: warning: unused variable 'MDayT_day' [-Wunused-variable]
+     double MDayT_day = int(MDayT);
+            ^
+main.cpp:210:26: warning: 'LUseMoon' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     moon_x12_2 = UseMoon * 12.2;
+                          ^
+main.cpp:1105:12: note: 'LUseMoon' was declared here
+     double LUseMoon,LSoD,Lmoon_x12_2,LMoonSolar,LMoonLL,LMoonAdd; int LMoonStatus;
+            ^
+main.cpp:217:5: warning: 'LMoonStatus' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     if (MoonStatus == LagStart){MoonStatus = LagEnd;}
+     ^
+main.cpp:1105:71: note: 'LMoonStatus' was declared here
+     double LUseMoon,LSoD,Lmoon_x12_2,LMoonSolar,LMoonLL,LMoonAdd; int LMoonStatus;
+                                                                       ^
+main.cpp:210:26: warning: 'ELUseMoon' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     moon_x12_2 = UseMoon * 12.2;
+                          ^
+main.cpp:1164:12: note: 'ELUseMoon' was declared here
+     double ELUseMoon, ELSoD, ELmoon_x12_2, ELMoonSolar, ELMoonLL, ELMoonAdd;
+            ^
+main.cpp:223:25: warning: 'EclUseMoon' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     MoonSolar = UseMoon - SoD;
+                         ^
+main.cpp:1048:12: note: 'EclUseMoon' was declared here
+     double EclUseMoon,EclSoD,Eclmoon_x12_2,EclMoonSolar,EclMoonAdd;
+            ^
+main.cpp:217:5: warning: 'ELMoonStatus' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     if (MoonStatus == LagStart){MoonStatus = LagEnd;}
+     ^
+main.cpp:1165:9: note: 'ELMoonStatus' was declared here
+     int ELMoonStatus;
+         ^
+	t	t	t	t	t	t	t	t	t	t	t	t	t	t	t	t
+	Solar eclipse time is in 24 hours
+	Beijing local noon time is 12 as reference
+	month means total months from winter solitice
+	ReqMDay=ReqMoonDay
+year(month)
+-------
+1568(10) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		185.19	275.66	-11.07	-23.38 + 5.65 = -17.73[+]-12.38=-30.11	61.27*sin(43.37)=42.08
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+280.12-85.71	11.00	43.76	93.75(0)272.40	1.15(2)195.07	13.82	0.79+275.12=275.92	281.94	275.66/277.95
+=194.41
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.51(5.43)	49.55	42.70	-0.15	1.15(195.07)	-1.91/-2.29/1.50 	0.000	195.07/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.400	11.262(12.005)	-5.78	3.60	59.45	59.56
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+18.230	-6.225	-0.74(-44.59)	0.36+5.29=5.65	0.03	0.75/-0.003	182.27(0.37)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-2.63/0.45	23.19/16.53	-2.25	-0.35	0.03 + -0.61=-0.573	0.543
+
+-------
+1572(8) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		116.84	204.90	-57.65	-10.36 + 5.72 = -4.65[+]-55.22=-59.87	54.59*sin(52.07)=43.06
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+208.14-240.34	24.97	51.70	20.65(0)200.36	11.36(3)328.44	13.94	3.67+201.53=205.20	211.15	204.90/207.19
+=327.80
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.57(5.49)	32.61	36.21	-0.85	11.36(328.44)	-0.65/-0.78/2.94 	0.000	328.44/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.871	8.157(9.485)	-2.80	6.00	20.42	20.53
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+16.736	-7.251	-1.33(-79.71)	0.43+5.29=5.72	0.31	3.48/-0.015	185.25(3.32)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-1.76/4.96	10.47/38.46	21.19	-0.62	0.30 + -0.36=-0.056	0.509
+
+-------
+1575(6) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		53.77	146.10	32.77	13.62 + 5.65 = 19.27[+]46.62=65.90	60.70*sin(34.83)=34.67
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+146.87-355.49	28.06	5.27	323.69(3)139.04	25.41(1)152.00	13.44	359.18+-213.36=145.82	144.04	146.10/148.39
+=151.38
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.62(5.54)	45.15	25.54	0.46	25.41(152.00)	1.23/1.48/-2.65 	0.000	152.00/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.485	14.184(13.268)	-6.69	3.19	36.15	36.26
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+6.432	6.836	0.92(54.96)	0.36+5.29=5.65	-0.05	359.22/0.003	181.36(359.47)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-2.30/-1.20	7.37/23.54	19.31	0.53	-0.05 + -0.24=-0.284	0.537
+
+-------
+1582(7) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		96.13	185.63	30.36	-2.44 + -5.68 = -8.12[+]49.89=41.76	57.72*sin(30.46)=29.26
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+188.27-285.00	15.54	23.96	0.38(0)180.37	6.42(2)263.84	26.97	176.83+9.19=186.03	193.61	185.63/187.85
+=263.26
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.75(5.67)	45.88	20.75	0.42	6.42(263.84)	-0.01/-0.01/5.42 	0.000	263.84/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.832	14.024(13.347)	3.14	-4.20	12.78	12.95
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+23.040	-9.693	0.68(40.67)	0.39+5.29=5.68	0.27	176.99/0.013	360.78(177.02)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	2.96/4.38	11.07/22.07	23.36	0.32	0.27 + -0.36=-0.091	0.523
+
+-------
+1583(13) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		258.52	349.45	14.05	-4.55 + 5.73 = 1.18[+]11.93=13.10	53.78*sin(64.33)=48.48
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+352.19-344.22	26.41	15.51	166.66(1)344.27	14.43(0)8.53	14.28	8.34+341.09=349.43	351.43	349.45/351.68
+=7.96
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.78(5.69)	49.22	63.84	0.19	14.43(8.53)	-0.53/-0.63/-0.87 	0.000	8.53/0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.809	12.937(12.719)	1.67	1.95	18.02	18.20
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+12.255	0.464	0.22(13.09)	0.44+5.29=5.73	0.71	7.92/-0.033	189.72(7.74)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	3.24/0.38	40.84/10.18	-23.06	0.18	0.71 + -0.79=-0.079	0.514
+
+-------
+1587(10) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		185.64	276.14	4.72	-23.36 + 5.66 = -17.71[+]5.35=-12.36	60.12*sin(42.58)=40.68
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+280.20-138.85	10.85	23.45	93.56(0)272.22	24.64(1)141.89	14.39	8.36+267.71=276.07	277.15	276.15/278.37
+=141.35
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.84(5.76)	49.99	42.46	0.06	24.64(141.89)	-1.91/-2.29/-3.44 	0.000	141.89/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.977	12.315(12.697)	1.41	-2.73	38.99	39.17
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+10.761	1.936	-0.38(-22.93)	0.37+5.29=5.66	0.69	7.94/-0.033	189.46(7.48)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-1.54/0.22	28.11/5.54	-2.44	-0.15	0.68 + -0.66=0.022	0.538
+
+-------
+1589(2) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		-33.60	54.08	-73.74	19.38 + -5.66 = 13.73[+]-47.52=-33.80	60.09*sin(86.63)=59.99
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+55.02-194.78	3.07	45.47	230.32(2)47.01	3.12(2)220.77	26.59	173.36+-119.15=54.21	58.36	54.08/56.30
+=220.24
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.87(5.78)	18.51	85.01	-1.09	3.12(220.77)	1.42/1.70/3.64 	0.000	220.77/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.479	7.084(7.972)	0.13	0.66	49.48	49.65
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+11.242	-3.270	-0.89(-53.29)	0.37+5.29=5.66	0.55	173.70/0.027	357.77(174.04)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.32/-0.21	39.83/30.12	-13.52	-0.56	0.55 + -0.83=-0.285	0.541
+
+-------
+1590(8) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		127.78	215.41	77.27	-14.13 + 5.72 = -8.41[+]53.58=45.17	54.73*sin(68.39)=50.89
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+218.94-254.00	13.94	37.02	31.36(0)210.91	11.13(3)325.46	13.90	2.85+212.90=215.75	222.24	215.41/217.63
+=324.94
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.89(5.81)	14.76	56.29	1.13	11.13(325.46)	-0.97/-1.15/3.17 	0.000	325.46/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.269	17.151(16.046)	-3.64	1.93	54.72	54.89
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+0.457	-8.411	1.11(66.31)	0.43+5.29=5.72	0.23	2.70/-0.011	184.41(2.49)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-1.12/-0.59	32.08/33.87	18.95	0.60	0.23 + -0.60=-0.370	0.510
+
+-------
+1594(6) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		54.16	146.47	-16.09	13.49 + 5.68 = 19.17[+]-30.53=-11.35	57.83*sin(24.74)=24.20
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+146.96-48.63	27.91	44.96	323.50(3)138.86	21.34(1)98.82	14.01	6.75+139.23=145.97	141.42	146.47/148.70
+=98.33
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+5.96(5.88)	48.95	21.65	-0.22	21.34(98.82)	1.24/1.48/-5.39 	0.000	98.82/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.607	10.928(11.147)	0.51	-0.29	15.68	15.86
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+22.963	12.184	-0.22(-13.17)	0.39+5.29=5.68	0.61	6.41/-0.027	188.56(6.59)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.58/0.79	11.44/11.48	19.40	-0.08	0.60 + -0.40=0.208	0.524
+
+-------
+1596(10) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		177.32	267.08	-13.66	-23.46 + -5.66 = -29.12[+]-16.13=-45.25	59.29*sin(40.70)=38.67
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+271.05-144.04	20.13	1.34	84.12(0)262.91	23.54(1)127.50	26.82	172.80+94.14=266.94	267.07	267.09/269.30
+=127.01
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.00(5.92)	49.27	39.57	-0.18	23.54(127.50)	-1.89/-2.26/-4.39 	0.000	127.50/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.633	11.089(11.863)	-1.07	-2.21	26.17	26.35
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+8.254	3.609	-0.77(-46.42)	0.37+5.29=5.66	0.66	173.16/0.029	356.57(172.86)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.47/0.67	19.90/17.62	1.16	-0.46	0.65 + -0.45=0.200	0.534
+
+-------
+1603(5) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		45.10	137.57	-51.67	16.34 + -5.69 = 10.65[+]-51.80=-41.15	57.20*sin(49.96)=43.79
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+137.80-53.81	7.66	22.85	314.06(3)129.55	20.24(0)84.43	26.44	171.40+-34.36=137.04	132.20	137.57/139.79
+=83.99
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.12(6.03)	36.55	36.35	-0.75	20.24(84.43)	1.46/1.74/-5.42 	0.000	84.43/0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.686	8.555(9.370)	-1.73	-0.12	2.86	3.04
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+20.456	12.914	-0.81(-48.88)	0.40+5.29=5.69	0.72	171.84/0.034	355.91(172.20)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.83/-2.44	26.53/28.57	17.11	-0.48	0.71 + -0.55=0.164	0.522
+
+-------
+1604(5) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		34.59	126.94	73.22	19.15 + -5.72 = 13.43[+]52.18=65.62	54.65*sin(68.36)=50.80
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+127.08-93.29	18.54	17.22	303.17(3)118.82	16.40(0)34.22	27.05	179.67+-53.14=126.53	123.68	126.94/129.15
+=33.79
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.14(6.05)	19.04	57.10	1.08	16.40(34.22)	1.66/1.98/-3.16 	0.000	34.22/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.305	16.881(15.249)	6.17	2.31	8.10	8.28
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+5.266	9.983	1.63(97.90)	0.43+5.29=5.72	-0.00	179.69/0.001	363.81(180.02)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.33/3.53	8.36/46.19	13.86	0.77	-0.00 + -0.35=-0.351	0.511
+
+-------
+1607(3) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		-23.03	65.14	93.56	21.51 + -5.66 = 15.86[+]50.79=66.64	60.25*sin(81.12)=59.53
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+65.82-208.44	21.63	30.79	240.96(2)57.51	2.89(2)217.79	26.56	173.11+-107.87=65.24	68.91	65.14/67.35
+=217.38
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.19(6.10)	-4.24	103.89	1.19	2.89(217.79)	1.63/1.95/3.43 	0.000	217.79/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.695	18.237(16.488)	-0.07	-2.96	23.83	24.01
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+18.962	-2.474	1.75(104.96)	0.37+5.29=5.66	0.57	173.45/0.028	357.57(173.84)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.58/2.31	8.88/49.74	-9.64	0.91	0.56 + -0.39=0.170	0.541
+
+-------
+1609(13) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		447.28	362.49	72.47	1.08 + -5.71 = -4.63[+]47.06=42.43	54.99*sin(87.50)=54.94
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+4.56-323.59	13.85	44.36	178.78(1)356.21	16.94(0)41.36	26.06	164.67+197.54=362.21	0.95	362.49/4.71
+=40.97
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.22(6.13)	19.80	93.66	1.07	16.94(41.36)	-0.13/-0.15/-3.69 	0.000	41.36/0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.289	16.831(15.457)	-8.47	-5.68	34.31	34.50
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+8.658	6.798	1.37(82.49)	0.42+5.29=5.71	1.32	165.41/0.059	349.17(165.53)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.09/-2.70	28.50/41.25	-23.46	0.62	1.31 + -0.68=0.638	0.519
+
+-------
+1610(13) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		260.22	351.01	53.69	-3.88 + -5.73 = -9.61[+]38.80=29.20	53.82*sin(80.51)=53.08
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+353.84-3.07	24.72	38.73	167.87(1)345.46	13.10(3)351.16	26.67	172.32+178.81=351.13	354.80	351.01/353.23
+=350.77
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.25(6.17)	35.29	77.89	0.79	13.10(351.16)	-0.49/-0.59/0.89 	0.000	351.16/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.765	15.580(14.541)	-1.24	1.77	39.56	39.74
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+17.468	-2.927	1.04(62.32)	0.44+5.29=5.73	0.67	172.71/0.031	356.40(172.68)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.87/-2.14	35.29/32.70	-23.18	0.43	0.67 + -0.77=-0.103	0.514
+
+-------
+1615(4) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		5.48	95.97	65.99	23.37 + 5.69 = 29.06[+]48.12=77.18	57.03*sin(70.22)=53.66
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+96.49-177.44	20.04	43.85	271.94(2)88.04	7.61(3)279.42	13.48	0.46+95.74=96.20	101.46	95.96/98.18
+=279.06
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.33(6.24)	25.94	61.69	0.98	7.61(279.42)	1.91/2.29/5.38 	0.000	279.42/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.757	16.399(14.748)	-5.33	3.67	5.76	5.95
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+20.380	-5.632	1.65(99.08)	0.40+5.29=5.69	0.07	0.44/-0.002	182.72(0.81)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.87/-2.53	8.17/45.82	2.37	0.87	0.07 + -0.20=-0.124	0.524
+
+1617(0) ReqEcl =  7.75	LunEcl = 22.510935
+1617(1) ReqEcl = 10.06	LunEcl = 24.829304
+1617(2) ReqEcl = 12.38	LunEcl = 27.147673
+1617(3) ReqEcl = 14.70	LunEcl = 2.253818
+1617(4) ReqEcl = 17.02	LunEcl = 4.572187
+1617(5) ReqEcl = 19.34	LunEcl = 6.890556
+1617(6) ReqEcl = 21.66	LunEcl = 9.208925
+1617(7) ReqEcl = 23.97	LunEcl = 11.527294
+1617(8) ReqEcl = 26.29	LunEcl = 13.845663(Xin YunLo data is 13.845663)
+
+	LunStep 3: LunSun = 47.329	LunDay = 15.002	LunMoon = 24.569
+	LunStep 4: LunEclA = 185.099
+	LunStep 6: LUseSun = 47.329	LSunStatus = 0
+	LunStep 7: LSunAdd = 258.834	LSunSum = 17693.419	LSunX = -1.640
+	LunStep 9: LUseMoon = 10.792	LSoD = 10.743	Lmoon_x12_2 = 131.664	LMoonSolar = 0.049
+		 LMoonStatus = 1	LMoonLL = 35.336	LMoonAdd = 7.844
+	LunStep 10: LMoonSum = 3.510	LMoonX = 3.510	LMoonSp = 1.175
+	LunStep 11: LSunXS = -1.640	LMoonXS = -3.510	LSunMoonX = 1.870	LSunMoonT = 0.131
+	LunStep 12: ConjuncT = 15.132	ConjuncTDay = 15	ConjuncTHour = 0.132
+		 LunMaxPhase = ConjuncT24 = 3.17037326(Xin YunLu's data is 3.1719864)
+
+
+求交常交定度
+ 置經朔望入交泛日及分秒(LunEcl)，以月平行度(13.36875)乘之，為交常度(LunEclA)；
+ 以盈縮差(LSunXS)盈加縮減之，為交定度(NetLunEclA)。
+
+求月食入陰陽曆去交前後度
+ 視交定度，在交中度(181.8967)已下，為陽曆；已上，減去交中，為陰曆。
+ 視入陰陽曆，在後准十五度半已下，為交後度；
+ 前准一百六十六度三十九分六十八秒已上，覆減交中，余為交前度及分。
+
+	LunStep EclpseFraction: NetLunEclA = LunEclA + LSunXS = 183.460
+				交中度 = 181.8967
+				SexLunEclA = abs(NetLunEclA)
+				if (NetLunEclA > 181.8967){SexLunEclA = 181.8967 - NetLunEclA}
+			if (SexLunEclA > 166.3968){SexLunEclA = 181.8967 - SexLunEclA;}
+			if (SexLunEclA < -166.3968){SexLunEclA = -181.8967 - SextLunEclA;}
+
+			=============================================================
+			simulate Xin Yunlu's result on SexLunEclA
+				LunEclA_Off = 0.343424
+				if (SexLunEclA > 0){SexLunEclA = SexLunEclA - LunEclA_Off;}
+				if (SexLunEclA < 0){SexLunEclA = SexLunEclA + LunEclA_Off;}
+			=============================================================
+			SexLunEclA = -1.219431(Xin YunLu's data is -1.220395 < 181.8967)
+
+求月食分秒
+ 視去交前後度，
+ 不用南北東西差者。用減食限，不及減者不食。
+ 余如定法而一，為月食之分秒。
+
+			LunFraction =(13.05 - abs(SexLunEclA))/8.7 = 1.360(Xin YunLu's data is 1.35969)
+			ELMoonMoveT/10000 = 0.078678(Xin YunLu's data is 0.06689521)
+			ConjuncTHour = 0.132099(Xin YunLu's data is 0.13216610)
+
+-------
+1617(8) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		129.35	216.95	119.84	-14.64 + -5.71 = -20.34[+]42.35=22.01	55.64*sin(80.94)=54.94
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+220.59-272.85	12.26	0.24	32.56(0)212.10	9.80(3)308.09	26.29	166.75+50.63=217.38	225.05	216.95/219.16
+=307.74
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.37(6.28)	-30.74	102.17	0.89	9.80(308.09)	-1.00/-1.19/4.35 	0.000	308.09/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.403	19.989(19.125)	-6.65	-4.21	16.25	16.44
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+5.671	-10.546	0.86(51.88)	0.42+5.29=5.71	1.16	167.40/0.052	350.99(167.33)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.62/-1.82	36.16/28.43	18.57	0.34	1.15 + -0.85=0.304	0.514
+
+1617(9) ReqEcl =  1.40	LunEcl = 16.164032
+1617(10) ReqEcl =  3.72	LunEcl = 18.482401
+1617(11) ReqEcl =  6.04	LunEcl = 20.800770
+1617(12) ReqEcl =  8.35	LunEcl = 23.119139
+1617(13) ReqEcl = 10.67	LunEcl = 25.437508
+1620(0) ReqEcl = 11.89	LunEcl = 26.653825
+1620(1) ReqEcl = 14.21	LunEcl = 1.759970
+1620(2) ReqEcl = 16.53	LunEcl = 4.078339
+1620(3) ReqEcl = 18.84	LunEcl = 6.396708
+1620(4) ReqEcl = 21.16	LunEcl = 8.715077
+1620(5) ReqEcl = 23.48	LunEcl = 11.033446
+1620(6) ReqEcl = 25.80	LunEcl = 13.351815
+1620(7) ReqEcl =  0.90	LunEcl = 15.670184
+1620(8) ReqEcl =  3.22	LunEcl = 17.988553
+1620(9) ReqEcl =  5.54	LunEcl = 20.306922
+1620(10) ReqEcl =  7.86	LunEcl = 22.625291
+1620(11) ReqEcl = 10.18	LunEcl = 24.943660
+1620(12) ReqEcl = 12.50	LunEcl = 0.049805
+	LunStep 3: LunSun = 162.299	LunDay = 25.756	LunMoon = 22.921
+	LunStep 4: LunEclA = 0.666
+	LunStep 6: LUseSun = 20.322	LSunStatus = 1
+	LunStep 7: LSunAdd = 408.551	LSunSum = 9257.600	LSunX = -0.799
+	LunStep 9: LUseMoon = 9.144	LSoD = 9.103	Lmoon_x12_2 = 111.556	LMoonSolar = 0.041
+		 LMoonStatus = 1	LMoonLL = 55.444	LMoonAdd = 4.914
+	LunStep 10: LMoonSum = 4.791	LMoonX = 4.791	LMoonSp = 1.145
+	LunStep 11: LSunXS = -0.799	LMoonXS = -4.791	LSunMoonX = 3.992	LSunMoonT = 0.286
+	LunStep 12: ConjuncT = 26.042	ConjuncTDay = 26	ConjuncTHour = 0.042
+		 LunMaxPhase = ConjuncT24 = 0.99778231
+求交常交定度
+ 置經朔望入交泛日及分秒(LunEcl)，以月平行度(13.36875)乘之，為交常度(LunEclA)；
+ 以盈縮差(LSunXS)盈加縮減之，為交定度(NetLunEclA)。
+
+求月食入陰陽曆去交前後度
+ 視交定度，在交中度(181.8967)已下，為陽曆；已上，減去交中，為陰曆。
+ 視入陰陽曆，在後准十五度半已下，為交後度；
+ 前准一百六十六度三十九分六十八秒已上，覆減交中，余為交前度及分。
+
+	LunStep EclpseFraction: NetLunEclA = LunEclA + LSunXS = -0.133
+				交中度 = 181.8967
+				SexLunEclA = abs(NetLunEclA)
+				if (NetLunEclA > 181.8967){SexLunEclA = 181.8967 - NetLunEclA}
+			if (SexLunEclA > 166.3968){SexLunEclA = 181.8967 - SexLunEclA;}
+			if (SexLunEclA < -166.3968){SexLunEclA = -181.8967 - SextLunEclA;}
+
+			=============================================================
+			simulate Xin Yunlu's result on SexLunEclA
+				LunEclA_Off = 0.343424
+				if (SexLunEclA > 0){SexLunEclA = SexLunEclA - LunEclA_Off;}
+				if (SexLunEclA < 0){SexLunEclA = SexLunEclA + LunEclA_Off;}
+			=============================================================
+			SexLunEclA = 0.133077
+求月食分秒
+ 視去交前後度，
+ 不用南北東西差者。用減食限，不及減者不食。
+ 余如定法而一，為月食之分秒。
+
+			LunFraction =(13.05 - abs(SexLunEclA))/8.7 = 1.485(Xin YunLu's data is 1.499)
+			ELMoonMoveT/10000 = 0.076903(Xin YunLu's data is 0.069059813)
+			ConjuncTHour = 0.041574(Xin YunLu's data is 0.0414598)
+
+1620(13) ReqEcl = 14.82	LunEcl = 2.368174
+-------
+1621(6) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		55.86	148.12	93.19	12.92 + -5.69 = 7.24[+]51.08=58.32	57.07*sin(79.81)=56.17
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+148.61-67.47	26.23	8.17	324.71(3)140.05	20.01(0)81.45	26.41	170.65+-23.05=147.61	143.07	148.11/150.32
+=81.13
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.44(6.35)	-3.81	74.03	1.19	20.01(81.45)	1.21/1.45/-5.39 	0.000	81.45/0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.442	18.213(16.579)	-2.49	-6.02	37.22	37.40
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+4.177	12.402	1.63(98.05)	0.40+5.29=5.69	0.79	171.12/0.037	355.15(171.45)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	0.28/3.26	14.77/47.21	19.78	0.80	0.78 + -0.49=0.290	0.521
+
+1623(0) ReqEcl = 16.03	LunEcl = 3.584490
+1623(1) ReqEcl = 18.35	LunEcl = 5.902859
+1623(2) ReqEcl = 20.67	LunEcl = 8.221228
+1623(3) ReqEcl = 22.99	LunEcl = 10.539597
+1623(4) ReqEcl = 25.30	LunEcl = 12.857966
+1623(5) ReqEcl =  0.41	LunEcl = 15.176335
+1623(6) ReqEcl =  2.73	LunEcl = 17.494704
+1623(7) ReqEcl =  5.05	LunEcl = 19.813073
+1623(8) ReqEcl =  7.37	LunEcl = 22.131442
+1623(9) ReqEcl =  9.68	LunEcl = 24.449811
+1623(10) ReqEcl = 12.00	LunEcl = 26.768180
+	LunStep 3: LunSun = 100.094	LunDay = 39.326	LunMoon = 9.417
+	LunStep 4: LunEclA = 357.857
+	LunStep 6: LUseSun = 82.527	LSunStatus = 1
+	LunStep 7: LSunAdd = 44.121	LSunSum = 23841.959	LSunX = -2.269
+	LunStep 9: LUseMoon = 9.417	LSoD = 9.349	Lmoon_x12_2 = 114.888	LMoonSolar = 0.068
+		 LMoonStatus = 3	LMoonLL = 52.112	LMoonAdd = 5.454
+	LunStep 10: LMoonSum = 4.621	LMoonX = 4.621	LMoonSp = 1.042
+	LunStep 11: LSunXS = -2.269	LMoonXS = 4.621	LSunMoonX = -6.889	LSunMoonT = -0.542
+	LunStep 12: ConjuncT = 38.784	ConjuncTDay = 38	ConjuncTHour = 0.784
+		 LunMaxPhase = ConjuncT24 = 18.82029761
+求交常交定度
+ 置經朔望入交泛日及分秒(LunEcl)，以月平行度(13.36875)乘之，為交常度(LunEclA)；
+ 以盈縮差(LSunXS)盈加縮減之，為交定度(NetLunEclA)。
+
+求月食入陰陽曆去交前後度
+ 視交定度，在交中度(181.8967)已下，為陽曆；已上，減去交中，為陰曆。
+ 視入陰陽曆，在後准十五度半已下，為交後度；
+ 前准一百六十六度三十九分六十八秒已上，覆減交中，余為交前度及分。
+
+	LunStep EclpseFraction: NetLunEclA = LunEclA + LSunXS = 355.588
+				交中度 = 181.8967
+				SexLunEclA = abs(NetLunEclA)
+				if (NetLunEclA > 181.8967){SexLunEclA = 181.8967 - NetLunEclA}
+			if (SexLunEclA > 166.3968){SexLunEclA = 181.8967 - SexLunEclA;}
+			if (SexLunEclA < -166.3968){SexLunEclA = -181.8967 - SextLunEclA;}
+
+			=============================================================
+			simulate Xin Yunlu's result on SexLunEclA
+				LunEclA_Off = 0.343424
+				if (SexLunEclA > 0){SexLunEclA = SexLunEclA - LunEclA_Off;}
+				if (SexLunEclA < 0){SexLunEclA = SexLunEclA + LunEclA_Off;}
+			=============================================================
+			SexLunEclA = -7.861509
+求月食分秒
+ 視去交前後度，
+ 不用南北東西差者。用減食限，不及減者不食。
+ 余如定法而一，為月食之分秒。
+
+			LunFraction =(13.05 - abs(SexLunEclA))/8.7 = 0.596
+			ELMoonMoveT/10000 = 0.060684
+			ConjuncTHour = 0.784179
+
+1623(11) ReqEcl = 14.32	LunEcl = 1.874325
+1623(12) ReqEcl = 16.64	LunEcl = 4.192694
+1623(13) ReqEcl = 18.96	LunEcl = 6.511063
+
+	=============================================================================
+	calculated_year = 1628	Ch_Shuoying_Sh = 8.3879
+		LeapDay_Old = 13.839144	LeapDay = 13.757436	LeapDay_Xu = 13.746837
+		RefMoonDay(Old - New)=(55.06 - Qiying_Sh)-(LeapDay_Old - LeapDay)= 0.008292
+		//RefMoonDay(Old - Xu)=(55.06 - Qiying_Sh)-(LeapDay_Old - LeapDay_Xu)= -0.002307//
+		Qiying(Old - New)=(55.06 - Qiying_Sh)= 0.090000
+		RefMoon(Old - New)=(13.0205 - Zhuanying_Sh)-(LeapDay_Old - LeapDay)= -0.224208
+		RefEcl(Old - New)=(26.0388 - Jiaoying_Sh)-(LeapDay_Old - LeapDay)= 0.102764
+	=============================================================================
+-------
+1629(7) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		87.42	177.64	-4.03	1.03 + 5.66 = 6.68[+]-10.74=-4.06	60.23*sin(16.80)=17.41
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+179.28-36.47	24.63	21.23	355.69(3)170.58	24.73(1)143.08	13.33	356.73+-179.35=177.38	175.92	177.64/179.84
+=142.81
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.58(6.49)	50.01	16.52	-0.05	24.73(143.08)	0.31/0.37/-3.36 	0.000	143.08/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.090	11.732(11.818)	-9.20	5.46	19.15	19.34
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+5.594	6.224	-0.09(-5.16)	0.37+5.29=5.66	-0.28	356.89/0.013	178.85(356.98)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-3.85/0.11	7.49/3.49	23.46	-0.02	-0.28 + -0.29=-0.566	0.534
+
+-------
+1634(4) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		5.66	96.17	-34.49	23.36 + 5.66 = 29.02[+]-35.28=-6.25	59.75*sin(48.77)=44.94
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+96.58-230.58	19.95	23.54	271.70(2)87.80	3.54(2)226.24	14.06	8.02+88.26=96.29	100.19	96.17/98.37
+=226.00
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.67(6.57)	44.57	42.98	-0.48	3.54(226.24)	1.91/2.29/4.01 	0.000	226.24/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.977	9.700(9.996)	1.85	0.97	45.36	45.55
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+12.910	-2.914	-0.30(-17.75)	0.37+5.29=5.66	0.73	7.62/-0.032	189.90(7.92)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	1.23/1.60	33.82/14.47	2.45	-0.08	0.72 + -0.74=-0.020	0.536
+
+-------
+1636(8) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		129.42	217.01	-31.08	-14.66 + -5.68 = -20.33[+]-44.76=-65.09	58.15*sin(34.21)=32.70
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+220.67-325.99	12.16	39.93	32.32(0)211.86	5.73(2)254.91	26.86	174.32+43.15=217.48	226.06	217.01/219.21
+=254.69
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.71(6.61)	45.67	25.77	-0.43	5.73(254.91)	-0.99/-1.19/5.28 	0.000	254.91/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.476	9.928(10.826)	0.56	-1.28	55.84	56.04
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+22.201	-11.375	-0.90(-53.85)	0.39+5.29=5.68	0.51	174.61/0.023	358.20(174.47)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	3.09/-1.26	7.46/22.91	18.55	-0.49	0.51 + -0.23=0.277	0.525
+
+-------
+1638(1) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		-65.19	22.97	20.40	9.62 + 5.73 = 15.35[+]17.26=32.61	53.74*sin(64.32)=48.43
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+24.59-25.20	4.38	31.48	198.60(1)15.75	13.75(3)359.60	14.17	8.04+14.88=22.92	24.53	22.97/25.17
+=359.39
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.74(6.64)	48.25	63.28	0.28	13.75(359.60)	0.53/0.63/0.03 	0.000	359.60/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.917	13.360(12.619)	1.59	1.88	6.33	6.52
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+11.416	1.203	0.74(44.43)	0.44+5.29=5.73	0.70	7.63/-0.032	189.64(7.67)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	3.15/0.31	36.31/20.89	-21.52	0.43	0.70 + -0.68=0.021	0.513
+
+-------
+1641(11) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		216.55	308.95	24.21	-18.67 + 5.66 = -13.01[+]21.55=8.54	59.62*sin(58.90)=51.05
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+312.61-179.83	7.48	39.41	125.51(0)303.70	23.95(1)132.97	14.28	7.24+301.56=308.80	308.90	308.95/311.15
+=132.78
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.80(6.71)	47.47	57.04	0.33	23.95(132.97)	-1.61/-1.93/-4.06 	0.000	132.97/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.545	13.614(13.524)	0.40	0.64	22.05	22.25
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+9.922	3.601	0.09(5.41)	0.37+5.29=5.66	0.60	6.87/-0.029	188.45(6.49)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.16/1.20	39.10/8.57	-14.51	0.13	0.59 + -0.84=-0.248	0.538
+
+-------
+1643(4) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		-2.70	87.06	-49.68	23.46 + -5.66 = 17.80[+]-41.90=-24.10	60.62*sin(61.11)=53.08
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+116.53-239.05	29.23	1.43	262.26(2)78.49	2.44(2)211.84	26.48	172.41+-85.30=87.11	119.12	87.06/118.37
+=237.48
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.83(6.73)	37.72	53.45	-0.72	2.44(211.84)	1.88/2.25/2.97 	0.000	211.84/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.665	8.688(9.205)	-0.68	2.16	32.54	32.74
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+10.403	-1.198	-0.52(-31.03)	0.37+5.29=5.66	0.62	172.79/0.030	356.96(173.24)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-0.41/-2.43	38.20/19.70	-1.17	-0.36	0.62 + -0.81=-0.189	0.541
+
+-------
+1644(9) 	SprRed	WinYel	T_12Red	YelRedXA+YelWhXA=RedWhXA[+]URedXA=UWhXA	HighLow*sin(UseSunHL)=UseHL
+		158.73	247.01	1.19	-21.80 + 5.71 = -16.09[+]1.77=-14.32	55.19*sin(30.98)=28.41
+MidMoon-MaxMoon	LeapDay ReqMDay	ReqSun()360	ReqMoon()360	ReqEcl SunPos+UsePos=RSunYel UseRMoon RSunEnd/RMoonEnd
+251.35-294.98	10.57	52.98	63.30(0)242.39	10.45(3)316.54	13.79	0.63+246.84=247.47	255.41	247.01/249.21
+=316.37
+MinSun(360)	T_12X	T_12NP	T_12Arc	OMoon(360)	Sun_Th/SunXS/MoonXS	Ee_o	EMoon360/MOff/MF
+6.85(6.76)	50.08	30.97	0.02	10.45(316.54)	-1.68/-2.01/3.82 	0.000	316.54/-0.00/0.000
+	Frac	MaxPh(MDayT)	ChEA	SexEA	Win_Sh	Win_HB
+	0.150	12.079(12.406)	-5.89	1.57	37.78	37.98
+MDay0_24 MoonT24 SeeT(min)	XA+YelWh=XYelA	LatYel	MoonPos/YelD	SolEA(360)
+23.618	-11.213	-0.33(-19.61)	0.42+5.29=5.71	0.02	0.60/-0.003	182.16(0.26)
+	NS_Sh/EW_Sh	NS_Hu/EW_Hu	ESunLat	EW_f	MaxLat+NS_f=ESeeLat	addD
+	-4.34/0.01	18.80/9.14	8.96	-0.12	0.02 + -0.46=-0.435	0.514
+
+
+=====================================
+		drift rate = offset/347 and 347 = 1628 - 1281(base year for Shoushi)
+		observed_time is integrated with theorectical HuiHui calendar method table
+		eclipse fraction is integrated from HouBian for comparison with Shoushi
+
+	Data record in Chongzhen Lishu(page 788-34):
+		65 fan late => 0.0065
+		6 days late => more than 6
+		2 degree late =>(2/365.2425)* 27.5546 => more than 0.150883864
+
+	Shoushi drift from Adam Schall 200 eclipse table for year 1628
+		calculated data from http://ideone.com/BlkMI
+		for moon_days = -(0.005499/347) => approx -0.0000158473
+		for sun = -(5.99089/347) => -0.0172648
+		for moon =(0.162147/347) => 0.000467281
+		for eclipse =(0.0122486/347) => 0.0000352987
+
+-------------------------
+		Inverted Kepler elliptic model is implemented as :
+	ReqSun360 = fmod(ReqSun * 360/YearDays + 180, 360)
+	e = 0.0167
+	SunX_Th = 180/pi*(2 *e* sin(ReqSun360 *pi/180)+ 1.25* e*e * sin(2*ReqSun360 *pi/180))
+	SFactor = 0.082 *(MoonMeanSpeed + 1); // = 1.1782375
+	SunX360 = SFactor * SunX_Th
+	SunX = YearDays/360* SunX360
+	RSunYel = ReqSun360 + SunX_Th + MinSun360
+	=========================================
+
+		Convert Shoushi ReqMoon to consider Ee_o
+	OMoon = BaseMoon
+	OMoon360 = fmod(OMoon * 360/Zhuanzhong + 180, 360)
+	if (OMoon360 < 0){OMoon360 = fmod(360 + OMoon360, 360);}
+
+		apply Earth Center Offset for Moon adjustment
+	Ee_o = 0
+	if (cos(OMoon360 * pi/180)< 0){Ee_o = 0}
+	y_scale = 1
+	x_cir = cos(OMoon360 * pi/180)
+	y_cir = sin(OMoon360 * pi/180)
+	r_elip = 1/sqrt(x_cir*x_cir + y_cir*y_cir/(y_scale*y_scale))
+	x_o = r_elip * x_cir
+	y_o = r_elip * y_cir
+		EMoon360 = 180/pi *atan(y_o/(x_o - Ee_o))
+		if ((OMoon360 > 90)&(OMoon360 < 270)){EMoon360 = 180 + EMoon360;}
+		if (OReq_moon360 > 270){EMoon360 = 360 + EMoon360;}
+--------------------
+	MOff = EMoon360 - OMoon360
+	EMoon = fmod((EMoon360 + 180)*Zhuanzhong/360, Zhuanzhong)
+
+	Em0_Off = -0.031	if (sin(EMoon360 *pi/180)< 0){Em0_Off = 0.031}
+	Em1_Off = -0.06	if (sin(EMoon360 *pi/180)< 0){Em1_Off = -0.06}
+	Em0 = 1.5*(-YelD + Em0_Off)	if (sin(EMoon360 *pi/180)< 0){Em0 = 1.5*(YelD + Em0_Off)}
+	Em1 = 1.5*(YelD + Em1_Off)	if (sin(EMoon360 *pi/180)< 0){Em1 = 1.5*(YelD + Em1_Off)}
+
+	MF = Em1
+	if (cos(EMoon360 *pi/180)> 0){MF = Em0}
+
+	ReqMoon = EMoon + MF
+
+	MDay0 = ReqMoonDay -(int)ReqMoonDay
+
+		HuiHui observed time table is implemented as :
+	degree = fmod(RSunEnd + 270, 360)
+	Gon = degree/30.0
+	Hour = MDayT_hour * 24
+
+int SeeTimeTable[][19]
+ = {
+h_deg -120 -105 -90 -75 -60 -45 -30 -15 0 15 30 45 60 75 90 105 120 <--
+Gon h20 h19 h18 h17 h16 h15 h14 h13 h12 h11 h10 h9 h8 h7 h6 h5 h4 Gon
+-----------------------------------------------------------------------------------------------
+{9, -61, -72, -81, -85, -85, -78, -61, -34, -0, 34, 61, 78, 85, 85, 81, 72, 61, 9},
+{10, -51, -61, -68, -70, -66, -54, -32, -2, 33, 63, 84, 95, 99, 96, 90, 80, 67, 8},
+{11, -40, -49, -55, -55, -50, -37, -14, 15, 48, 75, 93, 103, 106, 103, 96, 86, 74, 7},
+{0, -33, -42, -48, -50, -46, -35, -15, 13, 44, 72, 92, 103, 108, 106, 100, 91, 80, 6},
+{1, -34, -44, -52, -55, -54, -45, -28, -3, 29, 60, 84, 98, 105, 105, 100, 92, 81, 5},
+{2, -45, -56, -64, -69, -69, -62, -46, -20, 13, 46, 73, 90, 97, 98, 94, 86, 75, 4},
+{3, -61, -72, -81, -85, -85, -78, -61, -34, 0, 34, 61, 78, 85, 85, 81, 72, 61, 3},
+-----------------------------------------------------------------------------------------------
+Gon h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 Gon
+-->
+
+	observed_time = SeeT/(24*60)
+
+	eclipseMax_hour = MDayT_hour + observed_time
+
+	t	t	t	t	t	t	t	t	t	t	t	t	t	t
+======================================================================================================================
+Shoushi(year)(months)		eclipseFraction 	eclipseBegin		MaxPhase		eclipseEnd
+Theorectical(month/day)			(EclipseFracS)	(eclipseBeginS)	(observed_time x 24 x 60)	(eclipse_endS)
+ HalfDayFan/ReqSun/ReqMoon						(observed_timeS x 24 x 60)
+ SunXS(SunStatusS)/MoonSp
+ MoonXS(MoonStatusS)/SunMoonXS
+ Gon/MDayT
+______________________________________________________________________________________________________________________
+
+1568(10) 2462.69/93.8/1.2	 0.4000(0.4000)	 -nan(10.2763)	 11.2623(-44.5859)	 -nan(12.2483)
+9/21	-2.288(1)/1.197 	-)0.1100		-)11.1367		-)11.7366(0.1682) 	-)12.3428
+	1.499(2)/-3.787 	--------------------------------------------------------------------------------------
+	6.19/12.01		 0.2900(0.2900)	  -nan(-0.8604)	 -0.4743		 -nan(-0.0945)
+
+1572(8) 2903.33/20.7/11.4	 0.8712(-0.0006)	 6.69093(-nan)	 8.15693(-79.7077)	 9.62294(-nan)
+6/10	-0.780(0)/1.010 	-)0.9160		-)6.6600		-)7.9300(-62.1147) 	-)9.9300
+	2.940(3)/-3.720 	--------------------------------------------------------------------------------------
+	3.83/9.49		 -0.0448(-0.9166)	 0.0309( -nan)	 0.2269		-0.3071( -nan)
+
+1575(6) 2822.46/323.7/25.4	 0.4851(0.4689)	 13.1188(13.1312)	 14.1844(54.9621)	 15.2501(15.2377)
+5/10	1.476(3)/1.187 	-)0.7010		-)13.0500		-)14.2900(35.4480) 	-)15.4500
+	-2.646(1)/4.122 	--------------------------------------------------------------------------------------
+	1.87/13.27		 -0.2159(-0.2321)	 0.0688(0.0812)	 -0.1056		-0.1999(-0.2123)
+
+1582(7) 2931.70/0.4/6.4	 0.8320(0.4752)	 12.7067(12.8866)	 14.0243(40.6652)	 15.3419(15.162)
+6/20	-0.015(0)/1.103 	-)0.7230		-)12.2055		-)13.6179(37.3580) 	-)14.9154
+	5.416(2)/-5.431 	--------------------------------------------------------------------------------------
+	3.19/13.35		 0.1089(-0.2478)	 0.5012(0.6811)	 0.4064		0.4265(0.2466)
+
+1583(13) 2084.53/166.7/14.4	 0.8093(0.6751)	 11.449(11.5034)	 12.937(13.0888)	 14.4249(14.3705)
+12/14	-0.633(1)/0.991 	-)0.8250		-)11.2300		-)13.0800(21.1177) 	-)14.7700
+	-0.866(0)/0.234 	--------------------------------------------------------------------------------------
+	8.65/12.72		 -0.0157(-0.1499)	 0.2190(0.2734)	 -0.1430		-0.3451(-0.3995)
+
+1587(10) 2504.27/93.6/24.6	 0.9766(0.6591)	 11.0568(11.1319)	 12.3146(-22.933)	 13.5723(13.4973)
+10/2	-2.288(0)/1.176 	-)0.7358		-)11.3223		-)12.6436(20.5107) 	-)13.9343
+	-3.444(1)/1.157 	--------------------------------------------------------------------------------------
+	6.20/12.70		 0.2408(-0.0768)	 -0.2655(-0.1904)	 -0.3290		-0.3620(-0.4370)
+
+1589(2) 2207.95/230.3/3.1	 0.4792(0.8904)	 6.00647(5.82941)	 7.08408(-53.2906)	 8.1617(8.33876)
+2/15	1.697(2)/1.171 	-)0.3013		-)6.4499		-)7.1961(-83.6203) 	-)7.9991
+	3.643(2)/-1.946 	--------------------------------------------------------------------------------------
+	10.80/7.97		 0.1779(0.5891)	 -0.4434(-0.6205)	 -0.1120		0.1626(0.3396)
+
+1590(8) 2866.46/31.4/11.1	 0.2686(0.6776)	 16.1477(15.7582)	 17.1514(66.3055)	 18.1551(18.5446)
+7/31	-1.154(0)/1.013 	-)0.4308		-)16.0803		-)17.1059(83.8099) 	-)18.0372
+	3.174(3)/-4.328 	--------------------------------------------------------------------------------------
+	4.18/16.05		 -0.1622(0.2468)	 0.0674(-0.3221)	 0.0455		0.1179(0.5074)
+
+1594(6) 2822.46/323.5/21.3	 0.6070(0.9632)	 9.70967(9.604)	 10.9275(-13.1682)	 12.1454(12.2511)
+5/20	1.481(3)/1.110 	-)0.3190		-)9.8300		-)10.8400(-24.7613) 	-)11.9000
+	-5.390(1)/6.872 	--------------------------------------------------------------------------------------
+	1.88/11.15		 0.2880(0.6442)	 -0.1203(-0.2260)	 0.0875		0.2454(0.3511)
+
+1596(10) 2563.84/84.1/23.5	 0.6331(0.7237)	 9.9003(9.86092)	 11.0891(-46.4235)	 12.2779(12.3173)
+9/22	-2.264(0)/1.157 	-)0.9490		-)9.8700		-)11.1700(-4.2378) 	-)12.5000
+	-4.386(1)/2.122 	--------------------------------------------------------------------------------------
+	5.90/11.86		 -0.3159(-0.2253)	 0.0303(-0.0091)	 -0.0809		-0.2221(-0.1827)
+
+1603(5) 2770.36/314.1/20.2	 0.6859(0.9852)	 7.26496(7.1963)	 8.55536(-48.8832)	 9.84575(9.91441)
+5/11	1.740(3)/1.091 	-)0.9030		-)7.4000		-)8.5900(-64.1734) 	-)9.9300
+	-5.420(0)/7.160 	--------------------------------------------------------------------------------------
+	1.59/9.37		 -0.2171(0.0822)	 -0.1350(-0.2037)	 -0.0346		-0.0843(-0.0156)
+
+1604(5) 2705.87/303.2/16.4	 0.3049(0.6151)	 15.8253(15.5256)	 16.8811(97.8963)	 17.9368(18.2365)
+4/29	1.984(3)/1.014 	-)0.0781		-)15.8827		-)16.4079(74.0483) 	-)16.9070
+	-3.158(0)/5.142 	--------------------------------------------------------------------------------------
+	1.23/15.25		 0.2268(0.5370)	 -0.0574(-0.3571)	 0.4732		1.0298(1.3295)
+
+1607(3) 2269.95/241.0/2.9	 0.6951(0.6296)	 17.0383(17.0679)	 18.2372(104.962)	 19.4361(19.4065)
+2/26	1.951(2)/1.175 	-)999.0000		-)17.3200		-)18.2600(87.7953) 	-)999.0000
+	3.428(2)/-1.477 	--------------------------------------------------------------------------------------
+	11.17/16.49		 -998.3049(-998.3704)	 -0.2817(-0.2521)	 -0.0228		-979.5639(-979.5935)
+
+1609(13) 2068.94/178.8/16.9	 0.2894(0.2894)	 -nan(15.8055)	 16.8314(82.4938)	 -nan(17.8573)
+12/26	-0.154(1)/1.022 	-)0.0444		-)16.1970		-)16.5940(76.9029) 	-)16.9753
+	-3.685(0)/3.531 	--------------------------------------------------------------------------------------
+	9.08/15.46		 0.2450(0.2450)	  -nan(-0.3915)	 0.2374		 -nan(0.8820)
+
+1610(13) 2082.48/167.9/13.1	 0.7646(0.7045)	 14.107(14.1321)	 15.5797(62.3193)	 17.0523(17.0272)
+12/15	-0.586(1)/0.990 	-)0.6070		-)14.6100		-)16.0700(62.5919) 	-)17.3200
+	0.887(3)/-1.473 	--------------------------------------------------------------------------------------
+	8.70/14.54		 0.1576(0.0975)	 -0.5030(-0.4779)	 -0.4903		-0.2677(-0.2928)
+
+   0(0) 0.00/0.0/0.0	 -99.0000(0.0000)	 0(0)	 0(0)	 0(0)
+12/99	0.000(0)/0.000 	-)999.0000		-)999.0000		-)999.0000(0.0000) 	-)999.0000
+	0.000(0)/0.000 	--------------------------------------------------------------------------------------
+	0.00/0.00		 -1098.0000(-999.0000)	 -999.0000(-999.0000)	 -999.0000		-999.0000(-999.0000)
+
+1615(4) 2504.27/271.9/7.6	 0.7570(0.3876)	 15.0699(15.3158)	 16.3991(99.0805)	 17.7282(17.4823)
+3/29	2.288(3)/1.082 	-)0.8899		-)15.1624		-)16.4118(66.2050) 	-)17.5463
+	5.383(3)/-3.095 	--------------------------------------------------------------------------------------
+	0.20/14.75		 -0.1329(-0.5023)	 -0.0925(0.1534)	 -0.0127		0.1819(-0.0640)
+
+1617(8) 2862.47/32.6/9.8	 0.4030(0.4739)	 18.839(18.7699)	 19.9893(51.8795)	 21.1395(21.2087)
+8/1	-1.194(0)/1.034 	-)0.4700		-)19.0700		-)19.9041(90.4563) 	-)20.6909
+	4.350(3)/-5.544 	--------------------------------------------------------------------------------------
+	4.23/19.12		 -0.0670(0.0039)	 -0.2310(-0.3001)	 0.0852		0.4486(0.5178)
+
+1621(6) 2827.25/324.7/20.0	 0.4425(0.2469)	 17.0882(17.3216)	 18.213(98.0452)	 19.3378(19.1044)
+5/21	1.445(3)/1.085 	-)0.7110		-)17.2600		-)18.2600(88.4908) 	-)19.1800
+	-5.395(0)/6.840 	--------------------------------------------------------------------------------------
+	1.94/16.58		 -0.2685(-0.4641)	 -0.1718(0.0616)	 -0.0470		0.1578(-0.0756)
+
+1629(7) 2925.77/355.7/24.7	 0.0904(0.0904)	 -nan(11.2106)	 11.7315(-5.1637)	 -nan(12.2524)
+6/21	0.367(3)/1.177 	-)0.1660		-)10.9800		-)11.7100(-5.6142) 	-)12.4500
+	-3.356(1)/3.723 	--------------------------------------------------------------------------------------
+	2.92/11.82		 -0.0756(-0.0756)	  -nan(0.2306)	 0.0215		 -nan(-0.1976)
+
+   0(0) 0.00/0.0/0.0	 -99.0000(0.0000)	 0(0)	 0(0)	 0(0)
+10/25	0.000(0)/0.000 	-)0.1080		-)12.3400		-)12.9100(0.0000) 	-)13.4800
+	0.000(0)/0.000 	--------------------------------------------------------------------------------------
+	0.00/0.00		 -99.1080(-0.1080)	 -12.3400(-12.3400)	 -12.9100		-13.4800(-13.4800)
+
+1634(4) 2504.27/271.7/3.5	 0.9774(0.8386)	 8.43022(8.44655)	 9.70038(-17.7469)	 10.9705(10.9542)
+3/29	2.288(3)/1.164 	-)0.8196		-)8.7702		-)9.9436(-52.1633) 	-)11.1899
+	4.012(2)/-1.724 	--------------------------------------------------------------------------------------
+	0.21/10.00		 0.1577(0.0190)	 -0.3400(-0.3237)	 -0.2432		-0.2194(-0.2357)
+
+1636(8) 2862.47/32.3/5.7	 0.4764(0.8404)	 8.80865(8.63094)	 9.92827(-53.8524)	 11.0479(11.2256)
+8/1	-1.186(0)/1.119 	-)0.6328		-)8.3796		-)9.6265(-33.1030) 	-)10.9643
+	5.284(2)/-6.470 	--------------------------------------------------------------------------------------
+	4.23/10.83		 -0.1564(0.2077)	 0.4291(0.2514)	 0.3017		0.0836(0.2613)
+
+   0(0) 0.00/0.0/0.0	 -99.0000(0.0000)	 0(0)	 0(0)	 0(0)
+1/26	0.000(0)/0.000 	-)0.1990		-)12.7100		-)13.6800(0.0000) 	-)14.5800
+	0.000(0)/0.000 	--------------------------------------------------------------------------------------
+	0.00/0.00		 -99.1990(-0.1990)	 -12.7100(-12.7100)	 -13.6800		-14.5800(-14.5800)
+
+1638(1) 2084.53/198.6/13.7	 0.9167(0.6874)	 11.8407(11.9118)	 13.3599(44.431)	 14.8791(14.8081)
+1/15	0.633(2)/0.985 	-)0.6560		-)11.6500		-)13.3200(18.3577) 	-)14.8400
+	0.031(3)/0.602 	--------------------------------------------------------------------------------------
+	9.77/12.62		 0.2607(0.0314)	 0.1907(0.2618)	 0.0399		0.0391(-0.0319)
+
+1641(11) 2264.03/125.5/24.0	 0.5448(0.8941)	 12.4835(12.3515)	 13.6137(5.40986)	 14.744(14.876)
+11/3	-1.925(1)/1.165 	-)0.8270		-)12.6500		-)14.0400(41.5668) 	-)15.3300
+	-4.056(1)/2.131 	--------------------------------------------------------------------------------------
+	7.30/13.52		 -0.2822(0.0671)	 -0.1665(-0.2985)	 -0.4263		-0.5860(-0.4540)
+
+1643(4) 2403.08/262.3/2.4	 0.6653(0.6401)	 7.50807(7.51979)	 8.68803(-31.0313)	 9.86799(9.85628)
+3/20	2.251(2)/1.181 	-)0.5300		-)7.8300		-)8.8500(-66.9963) 	-)9.9400
+	2.970(2)/-0.719 	--------------------------------------------------------------------------------------
+	11.90/9.21		 0.1353(0.1101)	 -0.3219(-0.3102)	 -0.1620		-0.0720(-0.0837)
+
+1644(9) 2699.72/63.3/10.5	 0.1496(0.7387)	 11.3156(10.6783)	 12.0791(-19.6084)	 12.8426(13.4799)
+9/1	-2.008(0)/1.023 	-)0.3030		-)10.9300		-)12.1400(12.2562) 	-)13.3400
+	3.823(3)/-5.830 	--------------------------------------------------------------------------------------
+	5.23/12.41		 -0.1534(0.4357)	 0.3856(-0.2517)	 -0.0609		-0.4974(0.1399)
+
+
