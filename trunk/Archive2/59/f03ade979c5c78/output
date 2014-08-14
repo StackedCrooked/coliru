@@ -1,0 +1,10 @@
+main.cpp:4:12: error: static_assert failed "!"
+struct A { static_assert(I > 0, "!"); using X = int; };
+           ^             ~~~~~
+main.cpp:10:1: note: in instantiation of template class 'A<0>' requested here
+auto foo(T) -> typename A<I>::X
+^
+main.cpp:10:6: note: while substituting explicitly-specified template arguments into function template 'foo' 
+auto foo(T) -> typename A<I>::X
+     ^
+1 error generated.
