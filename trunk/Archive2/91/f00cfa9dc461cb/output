@@ -1,0 +1,50 @@
++ g++ -O2 -std=c++98 -pedantic -Wall -pthread main.cpp
+main.cpp:26:27: warning: comma at end of enumerator list [-Wpedantic]
+     value1, value2, value3,
+                           ^
+main.cpp:8:53: error: specialization of 'template<class Type> MyLib::Enum<Type>::Enum()' in different namespace [-fpermissive]
+             template<> MyLib::Enum<type>::Enum (void)
+                                                     ^
+main.cpp:29:1: note: in expansion of macro 'DECLARE_ENUM'
+ DECLARE_ENUM (MyEnum)
+ ^
+main.cpp:13:5: error:   from definition of 'template<class Type> MyLib::Enum<Type>::Enum()' [-fpermissive]
+     Enum (void);
+     ^
++ g++ -O2 -std=c++11 -pedantic -Wall -pthread main.cpp
+main.cpp:8:53: error: specialization of 'template<class Type> MyLib::Enum<Type>::Enum()' in different namespace [-fpermissive]
+             template<> MyLib::Enum<type>::Enum (void)
+                                                     ^
+main.cpp:29:1: note: in expansion of macro 'DECLARE_ENUM'
+ DECLARE_ENUM (MyEnum)
+ ^
+main.cpp:13:5: error:   from definition of 'template<class Type> MyLib::Enum<Type>::Enum()' [-fpermissive]
+     Enum (void);
+     ^
++ clang++ -O2 -std=c++11 -Wall -pedantic -pthread main.cpp
++ ./a.out
+0+ clang++ -O2 -std=c++98 -Wall -pedantic -pthread main.cpp
+main.cpp:26:27: warning: commas at the end of enumerator lists are a C++11 extension [-Wc++11-extensions]
+    value1, value2, value3,
+                          ^
+main.cpp:29:1: warning: first declaration of static data member specialization of 'mMap' outside namespace 'MyLib' is a C++11 extension [-Wc++11-extensions]
+DECLARE_ENUM (MyEnum)
+^
+main.cpp:7:32: note: expanded from macro 'DECLARE_ENUM'
+            MyLib::Enum<type>::mMap = std::map<const char*, type>(); \
+                               ^
+main.cpp:19:40: note: explicitly specialized declaration is here
+    static std::map<const char*, Type> mMap;
+                                       ^
+main.cpp:29:1: warning: first declaration of member function specialization of 'Enum<Type>' outside namespace 'MyLib' is a C++11 extension [-Wc++11-extensions]
+DECLARE_ENUM (MyEnum)
+^
+main.cpp:8:43: note: expanded from macro 'DECLARE_ENUM'
+            template<> MyLib::Enum<type>::Enum (void)
+                                          ^
+main.cpp:13:5: note: explicitly specialized declaration is here
+    Enum (void);
+    ^
+3 warnings generated.
++ ./a.out
+0
