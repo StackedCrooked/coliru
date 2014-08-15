@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'void push_back(T1&, T2&&) [with T1 = std::vector<A>; T2 = std::vector<A>]':
+main.cpp:74:35:   required from here
+main.cpp:67:49: error: call of overloaded 'reserveOrResize(std::vector<A>&, std::remove_reference<std::vector<A>&>::type, std::vector<A>::size_type)' is ambiguous
+  reserveOrResize(dst, std::move(src), src.size());
+                                                 ^
+main.cpp:67:49: note: candidates are:
+main.cpp:37:9: note: typename std::enable_if<(HasResize<T1, typename T1::size_type>::value && (! HasReserve<T1, typename T1::value_type>::value)), void>::type reserveOrResize(T1&, T2&&, typename T2::size_type) [with T1 = std::vector<A>; T2 = std::vector<A>; typename std::enable_if<(HasResize<T1, typename T1::size_type>::value && (! HasReserve<T1, typename T1::value_type>::value)), void>::type = void; typename T2::size_type = long unsigned int]
+  inline reserveOrResize(T1& dst, T2&& src, typename T2::size_type newSize){
+         ^
+main.cpp:51:8: note: typename std::enable_if<HasReserve<T1, typename T1::size_type>::value, void>::type reserveOrResize(T1&, T2&&, typename T2::size_type) [with T1 = std::vector<A>; T2 = std::vector<A>; typename std::enable_if<HasReserve<T1, typename T1::size_type>::value, void>::type = void; typename T2::size_type = long unsigned int]
+ inline reserveOrResize(T1& dst, T2&& src, typename T2::size_type newSize){
+        ^
