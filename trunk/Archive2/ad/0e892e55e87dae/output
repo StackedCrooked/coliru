@@ -1,0 +1,24 @@
+main.cpp: In instantiation of 'void push_back(T1&, T2&&) [with T1 = std::vector<A>; T2 = std::vector<A>]':
+main.cpp:73:37:   required from here
+main.cpp:66:51: error: no matching function for call to 'reserveOrResize(std::vector<A>&, std::remove_reference<std::vector<A>&>::type, std::vector<A>::size_type)'
+     reserveOrResize(dst,std::move(src), src.size());
+                                                   ^
+main.cpp:66:51: note: candidates are:
+main.cpp:36:8: note: template<class T1, class T2> typename std::enable_if<(HasResize<T1, typename T1::value_type>::value && (! HasReserve<T1, typename T1::value_type>::value)), void>::type reserveOrResize(T1&, T2&&, typename T2::value_type)
+ inline reserveOrResize(T1& dst,T2&& src,typename T2::value_type newSize){
+        ^
+main.cpp:36:8: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T1, class T2> typename std::enable_if<(HasResize<T1, typename T1::value_type>::value && (! HasReserve<T1, typename T1::value_type>::value)), void>::type reserveOrResize(T1&, T2&&, typename T2::value_type) [with T1 = std::vector<A>; T2 = std::vector<A>]':
+main.cpp:66:51:   required from 'void push_back(T1&, T2&&) [with T1 = std::vector<A>; T2 = std::vector<A>]'
+main.cpp:73:37:   required from here
+main.cpp:36:8: error: no type named 'type' in 'struct std::enable_if<false, void>'
+main.cpp: In instantiation of 'void push_back(T1&, T2&&) [with T1 = std::vector<A>; T2 = std::vector<A>]':
+main.cpp:73:37:   required from here
+main.cpp:50:8: note: template<class T1, class T2> typename std::enable_if<HasReserve<T1, typename T1::value_type>::value, void>::type reserveOrResize(T1&, T2&&, typename T2::value_type)
+ inline reserveOrResize(T1& dst,T2&& src,typename T2::value_type newSize){
+        ^
+main.cpp:50:8: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T1, class T2> typename std::enable_if<HasReserve<T1, typename T1::value_type>::value, void>::type reserveOrResize(T1&, T2&&, typename T2::value_type) [with T1 = std::vector<A>; T2 = std::vector<A>]':
+main.cpp:66:51:   required from 'void push_back(T1&, T2&&) [with T1 = std::vector<A>; T2 = std::vector<A>]'
+main.cpp:73:37:   required from here
+main.cpp:50:8: error: no type named 'type' in 'struct std::enable_if<false, void>'
