@@ -1,0 +1,36 @@
+In file included from main.cpp:3:0:
+/usr/local/include/boost/exception/exception.hpp: In instantiation of 'boost::exception_detail::clone_impl<T>::clone_impl(const T&) [with T = my_exception]':
+/usr/local/include/boost/exception/exception.hpp:476:49:   required from 'boost::exception_detail::clone_impl<T> boost::enable_current_exception(const T&) [with T = my_exception]'
+/usr/local/include/boost/throw_exception.hpp:70:56:   required from 'void boost::throw_exception(const E&) [with E = my_exception]'
+/usr/local/include/boost/throw_exception.hpp:94:38:   required from 'void boost::exception_detail::throw_exception_(const E&, const char*, const char*, int) [with E = my_exception]'
+main.cpp:12:5:   required from here
+/usr/local/include/boost/exception/exception.hpp:446:20: error: no matching function for call to 'std::out_of_range::out_of_range()'
+                 T(x)
+                    ^
+/usr/local/include/boost/exception/exception.hpp:446:20: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/stdexcept:103:14: note: std::out_of_range::out_of_range(const string&)
+     explicit out_of_range(const string& __arg);
+              ^
+/usr/local/include/c++/4.9.0/stdexcept:103:14: note:   candidate expects 1 argument, 0 provided
+/usr/local/include/c++/4.9.0/stdexcept:100:9: note: std::out_of_range::out_of_range(const std::out_of_range&)
+   class out_of_range : public logic_error 
+         ^
+/usr/local/include/c++/4.9.0/stdexcept:100:9: note:   candidate expects 1 argument, 0 provided
+In file included from main.cpp:3:0:
+/usr/local/include/boost/exception/exception.hpp: In instantiation of 'boost::exception_detail::clone_impl<T>::clone_impl(const boost::exception_detail::clone_impl<T>&, boost::exception_detail::clone_impl<T>::clone_tag) [with T = my_exception]':
+/usr/local/include/boost/exception/exception.hpp:460:56:   required from 'const boost::exception_detail::clone_base* boost::exception_detail::clone_impl<T>::clone() const [with T = my_exception]'
+main.cpp:13:1:   required from here
+/usr/local/include/boost/exception/exception.hpp:437:20: error: no matching function for call to 'std::out_of_range::out_of_range()'
+                 T(x)
+                    ^
+/usr/local/include/boost/exception/exception.hpp:437:20: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/stdexcept:103:14: note: std::out_of_range::out_of_range(const string&)
+     explicit out_of_range(const string& __arg);
+              ^
+/usr/local/include/c++/4.9.0/stdexcept:103:14: note:   candidate expects 1 argument, 0 provided
+/usr/local/include/c++/4.9.0/stdexcept:100:9: note: std::out_of_range::out_of_range(const std::out_of_range&)
+   class out_of_range : public logic_error 
+         ^
+/usr/local/include/c++/4.9.0/stdexcept:100:9: note:   candidate expects 1 argument, 0 provided
