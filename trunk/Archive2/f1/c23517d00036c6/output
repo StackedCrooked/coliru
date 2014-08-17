@@ -1,0 +1,18 @@
+g++
+main.cpp:18:8: error: no unique final overrider for 'virtual Base* Base::f() const' in 'Middle'
+ struct Middle : virtual A, virtual B
+        ^
+clang++
+main.cpp:18:8: error: virtual function 'Base::f' has more than one final overrider in 'Middle'
+struct Middle : virtual A, virtual B
+       ^
+main.cpp:5:19: note: overridden virtual function is here
+    virtual Base *f() const = 0;
+                  ^
+main.cpp:10:16: note: final overrider of 'Base::f' in 'A'
+    virtual A *f() const override = 0;
+               ^
+main.cpp:15:16: note: final overrider of 'Base::f' in 'B'
+    virtual B *f() const override = 0;
+               ^
+1 error generated.
