@@ -1,0 +1,11 @@
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:3:17: warning: unused parameter 'p' [-Wunused-parameter]
+    int getX(x *p) { return(0); }
+                ^
+main.cpp:12:28: error: explicit specialization of 'E12' after instantiation
+template <> enum Foo<int>::E12
+                           ^
+main.cpp:7:17: note: implicit instantiation first required here
+template <> int Foo<int>::getX(int*)
+                ^
+1 warning and 1 error generated.
