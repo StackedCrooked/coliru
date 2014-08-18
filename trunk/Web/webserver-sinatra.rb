@@ -65,23 +65,38 @@ end
 
 $request_id = 0
 post '/compile' do
+    $n = __LINE__
     begin
+        $n = __LINE__
         Thread.new do 
+            $n = __LINE__
             result = ""
             rid = $request_id += 1
+            $n = __LINE__
             log_request(rid, "/compile", "waiting")
+            $n = __LINE__
             $mutex.synchronize do
                 log_request(rid, "/compile", "running")
+                $n = __LINE__
                 request_text = request.body.read
+                $n = __LINE__
                 json_obj = JSON.parse(request_text)
+                $n = __LINE__
                 id = "#{Time.now.utc.to_f}"
+                $n = __LINE__
                 dir = "/tmp/coliru/#{id}"
+                $n = __LINE__
                 FileUtils.mkdir_p(dir)
+                $n = __LINE__
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+                $n = __LINE__
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+                $n = __LINE__
                 safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+                $n = __LINE__
                 FileUtils.rmtree(dir)
+                $n = __LINE__
                 log_request(rid, "/compile", "done")
             end
             stream do |out|
@@ -89,7 +104,7 @@ post '/compile' do
             end
         end.join
     rescue Exception => e
-        e.to_s
+        e.to_s + ' ' + $n.to_s
     end
 end
 
@@ -326,10 +341,14 @@ end
 $start_time = DateTime.now.strftime('%s').to_i
 
 def log_request(rid, method, message)
-  current_time = DateTime.now.strftime('%s').to_i
-  elapsed_time = current_time - $start_time
-  request_rate = 60.0 * rid / elapsed_time
-  request_rate = (100 * request_rate).round / 100.0
-  $stderr.puts "request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
+  begin 
+      current_time = DateTime.now.strftime('%s').to_i
+      elapsed_time = current_time - $start_time
+      request_rate = 60.0 * rid / elapsed_time
+      request_rate = (100 * request_rate).round / 100.0
+      $stderr.puts "request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
+  rescue Exception => e
+    # Cannot handle the exception here.
+  end
 end
 
