@@ -1,0 +1,1 @@
+iconv -t utf-32 -f utf-8 main.cpp -o source.utf32.txt
