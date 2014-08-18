@@ -40,8 +40,8 @@ run() {
                 [ "$elapsed" -gt "60" ] && {
                     echo "Killing $line"
                     kill -9 "$line"
-                    rm -f "pid-${line}"
                 }
+                rm -f "pid-${line}"
             }
         done
 
