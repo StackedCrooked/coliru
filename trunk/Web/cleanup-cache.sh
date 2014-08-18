@@ -1,4 +1,5 @@
 #!/bin/bash
+source logger.source
 cache_size () 
 { 
     ls  ../CompileArchive | wc -l
