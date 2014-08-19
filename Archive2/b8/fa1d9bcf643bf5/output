@@ -1,0 +1,10 @@
+main.cpp:9:1: error: static_assert failed "Error!"
+static_assert(noexcept(f(&g)), "Error!");
+^             ~~~~~~~~~~~~~~~
+main.cpp:5:3: error: static_assert failed "func()"
+{ static_assert(noexcept(func()), "func()"); } // No error!
+  ^             ~~~~~~~~~~~~~~~~
+main.cpp:7:12: note: in instantiation of function template specialization 'f<void (*)()>' requested here
+void h() { f(&g); } // No error!
+           ^
+2 errors generated.
