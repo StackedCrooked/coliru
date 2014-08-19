@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && echo "7 3" | ./a.out
