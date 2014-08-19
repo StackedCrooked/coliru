@@ -315,7 +315,7 @@ def safe_popen(cmd)
         end
     rescue Timeout::Error => e
         # Kill the innermost process
-        IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
+        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -${line} ; done") {||}
         yield e.to_s
     rescue Exception => e
         yield e.to_s
