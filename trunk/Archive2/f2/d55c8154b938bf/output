@@ -1,0 +1,97 @@
+main.cpp:62:54: error: 'Term' is a protected member of 'Polynomial'
+ostream& operator<<(ostream& ostr, const Polynomial::Term& term)
+                                                     ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:71:46: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term operator-(const Polynomial::Term& term)
+                                             ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:71:13: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term operator-(const Polynomial::Term& term)
+            ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:72:15: error: 'Term' is a protected member of 'Polynomial'
+{ Polynomial::Term t(term);
+              ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:77:47: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term derivative(const Polynomial::Term& t)
+                                              ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:77:13: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term derivative(const Polynomial::Term& t)
+            ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:78:39: error: 'Term' is a protected member of 'Polynomial'
+{ if (t._exp == 0) return Polynomial::Term(0.0,0);
+                                      ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:79:24: error: 'Term' is a protected member of 'Polynomial'
+    return Polynomial::Term(t._exp*t._coef,t._exp-1);
+                       ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:82:51: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term antiderivative(const Polynomial::Term& t)
+                                                  ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:82:13: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term antiderivative(const Polynomial::Term& t)
+            ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:83:40: error: 'Term' is a protected member of 'Polynomial'
+{ if (t._coef == 0) return Polynomial::Term(1.0,0);
+                                       ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:84:24: error: 'Term' is a protected member of 'Polynomial'
+    return Polynomial::Term(t._coef/(t._exp+1),t._exp+1);
+                       ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:87:40: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term abs(const Polynomial::Term& t)
+                                       ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:87:13: error: 'Term' is a protected member of 'Polynomial'
+Polynomial::Term abs(const Polynomial::Term& t)
+            ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:88:15: error: 'Term' is a protected member of 'Polynomial'
+{ Polynomial::Term term(t);
+              ^
+main.cpp:18:12: note: declared protected here
+    struct Term
+           ^
+main.cpp:164:30: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+                if (it->_exp <= exp) break;
+                    ~~~~~~~~ ^  ~~~
+main.cpp:165:26: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+            if (it->_exp == exp) it->_coef += coef;
+                ~~~~~~~~ ^  ~~~
+2 warnings and 15 errors generated.
