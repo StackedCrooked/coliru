@@ -1,0 +1,27 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:17:7: error: ambiguous overload for ‘operator<<’ (operand types are ‘B’ and ‘A’)
+     b << a;
+       ^
+main.cpp:17:7: note: candidates are:
+main.cpp:9:10: note: void B::operator<<(int)
+     void operator<< (int) { }
+          ^
+main.cpp:10:10: note: void B::operator<<(long int)
+     void operator<< (long) { }
+          ^
++ echo 1
+1
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:17:7: error: use of overloaded operator '<<' is ambiguous (with operand types 'B' and 'A')
+    b << a;
+    ~ ^  ~
+main.cpp:9:10: note: candidate function
+    void operator<< (int) { }
+         ^
+main.cpp:10:10: note: candidate function
+    void operator<< (long) { }
+         ^
+1 error generated.
++ echo 1
+1
