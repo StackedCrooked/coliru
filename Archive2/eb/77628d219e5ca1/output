@@ -1,0 +1,33 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:18:82: warning: too many arguments for format [-Wformat-extra-args]
+             timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec, timeinfo.tm_isdst);
+                                                                                  ^
+main.cpp: At global scope:
+main.cpp:4:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+              ^
+main.cpp:4:31: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+                               ^
++ ./a.out
+40 5 2 23 59 59
+-933469201
+40 5 3 0 59 59 1
+
+40 5 3 1 0 0
+-933469200
+40 5 3 1 0 0 1
+
+40 5 3 1 0 0
+-933469200
+40 5 3 1 0 0 1
+
+40 5 2 23 59 59
+-933472801
+40 5 2 23 59 59 1
+
+40 5 2 23 59 59
+-933472801
+40 5 2 23 59 59 1
+
