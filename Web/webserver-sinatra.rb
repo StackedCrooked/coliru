@@ -65,38 +65,23 @@ end
 
 $request_id = 0
 post '/compile' do
-    $n = __LINE__
     begin
-        $n = __LINE__
         Thread.new do 
-            $n = __LINE__
             result = ""
             rid = $request_id += 1
-            $n = __LINE__
             log_request(rid, "/compile", "waiting")
-            $n = __LINE__
             $mutex.synchronize do
                 log_request(rid, "/compile", "running")
-                $n = __LINE__
                 request_text = request.body.read
-                $n = __LINE__
                 json_obj = JSON.parse(request_text)
-                $n = __LINE__
                 id = "#{Time.now.utc.to_f}"
-                $n = __LINE__
                 dir = "/tmp/coliru/#{id}"
-                $n = __LINE__
                 FileUtils.mkdir_p(dir)
-                $n = __LINE__
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-                $n = __LINE__
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                $n = __LINE__
                 safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
-                $n = __LINE__
                 FileUtils.rmtree(dir)
-                $n = __LINE__
                 log_request(rid, "/compile", "done")
             end
             stream do |out|
@@ -104,7 +89,7 @@ post '/compile' do
             end
         end.join
     rescue Exception => e
-        e.to_s + ' ' + $n.to_s
+        e.to_s
     end
 end
 
@@ -315,26 +300,22 @@ def safe_popen(cmd)
         Timeout.timeout(get_timeout.to_i) do
             set_timeout(20)
             @stdout = IO.popen("#{cmd} 2>&1 ")
-            count = 0
-            max_count = 256 * 1024
+
+            # immediately detach the process
+            # this prevents hangs and ensures cleanup (no zombies)
+            Process.detach @stdout.pid
+
+            cur_char_count = 0
+            max_char_count = 256 * 1024
             until @stdout.eof?
-                count += 1
-                raise "\nError: output size exceeds #{max_count}" if count > max_count
+                cur_char_count += 1
+                raise "\nError: output size exceeds #{max_char_count}" if cur_char_count > max_char_count
                 yield @stdout.read(1)
             end
-
-            # detach instead of wait to prevent hang
-            # note that detach also prevents zombies 
-            Process.detach @stdout.pid
         end
     rescue Timeout::Error => e
-        # First kill the innermost processes
+        # Kill the innermost process
         IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
-
-        # detach instead of wait to prevent hang
-        # note that detach also prevents zombies 
-        Process.detach @stdout.pid
-
         yield e.to_s
     rescue Exception => e
         yield e.to_s
