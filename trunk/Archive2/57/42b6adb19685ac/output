@@ -1,0 +1,109 @@
+main.cpp:10:23: error: unknown type name 'type'
+        virtual const type* get_parent_type() const =0; //may return null for globals
+                      ^
+main.cpp:40:28: error: no function template matches function template specialization 'get_class_reflection'
+    template<> const type* get_class_reflection<int>();
+                           ^
+main.cpp:37:41: note: candidate template ignored: could not match 'const reflection::class_type *()' against 'const reflection::type *()'
+    template<class T> const class_type* get_class_reflection();
+                                        ^
+main.cpp:63:24: error: redefinition of 'get_size' as different kind of symbol
+        virtual size_t get_size() const {return get_size;}
+                       ^
+main.cpp:50:16: note: previous definition is here
+        size_t get_size;
+               ^
+main.cpp:64:37: error: return type of virtual function 'get_interfaces' is not covariant with the return type of the function it overrides ('const reflection::type *const *' is not derived from 'const reflection::class_type *const *')
+        virtual const type* const * get_interfaces(int& out_count) const {out_count=interface_count; return interfaces;}
+                                    ^
+main.cpp:19:43: note: overridden virtual function is here
+        virtual const class_type* const * get_interfaces(int& out_count) const=0;
+                                          ^
+main.cpp:65:85: error: use of undeclared identifier 'member_count'; did you mean 'members_count'?
+        virtual const member* const * get_members(int& out_count) const  {out_count=member_count; return members;}
+                                                                                    ^~~~~~~~~~~~
+                                                                                    members_count
+main.cpp:54:16: note: 'members_count' declared here
+        size_t members_count;
+               ^
+main.cpp:84:39: error: return type of virtual function 'get_params' is not covariant with the return type of the function it overrides ('const reflection::member *const *' is not derived from 'const reflection::member *const *const *')
+        virtual const member* const * get_params(int& out_count) const {out_count=param_count; return params;}
+                                      ^
+main.cpp:27:46: note: overridden virtual function is here
+        virtual const member* const * const* get_params(int& out_count) const=0;
+                                             ^
+main.cpp:98:23: error: must use 'struct' tag to refer to type 'type' in this scope
+        virtual const type* get_parent_type() const {return parent_type;}
+                      ^
+                      struct 
+main.cpp:93:21: note: struct 'type' is hidden by a non-type declaration of 'type' here
+        const type* type;
+                    ^
+main.cpp:102:23: error: must use 'struct' tag to refer to type 'type' in this scope
+        virtual const type* get_type() const {return type;}
+                      ^
+                      struct 
+main.cpp:93:21: note: struct 'type' is hidden by a non-type declaration of 'type' here
+        const type* type;
+                    ^
+main.cpp:111:36: error: unknown class name 'type'; did you mean 'reflection::type'?
+struct reflected_int_type : public type {
+                                   ^~~~
+                                   reflection::type
+main.cpp:15:12: note: 'reflection::type' declared here
+    struct type : public field {
+           ^
+main.cpp:117:19: error: unknown type name 'member'
+    virtual const member* const * get_members(int& out_count) const;
+                  ^
+main.cpp:120:13: error: unknown type name 'access_enum'; did you mean 'reflection::access_enum'?
+    virtual access_enum get_access() const {return access_public;}
+            ^~~~~~~~~~~
+            reflection::access_enum
+main.cpp:6:10: note: 'reflection::access_enum' declared here
+    enum access_enum {access_public=0, access_protected, access_private}; //globals have public access
+         ^
+main.cpp:113:25: warning: 'reflected_int_type::get_name' hides overloaded virtual function [-Woverloaded-virtual]
+    virtual const char* get_name(int& out_len) {out_len=3; return "int";}
+                        ^
+main.cpp:11:29: note: hidden overloaded virtual function 'reflection::field::get_name' declared here: different qualifiers (const vs none)
+        virtual const char* get_name(int& out_len) const=0;
+                            ^
+main.cpp:120:52: error: use of undeclared identifier 'access_public'; did you mean 'reflection::access_public'?
+    virtual access_enum get_access() const {return access_public;}
+                                                   ^~~~~~~~~~~~~
+                                                   reflection::access_public
+main.cpp:6:23: note: 'reflection::access_public' declared here
+    enum access_enum {access_public=0, access_protected, access_private}; //globals have public access
+                      ^
+main.cpp:124:1: error: unknown type name 'easy_reflection_member'
+easy_reflection_member left_int_param = {"left",nullptr,"",0,access_public,&reflected_int,false,false,false};
+^
+main.cpp:124:62: error: use of undeclared identifier 'access_public'; did you mean 'reflection::access_public'?
+easy_reflection_member left_int_param = {"left",nullptr,"",0,access_public,&reflected_int,false,false,false};
+                                                             ^~~~~~~~~~~~~
+                                                             reflection::access_public
+main.cpp:6:23: note: 'reflection::access_public' declared here
+    enum access_enum {access_public=0, access_protected, access_private}; //globals have public access
+                      ^
+main.cpp:125:1: error: unknown type name 'easy_reflection_member'
+easy_reflection_member right_int_param = {"right",nullptr,"",0,access_public,&reflected_int,false,false,false};
+^
+main.cpp:125:64: error: use of undeclared identifier 'access_public'; did you mean 'reflection::access_public'?
+easy_reflection_member right_int_param = {"right",nullptr,"",0,access_public,&reflected_int,false,false,false};
+                                                               ^~~~~~~~~~~~~
+                                                               reflection::access_public
+main.cpp:6:23: note: 'reflection::access_public' declared here
+    enum access_enum {access_public=0, access_protected, access_private}; //globals have public access
+                      ^
+main.cpp:126:1: error: unknown type name 'member'
+member* binary_ops[2] = {left_int_param, right_int_param};
+^
+main.cpp:128:1: error: unknown type name 'easy_reflection_function'
+easy_reflection_function sig_int_void = {"int",&reflected_int,"",0,nullptr,nullptr,0};
+^
+main.cpp:129:1: error: unknown type name 'easy_reflection_function'
+easy_reflection_function sig_int_void_int = {"int",&reflected_int,"",0,nullptr,&right_int_param,1};
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.
