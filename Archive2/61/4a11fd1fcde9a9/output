@@ -1,0 +1,30 @@
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:5:14: warning: unused parameter 'argc' [-Wunused-parameter]
+int main(int argc, char *argv[])
+             ^
+main.cpp:5:26: warning: unused parameter 'argv' [-Wunused-parameter]
+int main(int argc, char *argv[])
+                         ^
+2 warnings generated.
++ TZ=Asia/Shanghai
++ ./a.out
+40 5 2 23 59 59 0
+-933494401
+40 5 2 23 59 59 0
+
+40 5 3 1 0 0 0
+-933490800
+40 5 3 2 0 0 1
+
+40 5 3 1 0 0 1
+-933494400
+40 5 3 1 0 0 1
+
+40 5 2 23 59 59 1
+-933498001
+40 5 2 22 59 59 0
+
+40 5 2 23 59 59 0
+-933494401
+40 5 2 23 59 59 0
+
