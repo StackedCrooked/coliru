@@ -1,0 +1,11 @@
+main.cpp:11:6: error: redefinition of 'template<class T> void fun(T)'
+ void fun (T t) {t.foo();}
+      ^
+main.cpp:8:6: note: 'template<class T> void fun(T)' previously declared here
+ void fun (T t) {t.fuzz();}
+      ^
+main.cpp: In instantiation of 'void fun(T) [with T = A]':
+main.cpp:15:10:   required from here
+main.cpp:8:17: error: 'struct A' has no member named 'fuzz'
+ void fun (T t) {t.fuzz();}
+                 ^
