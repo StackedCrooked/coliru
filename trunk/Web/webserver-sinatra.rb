@@ -322,22 +322,21 @@ def safe_popen(cmd)
                 raise "\nError: output size exceeds #{max_count}" if count > max_count
                 yield @stdout.read(1)
             end
-            Process.wait @stdout.pid
+
+            # detach instead of wait to prevent hang
+            # note that detach also prevents zombies 
+            Process.detach @stdout.pid
         end
     rescue Timeout::Error => e
-        #First kill the innermost processes
+        # First kill the innermost processes
         IO.popen("./ps.sh | grep 2002 | grep -v grep | awk '{print $1}' | sort | uniq | xargs -I {} kill -9 -{}") {||}
 
-        # Then we can kill the top-level process.
-        Process.kill 9, @stdout.pid
-        Process.wait @stdout.pid
+        # detach instead of wait to prevent hang
+        # note that detach also prevents zombies 
+        Process.detach @stdout.pid
+
         yield e.to_s
     rescue Exception => e
-        begin
-            Process.wait @stdout.pid
-        rescue Exception => e
-            # Maybe @stdout is not a valid handle.
-        end
         yield e.to_s
     end
 end
