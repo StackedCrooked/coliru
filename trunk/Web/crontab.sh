@@ -26,4 +26,4 @@
 @reboot (cd /root/coliru/Web ; /root/coliru/Web/logger.sh & disown)
 @reboot (cd /root/coliru/Web ; /root/coliru/Web/pgid_killer.sh & disown)
 @reboot (cd /root/coliru/Web ; /root/coliru/Web/restart.sh & disown)
-@reboot (sleep 3600 ; reboot)
+@reboot ({ sleep 3600 ; reboot ; } & disown)
