@@ -1,0 +1,45 @@
+main.cpp:53:18: error: use of undeclared identifier 'atgs'; did you mean 'args'?
+    Iterate{(Get(atgs, row, indices + 1), 0)...};
+                 ^~~~
+                 args
+main.cpp:51:51: note: 'args' declared here
+void GetResultImpl(const MySQLRow& row, Types&... args, std::index_sequence<indices...>)
+                                                  ^
+main.cpp:59:78: error: expected ';' after expression
+    GetResultImpl(row, args..., std::make_index_sequence<sizeof...(Types)>())
+                                                                             ^
+                                                                             ;
+main.cpp:72:10: error: no member named 'cout' in namespace 'std'
+    std::cout
+    ~~~~~^
+main.cpp:73:37: error: no member named 'endl' in namespace 'std'; did you mean 'end'?
+        << "Name: " << name << std::endl
+                               ~~~~~^~~~
+                                    end
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/range_access.h:68:5: note: 'end' declared here
+    end(_Container& __cont) -> decltype(__cont.end())
+    ^
+main.cpp:74:35: error: no member named 'endl' in namespace 'std'; did you mean 'end'?
+        << "Sex: " << sex << std::endl
+                             ~~~~~^~~~
+                                  end
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/range_access.h:68:5: note: 'end' declared here
+    end(_Container& __cont) -> decltype(__cont.end())
+    ^
+main.cpp:75:34: error: no member named 'endl' in namespace 'std'; did you mean 'end'?
+        << "Age:" << age << std::endl;
+                            ~~~~~^~~~
+                                 end
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/range_access.h:68:5: note: 'end' declared here
+    end(_Container& __cont) -> decltype(__cont.end())
+    ^
+main.cpp:59:5: error: no matching function for call to 'GetResultImpl'
+    GetResultImpl(row, args..., std::make_index_sequence<sizeof...(Types)>())
+    ^~~~~~~~~~~~~
+main.cpp:70:5: note: in instantiation of function template specialization 'GetResult<std::basic_string<char>, std::basic_string<char>, int>' requested here
+    GetResult(row, name, sex, age);
+    ^
+main.cpp:51:6: note: candidate function not viable: requires 2 arguments, but 5 were provided
+void GetResultImpl(const MySQLRow& row, Types&... args, std::index_sequence<indices...>)
+     ^
+7 errors generated.
