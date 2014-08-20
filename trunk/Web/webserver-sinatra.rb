@@ -80,7 +80,7 @@ post '/compile' do
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| result += line }
+                safe_popen("logger yes ; INPUT_FILES_DIR=#{dir} ./sandbox.sh ; logger end_of_sand") { |line| result += line }
                 FileUtils.rmtree(dir)
                 log_request(rid, "/compile", "done")
             end
@@ -308,15 +308,13 @@ def safe_popen(cmd)
                 if cur_char_count <= max_char_count
                     yield fd.read(1)
                 else
-                    # read the rest of the output
-                    # and discard it
+                    # discard the rest
                     fd.read
                 end
                 cur_char_count += 1
             end
 
             Process.wait fd.pid
-
         end
     rescue Timeout::Error => e
 
@@ -324,7 +322,7 @@ def safe_popen(cmd)
         log "safe_popen: Timeout occurred. Killing the chrooted process."
 
         # detach to prevent defunct state
-        Process.detach fd pid
+        Process.detach fd.pid
 
         # kill the process:
         #   find pgids for user 2002 and kill them all 
