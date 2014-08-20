@@ -328,7 +328,7 @@ def safe_popen(cmd)
         #   find pgids for user 2002 and kill them all 
         #   however, since we don't have kill permissions
         #   we delegate this task to pgid_killer.sh
-        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
+        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
 
         # return exception message to user
         log "Ok. Return exception string to user. message=#{e.to_s}"
@@ -345,7 +345,7 @@ def safe_popen(cmd)
         #   find pgids for user 2002 and kill them all 
         #   however, since we don't have kill permissions
         #   we delegate this task to pgid_killer.sh
-        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
+        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
          
         # Return the exception string.
         log "Non-timeout exception occurred during compile: #{e.to_s}"
