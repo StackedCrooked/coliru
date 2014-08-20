@@ -10,22 +10,13 @@ log() {
 log "$(basename $0) started"
 
 
-make_stdout() {
-    rm -f stdout
-    mkfifo stdout
-    chown webserver:coliru stdout
-}
-
-make_stdout
+rm -f stdout
+mkfifo stdout
+chown webserver:coliru stdout
 
 while true ; do
-
-    # remake the stdout file if it no longer exists for some reason
-    [ -f stdout ] || make_stdout
-    
     while read line ; do 
         log "stdout: $line"
     done <stdout
-    log "Broke out of stdout loop"
-    sleep 2
+    log "Finished logging"
 done
