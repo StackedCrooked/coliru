@@ -1,0 +1,1 @@
+g++ -std=c++11 -Weffc++ main.cpp
