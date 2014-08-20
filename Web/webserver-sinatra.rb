@@ -309,7 +309,8 @@ def safe_popen(cmd)
                     yield fd.read(1)
                 else
                     # discard the rest
-                    fd.read
+                    # only read one byte at a time to prevent memory out of memory in case it's huge
+                    fd.read(1)
                 end
                 cur_char_count += 1
             end
