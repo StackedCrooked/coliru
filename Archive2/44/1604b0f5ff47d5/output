@@ -1,0 +1,17 @@
+In file included from /usr/local/include/boost/smart_ptr/make_shared.hpp:15:0,
+                 from /usr/local/include/boost/make_shared.hpp:15,
+                 from main.cpp:2:
+/usr/local/include/boost/smart_ptr/make_shared_object.hpp: In instantiation of 'typename boost::detail::sp_if_not_array<T>::type boost::make_shared(const A1&) [with T = B; A1 = A; typename boost::detail::sp_if_not_array<T>::type = boost::shared_ptr<B>]':
+main.cpp:18:55:   required from here
+/usr/local/include/boost/smart_ptr/make_shared_object.hpp:808:5: error: no matching function for call to 'B::B(const A&)'
+     ::new( pv ) T( a1 );
+     ^
+/usr/local/include/boost/smart_ptr/make_shared_object.hpp:808:5: note: candidates are:
+main.cpp:11:5: note: B::B(A&)
+     B( A& ) {}
+     ^
+main.cpp:11:5: note:   no known conversion for argument 1 from 'const A' to 'A&'
+main.cpp:9:7: note: B::B(const B&)
+ class B {
+       ^
+main.cpp:9:7: note:   no known conversion for argument 1 from 'const A' to 'const B&'
