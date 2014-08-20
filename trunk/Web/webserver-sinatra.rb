@@ -296,33 +296,74 @@ end
 
 
 def safe_popen(cmd)
+    fd = IO.popen("#{cmd} 2>&1")
     begin
         Timeout.timeout(get_timeout.to_i) do
             set_timeout(20)
-            @stdout = IO.popen("#{cmd} 2>&1 ")
-
-            # immediately detach the process
-            # this prevents hangs and ensures cleanup (no zombies)
-            Process.detach @stdout.pid
 
             cur_char_count = 0
             max_char_count = 256 * 1024
-            until @stdout.eof?
+
+            until fd.eof?
+                if cur_char_count <= max_char_count
+                    yield fd.read(1)
+                else
+                    # read the rest of the output
+                    # and discard it
+                    fd.read
+                end
                 cur_char_count += 1
-                raise "\nError: output size exceeds #{max_char_count}" if cur_char_count > max_char_count
-                yield @stdout.read(1)
             end
+
+            Process.wait fd.pid
+
         end
     rescue Timeout::Error => e
-        # Kill the innermost process
-        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -${line} ; done") {||}
+
+        # start kill job
+        log "safe_popen: Timeout occurred. Killing the chrooted process."
+
+        # detach to prevent defunct state
+        Process.detach fd pid
+
+        # kill the process:
+        #   find pgids for user 2002 and kill them all 
+        #   however, since we don't have kill permissions
+        #   we delegate this task to pgid_killer.sh
+        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
+
+        # return exception message to user
+        log "Ok. Return exception string to user. message=#{e.to_s}"
         yield e.to_s
+
     rescue Exception => e
+        # We don't expect to come here
+        log "safe_popen: caught general exception: #{e.to_s}"
+
+        # NOTE: don't detach and let the process go defunct
+        # This is a temporary measure because I susspect this hangs sometimes.
+
+        # kill the process:
+        #   find pgids for user 2002 and kill them all 
+        #   however, since we don't have kill permissions
+        #   we delegate this task to pgid_killer.sh
+        IO.popen("ps -eopgid,pid,uid,comm,args | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
+         
+        # Return the exception string.
+        log "Non-timeout exception occurred during compile: #{e.to_s}"
+        log "Don't wait for webserver process to finish."
         yield e.to_s
     end
 end
 
 $start_time = DateTime.now.strftime('%s').to_i
+
+def log(str)
+    begin
+      $stderr.puts "webserver-sinatra.rb: #{str}"
+    rescue  Exception => e
+    end
+end
 
 def log_request(rid, method, message)
   begin 
@@ -330,7 +371,7 @@ def log_request(rid, method, message)
       elapsed_time = current_time - $start_time
       request_rate = 60.0 * rid / elapsed_time
       request_rate = (100 * request_rate).round / 100.0
-      $stderr.puts "request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
+      $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
   rescue Exception => e
     # Cannot handle the exception here.
   end
