@@ -1,0 +1,21 @@
++ g++ -O2 -std=c++1y -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In constructor 'B::B()':
+main.cpp:21:5: error: no matching function for call to 'A::A()'
+     {
+     ^
+main.cpp:21:5: note: candidates are:
+main.cpp:10:5: note: A::A(int)
+     A(int)
+     ^
+main.cpp:10:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:6:8: note: constexpr A::A(const A&)
+ struct A
+        ^
+main.cpp:6:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:6:8: note: constexpr A::A(A&&)
+main.cpp:6:8: note:   candidate expects 1 argument, 0 provided
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
++ ./a.out
+A(int)
+B()
+C()
