@@ -1,7 +1,5 @@
 #!/bin/bash
 source coliru_env.source
+source logger.source
 
-# delegate to calller
-#source logger.source
-
-setsid sudo -u webserver -E ruby webserver-sinatra.rb -o ${COLIRU_URL}
+sudo -u webserver -E ruby webserver-sinatra.rb -o "${COLIRU_URL}"
