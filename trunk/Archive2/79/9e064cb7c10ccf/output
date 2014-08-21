@@ -1,0 +1,23 @@
++ g++ -O2 -std=c++1y -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In instantiation of ‘void Choose(Opt ...) [with Opt = {Option<int, int>, Option<int>, Option<int, int, int, int>, int}]’:
+main.cpp:41:5:   required from here
+main.cpp:31:5: error: static assertion failed: Arguments must all be Options
+     static_assert(all_true<is_option<Opt>::value...>::value, "Arguments must all be Options");
+     ^
+main.cpp:29:20: warning: unused parameter ‘arguments#0’ [-Wunused-parameter]
+ void Choose(Opt... arguments)
+                    ^
+main.cpp:29:20: warning: unused parameter ‘arguments#1’ [-Wunused-parameter]
+main.cpp:29:20: warning: unused parameter ‘arguments#2’ [-Wunused-parameter]
+main.cpp:29:20: warning: unused parameter ‘arguments#3’ [-Wunused-parameter]
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:29:20: warning: unused parameter 'arguments' [-Wunused-parameter]
+void Choose(Opt... arguments)
+                   ^
+main.cpp:31:5: error: static_assert failed "Arguments must all be Options"
+    static_assert(all_true<is_option<Opt>::value...>::value, "Arguments must all be Options");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:36:5: note: in instantiation of function template specialization 'Choose<Option<int, int>, Option<int>, Option<int, int, int, int>, int>' requested here
+    Choose(
+    ^
+1 warning and 1 error generated.
