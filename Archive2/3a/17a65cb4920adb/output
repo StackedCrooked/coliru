@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -O -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:21:19: error: no matching function for call to 'get_odd'
+    for (auto i : get_odd<int>(vi.begin(), vi.end()))
+                  ^~~~~~~~~~~~
+main.cpp:11:1: note: candidate template ignored: substitution failure [with ForwardIterator = int]: no type named 'value_type' in 'std::iterator_traits<int>'
+get_odd(ForwardIterator data_begin, ForwardIterator data_end)
+^
+main.cpp:27:19: error: no matching function for call to 'get_odd'
+    for (auto i : get_odd<char>(vui.begin(), vui.end()))
+                  ^~~~~~~~~~~~~
+main.cpp:11:1: note: candidate template ignored: substitution failure [with ForwardIterator = char]: no type named 'value_type' in 'std::iterator_traits<char>'
+get_odd(ForwardIterator data_begin, ForwardIterator data_end)
+^
+2 errors generated.
