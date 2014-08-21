@@ -80,7 +80,7 @@ post '/compile' do
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("logger yes ; INPUT_FILES_DIR=#{dir} ./sandbox.sh ; logger end_of_sand") { |line| result += line }
+                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh 2>&1") { |line| result += line }
                 FileUtils.rmtree(dir)
                 log_request(rid, "/compile", "done")
             end
