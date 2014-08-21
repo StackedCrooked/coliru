@@ -1,0 +1,11 @@
+main.cpp:67:52: error: expected member name or ';' after declaration specifiers
+        typedef variadic<sizeof...(TArgs) - 1, TArgs...>::template typename at<index>::type type;
+        ~~~~~~~                                           ^
+main.cpp:69:56: error: missing 'typename' prior to dependent type name 'at<index, TArgs...>::type'
+template<size_t index, typename... TArgs> using at_t = at<index, TArgs...>::type;
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+                                                       typename 
+main.cpp:73:28: error: no type named 'type' in 'at<2, int, char, bool>'
+   at<2, int, char, bool>::type x = true;
+   ~~~~~~~~~~~~~~~~~~~~~~~~^
+3 errors generated.
