@@ -1,0 +1,21 @@
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:7:22: warning: unused parameter 'i' [-Wunused-parameter]
+    static T get(int i) { cout << "base" << endl; return T(); }
+                     ^
+main.cpp:12:25: warning: unused parameter 'i' [-Wunused-parameter]
+    static bool get(int i) {cout << "bool" << endl; return false; }
+                        ^
+main.cpp:17:23: warning: unused parameter 'i' [-Wunused-parameter]
+    static T* get(int i) { cout << "pointer" << endl; return nullptr;}
+                      ^
+main.cpp:23:14: warning: unused parameter 'argc' [-Wunused-parameter]
+int main(int argc, const char* argv[])
+             ^
+main.cpp:23:32: warning: unused parameter 'argv' [-Wunused-parameter]
+int main(int argc, const char* argv[])
+                               ^
+5 warnings generated.
++ ./a.out
+base
+bool
+pointer
