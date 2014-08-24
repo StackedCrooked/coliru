@@ -2,17 +2,15 @@
 source coliru_env.source
 source logger.source
 
-# Kill any previously running instances
-./kill-all.sh >/dev/null 2>&1
+# Cleanup coliru processes
+pkill -u 2002
+pkill -u 2001
 
 
 # Setup directories and set permissions
 rm -rf /tmp/coliru ; mkdir -p /tmp/coliru ; chown -R webserver:coliru /tmp/coliru
 rm -f /tmp/cleanup ; touch /tmp/cleanup ; chown webserver:coliru /tmp/cleanup
 chown -R webserver:coliru /tmp
-
-# Check/repair permissions
-./repair-permissions.sh & disown
 
 # Disable network access
 iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
@@ -28,6 +26,9 @@ while true ; do
     } || {
         echo "*** WEBSERVER CRASHED: $? "
     }
+
+    pkill -u 2002
+    pkill -u 2001
 
     # Prevent spinning in case something is wrong
     sleep 10
