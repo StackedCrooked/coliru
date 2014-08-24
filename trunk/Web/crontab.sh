@@ -21,11 +21,4 @@
 # 
 # m h  dom mon dow   command
 @reboot (date > /tmp/date-check.txt)
-#@reboot (sleep 20 ; /root/WideUpdater.sh & disown)
-#@reboot (cd /root/coliru/Web ; /root/coliru/Web/defunct-restarter.sh & disown)
-@reboot (cd /root/coliru/Web ; /root/coliru/Web/logger.sh & disown)
-@reboot (cd /root/coliru/Web ; /root/coliru/Web/pgid_killer.sh & disown)
-@reboot (cd /root/coliru/Web ; /root/coliru/Web/cleanup-cache.sh & disown)
-@reboot (cd /root/coliru/Web ; /root/coliru/Web/repair-permissions.sh & disown)
-@reboot (cd /root/coliru/Web ; /root/coliru/Web/restart.sh & disown)
-@reboot ({ sleep 3600 ; reboot ; } & disown)
+@reboot (cd /root/coliru/Web ; /root/coliru/Web/boot.sh & disown)
