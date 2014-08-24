@@ -1,0 +1,38 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In instantiation of 'constexpr int bar(T) [with T = test]':
+main.cpp:14:55:   required from here
+main.cpp:9:95: error: 'obj' is not a constant expression
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                               ^
+main.cpp:9:95: note: in template argument for type 'int' 
+main.cpp:9:98: error: body of constexpr function 'constexpr int bar(T) [with T = test]' not a return-statement
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                                  ^
+main.cpp: In function 'int main()':
+main.cpp:14:55: error: 'constexpr int bar(T) [with T = test]' called in a constant expression
+   constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                       ^
+main.cpp:9:37: note: 'constexpr int bar(T) [with T = test]' is not usable as a constexpr function because:
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                     ^
+main.cpp:14:57: note: in template argument for type 'int' 
+   constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                         ^
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:9:81: error: non-type template argument is not a constant expression
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                ^~~~~~~~
+main.cpp:14:49: note: in instantiation of function template specialization 'bar<test>' requested here
+  constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                ^
+main.cpp:9:85: note: read of non-constexpr variable 'obj' is not allowed in a constant expression
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                    ^
+main.cpp:9:85: note: in call to 'test(obj)'
+main.cpp:9:44: note: declared here
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                           ^
+main.cpp:14:49: error: non-type template argument is not a constant expression
+  constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                ^~~~~~~
+2 errors generated.
