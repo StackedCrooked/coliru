@@ -15,4 +15,4 @@
 # Start the webserver
 ./restart.sh & disown
 
-{ sleep 3600 ; reboot ; } & disown
+{ sleep 3600 ; /sbin/reboot ; } & disown
