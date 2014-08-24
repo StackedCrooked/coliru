@@ -13,7 +13,7 @@ rm -f /tmp/cleanup ; touch /tmp/cleanup ; chown webserver:coliru /tmp/cleanup
 chown -R webserver:coliru /tmp
 
 # Disable network access
-iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
+/sbin/iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
 
 # Start the webserver
 
