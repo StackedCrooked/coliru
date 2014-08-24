@@ -4,7 +4,7 @@
 #source logger.source
 
 
-loop() { 
+while true ; do 
     rm -f .pgid_killer
     mkfifo .pgid_killer
     chmod a+w .pgid_killer
@@ -16,11 +16,7 @@ loop() {
             kill -9 -${line}
         }
     done 
-}
-
-while true ; do
-    (loop)
-    echo "$(basename ${0}): broken out of loop"
+    logger "$(basename ${0}): broken out of loop"
     sleep 10
 done
 
