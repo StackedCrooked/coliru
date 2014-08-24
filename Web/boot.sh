@@ -12,6 +12,9 @@
 # Repair permissions
 ./repair-permissions.sh & disown
 
+# Monitor
+./monitor.sh & disown
+
 # Start the webserver
 ./restart.sh & disown
 
