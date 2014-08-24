@@ -14,9 +14,6 @@ chown -R webserver:coliru /tmp
 # Check/repair permissions
 ./repair-permissions.sh & disown
 
-# Start cache-cleanup script
-./cleanup-cache.sh & disown
-
 # Disable network access
 iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
 
