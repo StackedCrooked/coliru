@@ -1,0 +1,90 @@
++ g++ -v -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.9.0/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ./configure --disable-multilib
+Thread model: posix
+gcc version 4.9.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-O2' '-std=c++11' '-Wpedantic' '-Wall' '-Wextra' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.9.0/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE -D_REENTRANT main.cpp -quiet -dumpbase main.cpp -mtune=generic -march=x86-64 -auxbase main -O2 -Wpedantic -Wall -Wextra -std=c++11 -version -o /tmp/ccUFN2PH.s
+GNU C++ (GCC) version 4.9.0 (x86_64-unknown-linux-gnu)
+	compiled by GNU C version 4.9.0, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
+GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../x86_64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/backward
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/include
+ /usr/local/include
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.0/include-fixed
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++ (GCC) version 4.9.0 (x86_64-unknown-linux-gnu)
+	compiled by GNU C version 4.9.0, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
+GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+Compiler executable checksum: 0c86945b4e500e9e7342b58ba5c0c244
+main.cpp: In instantiation of 'constexpr int bar(T) [with T = test]':
+main.cpp:14:55:   required from here
+main.cpp:9:95: error: 'obj' is not a constant expression
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                               ^
+main.cpp:9:95: note: in template argument for type 'int' 
+main.cpp:9:98: error: body of constexpr function 'constexpr int bar(T) [with T = test]' not a return-statement
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                                  ^
+main.cpp: In function 'int main()':
+main.cpp:14:55: error: 'constexpr int bar(T) [with T = test]' called in a constant expression
+   constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                       ^
+main.cpp:9:37: note: 'constexpr int bar(T) [with T = test]' is not usable as a constexpr function because:
+ template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                     ^
+main.cpp:14:57: note: in template argument for type 'int' 
+   constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                         ^
++ clang++ -v -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+clang version 3.4 (tags/RELEASE_34/final 206911)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+Selected GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -v -resource-dir /usr/local/bin/../lib/clang/3.4 -internal-isystem /usr/include/c++/v1 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.4/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wall -Wextra -pedantic -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1408841321.29466 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o /tmp/main-ba7756.o -x c++ main.cpp
+clang -cc1 version 3.4 based upon LLVM 3.4 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/v1
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.4/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+main.cpp:9:81: error: non-type template argument is not a constant expression
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                ^~~~~~~~
+main.cpp:14:49: note: in instantiation of function template specialization 'bar<test>' requested here
+  constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                ^
+main.cpp:9:85: note: read of non-constexpr variable 'obj' is not allowed in a constant expression
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                                                                    ^
+main.cpp:9:85: note: in call to 'test(obj)'
+main.cpp:9:44: note: declared here
+template <typename T> constexpr int bar (T obj) { return foo(require_constexpr< foo(obj) > { }); }
+                                           ^
+main.cpp:14:49: error: non-type template argument is not a constant expression
+  constexpr auto const baz = require_constexpr< bar(ar) >();
+                                                ^~~~~~~
+2 errors generated.
