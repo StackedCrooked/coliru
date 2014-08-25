@@ -1,0 +1,23 @@
+main.cpp:4:16: error: 'shared_ptr' in namespace 'std' does not name a type
+ void foo(const std::shared_ptr<int>& i)
+                ^
+main.cpp:4:21: error: ISO C++ forbids declaration of 'parameter' with no type [-fpermissive]
+ void foo(const std::shared_ptr<int>& i)
+                     ^
+main.cpp:4:31: error: expected ',' or '...' before '<' token
+ void foo(const std::shared_ptr<int>& i)
+                               ^
+main.cpp: In function 'void foo(int)':
+main.cpp:6:7: error: 'i' was not declared in this scope
+     (*i)++;
+       ^
+main.cpp: In function 'int main()':
+main.cpp:11:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto sp = std::make_shared<int>(12);
+     ^
+main.cpp:11:10: error: 'sp' does not name a type
+     auto sp = std::make_shared<int>(12);
+          ^
+main.cpp:12:9: error: 'sp' was not declared in this scope
+     foo(sp);
+         ^
