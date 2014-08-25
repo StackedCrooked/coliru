@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:18:18: error: no matching function for call to 'fnk(<unresolved overloaded function type>, int)'
+     fnk(&print, 5);
+                  ^
+main.cpp:18:18: note: candidates are:
+main.cpp:2:5: note: template<class out, class in> out fnk(out (*)(in))
+ out fnk(out(*ptr)(in))
+     ^
+main.cpp:2:5: note:   template argument deduction/substitution failed:
+main.cpp:18:18: note:   candidate expects 1 argument, 2 provided
+     fnk(&print, 5);
+                  ^
+main.cpp:6:5: note: template<class out, class in> out fnk(out (*)(in, ...), ...)
+ out fnk(out(*ptr)(in, ...), ...)
+     ^
+main.cpp:6:5: note:   template argument deduction/substitution failed:
+main.cpp:18:18: note:   couldn't deduce template parameter 'out'
+     fnk(&print, 5);
+                  ^
