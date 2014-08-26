@@ -13,12 +13,10 @@ log() {
 log "$(basename $0) started"
 
 
-rm -f .stdout
-mkfifo .stdout
-chown webserver:coliru .stdout
-
 while true ; do
     while read line ; do 
         log "$line"
     done <.stdout
 done
+
+log "*** EXIT LOGGER ***"
