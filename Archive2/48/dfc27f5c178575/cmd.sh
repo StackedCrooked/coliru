@@ -1,0 +1,1 @@
+clang++ -g -O0 -std=c++11 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -fno-elide-constructors main.cpp && ./a.out
