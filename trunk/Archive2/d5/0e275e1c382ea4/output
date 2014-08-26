@@ -1,0 +1,15 @@
++ g++-4.9 -std=c++03 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp: In static member function 'static std::vector<unsigned int> BS::initFileSizes(unsigned int, unsigned int, unsigned int)':
+main.cpp:32:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=0; i<numOfFiles; ++i) sizes.push_back((min + rand()%max));
+                 ^
++ ./a.out
++ clang++ -std=c++03 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:32:58: warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+  for(int i=0; i<numOfFiles; ++i) sizes.push_back((min + rand()%max));
+                                                         ^~~~~~~
+main.cpp:32:17: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+  for(int i=0; i<numOfFiles; ++i) sizes.push_back((min + rand()%max));
+               ~^~~~~~~~~~~
+2 warnings generated.
++ ./a.out
