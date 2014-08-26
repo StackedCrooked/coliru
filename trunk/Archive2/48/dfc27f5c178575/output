@@ -1,0 +1,52 @@
+main.cpp:4:1: error: expected class name
+{
+^
+main.cpp:20:5: error: base class 'A' has private default constructor
+    B(){}
+    ^
+main.cpp:5:5: note: implicitly declared private here
+    A(){}
+    ^
+main.cpp:18:10: error: base class 'A' has private destructor
+class B: public A
+         ^~~~~~~~
+main.cpp:6:5: note: implicitly declared private here
+    ~A(){}
+    ^
+main.cpp:18:10: error: base class 'A' has private destructor
+class B: public A
+         ^~~~~~~~
+main.cpp:6:5: note: implicitly declared private here
+    ~A(){}
+    ^
+main.cpp:28:12: error: 'methodZ' is a private member of 'A'
+        A::methodZ();
+           ^
+main.cpp:12:10: note: implicitly declared private here
+    void methodZ()
+         ^
+main.cpp:33:12: error: calling a private constructor of class 'B'
+B *b = new B();
+           ^
+main.cpp:20:5: note: implicitly declared private here
+    B(){}
+    ^
+main.cpp:34:1: error: unknown type name 'b'
+b->methodZ();
+^
+main.cpp:34:2: error: cannot use arrow operator on a type
+b->methodZ();
+ ^
+main.cpp:36:12: error: calling a private constructor of class 'B'
+A *a = new B();
+           ^
+main.cpp:20:5: note: implicitly declared private here
+    B(){}
+    ^
+main.cpp:37:1: error: unknown type name 'a'
+a->methodZ();
+^
+main.cpp:37:2: error: cannot use arrow operator on a type
+a->methodZ();
+ ^
+11 errors generated.
