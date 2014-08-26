@@ -318,8 +318,8 @@ def safe_popen(cmd)
     rescue Exception => e
         yield e.to_s
     ensure
-        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") { || }
-        IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") {||}
+        IO.popen("timeout 1 ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") { || }
+        IO.popen("timeout 1 ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") {||}
         Process.wait fd.pid
     end
 end
