@@ -6,10 +6,9 @@ ps -eopid,comm | grep '_logger.sh' | grep -v grep | awk '{print $1}' | while rea
      kill -9 $line
 done
 
-rm -f .stdout
-mkfifo .stdout
+[ -p .stdout ] || mkfifo .stdout
 chown webserver:coliru .stdout
 
 while true ; do
     ./_logger.sh 
-done & disown
+done

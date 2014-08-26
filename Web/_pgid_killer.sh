@@ -1,19 +1,16 @@
 #!/bin/bash
 
-# FIXME: This seems to block the loop
-source logger.source
-
-
 while true ; do 
     while true ; do
         read line <.pgid_killer
         echo "$(basename $0): request for killing pgid '$line'"
         [ "$line" != "" ] && {
+            logger "$(basename $0): killing $line" 
             kill -9 -${line}
         }
     done 
-    logger "$(basename ${0}): broken out of loop"
+    logger "$(basename ${0}): *** BROKEN LOOP **** "
     sleep 10
 done
 
-logger "*** $(basename $0): EXITED ***"
+logger "$(basename $0): *** EXITED ***"
