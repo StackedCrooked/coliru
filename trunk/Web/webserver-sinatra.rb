@@ -216,8 +216,8 @@ get '/archive' do
 
     id = "#{params[:id]}"
     stdout = IO.popen("./id2existingpath.sh #{id}")
+    Process.detach stdout.pid
     path = stdout.read.strip
-    Process.wait stdout.pid
     result = {       
         :cmd => get_contents.call(path, 'cmd.sh'),        
         :src => get_contents.call(path, 'main.cpp'),      
@@ -249,7 +249,9 @@ get '/log' do
     cmd = grep ? "tail -n#{count} /var/log/syslog 2>&1 | grep -i '#{grep}'" : "tail -n#{count} /var/log/syslog 2>&1"
     stream do |out|
         out << "Log command: " << cmd << "\n"
-        out << IO.popen(cmd).read
+        fd = IO.popen(cmd)
+        Process.detach fd.pid
+        out << fd.read
     end
 end
 
