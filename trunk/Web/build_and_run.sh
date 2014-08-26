@@ -30,5 +30,4 @@ set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
 # Run the command in the chroot and create a new pgid.
-# Use max timeout of 60 seconds.
-setsid sudo -u sandbox chroot ${CHROOT} timeout 60 bash -c "${CMD}"
+setsid sudo -u sandbox chroot ${CHROOT} timeout 65 bash -c "${CMD}"
