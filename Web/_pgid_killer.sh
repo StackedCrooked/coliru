@@ -5,7 +5,6 @@ while true ; do
         read line <.pgid_killer
         echo "$(basename $0): request for killing pgid '$line'"
         [ "$line" != "" ] && {
-            logger "$(basename $0): killing $line" 
             kill -9 -${line}
         }
     done 

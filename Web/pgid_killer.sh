@@ -8,4 +8,4 @@ while true ; do
     ./_pgid_killer.sh
     logger "$(basename ${0}): _pgid_killer.sh stopped. Restarting soon." 
     sleep 10
-done
+done >/dev/null 2>&1 </dev/null & disown
