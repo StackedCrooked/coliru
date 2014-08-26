@@ -80,7 +80,7 @@ post '/compile' do
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh 2>&1") { |line| result += line }
+                safe_popen("INPUT_FILES_DIR=#{dir} timeout #{get_timeout} ./sandbox.sh 2>&1") { |line| result += line }
                 FileUtils.rmtree(dir)
                 log_request(rid, "/compile", "done")
             end
@@ -316,20 +316,11 @@ def safe_popen(cmd)
             end
         end
     rescue Exception => e
-        log "safe_popen: caught general exception: #{e.to_s}"
         yield e.to_s
     ensure
-        log "safe_popen: kill 200"
-        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line; done") {||} # blocks until finished
-
-        log "safe_popen: kill sandbox.sh"
-        IO.popen("ps -eopid,args | grep sandbox.sh | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 $line; done") {||} # blocks until finished
-        IO.popen("ps -eopid,args | grep 2001 | grep -v grep | grep -v ruby | sort -u | while read line ; do kill -9 $line; done") {||} # blocks until finished
-
-        log "safe_popen: wait for pid"
+        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") { || }
+        IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer") {||}
         Process.wait fd.pid
-
-        log "done"
     end
 end
 
