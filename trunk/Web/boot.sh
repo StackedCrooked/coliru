@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # Start the logger
-setsid ./logger.sh & disown
+nohup ./logger.sh &
 
 # Start the killer helper
-setsid ./pgid_killer.sh & disown
+nohup ./pgid_killer.sh &
 
 # Start cache cleanup script
-setsid ./cleanup-cache.sh & disown
+nohup ./cleanup-cache.sh &
 
 # Repair permissions
-setsid ./repair-permissions.sh & disown
+nohup ./repair-permissions.sh &
 
 # Monitor
-setsid ./monitor.sh & disown
+nohup ./monitor.sh &
 
 # Start the webserver
-setsid ./restart.sh & disown
+nohup ./restart.sh &
 
-setsid bash -c "sleep $((4 * 3600)) ; /sbin/reboot" & disown
+nohup bash -c "sleep $((4 * 3600)) ; /sbin/reboot" &
