@@ -1,0 +1,15 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:9:22: error: no matching function for call to 'foo(C<4u>, <brace-enclosed initializer list>)'
+   foo(C<4>(), {1,2,3});
+                      ^
+main.cpp:9:22: note: candidate is:
+main.cpp:5:6: note: template<unsigned int N> void foo(C<N>, const int (&)[N])
+ void foo(C<N>, const int (& /*x*/)[N]) {}
+      ^
+main.cpp:5:6: note:   template argument deduction/substitution failed:
+main.cpp:9:22: note:   deduced conflicting values for non-type parameter 'N' ('4u' and '3')
+   foo(C<4>(), {1,2,3});
+                      ^
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
++ ./a.out
