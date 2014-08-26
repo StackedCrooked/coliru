@@ -318,9 +318,9 @@ def safe_popen(cmd)
     rescue Exception => e
         yield e.to_s
     ensure
-        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer & disown") { || }
-        IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer & disown") {||}
-        Process.wait fd.pid
+        Process.detach IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer").pid
+        Process.detach IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer").pid
+        Process.detach fd.pid
     end
 end
 
