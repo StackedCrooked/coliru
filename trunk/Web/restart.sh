@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkill -u 2001
+pkill -u 2002
 
 # Kill previous instance of _restart.sh (if any)
 ps -eopid,comm | grep '_restart.sh' | grep -v grep | awk '{print $1}' | while read line;  do
@@ -7,4 +9,4 @@ ps -eopid,comm | grep '_restart.sh' | grep -v grep | awk '{print $1}' | while re
      kill -9 $line
 done
 
-./_restart.sh & disown
+setsid ./_restart.sh & disown

@@ -314,44 +314,22 @@ def safe_popen(cmd)
                 end
                 cur_char_count += 1
             end
-
-            Process.wait fd.pid
         end
-    rescue Timeout::Error => e
+    rescue Exception => e
+        log "safe_popen: caught general exception: #{e.to_s}"
+        yield e.to_s
+    ensure
+        log "safe_popen: kill 200"
+        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line; done") {||} # blocks until finished
 
-        # start kill job
-        log "safe_popen: Timeout occurred. Killing the chrooted process."
+        log "safe_popen: kill sandbox.sh"
+        IO.popen("ps -eopid,args | grep sandbox.sh | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 $line; done") {||} # blocks until finished
+        IO.popen("ps -eopid,args | grep 2001 | grep -v grep | grep -v ruby | sort -u | while read line ; do kill -9 $line; done") {||} # blocks until finished
 
-        # kill the process:
-        #   find pgids for user 2002 and kill them all 
-        #   however, since we don't have kill permissions
-        #   we delegate this task to pgid_killer.sh
-        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
-
-        # prevent defunct state
+        log "safe_popen: wait for pid"
         Process.wait fd.pid
 
-        # return exception message to user
-        log "Ok. Return exception string to user. message=#{e.to_s}"
-        yield e.to_s
-
-    rescue Exception => e
-        # We don't expect to come here
-        log "safe_popen: caught general exception: #{e.to_s}"
-
-        # NOTE: don't detach and let the process go defunct
-        # This is a temporary measure because I susspect this hangs sometimes.
-
-        # kill the process:
-        #   find pgids for user 2002 and kill them all 
-        #   however, since we don't have kill permissions
-        #   we delegate this task to pgid_killer.sh
-        IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do echo $line >.pgid_killer ; done") {||} # blocks until finished
-         
-        # Return the exception string.
-        log "Non-timeout exception occurred during compile: #{e.to_s}"
-        log "Don't wait for webserver process to finish."
-        yield e.to_s
+        log "done"
     end
 end
 
