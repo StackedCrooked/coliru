@@ -3,10 +3,6 @@
 set -e
 source coliru_env.source
 
-# Kill any remaining sandbox processes
-ps -eouid,pgid | sed -E 's,^[[:space:]]+,,' | grep ^2002 | awk '{print $2}' >.pgid_killer
-
-
 # check if INPUT_FILES_DIR is set.
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR not set." 1>&2 ; exit 1 ; }
 

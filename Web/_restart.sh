@@ -21,15 +21,12 @@ num_restarts=0
 while true ; do 
     num_restarts="$(($num_restarts + 1))"
     echo "*** STARTING WEBSERVER (num_restarts=${num_restarts}) ***"
-    ./run.sh && {
-        echo "*** WEBSERVER STOPPED: $? "
-    } || {
-        echo "*** WEBSERVER CRASHED: $? "
-    }
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    ./run.sh && { echo "*** WEBSERVER STOPPED: $? " ; } || { echo "*** WEBSERVER CRASHED: $? " ; } ; sleep 10
+    reboot
 
-    pkill -u 2002
-    pkill -u 2001
-
-    # Prevent spinning in case something is wrong
-    sleep 10
 done & disown
