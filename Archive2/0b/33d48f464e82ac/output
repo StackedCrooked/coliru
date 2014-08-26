@@ -1,0 +1,52 @@
+main.cpp:4:1: error: expected class name
+{
+^
+main.cpp:20:5: error: base class 'A' has private default constructor
+    B(){}
+    ^
+main.cpp:5:5: note: implicitly declared private here
+    A(){}
+    ^
+main.cpp:18:10: error: base class 'A' has private destructor
+class B: public A
+         ^~~~~~~~
+main.cpp:6:5: note: implicitly declared private here
+    ~A(){}
+    ^
+main.cpp:18:10: error: base class 'A' has private destructor
+class B: public A
+         ^~~~~~~~
+main.cpp:6:5: note: implicitly declared private here
+    ~A(){}
+    ^
+main.cpp:28:12: error: 'methodZ' is a private member of 'A'
+        A::methodZ();
+           ^
+main.cpp:12:10: note: implicitly declared private here
+    void methodZ()
+         ^
+main.cpp:34:16: error: calling a private constructor of class 'B'
+    B *b = new B();
+               ^
+main.cpp:20:5: note: implicitly declared private here
+    B(){}
+    ^
+main.cpp:35:8: error: 'methodZ' is a private member of 'B'
+    b->methodZ();
+       ^
+main.cpp:27:10: note: implicitly declared private here
+    void methodZ() {
+         ^
+main.cpp:37:16: error: calling a private constructor of class 'B'
+    A *a = new B();
+               ^
+main.cpp:20:5: note: implicitly declared private here
+    B(){}
+    ^
+main.cpp:38:8: error: 'methodZ' is a private member of 'A'
+    a->methodZ();
+       ^
+main.cpp:12:10: note: implicitly declared private here
+    void methodZ()
+         ^
+9 errors generated.
