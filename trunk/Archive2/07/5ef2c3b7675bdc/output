@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:6:33: error: no type named 'type' in 'D'
+    void doit(typename Derived::type x) { // <---- B needs Derived's type
+              ~~~~~~~~~~~~~~~~~~^~~~
+main.cpp:11:12: note: in instantiation of template class 'B<D>' requested here
+struct D : B<D>
+           ^
+1 error generated.
