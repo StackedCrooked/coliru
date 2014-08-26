@@ -16,15 +16,4 @@ chown -R webserver:coliru /tmp
 /sbin/iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
 
 # Start the webserver
-
-num_restarts=0
-while true ; do 
-    num_restarts="$(($num_restarts + 1))"
-    echo "*** STARTING WEBSERVER (num_restarts=${num_restarts}) ***"
-    ./run.sh && {
-        echo "*** WEBSERVER STOPPED: $? " 
-    } || {
-        echo "*** WEBSERVER CRASHED: $? " 
-    }
-    sleep 10
-done & disown
+./run.sh
