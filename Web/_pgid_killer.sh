@@ -1,15 +1,13 @@
 #!/bin/bash
 
+cd "$(dirname $0)"
+
 while true ; do 
-    while true ; do
-        read line <.pgid_killer
-        echo "$(basename $0): request for killing pgid '$line'"
+    while read line ;do
         [ "$line" != "" ] && {
             kill -9 -${line}
         }
-    done 
-    logger "$(basename ${0}): *** BROKEN LOOP **** "
+    done <.pgid_killer
     sleep 10
 done
 
-logger "$(basename $0): *** EXITED ***"
