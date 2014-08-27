@@ -1,0 +1,57 @@
+test 1 - temporaries
+Int(16)
+Int(15)
+Int(14)
+Int(13)
+Int(12)
+Int(11)
+Int&& operator+(const Int& rhs) && [11 12]
+Int&& operator+=(Int&& rhs) && [11 12]
+Int&& operator+(const Int& rhs) && [23 13]
+Int&& operator+=(Int&& rhs) && [23 13]
+Int&& operator+(const Int& rhs) && [36 14]
+Int&& operator+=(Int&& rhs) && [36 14]
+Int&& operator+(const Int& rhs) && [50 15]
+Int&& operator+=(Int&& rhs) && [50 15]
+Int&& operator+(const Int& rhs) && [65 16]
+Int&& operator+=(Int&& rhs) && [65 16]
+Int(Int &&) [81]
+~Int()[81]
+~Int()[12]
+~Int()[13]
+~Int()[14]
+~Int()[15]
+~Int()[16]
+result: 81
+~Int()[81]
+Number of constructions/destructions: 7
+
+test 2 - variables
+Int(31)
+Int(32)
+Int(33)
+Int(34)
+Int(35)
+Int(36)
+Int operator+(const Int& rhs) const & [31 32]
+Int(63)
+Int&& operator+(const Int& rhs) && [63 33]
+Int&& operator+=(Int&& rhs) && [63 33]
+Int&& operator+(const Int& rhs) && [96 34]
+Int&& operator+=(Int&& rhs) && [96 34]
+Int&& operator+(const Int& rhs) && [130 35]
+Int&& operator+=(Int&& rhs) && [130 35]
+Int&& operator+(const Int& rhs) && [165 36]
+Int&& operator+=(Int&& rhs) && [165 36]
+Int(Int &&) [201]
+~Int()[201]
+result: 201
+~Int()[201]
+~Int()[36]
+~Int()[35]
+~Int()[34]
+~Int()[33]
+~Int()[32]
+~Int()[31]
+Number of constructions/destructions: 8
+
