@@ -320,8 +320,8 @@ def safe_popen(cmd)
     rescue Exception => e
         yield e.to_s
     ensure
-        Process.detach IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer").pid
-        Process.detach IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u >.pgid_killer").pid
+        Process.detach IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line ; done").pid
+        Process.detach IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line ; done").pid
         Process.detach fd.pid
     end
 end
