@@ -1,0 +1,29 @@
++ g++ -O2 -std=c++11 -pedantic -Wall -Wextra -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:12:14: error: no matching function for call to 'Test(int)'
+     Test<B>(0);
+              ^
+main.cpp:12:14: note: candidate is:
+main.cpp:8:27: note: template<class U> void Test(SFINAE<U, (& U:: a)>*)
+ template<typename U> void Test(SFINAE<U, &U::a>*) { }
+                           ^
+main.cpp:8:27: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class U> void Test(SFINAE<U, (& U:: a)>*) [with U = B]':
+main.cpp:12:14:   required from here
+main.cpp:8:27: error: could not convert template argument '&A::a' to 'void (B::*)() const'
++ clang++ -O2 -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:12:5: error: no matching function for call to 'Test'
+    Test<B>(0);
+    ^~~~~~~
+main.cpp:8:27: note: candidate template ignored: substitution failure [with U = B]: non-type template argument of type 'void (A::*)() const' cannot be converted to a value of type 'void (B::*)() const'
+template<typename U> void Test(SFINAE<U, &U::a>*) { }
+                          ^              ~
+1 error generated.
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:12:5: error: no matching function for call to 'Test'
+    Test<B>(0);
+    ^~~~~~~
+main.cpp:8:27: note: candidate template ignored: substitution failure [with U = B]: non-type template argument of type 'void (A::*)() const' cannot be converted to a value of type 'void (B::*)() const'
+template<typename U> void Test(SFINAE<U, &U::a>*) { }
+                          ^              ~
+1 error generated.
