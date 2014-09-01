@@ -1,0 +1,23 @@
+main.cpp:2:1: error: 'main' must return 'int'
+void main()
+^~~~
+int
+main.cpp:4:21: warning: implicit declaration of function 'fun' is invalid in C99 [-Wimplicit-function-declaration]
+        printf("%d",fun(5));
+                    ^
+main.cpp:7:6: error: conflicting types for 'fun'
+void fun(int i)
+     ^
+main.cpp:4:21: note: previous implicit declaration is here
+        printf("%d",fun(5));
+                    ^
+main.cpp:9:17: error: void function 'fun' should not return a value [-Wreturn-type]
+        if(i%2) return i;
+                ^      ~
+main.cpp:10:14: error: void function 'fun' should not return a value [-Wreturn-type]
+        else return i+2;
+             ^      ~~~
+main.cpp:11:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+2 warnings and 4 errors generated.
