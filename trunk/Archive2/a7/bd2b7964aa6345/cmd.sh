@@ -1,0 +1,1 @@
+set -x; g++ -O3 -std=c++1y -Wall -pedantic -pthread -fno-elide-constructors main.cpp && ./a.out; echo $?
