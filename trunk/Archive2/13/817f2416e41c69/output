@@ -1,0 +1,10 @@
+main.cpp:80:2: error: ‘template<long unsigned int n, long unsigned int m, class T> template<class I, class> q<n, m, T>::q(I)’ cannot be overloaded
+  q( I u ) : res( static_cast<T>( u << m ) ) {
+  ^
+main.cpp:75:2: error: with ‘template<long unsigned int n, long unsigned int m, class T> template<class F, class> q<n, m, T>::q(F)’
+  q( F f ) : res( static_cast<T>( f * detail::t_pow<2, m>::value ) ) {
+  ^
+main.cpp: In function ‘int main()’:
+main.cpp:87:20: error: conversion from ‘int’ to non-scalar type ‘q<26ul, 6ul>’ requested
+     q<26, 6> arf = 20;
+                    ^
