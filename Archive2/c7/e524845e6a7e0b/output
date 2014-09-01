@@ -1,0 +1,17 @@
++ g++-4.9 -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp:7:1: warning: extra tokens at end of #include directive
+ #include <iostream>
+ ^
+main.cpp: In destructor ‘exception_wrapper<Func, Args>::~exception_wrapper()’:
+main.cpp:31:13: error: ‘cerr’ is not a member of ‘std’
+             std::cerr << "Caught exception: " << e.what() << std::endl;
+             ^
+main.cpp:31:62: error: ‘endl’ is not a member of ‘std’
+             std::cerr << "Caught exception: " << e.what() << std::endl;
+                                                              ^
+main.cpp:33:13: error: ‘cerr’ is not a member of ‘std’
+             std::cerr << "Caught unknown exception" << std::endl;
+             ^
+main.cpp:33:56: error: ‘endl’ is not a member of ‘std’
+             std::cerr << "Caught unknown exception" << std::endl;
+                                                        ^
