@@ -1,0 +1,10 @@
++ g++-4.9 -std=c++1y -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+main.cpp: In member function ‘void A::changeMemberFromConstMethod() const’:
+main.cpp:21:29: error: no matching function for call to ‘B::setVal() const’
+             this->b->setVal();
+                             ^
+main.cpp:21:29: note: candidate is:
+main.cpp:7:14: note: void B::setVal() <near match>
+         void setVal(){
+              ^
+main.cpp:7:14: note:   no known conversion for implicit ‘this’ parameter from ‘const B*’ to ‘B*’
