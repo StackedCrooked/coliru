@@ -1,0 +1,78 @@
+main.cpp: In function ‘int countIslands()’:
+main.cpp:4:29: error: ‘numRows’ was not declared in this scope
+     for (int row = 0; row < numRows; row++) {
+                             ^
+main.cpp:5:31: error: ‘numCols’ was not declared in this scope
+       for (int col = 0; col < numCols; col++) {
+                               ^
+main.cpp:6:9: error: ‘pos’ was not declared in this scope
+         pos currPos = pos(row, col);
+         ^
+main.cpp:8:22: error: ‘currPos’ was not declared in this scope
+         if (isIsland(currPos) && !isVisited(currPos)) {
+                      ^
+main.cpp:8:29: error: ‘isIsland’ was not declared in this scope
+         if (isIsland(currPos) && !isVisited(currPos)) {
+                             ^
+main.cpp:8:52: error: ‘isVisited’ was not declared in this scope
+         if (isIsland(currPos) && !isVisited(currPos)) {
+                                                    ^
+main.cpp:10:40: error: ‘findCompleteIslandDFS’ was not declared in this scope
+           findCompleteIslandDFS(currPos);
+                                        ^
+main.cpp: At global scope:
+main.cpp:18:36: error: ‘pos’ does not name a type
+   void findCompleteIslandDFS(const pos &start) {
+                                    ^
+main.cpp: In function ‘void findCompleteIslandDFS(const int&)’:
+main.cpp:19:5: error: ‘pos’ was not declared in this scope
+     pos currPos = start;
+     ^
+main.cpp:20:5: error: ‘queue’ was not declared in this scope
+     queue<pos> q;
+     ^
+main.cpp:20:16: error: ‘q’ was not declared in this scope
+     queue<pos> q;
+                ^
+main.cpp:21:12: error: ‘currPos’ was not declared in this scope
+     q.push(currPos);
+            ^
+main.cpp:27:29: error: ‘isVisited’ was not declared in this scope
+       if (!isVisited(currPos)) {
+                             ^
+main.cpp:28:27: error: ‘setVisited’ was not declared in this scope
+         setVisited(currPos);
+                           ^
+main.cpp:33:7: error: ‘vector’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+       ^
+main.cpp:33:14: error: ‘Direction’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+              ^
+main.cpp:33:25: error: ‘moveDirs’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+                         ^
+main.cpp:33:37: error: ‘LEFT’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+                                     ^
+main.cpp:33:43: error: ‘RIGHT’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+                                           ^
+main.cpp:33:50: error: ‘UP’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+                                                  ^
+main.cpp:33:54: error: ‘DOWN’ was not declared in this scope
+       vector<Direction> moveDirs = {LEFT, RIGHT, UP, DOWN};
+                                                      ^
+main.cpp:34:21: error: unable to deduce ‘auto&&’ from ‘moveDirs’
+       for (auto m : moveDirs) {
+                     ^
+main.cpp:35:31: error: ‘canMove’ was not declared in this scope
+         if (canMove(currPos, m)) {
+                               ^
+main.cpp:36:15: error: expected ‘;’ before ‘newPos’
+           pos newPos = move(currPos, m);
+               ^
+main.cpp:37:18: error: ‘newPos’ was not declared in this scope
+           q.push(newPos);
+                  ^
