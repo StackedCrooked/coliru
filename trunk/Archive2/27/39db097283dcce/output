@@ -1,0 +1,11 @@
+main.cpp:23:19: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    Cvector fooF6 ( int(), int() ) ; // this can be a declaration; mvp
+                  ^~~~~~~~~~~~~~~~
+main.cpp:23:21: note: add a pair of parentheses to declare a variable
+    Cvector fooF6 ( int(), int() ) ; // this can be a declaration; mvp
+                    ^
+                    (    )
+main.cpp:26:13: error: illegal initializer type 'Cvector (int (*)(), int (*)())'
+    fooF6 = { 1, 2 } ; // **** error: assignment to function
+            ^
+1 warning and 1 error generated.
