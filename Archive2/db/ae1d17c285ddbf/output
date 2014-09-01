@@ -1,0 +1,53 @@
++ clang++ -std=c++11 -stdlib=libc++ -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$3, %edi
+	callq	_Z15elaborateHandle6handle
+	xorl	%eax, %eax
+	popq	%rdx
+	ret
+.Ltmp2:
+	.size	main, .Ltmp2-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.4.2 (tags/RELEASE_342/final 216574)"
+	.section	".note.GNU-stack","",@progbits
++ g++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.section	.text.startup,"ax",@progbits
+.LHOTB0:
+	.p2align 5,,31
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$3, %edi
+	call	_Z15elaborateHandle6handle
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE0:
+	.section	.text.startup
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
