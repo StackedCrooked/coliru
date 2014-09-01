@@ -1,0 +1,31 @@
+main.cpp:17:5: error: call to 'test' is ambiguous
+    test(nullptr);
+    ^~~~
+main.cpp:12:6: note: candidate function
+void test(NullPtr /*p*/) {}
+     ^
+main.cpp:13:6: note: candidate function
+void test(Bool /*v*/) {}
+     ^
+1 error generated.
+main.cpp: In function ‘int main(int, const char**)’:
+main.cpp:17:17: error: call of overloaded ‘test(std::nullptr_t)’ is ambiguous
+     test(nullptr);
+                 ^
+main.cpp:17:17: note: candidates are:
+main.cpp:12:6: note: void test(NullPtr)
+ void test(NullPtr /*p*/) {}
+      ^
+main.cpp:13:6: note: void test(Bool)
+ void test(Bool /*v*/) {}
+      ^
+main.cpp:19:15: error: call of overloaded ‘test(bool)’ is ambiguous
+     test(false);
+               ^
+main.cpp:19:15: note: candidates are:
+main.cpp:12:6: note: void test(NullPtr)
+ void test(NullPtr /*p*/) {}
+      ^
+main.cpp:13:6: note: void test(Bool)
+ void test(Bool /*v*/) {}
+      ^
