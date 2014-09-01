@@ -1,0 +1,30 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_construct.h:75:38: error: call to deleted constructor of 'Foo'
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+                                     ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<Foo, Foo>' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:125:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<Foo *>, Foo *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:278:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::move_iterator<Foo *>, Foo *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_uninitialized.h:299:19: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::move_iterator<Foo *>, Foo *, Foo>' requested here
+      return std::__uninitialized_copy_a
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:418:15: note: in instantiation of function template specialization 'std::__uninitialized_move_if_noexcept_a<Foo *, Foo *, std::allocator<Foo> >' requested here
+              = std::__uninitialized_move_if_noexcept_a
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:101:4: note: in instantiation of function template specialization 'std::vector<Foo, std::allocator<Foo> >::_M_emplace_back_aux<>' requested here
+          _M_emplace_back_aux(std::forward<_Args>(__args)...);
+          ^
+main.cpp:12:10: note: in instantiation of function template specialization 'std::vector<Foo, std::allocator<Foo> >::emplace_back<>' requested here
+    foos.emplace_back();
+         ^
+main.cpp:6:5: note: function has been explicitly marked deleted here
+    Foo(const Foo&) = delete;
+    ^
+1 error generated.
