@@ -1,0 +1,12 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:30:14: error: no member named 'one' in 'two::Foo'; did you mean simply 'one'?
+    operator Foo::one::Bar()
+             ^~~~~~~~
+             one
+main.cpp:13:11: note: 'one' declared here
+namespace one
+          ^
+main.cpp:30:5: error: conversion function must be a non-static member function
+    operator Foo::one::Bar()
+    ^
+2 errors generated.
