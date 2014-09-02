@@ -1,0 +1,31 @@
+main.cpp:43:7: error: call to member function 'test' is ambiguous
+    o.test(nullptr); // calls SmartPtr version
+    ~~^~~~
+main.cpp:36:10: note: candidate function
+    void test(SmartPtr<Object> /*p*/) { cout << "smartptr version!" << endl; }
+         ^
+main.cpp:37:10: note: candidate function
+    void test(Variant /*v*/) { cout << "variant version!" << endl; }
+         ^
+1 error generated.
+main.cpp: In function ‘int main(int, const char**)’:
+main.cpp:43:19: error: call of overloaded ‘test(std::nullptr_t)’ is ambiguous
+     o.test(nullptr); // calls SmartPtr version
+                   ^
+main.cpp:43:19: note: candidates are:
+main.cpp:36:10: note: void Obj::test(SmartPtr<Object>)
+     void test(SmartPtr<Object> /*p*/) { cout << "smartptr version!" << endl; }
+          ^
+main.cpp:37:10: note: void Obj::test(Variant)
+     void test(Variant /*v*/) { cout << "variant version!" << endl; }
+          ^
+main.cpp:45:17: error: call of overloaded ‘test(bool)’ is ambiguous
+     o.test(false); // -> compiler error: ambiguous call to overloaded function
+                 ^
+main.cpp:45:17: note: candidates are:
+main.cpp:36:10: note: void Obj::test(SmartPtr<Object>)
+     void test(SmartPtr<Object> /*p*/) { cout << "smartptr version!" << endl; }
+          ^
+main.cpp:37:10: note: void Obj::test(Variant)
+     void test(Variant /*v*/) { cout << "variant version!" << endl; }
+          ^
