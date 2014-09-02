@@ -1,0 +1,16 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:46:5: error: constructor for 'EulMaru<BoxMull<std::__1::mersenne_twister_engine<unsigned long, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253> > >' must explicitly initialize the member 'N' which does not have a default constructor
+    EulMaru(double init_stock, double drift, double vol, double maturity, norm_gen n )
+    ^
+main.cpp:71:25: note: in instantiation of member function 'EulMaru<BoxMull<std::__1::mersenne_twister_engine<unsigned long, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253> > >::EulMaru' requested here
+  EulMaru <decltype(b)> e(50, 0.1, 0.3, 1.0, b);
+                        ^
+main.cpp:44:14: note: member is declared here
+    norm_gen N;
+             ^
+main.cpp:8:7: note: 'BoxMull<std::__1::mersenne_twister_engine<unsigned long, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253> >' declared here
+class BoxMull
+      ^
+1 error generated.
