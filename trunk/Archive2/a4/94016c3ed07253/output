@@ -1,0 +1,27 @@
+main.cpp: In function ‘int main()’:
+main.cpp:6:50: error: in C++98 ‘l’ must be initialized by constructor, not by ‘{...}’
+     std::list<int> l = { 1,100,2,3,10,1,11,-1,12 };
+                                                  ^
+main.cpp:6:50: error: could not convert ‘{1, 100, 2, 3, 10, 1, 11, -1, 12}’ from ‘<brace-enclosed initializer list>’ to ‘std::list<int>’
+main.cpp:9:43: error: lambda expressions only available with -std=c++11 or -std=gnu++11
+     l.remove_if([](int n){ return n > 10; }); // remove all elements greater than 10
+                                           ^
+main.cpp:9:44: error: no matching function for call to ‘std::list<int>::remove_if(main()::__lambda0)’
+     l.remove_if([](int n){ return n > 10; }); // remove all elements greater than 10
+                                            ^
+main.cpp:9:44: note: candidate is:
+In file included from /usr/include/c++/4.8/list:63:0,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_list.h:1363:9: note: template<class _Predicate> void std::list<_Tp, _Alloc>::remove_if(_Predicate) [with _Predicate = _Predicate; _Tp = int; _Alloc = std::allocator<int>]
+         remove_if(_Predicate);
+         ^
+/usr/include/c++/4.8/bits/stl_list.h:1363:9: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of ‘template<class _Predicate> void std::list<_Tp, _Alloc>::remove_if(_Predicate) [with _Predicate = _Predicate; _Tp = int; _Alloc = std::allocator<int>] [with _Predicate = main()::__lambda0]’:
+main.cpp:9:44:   required from here
+main.cpp:9:44: error: template argument for ‘template<class _Tp, class _Alloc> template<class _Predicate> void std::list<_Tp, _Alloc>::remove_if(_Predicate)’ uses local type ‘main()::__lambda0’
+     l.remove_if([](int n){ return n > 10; }); // remove all elements greater than 10
+                                            ^
+main.cpp:9:44: error:   trying to instantiate ‘template<class _Tp, class _Alloc> template<class _Predicate> void std::list<_Tp, _Alloc>::remove_if(_Predicate)’
+main.cpp:11:18: error: range-based ‘for’ loops are not allowed in C++98 mode
+     for (int n : l) {
+                  ^
