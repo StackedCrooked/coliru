@@ -1,0 +1,20 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -Wall -Wextra -Wconversion -pedantic -O0 -Wall -pthread main.cpp
+main.cpp:5:12: warning: returning reference to local temporary object [-Wreturn-stack-address]
+    return { 'T', 'E', 'S', 'T' };
+           ^~~~~~~~~~~~~~~~~~~~~~
+main.cpp:14:19: error: constexpr variable 's' must be initialized by a constant expression
+    constexpr int s = sum(get_str());
+                  ^   ~~~~~~~~~~~~~~
+main.cpp:9:12: note: read of temporary whose lifetime has ended
+    return str[0] + str[1] + str[2] + str[3];
+           ^
+main.cpp:14:23: note: in call to 'sum({ 'T', 'E', 'S', 'T' })'
+    constexpr int s = sum(get_str());
+                      ^
+main.cpp:5:12: note: temporary created here
+    return { 'T', 'E', 'S', 'T' };
+           ^
+1 warning and 1 error generated.
