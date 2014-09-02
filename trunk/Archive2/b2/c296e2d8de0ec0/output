@@ -1,0 +1,36 @@
++ g++-4.9 -std=c++1y -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+main.cpp: In instantiation of ‘struct EnableWhenEqual<int, double>’:
+main.cpp:10:34:   required by substitution of ‘template<class T, class U, class Enable> void foo(T&&, U&&) [with T = int; U = double; Enable = <missing>]’
+main.cpp:22:14:   required from here
+main.cpp:7:70: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+     typedef typename std::enable_if<std::is_same<T, U>::value>::type type;
+                                                                      ^
+main.cpp: In function ‘int main()’:
+main.cpp:22:14: error: no matching function for call to ‘foo(int, double)’
+     foo(1,2.0);
+              ^
+main.cpp:22:14: note: candidate is:
+main.cpp:11:6: note: template<class T, class U, class Enable> void foo(T&&, U&&)
+ void foo(T&& t, U&& u)
+      ^
+main.cpp:11:6: note:   substitution of deduced template arguments resulted in errors seen above
++ clang++ -std=c++1y -O0 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -stdlib=libc++ -pthread main.cpp -lsupc++
+main.cpp:7:37: error: no type named 'type' in 'std::__1::enable_if<false, void>'; 'enable_if' cannot be used to disable this declaration
+    typedef typename std::enable_if<std::is_same<T, U>::value>::type type;
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:10:61: note: in instantiation of template class 'EnableWhenEqual<int, double>' requested here
+template<typename T, typename U, typename Enable = typename EnableWhenEqual<T,U>::type >
+                                                            ^
+main.cpp:11:6: note: in instantiation of default argument for 'foo<int, double>' required here
+void foo(T&& t, U&& u)
+     ^~~~~~~~~~~~~~~~~
+main.cpp:11:6: note: while substituting deduced template arguments into function template 'foo' [with T = int, U = double, Enable = <no value>]
+void foo(T&& t, U&& u)
+     ^
+main.cpp:22:5: error: no matching function for call to 'foo'
+    foo(1,2.0);
+    ^~~
+main.cpp:11:6: note: candidate template ignored: substitution failure [with T = int, U = double]
+void foo(T&& t, U&& u)
+     ^
+2 errors generated.
