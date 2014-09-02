@@ -1,0 +1,10 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:65:36: error: virtual function 'new_inner' has a different return type ('unique_ptr<struct Derived::Inner>') than the function it overrides (which has return type 'unique_ptr<struct Base::Inner>')
+    virtual std::unique_ptr<Inner> new_inner() override //problem
+                                   ^
+main.cpp:27:36: note: overridden virtual function is here
+    virtual std::unique_ptr<Inner> new_inner() = 0;
+                                   ^
+1 error generated.
