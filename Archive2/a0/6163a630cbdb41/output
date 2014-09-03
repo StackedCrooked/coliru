@@ -1,0 +1,12 @@
+main.cpp: In instantiation of ‘class test<some_policy>’:
+main.cpp:20:24:   required from here
+main.cpp:15:9: error: no type named ‘type’ in ‘struct boost::enable_if<boost::integral_constant<bool, false>, void>’
+    void do_something(typename boost::enable_if<typename policy::condition>::type* = 0) {}
+         ^
+main.cpp: In function ‘int main()’:
+main.cpp:19:24: warning: unused variable ‘p1’ [-Wunused-variable]
+     test<other_policy> p1;
+                        ^
+main.cpp:20:24: warning: unused variable ‘p2’ [-Wunused-variable]
+     test<some_policy>  p2;
+                        ^
