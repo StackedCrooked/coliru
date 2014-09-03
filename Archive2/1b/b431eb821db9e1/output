@@ -1,0 +1,10 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:76:44: error: virtual function 'produce' has a different return type ('unique_ptr<struct Derived::Inner>') than the function it overrides (which has return type 'unique_ptr<struct Base::Inner>')
+            virtual std::unique_ptr<Inner> produce() override //problem
+                                           ^
+main.cpp:27:44: note: overridden virtual function is here
+            virtual std::unique_ptr<Inner> produce() = 0;
+                                           ^
+1 error generated.
