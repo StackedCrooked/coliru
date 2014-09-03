@@ -1,0 +1,19 @@
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:12:10: error: use of deleted function ‘B::B(int)’
+     B b(3);
+          ^
+main.cpp:8:14: note: ‘B::B(int)’ is implicitly deleted because the default definition would be ill-formed:
+     using A::A;
+              ^
+main.cpp:8:14: error: no matching function for call to ‘A::A()’
+main.cpp:8:14: note: candidates are:
+main.cpp:4:14: note: A::A(int)
+     explicit A(int) { }
+              ^
+main.cpp:4:14: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr A::A(const A&)
+ struct A {
+        ^
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr A::A(A&&)
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
