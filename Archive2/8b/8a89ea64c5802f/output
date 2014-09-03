@@ -1,0 +1,73 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+Selected GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -v -resource-dir /usr/local/bin/../lib/clang/3.4.2 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/backward -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/x86_64-unknown-linux-gnu/c++/4.9.0 -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.4.2/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wall -pedantic -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1409726992-995646751 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o /tmp/main-b0d742.o -x c++ main.cpp
+clang -cc1 version 3.4.2 based upon LLVM 3.4.2 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/x86_64-unknown-linux-gnu/c++/4.9.0"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/backward
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.4.2/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/function.hpp:64:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:
+In file included from /usr/local/include/boost/function/detail/function_iterate.hpp:14:
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:
+/usr/local/include/boost/function/function_template.hpp:132:18: error: cannot initialize return object of type 'int' with an rvalue of type 'result_type' (aka 'void')
+          return (*f)(BOOST_FUNCTION_ARGS);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/function/function_template.hpp:934:53: note: in instantiation of member function 'boost::detail::function::function_obj_invoker1<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > >, int, int>::invoke' requested here
+        { { &manager_type::manage }, &invoker_type::invoke };
+                                                    ^
+/usr/local/include/boost/function/function_template.hpp:722:13: note: in instantiation of function template specialization 'boost::function1<int, int>::assign_to<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+      this->assign_to(f);
+            ^
+/usr/local/include/boost/function/function_template.hpp:1071:5: note: in instantiation of function template specialization 'boost::function1<int, int>::function1<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+    base_type(f)
+    ^
+/usr/local/include/boost/function/function_template.hpp:1126:5: note: in instantiation of function template specialization 'boost::function<int (int)>::function<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+    self_type(f).swap(*this);
+    ^
+main.cpp:29:22: note: in instantiation of function template specialization 'boost::function<int (int)>::operator=<boost::_bi::bind_t<void, boost::_mfi::mf0<void, player>, boost::_bi::list1<boost::_bi::value<player> > > >' requested here
+   playButton.onClick=boost::bind(&player::stop,thePlayer);
+                     ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/function.hpp:64:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:
+In file included from /usr/local/include/boost/function/detail/function_iterate.hpp:14:
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:
+/usr/local/include/boost/function/function_template.hpp:132:18: error: cannot initialize return object of type 'int' with an rvalue of type 'typename mem_fun1_t<void, player, int>::result_type' (aka 'void')
+          return (*f)(BOOST_FUNCTION_ARGS);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/function/function_template.hpp:934:53: note: in instantiation of member function 'boost::detail::function::function_obj_invoker1<std::binder1st<std::mem_fun1_t<void, player, int> >, int, int>::invoke' requested here
+        { { &manager_type::manage }, &invoker_type::invoke };
+                                                    ^
+/usr/local/include/boost/function/function_template.hpp:722:13: note: in instantiation of function template specialization 'boost::function1<int, int>::assign_to<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+      this->assign_to(f);
+            ^
+/usr/local/include/boost/function/function_template.hpp:1071:5: note: in instantiation of function template specialization 'boost::function1<int, int>::function1<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+    base_type(f)
+    ^
+/usr/local/include/boost/function/function_template.hpp:1126:5: note: in instantiation of function template specialization 'boost::function<int (int)>::function<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+    self_type(f).swap(*this);
+    ^
+main.cpp:33:22: note: in instantiation of function template specialization 'boost::function<int (int)>::operator=<std::binder1st<std::mem_fun1_t<void, player, int> > >' requested here
+   stopbutton.onClick=std::bind1st(std::mem_fun(&player::play),&thePlayer);
+                     ^
+2 errors generated.
