@@ -1,0 +1,35 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:6:5: error: unknown type name 'D'
+    D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+    ^
+main.cpp:6:31: error: no type named 'time_pont' in namespace 'std::chrono'
+    D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+                 ~~~~~~~~~~~~~^
+main.cpp:6:61: error: use of class template 'std::chrono::time_point' requires template arguments
+    D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+                                                            ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/chrono:546:14: note: template is declared here
+      struct time_point
+             ^
+main.cpp:6:7: error: no function template matches function template specialization 'difference'
+    D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+      ^
+main.cpp:8:43: error: use of undeclared identifier 'D'
+        return std::chrono::duration_cast<D>(stop-start);
+                                          ^
+main.cpp:18:10: error: no member named 'this_thread' in namespace 'std'
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ~~~~~^
+main.cpp:20:43: error: redefinition of 'start'
+    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+                                          ^
+main.cpp:16:43: note: previous definition is here
+    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+                                          ^
+main.cpp:23:47: error: expected '(' for function-style cast or type construction
+    auto res = difference<std::chrono::seconds>(start, stop);
+                          ~~~~~~~~~~~~~~~~~~~~^
+main.cpp:23:56: error: use of undeclared identifier 'stop'
+    auto res = difference<std::chrono::seconds>(start, stop);
+                                                       ^
+9 errors generated.
