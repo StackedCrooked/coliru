@@ -1,0 +1,44 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:69:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:340:16: error: 'operator=' is a private member of 'A'
+          *__position = __x_copy;
+          ~~~~~~~~~~~ ^ ~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:925:4: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::_M_insert_aux' requested here
+          _M_insert_aux(end(), __x);
+          ^
+main.cpp:18:5: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::push_back' requested here
+  v.push_back(a);
+    ^
+main.cpp:7:5: note: implicitly declared private here
+ A& operator= (const A& rhs);
+    ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:60:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:543:18: error: 'operator=' is a private member of 'A'
+            *--__result = *--__last;
+            ~~~~~~~~~~~ ^ ~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:596:45: note: in instantiation of function template specialization 'std::__copy_move_backward<false, false, std::random_access_iterator_tag>::__copy_move_b<A *, A *>' requested here
+                                       _Category>::__copy_move_b(__first,
+                                                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:605:24: note: in instantiation of function template specialization 'std::__copy_move_backward_a<false, A *, A *>' requested here
+      return _BI2(std::__copy_move_backward_a<_IsMove>
+                       ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:640:20: note: in instantiation of function template specialization 'std::__copy_move_backward_a2<false, A *, A *>' requested here
+      return (std::__copy_move_backward_a2<__is_move_iterator<_BI1>::__value>
+                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:336:4: note: in instantiation of function template specialization 'std::copy_backward<A *, A *>' requested here
+          _GLIBCXX_MOVE_BACKWARD3(__position.base(),
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:683:53: note: expanded from macro '_GLIBCXX_MOVE_BACKWARD3'
+#define _GLIBCXX_MOVE_BACKWARD3(_Tp, _Up, _Vp) std::copy_backward(_Tp, _Up, _Vp)
+                                                    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:925:4: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::_M_insert_aux' requested here
+          _M_insert_aux(end(), __x);
+          ^
+main.cpp:18:5: note: in instantiation of member function 'std::vector<A, std::allocator<A> >::push_back' requested here
+  v.push_back(a);
+    ^
+main.cpp:7:5: note: implicitly declared private here
+ A& operator= (const A& rhs);
+    ^
+2 errors generated.
