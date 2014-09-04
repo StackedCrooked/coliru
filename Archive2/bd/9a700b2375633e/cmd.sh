@@ -1,0 +1,1 @@
+clang -Wall -Wextra -Wpedantic main.cpp
