@@ -1,0 +1,16 @@
+main.cpp: In lambda function:
+main.cpp:10:88: error: ‘i’ was not declared in this scope
+     std::transform(s.begin(), s.end(), s.begin(), [](char c){return (char)std::toupper(i);});
+                                                                                        ^
+main.cpp: At global scope:
+main.cpp:10:60: warning: unused parameter ‘c’ [-Wunused-parameter]
+     std::transform(s.begin(), s.end(), s.begin(), [](char c){return (char)std::toupper(i);});
+                                                            ^
+main.cpp:10:60: warning: unused parameter ‘c’ [-Wunused-parameter]
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of ‘_OIter std::transform(_IIter, _IIter, _OIter, _UnaryOperation) [with _IIter = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; _OIter = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; _UnaryOperation = main()::__lambda0]’:
+main.cpp:10:92:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:4949:12: error: void value not ignored as it ought to be
+  *__result = __unary_op(*__first);
+            ^
