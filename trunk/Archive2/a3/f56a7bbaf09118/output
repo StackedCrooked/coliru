@@ -1,0 +1,61 @@
++ g++ -O2 -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:12:13: error: ‘template<class T> bar::bar(T)’ inherited from ‘foo’
+  using foo::foo;
+             ^
+main.cpp:12:13: error: conflicts with version inherited from ‘foo’
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:16:9: error: call to deleted constructor of 'bar'
+    bar b(1);
+        ^ ~
+main.cpp:12:13: note: deleted constructor was inherited here
+        using foo::foo;
+                   ^
+main.cpp:6:2: note: constructor cannot be inherited
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+        ^
+main.cpp:6:34: error: no type named 'type' in 'std::__1::enable_if<false, void>'; 'enable_if' cannot be used to disable this declaration
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:12:13: note: in instantiation of member function 'foo::foo' requested here
+        using foo::foo;
+                   ^
+main.cpp:12:13: note: while substituting deduced template arguments into function template 'bar' [with T = double]
+        using foo::foo;
+                   ^
+main.cpp:6:34: error: no type named 'type' in 'std::__1::enable_if<false, void>'; 'enable_if' cannot be used to disable this declaration
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:6:34: error: no type named 'type' in 'std::__1::enable_if<false, void>'; 'enable_if' cannot be used to disable this declaration
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:17:9: error: no matching constructor for initialization of 'bar'
+    bar bb(1.0);
+        ^  ~~~
+main.cpp:11:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'double' to 'const bar' for 1st argument
+struct bar : foo {
+       ^
+main.cpp:11:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'double' to 'bar' for 1st argument
+struct bar : foo {
+       ^
+main.cpp:12:13: note: candidate template ignored: substitution failure [with T = double]
+        using foo::foo;
+                   ^
+main.cpp:6:2: note: inherited from here
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+        ^
+main.cpp:12:13: note: candidate constructor (inherited) template not viable: requires 2 arguments, but 1 was provided
+        using foo::foo;
+                   ^
+main.cpp:6:2: note: inherited from here
+        foo(T , typename std::enable_if<std::is_integral<T>::value>::type * = nullptr) { std::cout << "integral" << std::endl; }
+        ^
+main.cpp:12:13: note: candidate constructor (inherited) template not viable: requires 2 arguments, but 1 was provided
+        using foo::foo;
+                   ^
+main.cpp:8:2: note: inherited from here
+        foo(T , typename std::enable_if<std::is_floating_point<T>::value>::type * = nullptr) { std::cout << "floating" << std::endl; }
+        ^
+main.cpp:11:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+struct bar : foo {
+       ^
+5 errors generated.
