@@ -1,0 +1,64 @@
+main.cpp:4:32: warning: unused parameter 'n' [-Wunused-parameter]
+void* operator new(std::size_t n) {
+                               ^
+	.file	"main.cpp"
+	.text
+	.globl	_Znwm
+	.align	16, 0x90
+	.type	_Znwm,@function
+_Znwm:                                  # @_Znwm
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str, %esi
+	movl	$20, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	movl	$_ZZnwmE5space, %eax
+	popq	%rdx
+	ret
+.Ltmp2:
+	.size	_Znwm, .Ltmp2-_Znwm
+	.cfi_endproc
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__I_a,@function
+_GLOBAL__I_a:                           # @_GLOBAL__I_a
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp4:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp5:
+	.size	_GLOBAL__I_a, .Ltmp5-_GLOBAL__I_a
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	_ZZnwmE5space,@object   # @_ZZnwmE5space
+	.local	_ZZnwmE5space
+	.comm	_ZZnwmE5space,4,4
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"operator new called\n"
+	.size	.L.str, 21
+
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__I_a
+
+	.ident	"clang version 3.4.2 (tags/RELEASE_342/final 216574)"
+	.section	".note.GNU-stack","",@progbits
+1 warning generated.
