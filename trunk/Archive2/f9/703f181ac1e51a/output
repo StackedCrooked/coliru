@@ -1,0 +1,7 @@
++ g++ -O2 -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:11:13: error: ‘template<class T> bar::bar(T)’ inherited from ‘foo’
+  using foo::foo;
+             ^
+main.cpp:11:13: error: conflicts with version inherited from ‘foo’
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
++ ./a.out
