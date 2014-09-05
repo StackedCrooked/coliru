@@ -1,0 +1,13 @@
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:6:1: error: too few template parameters in template redeclaration
+template<typename, typename...>
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:2:1: note: previous template declaration is here
+template<typename, template<typename...> class, typename...>
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:18:15: error: template argument for template template parameter must be a class template or type alias template
+    Test<int, short, long, float> t1;
+              ^
+2 errors generated.
