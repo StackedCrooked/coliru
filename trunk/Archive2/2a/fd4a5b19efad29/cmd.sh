@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wall -pedantic -Wno-narrowing -Wno-sign-compare -pthread main.cpp && ./a.out
