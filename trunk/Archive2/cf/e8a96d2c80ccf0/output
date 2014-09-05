@@ -1,0 +1,10 @@
++ g++-4.9 -std=c++1y -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+main.cpp: In member function ‘void N::A::g(N::A)’:
+main.cpp:15:20: error: void value not ignored as it ought to be
+         int i = f(a);
+                    ^
++ clang++ -std=c++1y -O0 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -stdlib=libc++ -pthread main.cpp -lsupc++
+main.cpp:15:13: error: cannot initialize a variable of type 'int' with an rvalue of type 'void'
+        int i = f(a);
+            ^   ~~~~
+1 error generated.
