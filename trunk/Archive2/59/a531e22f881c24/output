@@ -1,0 +1,30 @@
+main.cpp:5:15: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+ auto list = [](auto ...xs) { 
+               ^
+main.cpp: In lambda function:
+main.cpp:6:15: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+     return [=](auto access) { return access(xs...); }; 
+               ^
+main.cpp: At global scope:
+main.cpp:9:17: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+ auto length = [](auto xs) { 
+                 ^
+main.cpp: In lambda function:
+main.cpp:10:17: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+     return xs([](auto ...z) { return sizeof...(z); }); 
+                 ^
+main.cpp: At global scope:
+main.cpp:39:14: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+ auto sum = [](auto xs) { 
+              ^
+main.cpp: In lambda function:
+main.cpp:40:17: warning: use of ‘auto’ in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+     return xs([](auto ...z) { return Sum<sizeof...(z), decltype(z)...>::get(z...); }); 
+                 ^
+main.cpp: In function ‘int main()’:
+main.cpp:45:41: error: invalid use of ‘auto’
+     std::cout << length(list(1, '2', "3")) << std::endl; // 3
+                                         ^
+main.cpp:46:38: error: invalid use of ‘auto’
+     std::cout << sum(list(1, '2', "3")) << std::endl; // 6
+                                      ^
