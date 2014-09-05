@@ -1,0 +1,49 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:5:23: error: use of class template 'std::chrono::duration' requires template arguments
+template<std::chrono::duration D>
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/chrono:241:14: note: template is declared here
+      struct duration
+             ^
+main.cpp:6:14: error: expected a qualified name after 'typename'
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+             ^
+main.cpp:6:14: warning: variable templates are a C++1y extension [-Wc++1y-extensions]
+main.cpp:6:15: error: expected ';' at end of declaration
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+              ^
+              ;
+main.cpp:6:40: error: no type named 'time_pont' in namespace 'std::chrono'
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+                          ~~~~~~~~~~~~~^
+main.cpp:6:70: error: use of class template 'std::chrono::time_point' requires template arguments
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+                                                                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/chrono:546:14: note: template is declared here
+      struct time_point
+             ^
+main.cpp:6:16: error: C++ requires a type specifier for all declarations
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+               ^~~~~~~~~~
+main.cpp:8:43: error: cannot refer to variable template 'D' without a template argument list
+        return std::chrono::duration_cast<D>(stop-start);
+                                          ^
+main.cpp:6:14: note: template is declared here
+    typename D difference(std::chrono::time_pont start, std::chrono::time_point stop)
+             ^
+main.cpp:18:10: error: no member named 'this_thread' in namespace 'std'
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ~~~~~^
+main.cpp:20:43: error: redefinition of 'start'
+    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+                                          ^
+main.cpp:16:43: note: previous definition is here
+    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+                                          ^
+main.cpp:23:47: error: expected '(' for function-style cast or type construction
+    auto res = difference<std::chrono::seconds>(start, stop);
+                          ~~~~~~~~~~~~~~~~~~~~^
+main.cpp:23:56: error: use of undeclared identifier 'stop'
+    auto res = difference<std::chrono::seconds>(start, stop);
+                                                       ^
+1 warning and 11 errors generated.
