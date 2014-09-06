@@ -1,0 +1,17 @@
+main.cpp: In instantiation of ‘<lambda(auto:1)>::<lambda(auto:2)> [with auto:2 = <lambda(auto:1)> [with auto:1 = int]::<lambda(auto:3)>; auto:1 = int]’:
+main.cpp:8:17:   required from ‘<lambda(auto:1)> [with auto:1 = int]’
+main.cpp:9:4:   required from here
+main.cpp:7:35: error: use of ‘terminal’ before deduction of ‘auto’
+         return terminal(func(term));     // >---------+
+                                   ^
+main.cpp:7:34: error: use of ‘<lambda(auto:1)>::<lambda(auto:3)> [with auto:3 = int; auto:1 = int]’ before deduction of ‘auto’
+         return terminal(func(term));     // >---------+
+                                  ^
+main.cpp:7:34: error: invalid use of ‘auto’
+main.cpp:7:35: error: use of ‘terminal’ before deduction of ‘auto’
+         return terminal(func(term));     // >---------+
+                                   ^
+main.cpp:7:35: error: ‘terminal’ cannot be used as a function
+main.cpp:9:4: error: ‘void terminal’ has incomplete type
+ }(2);
+    ^
