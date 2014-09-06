@@ -1,0 +1,13 @@
++ clang++ -O2 -stdlib=libc++ -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:3:31: warning: unused parameter 'y' [-Wunused-parameter]
+    int addNumbers(int x, int y)
+                              ^
+main.cpp:8:5: warning: control reaches end of non-void function [-Wreturn-type]
+    }
+    ^
+2 warnings generated.
++ ./a.out
+1
+bash: line 12:  2189 Segmentation fault      (core dumped) ./a.out
++ echo 139
+139
