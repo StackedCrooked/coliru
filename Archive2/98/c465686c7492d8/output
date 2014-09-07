@@ -1,0 +1,15 @@
++ clang++ -std=c++1y -stdlib=libc++ main.cpp -Wall -Wextra -pedantic
+main.cpp:7:30: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  return std::array<int,sz>{ Ints... };
+                             ^~~~
+                             {   }
+main.cpp:12:10: note: in instantiation of function template specialization 'range<10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9>' requested here
+  return range<sz>(std::make_integer_sequence<int, sz>());
+         ^
+main.cpp:17:24: note: in instantiation of function template specialization 'range<10>' requested here
+    constexpr auto r = range<10>();
+                       ^
+1 warning generated.
++ ./a.out
++ g++ -std=c++1y main.cpp -Wall -Wextra -pedantic
++ ./a.out
