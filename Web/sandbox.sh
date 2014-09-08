@@ -17,11 +17,6 @@ id="$(./hash.sh)"
     rm -rf "${COLIRU_COMPILE_ARCHIVE}/${id}"
 }
 
-# search for previous result in the old archive
-[ -d ${COLIRU_ARCHIVE}/${id} ] && {
-    cat "${COLIRU_ARCHIVE}/${id}/output" && exit
-}
-
 # search for previous output in the new archive
 # pathifiedId puts a slash after the first two characters ("abcdefgh..." => "ab/cdefgh...")
 pathifiedId="$(./pathify-id.sh ${id})"
@@ -29,6 +24,10 @@ pathifiedId="$(./pathify-id.sh ${id})"
     cat "${COLIRU_ARCHIVE2}/${pathifiedId}/output" && exit
 }
 
+# search for previous result in the old archive
+[ -d ${COLIRU_ARCHIVE}/${id} ] && {
+    cat "${COLIRU_ARCHIVE}/${id}/output" && exit
+}
 
 # no previous result found => compile it and print the output
 mkdir -p ${COLIRU_COMPILE_ARCHIVE}/${id}
