@@ -30,4 +30,4 @@ set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
 # Run the command in the chroot and create a new pgid.
-setsid chroot ${CHROOT} timeout 65 bash -c "${CMD}"
+chroot ${CHROOT} bash -c "${CMD}"

@@ -80,7 +80,7 @@ post '/compile' do
 
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("INPUT_FILES_DIR=#{dir} timeout #{get_timeout} ./sandbox.sh 2>&1") { |line| result += line }
+                safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1") { |line| result += line }
                 FileUtils.rmtree(dir)
                 log_request(rid, "/compile", "done")
             end
@@ -110,7 +110,7 @@ post '/sh' do
             File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
         end
         stream do |out|
-            safe_popen("INPUT_FILES_DIR=#{dir} ./sandbox.sh") { |line| out << line }
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| out << line }
         end
     end.join
 end
@@ -143,7 +143,7 @@ post '/share' do
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
             skip = false
-            safe_popen("export INPUT_FILES_DIR=#{dir} ; ./share.sh") do |b|
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
                 next if skip
                 skip = (b == '\n')
                 result += b
@@ -299,6 +299,7 @@ end
 
 def safe_popen(cmd)
     fd = IO.popen("#{cmd} 2>&1")
+    pid = fd.readline
     begin
         Timeout.timeout(get_timeout.to_i) do
             set_timeout(20)
@@ -318,10 +319,11 @@ def safe_popen(cmd)
             end
         end
     rescue Exception => e
-        yield e.to_s
+        #yield e.to_s
+        cmd="kill -9 -#{pid}"
+        $stderr.puts "Kill command: #{cmd}"
+        Process.detach IO.popen(cmd).pid
     ensure
-        Process.detach IO.popen("ps -eopgid,uid | grep 2002 | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line ; done").pid
-        Process.detach IO.popen("ps -eopgid,uid | grep sandbox | grep -v grep | awk '{print $1}' | sort -u | while read line ; do kill -9 -$line ; done").pid
         Process.detach fd.pid
     end
 end

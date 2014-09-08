@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $$
 source coliru_env.source
 [ "$INPUT_FILES_DIR" == "" ] && { echo "INPUT_FILES_DIR is not set." 1>&2 ; exit 1 ; }
 
