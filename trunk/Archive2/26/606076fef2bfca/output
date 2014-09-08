@@ -1,0 +1,31 @@
+main.cpp:84:36: error: no member named 'y' in 'fake_anything'
+auto test3 = [](auto x) { return x.y; };
+                                 ~ ^
+main.cpp:29:21: note: in instantiation of function template specialization '<anonymous class>::operator()<fake_anything>' requested here
+  void_t< decltype( std::declval<F>()( std::declval<Args>()... ) ) >
+                    ^
+main.cpp:28:8: note: during template argument deduction for class template partial specialization 'can_invoke<type-parameter-0-0 (type-parameter-0-1...), void>' [with F = <lambda at main.cpp:84:14>, Args = <fake_anything>]
+struct can_invoke<F(Args...),
+       ^
+main.cpp:51:3: note: in instantiation of template class 'nary_help<<lambda at main.cpp:84:14>, fake_anything, indexes<0> >' requested here
+  nary_help<F, fake_anything, make_indexes_t<N>>
+  ^
+main.cpp:65:33: note: in instantiation of template class 'has_n_arity<<lambda at main.cpp:84:14>, 1>' requested here
+    std::integral_constant<int, has_n_arity<F,X>::value?(int)X:-1>
+                                ^
+main.cpp:59:15: note: in instantiation of template class 'max_arity<<lambda at main.cpp:84:14>, 1, 1>' requested here
+        rhs = max_arity<F,Mid+1,Max>::value,
+              ^
+main.cpp:58:15: note: in instantiation of template class 'max_arity<<lambda at main.cpp:84:14>, 0, 1>' requested here
+        lhs = max_arity<F,Min,Mid>::value,
+              ^
+main.cpp:58:15: note: in instantiation of template class 'max_arity<<lambda at main.cpp:84:14>, 0, 2>' requested here
+        lhs = max_arity<F,Min,Mid>::value,
+              ^
+main.cpp:58:15: note: in instantiation of template class 'max_arity<<lambda at main.cpp:84:14>, 0, 5>' requested here
+        lhs = max_arity<F,Min,Mid>::value,
+              ^
+main.cpp:93:18: note: in instantiation of template class 'max_arity<<lambda at main.cpp:84:14>, 0, 10>' requested here
+    std::cout << max_arity< decltype(test3) >::value << "\n";
+                 ^
+1 error generated.
