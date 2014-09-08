@@ -1,0 +1,17 @@
+main.cpp:8:19: error: constexpr variable 'w' must be initialized by a constant expression
+    constexpr wat w { i };
+                  ^ ~~~~~
+main.cpp:8:19: note: reference to 'i' is not a constant expression
+main.cpp:7:19: note: declared here
+    constexpr int i = 0;
+                  ^
+main.cpp:9:20: error: static_assert expression is not an integral constant expression
+    static_assert( w.i == 3, "" );
+                   ^~~~~~~~
+main.cpp:9:22: note: initializer of 'w' is not a constant expression
+    static_assert( w.i == 3, "" );
+                     ^
+main.cpp:8:19: note: declared here
+    constexpr wat w { i };
+                  ^
+2 errors generated.
