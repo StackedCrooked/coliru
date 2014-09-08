@@ -1,0 +1,37 @@
+g++ (GCC) 4.9.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp:10:40: warning: friend declaration ‘void N::test(const R<T>&)’ declares a non-template function [-Wnon-template-friend]
+     friend void N::test ( const R<T> & );
+                                        ^
+main.cpp:10:40: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+main.cpp: In instantiation of ‘void N::test(const T&) [with T = R<int>]’:
+main.cpp:20:17:   required from here
+main.cpp:11:9: error: ‘int R<int>::m’ is private
+     int m;
+         ^
+main.cpp:15:34: error: within this context
+ void N::test ( const T & rec ) { rec.m; }
+                                  ^
+main.cpp:15:34: warning: statement has no effect [-Wunused-value]
+
+
+
+clang version 3.4.2 (tags/RELEASE_342/final 216574)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:15:38: error: 'm' is a private member of 'R<int>'
+void N::test ( const T & rec ) { rec.m; }
+                                     ^
+main.cpp:20:8: note: in instantiation of function template specialization 'N::test<R<int> >' requested here
+    N::test ( r );
+       ^
+main.cpp:11:9: note: implicitly declared private here
+    int m;
+        ^
+main.cpp:15:38: warning: expression result unused [-Wunused-value]
+void N::test ( const T & rec ) { rec.m; }
+                                 ~~~ ^
+1 warning and 1 error generated.
