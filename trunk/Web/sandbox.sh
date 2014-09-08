@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $$
 
 set -e
 source coliru_env.source
