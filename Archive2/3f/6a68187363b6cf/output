@@ -1,0 +1,13 @@
+main.cpp:10:40: warning: friend declaration ‘void N::test(const R<T>&)’ declares a non-template function [-Wnon-template-friend]
+     friend void N::test ( const R<T> & );
+                                        ^
+main.cpp:10:40: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+main.cpp: In instantiation of ‘void N::test(const T&) [with T = R<int>]’:
+main.cpp:20:17:   required from here
+main.cpp:11:9: error: ‘int R<int>::m’ is private
+     int m;
+         ^
+main.cpp:15:34: error: within this context
+ void N::test ( const T & rec ) { rec.m; }
+                                  ^
+main.cpp:15:34: warning: statement has no effect [-Wunused-value]
