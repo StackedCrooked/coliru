@@ -300,6 +300,7 @@ end
 def safe_popen(cmd)
     fd = IO.popen("#{cmd} 2>&1")
     pid = fd.readline
+    Process.detach fd.pid
     begin
         Timeout.timeout(get_timeout.to_i) do
             set_timeout(20)
@@ -318,13 +319,11 @@ def safe_popen(cmd)
                 cur_char_count += 1
             end
         end
-    rescue Exception => e
+    ensure
         #yield e.to_s
         cmd="kill -9 -#{pid}"
         $stderr.puts "Kill command: #{cmd}"
         Process.detach IO.popen(cmd).pid
-    ensure
-        Process.detach fd.pid
     end
 end
 
