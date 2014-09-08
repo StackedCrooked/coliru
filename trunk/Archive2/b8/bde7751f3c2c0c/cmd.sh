@@ -1,0 +1,1 @@
+clang++ -Wall -Wextra -Werror -Winit-self main.cpp && ./a.out
