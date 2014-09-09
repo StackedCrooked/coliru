@@ -1,0 +1,15 @@
++ clang++ -std=c++1y -Wall -Wextra -pedantic main.cpp
+main.cpp:70:16: warning: variable length arrays are a C99 feature [-Wvla-extension]
+    int NumArr [counter];
+               ^
+main.cpp:106:13: warning: variable 'num_of_unique' is uninitialized when used here [-Wuninitialized]
+            num_of_unique++;
+            ^~~~~~~~~~~~~
+main.cpp:51:54: note: initialize the variable 'num_of_unique' to silence this warning
+    int start = 0, copy = input, final, num_of_unique;
+                                                     ^
+                                                      = 0
+2 warnings generated.
++ ./a.out
++ g++ -std=c++1y -Wall -Wextra -pedantic main.cpp
++ ./a.out
