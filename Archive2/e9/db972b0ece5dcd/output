@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'class StaticAssert<int, 0>':
+main.cpp:11:26:   required from here
+main.cpp:4:5: error: static assertion failed: error message
+     static_assert(N != 0, "error message");
+     ^
+main.cpp: In function 'int main()':
+main.cpp:9:27: warning: unused variable 'ok' [-Wunused-variable]
+     StaticAssert<int, 10> ok;
+                           ^
+main.cpp:11:26: warning: unused variable 'nok' [-Wunused-variable]
+     StaticAssert<int, 0> nok;
+                          ^
