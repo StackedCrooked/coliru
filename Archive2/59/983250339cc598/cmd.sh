@@ -1,0 +1,1 @@
+echo "6 7 1 45 0 9 9 9 9" > input.txt && g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out && ls && cat output_sorted.txt; echo "";  cat input.txt
