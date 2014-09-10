@@ -1,0 +1,28 @@
+main.cpp: In function ‘int main()’:
+main.cpp:12:9: error: ‘shared_ptr’ is not a member of ‘std’
+         std::shared_ptr<int> shared_good(new int[10], std::default_delete<int[]>
+         ^
+main.cpp:12:25: error: expected primary-expression before ‘int’
+         std::shared_ptr<int> shared_good(new int[10], std::default_delete<int[]>
+                         ^
+main.cpp:12:25: error: expected ‘;’ before ‘int’
+main.cpp:17:9: error: ‘unique_ptr’ is not a member of ‘std’
+         std::unique_ptr<int> ptr(new int(5));
+         ^
+main.cpp:17:25: error: expected primary-expression before ‘int’
+         std::unique_ptr<int> ptr(new int(5));
+                         ^
+main.cpp:17:25: error: expected ‘;’ before ‘int’
+main.cpp:21:9: error: ‘unique_ptr’ is not a member of ‘std’
+         std::unique_ptr<int[]> ptr(new int[10]);
+         ^
+main.cpp:21:25: error: expected primary-expression before ‘int’
+         std::unique_ptr<int[]> ptr(new int[10]);
+                         ^
+main.cpp:21:25: error: expected ‘;’ before ‘int’
+main.cpp:28:38: error: ‘default_delete’ is not a member of ‘std’
+    std::for_each(v.begin(), v.end(), std::default_delete<int>());
+                                      ^
+main.cpp:28:58: error: expected primary-expression before ‘int’
+    std::for_each(v.begin(), v.end(), std::default_delete<int>());
+                                                          ^
