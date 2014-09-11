@@ -1,0 +1,32 @@
+main.cpp: In lambda function:
+main.cpp:25:81: error: expected '{' before ')' token
+   Session * pool = static_cast<Session*> (::operator new (sizeof(Session[5]),[] ));
+                                                                                 ^
+main.cpp: In function 'int main()':
+main.cpp:25:81: error: no matching function for call to 'operator new(long unsigned int, main()::<lambda()>)'
+main.cpp:25:81: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/ext/new_allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/new:128:7: note: void* operator new(std::size_t)
+ void* operator new(std::size_t) _GLIBCXX_THROW (std::bad_alloc)
+       ^
+/usr/local/include/c++/4.9.0/new:128:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/new:136:7: note: void* operator new(std::size_t, const std::nothrow_t&)
+ void* operator new(std::size_t, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+       ^
+/usr/local/include/c++/4.9.0/new:136:7: note:   no known conversion for argument 2 from 'main()::<lambda()>' to 'const std::nothrow_t&'
+/usr/local/include/c++/4.9.0/new:146:14: note: void* operator new(std::size_t, void*)
+ inline void* operator new(std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
+              ^
+/usr/local/include/c++/4.9.0/new:146:14: note:   no known conversion for argument 2 from 'main()::<lambda()>' to 'void*'
+main.cpp:37:13: warning: unused variable 'session2' [-Wunused-variable]
+   Session * session2 = new (freeSession) Session;
+             ^
