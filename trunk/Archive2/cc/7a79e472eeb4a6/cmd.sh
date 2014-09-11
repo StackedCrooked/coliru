@@ -1,0 +1,1 @@
+gcc -Wall main.cpp && ./a.out
