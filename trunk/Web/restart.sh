@@ -10,3 +10,5 @@ ps -eopid,comm | grep '_restart.sh' | grep -v grep | awk '{print $1}' | while re
 done
 
 setsid ./_restart.sh & disown
+
+{ sleep 86400 ; reboot ; } & disown
