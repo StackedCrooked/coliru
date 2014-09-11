@@ -20,9 +20,8 @@ echo "rm -rf ${jobdir}" >> /tmp/cleanup
 
 # Prepare the command.
 CMD="set -e
-ulimit -u 16
+ulimit -u 50
 ulimit -f 4000
-ulimit -t 10
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
 cd /tmp/${jobid}
 title() { true ; }

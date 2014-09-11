@@ -299,32 +299,31 @@ end
 
 def safe_popen(cmd)
     fd = IO.popen("#{cmd} 2>&1")
-    pid = fd.readline
-    Process.detach fd.pid
-    begin
-        Timeout.timeout(get_timeout.to_i) do
-            set_timeout(20)
+    pgid = fd.readline
+    Timeout.timeout(get_timeout.to_i) do
+        set_timeout(20)
 
-            cur_char_count = 0
-            max_char_count = 256 * 1024
+        cur_char_count = 0
+        max_char_count = 256 * 1024
 
-            until fd.eof?
-                if cur_char_count <= max_char_count
-                    yield fd.read(1)
-                else
-                    # discard the rest
-                    # only read one byte at a time to prevent memory out of memory in case it's huge
-                    fd.read(1)
-                end
-                cur_char_count += 1
+        until fd.eof?
+            if cur_char_count <= max_char_count
+                yield fd.read(1)
+            else
+                # discard the rest
+                # only read one byte at a time to prevent memory out of memory in case it's huge
+                fd.read(1)
             end
+            cur_char_count += 1
         end
-    ensure
-        #yield e.to_s
-        cmd="kill -9 -#{pid}"
-        $stderr.puts "Kill command: #{cmd}"
-        Process.detach IO.popen(cmd).pid
     end
+rescue Exception => e
+    log(e.to_s)
+    cmd="kill -9 -#{pgid}"
+    log("Kill command: #{cmd}")
+    IO.popen(cmd) {||}
+ensure
+    Process.wait fd.pid
 end
 
 $start_time = DateTime.now.strftime('%s').to_i
