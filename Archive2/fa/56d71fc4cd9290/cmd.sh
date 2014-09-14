@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp && ./a.out
