@@ -1,0 +1,7 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp -c
++ g++ -std=c++11 -O -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp: In instantiation of 'A<T>::~A() [with T = B::impl]':
+main.cpp:18:20:   required from here
+main.cpp:6:29: error: invalid application of 'sizeof' to incomplete type 'B::impl'
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                             ^
