@@ -1,0 +1,12 @@
+gcc
+main.cpp:2:30: error: array type has incomplete element type
+ void dostuff (struct element sv[]) { }
+                              ^
+clang
+main.cpp:2:32: error: array has incomplete element type 'struct element'
+void dostuff (struct element sv[]) { }
+                               ^
+main.cpp:1:8: note: forward declaration of 'struct element'
+struct element;
+       ^
+1 error generated.
