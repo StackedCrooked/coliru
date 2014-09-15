@@ -1,0 +1,22 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp:5:23: error: invalid application of 'sizeof' to an incomplete type 'B::impl'
+        static_assert(sizeof(T) > 0, "T is incomplete.");
+                      ^~~~~~~~~
+main.cpp:20:19: note: in instantiation of member function 'A<B::impl>::A' requested here
+    A<impl> m_impl{};
+                  ^
+main.cpp:19:11: note: forward declaration of 'B::impl'
+    class impl;
+          ^
+1 error generated.
++ g++ -std=c++11 -O -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp: In instantiation of 'A<T>::A() [with T = B::impl]':
+main.cpp:20:20:   required from here
+main.cpp:5:29: error: invalid application of 'sizeof' to incomplete type 'B::impl'
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                             ^
+main.cpp: In instantiation of 'A<T>::~A() [with T = B::impl]':
+main.cpp:20:20:   required from here
+main.cpp:8:29: error: invalid application of 'sizeof' to incomplete type 'B::impl'
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                             ^
