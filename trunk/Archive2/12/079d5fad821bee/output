@@ -1,0 +1,24 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/map:60:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_tree.h:61:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:71:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/predefined_ops.h:231:16: error: no matching function for call to object of type '(lambda at main.cpp:15:28)'
+        { return bool(_M_pred(*__it)); }
+                      ^~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:104:36: note: in instantiation of function template specialization '__gnu_cxx::__ops::_Iter_pred<(lambda at main.cpp:15:28)>::operator()<std::_Rb_tree_iterator<std::pair<const int, std::unique_ptr<int, std::default_delete<int> > > > >' requested here
+      while (__first != __last && !__pred(__first))
+                                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:161:14: note: in instantiation of function template specialization 'std::__find_if<std::_Rb_tree_iterator<std::pair<const int, std::unique_ptr<int, std::default_delete<int> > > >, __gnu_cxx::__ops::_Iter_pred<(lambda at main.cpp:15:28)> >' requested here
+      return __find_if(__first, __last, __pred,
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:3803:19: note: in instantiation of function template specialization 'std::__find_if<std::_Rb_tree_iterator<std::pair<const int, std::unique_ptr<int, std::default_delete<int> > > >, __gnu_cxx::__ops::_Iter_pred<(lambda at main.cpp:15:28)> >' requested here
+      return std::__find_if(__first, __last,
+                  ^
+main.cpp:13:20: note: in instantiation of function template specialization 'std::find_if<std::_Rb_tree_iterator<std::pair<const int, std::unique_ptr<int, std::default_delete<int> > > >, (lambda at main.cpp:15:28)>' requested here
+    auto it = std::find_if(std::begin(m), 
+                   ^
+main.cpp:15:28: note: candidate function not viable: no known conversion from 'pair<const int, [...]>' to 'const pair<int, [...]>' for 1st argument
+                           [] (std::pair<int, std::unique_ptr<int>> const& entry)
+                           ^
+main.cpp:15:28: note: conversion candidate of type 'bool (*)(const std::pair<int, std::unique_ptr<int> > &)'
+1 error generated.
