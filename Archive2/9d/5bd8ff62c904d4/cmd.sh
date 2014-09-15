@@ -1,0 +1,1 @@
+clang++ -std=c++1y -stdlib=libc++ main.cpp -lsupc++ -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof -Wno-missing-prototypes && ./a.out
