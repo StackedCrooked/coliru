@@ -1,0 +1,9 @@
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h: In instantiation of 'void std::default_delete<_Tp>::operator()(_Tp*) const [with _Tp = lib::Foo_impl]':
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:236:16:   required from 'std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = lib::Foo_impl; _Dp = std::default_delete<lib::Foo_impl>]'
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:200:61:   required from 'constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr(std::nullptr_t) [with _Tp = lib::Foo_impl; _Dp = std::default_delete<lib::Foo_impl>; std::nullptr_t = std::nullptr_t]'
+main.cpp:20:44:   required from here
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:74:22: error: invalid application of 'sizeof' to incomplete type 'lib::Foo_impl'
+  static_assert(sizeof(_Tp)>0,
+                      ^
