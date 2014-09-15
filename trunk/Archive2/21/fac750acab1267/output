@@ -1,0 +1,15 @@
+main.cpp:31:38: error: 'C' has not been declared
+ void *operator new(std::size_t size, C& storage)
+                                      ^
+main.cpp: In function 'void* operator new(std::size_t, int&)':
+main.cpp:33:11: error: request for member 'fn' in 'storage', which is of non-class type 'int'
+   storage.fn(true);
+           ^
+main.cpp: At global scope:
+main.cpp:36:37: error: 'C' has not been declared
+ void operator delete(void *pointer, C& storage)
+                                     ^
+main.cpp: In function 'void operator delete(void*, int&)':
+main.cpp:38:11: error: request for member 'fn' in 'storage', which is of non-class type 'int'
+   storage.fn(false);
+           ^
