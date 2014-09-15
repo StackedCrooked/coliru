@@ -1,0 +1,1 @@
+for CC in gcc clang; do for std in c89 c99 c11; do for test in 1 2; do echo $CC $std $test && $CC -O3 -x c -std=$std -DTest$test -Wall -Wextra -pedantic -Wno-unused-parameter main.cpp && ./a.out; done; done; done

@@ -1,0 +1,42 @@
+gcc c89 1
+gcc c89 2
+main.cpp:5:30: error: array type has incomplete element type
+ void dostuff (struct element sv[]) { }
+                              ^
+gcc c99 1
+gcc c99 2
+main.cpp:5:30: error: array type has incomplete element type
+ void dostuff (struct element sv[]) { }
+                              ^
+gcc c11 1
+gcc c11 2
+main.cpp:5:30: error: array type has incomplete element type
+ void dostuff (struct element sv[]) { }
+                              ^
+clang c89 1
+clang c89 2
+main.cpp:5:32: error: array has incomplete element type 'struct element'
+void dostuff (struct element sv[]) { }
+                               ^
+main.cpp:2:8: note: forward declaration of 'struct element'
+struct element;
+       ^
+1 error generated.
+clang c99 1
+clang c99 2
+main.cpp:5:32: error: array has incomplete element type 'struct element'
+void dostuff (struct element sv[]) { }
+                               ^
+main.cpp:2:8: note: forward declaration of 'struct element'
+struct element;
+       ^
+1 error generated.
+clang c11 1
+clang c11 2
+main.cpp:5:32: error: array has incomplete element type 'struct element'
+void dostuff (struct element sv[]) { }
+                               ^
+main.cpp:2:8: note: forward declaration of 'struct element'
+struct element;
+       ^
+1 error generated.
