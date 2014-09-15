@@ -1,0 +1,14 @@
+gcc
+main.cpp:2:23: error: array type has incomplete element type
+ void dostuff (element sv[]) { }
+                       ^
+main.cpp: In function 'dostuff':
+main.cpp:2:23: warning: unused parameter 'sv' [-Wunused-parameter]
+clang
+main.cpp:2:25: error: array has incomplete element type 'element' (aka 'struct element')
+void dostuff (element sv[]) { }
+                        ^
+main.cpp:1:16: note: forward declaration of 'struct element'
+typedef struct element element;
+               ^
+1 error generated.
