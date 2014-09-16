@@ -1,0 +1,12 @@
+main.cpp: In function 'void foo(double)':
+main.cpp:1:24: error: 'cout' was not declared in this scope
+ void foo(double val) { cout << "double\n";}
+                        ^
+main.cpp: At global scope:
+main.cpp:5:11: error: using-declaration for non-member at class scope
+   using ::foo; // (1) compile error: using-declaration for non-member at class scope
+           ^
+main.cpp: In member function 'void obj::foo(int)':
+main.cpp:12:22: error: 'cout' was not declared in this scope
+   void foo(int val) {cout << "class member foo\n"; }
+                      ^
