@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'void format_vargs(const string&, Arguments&& ...) [with Arguments = {const char (&)[5], int, int}; std::string = std::basic_string<char>]':
+main.cpp:13:42:   required from here
+main.cpp:8:40: error: no matching function for call to 'str(boost::basic_format<char>&, boost::basic_format<char>&, boost::basic_format<char>&)'
+     std::cout << boost::str(f % args...);
+                                        ^
+main.cpp:8:40: note: candidate is:
+In file included from /usr/local/include/boost/format.hpp:53:0,
+                 from main.cpp:2:
+/usr/local/include/boost/format/free_funcs.hpp:22:38: note: template<class Ch, class Tr, class Alloc> std::basic_string<_CharT, _Traits, _Alloc> boost::str(const boost::basic_format<Ch, Tr, Alloc>&)
+     std::basic_string<Ch, Tr, Alloc> str(const basic_format<Ch, Tr, Alloc>& f) {
+                                      ^
+/usr/local/include/boost/format/free_funcs.hpp:22:38: note:   template argument deduction/substitution failed:
+main.cpp:8:40: note:   candidate expects 1 argument, 3 provided
+     std::cout << boost::str(f % args...);
+                                        ^
