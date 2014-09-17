@@ -1,0 +1,25 @@
+main.cpp: In function 'RValueRefString operator+(const string&, const string&)':
+main.cpp:32:108: error: no matching function for call to 'RValueRefString::RValueRefString(RValueRefString)'
+ RValueRefString operator + (const string& rStr1, const string& rStr2) { return RValueRefString(rStr1, rStr2); }
+                                                                                                            ^
+main.cpp:32:108: note: candidates are:
+main.cpp:28:1: note: RValueRefString::RValueRefString(const string&, const string&)
+ RValueRefString::RValueRefString(const string& rStr1, const string& rStr2) {
+ ^
+main.cpp:28:1: note:   candidate expects 2 arguments, 1 provided
+main.cpp:13:5: note: RValueRefString::RValueRefString(RValueRefString&)
+     RValueRefString(RValueRefString& r) { if ( this != &r ) { delete[] data; sz = r.sz; data = r.data; r.sz = 0; r.data = NULL; } }
+     ^
+main.cpp:13:5: note:   no known conversion for argument 1 from 'RValueRefString' to 'RValueRefString&'
+main.cpp:12:5: note: RValueRefString::RValueRefString(const char*)
+     RValueRefString(const char* p) { sz = strlen(p) + 1; data = new char[sz]; memcpy(data, p, sz); }
+     ^
+main.cpp:12:5: note:   no known conversion for argument 1 from 'RValueRefString' to 'const char*'
+main.cpp: In function 'int main()':
+main.cpp:34:64: error: conversion from 'RValueRefString' to non-scalar type 'string' requested
+     string strA("abc"); string strB("def"); string strC = strA + strB; std::cout << strC.get() << std::endl; std::cout << "the end" << std::endl;
+                                                                ^
+main.cpp: In function 'RValueRefString operator+(const string&, const string&)':
+main.cpp:32:111: warning: control reaches end of non-void function [-Wreturn-type]
+ RValueRefString operator + (const string& rStr1, const string& rStr2) { return RValueRefString(rStr1, rStr2); }
+                                                                                                               ^
