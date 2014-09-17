@@ -1,0 +1,17 @@
+main.cpp: In function 'int main()':
+main.cpp:72:7: error: no match for 'operator=' (operand types are 'string_test<char, 8ul>' and 'string_test<char, 15ul>')
+     f = f + e;
+       ^
+main.cpp:72:7: note: candidate is:
+main.cpp:14:7: note: string_test<char, 8ul>& string_test<char, 8ul>::operator=(const string_test<char, 8ul>&)
+ class string_test
+       ^
+main.cpp:14:7: note:   no known conversion for argument 1 from 'string_test<char, 15ul>' to 'const string_test<char, 8ul>&'
+main.cpp: In instantiation of 'string_test<T, (m + n)> string_test<T, n>::operator+(const string_test<U, m>&) [with U = char; long unsigned int m = 7ul; T = char; long unsigned int n = 8ul]':
+main.cpp:72:13:   required from here
+main.cpp:19:19: error: 'char string_test<char, 7ul>::_buffer [7]' is private
+     char _buffer[n];
+                   ^
+main.cpp:59:32: error: within this context
+         strcat(tmp, rhs._buffer);
+                                ^
