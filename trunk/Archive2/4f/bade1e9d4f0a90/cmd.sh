@@ -1,0 +1,1 @@
+g++ -O0 -o main -Wall -Wextra -pedantic -Weffc++ main.cpp && ./main && clang++ -O0 -o main -Weverything main.cpp && ./main
