@@ -1,0 +1,13 @@
+main.cpp:4:33: error: non-type template argument is not a constant expression
+template<typename T, size_t S = T::noElems()>
+                                ^~~~~~~~~~~~
+main.cpp:29:8: note: while checking a default template argument used here
+    C<Z> cyz2; // <--- this does NOT compile 
+    ~~~^
+main.cpp:4:33: note: undefined function 'noElems' cannot be used in a constant expression
+template<typename T, size_t S = T::noElems()>
+                                ^
+main.cpp:25:33: note: declared here
+        static constexpr size_t noElems() { return C+1; };
+                                ^
+1 error generated.
