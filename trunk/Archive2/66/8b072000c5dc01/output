@@ -1,0 +1,13 @@
++ g++-4.9 -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
++ ./a.out
+a.out: main.cpp:29: int main(): Assertion `n == 42' failed.
+bash: line 8: 15961 Aborted                 (core dumped) ./a.out
++ clang++ -std=c++1y -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:29:14: warning: comparison of constant 42 with expression of type 'Type' is always false [-Wtautological-constant-out-of-range-compare]
+    assert(n == 42); // [4]
+           ~ ^  ~~
+/usr/include/assert.h:92:5: note: expanded from macro 'assert'
+  ((expr)                                                               \
+    ^
+1 warning generated.
++ ./a.out
