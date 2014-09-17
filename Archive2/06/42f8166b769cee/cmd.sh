@@ -1,0 +1,1 @@
+clang++ -O2 -Weverything -fsanitize=undefined main.cpp && ./a.out && g++ -O2 -Wall -Wextra -pedantic main.cpp && ./a.out
