@@ -1,0 +1,11 @@
++ clang++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp -stdlib=libc++
+main.cpp:19:36: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    std::array<double, 3u> arr = { 4.0, -2.0, 6.0 };
+                                   ^~~~~~~~~~~~~~
+                                   {             }
+1 warning generated.
++ ./a.out
+0
++ g++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp
++ ./a.out
+0
