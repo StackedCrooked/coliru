@@ -1,0 +1,25 @@
++ clang++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp -stdlib=libc++
+main.cpp:6:23: error: invalid operands to binary expression ('std::bitset<N>' and 'int')
+ std::bitset<N> c = b & 0xFFFF; // OK, but creates extra temporary bitset<512>
+                    ~ ^ ~~~~~~
+/usr/include/c++/v1/bitset:1035:1: note: candidate template ignored: could not match 'bitset<_Size>' against 'int'
+operator&(const bitset<_Size>& __x, const bitset<_Size>& __y) _NOEXCEPT
+^
+1 error generated.
++ g++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:6:23: error: no match for 'operator&' (operand types are 'std::bitset<512ul>' and 'int')
+  std::bitset<N> c = b & 0xFFFF; // OK, but creates extra temporary bitset<512>
+                       ^
+main.cpp:6:23: note: candidate is:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/bitset:1426:5: note: template<long unsigned int _Nb> std::bitset<_Nb> std::operator&(const std::bitset<_Nb>&, const std::bitset<_Nb>&)
+     operator&(const bitset<_Nb>& __x, const bitset<_Nb>& __y) _GLIBCXX_NOEXCEPT
+     ^
+/usr/local/include/c++/4.9.0/bitset:1426:5: note:   template argument deduction/substitution failed:
+main.cpp:6:25: note:   mismatched types 'const std::bitset<_Nb>' and 'int'
+  std::bitset<N> c = b & 0xFFFF; // OK, but creates extra temporary bitset<512>
+                         ^
+main.cpp:6:17: warning: unused variable 'c' [-Wunused-variable]
+  std::bitset<N> c = b & 0xFFFF; // OK, but creates extra temporary bitset<512>
+                 ^
