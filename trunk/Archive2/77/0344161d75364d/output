@@ -1,0 +1,22 @@
+main.cpp:17:78: error: expected expression
+template<typename T , typename std::enable_if<is_cont<T>::value , T>::type = {}>
+                                                                             ^
+main.cpp:18:13: warning: unused parameter 't' [-Wunused-parameter]
+void Moo (T t)
+            ^
+main.cpp:23:79: error: expected expression
+template<typename T , typename std::enable_if<!is_cont<T>::value , T>::type = {}>
+                                                                              ^
+main.cpp:24:13: warning: unused parameter 't' [-Wunused-parameter]
+void Moo (T t)
+            ^
+main.cpp:34:2: error: no matching function for call to 'Moo'
+        Moo (test2);
+        ^~~
+main.cpp:18:6: note: candidate template ignored: couldn't infer template argument ''
+void Moo (T t)
+     ^
+main.cpp:24:6: note: candidate template ignored: couldn't infer template argument ''
+void Moo (T t)
+     ^
+2 warnings and 3 errors generated.
