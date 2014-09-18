@@ -1,0 +1,40 @@
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.0/future: In instantiation of 'std::__future_base::_Task_state<_Fn, _Alloc, _Res(_Args ...)>::_Impl::_Impl(_Fn2&&, const _Alloc&) [with _Fn2 = MoveOnly&; _Fn = MoveOnly; _Alloc = std::allocator<int>; _Res = void; _Args = {}]':
+/usr/local/include/c++/4.9.0/future:1291:41:   required from 'std::__future_base::_Task_state<_Fn, _Alloc, _Res(_Args ...)>::_Task_state(_Fn2&&, const _Alloc&) [with _Fn2 = MoveOnly&; _Fn = MoveOnly; _Alloc = std::allocator<int>; _Res = void; _Args = {}]'
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::__future_base::_Task_state<MoveOnly, std::allocator<int>, void()>; _Args = {MoveOnly&, const std::allocator<int>&}; _Tp = int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:253:4:   required from 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<MoveOnly, std::allocator<int>, void()>; _Args = {MoveOnly&, const std::allocator<int>&}; _Alloc = std::allocator<int>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:399:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<MoveOnly, std::allocator<int>, void()>; _Args = {MoveOnly&, const std::allocator<int>&}; _Alloc = std::allocator<int>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:516:38:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {MoveOnly&, const std::allocator<int>&}; _Tp = std::__future_base::_Task_state<MoveOnly, std::allocator<int>, void()>; _Alloc = std::allocator<int>; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4:   [ skipping 7 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/c++/4.9.0/future:1334:76:   required from 'std::shared_ptr<std::__future_base::_Task_state_base<_Signature> > std::__create_task_state(_Fn&&, const _Alloc&) [with _Signature = void(); _Fn = MoveOnly&; _Alloc = std::allocator<int>]'
+/usr/local/include/c++/4.9.0/future:1386:35:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Alloc&, _Fn&&) [with _Fn = MoveOnly&; _Alloc = std::allocator<int>; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {}]'
+/usr/local/include/c++/4.9.0/future:1376:27:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(_Fn&&) [with _Fn = MoveOnly&; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:14:44:   required from 'Async(F&&)::Task::Task(F&&) [with F = MoveOnly&; Args = {}]'
+main.cpp:23:5:   required from 'std::future<decltype (f())> Async(F&&) [with F = MoveOnly&; Args = {}; decltype (f()) = void]'
+main.cpp:58:13:   required from here
+/usr/local/include/c++/4.9.0/future:1323:49: error: use of deleted function 'MoveOnly::MoveOnly(const MoveOnly&)'
+    : _Alloc(__a), _M_fn(std::forward<_Fn2>(__fn)) { }
+                                                 ^
+main.cpp:37:5: note: declared here
+     MoveOnly(const MoveOnly&) = delete;
+     ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.0/future: In instantiation of 'std::__future_base::_Task_state<_Fn, _Alloc, _Res(_Args ...)>::_Impl::_Impl(_Fn2&&, const _Alloc&) [with _Fn2 = CopyOnly; _Fn = CopyOnly; _Alloc = std::allocator<int>; _Res = void; _Args = {}]':
+/usr/local/include/c++/4.9.0/future:1291:41:   required from 'std::__future_base::_Task_state<_Fn, _Alloc, _Res(_Args ...)>::_Task_state(_Fn2&&, const _Alloc&) [with _Fn2 = CopyOnly; _Fn = CopyOnly; _Alloc = std::allocator<int>; _Res = void; _Args = {}]'
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::__future_base::_Task_state<CopyOnly, std::allocator<int>, void()>; _Args = {CopyOnly, const std::allocator<int>&}; _Tp = int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:253:4:   required from 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<CopyOnly, std::allocator<int>, void()>; _Args = {CopyOnly, const std::allocator<int>&}; _Alloc = std::allocator<int>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:399:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::__future_base::_Task_state<CopyOnly, std::allocator<int>, void()>; _Args = {CopyOnly, const std::allocator<int>&}; _Alloc = std::allocator<int>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:516:38:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {CopyOnly, const std::allocator<int>&}; _Tp = std::__future_base::_Task_state<CopyOnly, std::allocator<int>, void()>; _Alloc = std::allocator<int>; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4:   [ skipping 7 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/c++/4.9.0/future:1334:76:   required from 'std::shared_ptr<std::__future_base::_Task_state_base<_Signature> > std::__create_task_state(_Fn&&, const _Alloc&) [with _Signature = void(); _Fn = CopyOnly; _Alloc = std::allocator<int>]'
+/usr/local/include/c++/4.9.0/future:1386:35:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(std::allocator_arg_t, const _Alloc&, _Fn&&) [with _Fn = CopyOnly; _Alloc = std::allocator<int>; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {}]'
+/usr/local/include/c++/4.9.0/future:1376:27:   required from 'std::packaged_task<_Res(_ArgTypes ...)>::packaged_task(_Fn&&) [with _Fn = CopyOnly; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:14:44:   required from 'Async(F&&)::Task::Task(F&&) [with F = CopyOnly; Args = {}]'
+main.cpp:23:5:   required from 'std::future<decltype (f())> Async(F&&) [with F = CopyOnly; Args = {}; decltype (f()) = void]'
+main.cpp:60:21:   required from here
+/usr/local/include/c++/4.9.0/future:1323:49: error: use of deleted function 'CopyOnly::CopyOnly(CopyOnly&&)'
+    : _Alloc(__a), _M_fn(std::forward<_Fn2>(__fn)) { }
+                                                 ^
+main.cpp:45:5: note: declared here
+     CopyOnly(CopyOnly&&) = delete;
+     ^
