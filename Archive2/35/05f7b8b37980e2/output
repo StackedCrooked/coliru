@@ -1,0 +1,24 @@
+main.cpp: In instantiation of 'void g(T&&) [with T = int&]':
+main.cpp:40:8:   required from here
+main.cpp:29:49: error: no matching function for call to 'fwd(int&)'
+ template <typename T> void g(T&& t) { f(fwd<T>(t)); }
+                                                 ^
+main.cpp:29:49: note: candidate is:
+main.cpp:5:26: note: template<class T> constexpr decltype(auto) fwd(std::remove_reference_t<T>&&)
+ constexpr decltype(auto) fwd(std::remove_reference_t<T>&& mValue) noexcept
+                          ^
+main.cpp:5:26: note:   template argument deduction/substitution failed:
+main.cpp:29:49: note:   cannot convert 't' (type 'int') to type 'std::remove_reference_t<int&>&& {aka int&&}'
+ template <typename T> void g(T&& t) { f(fwd<T>(t)); }
+                                                 ^
+main.cpp: In instantiation of 'void g(T&&) [with T = int]':
+main.cpp:41:9:   required from here
+main.cpp:29:49: error: no matching function for call to 'fwd(int&)'
+main.cpp:29:49: note: candidate is:
+main.cpp:5:26: note: template<class T> constexpr decltype(auto) fwd(std::remove_reference_t<T>&&)
+ constexpr decltype(auto) fwd(std::remove_reference_t<T>&& mValue) noexcept
+                          ^
+main.cpp:5:26: note:   template argument deduction/substitution failed:
+main.cpp:29:49: note:   cannot convert 't' (type 'int') to type 'std::remove_reference_t<int>&& {aka int&&}'
+ template <typename T> void g(T&& t) { f(fwd<T>(t)); }
+                                                 ^
