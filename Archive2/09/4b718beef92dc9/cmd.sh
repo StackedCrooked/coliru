@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os main.cpp -pthread -lboost_system -lboost_thread && ./a.out | tail
