@@ -1,0 +1,83 @@
++ g++ --std=c++11 main.cpp
+main.cpp:1:1: error: expected unqualified-id before '<' token
+ <iostream>
+ ^
+main.cpp:13:26: error: 'Enum' has not been declared
+     template<typename P, Enum E>
+                          ^
+main.cpp:14:23: error: 'Enum' has not been declared
+         void foo(P p, Enum e=E)
+                       ^
+main.cpp: In member function 'void Base1<T>::foo(P)':
+main.cpp:11:11: error: 'cout' is not a member of 'std'
+         { std::cout << "with P\n"; }
+           ^
+main.cpp: In member function 'void Base1<T>::foo(P, int)':
+main.cpp:15:11: error: 'cout' is not a member of 'std'
+         { std::cout << "with P and E\n"; }
+           ^
+main.cpp: In member function 'void Base1<T>::foo(T)':
+main.cpp:18:7: error: 'cout' is not a member of 'std'
+     { std::cout << "with T\n"; }
+       ^
+main.cpp: At global scope:
+main.cpp:29:26: error: 'Enum' has not been declared
+     template<typename P, Enum E>
+                          ^
+main.cpp:30:23: error: 'Enum' has not been declared
+         void foo(P p, Enum e=E)
+                       ^
+main.cpp: In member function 'void Base2<T>::foo(P)':
+main.cpp:27:11: error: 'cout' is not a member of 'std'
+         { std::cout << "with P\n"; }
+           ^
+main.cpp: In member function 'void Base2<T>::foo(P, int)':
+main.cpp:31:11: error: 'cout' is not a member of 'std'
+         { std::cout << "with P and E\n"; }
+           ^
+main.cpp: In member function 'virtual void Int<T>::foo(T)':
+main.cpp:41:7: error: 'cout' is not a member of 'std'
+     { std::cout << "Int with T\n"; }
+       ^
+main.cpp: In function 'int main()':
+main.cpp:49:11: error: 'string' is not a member of 'std'
+     b.foo<std::string, Enum::one>("hello");
+           ^
+main.cpp:49:11: error: 'string' is not a member of 'std'
+main.cpp:49:24: error: 'Enum' was not declared in this scope
+     b.foo<std::string, Enum::one>("hello");
+                        ^
+main.cpp:49:7: error: parse error in template argument list
+     b.foo<std::string, Enum::one>("hello");
+       ^
+main.cpp:49:42: error: no matching function for call to 'Base1<int>::foo(const char [6])'
+     b.foo<std::string, Enum::one>("hello");
+                                          ^
+main.cpp:49:42: note: candidates are:
+main.cpp:10:14: note: template<class P> void Base1<T>::foo(P) [with P = P; T = int]
+         void foo(P p)
+              ^
+main.cpp:10:14: note:   template argument deduction/substitution failed:
+main.cpp:49:42: error: wrong number of template arguments (2, should be 1)
+     b.foo<std::string, Enum::one>("hello");
+                                          ^
+main.cpp:14:14: note: template<class P, int E> void Base1<T>::foo(P, int) [with P = P; int E = E; T = int]
+         void foo(P p, Enum e=E)
+              ^
+main.cpp:14:14: note:   template argument deduction/substitution failed:
+main.cpp:49:42: error: template argument 1 is invalid
+     b.foo<std::string, Enum::one>("hello");
+                                          ^
+main.cpp:49:42: error: template argument 2 is invalid
+main.cpp:57:18: error: invalid conversion from 'const char*' to 'int' [-fpermissive]
+     i.foo("hello");
+                  ^
+main.cpp:40:18: note: initializing argument 1 of 'void Int<T>::foo(T) [with T = int]'
+     virtual void foo(T t)
+                  ^
+main.cpp:58:11: error: 'string' is not a member of 'std'
+     i.foo<std::string, Enum::one>("hello");
+           ^
+main.cpp:58:24: error: 'Enum' is not a class, namespace, or enumeration
+     i.foo<std::string, Enum::one>("hello");
+                        ^
