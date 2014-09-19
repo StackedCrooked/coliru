@@ -1,0 +1,14 @@
++ g++ --std=c++11 main.cpp
+main.cpp: In function 'int main()':
+main.cpp:57:18: error: invalid conversion from 'const char*' to 'int' [-fpermissive]
+     i.foo("hello");
+                  ^
+main.cpp:40:18: note: initializing argument 1 of 'void Int<T>::foo(T) [with T = int]'
+     virtual void foo(T t)
+                  ^
+main.cpp:58:22: error: expected primary-expression before ',' token
+     i.foo<std::string, Enum::one>("hello");
+                      ^
+main.cpp:58:33: error: no match for 'operator>' (operand types are 'Enum' and 'const char [6]')
+     i.foo<std::string, Enum::one>("hello");
+                                 ^
