@@ -1,0 +1,30 @@
+main.cpp:9:30: warning: expression result unused [-Wunused-value]
+void foo() { int x; int y; x + y; }
+                           ~ ^ ~
+main.cpp:9:28: warning: variable 'x' is uninitialized when used here [-Wuninitialized]
+void foo() { int x; int y; x + y; }
+                           ^
+main.cpp:9:19: note: initialize the variable 'x' to silence this warning
+void foo() { int x; int y; x + y; }
+                  ^
+                   = 0
+main.cpp:9:32: warning: variable 'y' is uninitialized when used here [-Wuninitialized]
+void foo() { int x; int y; x + y; }
+                               ^
+main.cpp:9:26: note: initialize the variable 'y' to silence this warning
+void foo() { int x; int y; x + y; }
+                         ^
+                          = 0
+main.cpp:10:1: error: C++ requires a type specifier for all declarations
+foo();
+^~~
+main.cpp:14:14: warning: unused variable 'm' [-Wunused-variable]
+    Message1 m;
+             ^
+main.cpp:6:11: warning: unused variable 't' [-Wunused-variable]
+    MSG_T t;
+          ^
+main.cpp:15:5: note: in instantiation of function template specialization 'RegisterMessageType<Message1>' requested here
+    RegisterMessageType<Message1>();
+    ^
+5 warnings and 1 error generated.
