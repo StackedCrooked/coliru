@@ -1,0 +1,10 @@
+main.cpp:6:25: error: call to deleted constructor of 'A'
+    A(Args&&... args) : A({ std::forward<Args>(args)... }) { }
+                        ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:14:7: note: in instantiation of function template specialization 'A::A<int, int, int>' requested here
+    A x(1, 2, 3);
+      ^
+main.cpp:8:5: note: 'A' has been explicitly marked deleted here
+    A(A const&) = delete;
+    ^
+1 error generated.
