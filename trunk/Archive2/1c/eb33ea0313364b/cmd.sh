@@ -1,0 +1,1 @@
+for CC in clang++ g++; do for std in c++98 c++03 c++11 c++1y; do echo $CC $std && $CC -O3 -x c++ -std=$std -Wall -Wextra -pedantic main.cpp && ./a.out || echo; done; done
