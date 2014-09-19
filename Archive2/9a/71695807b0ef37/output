@@ -1,0 +1,41 @@
++ clang++ --version
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp -stdlib=libc++
+main.cpp:9:12: warning: address of function 'fnc' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    bool a=fnc;  //(1)
+         ~ ^~~
+main.cpp:9:12: note: prefix with the address-of operator to silence this warning
+    bool a=fnc;  //(1)
+           ^
+           &
+main.cpp:10:12: warning: address of function 'f<4>' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    bool b=f<4>;  //(2) error
+         ~ ^~~~
+main.cpp:10:12: note: prefix with the address-of operator to silence this warning
+    bool b=f<4>;  //(2) error
+           ^
+           &
+main.cpp:10:10: warning: unused variable 'b' [-Wunused-variable]
+    bool b=f<4>;  //(2) error
+         ^
+main.cpp:9:10: warning: unused variable 'a' [-Wunused-variable]
+    bool a=fnc;  //(1)
+         ^
+4 warnings generated.
++ ./a.out
++ g++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:9:12: warning: the address of 'void fnc(int, long int, double*)' will always evaluate as 'true' [-Waddress]
+     bool a=fnc;  //(1)
+            ^
+main.cpp:10:12: error: cannot resolve overloaded function 'f' based on conversion to type 'bool'
+     bool b=f<4>;  //(2) error
+            ^
+main.cpp:9:10: warning: unused variable 'a' [-Wunused-variable]
+     bool a=fnc;  //(1)
+          ^
+main.cpp:10:10: warning: unused variable 'b' [-Wunused-variable]
+     bool b=f<4>;  //(2) error
+          ^
