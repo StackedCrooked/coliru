@@ -1,0 +1,25 @@
+clang++ c++1y
+main.cpp:9:12: warning: address of function 'fnc' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    bool a=fnc;  //(1)
+         ~ ^~~
+main.cpp:9:12: note: prefix with the address-of operator to silence this warning
+    bool a=fnc;  //(1)
+           ^
+           &
+main.cpp:10:12: warning: address of function 'f<4>' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    bool b=f<4>;  //(2) error
+         ~ ^~~~
+main.cpp:10:12: note: prefix with the address-of operator to silence this warning
+    bool b=f<4>;  //(2) error
+           ^
+           &
+2 warnings generated.
+g++ c++1y
+main.cpp: In function 'int main()':
+main.cpp:9:12: warning: the address of 'void fnc(int, long int, double*)' will always evaluate as 'true' [-Waddress]
+     bool a=fnc;  //(1)
+            ^
+main.cpp:10:12: error: cannot resolve overloaded function 'f' based on conversion to type 'bool'
+     bool b=f<4>;  //(2) error
+            ^
+
