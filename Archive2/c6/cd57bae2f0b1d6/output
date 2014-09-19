@@ -1,0 +1,64 @@
+main.cpp: In function 'int main()':
+main.cpp:211:10: warning: unused variable 'rangeLength' [-Wunused-variable]
+     auto rangeLength = std::distance(range.first, range.second);
+          ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:71:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h: In instantiation of 'bool __gnu_cxx::__ops::_Iter_comp_val<_Compare>::operator()(_Iterator, _Value&) [with _Iterator = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Value = const int; _Compare = main()::<lambda(const PriorityLevel&, const PriorityLevel&)>]':
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:2145:37:   required from 'std::pair<_FIter, _FIter> std::__equal_range(_ForwardIterator, _ForwardIterator, const _Tp&, _CompareItTp, _CompareTpIt) [with _ForwardIterator = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Tp = int; _CompareItTp = __gnu_cxx::__ops::_Iter_comp_val<main()::<lambda(const PriorityLevel&, const PriorityLevel&)> >; _CompareTpIt = __gnu_cxx::__ops::_Val_comp_iter<main()::<lambda(const PriorityLevel&, const PriorityLevel&)> >]'
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:2241:46:   required from 'std::pair<_FIter, _FIter> std::equal_range(_FIter, _FIter, const _Tp&, _Compare) [with _FIter = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Tp = int; _Compare = main()::<lambda(const PriorityLevel&, const PriorityLevel&)>]'
+main.cpp:210:89:   required from here
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:141:37: error: no match for call to '(main()::<lambda(const PriorityLevel&, const PriorityLevel&)>) (PriorityLevel&, const int&)'
+  { return bool(_M_comp(*__it, __val)); }
+                                     ^
+main.cpp:203:31: note: candidates are:
+     const auto channelComp = [](const PriorityLevel& a, const PriorityLevel& b) {
+                               ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:71:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:141:37: note: bool (*)(const PriorityLevel&, const PriorityLevel&) <conversion>
+  { return bool(_M_comp(*__it, __val)); }
+                                     ^
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:141:37: note:   candidate expects 3 arguments, 3 provided
+main.cpp:203:79: note: main()::<lambda(const PriorityLevel&, const PriorityLevel&)>
+     const auto channelComp = [](const PriorityLevel& a, const PriorityLevel& b) {
+                                                                               ^
+main.cpp:203:79: note:   no known conversion for argument 2 from 'const int' to 'const PriorityLevel&'
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:71:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h: In instantiation of 'bool __gnu_cxx::__ops::_Val_comp_iter<_Compare>::operator()(_Value&, _Iterator) [with _Value = const int; _Iterator = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Compare = main()::<lambda(const PriorityLevel&, const PriorityLevel&)>]':
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:2151:42:   required from 'std::pair<_FIter, _FIter> std::__equal_range(_ForwardIterator, _ForwardIterator, const _Tp&, _CompareItTp, _CompareTpIt) [with _ForwardIterator = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Tp = int; _CompareItTp = __gnu_cxx::__ops::_Iter_comp_val<main()::<lambda(const PriorityLevel&, const PriorityLevel&)> >; _CompareTpIt = __gnu_cxx::__ops::_Val_comp_iter<main()::<lambda(const PriorityLevel&, const PriorityLevel&)> >]'
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:2241:46:   required from 'std::pair<_FIter, _FIter> std::equal_range(_FIter, _FIter, const _Tp&, _Compare) [with _FIter = __gnu_cxx::__normal_iterator<PriorityLevel*, std::vector<PriorityLevel> >; _Tp = int; _Compare = main()::<lambda(const PriorityLevel&, const PriorityLevel&)>]'
+main.cpp:210:89:   required from here
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:166:37: error: no match for call to '(main()::<lambda(const PriorityLevel&, const PriorityLevel&)>) (const int&, PriorityLevel&)'
+  { return bool(_M_comp(__val, *__it)); }
+                                     ^
+main.cpp:203:31: note: candidates are:
+     const auto channelComp = [](const PriorityLevel& a, const PriorityLevel& b) {
+                               ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:71:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:166:37: note: bool (*)(const PriorityLevel&, const PriorityLevel&) <conversion>
+  { return bool(_M_comp(__val, *__it)); }
+                                     ^
+/usr/local/include/c++/4.9.0/bits/predefined_ops.h:166:37: note:   candidate expects 3 arguments, 3 provided
+main.cpp:203:79: note: main()::<lambda(const PriorityLevel&, const PriorityLevel&)>
+     const auto channelComp = [](const PriorityLevel& a, const PriorityLevel& b) {
+                                                                               ^
+main.cpp:203:79: note:   no known conversion for argument 1 from 'const int' to 'const PriorityLevel&'
