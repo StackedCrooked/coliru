@@ -319,11 +319,22 @@ def safe_popen(cmd)
     end
 rescue Exception => e
     log(e.to_s)
+    # kill process group 
     cmd="kill -9 -#{pgid}"
-    log("Kill command: #{cmd}")
+    log("Kill PGID: #{cmd}")
+    IO.popen(cmd) {||}
+
+    # kill normally as well
+    cmd="kill -9 #{pgid}"
+    log("Also kill as normal PID: #{cmd}")
+    IO.popen(cmd) {||}
+
+    # also kill master process 
+    cmd = "kill -9 #{fd.pid}"
+    log("Kill master process: #{cmd}")
     IO.popen(cmd) {||}
 ensure
-    Process.wait fd.pid
+    Process.detach fd.pid
 end
 
 $start_time = DateTime.now.strftime('%s').to_i
