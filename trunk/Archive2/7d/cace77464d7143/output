@@ -1,0 +1,40 @@
+[12ms] main.cpp:78:
+:     {
+:         LOG();
+:     }
+
+[27ms] main.cpp:89:
+:     {
+:         LOG();
+:         std::unique_lock<std::mutex> lock(mMutex);
+
+[44ms] main.cpp:91:
+:         std::unique_lock<std::mutex> lock(mMutex);
+:         LOG();
+:         mTasks.clear();
+
+[61ms] main.cpp:93:
+:         mTasks.clear();
+:         LOG();
+:         mTasks.push_back([]{ throw QuitException(); });
+
+[77ms] main.cpp:95:
+:         mTasks.push_back([]{ throw QuitException(); });
+:         LOG();
+:         mCondition.notify_all();
+
+[94ms] main.cpp:97:
+:         mCondition.notify_all();
+:         LOG();
+:         mCondition.wait(lock);
+
+[110ms] main.cpp:121:
+:         {
+:             LOG();
+:             mCondition.notify_all();
+
+[127ms] main.cpp:99:
+:         mCondition.wait(lock);
+:         LOG();
+:     }
+
