@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:11:22: error: no matching function for call to 'caller(main()::<lambda()>)'
+     caller([&] () { });
+                      ^
+main.cpp:11:22: note: candidate is:
+main.cpp:4:6: note: template<class ... Args> void caller(std::function<void(Args&& ...)>)
+ void caller(std::function<void(Args&&...)> function)
+      ^
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:11:22: note:   'main()::<lambda()>' is not derived from 'std::function<void(Args&& ...)>'
+     caller([&] () { });
+                      ^
