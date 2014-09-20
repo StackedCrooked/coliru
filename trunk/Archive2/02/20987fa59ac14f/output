@@ -1,0 +1,31 @@
+main.cpp: In function 'int main()':
+main.cpp:20:39: error: no matching function for call to 'operator new(sizetype, int, const char [12])'
+     int* ptr = new (5, "hello world") int;
+                                       ^
+main.cpp:20:39: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/ext/new_allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/new:128:7: note: void* operator new(std::size_t)
+ void* operator new(std::size_t) _GLIBCXX_THROW (std::bad_alloc)
+       ^
+/usr/local/include/c++/4.9.0/new:128:7: note:   candidate expects 1 argument, 3 provided
+/usr/local/include/c++/4.9.0/new:136:7: note: void* operator new(std::size_t, const std::nothrow_t&)
+ void* operator new(std::size_t, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+       ^
+/usr/local/include/c++/4.9.0/new:136:7: note:   candidate expects 2 arguments, 3 provided
+/usr/local/include/c++/4.9.0/new:146:14: note: void* operator new(std::size_t, void*)
+ inline void* operator new(std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
+              ^
+/usr/local/include/c++/4.9.0/new:146:14: note:   candidate expects 2 arguments, 3 provided
+main.cpp:5:7: note: void* operator new(size_t, std::string)
+ void* operator new(size_t size, string st) 
+       ^
+main.cpp:5:7: note:   candidate expects 2 arguments, 3 provided
