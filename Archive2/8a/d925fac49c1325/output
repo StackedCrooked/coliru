@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:26:25: error: no matching function for call to 'foo()'
+   foo<22, name("test")>();
+                         ^
+main.cpp:26:25: note: candidate is:
+main.cpp:21:6: note: template<int N, int Name> void foo()
+ void foo()
+      ^
+main.cpp:21:6: note:   template argument deduction/substitution failed:
+main.cpp:26:22: error: 'constexpr int name(const char (&)[N]) [with int N = 5]' called in a constant expression
+   foo<22, name("test")>();
+                      ^
+main.cpp:17:15: note: 'constexpr int name(const char (&)[N]) [with int N = 5]' is not usable as a constexpr function because:
+ int constexpr name(char const (&str)[N])
+               ^
+main.cpp:17:15: error: expression '(names<5>::value = ((const char*)str))' is not a constant-expression
+main.cpp:26:25: note: in template argument for type 'int' 
+   foo<22, name("test")>();
+                         ^
