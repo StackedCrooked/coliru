@@ -1,0 +1,12 @@
+hello
+-------
+main.cpp:13:5: error: call to deleted function 'do_things'
+    do_things("hello");
+    ^~~~~~~~~
+main.cpp:5:6: note: candidate function has been explicitly deleted
+void do_things(std::string&& str) = delete;
+     ^
+main.cpp:6:6: note: candidate function
+void do_things(const std::string& str) {
+     ^
+1 error generated.
