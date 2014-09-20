@@ -1,0 +1,1 @@
+set -x; gcc -x c -std=c99 -O3 -Wall -pedantic main.cpp -lsupc++ && ./a.out
