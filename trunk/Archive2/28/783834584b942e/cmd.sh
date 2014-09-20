@@ -1,0 +1,1 @@
+clang -std=c89 -Weverything -x c main.cpp -Os
