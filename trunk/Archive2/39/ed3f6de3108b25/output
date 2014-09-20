@@ -1,0 +1,22 @@
+In file included from main.cpp:3:0:
+/usr/local/include/boost/mpl/unique.hpp: In instantiation of 'struct boost::mpl::aux::unique_impl<std::basic_string<char> (main()::<lambda(double)>::*)(double) const, std::basic_string<char> (main()::<lambda(std::string)>::*)(std::basic_string<char>) const, boost::is_same<mpl_::arg<1>, mpl_::arg<2> > >':
+/usr/local/include/boost/mpl/unique.hpp:81:1:   required from 'struct boost::mpl::unique<std::basic_string<char> (main()::<lambda(double)>::*)(double) const, std::basic_string<char> (main()::<lambda(std::string)>::*)(std::basic_string<char>) const, boost::is_same<mpl_::arg<1>, mpl_::arg<2> > >'
+main.cpp:49:12:   required from 'struct detail::common_function_types<std::basic_string<char, std::char_traits<char>, std::allocator<char> > (main()::<lambda(double)>::*)(double) const, std::basic_string<char, std::char_traits<char>, std::allocator<char> > (main()::<lambda(std::string)>::*)(std::basic_string<char, std::char_traits<char>, std::allocator<char> >) const>'
+main.cpp:56:116:   required from 'auto detail::make_callable_visitor(Cs ...) [with Cs = {main()::<lambda(double)>, main()::<lambda(std::string)>}]'
+main.cpp:64:96:   required from here
+/usr/local/include/boost/mpl/unique.hpp:56:8: error: no type named 'state' in 'struct boost::is_same<mpl_::arg<1>, mpl_::arg<2> >'
+ struct unique_impl
+        ^
+main.cpp: In instantiation of 'struct detail::common_function_types<std::basic_string<char, std::char_traits<char>, std::allocator<char> > (main()::<lambda(double)>::*)(double) const, std::basic_string<char, std::char_traits<char>, std::allocator<char> > (main()::<lambda(std::string)>::*)(std::basic_string<char, std::char_traits<char>, std::allocator<char> >) const>':
+main.cpp:56:116:   required from 'auto detail::make_callable_visitor(Cs ...) [with Cs = {main()::<lambda(double)>, main()::<lambda(std::string)>}]'
+main.cpp:64:96:   required from here
+main.cpp:49:12: error: no type named 'type' in 'struct boost::mpl::unique<std::basic_string<char> (main()::<lambda(double)>::*)(double) const, std::basic_string<char> (main()::<lambda(std::string)>::*)(std::basic_string<char>) const, boost::is_same<mpl_::arg<1>, mpl_::arg<2> > >'
+     >::type;
+            ^
+main.cpp:50:56: error: no type named 'type' in 'struct boost::mpl::unique<std::basic_string<char> (main()::<lambda(double)>::*)(double) const, std::basic_string<char> (main()::<lambda(std::string)>::*)(std::basic_string<char>) const, boost::is_same<mpl_::arg<1>, mpl_::arg<2> > >'
+     static_assert(boost::mpl::size<result_type>::value == 1, "Unique");
+                                                        ^
+main.cpp: In function 'int main()':
+main.cpp:64:96: error: 'void vis' has incomplete type
+                                              [](std::string val) -> std::string { return val; });
+                                                                                                ^
