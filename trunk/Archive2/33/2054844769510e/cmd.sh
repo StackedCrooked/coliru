@@ -1,0 +1,1 @@
+g++ -v -std=c++14 -O3 -Wall -pedantic main.cpp && clang++ -v -std=c++14 -O3 -Wall main.cpp
