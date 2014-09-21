@@ -1,0 +1,1 @@
+#include<stdio.h>int main(){ int n=4;  //CAMBIA SOLO QUESTO NUMEROint c = 2;for ( c = 2 ; c <= n - 1 ; c++ ){      if ( n%c == 0 )      {         printf("   %d\nnon è un numero primo,finocchio!", n);     break;}}if ( c == n )printf("   %d\nNon lo vedi che è primo,fava!!?", n);return 0;}
