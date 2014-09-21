@@ -1,0 +1,20 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -stdlib=libc++
+main.cpp:4:18: error: field has incomplete type 'A'
+    struct D { T d; };
+                 ^
+main.cpp:11:11: note: in instantiation of template class 'D<A>' requested here
+        u = v;  // doesn't compile; complain that D<A>::d has incomplete type
+          ^
+main.cpp:1:12: note: forward declaration of 'A'
+    struct A; // incomplete type
+           ^
+1 error generated.
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'struct D<A>':
+main.cpp:11:11:   required from here
+main.cpp:4:18: error: 'D<T>::d' has incomplete type
+     struct D { T d; };
+                  ^
+main.cpp:1:12: error: forward declaration of 'struct A'
+     struct A; // incomplete type
+            ^
