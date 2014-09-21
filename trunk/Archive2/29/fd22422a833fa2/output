@@ -1,0 +1,22 @@
+girl::constructor: 'alice' 0xa31010
++++ 'alice' +++
+
+catman::constructor: 'the cheshire catman' 0xa31100
+before rebind: 0xa31080 => 0xa31010
+girl::destructor: 'alice' 0xa31010
+after rebind: 0xa31080 => 0xa31170 => 0xa31100
++++ 'the cheshire catman' +++
+
+girl::constructor: 'the queen of hearts' 0xa31010
+before rebind: 0xa31080 => 0xa31170 => 0xa31100
+after rebind: 0xa31080 => 0xa311f0 => 0xa31010
++++ 'the queen of hearts' +++
+
+before rebind: 0xa31080 => 0xa311f0 => 0xa31010
+***** error: cyclic; can't be proxy for itself
+before rebind: 0xa311f0 => 0xa31010
+***** error: cyclic; can't be proxy for itself
++++ 'the queen of hearts' +++
+
+catman::destructor: 'the cheshire catman' 0xa31100
+girl::destructor: 'the queen of hearts' 0xa31010
