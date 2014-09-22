@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:22:12: error: conversion from 'int' to non-scalar type 'B' requested
+     B b1 = 1; // Error: implicit conversion from int to B
+            ^
+main.cpp:25:15: error: cannot convert 'B' to 'int' in initialization
+     int nb1 = b2; // Error: implicit conversion from B to int
+               ^
+main.cpp:19:9: warning: unused variable 'na1' [-Wunused-variable]
+     int na1 = a1;
+         ^
+main.cpp:20:9: warning: unused variable 'na2' [-Wunused-variable]
+     int na2 = static_cast<int>( a1 );
+         ^
+main.cpp:25:9: warning: unused variable 'nb1' [-Wunused-variable]
+     int nb1 = b2; // Error: implicit conversion from B to int
+         ^
+main.cpp:26:9: warning: unused variable 'nb2' [-Wunused-variable]
+     int nb2 = static_cast<int>( b2 ); // OK: explicit cast
+         ^
