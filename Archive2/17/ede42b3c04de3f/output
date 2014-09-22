@@ -1,0 +1,19 @@
+main.cpp:12:17: error: no matching constructor for initialization of 'hrc::time_point' (aka 'time_point<boost::chrono::steady_clock>')
+hrc::time_point lastTime_(0ul);
+                ^         ~~~
+/usr/local/include/boost/chrono/time_point.hpp:156:11: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'unsigned long' to 'boost::chrono::time_point<boost::chrono::steady_clock, boost::chrono::duration<long, boost::ratio<1, 1000000000> > >' for 1st argument
+    class time_point
+          ^
+/usr/local/include/boost/chrono/time_point.hpp:156:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'unsigned long' to 'const boost::chrono::time_point<boost::chrono::steady_clock, boost::chrono::duration<long, boost::ratio<1, 1000000000> > >' for 1st argument
+    class time_point
+          ^
+/usr/local/include/boost/chrono/time_point.hpp:175:18: note: candidate constructor not viable: no known conversion from 'unsigned long' to 'const duration' (aka 'const boost::chrono::duration<long, boost::ratio<1, 1000000000> >') for 1st argument
+        explicit time_point(const duration& d)
+                 ^
+/usr/local/include/boost/chrono/time_point.hpp:182:9: note: candidate template ignored: could not match 'time_point<boost::chrono::steady_clock, type-parameter-0-0>' against 'unsigned long'
+        time_point(const time_point<clock, Duration2>& t
+        ^
+/usr/local/include/boost/chrono/time_point.hpp:172:9: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+        time_point() : d_(duration::zero())
+        ^
+1 error generated.
