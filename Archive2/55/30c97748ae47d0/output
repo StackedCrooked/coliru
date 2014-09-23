@@ -1,0 +1,12 @@
++ clang++ -std=gnu++11 -stdlib=libc++ -O3 -DNDEBUG -march=native -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:23:23: warning: comparison of integers of different signs: 'int' and 'unsigned long' [-Wsign-compare]
+        for(int i=0; i<queueSize-1; ++i)
+                     ~^~~~~~~~~~~~
+main.cpp:186:20: note: in instantiation of member function 'MTStack<int, 32>::MTStack' requested here
+  MTStack<int, 32> q;
+                   ^
+1 warning generated.
++ ./a.out
+Total consumed: 262144
+Producer spins: 467906
+Consumer spins: 287890
