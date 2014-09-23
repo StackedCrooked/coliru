@@ -1,0 +1,7 @@
+main.cpp:5:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+constexpr int foo()
+              ^
+main.cpp:7:13: note: non-literal type 'const std::unique_ptr<int, std::default_delete<int> >' cannot be used in a constant expression
+    return *std::make_unique<int>(42);
+            ^
+1 error generated.
