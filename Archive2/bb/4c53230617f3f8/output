@@ -1,0 +1,16 @@
+main.cpp:6:15: error: no matching function for call to 'end'
+    auto ai = std::end(b)-1;
+              ^~~~~~~~
+/usr/include/c++/v1/initializer_list:109:1: note: candidate template ignored: could not match 'initializer_list<type-parameter-0-0>' against 'int *'
+end(initializer_list<_Ep> __il) _NOEXCEPT
+^
+/usr/include/c++/v1/iterator:1411:1: note: candidate template ignored: could not match '_Tp [_Np]' against 'int *'
+end(_Tp (&__array)[_Np])
+^
+/usr/include/c++/v1/iterator:1437:1: note: candidate template ignored: substitution failure [with _Cp = int *]: member reference base type 'int *' is not a structure or union
+end(_Cp& __c) -> decltype(__c.end())
+^                            ~
+/usr/include/c++/v1/iterator:1445:1: note: candidate template ignored: substitution failure [with _Cp = int *]: member reference base type 'int *const' is not a structure or union
+end(const _Cp& __c) -> decltype(__c.end())
+^                                  ~
+1 error generated.
