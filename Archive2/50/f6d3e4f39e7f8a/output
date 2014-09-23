@@ -1,0 +1,19 @@
+main.cpp:8:14: warning: pragma STDC FENV_ACCESS ON is not supported, ignoring pragma [-Wunknown-pragmas]
+#pragma STDC FENV_ACCESS ON
+             ^
+1 warning generated.
+rounding to nearest:
+rint(+2.3) = +2.0  rint(+2.5) = +2.0  rint(+3.5) = +4.0
+rint(-2.3) = -2.0  rint(-2.5) = -2.0  rint(-3.5) = -4.0
+rounding down: 
+rint(+2.3) = +2.0  rint(+2.5) = +2.0  rint(+3.5) = +4.0
+rint(-2.3) = -2.0  rint(-2.5) = -2.0  rint(-3.5) = -4.0
+rounding down with lrint: 
+lrint(+2.3) = 2  lrint(+2.5) = 2  lrint(+3.5) = 3
+lrint(-2.3) = -3  lrint(-2.5) = -3  lrint(-3.5) = -4
+lrint(-0.0) = 0
+lrint(-Inf) = -9223372036854775808
+rint(1.1) = 1.0
+    FE_INEXACT was raised
+lrint(LONG_MIN-2048.0) = -9223372036854775808
+    FE_INVALID was raised
