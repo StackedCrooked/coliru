@@ -1,0 +1,66 @@
+main.cpp:23:31: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for (std::string const input : { "0", "1", "2", "3", "4" })
+                                     ^
+main.cpp:23:33: error: cannot deduce type of initializer list because std::initializer_list was not found; include <initializer_list>
+        for (std::string const input : { "0", "1", "2", "3", "4" })
+                                       ^
+main.cpp:27:8: error: redefinition of 'f' with a different type: 'Func' (aka 'function<char (const char *)>') vs 'Iterator' (aka '__normal_iterator<const_pointer, std::basic_string<char> >')
+                Func f;
+                     ^
+main.cpp:25:12: note: previous definition is here
+                Iterator f(input.begin()), l(input.end());
+                         ^
+main.cpp:32:10: error: type 'Iterator' (aka '__normal_iterator<const_pointer, std::basic_string<char> >') does not provide a call operator
+                           << f("Hello") << "; " 
+                              ^
+main.cpp:33:10: error: type 'Iterator' (aka '__normal_iterator<const_pointer, std::basic_string<char> >') does not provide a call operator
+                           << f("World") << "\n";
+                              ^
+In file included from main.cpp:2:
+In file included from /usr/local/include/boost/spirit/include/qi.hpp:16:
+In file included from /usr/local/include/boost/spirit/home/qi.hpp:16:
+In file included from /usr/local/include/boost/spirit/home/qi/auxiliary.hpp:19:
+In file included from /usr/local/include/boost/spirit/home/qi/auxiliary/attr.hpp:18:
+/usr/local/include/boost/spirit/home/qi/detail/assign_to.hpp:152:20: error: no matching conversion for static_cast from 'const boost::function<char (const char *)>' to '__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >'
+            attr = static_cast<Attribute>(val);
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/spirit/home/qi/detail/assign_to.hpp:170:13: note: in instantiation of function template specialization 'boost::spirit::traits::assign_to_attribute_from_value<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)>, void>::call<boost::function<char (const char *)> >' requested here
+            call(val, attr, is_one_element_sequence());
+            ^
+/usr/local/include/boost/spirit/home/qi/detail/assign_to.hpp:359:59: note: in instantiation of member function 'boost::spirit::traits::assign_to_attribute_from_value<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)>, void>::call' requested here
+            assign_to_attribute_from_value<Attribute, T>::call(val, attr);
+                                                          ^
+/usr/local/include/boost/spirit/home/qi/detail/assign_to.hpp:382:17: note: in instantiation of function template specialization 'boost::spirit::traits::detail::assign_to<boost::function<char (const char *)>, __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >' requested here
+        detail::assign_to(val, attr, is_not_wrapped_container());
+                ^
+/usr/local/include/boost/spirit/home/qi/detail/attributes.hpp:27:21: note: in instantiation of function template specialization 'boost::spirit::traits::assign_to<boost::function<char (const char *)>, __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >' requested here
+            traits::assign_to(attr, val);
+                    ^
+/usr/local/include/boost/spirit/home/qi/detail/attributes.hpp:165:71: note: in instantiation of member function 'boost::spirit::qi::default_transform_attribute<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)> >::post' requested here
+        return transform_attribute<Exposed, Transformed, qi::domain>::post(dest, attr);
+                                                                      ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/rule.hpp:308:29: note: in instantiation of function template specialization 'boost::spirit::traits::post_transform<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)> >' requested here
+                    traits::post_transform(attr_param, attr_);
+                            ^
+/usr/local/include/boost/spirit/home/qi/reference.hpp:43:30: note: in instantiation of function template specialization 'boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)> (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>::parse<boost::spirit::context<boost::fusion::cons<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > &, boost::fusion::nil_>, boost::spirit::locals<mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na> >, boost::spirit::unused_type, __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >' requested here
+            return ref.get().parse(first, last, context, skipper, attr_);
+                             ^
+/usr/local/include/boost/spirit/home/qi/parse.hpp:86:42: note: in instantiation of function template specialization 'boost::spirit::qi::reference<const boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)> (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type> >::parse<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::spirit::context<boost::fusion::cons<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > &, boost::fusion::nil_>, boost::spirit::locals<mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na> >, boost::spirit::unused_type, __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >' requested here
+        return compile<qi::domain>(expr).parse(first, last, context, unused, attr);
+                                         ^
+main.cpp:28:17: note: in instantiation of function template specialization 'boost::spirit::qi::parse<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::function<char (const char *)> (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>, __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >' requested here
+                bool ok = qi::parse(f, l, start, f);
+                              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const boost::function<char (const char *)>' to 'const __gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:728:7: note: candidate constructor not viable: no known conversion from 'const boost::function<char (const char *)>' to 'const char *const' for 1st argument
+      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:733:9: note: candidate template ignored: could not match '__normal_iterator' against 'function'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:724:26: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      _GLIBCXX_CONSTEXPR __normal_iterator() _GLIBCXX_NOEXCEPT
+                         ^
+1 warning and 5 errors generated.
