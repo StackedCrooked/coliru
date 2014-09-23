@@ -1,0 +1,1786 @@
+main.cpp: In instantiation of 'Pool<T>::deallocate(T*, std::size_t)::<lambda(const Storage*)> [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; Pool<T>::Storage = std::aligned_storage<24ul, 8ul>::type]':
+main.cpp:35:65:   required from 'struct Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>'
+main.cpp:37:10:   required from 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = int; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = int]'
+main.cpp:97:89:   required from here
+main.cpp:36:48: error: invalid static_cast from type 'const Storage* {aka const std::aligned_storage<24ul, 8ul>::type*}' to type 'void*'
+             return static_cast<void*>(storage) == static_cast<void*>(t);
+                                                ^
+main.cpp: In instantiation of 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]':
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = int; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = int]'
+main.cpp:97:89:   required from here
+main.cpp:38:16: error: no match for 'operator==' (operand types are 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' and 'std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >}')
+         if (it == mItems.end())
+                ^
+main.cpp:38:16: note: candidates are:
+main.cpp:90:34: note: template<class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)
+ template <class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)  noexcept{ return true; }
+                                  ^
+main.cpp:90:34: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const SimpleAllocator<T>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note: template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note: template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note: template<class _Tp1, class _Tp2> bool std::operator==(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator==(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note: template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note: template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator==(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/mutex:43:0,
+                 from /usr/local/include/c++/4.9.0/future:39,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/system_error:282:3: note: bool std::operator==(const std::error_condition&, const std::error_condition&)
+   operator==(const error_condition& __lhs,
+   ^
+/usr/local/include/c++/4.9.0/system_error:282:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:275:3: note: bool std::operator==(const std::error_condition&, const std::error_code&)
+   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:275:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:268:3: note: bool std::operator==(const std::error_code&, const std::error_condition&)
+   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:268:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' to 'const std::error_code&'
+/usr/local/include/c++/4.9.0/system_error:263:3: note: bool std::operator==(const std::error_code&, const std::error_code&)
+   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:263:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' to 'const std::error_code&'
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2504:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2504:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2498:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2498:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/functional:55:0,
+                 from /usr/local/include/c++/4.9.0/future:38,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/tuple:838:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.9.0/tuple:838:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::tuple<_Elements ...>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/random:51:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+     operator==(const std::normal_distribution<_RealType>& __d1,
+     ^
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::normal_distribution<_RealType>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::vector<_Tp, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.0/array:232:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.9.0/array:232:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::array<_Tp, _Nm>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.0/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.0/ios:44,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   mismatched types 'const _CharT*' and 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_IteratorR>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::pair<_T1, _T2>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/iosfwd:40:0,
+                 from /usr/local/include/c++/4.9.0/ios:38,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const std::fpos<_StateT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_IteratorL, _Container>'
+         if (it == mItems.end())
+                ^
+main.cpp:43:9: error: no matching function for call to 'std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> >::erase(std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >&, std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >)'
+         mItems.erase(it, it + n);
+         ^
+main.cpp:43:9: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<24ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<24ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<24ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<24ul, 8ul>::type*]
+       erase(const_iterator __position)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<24ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<24ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<24ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<24ul, 8ul>::type*]
+       erase(const_iterator __first, const_iterator __last)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >' to 'std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > >}'
+main.cpp: In instantiation of 'Pool<T>::deallocate(T*, std::size_t)::<lambda(const Storage*)> [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; Pool<T>::Storage = std::aligned_storage<32ul, 8ul>::type]':
+main.cpp:35:65:   required from 'struct Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>'
+main.cpp:37:10:   required from 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = long int; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = long int]'
+main.cpp:98:91:   required from here
+main.cpp:36:48: error: invalid static_cast from type 'const Storage* {aka const std::aligned_storage<32ul, 8ul>::type*}' to type 'void*'
+             return static_cast<void*>(storage) == static_cast<void*>(t);
+                                                ^
+main.cpp: In instantiation of 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]':
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = long int; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = long int]'
+main.cpp:98:91:   required from here
+main.cpp:38:16: error: no match for 'operator==' (operand types are 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' and 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}')
+         if (it == mItems.end())
+                ^
+main.cpp:38:16: note: candidates are:
+main.cpp:90:34: note: template<class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)
+ template <class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)  noexcept{ return true; }
+                                  ^
+main.cpp:90:34: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const SimpleAllocator<T>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note: template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note: template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note: template<class _Tp1, class _Tp2> bool std::operator==(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator==(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note: template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note: template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator==(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/mutex:43:0,
+                 from /usr/local/include/c++/4.9.0/future:39,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/system_error:282:3: note: bool std::operator==(const std::error_condition&, const std::error_condition&)
+   operator==(const error_condition& __lhs,
+   ^
+/usr/local/include/c++/4.9.0/system_error:282:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:275:3: note: bool std::operator==(const std::error_condition&, const std::error_code&)
+   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:275:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:268:3: note: bool std::operator==(const std::error_code&, const std::error_condition&)
+   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:268:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_code&'
+/usr/local/include/c++/4.9.0/system_error:263:3: note: bool std::operator==(const std::error_code&, const std::error_code&)
+   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:263:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_code&'
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2504:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2504:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2498:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2498:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/functional:55:0,
+                 from /usr/local/include/c++/4.9.0/future:38,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/tuple:838:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.9.0/tuple:838:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::tuple<_Elements ...>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/random:51:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+     operator==(const std::normal_distribution<_RealType>& __d1,
+     ^
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::normal_distribution<_RealType>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::vector<_Tp, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.0/array:232:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.9.0/array:232:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::array<_Tp, _Nm>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.0/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.0/ios:44,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   mismatched types 'const _CharT*' and 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_IteratorR>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::pair<_T1, _T2>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/iosfwd:40:0,
+                 from /usr/local/include/c++/4.9.0/ios:38,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::fpos<_StateT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_IteratorL, _Container>'
+         if (it == mItems.end())
+                ^
+main.cpp:43:9: error: no matching function for call to 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::erase(std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >&, std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >)'
+         mItems.erase(it, it + n);
+         ^
+main.cpp:43:9: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<32ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<32ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<32ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<32ul, 8ul>::type*]
+       erase(const_iterator __position)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<32ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<32ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<32ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<32ul, 8ul>::type*]
+       erase(const_iterator __first, const_iterator __last)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}'
+main.cpp: In instantiation of 'Pool<T>::deallocate(T*, std::size_t)::<lambda(const Storage*)> [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; Pool<T>::Storage = std::aligned_storage<32ul, 8ul>::type]':
+main.cpp:35:65:   required from 'struct Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>'
+main.cpp:37:10:   required from 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = std::basic_string<char>; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = std::basic_string<char>]'
+main.cpp:99:100:   required from here
+main.cpp:36:48: error: invalid static_cast from type 'const Storage* {aka const std::aligned_storage<32ul, 8ul>::type*}' to type 'void*'
+             return static_cast<void*>(storage) == static_cast<void*>(t);
+                                                ^
+main.cpp: In instantiation of 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]':
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > > >; std::allocator_traits<_Alloc>::pointer = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/future:286:39:   required from 'static std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > std::__future_base::_S_allocate_result(const _Allocator&) [with _Res = std::basic_string<char>; _Allocator = SimpleAllocator<std::promise<void> >; std::__future_base::_Ptr<std::__future_base::_Result_alloc<_Res, _Allocator> > = std::unique_ptr<std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >, std::__future_base::_Result_base::_Deleter>]'
+/usr/local/include/c++/4.9.0/future:967:58:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = std::basic_string<char>]'
+main.cpp:99:100:   required from here
+main.cpp:38:16: error: no match for 'operator==' (operand types are 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' and 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}')
+         if (it == mItems.end())
+                ^
+main.cpp:38:16: note: candidates are:
+main.cpp:90:34: note: template<class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)
+ template <class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)  noexcept{ return true; }
+                                  ^
+main.cpp:90:34: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const SimpleAllocator<T>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note: template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note: template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note: template<class _Tp1, class _Tp2> bool std::operator==(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator==(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note: template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note: template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator==(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/mutex:43:0,
+                 from /usr/local/include/c++/4.9.0/future:39,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/system_error:282:3: note: bool std::operator==(const std::error_condition&, const std::error_condition&)
+   operator==(const error_condition& __lhs,
+   ^
+/usr/local/include/c++/4.9.0/system_error:282:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:275:3: note: bool std::operator==(const std::error_condition&, const std::error_code&)
+   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:275:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:268:3: note: bool std::operator==(const std::error_code&, const std::error_condition&)
+   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:268:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_code&'
+/usr/local/include/c++/4.9.0/system_error:263:3: note: bool std::operator==(const std::error_code&, const std::error_code&)
+   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:263:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'const std::error_code&'
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2504:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2504:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2498:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2498:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/functional:55:0,
+                 from /usr/local/include/c++/4.9.0/future:38,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/tuple:838:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.9.0/tuple:838:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::tuple<_Elements ...>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/random:51:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+     operator==(const std::normal_distribution<_RealType>& __d1,
+     ^
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::normal_distribution<_RealType>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::vector<_Tp, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.0/array:232:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.9.0/array:232:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::array<_Tp, _Nm>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.0/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.0/ios:44,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   mismatched types 'const _CharT*' and 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_IteratorR>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::pair<_T1, _T2>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/iosfwd:40:0,
+                 from /usr/local/include/c++/4.9.0/ios:38,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const std::fpos<_StateT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_IteratorL, _Container>'
+         if (it == mItems.end())
+                ^
+main.cpp:43:9: error: no matching function for call to 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::erase(std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >&, std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >)'
+         mItems.erase(it, it + n);
+         ^
+main.cpp:43:9: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<32ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<32ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<32ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<32ul, 8ul>::type*]
+       erase(const_iterator __position)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<32ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<32ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<32ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<32ul, 8ul>::type*]
+       erase(const_iterator __first, const_iterator __last)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >' to 'std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > >}'
+main.cpp: In instantiation of 'Pool<T>::deallocate(T*, std::size_t)::<lambda(const Storage*)> [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; Pool<T>::Storage = std::aligned_storage<128ul, 8ul>::type]':
+main.cpp:35:65:   required from 'struct Pool<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]::<lambda(const Storage*)>'
+main.cpp:37:10:   required from 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]'
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u> >; std::allocator_traits<_Alloc>::pointer = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:625:48:   required from 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_State_baseV2; _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1090:35:   required from 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; _Tp = std::__future_base::_State_baseV2; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:316:64:   required from 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; _Tp = std::__future_base::_State_baseV2]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:588:39:   required from 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_State_baseV2; _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}]'
+/usr/local/include/c++/4.9.0/future:966:53:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = int]'
+main.cpp:97:89:   required from here
+main.cpp:36:48: error: invalid static_cast from type 'const Storage* {aka const std::aligned_storage<128ul, 8ul>::type*}' to type 'void*'
+             return static_cast<void*>(storage) == static_cast<void*>(t);
+                                                ^
+main.cpp: In instantiation of 'void Pool<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]':
+main.cpp:85:5:   required from 'void SimpleAllocator<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = SimpleAllocator<std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u> >; std::allocator_traits<_Alloc>::pointer = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:625:48:   required from 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_State_baseV2; _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1090:35:   required from 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; _Tp = std::__future_base::_State_baseV2; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:316:64:   required from 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}; _Tp = std::__future_base::_State_baseV2]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:588:39:   required from 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::__future_base::_State_baseV2; _Alloc = SimpleAllocator<std::promise<void> >; _Args = {}]'
+/usr/local/include/c++/4.9.0/future:966:53:   required from 'std::promise<_Res>::promise(std::allocator_arg_t, const _Allocator&) [with _Allocator = SimpleAllocator<std::promise<void> >; _Res = int]'
+main.cpp:97:89:   required from here
+main.cpp:38:16: error: no match for 'operator==' (operand types are 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' and 'std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >}')
+         if (it == mItems.end())
+                ^
+main.cpp:38:16: note: candidates are:
+main.cpp:90:34: note: template<class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)
+ template <class T, class U> bool operator==(const SimpleAllocator<T>&, const SimpleAllocator<U>&)  noexcept{ return true; }
+                                  ^
+main.cpp:90:34: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const SimpleAllocator<T>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note: template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp1>&)
+     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:344:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note: template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp1>&, std::nullptr_t)
+     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:339:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:82:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note: template<class _Tp1, class _Tp2> bool std::operator==(const std::shared_ptr<_Tp1>&, const std::shared_ptr<_Tp2>&)
+     operator==(const shared_ptr<_Tp1>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:333:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::shared_ptr<_Tp1>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)
+     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1193:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note: template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)
+     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1188:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.0/memory:82,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note: template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)
+     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1182:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::__shared_ptr<_Tp1, _Lp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note: template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)
+     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:635:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note: template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)
+     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:630:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from /usr/local/include/c++/4.9.0/thread:40,
+                 from /usr/local/include/c++/4.9.0/future:40,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note: template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)
+     operator==(const unique_ptr<_Tp, _Dp>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:624:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::unique_ptr<_Tp, _Dp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/mutex:43:0,
+                 from /usr/local/include/c++/4.9.0/future:39,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/system_error:282:3: note: bool std::operator==(const std::error_condition&, const std::error_condition&)
+   operator==(const error_condition& __lhs,
+   ^
+/usr/local/include/c++/4.9.0/system_error:282:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:275:3: note: bool std::operator==(const std::error_condition&, const std::error_code&)
+   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:275:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' to 'const std::error_condition&'
+/usr/local/include/c++/4.9.0/system_error:268:3: note: bool std::operator==(const std::error_code&, const std::error_condition&)
+   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:268:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' to 'const std::error_code&'
+/usr/local/include/c++/4.9.0/system_error:263:3: note: bool std::operator==(const std::error_code&, const std::error_code&)
+   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+   ^
+/usr/local/include/c++/4.9.0/system_error:263:3: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' to 'const std::error_code&'
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2504:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2504:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   cannot convert 'it' (type 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >') to type 'std::nullptr_t'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/future:38:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/functional:2498:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/functional:2498:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/functional:55:0,
+                 from /usr/local/include/c++/4.9.0/future:38,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/tuple:838:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.9.0/tuple:838:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::tuple<_Elements ...>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/random:51:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+     operator==(const std::normal_distribution<_RealType>& __d1,
+     ^
+/usr/local/include/c++/4.9.0/bits/random.tcc:2030:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::normal_distribution<_RealType>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::vector<_Tp, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.0/array:232:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.9.0/array:232:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::array<_Tp, _Nm>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.0/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.0/ios:44,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::istreambuf_iterator<_CharT, _Traits>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   mismatched types 'const _CharT*' and 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::allocator<_CharT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::move_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_IteratorR>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> >::iterator {aka __gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::pair<_T1, _T2>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/iosfwd:40:0,
+                 from /usr/local/include/c++/4.9.0/ios:38,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const std::fpos<_StateT>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::new_allocator<_Tp>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>'
+         if (it == mItems.end())
+                ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note:   template argument deduction/substitution failed:
+main.cpp:38:16: note:   'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' is not derived from 'const __gnu_cxx::__normal_iterator<_IteratorL, _Container>'
+         if (it == mItems.end())
+                ^
+main.cpp:43:9: error: no matching function for call to 'std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> >::erase(std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >&, std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >)'
+         mItems.erase(it, it + n);
+         ^
+main.cpp:43:9: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from /usr/local/include/c++/4.9.0/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.0/random:49,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<128ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<128ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<128ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<128ul, 8ul>::type*]
+       erase(const_iterator __position)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1146:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = std::aligned_storage<128ul, 8ul>::type; _Alloc = std::allocator<std::aligned_storage<128ul, 8ul>::type>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >; typename std::_Vector_base<_Tp, _Alloc>::pointer = std::aligned_storage<128ul, 8ul>::type*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const std::aligned_storage<128ul, 8ul>::type*]
+       erase(const_iterator __first, const_iterator __last)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1172:7: note:   no known conversion for argument 1 from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >' to 'std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > >}'
+In file included from /usr/local/include/c++/4.9.0/algorithm:62:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3794:5: error: '_IIter std::find_if(_IIter, _IIter, _Predicate) [with _IIter = std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<24ul, 8ul>::type*, std::vector<std::aligned_storage<24ul, 8ul>::type, std::allocator<std::aligned_storage<24ul, 8ul>::type> > > >; _Predicate = Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>]', declared using local type 'Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>', is used but never defined [-fpermissive]
+     find_if(_InputIterator __first, _InputIterator __last,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3794:5: error: '_IIter std::find_if(_IIter, _IIter, _Predicate) [with _IIter = std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >; _Predicate = Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>]', declared using local type 'Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<long int, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>', is used but never defined [-fpermissive]
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3794:5: error: '_IIter std::find_if(_IIter, _IIter, _Predicate) [with _IIter = std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<32ul, 8ul>::type*, std::vector<std::aligned_storage<32ul, 8ul>::type, std::allocator<std::aligned_storage<32ul, 8ul>::type> > > >; _Predicate = Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>]', declared using local type 'Pool<T>::deallocate(T*, std::size_t) [with T = std::__future_base::_Result_alloc<std::basic_string<char>, SimpleAllocator<std::promise<void> > >; std::size_t = long unsigned int]::<lambda(const Storage*)>', is used but never defined [-fpermissive]
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3794:5: error: '_IIter std::find_if(_IIter, _IIter, _Predicate) [with _IIter = std::reverse_iterator<__gnu_cxx::__normal_iterator<std::aligned_storage<128ul, 8ul>::type*, std::vector<std::aligned_storage<128ul, 8ul>::type, std::allocator<std::aligned_storage<128ul, 8ul>::type> > > >; _Predicate = Pool<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]::<lambda(const Storage*)>]', declared using local type 'Pool<T>::deallocate(T*, std::size_t) [with T = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, SimpleAllocator<std::promise<void> >, (__gnu_cxx::_Lock_policy)2u>; std::size_t = long unsigned int]::<lambda(const Storage*)>', is used but never defined [-fpermissive]
