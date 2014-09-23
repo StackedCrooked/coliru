@@ -1,0 +1,20 @@
++ clang++ -std=gnu++1z -stdlib=libc++ -Ofast -Wall -Wextra -Weverything -pedantic -Wno-c++98-compat main.cpp
++ ./a.out
+1
+std::enable_if_t<std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = double]
+
+2
+std::enable_if_t<!std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = int]
+
+1
+std::enable_if_t<std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = const double &]
+
+2
+std::enable_if_t<!std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = const int &]
+
+1
+std::enable_if_t<std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = double &]
+
+2
+std::enable_if_t<!std::is_same<std::remove_cv_t<std::remove_reference_t<type> >, double>::value> A::operator()(type &&) const [type = int &]
+
