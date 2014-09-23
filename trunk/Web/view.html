@@ -170,7 +170,7 @@
         
         // Scan for a command that looks like "title <name>" and use the <name> part as Window title.
         try { 
-          document.title = app.cmd.split(/title\s+/)[1].split(/\n/)[0];
+          document.title = app.cmd.split(/^[#]{0,1}title\s+/)[1].split(/\n/)[0];
         } catch (e) {
           console.log(e);
         }
