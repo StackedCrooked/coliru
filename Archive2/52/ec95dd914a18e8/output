@@ -1,0 +1,20 @@
+main.cpp:33:16: error: 'std::conditional_t' has not been declared
+     apply(std::conditional_t<std::is_convertible<Args, Value>::value, null, Args>...);
+                ^
+main.cpp:33:29: error: expected ',' or '...' before '<' token
+     apply(std::conditional_t<std::is_convertible<Args, Value>::value, null, Args>...);
+                             ^
+main.cpp:40:20: error: 'remove_reference_t' is not a member of 'std'
+     decltype(apply<std::remove_reference_t<Args>...>(std::declval<Args>()...));
+                    ^
+main.cpp:40:20: error: 'remove_reference_t' is not a member of 'std'
+main.cpp:40:14: error: parse error in template argument list
+     decltype(apply<std::remove_reference_t<Args>...>(std::declval<Args>()...));
+              ^
+main.cpp:40:49: error: expected ')' before '...' token
+     decltype(apply<std::remove_reference_t<Args>...>(std::declval<Args>()...));
+                                                 ^
+main.cpp:40:5: error: expected type-specifier before 'decltype'
+     decltype(apply<std::remove_reference_t<Args>...>(std::declval<Args>()...));
+     ^
+main.cpp:40:5: error: expected initializer before 'decltype'
