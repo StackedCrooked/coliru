@@ -1,0 +1,16 @@
+main.cpp: In instantiation of 'A<T>::A(Args&& ...) [with Args = {double&, const char (&)[5]}; T = B]':
+main.cpp:37:22:   required from here
+main.cpp:17:64: error: no matching function for call to 'B::B(double&, const char [5])'
+     A(Args&&... params) : T(std::forward<Args>(params)...), x(0) {
+                                                                ^
+main.cpp:17:64: note: candidates are:
+main.cpp:31:5: note: B::B(const char*)
+     B(const char*) {}
+     ^
+main.cpp:31:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:29:8: note: constexpr B::B(const B&)
+ struct B
+        ^
+main.cpp:29:8: note:   candidate expects 1 argument, 2 provided
+main.cpp:29:8: note: constexpr B::B(B&&)
+main.cpp:29:8: note:   candidate expects 1 argument, 2 provided
