@@ -1,0 +1,1 @@
+g++ -std=c++1y -O2 -pedantic -lboost_unit_test_framework main.cpp && ./a.out
