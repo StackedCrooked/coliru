@@ -1,0 +1,1 @@
+{ mcs main.cpp && chmod +x main.exe && ./main.exe ; } 2>&1 | perl -pe 's^\((\d+),(\d+)\).^:\1:\2:^'
