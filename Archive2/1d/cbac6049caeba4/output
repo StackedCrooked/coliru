@@ -1,0 +1,45 @@
+main.cpp:8:33: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using strong_string_alias = std::basic_string<char, not_quite_the_same_traits<Tag>>;
+                                ^
+main.cpp:8:86: error: a space is required between consecutive right angle brackets (use '> >')
+    using strong_string_alias = std::basic_string<char, not_quite_the_same_traits<Tag>>;
+                                                                                     ^~
+                                                                                     > >
+main.cpp:10:28: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using vanilla_string = std::string;
+                           ^
+main.cpp:11:31: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using strawberry_string = strong_string_alias<struct strawberry>;
+                              ^
+main.cpp:12:28: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using caramel_string = strong_string_alias<struct caramel>;
+                           ^
+main.cpp:13:30: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using chocolate_string = strong_string_alias<struct chocolate>;
+                             ^
+main.cpp:19:28: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+    using special_string = strong_string_alias<special<T>>;
+                           ^
+main.cpp:19:57: error: a space is required between consecutive right angle brackets (use '> >')
+    using special_string = strong_string_alias<special<T>>;
+                                                        ^~
+                                                        > >
+main.cpp:51:29: warning: template argument uses local type 'nuts' [-Wlocal-type-template-args]
+    dessert::special_string<struct nuts> nuts = "foo";
+                            ^~~~~~~~~~~
+main.cpp:19:5: warning: template argument uses local type 'nuts' [-Wlocal-type-template-args]
+    using special_string = strong_string_alias<special<T>>;
+    ^~~~~
+main.cpp:51:14: note: in instantiation of template type alias 'special_string' requested here
+    dessert::special_string<struct nuts> nuts = "foo";
+             ^
+main.cpp:52:15: warning: template argument uses local type 'nuts' [-Wlocal-type-template-args]
+    std::cout << nuts << '\n';
+              ^~
+main.cpp:35:63: warning: template argument uses local type 'nuts' [-Wlocal-type-template-args]
+    std::ostream& operator<<(std::ostream& os, special_string<T> const& s) {
+                                                              ^
+main.cpp:19:5: warning: template argument uses local type 'nuts' [-Wlocal-type-template-args]
+    using special_string = strong_string_alias<special<T>>;
+    ^~~~~
+11 warnings and 2 errors generated.
