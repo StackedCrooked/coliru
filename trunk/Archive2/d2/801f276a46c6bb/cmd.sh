@@ -1,0 +1,1 @@
+set -x; clang++ -std=c++03 -stdlib=libc++ -O1 -march=native -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
