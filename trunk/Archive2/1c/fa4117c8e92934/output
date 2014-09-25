@@ -1,0 +1,23 @@
+clang c11
+main.cpp:25:18: warning: format specifies type 'void *' but the argument has type 'Point' [-Wformat]
+    printf("%p", all.p); // prints "(nil)"
+            ~~   ^~~~~
+1 warning generated.
+0x7fffaa34f8c00x7fffaa34f8c00x7fffaa34f8c40x7fffaa34f8c40x7fff0x7fffaa34f8c4gcc c11
+main.cpp: In function 'main':
+main.cpp:20:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'struct Things *' [-Wformat=]
+     printf("%p", &all); // prints "0x41ff2728" (correct)
+     ^
+main.cpp:21:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'int *' [-Wformat=]
+     printf("%p", &all.flag); // prints "0x41ff2728" (correct)
+     ^
+main.cpp:23:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'struct Point *' [-Wformat=]
+     printf("%p", &all.p); // prints "(nil)"
+     ^
+main.cpp:24:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'struct Point *' [-Wformat=]
+     printf("%p", (&all.p)); // prints "(nil)"
+     ^
+main.cpp:25:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'Point' [-Wformat=]
+     printf("%p", all.p); // prints "(nil)"
+     ^
+0x7fffc02b91d00x7fffc02b91d00x7fffc02b91d40x7fffc02b91d40x7fff0x7fffc02b91d4
