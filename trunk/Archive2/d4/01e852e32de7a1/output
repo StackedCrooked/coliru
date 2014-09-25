@@ -1,0 +1,11 @@
++ clang++ -std=c++03 -stdlib=libc++ -O1 -march=native -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:109:27: error: no viable conversion from 'storage<foo>' to 'const storage<int>'
+      const storage<int>& const_baz = baz;
+                          ^           ~~~
+main.cpp:30:26: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'storage<foo>' to 'const storage<int> &' for 1st argument
+template <class T> class storage
+                         ^
+main.cpp:38:4: note: candidate constructor not viable: no known conversion from 'storage<foo>' to 'const int &' for 1st argument
+   storage(const T& var) : m_var(var) {}
+   ^
+1 error generated.
