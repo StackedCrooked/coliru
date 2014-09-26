@@ -1,0 +1,13 @@
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+main.cpp: In constructor 'Test::Test(int)':
+main.cpp:6:9: warning: 'Test::y' will be initialized after [-Wreorder]
+     int y ;
+         ^
+main.cpp:5:9: warning:   'int Test::x' [-Wreorder]
+     int x ;
+         ^
+main.cpp:7:5: warning:   when initialized here [-Wreorder]
+     Test ( int y_ ) :y(y_) , x(y*2) {
+     ^
+65534
+10
