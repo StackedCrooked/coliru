@@ -1,0 +1,37 @@
+main.cpp:2:10: error: 'string' in namespace 'std' does not name a type
+     std::string toString(const Node* t) const{
+          ^
+main.cpp:8:34: error: 'Node' does not name a type
+     void createLevelVector(const Node* t, std::vector<std::vector<T*> >& e, int level = 0){
+                                  ^
+main.cpp:8:48: error: 'std::vector' has not been declared
+     void createLevelVector(const Node* t, std::vector<std::vector<T*> >& e, int level = 0){
+                                                ^
+main.cpp:8:54: error: expected ',' or '...' before '<' token
+     void createLevelVector(const Node* t, std::vector<std::vector<T*> >& e, int level = 0){
+                                                      ^
+main.cpp: In function 'void createLevelVector(const int*, int)':
+main.cpp:9:15: error: 'NULL' was not declared in this scope
+         if(t==NULL){
+               ^
+main.cpp:10:13: error: 'e' was not declared in this scope
+             e[level].push_back(NULL);
+             ^
+main.cpp:10:15: error: 'level' was not declared in this scope
+             e[level].push_back(NULL);
+               ^
+main.cpp:13:9: error: 'e' was not declared in this scope
+         e[level].push_back(t->data);
+         ^
+main.cpp:13:11: error: 'level' was not declared in this scope
+         e[level].push_back(t->data);
+           ^
+main.cpp:13:31: error: request for member 'data' in '* t', which is of non-class type 'const int'
+         e[level].push_back(t->data);
+                               ^
+main.cpp:14:30: error: request for member 'left' in '* t', which is of non-class type 'const int'
+         createLevelVector(t->left,e,level+1);
+                              ^
+main.cpp:15:30: error: request for member 'right' in '* t', which is of non-class type 'const int'
+         createLevelVector(t->right,e,level+1);
+                              ^
