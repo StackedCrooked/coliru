@@ -1,0 +1,65 @@
+clang c11
+main.cpp:22:22: error: member reference type 'Things' is not a pointer; maybe you meant to use '.'?
+    printf("%p", &all->flag); // prints "0x41ff2728" (correct)
+                  ~~~^~
+                     .
+main.cpp:22:18: error: cannot take the address of an rvalue of type 'int'
+    printf("%p", &all->flag); // prints "0x41ff2728" (correct)
+                 ^~~~~~~~~~
+main.cpp:24:22: error: member reference type 'Things' is not a pointer; maybe you meant to use '.'?
+    printf("%p", &all->p); // prints "(nil)"
+                  ~~~^~
+                     .
+main.cpp:24:18: error: cannot take the address of an rvalue of type 'Point'
+    printf("%p", &all->p); // prints "(nil)"
+                 ^~~~~~~
+main.cpp:25:23: error: member reference type 'Things' is not a pointer; maybe you meant to use '.'?
+    printf("%p", (&all->p)); // prints "(nil)"
+                   ~~~^~
+                      .
+main.cpp:25:19: error: cannot take the address of an rvalue of type 'Point'
+    printf("%p", (&all->p)); // prints "(nil)"
+                  ^~~~~~~
+main.cpp:26:21: error: member reference type 'Things' is not a pointer; maybe you meant to use '.'?
+    printf("%p", all->p); // prints "(nil)"
+                 ~~~^~
+                    .
+main.cpp:26:18: warning: format specifies type 'void *' but the argument has type 'Point' [-Wformat]
+    printf("%p", all->p); // prints "(nil)"
+            ~~   ^~~~~~
+main.cpp:27:30: error: member reference type 'Things' is not a pointer; maybe you meant to use '.'?
+    printf("%p", (void *)&all->p); // prints "(nil)"
+                          ~~~^~
+                             .
+main.cpp:27:26: error: cannot take the address of an rvalue of type 'Point'
+    printf("%p", (void *)&all->p); // prints "(nil)"
+                         ^~~~~~~
+main.cpp:28:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+2 warnings and 9 errors generated.
+
+gcc c11
+main.cpp: In function 'main':
+main.cpp:21:5: warning: format '%p' expects argument of type 'void *', but argument 2 has type 'struct Things *' [-Wformat=]
+     printf("%p", &all); // prints "0x41ff2728" (correct)
+     ^
+main.cpp:22:22: error: invalid type argument of '->' (have 'Things')
+     printf("%p", &all->flag); // prints "0x41ff2728" (correct)
+                      ^
+main.cpp:24:22: error: invalid type argument of '->' (have 'Things')
+     printf("%p", &all->p); // prints "(nil)"
+                      ^
+main.cpp:25:23: error: invalid type argument of '->' (have 'Things')
+     printf("%p", (&all->p)); // prints "(nil)"
+                       ^
+main.cpp:26:21: error: invalid type argument of '->' (have 'Things')
+     printf("%p", all->p); // prints "(nil)"
+                     ^
+main.cpp:27:30: error: invalid type argument of '->' (have 'Things')
+     printf("%p", (void *)&all->p); // prints "(nil)"
+                              ^
+main.cpp:19:13: warning: unused variable 'pall' [-Wunused-variable]
+     Things *pall = &all;
+             ^
+
