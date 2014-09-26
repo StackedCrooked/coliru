@@ -1,0 +1,1 @@
+g++ -std=c++03 -O0 main.cpp  -fno-elide-constructors && ./a.out
