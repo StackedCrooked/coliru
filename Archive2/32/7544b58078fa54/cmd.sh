@@ -1,0 +1,1 @@
+clang++ -O3 -std=c++14 -Wall -Wextra main.cpp -E
