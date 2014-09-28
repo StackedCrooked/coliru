@@ -1,0 +1,38 @@
+main.cpp: In instantiation of 'MyIterator<T> make_myiterator(T) [with T = int*]':
+main.cpp:30:48:   required from here
+main.cpp:24:27: error: no matching function for call to 'MyIterator<int*>::MyIterator(int*&)'
+     return MyIterator<T>(t);
+                           ^
+main.cpp:24:27: note: candidates are:
+main.cpp:12:3: note: MyIterator<T>::MyIterator(const MyIterator<T>&) [with T = int*]
+   MyIterator(const MyIterator& mit) : p(mit.p) {}
+   ^
+main.cpp:12:3: note:   no known conversion for argument 1 from 'int*' to 'const MyIterator<int*>&'
+main.cpp:11:3: note: MyIterator<T>::MyIterator(T*) [with T = int*]
+   MyIterator(T* x) :p(x) {}
+   ^
+main.cpp:11:3: note:   no known conversion for argument 1 from 'int*' to 'int**'
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = int; _Args = {int*&}; _Tp = int]':
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:253:4:   required from 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = int; _Args = {int*&}; _Alloc = std::allocator<int>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:399:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = int; _Args = {int*&}; _Alloc = std::allocator<int>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/local/include/c++/4.9.0/bits/vector.tcc:97:40:   required from 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {int*&}; _Tp = int; _Alloc = std::allocator<int>]'
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1268:27:   required from 'void std::vector<_Tp, _Alloc>::_M_range_initialize(_InputIterator, _InputIterator, std::input_iterator_tag) [with _InputIterator = MyIterator<int*>; _Tp = int; _Alloc = std::allocator<int>]'
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1257:56:   required from 'void std::vector<_Tp, _Alloc>::_M_initialize_dispatch(_InputIterator, _InputIterator, std::__false_type) [with _InputIterator = MyIterator<int*>; _Tp = int; _Alloc = std::allocator<int>]'
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:404:65:   required from 'std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&) [with _InputIterator = MyIterator<int*>; <template-parameter-2-2> = void; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int>]'
+main.cpp:30:80:   required from here
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4: error: invalid conversion from 'int*' to 'int' [-fpermissive]
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^
+main.cpp: In function 'MyIterator<T> make_myiterator(T) [with T = int*]':
+main.cpp:25:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
