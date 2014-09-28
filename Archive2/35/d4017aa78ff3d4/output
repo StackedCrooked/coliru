@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'void better_insert(std::vector<_RealType>&, VecIterator, Iterator, Iterator) [with T = int; VecIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]':
+main.cpp:91:47:   required from here
+main.cpp:87:5: error: no matching function for call to 'std::vector<int>::swap(std::vector<int, no_initialize<int> >&)'
+     vec.swap(new_buffer);
+     ^
+main.cpp:87:5: note: candidate is:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1188:7: note: void std::vector<_Tp, _Alloc>::swap(std::vector<_Tp, _Alloc>&) [with _Tp = int; _Alloc = std::allocator<int>]
+       swap(vector& __x)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:1188:7: note:   no known conversion for argument 1 from 'std::vector<int, no_initialize<int> >' to 'std::vector<int>&'
