@@ -1,0 +1,33 @@
+main.cpp:1:1: error: 'ElementType' does not name a type
+ ElementType a0 = a % midBase, b0 = b % midBase;
+ ^
+main.cpp:2:1: error: 'ElementType' does not name a type
+ ElementType a1 = a / midBase, b1 = b / midBase;
+ ^
+main.cpp:3:1: error: 'ProductType' does not name a type
+ ProductType p = { a1*b1, a0*b0 };
+ ^
+main.cpp:3:33: warning: extra ';' [-Wpedantic]
+ ProductType p = { a1*b1, a0*b0 };
+                                 ^
+main.cpp:5:1: error: 'ElementType' does not name a type
+ ElementType cross;
+ ^
+main.cpp:6:1: error: 'ElementType' does not name a type
+ ElementType tmp = base - b1*a0;
+ ^
+main.cpp:8:1: error: expected unqualified-id before 'if'
+ if (a1*b0 < tmp) {
+ ^
+main.cpp:10:3: error: expected unqualified-id before 'else'
+ } else {
+   ^
+main.cpp:16:1: error: 'p' does not name a type
+ p.high += cross / (base/midBase);
+ ^
+main.cpp:17:1: error: 'p' does not name a type
+ p.low += cross % (base/midBase);
+ ^
+main.cpp:19:1: error: expected unqualified-id before 'return'
+ return p;
+ ^
