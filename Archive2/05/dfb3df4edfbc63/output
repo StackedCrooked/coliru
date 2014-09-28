@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:24:34: error: no matching function for call to 'GetReadFile::writeHistory(double [5][8], const char [5])'
+     grf.writeHistory(array,"blah");
+                                  ^
+main.cpp:24:34: note: candidate is:
+main.cpp:10:10: note: template<long unsigned int R, long unsigned int C> bool GetReadFile::writeHistory(double (*)[C], std::string)
+     bool writeHistory(double writeArray[R][C], string path);
+          ^
+main.cpp:10:10: note:   template argument deduction/substitution failed:
+main.cpp:24:34: note:   couldn't deduce template parameter 'R'
+     grf.writeHistory(array,"blah");
+                                  ^
