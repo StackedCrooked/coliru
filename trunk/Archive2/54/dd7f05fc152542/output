@@ -1,0 +1,14 @@
+main.cpp:10:25: error: no member named 'mem_fn' in namespace 'std'; did you mean 'mem_fun'?
+    auto convert = std::mem_fn(&std::string::c_str);
+                   ~~~~~^~~~~~
+                        mem_fun
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_function.h:1036:5: note: 'mem_fun' declared here
+    mem_fun(_Ret (_Tp::*__f)())
+    ^
+main.cpp:10:20: error: no matching function for call to 'mem_fun'
+    auto convert = std::mem_fn(&std::string::c_str);
+                   ^~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_function.h:1036:5: note: candidate template ignored: could not match 'type-parameter-0-0 ()' against 'const char *() const'
+    mem_fun(_Ret (_Tp::*__f)())
+    ^
+2 errors generated.
