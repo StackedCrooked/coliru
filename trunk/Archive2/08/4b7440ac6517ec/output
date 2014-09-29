@@ -1,0 +1,42 @@
+; ModuleID = 'main.cpp'
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.Foo = type { i32, i32, i32 }
+
+; Function Attrs: uwtable
+define void @_Z4testv(%struct.Foo* noalias sret %agg.result) #0 {
+  %x = alloca %struct.Foo, align 4
+  %y = alloca %struct.Foo, align 4
+  call void @_ZN3FooC1Ev(%struct.Foo* %x)
+  call void @_ZN3FooC1Ev(%struct.Foo* %y)
+  call void (...)* @_Z7eat_allz(%struct.Foo* %x, %struct.Foo* %y)
+  %1 = call zeroext i1 @_Z8get_boolv()
+  br i1 %1, label %2, label %3
+
+; <label>:2                                       ; preds = %0
+  call void @_ZN3FooC1EOS_(%struct.Foo* %agg.result, %struct.Foo* dereferenceable(12) %x)
+  br label %4
+
+; <label>:3                                       ; preds = %0
+  call void @_ZN3FooC1EOS_(%struct.Foo* %agg.result, %struct.Foo* dereferenceable(12) %y)
+  br label %4
+
+; <label>:4                                       ; preds = %3, %2
+  ret void
+}
+
+declare void @_ZN3FooC1Ev(%struct.Foo*) #1
+
+declare void @_Z7eat_allz(...) #1
+
+declare zeroext i1 @_Z8get_boolv() #1
+
+declare void @_ZN3FooC1EOS_(%struct.Foo*, %struct.Foo* dereferenceable(12)) #1
+
+attributes #0 = { uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = metadata !{metadata !"clang version 3.5.0 (tags/RELEASE_350/final 217394)"}
