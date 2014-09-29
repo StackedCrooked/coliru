@@ -1,0 +1,23 @@
+main.cpp:6:7: error: name defined in alias declaration must be an identifier
+using Foo<int> = IntFoo;
+      ^
+main.cpp:7:7: error: name defined in alias declaration must be an identifier
+using Foo<double> = DoubleFoo;
+      ^
+main.cpp:13:29: error: template template parameter requires 'class' after the parameter list
+template<template<typename> TemplT>
+                            ^
+                            class 
+main.cpp:17:58: error: expected expression
+        static_assert(/*T is an instantiation of TemplT*/, "Must blah");   
+                                                         ^
+main.cpp:16:20: warning: unused parameter 't' [-Wunused-parameter]
+    GenericThing(T t) {
+                   ^
+main.cpp:22:41: error: use of undeclared identifier 'IntFoo'
+    std::vector<GenericThing<Foo>> foos{IntFoo{}, DoubleFoo{}};
+                                        ^
+main.cpp:24:13: error: no member named 'apply' in 'GenericThing<Foo>'
+        foo.apply(doSomething);   
+        ~~~ ^
+1 warning and 6 errors generated.
