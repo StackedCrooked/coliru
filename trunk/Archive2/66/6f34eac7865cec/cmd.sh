@@ -1,0 +1,1 @@
+g++ -std=c++14 -DPORT=8899 main.cpp && ./a.out
