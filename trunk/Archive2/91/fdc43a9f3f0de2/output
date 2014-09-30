@@ -1,0 +1,10 @@
+main.cpp:21:5: error: no matching function for call to 'foo'
+    foo(int{});
+    ^~~
+main.cpp:11:4: note: candidate function [with T = int] not viable: expects an l-value for 1st argument
+T& foo(T& p) { std::cout << "T&\n"; return p; }
+   ^
+main.cpp:5:4: note: candidate template ignored: could not match 'T *' against 'int'
+T& foo(T* p) { std::cout << "T*\n"; return *p; }
+   ^
+1 error generated.
