@@ -1,0 +1,2 @@
+clang++ -std=c++14 -stdlib=libc++ -Wall -Wextra -pedantic-errors -Wno-unused -O2 main.cpp -lsupc++ && ./a.out <<< '1234 10 20' 
+g++ -std=c++14 -Wall -Wextra -pedantic-errors -Wno-unused -O2 main.cpp && ./a.out <<< '5678 10 20'
