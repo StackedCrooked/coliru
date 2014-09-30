@@ -1,0 +1,79 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z4funcv>:
+     bar() {};    
+};
+
+void func()
+{
+  static bar tbar;
+   0:	80 3d 00 00 00 00 00 	cmp    BYTE PTR [rip+0x0],0x0        # 7 <_Z4funcv+0x7>
+   7:	74 07                	je     10 <_Z4funcv+0x10>
+}
+   9:	c3                   	ret    
+   a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+{
+     bar() {};    
+};
+
+void func()
+{
+  10:	48 83 ec 08          	sub    rsp,0x8
+  static bar tbar;
+  14:	bf 00 00 00 00       	mov    edi,0x0
+  19:	e8 00 00 00 00       	call   1e <_Z4funcv+0x1e>
+  1e:	85 c0                	test   eax,eax
+  20:	75 0e                	jne    30 <_Z4funcv+0x30>
+}
+  22:	48 83 c4 08          	add    rsp,0x8
+  26:	c3                   	ret    
+  27:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+  2e:	00 00 
+     bar() {};    
+};
+
+void func()
+{
+  static bar tbar;
+  30:	bf 00 00 00 00       	mov    edi,0x0
+}
+  35:	48 83 c4 08          	add    rsp,0x8
+     bar() {};    
+};
+
+void func()
+{
+  static bar tbar;
+  39:	e9 00 00 00 00       	jmp    3e <_Z4funcv+0x3e>
+
+Disassembly of section .text.startup:
+
+0000000000000000 <main>:
+   0:	80 3d 00 00 00 00 00 	cmp    BYTE PTR [rip+0x0],0x0        # 7 <main+0x7>
+   7:	74 03                	je     c <main+0xc>
+}
+
+   9:	31 c0                	xor    eax,eax
+   b:	c3                   	ret    
+   c:	51                   	push   rcx
+     bar() {};    
+};
+
+void func()
+{
+  static bar tbar;
+   d:	bf 00 00 00 00       	mov    edi,0x0
+  12:	e8 00 00 00 00       	call   17 <main+0x17>
+  17:	85 c0                	test   eax,eax
+  19:	74 0a                	je     25 <main+0x25>
+  1b:	bf 00 00 00 00       	mov    edi,0x0
+  20:	e8 00 00 00 00       	call   25 <main+0x25>
+}
+
+  25:	31 c0                	xor    eax,eax
+  27:	5a                   	pop    rdx
+  28:	c3                   	ret    
