@@ -1,0 +1,28 @@
+In file included from main.cpp:4:0:
+concepts.hpp: In instantiation of 'struct Concepts::diagnose_all_requirements<Concepts::expr<inttable, Concepts::models<concepts::ContextualBool> > >':
+concepts.hpp:325:8:   required from 'struct Concepts::diagnose_requirements<parts::NotEqualTo<example, example>, void>'
+concepts.hpp:301:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::nested<parts::NotEqualTo<example, example>, parts::NotEqualTo<example, example> > >'
+concepts.hpp:280:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::expr<bool, Concepts::models<concepts::ContextualBool> >, Concepts::nested<parts::NotEqualTo<example, example>, parts::NotEqualTo<example, example> > >'
+concepts.hpp:301:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::nested<parts::EqualTo<example, example>, parts::NotEqualTo<example, example>, parts::NotEqualTo<example, example> > >'
+concepts.hpp:280:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::expr<bool, Concepts::models<concepts::ContextualBool> >, Concepts::nested<parts::EqualTo<example, example>, parts::NotEqualTo<example, example>, parts::NotEqualTo<example, example> > >'
+concepts.hpp:301:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::nested<parts::EqualTo<example, example>, parts::EqualTo<example, example>, parts::NotEqualTo<example, example>, parts::NotEqualTo<example, example> > >'
+concepts.hpp:325:8:   required from 'struct Concepts::diagnose_requirements<concepts::EqualityComparable<example, example>, void>'
+concepts.hpp:301:8:   required from 'struct Concepts::diagnose_all_requirements<Concepts::nested<concepts::EqualityComparable<example, example>, parts::LessThan<example, example> > >'
+concepts.hpp:325:8:   required from 'struct Concepts::diagnose_requirements<concepts::Comparable<example, example>, void>'
+concepts.hpp:337:8:   required from 'struct Concepts::concept_check<concepts::Comparable<Concepts::diagnostic_type<example>, example>, std::integral_constant<bool, true> >'
+concepts.hpp:352:8:   required from 'struct Concepts::constraints<concepts::Comparable<Concepts::diagnostic_type<example>, example> >'
+main.cpp:121:6:   required by substitution of 'template<class X, class Y, typename Concepts::constraints<concepts::Comparable<X, Y> >::type ...<anonymous> > auto constrained_function(X&&, Y&&) [with X = Concepts::diagnostic_type<example>; Y = example; typename Concepts::constraints<concepts::Comparable<X, Y> >::type ...<anonymous> = {}]'
+main.cpp:139:68:   required from here
+concepts.hpp:282:5: error: static assertion failed: 
+
+		:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		::                                                     ::
+		::  ^ Expression is not a model of expected concept ^  ::
+		::                                                     ::
+		:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+     static_assert( check_requirements<Expected<Expr>>()
+     ^
+compilation terminated due to -Wfatal-errors.
