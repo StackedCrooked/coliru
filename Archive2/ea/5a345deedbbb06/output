@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'struct handle<halt, long int*>':
+main.cpp:10:8:   required from 'struct handle<int*, halt, long int*>'
+main.cpp:14:8:   required from 'struct handle<rec<handle, int*, halt, long int*>, long int&>'
+main.cpp:10:8:   required from 'struct handle<int&, rec<handle, int*, halt, long int*>, long int&>'
+main.cpp:14:8:   required from 'struct handle<rec<handle, int&, rec<handle, int*, halt, long int*>, long int&>, long int>'
+main.cpp:10:8:   required from 'struct handle<int, rec<handle, int&, rec<handle, int*, halt, long int*>, long int&>, long int>'
+main.cpp:26:82:   required from here
+main.cpp:21:5: error: static assertion failed: halt
+     static_assert( (dependent<Args...> {}, false), "halt" );
+     ^
