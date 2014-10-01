@@ -1,0 +1,21 @@
+clang c11
+main.cpp:4:14: error: incompatible pointer types initializing 'char **' with an expression of type 'char [5]' [-Werror,-Wincompatible-pointer-types]
+char **d = { "str1", "str2", "str3", "str4" };
+             ^~~~~~
+main.cpp:4:22: error: excess elements in scalar initializer [-Werror]
+char **d = { "str1", "str2", "str3", "str4" };
+                     ^~~~~~
+2 errors generated.
+
+gcc c11
+main.cpp:4:1: error: initialization from incompatible pointer type
+ char **d = { "str1", "str2", "str3", "str4" };
+ ^
+main.cpp:4:1: error: (near initialization for 'd')
+main.cpp:4:1: error: excess elements in scalar initializer
+main.cpp:4:1: error: (near initialization for 'd')
+main.cpp:4:1: error: excess elements in scalar initializer
+main.cpp:4:1: error: (near initialization for 'd')
+main.cpp:4:1: error: excess elements in scalar initializer
+main.cpp:4:1: error: (near initialization for 'd')
+
