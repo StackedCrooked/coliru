@@ -1,0 +1,13 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:11:10: error: the parameter for an explicitly-defaulted copy assignment operator must be an lvalue reference type
+    bar& operator=( bar ) = default;
+         ^
+main.cpp:16:7: error: object of type 'bar' cannot be assigned because its copy assignment operator is implicitly deleted
+    b = {};
+      ^
+main.cpp:11:10: note: explicitly defaulted function was implicitly deleted here
+    bar& operator=( bar ) = default;
+         ^
+2 errors generated.
