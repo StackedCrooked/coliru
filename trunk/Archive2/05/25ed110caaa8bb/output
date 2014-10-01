@@ -1,0 +1,45 @@
+main.cpp: In substitution of 'template<class T> using ScalarOf = typename scalar_of<T>::type [with T = BoostArray]':
+main.cpp:52:5:   required from here
+main.cpp:38:45: error: ambiguous class template instantiation for 'struct scalar_of<BoostArray, void>'
+ using ScalarOf = typename scalar_of<T>::type;
+                                             ^
+main.cpp:28:8: error: candidates are: struct scalar_of<T, typename std::enable_if<has_element<T, void>::value, void>::type>
+ struct scalar_of<T, EnableIf<has_element<T>>> {
+        ^
+main.cpp:33:8: error:                 struct scalar_of<T, typename std::enable_if<has_scalar<T, void>::value, void>::type>
+ struct scalar_of<T, EnableIf<has_scalar<T>>> {
+        ^
+main.cpp:38:45: error: invalid use of incomplete type 'struct scalar_of<BoostArray, void>'
+ using ScalarOf = typename scalar_of<T>::type;
+                                             ^
+main.cpp:25:8: error: declaration of 'struct scalar_of<BoostArray, void>'
+ struct scalar_of;
+        ^
+In file included from /usr/local/include/c++/4.9.0/cassert:43:0,
+                 from main.cpp:1:
+main.cpp: In function 'int main()':
+main.cpp:52:48: error: template argument 2 is invalid
+     assert((is_same<double, ScalarOf<BoostArray>>::value));
+                                                ^
+main.cpp: In substitution of 'template<class T> using ScalarOf = typename scalar_of<T>::type [with T = EigenArray]':
+main.cpp:53:5:   required from here
+main.cpp:38:45: error: ambiguous class template instantiation for 'struct scalar_of<EigenArray, void>'
+ using ScalarOf = typename scalar_of<T>::type;
+                                             ^
+main.cpp:28:8: error: candidates are: struct scalar_of<T, typename std::enable_if<has_element<T, void>::value, void>::type>
+ struct scalar_of<T, EnableIf<has_element<T>>> {
+        ^
+main.cpp:33:8: error:                 struct scalar_of<T, typename std::enable_if<has_scalar<T, void>::value, void>::type>
+ struct scalar_of<T, EnableIf<has_scalar<T>>> {
+        ^
+main.cpp:38:45: error: invalid use of incomplete type 'struct scalar_of<EigenArray, void>'
+ using ScalarOf = typename scalar_of<T>::type;
+                                             ^
+main.cpp:25:8: error: declaration of 'struct scalar_of<EigenArray, void>'
+ struct scalar_of;
+        ^
+In file included from /usr/local/include/c++/4.9.0/cassert:43:0,
+                 from main.cpp:1:
+main.cpp:53:47: error: template argument 2 is invalid
+     assert((is_same<float, ScalarOf<EigenArray>>::value));
+                                               ^
