@@ -1,0 +1,466 @@
+main.cpp: In member function 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(P&&) const':
+main.cpp:50:9: warning: no return statement in function returning non-void [-Wreturn-type]
+         }
+         ^
+main.cpp: At global scope:
+main.cpp:107:48: warning: unused parameter 'x' [-Wunused-parameter]
+             MyQVariant operator()(double const x, std::string const& y) const {
+                                                ^
+main.cpp:153:14: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main(int argc, char **argv)
+              ^
+main.cpp:153:27: warning: unused parameter 'argv' [-Wunused-parameter]
+ int main(int argc, char **argv)
+                           ^
+main.cpp: In instantiation of 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(const P1&, const P2&) const [with P1 = std::basic_string<char>; P2 = double]':
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:67:40:   required from 'boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::operator()(Value2&) [with Value2 = const double; Visitor = const operator+(const MyQVariant&, const MyQVariant&)::add_visitor; Value1 = const std::basic_string<char>; boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = const double; Visitor = boost::detail::variant::apply_visitor_binary_invoke<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const std::basic_string<char> >; boost::detail::variant::invoke_visitor<Visitor>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const std::basic_string<char> > >; VoidPtrCV = const void*; T = double; typename Visitor::result_type = MyQVariant; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const std::basic_string<char> > >; VoidPtrCV = const void*; T = double; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, double, boost::mpl::l_item<mpl_::long_<1l>, std::basic_string<char>, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const std::basic_string<char> > >; VoidPtrCV = const void*; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   [ skipping 9 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; VoidPtrCV = const void*; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2267:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) const [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2289:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) const [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator+(const MyQVariant&, const MyQVariant&)::add_visitor, const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; Visitable = const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:173:54:   required from 'typename Visitor::result_type boost::apply_visitor(const Visitor&, Visitable1&, Visitable2&) [with Visitor = operator+(const MyQVariant&, const MyQVariant&)::add_visitor; Visitable1 = const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; Visitable2 = const boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+main.cpp:121:70:   required from here
+main.cpp:70:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + str;
+                         ^
+main.cpp:70:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:71:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + std::to_string(val);
+                         ^
+main.cpp:71:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:82:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + val2;
+                         ^
+main.cpp:82:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:79:29: warning: unused variable 'val1' [-Wunused-variable]
+                 double      val1 = boost::get<double>     (MyQVariant(p1_).data);
+                             ^
+main.cpp: In instantiation of 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(const P1&, const P2&) const [with P1 = double; P2 = double]':
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:67:40:   required from 'boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::operator()(Value2&) [with Value2 = double; Visitor = const operator-(MyQVariant&, MyQVariant&)::sub_visitor; Value1 = double; boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = double; Visitor = boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double>; boost::detail::variant::invoke_visitor<Visitor>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; T = double; typename Visitor::result_type = MyQVariant; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; T = double; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, double, boost::mpl::l_item<mpl_::long_<1l>, std::basic_string<char>, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   [ skipping 9 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; VoidPtrCV = void*; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; Visitable = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:173:54:   required from 'typename Visitor::result_type boost::apply_visitor(const Visitor&, Visitable1&, Visitable2&) [with Visitor = operator-(MyQVariant&, MyQVariant&)::sub_visitor; Visitable1 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; Visitable2 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+main.cpp:132:70:   required from here
+main.cpp:70:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + str;
+                         ^
+main.cpp:70:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:71:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + std::to_string(val);
+                         ^
+main.cpp:71:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:82:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + val2;
+                         ^
+main.cpp:82:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:79:29: warning: unused variable 'val1' [-Wunused-variable]
+                 double      val1 = boost::get<double>     (MyQVariant(p1_).data);
+                             ^
+main.cpp: In instantiation of 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(const P1&, const P2&) const [with P1 = double; P2 = std::basic_string<char>]':
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:67:40:   required from 'boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::operator()(Value2&) [with Value2 = std::basic_string<char>; Visitor = const operator-(MyQVariant&, MyQVariant&)::sub_visitor; Value1 = double; boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = std::basic_string<char>; Visitor = boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double>; boost::detail::variant::invoke_visitor<Visitor>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; T = std::basic_string<char>; typename Visitor::result_type = MyQVariant; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; T = std::basic_string<char>; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, double, boost::mpl::l_item<mpl_::long_<1l>, std::basic_string<char>, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, double> >; VoidPtrCV = void*; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   [ skipping 9 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; VoidPtrCV = void*; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; Visitable = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:173:54:   required from 'typename Visitor::result_type boost::apply_visitor(const Visitor&, Visitable1&, Visitable2&) [with Visitor = operator-(MyQVariant&, MyQVariant&)::sub_visitor; Visitable1 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; Visitable2 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+main.cpp:132:70:   required from here
+main.cpp:70:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + str;
+                         ^
+main.cpp:70:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:71:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + std::to_string(val);
+                         ^
+main.cpp:71:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:82:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + val2;
+                         ^
+main.cpp:82:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:79:29: warning: unused variable 'val1' [-Wunused-variable]
+                 double      val1 = boost::get<double>     (MyQVariant(p1_).data);
+                             ^
+main.cpp: In instantiation of 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(const P1&, const P2&) const [with P1 = std::basic_string<char>; P2 = std::basic_string<char>]':
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:67:40:   required from 'boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::operator()(Value2&) [with Value2 = std::basic_string<char>; Visitor = const operator-(MyQVariant&, MyQVariant&)::sub_visitor; Value1 = std::basic_string<char>; boost::detail::variant::apply_visitor_binary_invoke<Visitor, Value1>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = std::basic_string<char>; Visitor = boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, std::basic_string<char> >; boost::detail::variant::invoke_visitor<Visitor>::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, std::basic_string<char> > >; VoidPtrCV = void*; T = std::basic_string<char>; typename Visitor::result_type = MyQVariant; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, std::basic_string<char> > >; VoidPtrCV = void*; T = std::basic_string<char>; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, double, boost::mpl::l_item<mpl_::long_<1l>, std::basic_string<char>, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_invoke<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, std::basic_string<char> > >; VoidPtrCV = void*; NoBackupFlag = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_fallback_type_; typename Visitor::result_type = MyQVariant; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   [ skipping 9 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; VoidPtrCV = void*; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; T0_ = double; TN = {std::basic_string<char, std::char_traits<char>, std::allocator<char> >}; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = boost::detail::variant::apply_visitor_binary_unwrap<const operator-(MyQVariant&, MyQVariant&)::sub_visitor, boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >; Visitable = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+/usr/local/include/boost/variant/detail/apply_visitor_binary.hpp:173:54:   required from 'typename Visitor::result_type boost::apply_visitor(const Visitor&, Visitable1&, Visitable2&) [with Visitor = operator-(MyQVariant&, MyQVariant&)::sub_visitor; Visitable1 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; Visitable2 = boost::variant<double, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >; typename Visitor::result_type = MyQVariant]'
+main.cpp:132:70:   required from here
+main.cpp:70:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + str;
+                         ^
+main.cpp:70:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:71:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + std::to_string(val);
+                         ^
+main.cpp:71:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:82:25: error: no match for 'operator=' (operand types are 'const string {aka const std::basic_string<char>}' and 'std::basic_string<char>')
+                 app_str = app_str + val2;
+                         ^
+main.cpp:82:25: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/boost/array.hpp:43,
+                 from /usr/local/include/boost/multi_array/range_list.hpp:19,
+                 from /usr/local/include/boost/multi_array/extent_gen.hpp:17,
+                 from /usr/local/include/boost/multi_array/base.hpp:22,
+                 from /usr/local/include/boost/multi_array.hpp:21,
+                 from main.cpp:10:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:554:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'const char*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'char'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] <near match>
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:589:7: note:   no known conversion for implicit 'this' parameter from 'const string* {aka const std::basic_string<char>*}' to 'std::basic_string<char>*'
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'std::basic_string<char>' to 'std::initializer_list<char>'
+main.cpp:79:29: warning: unused variable 'val1' [-Wunused-variable]
+                 double      val1 = boost::get<double>     (MyQVariant(p1_).data);
+                             ^
+main.cpp: In member function 'MyQVariant MyQVariant::invalid_conversion_helper::operator()(const P1&, const P2&) const [with P1 = std::basic_string<char>; P2 = double]':
+main.cpp:89:9: warning: control reaches end of non-void function [-Wreturn-type]
+         }
+         ^
