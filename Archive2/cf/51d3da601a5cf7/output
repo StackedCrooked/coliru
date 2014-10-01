@@ -1,0 +1,38 @@
+In file included from main.cpp:1:
+./concepts.hpp:275:5: error: static_assert failed "\n\n\t\t=====> Expression is not explicitly convertible to expected type <=====\n\n"
+    static_assert( std::is_constructible<Expected, Expr>()
+    ^              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./concepts.hpp:290:3: note: in instantiation of template class 'Concepts::diagnose<concepts::Booly<inty>, Concepts::expr<const inty &, Concepts::explicit_<bool> > >' requested here
+: Diagnose<Expected<Expr>>, diagnose<Concept, Rest...> {
+  ^
+./concepts.hpp:304:11: note: in instantiation of template class 'Concepts::diagnose<conparts::NotEqualTo<dummy, dummy>, Concepts::expr<inty, Concepts::models<Booly> > >' requested here
+: private Diagnose<Nested>..., diagnose<Concept, Rest...> {};
+          ^
+./concepts.hpp:304:11: note: in instantiation of template class 'Concepts::diagnose<concepts::EqualityComparable<dummy, dummy>, Concepts::nested<conparts::EqualTo<dummy, dummy>, conparts::NotEqualTo<dummy, dummy> > >' requested here
+: private Diagnose<Nested>..., diagnose<Concept, Rest...> {};
+          ^
+./concepts.hpp:320:12: note: in instantiation of template class 'Concepts::diagnose<concepts::Comparable<dummy, dummy>, Concepts::nested<concepts::EqualityComparable<dummy, dummy>, conparts::LessThan<dummy, dummy>, conparts::LessEqual<dummy, dummy>, conparts::GreaterThan<dummy, dummy>, conparts::GreaterEqual<dummy, dummy> > >' requested here
+>: private Diagnose<Concept<detail::undiagnostic<Args>...>>
+           ^
+./concepts.hpp:355:22: note: in instantiation of template class 'Concepts::check_or_diagnose<concepts::Comparable<Concepts::detail::diagnostic_type<dummy>, dummy>, std::integral_constant<bool, true> >' requested here
+: std::conditional_t<check_or_diagnose<Concept>::value, requires<Concepts...>, detail::empty_type> {};
+                     ^
+./concepts.hpp:358:1: note: in instantiation of template class 'Concepts::requires<concepts::Comparable<Concepts::detail::diagnostic_type<dummy>, dummy> >' requested here
+using Requires = typename requires<Concepts...>::type;
+^
+main.cpp:91:28: note: in instantiation of template type alias 'Requires' requested here
+    , typename = Concepts::Requires<concepts::Comparable<T, U>>
+                           ^
+main.cpp:93:6: note: in instantiation of default argument for 'constrained_function<Concepts::detail::diagnostic_type<dummy>, dummy>' required here
+bool constrained_function(T const& a, U const& b)
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:109:5: note: while substituting deduced template arguments into function template 'constrained_function' [with T = Concepts::detail::diagnostic_type<dummy>, U = dummy, $2 = (no value)]
+    constrained_function(Concepts::diagnostic(dummy {}), dummy {});
+    ^
+main.cpp:109:5: error: no matching function for call to 'constrained_function'
+    constrained_function(Concepts::diagnostic(dummy {}), dummy {});
+    ^~~~~~~~~~~~~~~~~~~~
+main.cpp:93:6: note: candidate template ignored: substitution failure [with T = Concepts::detail::diagnostic_type<dummy>, U = dummy]
+bool constrained_function(T const& a, U const& b)
+     ^
+2 errors generated.
