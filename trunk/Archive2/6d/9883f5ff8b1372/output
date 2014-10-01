@@ -1,0 +1,57 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z4funcv>:
+    int a;
+};
+
+void func()
+{
+  static bar tbar;
+   0:	80 3d 00 00 00 00 00 	cmp    BYTE PTR [rip+0x0],0x0        # 7 <_Z4funcv+0x7>
+   7:	74 07                	je     10 <_Z4funcv+0x10>
+}
+   9:	c3                   	ret    
+   a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+  private:
+    int a;
+};
+
+void func()
+{
+  10:	48 83 ec 08          	sub    rsp,0x8
+  static bar tbar;
+  14:	bf 00 00 00 00       	mov    edi,0x0
+  19:	e8 00 00 00 00       	call   1e <_Z4funcv+0x1e>
+  1e:	85 c0                	test   eax,eax
+  20:	75 0e                	jne    30 <_Z4funcv+0x30>
+}
+  22:	48 83 c4 08          	add    rsp,0x8
+  26:	c3                   	ret    
+  27:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+  2e:	00 00 
+class bar
+{
+  public:
+    bar() { a=0; };    
+  30:	c7 05 00 00 00 00 00 	mov    DWORD PTR [rip+0x0],0x0        # 3a <_Z4funcv+0x3a>
+  37:	00 00 00 
+    int a;
+};
+
+void func()
+{
+  static bar tbar;
+  3a:	bf 00 00 00 00       	mov    edi,0x0
+}
+  3f:	48 83 c4 08          	add    rsp,0x8
+    int a;
+};
+
+void func()
+{
+  static bar tbar;
+  43:	e9 00 00 00 00       	jmp    48 <_ZGVZ4funcvE4tbar+0x40>
