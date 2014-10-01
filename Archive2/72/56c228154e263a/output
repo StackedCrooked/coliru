@@ -1,0 +1,112 @@
+main.cpp:40:2: error: constructor cannot be redeclared
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:29:2: note: previous declaration is here
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:39:39: error: template parameter redefines default argument
+        template <typename... Tn, typename = type<std::enable_if<sizeof...( Tn ) == (n + 1)>>>
+                                             ^
+main.cpp:28:39: note: previous default template argument defined here
+        template <typename... Tn, typename = type<std::enable_if<(sizeof...( Tn ) > 0) && (sizeof...( Tn ) <= n), int>>>
+                                             ^
+main.cpp:65:24: error: unknown type name 'indices'
+        void set( Tu&& tuple, indices<I...> ) {
+                              ^
+main.cpp:65:31: error: expected ')'
+        void set( Tu&& tuple, indices<I...> ) {
+                                     ^
+main.cpp:65:10: note: to match this '('
+        void set( Tu&& tuple, indices<I...> ) {
+                ^
+main.cpp:40:2: error: redefinition of 'Vector<T, n>'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:29:2: note: previous definition is here
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:42:20: error: no member named 'make_tuple' in namespace 'std'
+                auto args = std::make_tuple( std::forward<Tn>( argn )... );
+                            ~~~~~^
+main.cpp:43:14: error: use of undeclared identifier 'make_indices'
+                set( args, make_indices<sizeof...( Tn )-1>( ) );
+                           ^
+main.cpp:43:47: error: expected expression
+                set( args, make_indices<sizeof...( Tn )-1>( ) );
+                                                            ^
+main.cpp:40:2: error: multiple overloads of 'Vector' instantiate to the same signature 'void (Tn &&...)'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:138:13: note: in instantiation of template class 'Vector<float, 3>' requested here
+    Vector3 garbage; // makes it usable with other primitives in crazy unions and shit
+            ^
+main.cpp:29:2: note: previous declaration is here
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:142:13: error: no matching constructor for initialization of 'Vector3' (aka 'Vector<float, 3>')
+    Vector3 arf( 1, 2, 3 ); // still constructors fine, individual elements
+            ^    ~~~~~~~
+main.cpp:40:2: note: candidate template ignored: substitution failure [with Tn = <int, int, int>]: no type named 'type' in 'std::enable_if<false, void>'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:23:2: note: candidate constructor not viable: requires single argument 'init', but 3 arguments were provided
+        Vector( std::initializer_list<T> init ) {
+        ^
+main.cpp:18:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 3 were provided
+struct Vector {
+       ^
+main.cpp:18:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 3 were provided
+main.cpp:21:5: note: candidate constructor not viable: requires 0 arguments, but 3 were provided
+    Vector( ) = default;
+    ^
+main.cpp:145:13: error: no matching constructor for initialization of 'Vector3' (aka 'Vector<float, 3>')
+    Vector3 woof(some_data, 6); // 4, 5, 6
+            ^    ~~~~~~~~~~~~
+main.cpp:40:2: note: candidate template ignored: substitution failure [with Tn = <float (&)[2], int>]: no type named 'type' in 'std::enable_if<false, void>'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:23:2: note: candidate constructor not viable: requires single argument 'init', but 2 arguments were provided
+        Vector( std::initializer_list<T> init ) {
+        ^
+main.cpp:18:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+struct Vector {
+       ^
+main.cpp:18:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+main.cpp:21:5: note: candidate constructor not viable: requires 0 arguments, but 2 were provided
+    Vector( ) = default;
+    ^
+main.cpp:148:13: error: no matching constructor for initialization of 'Vector3' (aka 'Vector<float, 3>')
+    Vector3 double_woof(more_data); // 7, 8, 9
+            ^           ~~~~~~~~~
+main.cpp:18:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'float [3]' to 'const Vector<float, 3>' for 1st argument
+struct Vector {
+       ^
+main.cpp:18:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'float [3]' to 'Vector<float, 3>' for 1st argument
+struct Vector {
+       ^
+main.cpp:23:2: note: candidate constructor not viable: no known conversion from 'float [3]' to 'std::initializer_list<float>' for 1st argument
+        Vector( std::initializer_list<T> init ) {
+        ^
+main.cpp:40:2: note: candidate template ignored: substitution failure [with Tn = <float (&)[3]>]: no type named 'type' in 'std::enable_if<false, void>'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:21:5: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+    Vector( ) = default;
+    ^
+main.cpp:151:13: error: no matching constructor for initialization of 'Vector3' (aka 'Vector<float, 3>')
+    Vector3 triple_woof(13, extra_data); // 13, 14, 15
+            ^           ~~~~~~~~~~~~~~
+main.cpp:40:2: note: candidate template ignored: substitution failure [with Tn = <int, float (&)[2]>]: no type named 'type' in 'std::enable_if<false, void>'
+        Vector( Tn&&... argn ) {
+        ^
+main.cpp:23:2: note: candidate constructor not viable: requires single argument 'init', but 2 arguments were provided
+        Vector( std::initializer_list<T> init ) {
+        ^
+main.cpp:18:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+struct Vector {
+       ^
+main.cpp:18:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+main.cpp:21:5: note: candidate constructor not viable: requires 0 arguments, but 2 were provided
+    Vector( ) = default;
+    ^
+13 errors generated.
