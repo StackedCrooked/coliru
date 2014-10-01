@@ -1,0 +1,1 @@
+g++ -std=c++14 -Wall -Wextra -pedantic-errors -Wno-unused -O2 main.cpp && ./a.out
