@@ -1,0 +1,25 @@
++ g++ -std=c++11 -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:26:20: warning: __VA_ARGS__ can only appear in the expansion of a C99 variadic macro
+     PASTE(first_va(__VA_ARGS__,_blank), _wrapper);
+                    ^
+main.cpp:26:20: error: '__VA_ARGS___wrapper' does not name a type
+     PASTE(first_va(__VA_ARGS__,_blank), _wrapper);
+                    ^
+main.cpp:22:22: note: in definition of macro 'PASTE2'
+ #define PASTE2(x, y) x##y
+                      ^
+main.cpp:26:5: note: in expansion of macro 'PASTE'
+     PASTE(first_va(__VA_ARGS__,_blank), _wrapper);
+     ^
+main.cpp:26:11: note: in expansion of macro 'first_va'
+     PASTE(first_va(__VA_ARGS__,_blank), _wrapper);
+           ^
+main.cpp:25:5: error: duplicate 'typedef'
+     typedef decltype(wrapper_helper< __VA_ARGS__ >())
+     ^
+main.cpp:29:1: note: in expansion of macro 'createwrapper'
+ createwrapper(templated_class,int)
+ ^
+main.cpp:31:10: error: two or more data types in declaration of 'main'
+ int main(){
+          ^
