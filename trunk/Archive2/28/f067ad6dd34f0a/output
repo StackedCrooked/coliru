@@ -1,0 +1,42 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z5fdcmpddc
+	.align	16, 0x90
+	.type	_Z5fdcmpddc,@function
+_Z5fdcmpddc:                            # @_Z5fdcmpddc
+	.cfi_startproc
+# BB#0:
+	movd	%xmm0, %rax
+	movd	%xmm1, %rcx
+	subq	%rcx, %rax
+	movabsq	$9223372036854775807, %rcx # imm = 0x7FFFFFFFFFFFFFFF
+	andq	%rax, %rcx
+	movslq	%edi, %rax
+	cmpq	%rax, %rcx
+	setle	%al
+	retq
+.Ltmp0:
+	.size	_Z5fdcmpddc, .Ltmp0-_Z5fdcmpddc
+	.cfi_endproc
+
+	.globl	_Z7abs_cmpddc
+	.align	16, 0x90
+	.type	_Z7abs_cmpddc,@function
+_Z7abs_cmpddc:                          # @_Z7abs_cmpddc
+	.cfi_startproc
+# BB#0:
+	subsd	%xmm1, %xmm0
+	movd	%xmm0, %rax
+	movabsq	$9223372036854775807, %rcx # imm = 0x7FFFFFFFFFFFFFFF
+	andq	%rax, %rcx
+	movslq	%edi, %rax
+	cmpq	%rax, %rcx
+	setle	%al
+	retq
+.Ltmp1:
+	.size	_Z7abs_cmpddc, .Ltmp1-_Z7abs_cmpddc
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
