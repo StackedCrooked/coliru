@@ -1,0 +1,34 @@
+In file included from main.cpp:1:0:
+concepts.hpp: In instantiation of 'struct Concepts::diagnose<conparts::NotEqualTo<dummy, dummy>, Concepts::expr<inty, Concepts::models<concepts::Booly> > >':
+concepts.hpp:300:8:   recursively required from 'struct Concepts::diagnose<concepts::EqualityComparable<dummy, dummy>, Concepts::nested<conparts::EqualTo<dummy, dummy>, conparts::NotEqualTo<dummy, dummy> > >'
+concepts.hpp:300:8:   required from 'struct Concepts::diagnose<concepts::Comparable<dummy, dummy>, Concepts::nested<concepts::EqualityComparable<dummy, dummy>, conparts::LessThan<dummy, dummy>, conparts::LessEqual<dummy, dummy>, conparts::GreaterThan<dummy, dummy>, conparts::GreaterEqual<dummy, dummy> > >'
+concepts.hpp:314:8:   required from 'struct Concepts::check_or_diagnose<concepts::Comparable<Concepts::detail::diagnostic_type<dummy>, dummy>, std::integral_constant<bool, true> >'
+concepts.hpp:351:8:   required from 'struct Concepts::requires<concepts::Comparable<Concepts::detail::diagnostic_type<dummy>, dummy> >'
+concepts.hpp:355:54:   required by substitution of 'template<class ... Concepts> using Requires = typename Concepts::requires::type [with Concepts = {concepts::Comparable<Concepts::detail::diagnostic_type<dummy>, dummy>}]'
+main.cpp:91:7:   required by substitution of 'template<class T, class U, class> bool constrained_function(const T&, const U&) [with T = Concepts::detail::diagnostic_type<dummy>; U = dummy; <template-parameter-1-3> = <missing>]'
+main.cpp:109:66:   required from here
+concepts.hpp:291:5: error: static assertion failed: 
+
+		=====> Expression is not a model of expected concept <=====
+
+
+     static_assert( Check<Expected<Expr>>()
+     ^
+main.cpp: In instantiation of 'bool constrained_function(const T&, const U&) [with T = Concepts::detail::diagnostic_type<dummy>; U = dummy; <template-parameter-1-3> = Concepts::enabled]':
+main.cpp:109:66:   required from here
+main.cpp:94:12: error: no match for 'operator<' (operand types are 'const Concepts::detail::diagnostic_type<dummy>' and 'const dummy')
+ { return a < b; }
+            ^
+main.cpp:94:12: note: candidate is:
+main.cpp:102:6: note: bool operator<(const dummy&, const dummy&)
+ bool operator<(dummy const&, dummy const&) { return true; }
+      ^
+main.cpp:102:6: note:   no known conversion for argument 1 from 'const Concepts::detail::diagnostic_type<dummy>' to 'const dummy&'
+In file included from main.cpp:1:0:
+concepts.hpp:66:41: warning: inline function 'constexpr Concepts::detail::diagnostic_type<Type> Concepts::diagnostic(Type&&) [with Type = dummy]' used but never defined
+ constexpr detail::diagnostic_type<Type> diagnostic(Type&& type) noexcept;
+                                         ^
+main.cpp: In function 'bool constrained_function(const T&, const U&) [with T = Concepts::detail::diagnostic_type<dummy>; U = dummy; <template-parameter-1-3> = Concepts::enabled]':
+main.cpp:94:17: warning: control reaches end of non-void function [-Wreturn-type]
+ { return a < b; }
+                 ^
