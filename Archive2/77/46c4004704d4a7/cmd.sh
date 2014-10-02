@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ main.cpp -Weverything -Reverything --analyze -Xanalyzer -analyzer-output=text -Xanalyzer -analyzer-checker=alpha.cplusplus
