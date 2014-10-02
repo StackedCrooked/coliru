@@ -1,0 +1,68 @@
+clang++ c++98
+main.cpp:3:20: error: declaration of 'example' has a different language linkage
+extern "C++" void *example(int (*compar)(const void *, const void *));
+                   ^
+main.cpp:1:18: note: previous declaration is here
+extern "C" void *example(int (*compar)(const void *, const void *));
+                 ^
+1 error generated.
+
+clang++ c++03
+main.cpp:3:20: error: declaration of 'example' has a different language linkage
+extern "C++" void *example(int (*compar)(const void *, const void *));
+                   ^
+main.cpp:1:18: note: previous declaration is here
+extern "C" void *example(int (*compar)(const void *, const void *));
+                 ^
+1 error generated.
+
+clang++ c++11
+main.cpp:3:20: error: declaration of 'example' has a different language linkage
+extern "C++" void *example(int (*compar)(const void *, const void *));
+                   ^
+main.cpp:1:18: note: previous declaration is here
+extern "C" void *example(int (*compar)(const void *, const void *));
+                 ^
+1 error generated.
+
+clang++ c++14
+main.cpp:3:20: error: declaration of 'example' has a different language linkage
+extern "C++" void *example(int (*compar)(const void *, const void *));
+                   ^
+main.cpp:1:18: note: previous declaration is here
+extern "C" void *example(int (*compar)(const void *, const void *));
+                 ^
+1 error generated.
+
+g++ c++98
+main.cpp:3:69: error: conflicting declaration of 'void* example(int (*)(const void*, const void*))' with 'C++' linkage
+ extern "C++" void *example(int (*compar)(const void *, const void *));
+                                                                     ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C" void *example(int (*compar)(const void *, const void *));
+                  ^
+
+g++ c++03
+main.cpp:3:69: error: conflicting declaration of 'void* example(int (*)(const void*, const void*))' with 'C++' linkage
+ extern "C++" void *example(int (*compar)(const void *, const void *));
+                                                                     ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C" void *example(int (*compar)(const void *, const void *));
+                  ^
+
+g++ c++11
+main.cpp:3:69: error: conflicting declaration of 'void* example(int (*)(const void*, const void*))' with 'C++' linkage
+ extern "C++" void *example(int (*compar)(const void *, const void *));
+                                                                     ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C" void *example(int (*compar)(const void *, const void *));
+                  ^
+
+g++ c++14
+main.cpp:3:69: error: conflicting declaration of 'void* example(int (*)(const void*, const void*))' with 'C++' linkage
+ extern "C++" void *example(int (*compar)(const void *, const void *));
+                                                                     ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C" void *example(int (*compar)(const void *, const void *));
+                  ^
+
