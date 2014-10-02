@@ -1,0 +1,179 @@
+main.cpp: In function 'void pop(EthernetDecoder)':
+main.cpp:20:20: error: 'struct EthernetDecoder' has no member named 'getEtherType'
+     switch (ethdec.getEtherType())
+                    ^
+main.cpp:22:14: error: 'VLAN' was not declared in this scope
+         case VLAN:
+              ^
+main.cpp:24:39: error: no matching function for call to 'VLANDecoder::VLANDecoder(EthernetDecoder&)'
+             VLANDecoder vlandec(ethdec);
+                                       ^
+main.cpp:24:39: note: candidates are:
+main.cpp:2:8: note: constexpr VLANDecoder::VLANDecoder()
+ struct VLANDecoder {};
+        ^
+main.cpp:2:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:2:8: note: constexpr VLANDecoder::VLANDecoder(const VLANDecoder&)
+main.cpp:2:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'const VLANDecoder&'
+main.cpp:2:8: note: constexpr VLANDecoder::VLANDecoder(VLANDecoder&&)
+main.cpp:2:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'VLANDecoder&&'
+main.cpp:28:14: error: 'IPv4' was not declared in this scope
+         case IPv4:
+              ^
+main.cpp:30:37: error: no matching function for call to 'IPv4Decoder::IPv4Decoder(EthernetDecoder&)'
+             IPv4Decoder ipdec(ethdec);
+                                     ^
+main.cpp:30:37: note: candidates are:
+main.cpp:3:8: note: constexpr IPv4Decoder::IPv4Decoder()
+ struct IPv4Decoder {};
+        ^
+main.cpp:3:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:3:8: note: constexpr IPv4Decoder::IPv4Decoder(const IPv4Decoder&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'const IPv4Decoder&'
+main.cpp:3:8: note: constexpr IPv4Decoder::IPv4Decoder(IPv4Decoder&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'IPv4Decoder&&'
+main.cpp:34:14: error: 'IPv6' was not declared in this scope
+         case IPv6:
+              ^
+main.cpp:36:37: error: no matching function for call to 'IPv6Decoder::IPv6Decoder(EthernetDecoder&)'
+             IPv6Decoder ipdec(ethdec);
+                                     ^
+main.cpp:36:37: note: candidates are:
+main.cpp:4:8: note: constexpr IPv6Decoder::IPv6Decoder()
+ struct IPv6Decoder {};
+        ^
+main.cpp:4:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:4:8: note: constexpr IPv6Decoder::IPv6Decoder(const IPv6Decoder&)
+main.cpp:4:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'const IPv6Decoder&'
+main.cpp:4:8: note: constexpr IPv6Decoder::IPv6Decoder(IPv6Decoder&&)
+main.cpp:4:8: note:   no known conversion for argument 1 from 'EthernetDecoder' to 'IPv6Decoder&&'
+main.cpp: At global scope:
+main.cpp:44:31: error: 'Tail' has not been declared
+ void pop(VLANDecoder vlandec, Tail... tail)
+                               ^
+main.cpp:44:39: error: expansion pattern 'int' contains no argument packs
+ void pop(VLANDecoder vlandec, Tail... tail)
+                                       ^
+main.cpp: In function 'void pop(VLANDecoder)':
+main.cpp:46:21: error: 'struct VLANDecoder' has no member named 'getEtherType'
+     switch (vlandec.getEtherType())
+                     ^
+main.cpp:48:14: error: 'VLAN' was not declared in this scope
+         case VLAN:
+              ^
+main.cpp:52:14: error: 'IPv4' was not declared in this scope
+         case IPv4:
+              ^
+main.cpp:54:31: error: 'ethdec' was not declared in this scope
+             IPv4Decoder ipdec(ethdec);
+                               ^
+main.cpp:55:32: error: 'tail' was not declared in this scope
+             pop(ipdec, ethdec, tail...);
+                                ^
+main.cpp:58:14: error: 'IPv6' was not declared in this scope
+         case IPv6:
+              ^
+main.cpp:60:31: error: 'ethdec' was not declared in this scope
+             IPv6Decoder ipdec(ethdec);
+                               ^
+main.cpp:61:32: error: 'tail' was not declared in this scope
+             pop(ipdec, ethdec, tail...);
+                                ^
+main.cpp: At global scope:
+main.cpp:68:29: error: 'Tail' has not been declared
+ void pop(IPv4Decoder ipdec, Tail... dec)
+                             ^
+main.cpp:68:37: error: expansion pattern 'int' contains no argument packs
+ void pop(IPv4Decoder ipdec, Tail... dec)
+                                     ^
+main.cpp: In function 'void pop(IPv4Decoder)':
+main.cpp:70:19: error: 'struct IPv4Decoder' has no member named 'getProtocol'
+     switch (ipdec.getProtocol())
+                   ^
+main.cpp:72:14: error: 'TCP' was not declared in this scope
+         case TCP:
+              ^
+main.cpp:74:36: error: no matching function for call to 'TCPDecoder::TCPDecoder(IPv4Decoder&)'
+             TCPDecoder tcpdec(ipdec);
+                                    ^
+main.cpp:74:36: note: candidates are:
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder()
+ struct TCPDecoder {};
+        ^
+main.cpp:5:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder(const TCPDecoder&)
+main.cpp:5:8: note:   no known conversion for argument 1 from 'IPv4Decoder' to 'const TCPDecoder&'
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder(TCPDecoder&&)
+main.cpp:5:8: note:   no known conversion for argument 1 from 'IPv4Decoder' to 'TCPDecoder&&'
+main.cpp:75:32: error: 'tail' was not declared in this scope
+             pop(tcpdec, ipdec, tail...);
+                                ^
+main.cpp:78:14: error: 'UDP' was not declared in this scope
+         case UDP:
+              ^
+main.cpp:80:36: error: no matching function for call to 'UDPDecoder::UDPDecoder(IPv4Decoder&)'
+             UDPDecoder udpdec(ipdec);
+                                    ^
+main.cpp:80:36: note: candidates are:
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder()
+ struct UDPDecoder {};
+        ^
+main.cpp:6:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder(const UDPDecoder&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'IPv4Decoder' to 'const UDPDecoder&'
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder(UDPDecoder&&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'IPv4Decoder' to 'UDPDecoder&&'
+main.cpp:81:32: error: 'tail' was not declared in this scope
+             pop(udpdec, ipdec, tail...);
+                                ^
+main.cpp: At global scope:
+main.cpp:88:29: error: 'Tail' has not been declared
+ void pop(IPv6Decoder ipdec, Tail... dec)
+                             ^
+main.cpp:88:37: error: expansion pattern 'int' contains no argument packs
+ void pop(IPv6Decoder ipdec, Tail... dec)
+                                     ^
+main.cpp: In function 'void pop(IPv6Decoder)':
+main.cpp:90:19: error: 'struct IPv6Decoder' has no member named 'getProtocol'
+     switch (ipdec.getProtocol())
+                   ^
+main.cpp:92:14: error: 'TCP' was not declared in this scope
+         case TCP:
+              ^
+main.cpp:94:36: error: no matching function for call to 'TCPDecoder::TCPDecoder(IPv6Decoder&)'
+             TCPDecoder tcpdec(ipdec);
+                                    ^
+main.cpp:94:36: note: candidates are:
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder()
+ struct TCPDecoder {};
+        ^
+main.cpp:5:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder(const TCPDecoder&)
+main.cpp:5:8: note:   no known conversion for argument 1 from 'IPv6Decoder' to 'const TCPDecoder&'
+main.cpp:5:8: note: constexpr TCPDecoder::TCPDecoder(TCPDecoder&&)
+main.cpp:5:8: note:   no known conversion for argument 1 from 'IPv6Decoder' to 'TCPDecoder&&'
+main.cpp:95:32: error: 'tail' was not declared in this scope
+             pop(tcpdec, ipdec, tail...);
+                                ^
+main.cpp:98:14: error: 'UDP' was not declared in this scope
+         case UDP:
+              ^
+main.cpp:100:36: error: no matching function for call to 'UDPDecoder::UDPDecoder(IPv6Decoder&)'
+             UDPDecoder udpdec(ipdec);
+                                    ^
+main.cpp:100:36: note: candidates are:
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder()
+ struct UDPDecoder {};
+        ^
+main.cpp:6:8: note:   candidate expects 0 arguments, 1 provided
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder(const UDPDecoder&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'IPv6Decoder' to 'const UDPDecoder&'
+main.cpp:6:8: note: constexpr UDPDecoder::UDPDecoder(UDPDecoder&&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'IPv6Decoder' to 'UDPDecoder&&'
+main.cpp:101:32: error: 'tail' was not declared in this scope
+             pop(udpdec, ipdec, tail...);
+                                ^
+main.cpp: In function 'void pop(UDPDecoder, Tail ...)':
+main.cpp:116:5: error: 'stack' was not declared in this scope
+     stack.pop(udpdec, tail...);
+     ^
