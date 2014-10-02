@@ -1,0 +1,51 @@
+clang++ c++03
+main.cpp:2:18: error: declaration of 'atexit' has a different language linkage
+extern "C++" int atexit( void (*func)() );   
+                 ^
+main.cpp:1:18: note: previous declaration is here
+extern "C"   int atexit( void (*func)() );
+                 ^
+1 error generated.
+
+clang++ c++11
+main.cpp:2:18: error: declaration of 'atexit' has a different language linkage
+extern "C++" int atexit( void (*func)() );   
+                 ^
+main.cpp:1:18: note: previous declaration is here
+extern "C"   int atexit( void (*func)() );
+                 ^
+1 error generated.
+
+clang++ c++14
+main.cpp:2:18: error: declaration of 'atexit' has a different language linkage
+extern "C++" int atexit( void (*func)() );   
+                 ^
+main.cpp:1:18: note: previous declaration is here
+extern "C"   int atexit( void (*func)() );
+                 ^
+1 error generated.
+
+g++ c++03
+main.cpp:2:41: error: conflicting declaration of 'int atexit(void (*)())' with 'C++' linkage
+ extern "C++" int atexit( void (*func)() );   
+                                         ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C"   int atexit( void (*func)() );
+                  ^
+
+g++ c++11
+main.cpp:2:41: error: conflicting declaration of 'int atexit(void (*)())' with 'C++' linkage
+ extern "C++" int atexit( void (*func)() );   
+                                         ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C"   int atexit( void (*func)() );
+                  ^
+
+g++ c++14
+main.cpp:2:41: error: conflicting declaration of 'int atexit(void (*)())' with 'C++' linkage
+ extern "C++" int atexit( void (*func)() );   
+                                         ^
+main.cpp:1:18: note: previous declaration with 'C' linkage
+ extern "C"   int atexit( void (*func)() );
+                  ^
+
