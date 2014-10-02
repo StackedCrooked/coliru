@@ -1,0 +1,25 @@
+main.cpp:12:13: warning: reference to stack memory associated with local variable 'x' returned [-Wreturn-stack-address]
+    return (x);
+            ^
+main.cpp:27:5: error: no matching function for call to 'f'
+    f(foo());
+    ^
+main.cpp:19:6: note: candidate function [with T = int] not viable: expects an l-value for 1st argument
+void f(T& param) // of interest
+     ^
+main.cpp:21:11: error: implicit instantiation of undefined template 'TD<int>'
+    TD<T> tType; // cause T to be shown
+          ^
+main.cpp:28:5: note: in instantiation of function template specialization 'f<int>' requested here
+    f(bar());
+    ^
+main.cpp:16:7: note: template is declared here
+class TD; // TD == "Type Displayer"
+      ^
+main.cpp:22:25: error: implicit instantiation of undefined template 'TD<int &>'
+    TD<decltype(param)> paramType; // ditto for param's type
+                        ^
+main.cpp:16:7: note: template is declared here
+class TD; // TD == "Type Displayer"
+      ^
+1 warning and 3 errors generated.
