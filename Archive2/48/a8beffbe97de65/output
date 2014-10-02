@@ -1,0 +1,14 @@
+main.cpp:26:15: error: overload resolution selected deleted operator '='
+        name_ = std::forward<String>(name);
+        ~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:32:7: note: in instantiation of function template specialization 'employee::set_name<set_type, void>' requested here
+    e.set_name(set_type{});
+      ^
+main.cpp:8:18: note: candidate function has been explicitly deleted
+    member_type &operator=(set_type &&) = delete; // not allowed to assign to member_type from set_type
+                 ^
+main.cpp:7:8: note: candidate is the implicit move assignment operator
+struct member_type {
+       ^
+main.cpp:7:8: note: candidate is the implicit copy assignment operator
+1 error generated.
