@@ -1,0 +1,19 @@
+main.cpp:27:48: error: implicit instantiation of undefined template 'back<list<> >'
+struct back<S<T, Args...>> : identity<typename back<S<Args...>>::type> {};
+                                               ^
+main.cpp:27:48: note: in instantiation of template class 'back<list<long double> >' requested here
+struct back<S<T, Args...>> : identity<typename back<S<Args...>>::type> {};
+                                               ^
+main.cpp:27:48: note: in instantiation of template class 'back<list<double, long double> >' requested here
+struct back<S<T, Args...>> : identity<typename back<S<Args...>>::type> {};
+                                               ^
+main.cpp:27:48: note: in instantiation of template class 'back<list<float, double, long double> >' requested here
+struct back<S<T, Args...>> : identity<typename back<S<Args...>>::type> {};
+                                               ^
+main.cpp:35:32: note: in instantiation of template class 'back<list<int, float, double, long double> >' requested here
+    static_assert(std::is_same<back<x>::type, long double>::value, "...");
+                               ^
+main.cpp:24:8: note: template is declared here
+struct back;
+       ^
+1 error generated.
