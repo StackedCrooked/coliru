@@ -1,0 +1,1 @@
+g++ -std=c99 -x c -O2 -Wextra -Wall -pedantic-errors -pthread main.cpp && echo "my name is brandon" | ./a.out
