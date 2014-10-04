@@ -1,0 +1,16 @@
+main.cpp: In function 'Widget createWidget()':
+main.cpp:40:11: warning: unused variable 'foo' [-Wunused-variable]
+     Foo&& foo = builder.a_func_that_may_throw(); 
+           ^
+main.cpp:47:11: warning: unused variable 'bar' [-Wunused-variable]
+     Bar&& bar = builder.another_func_that_may_throw();
+           ^
+main.cpp:52:24: error: 'foo' was not declared in this scope
+   return Bar(std::move(foo), std::move(bar)); // Want to use rvalue references here but can't!
+                        ^
+main.cpp:52:40: error: 'bar' was not declared in this scope
+   return Bar(std::move(foo), std::move(bar)); // Want to use rvalue references here but can't!
+                                        ^
+main.cpp:53:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
