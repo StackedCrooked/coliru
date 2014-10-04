@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libstdc++ -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp && valgrind ./a.out
