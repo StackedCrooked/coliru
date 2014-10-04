@@ -1,0 +1,15 @@
+main.cpp:3:80: error: type/value mismatch at argument 1 in template parameter list for 'template<bool <anonymous>, class _Tp> struct std::enable_if'
+ template<class T, class U, typename std::enable_if<std::is_base_of<T, U>(), int>::type = 0>
+                                                                                ^
+main.cpp:3:80: error:   expected a constant of type 'bool', got 'std::is_base_of<T, U>()'
+---
+main.cpp:3:52: error: template argument for non-type template parameter is treated as function type 'std::is_base_of<T, U> ()'
+template<class T, class U, typename std::enable_if<std::is_base_of<T, U>(), int>::type = 0>
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:1897:16: note: template parameter is declared here
+  template<bool, typename _Tp = void>
+               ^
+main.cpp:3:83: error: expected a qualified name after 'typename'
+template<class T, class U, typename std::enable_if<std::is_base_of<T, U>(), int>::type = 0>
+                                                                                  ^
+2 errors generated.
