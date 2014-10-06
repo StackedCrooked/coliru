@@ -1,0 +1,1 @@
+g++ -O2 -Wall -pedantic main.cpp -lboost_system && ./a.out
