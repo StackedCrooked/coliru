@@ -1,0 +1,13 @@
+In file included from /usr/include/c++/4.8/memory:79:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = X; std::false_type = std::integral_constant<bool, false>]':
+/usr/include/c++/4.8/functional:1946:51:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = X]'
+/usr/include/c++/4.8/functional:2457:19:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = X; <template-parameter-2-2> = void; _Res = float; _ArgTypes = {}]'
+/usr/include/c++/4.8/functional:2333:4:   required from 'std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = X; _Res = float; _ArgTypes = {}; std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> = std::function<float()>&]'
+main.cpp:19:8:   required from here
+/usr/include/c++/4.8/functional:1910:34: error: use of deleted function 'X::X(const X&)'
+    __dest._M_access<_Functor*>() =
+                                  ^
+main.cpp:7:5: error: declared here
+     X(const X&) = delete;
+     ^
