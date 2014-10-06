@@ -1,0 +1,60 @@
+main.cpp: In substitution of 'template<class Int> decltype (g(i)) call_best(Int, priority<1u>) [with Int = int]':
+main.cpp:14:51:   required from here
+main.cpp:11:71: error: use of 'auto g(int)' before deduction of 'auto'
+ template<class Int> auto call_best(Int i, priority<1>) -> decltype(g(i)) { return g(i); }
+                                                                       ^
+main.cpp:11:71: error: use of 'auto g(int)' before deduction of 'auto'
+main.cpp:11:71: error: use of 'auto g(int)' before deduction of 'auto'
+main.cpp: In substitution of 'template<class Int> decltype (f(i)) call_best(Int, priority<2u>) [with Int = int]':
+main.cpp:14:51:   required from here
+main.cpp:10:71: error: use of 'auto f(int)' before deduction of 'auto'
+ template<class Int> auto call_best(Int i, priority<2>) -> decltype(f(i)) { return f(i); }
+                                                                       ^
+main.cpp:10:71: error: use of 'auto f(int)' before deduction of 'auto'
+main.cpp:10:71: error: use of 'auto f(int)' before deduction of 'auto'
+'
+Internal compiler error: Error reporting routines re-entered.
+0x592b27 mark_used(tree_node*, int)
+	../.././gcc/cp/decl2.c:4893
+0x5faa2c finish_id_expression(tree_node*, tree_node*, tree_node*, cp_id_kind*, bool, bool, bool*, bool, bool, bool, bool, char const**, unsigned int)
+	../.././gcc/cp/semantics.c:3539
+0x560705 tsubst_copy_and_build(tree_node*, tree_node*, int, tree_node*, bool, bool)
+	../.././gcc/cp/pt.c:14165
+0x561fbc tsubst_copy_and_build(tree_node*, tree_node*, int, tree_node*, bool, bool)
+	../.././gcc/cp/pt.c:14643
+0x568028 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:12210
+0x5986e0 dump_template_bindings
+	../.././gcc/cp/error.c:330
+0x5986e0 dump_substitution
+	../.././gcc/cp/error.c:1391
+0x59a4d6 decl_to_string
+	../.././gcc/cp/error.c:2834
+0x59a4d6 cp_printer
+	../.././gcc/cp/error.c:3435
+0xdf6fc1 pp_format(pretty_printer*, text_info*)
+	../.././gcc/pretty-print.c:616
+0xdf7d00 pp_format_verbatim(pretty_printer*, text_info*)
+	../.././gcc/pretty-print.c:675
+0xdf7ddd pp_verbatim(pretty_printer*, char const*, ...)
+	../.././gcc/pretty-print.c:871
+0x594961 print_instantiation_full_context
+	../.././gcc/cp/error.c:3204
+0x594961 maybe_print_instantiation_context
+	../.././gcc/cp/error.c:3348
+0x599583 cp_diagnostic_starter
+	../.././gcc/cp/error.c:3032
+0xdf4e88 diagnostic_report_diagnostic(diagnostic_context*, diagnostic_info*)
+	../.././gcc/diagnostic.c:798
+0xdf581f error(char const*, ...)
+	../.././gcc/diagnostic.c:1050
+0x592b27 mark_used(tree_node*, int)
+	../.././gcc/cp/decl2.c:4893
+0x5faa2c finish_id_expression(tree_node*, tree_node*, tree_node*, cp_id_kind*, bool, bool, bool*, bool, bool, bool, bool, char const**, unsigned int)
+	../.././gcc/cp/semantics.c:3539
+0x560705 tsubst_copy_and_build(tree_node*, tree_node*, int, tree_node*, bool, bool)
+	../.././gcc/cp/pt.c:14165
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <http://gcc.gnu.org/bugs.html> for instructions.
