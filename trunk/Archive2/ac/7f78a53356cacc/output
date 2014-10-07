@@ -1,0 +1,19 @@
+main.cpp:43:10: warning: multiple unsequenced modifications to 'i' [-Wunsequenced]
+    i = i++ ; // **** undefined behaviour (unsequenced modifications) ****
+      ~  ^
+main.cpp:45:10: warning: unsequenced modification and access to 'i' [-Wunsequenced]
+    i += ++i ; // **** undefined behaviour (unsequenced modification and access) ****
+      ~~ ^
+main.cpp:47:23: warning: unsequenced modification and access to 'i' [-Wunsequenced]
+    std::cout << i << ++i ; // **** undefined behaviour (unsequenced modification and access) ****
+                 ~    ^
+main.cpp:49:19: warning: multiple unsequenced modifications to 'i' [-Wunsequenced]
+    std::cout <<  ++i << ++i ; // **** undefined behaviour (unsequenced modifications) ****
+                  ^      ~~
+main.cpp:51:11: warning: multiple unsequenced modifications to 'i' [-Wunsequenced]
+    A a3( ++i, ++i ) ; // **** undefined behaviour (unsequenced modifications) ****
+          ^    ~~
+main.cpp:53:36: warning: unsequenced modification and access to 'i' [-Wunsequenced]
+    void foo( int, int ) ; foo( i, ++i ) ; // **** undefined behaviour (unsequenced modification and access) ****
+                                ~  ^
+6 warnings generated.
