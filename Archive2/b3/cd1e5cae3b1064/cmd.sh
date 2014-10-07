@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -ffast-math -pthread main.cpp && ./a.out
