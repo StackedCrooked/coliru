@@ -1,0 +1,39 @@
++ clang++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
+main.cpp:1:10: error: expected "FILENAME" or <FILENAME>
+#include “testAppendages”
+         ^
+main.cpp:3:1: error: unknown type name 'Int'; did you mean 'int'?
+Int main()
+^~~
+int
+main.cpp:5:10: error: use of undeclared identifier 'IsHandsWorking'
+    If ( IsHandsWorking () && IsLegsWorking && IsEyesWorking() )
+         ^
+main.cpp:5:31: error: use of undeclared identifier 'IsLegsWorking'
+    If ( IsHandsWorking () && IsLegsWorking && IsEyesWorking() )
+                              ^
+main.cpp:5:48: error: use of undeclared identifier 'IsEyesWorking'
+    If ( IsHandsWorking () && IsLegsWorking && IsEyesWorking() )
+                                               ^
+main.cpp:7:19: error: non-ASCII characters are not allowed outside of literals and identifiers
+         Cout <<  “Pour it the ***fuck*** YOURSELF!!!!”  << endl;
+                  ^
+main.cpp:7:57: error: non-ASCII characters are not allowed outside of literals and identifiers
+         Cout <<  “Pour it the ***fuck*** YOURSELF!!!!”  << endl;
+                                                      ^~
+7 errors generated.
++ g++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
+main.cpp:1:10: error: #include expects "FILENAME" or <FILENAME>
+ #include “testAppendages”
+          ^
+main.cpp:7:10: error: stray '\342' in program
+          Cout <<  “Pour it the ***fuck*** YOURSELF!!!!”  << endl;
+          ^
+main.cpp:7:10: error: stray '\200' in program
+main.cpp:7:10: error: stray '\234' in program
+main.cpp:7:10: error: stray '\342' in program
+main.cpp:7:10: error: stray '\200' in program
+main.cpp:7:10: error: stray '\235' in program
+main.cpp:3:1: error: 'Int' does not name a type
+ Int main()
+ ^
