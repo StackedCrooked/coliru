@@ -1,0 +1,17 @@
+main.cpp:9:56: error: conversion function from 'Foo' to 'std::reference_wrapper<Foo>' invokes a deleted function
+    std::array<std::reference_wrapper<Foo>, 2> arr = { Foo(), Bar() };
+                                                       ^~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/functional:411:7: note: 'reference_wrapper' has been explicitly marked deleted here
+      reference_wrapper(_Tp&&) = delete;
+      ^
+main.cpp:9:63: error: conversion function from 'Bar' to 'std::reference_wrapper<Foo>' invokes a deleted function
+    std::array<std::reference_wrapper<Foo>, 2> arr = { Foo(), Bar() };
+                                                              ^~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/functional:411:7: note: 'reference_wrapper' has been explicitly marked deleted here
+      reference_wrapper(_Tp&&) = delete;
+      ^
+main.cpp:9:56: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    std::array<std::reference_wrapper<Foo>, 2> arr = { Foo(), Bar() };
+                                                       ^~~~~~~~~~~~
+                                                       {           }
+1 warning and 2 errors generated.
