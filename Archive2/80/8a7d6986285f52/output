@@ -1,0 +1,31 @@
+main.cpp:10:10: error: class member cannot be redeclared
+    auto foo() {
+         ^
+main.cpp:6:10: note: previous declaration is here
+    auto foo() {
+         ^
+main.cpp:9:44: error: template parameter redefines default argument
+    template<class T, class T2, typename = typename std::enable_if<!std::is_same<T, int>::value>::type>
+                                           ^
+main.cpp:5:44: note: previous default template argument defined here
+    template<class T, class T2, typename = typename std::enable_if<std::is_same<T, int>::value>::type>
+                                           ^
+main.cpp:10:10: error: redefinition of 'foo'
+    auto foo() {
+         ^
+main.cpp:6:10: note: previous definition is here
+    auto foo() {
+         ^
+main.cpp:17:21: error: no matching member function for call to 'foo'
+    std::cout << bq.foo<int, void>() << " " << bq.foo<double, void>() << "\n";
+                 ~~~^~~~~~~~~~~~~~
+main.cpp:9:68: note: candidate template ignored: disabled by 'enable_if' [with T = int, T2 = void]
+    template<class T, class T2, typename = typename std::enable_if<!std::is_same<T, int>::value>::type>
+                                                                   ^
+main.cpp:17:51: error: no matching member function for call to 'foo'
+    std::cout << bq.foo<int, void>() << " " << bq.foo<double, void>() << "\n";
+                                               ~~~^~~~~~~~~~~~~~~~~
+main.cpp:10:10: note: candidate template ignored: substitution failure [with T = double, T2 = void, $2 = void]
+    auto foo() {
+         ^
+5 errors generated.
