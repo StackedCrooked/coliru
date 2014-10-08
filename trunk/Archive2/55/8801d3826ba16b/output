@@ -1,0 +1,7 @@
+main.cpp:12:31: error: reference to overloaded function could not be resolved; did you mean to call it?
+struct fInfo : fInfo<decltype(&F::operator())> { };
+                              ^~~~~~~~~~~~~~
+main.cpp:25:18: note: in instantiation of template class 'fInfo<(lambda at main.cpp:24:19)>' requested here
+    auto arity = fInfo<decltype(lambda)>::arity;
+                 ^
+1 error generated.
