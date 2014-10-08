@@ -1,0 +1,10 @@
+main.cpp:39:20: error: read-only variable is not assignable
+    { self.value.i += 3; }
+      ~~~~~~~~~~~~ ^
+main.cpp:14:24: note: in instantiation of function template specialization 'defer_type<move_only>::call<const defer_type<move_only> &>' requested here
+    -> decltype( Self::call(static_cast<Self const&>(*this), std::forward<Args>(args)...) )
+                       ^
+main.cpp:54:7: note: while substituting deduced template arguments into function template 'delegate_call' [with Self = (no value), Args = <>]
+    d.delegate_call();
+      ^
+1 error generated.
