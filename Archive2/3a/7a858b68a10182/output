@@ -1,0 +1,19 @@
+main.cpp:42:59: error: call to implicitly-deleted copy constructor of 'move_only'
+    { return std::get<0>(std::move(self).deferred_values)(std::get<Indices>(std::move(self).deferred_values)...); }
+                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:46:14: note: in instantiation of function template specialization 'defer_type<(lambda at main.cpp:56:14) &, move_only>::do_call<const defer_type<(lambda at main.cpp:56:14) &, move_only> &, 1>' requested here
+    { return do_call(std::forward<Self>(self), std::make_index_sequence<std::tuple_size<value_type>::value>()); }
+             ^
+main.cpp:15:24: note: in instantiation of function template specialization 'defer_type<(lambda at main.cpp:56:14) &, move_only>::call<const defer_type<(lambda at main.cpp:56:14) &, move_only> &>' requested here
+    -> decltype( Self::call(static_cast<Self const&>(*this), std::forward<Args>(args)...) )
+                       ^
+main.cpp:58:6: note: while substituting deduced template arguments into function template 'operator()' [with Self = (no value), Args = <>]
+    d();
+     ^
+main.cpp:51:5: note: copy constructor is implicitly deleted because 'move_only' has a user-declared move constructor
+    move_only(move_only&&) = default;
+    ^
+main.cpp:56:27: note: passing argument to parameter 'm' here
+    auto f = [](move_only m) { return std::move(m); };
+                          ^
+1 error generated.
