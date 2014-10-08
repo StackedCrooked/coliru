@@ -1,0 +1,10 @@
+main.cpp:18:48: error: 'operator()' following the 'template' keyword does not refer to a template
+struct autofInfo : fInfo<decltype(&F::template operator()<Args...>)> {};
+                                   ~~~         ^
+main.cpp:31:28: note: in instantiation of template class 'autofInfo<(lambda at main.cpp:42:19), int>' requested here
+    constexpr auto arity = autofInfo<decltype(lambda), int>::arity;
+                           ^
+main.cpp:43:5: note: in instantiation of function template specialization 'test<(lambda at main.cpp:42:19)>' requested here
+    test(lambda);
+    ^
+1 error generated.
