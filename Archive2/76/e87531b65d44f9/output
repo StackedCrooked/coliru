@@ -1,0 +1,24 @@
+main.cpp: In function 'int main()':
+main.cpp:182:13: warning: unused variable 'i' [-Wunused-variable]
+   for (auto i: {1, 2, 3})
+             ^
+main.cpp: In instantiation of 'poly_holder<Base>::~poly_holder() [with Base = Base]':
+/usr/local/include/boost/flyweight/detail/default_value_policy.hpp:36:10:   required from 'static boost::flyweights::detail::flyweight_core<ValuePolicy, Tag, TrackingPolicy, FactorySpecifier, LockingPolicy, HolderSpecifier>::handle_type boost::flyweights::detail::flyweight_core<ValuePolicy, Tag, TrackingPolicy, FactorySpecifier, LockingPolicy, HolderSpecifier>::insert(Args&& ...) [with Args = {poly_flyweight<Base>&}; ValuePolicy = boost::flyweights::detail::default_value_policy<poly_holder<Base> >; Tag = mpl_::na; TrackingPolicy = boost::flyweights::refcounted; FactorySpecifier = boost::flyweights::hashed_factory<>; LockingPolicy = boost::flyweights::simple_locking; HolderSpecifier = boost::flyweights::static_holder; boost::flyweights::detail::flyweight_core<ValuePolicy, Tag, TrackingPolicy, FactorySpecifier, LockingPolicy, HolderSpecifier>::handle_type = boost::flyweights::detail::refcounted_handle<const boost::flyweights::detail::refcounted_value<boost::flyweights::detail::default_value_policy<poly_holder<Base> >::rep_type, poly_holder<Base> >*, boost::flyweights::detail::flyweight_core_tracking_helper<boost::flyweights::detail::default_value_policy<poly_holder<Base> >, mpl_::na, boost::flyweights::refcounted, boost::flyweights::hashed_factory<>, boost::flyweights::simple_locking, boost::flyweights::static_holder> >]'
+/usr/local/include/boost/flyweight/flyweight.hpp:194:3:   required from 'boost::flyweights::flyweight<T, Arg1, Arg2, Arg3, Arg4, Arg5>::flyweight(Args&& ...) [with Args = {poly_flyweight<Base>&}; T = poly_holder<Base>; Arg1 = boost::parameter::void_; Arg2 = boost::parameter::void_; Arg3 = boost::parameter::void_; Arg4 = boost::parameter::void_; Arg5 = boost::parameter::void_]'
+main.cpp:31:16:   required from here
+main.cpp:17:25: warning: deleting object of abstract class type 'Base' which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]
+   ~poly_holder(){if(dlt)delete p;}
+                         ^
+a: 0x1:1
+b: 0x1:1
+44560062 44560062 1
+1 1 1
+a: 0x2:1
+b: 0x2:1
+44559954 44559954 1
+1 1 1
+a: 0x1:1
+b: 0x1:1
+44560062 44560062 1
+1 1 1
+bin: 0x3:(0x4:(0x2:1+0x2:1)*0x4:(0x2:1+0x2:1))
