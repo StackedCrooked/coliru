@@ -1,0 +1,34 @@
+main.cpp:18:8: error: explicit specialization of non-template struct 'autofInfo'
+struct autofInfo<F>{};
+       ^        ~~~
+main.cpp:20:1: error: too many template parameters in template redeclaration
+template <typename F, typename... Args>
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:17:1: note: previous template declaration is here
+template <typename F>
+^~~~~~~~~~~~~~~~~~~~~
+main.cpp:27:18: error: too many template arguments for class template 'autofInfo'
+std::enable_if_t<autofInfo<T, std::string>::arity == one_t::value>* = nullptr
+                 ^            ~~~~~~~~~~~~
+main.cpp:18:8: note: template is declared here
+struct autofInfo<F>{};
+       ^
+main.cpp:33:28: error: too many template arguments for class template 'autofInfo'
+    constexpr auto arity = autofInfo<decltype(lambda), std::string>::arity;
+                           ^                           ~~~~~~~~~~~~
+main.cpp:18:8: note: template is declared here
+struct autofInfo<F>{};
+       ^
+main.cpp:35:46: error: C++ requires a type specifier for all declarations
+    std::enable_if_t<one_t::value == arity>* a;
+                                           ~ ^
+main.cpp:39:22: error: too many template arguments for class template 'autofInfo'
+    std::enable_if_t<autofInfo<decltype(lambda), std::string>::arity == one_t::value>* b;
+                     ^                           ~~~~~~~~~~~~
+main.cpp:18:8: note: template is declared here
+struct autofInfo<F>{};
+       ^
+main.cpp:39:88: error: C++ requires a type specifier for all declarations
+    std::enable_if_t<autofInfo<decltype(lambda), std::string>::arity == one_t::value>* b;
+                                                                                     ~ ^
+7 errors generated.
