@@ -1,0 +1,17 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:1:23: error: redefinition of parameter 'x'
+void func( int x, int x)
+                      ^
+main.cpp:1:16: note: previous declaration is here
+void func( int x, int x)
+               ^
+main.cpp:3:5: error: void function 'func' should not return a value [-Wreturn-type]
+    return 10 ;
+    ^      ~~
+main.cpp:10:11: warning: unsequenced modification and access to 'y' [-Wunsequenced]
+    func( ++y, z - y ) ;
+          ^        ~
+1 warning and 2 errors generated.
