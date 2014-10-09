@@ -1,0 +1,1 @@
+clang++ -stdlib=libc++ -std=c++11 -Os -Wno-unused-value -pthread main.cpp && ./a.out
