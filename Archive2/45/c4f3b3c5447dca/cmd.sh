@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Weverything -Wno-c++98-compat main.cpp && ./a.out
