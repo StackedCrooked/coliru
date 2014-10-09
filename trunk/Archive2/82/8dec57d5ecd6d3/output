@@ -1,0 +1,31 @@
+main.cpp:5:86: error: use of undeclared identifier 'detail'
+    template<class T, class T2, typename std::enable_if<std::is_same<T, int>::value, detail::enabler>::type>
+                                                                                     ^
+main.cpp:9:87: error: use of undeclared identifier 'detail'
+    template<class T, class T2, typename std::enable_if<!std::is_same<T, int>::value, detail::enabler>::type>
+                                                                                      ^
+main.cpp:10:10: error: class member cannot be redeclared
+    auto foo() {
+         ^
+main.cpp:6:10: note: previous declaration is here
+    auto foo() {
+         ^
+main.cpp:10:10: error: redefinition of 'foo'
+    auto foo() {
+         ^
+main.cpp:6:10: note: previous definition is here
+    auto foo() {
+         ^
+main.cpp:17:21: error: no matching member function for call to 'foo'
+    std::cout << bq.foo<int, void>() << " " << bq.foo<double, void>() << "\n";
+                 ~~~^~~~~~~~~~~~~~
+main.cpp:10:10: note: candidate template ignored: couldn't infer template argument 'type'
+    auto foo() {
+         ^
+main.cpp:17:51: error: no matching member function for call to 'foo'
+    std::cout << bq.foo<int, void>() << " " << bq.foo<double, void>() << "\n";
+                                               ~~~^~~~~~~~~~~~~~~~~
+main.cpp:10:10: note: candidate template ignored: couldn't infer template argument 'type'
+    auto foo() {
+         ^
+6 errors generated.
