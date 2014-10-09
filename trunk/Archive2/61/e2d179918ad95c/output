@@ -1,0 +1,52 @@
+main.cpp: In substitution of 'template<class T> auto test(T&&, decltype ((*test::t ={0.0}, 0))) [with T = int]':
+main.cpp:9:31:   required from here
+main.cpp:2:31: warning: narrowing conversion of '0.0' from 'double' to 'int' inside { } [-Wnarrowing]
+ auto test(T&& t, decltype( (t = { 0. }), 0 ) = 0);
+                               ^
+main.cpp:2:31: warning: narrowing conversion of '0.0' from 'double' to 'int' inside { } [-Wnarrowing]
+'
+Internal compiler error: Error reporting routines re-entered.
+0x57c2ff check_narrowing(tree_node*, tree_node*)
+	../.././gcc/cp/typeck2.c:919
+0x53a32c convert_like_real
+	../.././gcc/cp/call.c:6326
+0x53a8f9 perform_implicit_conversion_flags(tree_node*, tree_node*, int, int)
+	../.././gcc/cp/call.c:9094
+0x5dbf0e cp_build_modify_expr(tree_node*, tree_code, tree_node*, int)
+	../.././gcc/cp/typeck.c:7539
+0x560aa7 tsubst_copy_and_build(tree_node*, tree_node*, int, tree_node*, bool, bool)
+	../.././gcc/cp/pt.c:14495
+0x561453 tsubst_copy_and_build(tree_node*, tree_node*, int, tree_node*, bool, bool)
+	../.././gcc/cp/pt.c:14581
+0x568028 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:12210
+0x5986e0 dump_template_bindings
+	../.././gcc/cp/error.c:330
+0x5986e0 dump_substitution
+	../.././gcc/cp/error.c:1391
+0x59a4d6 decl_to_string
+	../.././gcc/cp/error.c:2834
+0x59a4d6 cp_printer
+	../.././gcc/cp/error.c:3435
+0xdf6fc1 pp_format(pretty_printer*, text_info*)
+	../.././gcc/pretty-print.c:616
+0xdf4e7c diagnostic_report_diagnostic(diagnostic_context*, diagnostic_info*)
+	../.././gcc/diagnostic.c:797
+0xdf581f error(char const*, ...)
+	../.././gcc/diagnostic.c:1050
+0x592b27 mark_used(tree_node*, int)
+	../.././gcc/cp/decl2.c:4893
+0x537028 build_over_call
+	../.././gcc/cp/call.c:7185
+0x537af1 build_new_function_call(tree_node*, vec<tree_node*, va_gc, vl_embed>**, bool, int)
+	../.././gcc/cp/call.c:3975
+0x5f9821 finish_call_expr(tree_node*, vec<tree_node*, va_gc, vl_embed>**, bool, bool, int)
+	../.././gcc/cp/semantics.c:2358
+0x5b0a9f cp_parser_postfix_expression
+	../.././gcc/cp/parser.c:6180
+0x5b1b6e cp_parser_decltype_expr
+	../.././gcc/cp/parser.c:11930
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <http://gcc.gnu.org/bugs.html> for instructions.
