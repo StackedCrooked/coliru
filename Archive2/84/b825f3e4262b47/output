@@ -1,0 +1,10 @@
+main.cpp:14:22: error: no type named 'type' in 'bar<double>'
+struct foo : bar<T>::type {};
+             ~~~~~~~~^~~~
+main.cpp:17:1: note: in instantiation of template class 'foo<double>' requested here
+typename foo<T>::type test(int) { return {}; }
+^
+main.cpp:25:5: note: while substituting explicitly-specified template arguments into function template 'test' 
+    test<double>(0);
+    ^
+1 error generated.
