@@ -1,0 +1,1 @@
+echo -e "1-652-78246-6 3 4.99\n1-652-78246-6 7 6.50\n8-751-54268-7 4 9.99\n8-751-54268-7 3 7.99\n4-875-52103-4 2 3.99\n7-521-84630-8 5 15.99" > books.txt && clang++ -std=c++14 -O2 -Wall -Wextra -pedantic -pthread main.cpp -lboost_system -lboost_thread && ./a.out && cat output.txt
