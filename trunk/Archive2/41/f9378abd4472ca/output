@@ -1,0 +1,19 @@
+main.cpp:27:21: error: call to member function 'foo' is ambiguous
+    std::cout << bq.foo<int>() << " " << bq.foo<double>() << "\n";
+                 ~~~^~~~~~~~
+main.cpp:16:10: note: candidate function [with T = int, $1 = <>]
+    auto foo() {
+         ^
+main.cpp:20:10: note: candidate function [with T = int, $1 = <>]
+    auto foo() {
+         ^
+main.cpp:27:45: error: call to member function 'foo' is ambiguous
+    std::cout << bq.foo<int>() << " " << bq.foo<double>() << "\n";
+                                         ~~~^~~~~~~~~~~
+main.cpp:16:10: note: candidate function [with T = double, $1 = <>]
+    auto foo() {
+         ^
+main.cpp:20:10: note: candidate function [with T = double, $1 = <>]
+    auto foo() {
+         ^
+2 errors generated.
