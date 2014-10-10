@@ -1,0 +1,10 @@
+main.cpp:12:2: error: call to 'f2' is ambiguous
+        f2([](int) {}); // this don't
+        ^~
+main.cpp:6:6: note: candidate function
+void f2(std::function<void(int)>) {}
+     ^
+main.cpp:7:6: note: candidate function
+void f2(std::function<void(int&)>) {}
+     ^
+1 error generated.
