@@ -1,0 +1,18 @@
+main.cpp:13:9: error: unknown type name 'Count'
+        Count spin_count = 0;
+        ^
+main.cpp:15:34: error: no member named 'memory_order_acquire' in namespace 'std'; did you mean 'boost::memory_order_acquire'?
+        while (flag.test_and_set(std::memory_order_acquire))
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+                                 boost::memory_order_acquire
+/usr/local/include/boost/memory_order.hpp:49:5: note: 'boost::memory_order_acquire' declared here
+    memory_order_acquire = 2,
+    ^
+main.cpp:17:17: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+                cout << 1;
+                ^~~~
+                std::cout
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/iostream:61:18: note: 'std::cout' declared here
+  extern ostream cout;          /// Linked to standard output
+                 ^
+3 errors generated.
