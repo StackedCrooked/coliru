@@ -1,0 +1,31 @@
+main.cpp: In instantiation of 'struct requirements<EqualityComparable<int> >':
+main.cpp:56:78:   required from here
+main.cpp:46:8: error: invalid use of incomplete type 'struct scope<EqualityComparable<int> >::wat<void, void>'
+ struct requirements: scope<Concept>::template wat<void> {};
+        ^
+main.cpp:36:12: error: declaration of 'struct scope<EqualityComparable<int> >::wat<void, void>'
+     struct wat {};
+            ^
+main.cpp: In function 'int main()':
+main.cpp:56:41: error: 'type' is not a member of 'requirements<EqualityComparable<int> >'
+     all_of<expr<bool>, expr<bool>> {} = requirements<EqualityComparable<int>>::type {};
+                                         ^
+main.cpp: In instantiation of 'struct requirements<EqualityComparable<pathological&> >':
+main.cpp:59:86:   required from here
+main.cpp:46:8: error: invalid use of incomplete type 'struct scope<EqualityComparable<pathological&> >::wat<void, void>'
+ struct requirements: scope<Concept>::template wat<void> {};
+        ^
+main.cpp:36:12: error: declaration of 'struct scope<EqualityComparable<pathological&> >::wat<void, void>'
+     struct wat {};
+            ^
+main.cpp:59:39: error: 'type' is not a member of 'requirements<EqualityComparable<pathological&> >'
+     all_of<expr<int>, expr<int>> {} = requirements<EqualityComparable<pathological&>>::type {};
+                                       ^
+main.cpp: In instantiation of 'struct requirements<EqualityComparable<pathological> >':
+main.cpp:62:53:   required from here
+main.cpp:46:8: error: invalid use of incomplete type 'struct scope<EqualityComparable<pathological> >::wat<void, void>'
+ struct requirements: scope<Concept>::template wat<void> {};
+        ^
+main.cpp:36:12: error: declaration of 'struct scope<EqualityComparable<pathological> >::wat<void, void>'
+     struct wat {};
+            ^
