@@ -1,0 +1,12 @@
+main.cpp:13:26: error: no match for 'operator==' (operand types are 'const pathological' and 'const pathological')
+         expr<decltype( x == y )>,
+                          ^
+main.cpp:13:26: note: candidate is:
+main.cpp:33:5: note: int operator==(pathological&, pathological&)
+ int operator==(pathological&, pathological&);
+     ^
+main.cpp:33:5: note:   no known conversion for argument 1 from 'const pathological' to 'pathological&'
+main.cpp: In function 'int main()':
+main.cpp:45:5: error: 'type' is not a member of 'requirements<EqualityComparable<pathological> >'
+     requirements<EqualityComparable<pathological>>::type {};
+     ^
