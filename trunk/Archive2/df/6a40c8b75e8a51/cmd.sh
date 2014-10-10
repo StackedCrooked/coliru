@@ -1,0 +1,1 @@
+g++-4.8 -std=c++11 -O0 -Wall -fopenmp -pedantic main.cpp && OMP_NUM_THREADS=8 ./a.out
