@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:25:49:   in constexpr expansion of 'wrapper<X, 5>(std::initializer_list<X>{((const X*)(& const X [1]{X{42}})), 1u})'
+main.cpp:13:91:   in constexpr expansion of 'wrapper<T, N>::wrapper<{0ul, 1ul, 2ul, 3ul, 4ul}>((std::make_index_sequence<5ul>{}, std::make_index_sequence<5ul>()), v)'
+main.cpp:18:88: error: call to non-constexpr function 'T wrapper<T, N>::too_short(std::false_type) [with T = X; int N = 5; std::false_type = std::integral_constant<bool, false>]'
+     : data{v.size() > Is ? v.begin()[Is] : too_short(std::is_default_constructible<T>{})...} {}
+                                                                                        ^
+main.cpp:25:19: warning: unused variable 'j' [-Wunused-variable]
+     constexpr int j = wrapper<X, 5>{42}.data[0].i;  // fails - braced-init-list too short
+                   ^
