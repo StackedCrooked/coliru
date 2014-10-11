@@ -1,0 +1,14 @@
+In file included from main.cpp:1:
+/usr/include/c++/v1/algorithm:1952:21: error: no matching function for call to object of type 'std::__1::__bind<(lambda at main.cpp:9:22) &, int>'
+        *__result = __op(*__first);
+                    ^~~~
+main.cpp:14:10: note: in instantiation of function template specialization 'std::__1::transform<int **, int **, std::__1::__bind<(lambda at main.cpp:9:22) &, int> >' requested here
+    std::transform(std::begin(p), std::end(p), std::begin(p),
+         ^
+/usr/include/c++/v1/functional:2084:9: note: candidate template ignored: substitution failure [with _Args = <int *&>]: implicit instantiation of undefined template 'std::__1::__bind_return<(lambda at main.cpp:9:22), std::__1::tuple<int>, std::__1::tuple<int *&>, false>'
+        operator()(_Args&& ...__args)
+        ^
+/usr/include/c++/v1/functional:2093:9: note: candidate template ignored: substitution failure [with _Args = <int *&>]: implicit instantiation of undefined template 'std::__1::__bind_return<const (lambda at main.cpp:9:22), const std::__1::tuple<int>, std::__1::tuple<int *&>, false>'
+        operator()(_Args&& ...__args) const
+        ^
+1 error generated.
