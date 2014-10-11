@@ -1,0 +1,7 @@
+main.cpp: In constructor 'variant<Cn>::variant(T&&)':
+main.cpp:103:69: error: pack expansion argument for non-pack parameter 'Lhs' of alias template 'template<class Lhs, class Rhs> using tmp_or = std::integral_constant<bool, (Lhs:: value || Rhs:: value)>'
+         static_assert( tmp_or<typename std::is_same<Cn, Tu>::type...>::value, "Type is not allowed for variant" );
+                                                                     ^
+main.cpp:66:11: note: declared here
+  template<typename Lhs, typename Rhs>
+           ^
