@@ -1,0 +1,2 @@
+clang++ -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -Wno-unused-parameter main.cpp -lsupc++ && ./a.out && echo ok
+g++ -std=c++14 -O2 -Wall -Wextra -pedantic-errors main.cpp -Wno-unused-parameter && ./a.out && echo ok
