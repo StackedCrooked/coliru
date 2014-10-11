@@ -1,0 +1,14 @@
+main.cpp:5:21: error: non-type template argument evaluates to -1, which cannot be narrowed to type 'std::size_t' (aka 'unsigned long') [-Wc++11-narrowing]
+    std::array<int, -1> a;
+                    ^
+In file included from main.cpp:1:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/array:49:25: error: array is too large (18446744073709551615 elements)
+      typedef _Tp _Type[_Nm];
+                        ^~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/array:97:16: note: in instantiation of template class 'std::__array_traits<int, 18446744073709551615>' requested here
+      typename _AT_Type::_Type                         _M_elems;
+               ^
+main.cpp:5:25: note: in instantiation of template class 'std::array<int, 18446744073709551615>' requested here
+    std::array<int, -1> a;
+                        ^
+2 errors generated.
