@@ -1,0 +1,18 @@
++ g++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+void each(std::function<void(T)>) [with T = int]
+void each(std::function<void(T, id)>) [with T = long int]
+void each(std::function<void(T&)>) [with T = double]
+void each(std::function<void(T&, id)>) [with T = float]
++ clang++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+void each(std::function<void (T)>) [T = int]
+void each(std::function<void (T, id)>) [T = long]
+void each(std::function<void (T &)>) [T = double]
+void each(std::function<void (T &, id)>) [T = float]
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+void each(std::function<void (T)>) [T = int]
+void each(std::function<void (T, id)>) [T = long]
+void each(std::function<void (T &)>) [T = double]
+void each(std::function<void (T &, id)>) [T = float]
