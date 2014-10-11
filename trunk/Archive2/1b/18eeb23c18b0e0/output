@@ -1,0 +1,100 @@
+In file included from main.cpp:8:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:69:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:342:16: error: overload resolution selected deleted operator '='
+          *__position = _Tp(std::forward<_Args>(__args)...);
+          ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:127:8: note: in instantiation of function template specialization 'std::vector<not_assignable, std::allocator<not_assignable> >::_M_insert_aux<not_assignable>' requested here
+              _M_insert_aux(__position._M_const_cast(), std::move(__x_copy));
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:641:20: note: in instantiation of member function 'std::vector<not_assignable, std::allocator<not_assignable> >::insert' requested here
+        iter = container->insert(iter, __value);
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:336:18: note: in instantiation of member function 'std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > >::operator=' requested here
+              *__result = *__first;
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:396:36: note: in instantiation of function template specialization 'std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:432:23: note: in instantiation of function template specialization 'std::__copy_move_a<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:464:20: note: in instantiation of function template specialization 'std::__copy_move_a2<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+                   ^
+main.cpp:16:10: note: in instantiation of function template specialization 'std::copy<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+    std::copy(&n, &n+1, std::inserter(vna, vna.end()));
+         ^
+main.cpp:5:21: note: candidate function has been explicitly deleted
+    not_assignable& operator=(not_assignable const&) = delete;
+                    ^
+In file included from main.cpp:8:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:60:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:573:4: error: static_assert failed "type is not assignable"
+          static_assert( is_copy_assignable<_Tp>::value,
+          ^              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:596:45: note: in instantiation of function template specialization 'std::__copy_move_backward<true, true, std::random_access_iterator_tag>::__copy_move_b<not_assignable>' requested here
+                                       _Category>::__copy_move_b(__first,
+                                                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:605:24: note: in instantiation of function template specialization 'std::__copy_move_backward_a<true, not_assignable *, not_assignable *>' requested here
+      return _BI2(std::__copy_move_backward_a<_IsMove>
+                       ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:676:19: note: in instantiation of function template specialization 'std::__copy_move_backward_a2<true, not_assignable *, not_assignable *>' requested here
+      return std::__copy_move_backward_a2<true>(std::__miter_base(__first),
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:336:4: note: in instantiation of function template specialization 'std::move_backward<not_assignable *, not_assignable *>' requested here
+          _GLIBCXX_MOVE_BACKWARD3(__position.base(),
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:681:53: note: expanded from macro '_GLIBCXX_MOVE_BACKWARD3'
+#define _GLIBCXX_MOVE_BACKWARD3(_Tp, _Up, _Vp) std::move_backward(_Tp, _Up, _Vp)
+                                                    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:127:8: note: in instantiation of function template specialization 'std::vector<not_assignable, std::allocator<not_assignable> >::_M_insert_aux<not_assignable>' requested here
+              _M_insert_aux(__position._M_const_cast(), std::move(__x_copy));
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:641:20: note: (skipping 1 context in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        iter = container->insert(iter, __value);
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:336:18: note: in instantiation of member function 'std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > >::operator=' requested here
+              *__result = *__first;
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:396:36: note: in instantiation of function template specialization 'std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:432:23: note: in instantiation of function template specialization 'std::__copy_move_a<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:464:20: note: in instantiation of function template specialization 'std::__copy_move_a2<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+                   ^
+main.cpp:16:10: note: in instantiation of function template specialization 'std::copy<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+    std::copy(&n, &n+1, std::inserter(vna, vna.end()));
+         ^
+In file included from main.cpp:8:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:69:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:342:16: error: overload resolution selected deleted operator '='
+          *__position = _Tp(std::forward<_Args>(__args)...);
+          ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:131:6: note: in instantiation of function template specialization 'std::vector<not_assignable, std::allocator<not_assignable> >::_M_insert_aux<const not_assignable &>' requested here
+            _M_insert_aux(__position._M_const_cast(), __x);
+            ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:641:20: note: in instantiation of member function 'std::vector<not_assignable, std::allocator<not_assignable> >::insert' requested here
+        iter = container->insert(iter, __value);
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:336:18: note: in instantiation of member function 'std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > >::operator=' requested here
+              *__result = *__first;
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:396:36: note: in instantiation of function template specialization 'std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+                              _Category>::__copy_m(__first, __last, __result);
+                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:432:23: note: in instantiation of function template specialization 'std::__copy_move_a<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algobase.h:464:20: note: in instantiation of function template specialization 'std::__copy_move_a2<false, not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+                   ^
+main.cpp:16:10: note: in instantiation of function template specialization 'std::copy<not_assignable *, std::insert_iterator<std::vector<not_assignable, std::allocator<not_assignable> > > >' requested here
+    std::copy(&n, &n+1, std::inserter(vna, vna.end()));
+         ^
+main.cpp:5:21: note: candidate function has been explicitly deleted
+    not_assignable& operator=(not_assignable const&) = delete;
+                    ^
+3 errors generated.
