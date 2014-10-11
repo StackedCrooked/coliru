@@ -1,0 +1,1 @@
+clang++ -std=c++1z -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp && valgrind ./a.out -lc++abi
