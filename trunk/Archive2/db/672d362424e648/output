@@ -1,0 +1,60 @@
+main.cpp:12:10: error: 'int Point::x' conflicts with a previous declaration
+     int x, y;
+          ^
+main.cpp:7:9: note: previous declaration 'int Point::x() const'
+     int x() const { return x; }
+         ^
+main.cpp:12:12: error: 'int Point::y' conflicts with a previous declaration
+     int x, y;
+            ^
+main.cpp:9:9: note: previous declaration 'int Point::y() const'
+     int y() const { return y; }
+         ^
+main.cpp: In constructor 'Point::Point(int, int)':
+main.cpp:5:27: error: class 'Point' does not have any field named 'x'
+     Point(int x, int y) : x(x), y(y) {}
+                           ^
+main.cpp:5:33: error: class 'Point' does not have any field named 'y'
+     Point(int x, int y) : x(x), y(y) {}
+                                 ^
+main.cpp: In member function 'int Point::x() const':
+main.cpp:7:28: error: cannot convert 'Point::x' from type 'int (Point::)() const' to type 'int'
+     int x() const { return x; }
+                            ^
+main.cpp: In member function 'int Point::y() const':
+main.cpp:9:28: error: cannot convert 'Point::y' from type 'int (Point::)() const' to type 'int'
+     int y() const { return y; }
+                            ^
+main.cpp: At global scope:
+main.cpp:25:14: error: 'int Size::width' conflicts with a previous declaration
+     int width, height
+              ^
+main.cpp:20:9: note: previous declaration 'int Size::width() const'
+     int width() const { return width; }
+         ^
+main.cpp:25:16: error: expected ';' at end of member declaration
+     int width, height
+                ^
+main.cpp:25:16: error: 'int Size::height' conflicts with a previous declaration
+main.cpp:22:9: note: previous declaration 'int Size::height() const'
+     int height() const { return height; }
+         ^
+main.cpp: In constructor 'Size::Size(int, int)':
+main.cpp:18:35: error: class 'Size' does not have any field named 'width'
+     Size(int width, int height) : width(width), height(height) {}
+                                   ^
+main.cpp:18:49: error: class 'Size' does not have any field named 'height'
+     Size(int width, int height) : width(width), height(height) {}
+                                                 ^
+main.cpp: In member function 'int Size::width() const':
+main.cpp:20:32: error: cannot convert 'Size::width' from type 'int (Size::)() const' to type 'int'
+     int width() const { return width; }
+                                ^
+main.cpp: In member function 'int Size::height() const':
+main.cpp:22:33: error: cannot convert 'Size::height' from type 'int (Size::)() const' to type 'int'
+     int height() const { return height; }
+                                 ^
+main.cpp: In function 'int main()':
+main.cpp:32:5: error: 'Width' was not declared in this scope
+     Width w(3, 4);
+     ^
