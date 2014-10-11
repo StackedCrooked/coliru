@@ -1,0 +1,38 @@
+main.cpp:5:218: warning: multi-line // comment [-Wcomment]
+struct ChildA : public Parent {};//                                                                                                                                                                                      \
+                                                                                                                                                                                                                         ^
+main.cpp:7:220: warning: multi-line // comment [-Wcomment]
+//                                                                                                                                                                                                                         \
+                                                                                                                                                                                                                           ^
+main.cpp:8:221: warning: multi-line // comment [-Wcomment]
+int main() {        //                                                                                                                                                                                                      \
+                                                                                                                                                                                                                            ^
+main.cpp:9:222: warning: multi-line // comment [-Wcomment]
+    ChildA a_foo;//                                                                                                                                                                                                          \
+                                                                                                                                                                                                                             ^
+main.cpp:11:224: warning: multi-line // comment [-Wcomment]
+//                                                                                                                                                                                                                             \
+                                                                                                                                                                                                                               ^
+main.cpp:12:225: warning: multi-line // comment [-Wcomment]
+    Parent implicit_a; //                                                                                                                                                                                                       \
+                                                                                                                                                                                                                                ^
+main.cpp:13:226: warning: multi-line // comment [-Wcomment]
+    implicit_a = a_foo; // * These are implicit conversions are they not?                                                                                                                                                        \
+                                                                                                                                                                                                                                 ^
+main.cpp:15:5: error: C++ requires a type specifier for all declarations
+    implicit_b = b_foo; // *                                                                                                                                                                                                      |
+    ^~~~~~~~~~
+main.cpp:15:18: error: use of undeclared identifier 'b_foo'
+    implicit_b = b_foo; // *                                                                                                                                                                                                      |
+                 ^
+main.cpp:17:30: error: unknown type name 'ChildB'; did you mean 'ChildA'?
+    std::common_type<ChildA, ChildB>::type::bar foo = 100; // so std::common_type<ChildA, ChildB>::type should be Parent because both ChildA and ChildB can be implicitly converted to Parent. So Parent::bar is int according to |
+                             ^~~~~~
+                             ChildA
+main.cpp:5:8: note: 'ChildA' declared here
+struct ChildA : public Parent {};//                                                                                                                                                                                      \
+       ^
+main.cpp:19:1: error: extraneous closing brace ('}')
+}
+^
+7 warnings and 4 errors generated.
