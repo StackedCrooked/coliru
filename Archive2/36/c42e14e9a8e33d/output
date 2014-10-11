@@ -1,0 +1,25 @@
+static void* X::operator new(size_t)(4)
+X::X(int)(1)
+static void* X::operator new(size_t)(4)
+X::X(int)(2)
+static void* X::operator new(size_t)(4)
+X::X(int)(3)
+static void* X::operator new(size_t)(4)
+X::X(int)(4)
+X[1] X[2] X[3] X[4] 
+===============================
+swapping v[1] and v[2]:
+X::X(X&&)(X[2])
+X& X::operator=(X&&)(X[3])
+X& X::operator=(X&&)(X[2])
+X::~X()
+
+===============================
+X[1] X[3] X[2] X[4] X::~X()
+static void X::operator delete(void*)
+X::~X()
+static void X::operator delete(void*)
+X::~X()
+static void X::operator delete(void*)
+X::~X()
+static void X::operator delete(void*)
