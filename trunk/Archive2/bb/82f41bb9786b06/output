@@ -1,0 +1,13 @@
+ca:	const A
+ca.c:	const int
+ca.i:	const int
+ca.m:	(non-const) int
+ca.foo() => A::foo() const => this:	pointer to const A
+
+
+a:	(non-const) A
+a.c:	const int
+a.i:	(non-const) int
+a.m:	(non-const) int
+a.foo() => A::foo() const => this:	pointer to const A
+a.bar() => A::bar() (non-const) => this:	pointer to (non-const) A
