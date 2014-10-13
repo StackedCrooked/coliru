@@ -1,0 +1,18 @@
+main.cpp:4:30: error: parameter 'arr' includes reference to array of unknown bound 'T [][N]'
+ T* asFlatArray (T (&arr)[][N])
+                              ^
+main.cpp: In function 'int main()':
+main.cpp:17:31: error: no matching function for call to 'asFlatArray(int [2][5])'
+     int *ptr = asFlatArray(arr);
+                               ^
+main.cpp:17:31: note: candidate is:
+main.cpp:4:4: note: template<class T, long unsigned int N> T* asFlatArray(T (&)[][N])
+ T* asFlatArray (T (&arr)[][N])
+    ^
+main.cpp:4:4: note:   template argument deduction/substitution failed:
+main.cpp:17:31: note:   mismatched types 'T [][N]' and 'int [2][5]'
+     int *ptr = asFlatArray(arr);
+                               ^
+main.cpp:18:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (int i = 0; i < rows * columns; i++) {
+                       ^
