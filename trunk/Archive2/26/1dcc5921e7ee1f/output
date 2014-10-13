@@ -1,0 +1,52 @@
+main.cpp: In substitution of 'template<int Index, class ... Tuples> using slice = decltype (slice<Index>) [with int Index = ElementIndices; Tuples = {}]':
+main.cpp:106:1:   required by substitution of 'template<class Functor, class Tuple, class ... Tuples, int ...ElementIndices, typename std::requires<std::{anonymous}::concepts::Tuple<Tuple>, std::{anonymous}::concepts::Tuple<Tuples>..., std::{anonymous}::concepts::Invokable<std::{anonymous}::concepts::annex::result_of::uncurry<Functor&>, std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::slice<ElementIndices, Tuples ...> >, std::{anonymous}::concepts::Invokable<std::{anonymous}::concepts::annex::result_of::uncurry<Functor&>, std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::slice<ElementIndices, Tuples ...> >...>::type ...<anonymous> > std::tuple<std::{anonymous}::concepts::annex::result_of::uncurry<Functor&, std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::slice<ElementIndices, Tuples ...> >...> std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::zip_with(std::integer_sequence<int, ElementIndices ...>, Functor&&, Tuple&&, Tuples&& ...) [with Functor = std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::operators::addressof&& (&)(); Tuple = std::tuple<>& (&)(); Tuples = {}; int ...ElementIndices = {}; typename std::requires<std::{anonymous}::concepts::Tuple<Tuple>, std::{anonymous}::concepts::Tuple<Tuples>..., std::{anonymous}::concepts::Invokable<std::{anonymous}::concepts::annex::result_of::uncurry<Functor&>, std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::slice<ElementIndices, Tuples ...> >, std::{anonymous}::concepts::Invokable<std::{anonymous}::concepts::annex::result_of::uncurry<Functor&>, std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::slice<ElementIndices, Tuples ...> >...>::type ...<anonymous> = {}]'
+main.cpp:113:77:   required by substitution of 'template<class Functor, class ... Tuples> using zip_with = decltype (std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::zip_with(typename std::_Make_integer_sequence<int, std::min(std::<unnamed>::tuple_size<Tuples, void>()...)>::__type{}, declval<Functor>, declval<Tuples>...)) [with Functor = std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::operators::addressof; Tuples = {std::tuple<>&}]'
+main.cpp:118:38:   required by substitution of 'template<class Functor, class ... Tuples> std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::result_of::zip_with<Functor, Tuples ...> std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::apply(Functor&&, Tuples&& ...) [with Functor = std::{anonymous}::concepts::annex::result_of::tuples::result_of::detail::operators::addressof; Tuples = {std::tuple<>&}]'
+main.cpp:123:38:   required from here
+main.cpp:106:1: internal compiler error: unexpected expression 'ElementIndices' of kind template_parm_index
+ zip_with(std::integer_sequence<int, ElementIndices...>, Functor &&, Tuple &&,
+ ^
+0x6014e3 cxx_eval_constant_expression
+	../.././gcc/cp/semantics.c:9795
+0x602dd6 cxx_eval_outermost_constant_expr
+	../.././gcc/cp/semantics.c:9815
+0x56b048 convert_nontype_argument
+	../.././gcc/cp/pt.c:5683
+0x56b048 convert_template_argument
+	../.././gcc/cp/pt.c:6560
+0x5674b0 coerce_template_parms
+	../.././gcc/cp/pt.c:6978
+0x568add coerce_innermost_template_parms
+	../.././gcc/cp/pt.c:7062
+0x568add instantiate_alias_template
+	../.././gcc/cp/pt.c:15588
+0x568add tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:11528
+0x56d7f2 tsubst_template_args
+	../.././gcc/cp/pt.c:9969
+0x56d9e3 tsubst_template_args
+	../.././gcc/cp/pt.c:9951
+0x56dd17 tsubst_aggr_type
+	../.././gcc/cp/pt.c:10166
+0x568663 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:11580
+0x56d7f2 tsubst_template_args
+	../.././gcc/cp/pt.c:9969
+0x56d9e3 tsubst_template_args
+	../.././gcc/cp/pt.c:9951
+0x56dd17 tsubst_aggr_type
+	../.././gcc/cp/pt.c:10166
+0x5681e5 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:12098
+0x56d8e8 tsubst_template_args
+	../.././gcc/cp/pt.c:9961
+0x56fe77 tsubst_decl
+	../.././gcc/cp/pt.c:10474
+0x568917 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:11501
+0x57104b instantiate_template_1
+	../.././gcc/cp/pt.c:15510
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <http://gcc.gnu.org/bugs.html> for instructions.
