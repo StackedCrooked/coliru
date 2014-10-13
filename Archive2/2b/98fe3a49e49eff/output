@@ -1,0 +1,150 @@
+main.cpp:40:3: error: invalid use of destructor '~LinkedList<T>::Node' as a type
+   ~Node
+   ^
+main.cpp:173:2: error: 'void LinkedList<T>::begin()' conflicts with a previous declaration
+  }
+  ^
+main.cpp:48:8: note: previous declaration 'LinkedList<T>::Node* LinkedList<T>::begin'
+  Node* begin;
+        ^
+main.cpp:178:2: error: 'void LinkedList<T>::end()' conflicts with a previous declaration
+  }
+  ^
+main.cpp:50:8: note: previous declaration 'LinkedList<T>::Node* LinkedList<T>::end'
+  Node* end;
+        ^
+main.cpp: In constructor 'LinkedList<T>::LinkedList()':
+main.cpp:54:3: error: class 'LinkedList<T>' does not have any field named 'begin'
+   begin(new Node()),
+   ^
+main.cpp:56:3: error: class 'LinkedList<T>' does not have any field named 'end'
+   end(new Node()),
+   ^
+main.cpp: In copy constructor 'LinkedList<T>::LinkedList(const LinkedList<T>&)':
+main.cpp:65:3: error: class 'LinkedList<T>' does not have any field named 'begin'
+   begin(copy.begin),
+   ^
+main.cpp:66:3: error: class 'LinkedList<T>' does not have any field named 'end'
+   end(copy.end),
+   ^
+main.cpp: In member function 'bool LinkedList<T>::next()':
+main.cpp:151:3: error: 'boolean' was not declared in this scope
+   boolean has = hasNext();
+   ^
+main.cpp:152:7: error: 'has' was not declared in this scope
+   if (has)
+       ^
+main.cpp:157:10: error: 'has' was not declared in this scope
+   return has;
+          ^
+main.cpp: In member function 'bool LinkedList<T>::prev()':
+main.cpp:162:3: error: 'boolean' was not declared in this scope
+   boolean has = hasPrev();
+   ^
+main.cpp:163:7: error: 'has' was not declared in this scope
+   if (has)
+       ^
+main.cpp:167:10: error: 'has' was not declared in this scope
+   return has;
+          ^
+main.cpp: In instantiation of 'struct LinkedList<int>':
+main.cpp:208:29:   required from here
+main.cpp:51:6: error: 'void LinkedList<T>::begin() [with T = int]' conflicts with a previous declaration
+  int size;
+      ^
+main.cpp:48:8: note: previous declaration 'LinkedList<int>::Node* LinkedList<int>::begin'
+  Node* begin;
+        ^
+main.cpp:51:6: error: 'void LinkedList<T>::end() [with T = int]' conflicts with a previous declaration
+  int size;
+      ^
+main.cpp:50:8: note: previous declaration 'LinkedList<int>::Node* LinkedList<int>::end'
+  Node* end;
+        ^
+main.cpp: In instantiation of 'void LinkedList<T>::pushBack(const T&) [with T = int]':
+main.cpp:209:18:   required from here
+main.cpp:87:9: error: cannot convert 'LinkedList<T>::end<int>' from type 'void (LinkedList<int>::)()' to type 'LinkedList<int>::Node*'
+    node = end;
+         ^
+main.cpp:88:8: error: invalid use of member function (did you forget the '()' ?)
+    end = new Node();
+        ^
+main.cpp:90:17: error: invalid use of member function (did you forget the '()' ?)
+    node->next = *end;
+                 ^
+main.cpp:91:4: error: invalid use of member function (did you forget the '()' ?)
+    end->prev = *node;
+    ^
+main.cpp:91:4: error: base operand of '->' is not a pointer
+main.cpp:92:4: error: invalid use of member function (did you forget the '()' ?)
+    end->next = NULL;
+    ^
+main.cpp:92:4: error: base operand of '->' is not a pointer
+main.cpp:93:4: error: invalid use of member function (did you forget the '()' ?)
+    end->value = value;
+    ^
+main.cpp:93:4: error: base operand of '->' is not a pointer
+main.cpp: In instantiation of 'void LinkedList<T>::pushFront(const T&) [with T = int]':
+main.cpp:210:19:   required from here
+main.cpp:106:9: error: cannot convert 'LinkedList<T>::begin<int>' from type 'void (LinkedList<int>::)()' to type 'LinkedList<int>::Node*'
+    node = begin;
+         ^
+main.cpp:107:10: error: invalid use of member function (did you forget the '()' ?)
+    begin = new Node();
+          ^
+main.cpp:109:17: error: invalid use of member function (did you forget the '()' ?)
+    node->prev = *begin;
+                 ^
+main.cpp:110:4: error: invalid use of member function (did you forget the '()' ?)
+    begin->next = *node;
+    ^
+main.cpp:110:4: error: base operand of '->' is not a pointer
+main.cpp:111:4: error: invalid use of member function (did you forget the '()' ?)
+    begin->prev = NULL;
+    ^
+main.cpp:111:4: error: base operand of '->' is not a pointer
+main.cpp:112:4: error: invalid use of member function (did you forget the '()' ?)
+    begin->value = value;
+    ^
+main.cpp:112:4: error: base operand of '->' is not a pointer
+main.cpp: In instantiation of 'void LinkedList<T>::begin() [with T = int]':
+main.cpp:211:14:   required from here
+main.cpp:172:8: error: cannot convert 'LinkedList<T>::begin<int>' from type 'void (LinkedList<int>::)()' to type 'LinkedList<int>::Node*'
+   node = begin;
+        ^
+main.cpp: In instantiation of 'const T LinkedList<T>::getValue() [with T = int]':
+main.cpp:214:26:   required from here
+main.cpp:182:15: error: request for member 'value' in '((LinkedList<int>*)this)->LinkedList<int>::node', which is of pointer type 'LinkedList<int>::Node*' (maybe you meant to use '->' ?)
+   return node.value;
+               ^
+main.cpp: In instantiation of 'LinkedList<T>::~LinkedList() [with T = int]':
+main.cpp:224:9:   required from here
+main.cpp:74:3: error: type '<unresolved overloaded function type>' argument given to 'delete', expected pointer
+   delete begin;
+   ^
+main.cpp:76:3: error: type '<unresolved overloaded function type>' argument given to 'delete', expected pointer
+   delete end;
+   ^
+main.cpp: In instantiation of 'void LinkedList<T>::whenPushToEmpty(const T&) [with T = int]':
+main.cpp:83:25:   required from 'void LinkedList<T>::pushBack(const T&) [with T = int]'
+main.cpp:209:18:   required from here
+main.cpp:133:9: error: invalid use of member function (did you forget the '()' ?)
+   begin = node;
+         ^
+main.cpp:134:7: error: invalid use of member function (did you forget the '()' ?)
+   end = node;
+       ^
+main.cpp: In instantiation of 'void LinkedList<T>::end() [with T = int]':
+main.cpp:87:9:   required from 'void LinkedList<T>::pushBack(const T&) [with T = int]'
+main.cpp:209:18:   required from here
+main.cpp:177:8: error: cannot convert 'LinkedList<T>::end<int>' from type 'void (LinkedList<int>::)()' to type 'LinkedList<int>::Node*'
+   node = end;
+        ^
+main.cpp: In member function 'const T LinkedList<T>::getValue() [with T = int]':
+main.cpp:183:2: warning: control reaches end of non-void function [-Wreturn-type]
+  }
+  ^
+main.cpp: In member function 'bool LinkedList<T>::next() [with T = int]':
+main.cpp:158:2: warning: control reaches end of non-void function [-Wreturn-type]
+  }
+  ^
