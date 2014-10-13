@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -w -pedantic -pthread main.cpp && ./a.out
