@@ -1,0 +1,1 @@
+clang++ -std=c++03 main.cpp -pthread -Wall -pedantic && ./a.out
