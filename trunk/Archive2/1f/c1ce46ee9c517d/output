@@ -1,0 +1,42 @@
+In file included from main.cpp:4:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/unordered_map:47:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable.h:35:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/hashtable_policy.h:85:11: error: implicit instantiation of undefined template 'std::hash<std::vector<std::type_index, std::allocator<std::type_index> > >'
+        noexcept(declval<const _Hash&>()(declval<const _Key&>()))>
+                 ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:120:14: note: in instantiation of template class 'std::__detail::__is_noexcept_hash<std::vector<std::type_index, std::allocator<std::type_index> >, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > > >' requested here
+    : public conditional<_B1::value, _B2, _B1>::type
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:130:39: note: in instantiation of template class 'std::__and_<std::__is_fast_hash<std::hash<std::vector<std::type_index, std::allocator<std::type_index> > > >, std::__detail::__is_noexcept_hash<std::vector<std::type_index, std::allocator<std::type_index> >, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > > > >' requested here
+    : public integral_constant<bool, !_Pp::value>
+                                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:46:34: note: in instantiation of template class 'std::__not_<std::__and_<std::__is_fast_hash<std::hash<std::vector<std::type_index, std::allocator<std::type_index> > > >, std::__detail::__is_noexcept_hash<std::vector<std::type_index, std::allocator<std::type_index> >, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > > > > >' requested here
+           typename _Tr = __umap_traits<__cache_default<_Key, _Hash>::value>>
+                                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:100:15: note: in instantiation of default argument for '__umap_hashtable<std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool>, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > >, std::equal_to<std::vector<std::type_index, std::allocator<std::type_index> > >, std::allocator<std::pair<const std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool> > > >' required here
+      typedef __umap_hashtable<_Key, _Tp, _Hash, _Pred, _Alloc>  _Hashtable;
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:70:92: note: in instantiation of template class 'std::unordered_map<std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool>, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > >, std::equal_to<std::vector<std::type_index, std::allocator<std::type_index> > >, std::allocator<std::pair<const std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool> > > >' requested here
+        std::unordered_map<std::vector<std::type_index>, DynamicFunctionDispatch<ReturnT>> methods;
+                                                                                           ^
+main.cpp:92:27: note: in instantiation of template class 'OpenMultiMethod<bool>' requested here
+    OpenMultiMethod<bool> colliding;
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/typeindex:93:33: note: template is declared here
+  template<typename _Tp> struct hash;
+                                ^
+In file included from main.cpp:4:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/unordered_map:48:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:482:7: error: multiple overloads of 'erase' instantiate to the same signature 'iterator (iterator)'
+      erase(iterator __it)
+      ^
+main.cpp:70:92: note: in instantiation of template class 'std::unordered_map<std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool>, std::hash<std::vector<std::type_index, std::allocator<std::type_index> > >, std::equal_to<std::vector<std::type_index, std::allocator<std::type_index> > >, std::allocator<std::pair<const std::vector<std::type_index, std::allocator<std::type_index> >, DynamicFunctionDispatch<bool> > > >' requested here
+        std::unordered_map<std::vector<std::type_index>, DynamicFunctionDispatch<ReturnT>> methods;
+                                                                                           ^
+main.cpp:92:27: note: in instantiation of template class 'OpenMultiMethod<bool>' requested here
+    OpenMultiMethod<bool> colliding;
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:477:7: note: previous declaration is here
+      erase(const_iterator __position)
+      ^
+2 errors generated.
