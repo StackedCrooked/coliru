@@ -1,0 +1,36 @@
+main.cpp: In instantiation of 'Foo<FT>::ReturnT Foo<FT>::call_helper(std::vector<void*>, std::index_sequence<Is ...>) [with ArgsT = {}; long unsigned int ...Is = 0ul, 1ul; FT = main()::<lambda(ChildB&, ChildB&)>; Foo<FT>::ReturnT = void; std::index_sequence<Is ...> = std::integer_sequence<long unsigned int, 0ul, 1ul>]':
+main.cpp:59:124:   required from 'Foo<FT>::ReturnT Foo<FT>::call(std::vector<void*>) [with FT = main()::<lambda(ChildB&, ChildB&)>; Foo<FT>::ReturnT = void]'
+main.cpp:134:1:   required from here
+main.cpp:53:183: error: invalid cast from type '__gnu_cxx::__alloc_traits<std::allocator<void*> >::value_type {aka void*}' to type 'std::reference_wrapper<ChildB&>'
+             auto argument_transport = std::make_tuple(reinterpret_cast<std::reference_wrapper<typename std::tuple_element<Is, typename function_traits<FT>::args>::type>>(args[Is])...);
+                                                                                                                                                                                       ^
+main.cpp:54:66: error: return-statement with a value, in function returning 'void' [-fpermissive]
+             return f_storage(*std::get<Is>(argument_transport)...);
+                                                                  ^
+main.cpp: In instantiation of 'Foo<FT>::ReturnT Foo<FT>::call_helper(std::vector<void*>, std::index_sequence<Is ...>) [with ArgsT = {}; long unsigned int ...Is = 0ul, 1ul; FT = main()::<lambda(ChildB&, ChildA&)>; Foo<FT>::ReturnT = void; std::index_sequence<Is ...> = std::integer_sequence<long unsigned int, 0ul, 1ul>]':
+main.cpp:59:124:   required from 'Foo<FT>::ReturnT Foo<FT>::call(std::vector<void*>) [with FT = main()::<lambda(ChildB&, ChildA&)>; Foo<FT>::ReturnT = void]'
+main.cpp:134:1:   required from here
+main.cpp:53:183: error: invalid cast from type '__gnu_cxx::__alloc_traits<std::allocator<void*> >::value_type {aka void*}' to type 'std::reference_wrapper<ChildB&>'
+             auto argument_transport = std::make_tuple(reinterpret_cast<std::reference_wrapper<typename std::tuple_element<Is, typename function_traits<FT>::args>::type>>(args[Is])...);
+                                                                                                                                                                                       ^
+main.cpp:54:66: error: return-statement with a value, in function returning 'void' [-fpermissive]
+             return f_storage(*std::get<Is>(argument_transport)...);
+                                                                  ^
+main.cpp: In instantiation of 'Foo<FT>::ReturnT Foo<FT>::call_helper(std::vector<void*>, std::index_sequence<Is ...>) [with ArgsT = {}; long unsigned int ...Is = 0ul, 1ul; FT = main()::<lambda(ChildA&, ChildB&)>; Foo<FT>::ReturnT = void; std::index_sequence<Is ...> = std::integer_sequence<long unsigned int, 0ul, 1ul>]':
+main.cpp:59:124:   required from 'Foo<FT>::ReturnT Foo<FT>::call(std::vector<void*>) [with FT = main()::<lambda(ChildA&, ChildB&)>; Foo<FT>::ReturnT = void]'
+main.cpp:134:1:   required from here
+main.cpp:53:183: error: invalid cast from type '__gnu_cxx::__alloc_traits<std::allocator<void*> >::value_type {aka void*}' to type 'std::reference_wrapper<ChildA&>'
+             auto argument_transport = std::make_tuple(reinterpret_cast<std::reference_wrapper<typename std::tuple_element<Is, typename function_traits<FT>::args>::type>>(args[Is])...);
+                                                                                                                                                                                       ^
+main.cpp:54:66: error: return-statement with a value, in function returning 'void' [-fpermissive]
+             return f_storage(*std::get<Is>(argument_transport)...);
+                                                                  ^
+main.cpp: In instantiation of 'Foo<FT>::ReturnT Foo<FT>::call_helper(std::vector<void*>, std::index_sequence<Is ...>) [with ArgsT = {}; long unsigned int ...Is = 0ul, 1ul; FT = main()::<lambda(ChildA&, ChildA&)>; Foo<FT>::ReturnT = void; std::index_sequence<Is ...> = std::integer_sequence<long unsigned int, 0ul, 1ul>]':
+main.cpp:59:124:   required from 'Foo<FT>::ReturnT Foo<FT>::call(std::vector<void*>) [with FT = main()::<lambda(ChildA&, ChildA&)>; Foo<FT>::ReturnT = void]'
+main.cpp:134:1:   required from here
+main.cpp:53:183: error: invalid cast from type '__gnu_cxx::__alloc_traits<std::allocator<void*> >::value_type {aka void*}' to type 'std::reference_wrapper<ChildA&>'
+             auto argument_transport = std::make_tuple(reinterpret_cast<std::reference_wrapper<typename std::tuple_element<Is, typename function_traits<FT>::args>::type>>(args[Is])...);
+                                                                                                                                                                                       ^
+main.cpp:54:66: error: return-statement with a value, in function returning 'void' [-fpermissive]
+             return f_storage(*std::get<Is>(argument_transport)...);
+                                                                  ^
