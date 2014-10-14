@@ -1,0 +1,1 @@
+g++ -O0 -std=c++11 -Wall -pthread -lboost_unit_test_framework  main.cpp && ./a.out 3
