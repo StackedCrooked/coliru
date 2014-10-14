@@ -1,0 +1,23 @@
+main.cpp: In instantiation of 'void createTable(Types, const Args& ...) [with Args = {}]':
+main.cpp:36:21:   required from 'void createTable(const string&, const Args& ...) [with Args = {Types}; std::string = std::basic_string<char>]'
+main.cpp:36:21:   recursively required from 'void createTable(const string&, const Args& ...) [with Args = {Types, char [5], Types}; std::string = std::basic_string<char>]'
+main.cpp:36:21:   required from 'void createTable(const string&, const Args& ...) [with Args = {char [3], Types, char [5], Types}; std::string = std::basic_string<char>]'
+main.cpp:63:63:   required from here
+main.cpp:42:21: error: no matching function for call to 'createTable()'
+  createTable(args...);
+                     ^
+main.cpp:42:21: note: candidates are:
+main.cpp:33:6: note: template<class ... Args> void createTable(const string&, const Args& ...)
+ void createTable(const std::string& name,const Args&... args)
+      ^
+main.cpp:33:6: note:   template argument deduction/substitution failed:
+main.cpp:42:21: note:   candidate expects 2 arguments, 0 provided
+  createTable(args...);
+                     ^
+main.cpp:39:6: note: template<class ... Args> void createTable(Types, const Args& ...)
+ void createTable(Types name, const Args&... args)
+      ^
+main.cpp:39:6: note:   template argument deduction/substitution failed:
+main.cpp:42:21: note:   candidate expects 2 arguments, 0 provided
+  createTable(args...);
+                     ^
