@@ -1,0 +1,26 @@
+main.cpp:21:5: warning: control may reach end of non-void function [-Wreturn-type]
+    }
+    ^
+main.cpp:9:5: note: in instantiation of member function 'better_type_info_impl<Base>::IsDerivedFrom' requested here
+    better_type_info_impl() {}
+    ^
+main.cpp:24:43: note: in instantiation of member function 'better_type_info_impl<Base>::better_type_info_impl' requested here
+    static const better_type_info_impl<T> info;
+                                          ^
+main.cpp:31:36: note: in instantiation of function template specialization 'better_typeinfo<Base>' requested here
+    std::cout << std::boolalpha << better_typeinfo<Base>().IsDerivedFrom(better_typeinfo<Derived>());
+                                   ^
+main.cpp:21:5: warning: control may reach end of non-void function [-Wreturn-type]
+    }
+    ^
+main.cpp:9:5: note: in instantiation of member function 'better_type_info_impl<Derived>::IsDerivedFrom' requested here
+    better_type_info_impl() {}
+    ^
+main.cpp:24:43: note: in instantiation of member function 'better_type_info_impl<Derived>::better_type_info_impl' requested here
+    static const better_type_info_impl<T> info;
+                                          ^
+main.cpp:31:74: note: in instantiation of function template specialization 'better_typeinfo<Derived>' requested here
+    std::cout << std::boolalpha << better_typeinfo<Base>().IsDerivedFrom(better_typeinfo<Derived>());
+                                                                         ^
+2 warnings generated.
+true
