@@ -1,0 +1,50 @@
+main.cpp: In substitution of 'template<int Index, class ...> using slice_result = decltype (slice<Index>) [with int Index = ElementIndices; <template-parameter-1-2> = {}]':
+main.cpp:5:11:   required by substitution of 'template<class Tuple, class ... Tuples, int ...ElementIndices, class> void zip_with(Tuple, ...) [with Tuple = int; Tuples = {}; int ...ElementIndices = {}; <template-parameter-1-4> = <missing>]'
+main.cpp:9:20:   required from here
+main.cpp:5:11: internal compiler error: unexpected expression 'ElementIndices' of kind template_parm_index
+           typename =
+           ^
+0x6014e3 cxx_eval_constant_expression
+	../.././gcc/cp/semantics.c:9795
+0x602dd6 cxx_eval_outermost_constant_expr
+	../.././gcc/cp/semantics.c:9815
+0x56b048 convert_nontype_argument
+	../.././gcc/cp/pt.c:5683
+0x56b048 convert_template_argument
+	../.././gcc/cp/pt.c:6560
+0x5674b0 coerce_template_parms
+	../.././gcc/cp/pt.c:6978
+0x568add coerce_innermost_template_parms
+	../.././gcc/cp/pt.c:7062
+0x568add instantiate_alias_template
+	../.././gcc/cp/pt.c:15588
+0x568add tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:11528
+0x56d7f2 tsubst_template_args
+	../.././gcc/cp/pt.c:9969
+0x56d9e3 tsubst_template_args
+	../.././gcc/cp/pt.c:9951
+0x56dd17 tsubst_aggr_type
+	../.././gcc/cp/pt.c:10166
+0x5681e5 tsubst(tree_node*, tree_node*, int, tree_node*)
+	../.././gcc/cp/pt.c:12098
+0x57402c type_unification_real
+	../.././gcc/cp/pt.c:16511
+0x577111 fn_type_unification(tree_node*, tree_node*, tree_node*, tree_node* const*, unsigned int, tree_node*, unification_kind_t, int, bool, bool)
+	../.././gcc/cp/pt.c:15856
+0x534a41 add_template_candidate_real
+	../.././gcc/cp/call.c:2977
+0x5323c4 add_template_candidate
+	../.././gcc/cp/call.c:3074
+0x5323c4 add_candidates
+	../.././gcc/cp/call.c:5139
+0x535fd9 perform_overload_resolution
+	../.././gcc/cp/call.c:3874
+0x537aca build_new_function_call(tree_node*, vec<tree_node*, va_gc, vl_embed>**, bool, int)
+	../.././gcc/cp/call.c:3951
+0x5f9821 finish_call_expr(tree_node*, vec<tree_node*, va_gc, vl_embed>**, bool, bool, int)
+	../.././gcc/cp/semantics.c:2358
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <http://gcc.gnu.org/bugs.html> for instructions.
