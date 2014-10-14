@@ -1,0 +1,52 @@
+main.cpp:29:37: error: no type named 'index_sequence' in namespace 'std'
+        ReturnT op_call_helper(std::index_sequence<Is...> arg_indices, ArgsT... args) {
+                               ~~~~~^
+main.cpp:29:51: error: expected ')'
+        ReturnT op_call_helper(std::index_sequence<Is...> arg_indices, ArgsT... args) {
+                                                  ^
+main.cpp:29:31: note: to match this '('
+        ReturnT op_call_helper(std::index_sequence<Is...> arg_indices, ArgsT... args) {
+                              ^
+main.cpp:30:48: error: use of undeclared identifier 'args'
+            auto arg_storage = std::make_tuple(args...);
+                                               ^
+main.cpp:41:40: error: no member named 'index_sequence_for' in namespace 'std'
+            return op_call_helper(std::index_sequence_for<ArgsT...>(), args...);
+                                  ~~~~~^
+main.cpp:41:59: error: 'ArgsT' does not refer to a value
+            return op_call_helper(std::index_sequence_for<ArgsT...>(), args...);
+                                                          ^
+main.cpp:39:28: note: declared here
+        template <class... ArgsT>
+                           ^
+main.cpp:53:59: error: no type named 'index_sequence' in namespace 'std'
+        ReturnT call_helper(std::vector<void*> args, std::index_sequence<Is...> indices) {
+                                                     ~~~~~^
+main.cpp:53:73: error: expected ')'
+        ReturnT call_helper(std::vector<void*> args, std::index_sequence<Is...> indices) {
+                                                                        ^
+main.cpp:53:28: note: to match this '('
+        ReturnT call_helper(std::vector<void*> args, std::index_sequence<Is...> indices) {
+                           ^
+main.cpp:60:43: error: no member named 'make_index_sequence' in namespace 'std'
+            return call_helper(args, std::make_index_sequence<std::tuple_size<typename function_traits<FT>::args>::value>());
+                                     ~~~~~^
+main.cpp:60:123: error: expected expression
+            return call_helper(args, std::make_index_sequence<std::tuple_size<typename function_traits<FT>::args>::value>());
+                                                                                                                          ^
+main.cpp:75:43: error: no type named 'index_sequence' in namespace 'std'
+        void add_method(FT function, std::index_sequence<Is...>) {
+                                     ~~~~~^
+main.cpp:75:57: error: expected ')'
+        void add_method(FT function, std::index_sequence<Is...>) {
+                                                        ^
+main.cpp:75:24: note: to match this '('
+        void add_method(FT function, std::index_sequence<Is...>) {
+                       ^
+main.cpp:83:39: error: no member named 'make_index_sequence' in namespace 'std'
+            add_method(function, std::make_index_sequence<std::tuple_size<typename function_traits<FT>::args>::value>());
+                                 ~~~~~^
+main.cpp:83:119: error: expected expression
+            add_method(function, std::make_index_sequence<std::tuple_size<typename function_traits<FT>::args>::value>());
+                                                                                                                      ^
+13 errors generated.
