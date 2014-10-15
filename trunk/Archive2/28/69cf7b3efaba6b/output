@@ -1,0 +1,43 @@
+main.cpp:79:92: error: expected expression
+                struct Struct : members_impl<FusionVisitorConcept, S, boost::mpl::int_<0>> {};
+                                                                                           ^
+main.cpp:79:94: error: expected a type
+                struct Struct : members_impl<FusionVisitorConcept, S, boost::mpl::int_<0>> {};
+                                                                                             ^
+main.cpp:79:94: error: expected class name
+main.cpp:79:94: error: expected '{' after base class list
+main.cpp:93:22: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                for (auto& el : t)
+                     ^
+main.cpp:93:31: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for (auto& el : t)
+                              ^
+main.cpp:138:148: error: a space is required between consecutive right angle brackets (use '> >')
+                typename boost::mpl::eval_if<detail::is_vector<T>,                  boost::mpl::identity<array_application <FusionVisitorConcept, T>>,
+                                                                                                                                                   ^~
+                                                                                                                                                   > >
+main.cpp:139:148: error: a space is required between consecutive right angle brackets (use '> >')
+                typename boost::mpl::eval_if<boost::fusion::traits::is_sequence<T>, boost::mpl::identity<struct_application<FusionVisitorConcept, T>>,
+                                                                                                                                                   ^~
+                                                                                                                                                   > >
+main.cpp:140:79: error: a space is required between consecutive right angle brackets (use '> >')
+                boost::mpl::identity<value_application<FusionVisitorConcept, T>>
+                                                                              ^~
+                                                                              > >
+main.cpp:189:23: error: expected ';' at end of declaration
+    std::vector<Foo> v { { 33, false }, { 34, true } };
+                      ^
+                      ;
+main.cpp:106:61: error: no member named 'handle' in 'visitor::detail::iteration::Struct<DisplayMemberVisitor, Foo>'
+                iteration::Struct<FusionVisitorConcept, T>::handle(visitor, t);
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+main.cpp:94:75: note: in instantiation of member function 'visitor::detail::struct_application<DisplayMemberVisitor, Foo>::handle' requested here
+                    VisitorApplication<FusionVisitorConcept, value_type>::handle(visitor, el);
+                                                                          ^
+main.cpp:155:59: note: in instantiation of member function 'visitor::detail::array_application<DisplayMemberVisitor, std::vector<Foo, std::allocator<Foo> > >::handle' requested here
+    visitor::VisitorApplication<FusionVisitorConcept, T>::handle(visitor, o);
+                                                          ^
+main.cpp:193:9: note: in instantiation of function template specialization 'apply_fusion_visitor<DisplayMemberVisitor, std::vector<Foo, std::allocator<Foo> > >' requested here
+        apply_fusion_visitor(vis, v);
+        ^
+2 warnings and 9 errors generated.
