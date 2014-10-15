@@ -1,0 +1,11 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:10:11: warning: unused variable 'equation' [-Wunused-variable]
+long long equation = x[50000] * x[50000] * x[50000] + 3 * x[50000] - 14; 
+          ^
+1 warning generated.
++ ./a.out
+main.cpp:10:31: runtime error: signed integer overflow: 50000 * 50000 cannot be represented in type 'int'
+main.cpp:10:42: runtime error: signed integer overflow: -1794967296 * 50000 cannot be represented in type 'int'
