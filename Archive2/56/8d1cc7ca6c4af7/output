@@ -1,0 +1,76 @@
+In file included from main.cpp:3:
+In file included from /usr/local/include/boost/functional/hash.hpp:6:
+In file included from /usr/local/include/boost/functional/hash/hash.hpp:558:
+/usr/local/include/boost/functional/hash/extensions.hpp:262:20: error: no matching function for call to 'hash_value'
+            return hash_value(val);
+                   ^~~~~~~~~~
+/usr/local/include/boost/functional/hash/hash.hpp:313:60: note: in instantiation of member function 'boost::hash<std::type_index>::operator()' requested here
+        return boost::hash_detail::hash_combine_impl(seed, hasher(v));
+                                                           ^
+/usr/local/include/boost/functional/hash/hash.hpp:327:13: note: in instantiation of function template specialization 'boost::hash_combine<std::type_index>' requested here
+            hash_combine(seed, *first);
+            ^
+/usr/local/include/boost/functional/hash/extensions.hpp:78:23: note: in instantiation of function template specialization 'boost::hash_range<__gnu_cxx::__normal_iterator<const std::type_index *, std::vector<std::type_index, std::allocator<std::type_index> > > >' requested here
+        return boost::hash_range(v.begin(), v.end());
+                      ^
+/usr/local/include/boost/functional/hash/extensions.hpp:262:20: note: in instantiation of function template specialization 'boost::hash_value<std::type_index, std::allocator<std::type_index> >' requested here
+            return hash_value(val);
+                   ^
+main.cpp:8:6: note: in instantiation of member function 'boost::hash<std::vector<std::type_index, std::allocator<std::type_index> > >::operator()' requested here
+    h(test);
+     ^
+/usr/local/include/boost/functional/hash/hash.hpp:256:57: note: candidate template ignored: substitution failure [with T = std::type_index]: no type named 'type' in 'boost::hash_detail::basic_numbers<std::type_index>'
+    typename boost::hash_detail::basic_numbers<T>::type hash_value(T v)
+                                                   ~~~~ ^
+/usr/local/include/boost/functional/hash/hash.hpp:262:56: note: candidate template ignored: substitution failure [with T = std::type_index]: no type named 'type' in 'boost::hash_detail::long_numbers<std::type_index>'
+    typename boost::hash_detail::long_numbers<T>::type hash_value(T v)
+                                                  ~~~~ ^
+/usr/local/include/boost/functional/hash/hash.hpp:268:57: note: candidate template ignored: substitution failure [with T = std::type_index]: no type named 'type' in 'boost::hash_detail::ulong_numbers<std::type_index>'
+    typename boost::hash_detail::ulong_numbers<T>::type hash_value(T v)
+                                                   ~~~~ ^
+/usr/local/include/boost/functional/hash/hash.hpp:274:31: note: candidate template ignored: disabled by 'enable_if' [with T = std::type_index]
+    typename boost::enable_if<boost::is_enum<T>, std::size_t>::type
+                              ^
+/usr/local/include/boost/functional/hash/hash.hpp:390:57: note: candidate template ignored: substitution failure [with T = std::type_index]: no type named 'type' in 'boost::hash_detail::float_numbers<std::type_index>'
+    typename boost::hash_detail::float_numbers<T>::type hash_value(T v)
+                                                   ~~~~ ^
+/usr/local/include/boost/functional/hash/hash.hpp:282:36: note: candidate template ignored: could not match 'T *const' against 'const std::type_index'
+    template <class T> std::size_t hash_value(T* const& v)
+                                   ^
+/usr/local/include/boost/functional/hash/hash.hpp:370:24: note: candidate template ignored: could not match 'const T [N]' against 'const std::type_index'
+    inline std::size_t hash_value(const T (&x)[N])
+                       ^
+/usr/local/include/boost/functional/hash/hash.hpp:376:24: note: candidate template ignored: could not match 'T [N]' against 'const std::type_index'
+    inline std::size_t hash_value(T (&x)[N])
+                       ^
+/usr/local/include/boost/functional/hash/hash.hpp:383:24: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, char_traits<type-parameter-0-0>, type-parameter-0-1>' against 'const std::type_index'
+    inline std::size_t hash_value(
+                       ^
+/usr/local/include/boost/functional/hash/extensions.hpp:67:17: note: candidate template ignored: could not match 'pair<type-parameter-0-0, type-parameter-0-1>' against 'const std::type_index'
+    std::size_t hash_value(std::pair<A, B> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:76:17: note: candidate template ignored: could not match 'vector<type-parameter-0-0, type-parameter-0-1>' against 'const std::type_index'
+    std::size_t hash_value(std::vector<T, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:82:17: note: candidate template ignored: could not match 'list<type-parameter-0-0, type-parameter-0-1>' against 'const std::type_index'
+    std::size_t hash_value(std::list<T, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:88:17: note: candidate template ignored: could not match 'deque<type-parameter-0-0, type-parameter-0-1>' against 'const std::type_index'
+    std::size_t hash_value(std::deque<T, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:94:17: note: candidate template ignored: could not match 'set<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const std::type_index'
+    std::size_t hash_value(std::set<K, C, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:100:17: note: candidate template ignored: could not match 'multiset<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const std::type_index'
+    std::size_t hash_value(std::multiset<K, C, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:106:17: note: candidate template ignored: could not match 'map<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>' against 'const std::type_index'
+    std::size_t hash_value(std::map<K, T, C, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:112:17: note: candidate template ignored: could not match 'multimap<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>' against 'const std::type_index'
+    std::size_t hash_value(std::multimap<K, T, C, A> const& v)
+                ^
+/usr/local/include/boost/functional/hash/extensions.hpp:118:17: note: candidate template ignored: could not match 'complex<type-parameter-0-0>' against 'const std::type_index'
+    std::size_t hash_value(std::complex<T> const& v)
+                ^
+1 error generated.
