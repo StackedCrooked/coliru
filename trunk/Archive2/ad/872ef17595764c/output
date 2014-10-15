@@ -1,0 +1,25 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:14:56: error: no matching function for call to 'make_unique(<brace-enclosed initializer list>)'
+     auto ptr = std::make_unique<Foo>({"Hello", "World"});
+                                                        ^
+main.cpp:14:56: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:761:5: note: typename std::_MakeUniq<_Tp>::__single_object std::make_unique(_Args&& ...) [with _Tp = Foo; _Args = {}; typename std::_MakeUniq<_Tp>::__single_object = std::unique_ptr<Foo, std::default_delete<Foo> >]
+     make_unique(_Args&&... __args)
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:761:5: note:   candidate expects 0 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:767:5: note: template<class _Tp> typename std::_MakeUniq<_Tp>::__array std::make_unique(std::size_t)
+     make_unique(size_t __num)
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:767:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h: In substitution of 'template<class _Tp> typename std::_MakeUniq<_Tp>::__array std::make_unique(std::size_t) [with _Tp = Foo]':
+main.cpp:14:56:   required from here
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:767:5: error: no type named '__array' in 'struct std::_MakeUniq<Foo>'
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:773:5: note: template<class _Tp, class ... _Args> typename std::_MakeUniq<_Tp>::__invalid_type std::make_unique(_Args&& ...) <deleted>
+     make_unique(_Args&&...) = delete;
+     ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:773:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h: In substitution of 'template<class _Tp, class ... _Args> typename std::_MakeUniq<_Tp>::__invalid_type std::make_unique(_Args&& ...) [with _Tp = Foo; _Args = {}]':
+main.cpp:14:56:   required from here
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:773:5: error: no type named '__invalid_type' in 'struct std::_MakeUniq<Foo>'
