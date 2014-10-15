@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:13:18: error: no matching function for call to 'MyClass::setVersion(std::string&)'
+   a.setVersion(v1);           // lvalue
+                  ^
+main.cpp:13:18: note: candidate is:
+main.cpp:5:8: note: void MyClass::setVersion(std::string&&) <near match>
+   void setVersion(std::string&& ver) { version = std::move(ver); }
+        ^
+main.cpp:5:8: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'std::string&& {aka std::basic_string<char>&&}'
