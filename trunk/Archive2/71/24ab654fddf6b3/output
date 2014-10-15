@@ -1,0 +1,15 @@
+main.cpp: In function 'void g(ArgsT ...)':
+main.cpp:11:14: error: expected ';' before '...' token
+     f<args>()...;
+              ^
+main.cpp:11:17: error: parameter packs not expanded with '...':
+     f<args>()...;
+                 ^
+main.cpp:11:17: note:         'args'
+main.cpp: In function 'int main()':
+main.cpp:16:26: error: too few arguments to function 'void g(ArgsT ...) [with ArgsT = {int, double, char}]'
+     g<int, double, char>();
+                          ^
+main.cpp:10:6: note: declared here
+ void g(ArgsT... args) {
+      ^
