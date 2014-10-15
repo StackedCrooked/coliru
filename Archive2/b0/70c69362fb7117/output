@@ -1,0 +1,11 @@
+main.cpp: In member function 'void myString::translate()':
+main.cpp:15:15: error: no match for 'operator=' (operand types are 'myString' and 'std::string {aka std::basic_string<char>}')
+         *this = phrase;
+               ^
+main.cpp:15:15: note: candidates are:
+main.cpp:5:7: note: myString& myString::operator=(const myString&)
+ class myString : public std::string{
+       ^
+main.cpp:5:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const myString&'
+main.cpp:5:7: note: myString& myString::operator=(myString&&)
+main.cpp:5:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'myString&&'
