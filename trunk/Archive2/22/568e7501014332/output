@@ -1,0 +1,22 @@
+main.cpp: In function 'int main()':
+main.cpp:25:16: error: no matching function for call to 'select(std::vector<bool>&, const F&)'
+     select(a, r);        
+                ^
+main.cpp:25:16: note: candidates are:
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:220:0,
+                 from /usr/include/stdlib.h:320,
+                 from /usr/local/include/c++/4.9.0/cstdlib:72,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algo.h:59,
+                 from /usr/local/include/c++/4.9.0/algorithm:62,
+                 from main.cpp:2:
+/usr/include/x86_64-linux-gnu/sys/select.h:107:12: note: int select(int, fd_set*, fd_set*, fd_set*, timeval*)
+ extern int select (int __nfds, fd_set *__restrict __readfds,
+            ^
+/usr/include/x86_64-linux-gnu/sys/select.h:107:12: note:   candidate expects 5 arguments, 2 provided
+main.cpp:14:20: note: template<class T, class A, class Selector, class R> std::vector<R> select(const std::vector<_Tp, _Alloc>&, Selector&&)
+     std::vector<R> select(std::vector<T, A> const & c, Selector&& s) {
+                    ^
+main.cpp:14:20: note:   template argument deduction/substitution failed:
+main.cpp:12:3: error: no type named 'type' in 'class std::result_of<const F&(bool)>'
+   typename R=typename std::result_of<Selector(T)>::type
+   ^
