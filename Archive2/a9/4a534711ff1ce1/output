@@ -1,0 +1,53 @@
+main.cpp: In function 'int main()':
+main.cpp:8:11: error: 'string' was not declared in this scope
+           string str = "hey guys";
+           ^
+main.cpp:8:11: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/iosfwd:39:0,
+                 from /usr/local/include/c++/4.9.0/ios:38,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iterator:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stringfwd.h:62:33: note:   'std::string'
+   typedef basic_string<char>    string;   
+                                 ^
+main.cpp:9:15: error: expected ';' before 'repl'
+        string repl = "girls";
+               ^
+main.cpp:10:8: error: 'regex' was not declared in this scope
+        regex rx("guys");
+        ^
+main.cpp:10:8: note: suggested alternatives:
+In file included from /usr/local/include/c++/4.9.0/regex:58:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.0/bits/regex.h:784:32: note:   'std::regex'
+   typedef basic_regex<char>    regex;
+                                ^
+In file included from /usr/local/include/boost/regex_fwd.hpp:27:0,
+                 from /usr/local/include/boost/regex/v4/regex.hpp:36,
+                 from /usr/local/include/boost/regex.hpp:31,
+                 from main.cpp:2:
+/usr/local/include/boost/regex/v4/regex_fwd.hpp:60:48: note:   'boost::regex'
+ typedef basic_regex<char, regex_traits<char> > regex;
+                                                ^
+main.cpp:11:8: error: 'str' was not declared in this scope
+        str = std::regex_replace(str, rx ,repl);
+        ^
+main.cpp:11:38: error: 'rx' was not declared in this scope
+        str = std::regex_replace(str, rx ,repl);
+                                      ^
+main.cpp:11:42: error: 'repl' was not declared in this scope
+        str = std::regex_replace(str, rx ,repl);
+                                          ^
+main.cpp:12:8: error: 'cout' was not declared in this scope
+        cout <<"str: " << str << endl;
+        ^
+main.cpp:12:33: error: 'endl' was not declared in this scope
+        cout <<"str: " << str << endl;
+                                 ^
+main.cpp:12:33: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/iterator:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ostream:564:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^
