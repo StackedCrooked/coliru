@@ -1,0 +1,26 @@
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/spirit/include/qi.hpp:16:
+In file included from /usr/local/include/boost/spirit/home/qi.hpp:21:
+In file included from /usr/local/include/boost/spirit/home/qi/nonterminal.hpp:14:
+/usr/local/include/boost/spirit/home/qi/nonterminal/rule.hpp:177:13: error: static_assert failed "error_invalid_expression"
+            BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
+            ^
+/usr/local/include/boost/spirit/home/support/assert_msg.hpp:35:9: note: expanded from macro 'BOOST_SPIRIT_ASSERT_MATCH'
+        BOOST_SPIRIT_ASSERT_MSG((                                             \
+        ^
+/usr/local/include/boost/spirit/home/support/assert_msg.hpp:27:9: note: expanded from macro 'BOOST_SPIRIT_ASSERT_MSG'
+        BOOST_STATIC_ASSERT_MSG(Cond, # Msg)
+        ^
+/usr/local/include/boost/static_assert.hpp:31:45: note: expanded from macro 'BOOST_STATIC_ASSERT_MSG'
+#     define BOOST_STATIC_ASSERT_MSG( ... ) static_assert(__VA_ARGS__)
+                                            ^
+/usr/local/include/boost/spirit/home/qi/nonterminal/rule.hpp:221:13: note: in instantiation of function template specialization 'boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, std::pair<boost::optional<int>, boost::optional<boost::iterator_range<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > > > > (const boost::spirit::qi::symbols<char, int, boost::spirit::qi::tst<char, int>, boost::spirit::qi::tst_pass_through> &), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>::define<mpl_::bool_<false>, boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::subscript, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::matches>, 0> &, const boost::phoenix::actor<boost::spirit::attribute<1> > &>, 2> &>, 1> &, const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char &>, 0>, const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::iterator_range<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > > (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type> &>, 1> &>, 2> &>, 1> &>, 2> >' requested here
+            define<mpl::false_>(*this, expr, traits::matches<qi::domain, Expr>());
+            ^
+main.cpp:33:15: note: in instantiation of function template specialization 'boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, std::pair<boost::optional<int>, boost::optional<boost::iterator_range<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > > > > (const boost::spirit::qi::symbols<char, int, boost::spirit::qi::tst<char, int>, boost::spirit::qi::tst_pass_through> &), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type>::operator=<boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::subscript, boost::proto::argsns_::list2<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<boost::spirit::tag::matches>, 0> &, const boost::phoenix::actor<boost::spirit::attribute<1> > &>, 2> &>, 1> &, const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<const boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right, boost::proto::argsns_::list2<boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal, boost::proto::argsns_::term<const char &>, 0>, const boost::proto::exprns_::expr<boost::proto::tagns_::tag::negate, boost::proto::argsns_::list1<boost::spirit::qi::rule<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> >, boost::iterator_range<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > > (), boost::spirit::unused_type, boost::spirit::unused_type, boost::spirit::unused_type> &>, 1> &>, 2> &>, 1> &>, 2> >' requested here
+        pair  =  -matches[_r1] >> -('=' >> -value);
+              ^
+main.cpp:48:54: note: in instantiation of member function 'keys_and_values<__gnu_cxx::__normal_iterator<const char *, std::basic_string<char> > >::keys_and_values' requested here
+      static const keys_and_values <string_iterator> p;
+                                                     ^
+1 error generated.
