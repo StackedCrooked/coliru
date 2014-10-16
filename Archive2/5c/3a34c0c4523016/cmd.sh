@@ -1,0 +1,1 @@
+for CC in clang++ g++; do for std in c++14; do for DEF in 1 2 3; do echo $DEF $CC $std && $CC -O3 -x c++ -DDEF=$DEF -std=$std -Wall -Wextra -pedantic -Wno-unused-variable main.cpp && ./a.out || echo; done; done; done
