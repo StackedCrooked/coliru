@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ -O3 -g main.cpp && ./a.out
