@@ -1,0 +1,39 @@
+main.cpp: In constructor 'object_t::object_t(T)':
+main.cpp:102:21: error: class 'object_t' does not have any field named 'setlf_'
+     object_t(T x) : setlf_(make_shared<model<T>>(move(x))){}
+                     ^
+main.cpp: In function 'void draw(const object_t&, std::ostream&, size_t)':
+main.cpp:105:15: error: 'const struct object_t::concept_t' has no member named 'draw'
+     {x.self_->draw(out, pos);}
+               ^
+main.cpp: In function 'int main()':
+main.cpp:139:18: error: call of overloaded 'add(cat*)' is ambiguous
+     m.add(new cat);
+                  ^
+main.cpp:139:18: note: candidates are:
+main.cpp:74:10: note: void mutant::add(animal*)
+     void add(animal* a) {
+          ^
+main.cpp:79:10: note: void mutant::add(animal*&&)
+     void add(animal *&& a) {
+          ^
+main.cpp:140:18: error: call of overloaded 'add(dog*)' is ambiguous
+     m.add(new dog);
+                  ^
+main.cpp:140:18: note: candidates are:
+main.cpp:74:10: note: void mutant::add(animal*)
+     void add(animal* a) {
+          ^
+main.cpp:79:10: note: void mutant::add(animal*&&)
+     void add(animal *&& a) {
+          ^
+main.cpp:141:18: error: call of overloaded 'add(dog*)' is ambiguous
+     m.add(new dog);
+                  ^
+main.cpp:141:18: note: candidates are:
+main.cpp:74:10: note: void mutant::add(animal*)
+     void add(animal* a) {
+          ^
+main.cpp:79:10: note: void mutant::add(animal*&&)
+     void add(animal *&& a) {
+          ^
