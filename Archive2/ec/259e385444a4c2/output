@@ -1,0 +1,252 @@
++ g++ -std=c++14 -O3 -Wall -Wextra -pedantic -pthread main.cpp -lsupc++ -S -o -
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+	.align 2
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN9OutStreamlsEPKc
+	.type	_ZN9OutStreamlsEPKc, @function
+_ZN9OutStreamlsEPKc:
+.LFB1485:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbp
+	movq	%rsi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	testq	%rsi, %rsi
+	je	.L6
+	movq	%rsi, %rdi
+	call	strlen
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	movl	$_ZSt4cout, %edi
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	movq	%rbp, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	.cfi_restore_state
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rdi
+	addq	$_ZSt4cout, %rdi
+	movl	32(%rdi), %esi
+	orl	$1, %esi
+	call	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
+	movq	%rbp, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1485:
+	.size	_ZN9OutStreamlsEPKc, .-_ZN9OutStreamlsEPKc
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+	.align 2
+.LCOLDB1:
+	.text
+.LHOTB1:
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN9OutStreamlsEi
+	.type	_ZN9OutStreamlsEi, @function
+_ZN9OutStreamlsEi:
+.LFB1486:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movl	$_ZSt4cout, %edi
+	call	_ZNSolsEi
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1486:
+	.size	_ZN9OutStreamlsEi, .-_ZN9OutStreamlsEi
+	.section	.text.unlikely
+.LCOLDE1:
+	.text
+.LHOTE1:
+	.section	.text.unlikely
+	.align 2
+.LCOLDB2:
+	.text
+.LHOTB2:
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN9OutStream7vformatEPKcP13__va_list_tag
+	.type	_ZN9OutStream7vformatEPKcP13__va_list_tag, @function
+_ZN9OutStream7vformatEPKcP13__va_list_tag:
+.LFB1487:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movq	stdout(%rip), %rdi
+	call	vfprintf
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1487:
+	.size	_ZN9OutStream7vformatEPKcP13__va_list_tag, .-_ZN9OutStream7vformatEPKcP13__va_list_tag
+	.section	.text.unlikely
+.LCOLDE2:
+	.text
+.LHOTE2:
+	.section	.text.unlikely
+	.align 2
+.LCOLDB3:
+	.text
+.LHOTB3:
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN9OutStream6formatEPKcz
+	.type	_ZN9OutStream6formatEPKcz, @function
+_ZN9OutStream6formatEPKcz:
+.LFB1488:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	subq	$208, %rsp
+	.cfi_def_cfa_offset 224
+	testb	%al, %al
+	movq	%rdx, 48(%rsp)
+	movq	%rcx, 56(%rsp)
+	movq	%r8, 64(%rsp)
+	movq	%r9, 72(%rsp)
+	je	.L12
+	movaps	%xmm0, 80(%rsp)
+	movaps	%xmm1, 96(%rsp)
+	movaps	%xmm2, 112(%rsp)
+	movaps	%xmm3, 128(%rsp)
+	movaps	%xmm4, 144(%rsp)
+	movaps	%xmm5, 160(%rsp)
+	movaps	%xmm6, 176(%rsp)
+	movaps	%xmm7, 192(%rsp)
+.L12:
+	leaq	224(%rsp), %rax
+	leaq	8(%rsp), %rdx
+	movq	stdout(%rip), %rdi
+	movq	%rax, 16(%rsp)
+	leaq	32(%rsp), %rax
+	movl	$16, 8(%rsp)
+	movl	$48, 12(%rsp)
+	movq	%rax, 24(%rsp)
+	call	vfprintf
+	addq	$208, %rsp
+	.cfi_def_cfa_offset 16
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1488:
+	.size	_ZN9OutStream6formatEPKcz, .-_ZN9OutStream6formatEPKcz
+	.section	.text.unlikely
+.LCOLDE3:
+	.text
+.LHOTE3:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC4:
+	.string	" formatted %04X "
+.LC5:
+	.string	"3\n"
+	.section	.text.unlikely
+.LCOLDB6:
+	.section	.text.startup,"ax",@progbits
+.LHOTB6:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1493:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movl	$1, %esi
+	movl	$_ZSt4cout, %edi
+	call	_ZNSolsEi
+	leaq	15(%rsp), %rdi
+	movl	$2, %edx
+	movl	$.LC4, %esi
+	xorl	%eax, %eax
+	call	_ZN9OutStream6formatEPKcz
+	movl	$.LC5, %esi
+	movl	$_ZSt4cout, %edi
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1493:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE6:
+	.section	.text.startup
+.LHOTE6:
+	.section	.text.unlikely
+.LCOLDB7:
+	.section	.text.startup
+.LHOTB7:
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I__ZN9OutStreamlsEPKc, @function
+_GLOBAL__sub_I__ZN9OutStreamlsEPKc:
+.LFB1799:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1799:
+	.size	_GLOBAL__sub_I__ZN9OutStreamlsEPKc, .-_GLOBAL__sub_I__ZN9OutStreamlsEPKc
+	.section	.text.unlikely
+.LCOLDE7:
+	.section	.text.startup
+.LHOTE7:
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__ZN9OutStreamlsEPKc
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
