@@ -1,0 +1,25 @@
+main.cpp:40:13: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned long' in initializer list [-Wc++11-narrowing]
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+            ^~~
+main.cpp:49:19: note: in instantiation of function template specialization 'sequence<int, unsigned long, int>' requested here
+    for (auto i : sequence(0, v.size()))
+                  ^
+main.cpp:40:13: note: insert an explicit cast to silence this issue
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+            ^~~
+            static_cast<unsigned long>( )
+main.cpp:40:18: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned long' in initializer list [-Wc++11-narrowing]
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+                 ^~~~~~~~~~~~~~~~~~~
+main.cpp:40:18: note: insert an explicit cast to silence this issue
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+                 ^~~~~~~~~~~~~~~~~~~
+                 static_cast<unsigned long>( )
+main.cpp:40:39: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned long' in initializer list [-Wc++11-narrowing]
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+                                      ^~~~~~~~~~~~~~~~~~~~
+main.cpp:40:39: note: insert an explicit cast to silence this issue
+    return {min, static_cast<T>(max), static_cast<T>(step)};
+                                      ^~~~~~~~~~~~~~~~~~~~
+                                      static_cast<unsigned long>( )
+3 errors generated.
