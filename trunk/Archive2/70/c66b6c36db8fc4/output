@@ -1,0 +1,16 @@
+main.cpp:41:32: error: no member named 'domain_error' in namespace 'std'
+    if (step < 0) { throw std::domain_error{"Negative step not supported."}; }
+                          ~~~~~^
+main.cpp:50:19: error: no matching function for call to 'sequence'
+    for (auto i : sequence(-5, +5))
+                  ^~~~~~~~
+main.cpp:39:6: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+auto sequence(T min, U max, int step) -> detail::sequence<T>
+     ^
+main.cpp:66:19: error: no matching function for call to 'sequence'
+    for (auto i : sequence(0, v.size()))
+                  ^~~~~~~~
+main.cpp:39:6: note: candidate function template not viable: requires 3 arguments, but 2 were provided
+auto sequence(T min, U max, int step) -> detail::sequence<T>
+     ^
+3 errors generated.
