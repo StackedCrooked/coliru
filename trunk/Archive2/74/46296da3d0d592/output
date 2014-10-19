@@ -1,0 +1,25 @@
+clang++ c++14
+main.cpp:18:34: error: 'y' cannot be captured because it does not have automatic storage duration
+  std::function<bool(int)> f = [&y](int x) -> bool { return y->f(x); };
+                                 ^
+main.cpp:12:11: note: 'y' declared here
+extern Y* y;
+          ^
+1 error generated.
+
+g++ c++14
+main.cpp: In function 'int main()':
+main.cpp:18:34: warning: capture of variable 'y' with non-automatic storage duration
+   std::function<bool(int)> f = [&y](int x) -> bool { return y->f(x); };
+                                  ^
+main.cpp:12:11: note: 'Y* y' declared here
+ extern Y* y;
+           ^
+/tmp/ccmNr2Z9.o: In function `std::_Function_handler<bool (int), main::{lambda(int)#1}>::_M_invoke(std::_Any_data const&, int)':
+main.cpp:(.text+0x3): undefined reference to `y'
+/tmp/ccmNr2Z9.o: In function `init()':
+main.cpp:(.text+0x87): undefined reference to `y'
+/tmp/ccmNr2Z9.o: In function `main':
+main.cpp:(.text.startup+0x1d): undefined reference to `y'
+collect2: error: ld returned 1 exit status
+
