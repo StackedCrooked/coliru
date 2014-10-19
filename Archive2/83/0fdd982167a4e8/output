@@ -1,0 +1,24 @@
+clang++ c++14
+main.cpp:4:37: error: member access into incomplete type 'A'
+    void goo( decltype(((A*)nullptr)->foo()) i) {}
+                                    ^
+main.cpp:1:7: note: definition of 'A' is not complete until the closing '}'
+class A
+      ^
+1 error generated.
+g++ c++14
+main.cpp:4:37: error: invalid use of incomplete type 'class A'
+     void goo( decltype(((A*)nullptr)->foo()) i) {}
+                                     ^
+main.cpp:1:7: error: forward declaration of 'class A'
+ class A
+       ^
+main.cpp:4:37: error: invalid use of incomplete type 'class A'
+     void goo( decltype(((A*)nullptr)->foo()) i) {}
+                                     ^
+main.cpp:1:7: error: forward declaration of 'class A'
+ class A
+       ^
+main.cpp:4:46: warning: unused parameter 'i' [-Wunused-parameter]
+     void goo( decltype(((A*)nullptr)->foo()) i) {}
+                                              ^
