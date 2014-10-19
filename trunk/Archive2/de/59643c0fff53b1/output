@@ -1,0 +1,11 @@
+==21958== WARNING: MemorySanitizer: use-of-uninitialized-value
+    #0 0x7f69b37f4c0c in std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_lower_bound(std::_Rb_tree_node<std::pair<int const, int> >*, std::_Rb_tree_node<std::pair<int const, int> >*, int const&) /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_tree.h:1259:7
+    #1 0x7f69b37f4c0c in std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::lower_bound(int const&) /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_tree.h:927
+    #2 0x7f69b37f4c0c in std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::lower_bound(int const&) /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_map.h:902
+    #3 0x7f69b37f4c0c in std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::operator[](int&&) /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_map.h:516
+    #4 0x7f69b37f475b in main /tmp/1413747025-679832743/main.cpp:8:7
+    #5 0x7f69b235476c in __libc_start_main /build/buildd/eglibc-2.15/csu/libc-start.c:226
+    #6 0x7f69b37f44bc in _start (/tmp/1413747025-679832743/a.out+0x984bc)
+
+SUMMARY: MemorySanitizer: use-of-uninitialized-value /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_tree.h:1259 std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_lower_bound(std::_Rb_tree_node<std::pair<int const, int> >*, std::_Rb_tree_node<std::pair<int const, int> >*, int const&)
+Exiting
