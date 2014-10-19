@@ -1,0 +1,35 @@
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = Node; _Args = {Node*}; _Tp = Node]':
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:253:4:   required from 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Node; _Args = {Node*}; _Alloc = std::allocator<Node>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:399:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = Node; _Args = {Node*}; _Alloc = std::allocator<Node>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:516:38:   required from 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {Node*}; _Tp = Node; _Alloc = std::allocator<Node>; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4:   required from 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<Node, std::allocator<Node>, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<Node>, Node*}; _Tp = std::_Sp_counted_ptr_inplace<Node, std::allocator<Node>, (__gnu_cxx::_Lock_policy)2u>]'
+/usr/local/include/c++/4.9.0/bits/alloc_traits.h:253:4:   [ skipping 2 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:620:37:   required from 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = Node; _Alloc = std::allocator<Node>; _Args = {Node*}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr_base.h:1090:35:   required from 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Node>; _Args = {Node*}; _Tp = Node; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:316:64:   required from 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<Node>; _Args = {Node*}; _Tp = Node]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:588:39:   required from 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = Node; _Alloc = std::allocator<Node>; _Args = {Node*}]'
+/usr/local/include/c++/4.9.0/bits/shared_ptr.h:604:42:   required from 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = Node; _Args = {Node*}]'
+main.cpp:31:78:   required from here
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4: error: no matching function for call to 'Node::Node(Node*)'
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:120:4: note: candidates are:
+main.cpp:24:2: note: Node::Node(Graph_Container*, int)
+  Node(Graph_Container* container, int id) :
+  ^
+main.cpp:24:2: note:   candidate expects 2 arguments, 1 provided
+main.cpp:21:7: note: Node::Node(const Node&)
+ class Node
+       ^
+main.cpp:21:7: note:   no known conversion for argument 1 from 'Node*' to 'const Node&'
+main.cpp:21:7: note: Node::Node(Node&&)
+main.cpp:21:7: note:   no known conversion for argument 1 from 'Node*' to 'Node&&'
