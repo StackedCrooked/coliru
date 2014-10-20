@@ -1,0 +1,13 @@
+main.cpp:13:20: error: static declaration of 'begin' follows non-static declaration
+static char const* begin(X const&)   { return data; }
+                   ^
+main.cpp:9:24: note: previous definition is here
+    friend char const* begin(X const&)   { return data; }
+                       ^
+main.cpp:14:20: error: static declaration of 'end' follows non-static declaration
+static char const* end  (X const& x) { return data + sizeof(data); }
+                   ^
+main.cpp:10:24: note: previous definition is here
+    friend char const* end  (X const& x) { return data + sizeof(data); }
+                       ^
+2 errors generated.
