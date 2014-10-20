@@ -1,0 +1,40 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.6.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.7.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.1
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+Selected GCC installation: /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ "/usr/local/bin/clang" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -v -dwarf-column-info -resource-dir /usr/local/bin/../lib/clang/3.5.0 -D DEPTH=50 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/backward -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.5.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /tmp/1413828670.24586 -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -o /tmp/main-8187d4.o -x c++ main.cpp
+clang -cc1 version 3.5.0 based upon LLVM 3.5.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu
+ /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/backward
+ /usr/local/include
+ /usr/local/bin/../lib/clang/3.5.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+main.cpp:42:5: error: 'operator Sandbox::A &' is a private member of 'Sandbox::B'
+    (Sandbox::A&)b;
+    ^            ~
+main.cpp:28:9: note: declared private here
+        operator A& ();
+        ^
+main.cpp:42:5: warning: expression result unused [-Wunused-value]
+    (Sandbox::A&)b;
+    ^            ~
+main.cpp:46:5: warning: expression result unused [-Wunused-value]
+    (const Sandbox::A&)b;
+    ^                  ~
+2 warnings and 1 error generated.

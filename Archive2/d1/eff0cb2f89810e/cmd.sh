@@ -1,0 +1,1 @@
+clang++ -v -std=c++11 main.cpp -DDEPTH=50 && ./a.out
