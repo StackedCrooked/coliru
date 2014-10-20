@@ -1,0 +1,49 @@
+main.cpp: In function 'int main()':
+main.cpp:8:81: error: no match for 'operator-' (operand types are 'std::map<int, int>::iterator {aka std::_Rb_tree_iterator<std::pair<const int, int> >}' and 'int')
+     MappingTable::iterator last = runmap.empty() ? runmap.end() : (runmap.end() - 1);
+                                                                                 ^
+main.cpp:8:81: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_tree.h:61,
+                 from /usr/local/include/c++/4.9.0/map:60,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1143:5: note: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator-(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1143:5: note:   template argument deduction/substitution failed:
+main.cpp:8:83: note:   'std::map<int, int>::iterator {aka std::_Rb_tree_iterator<std::pair<const int, int> >}' is not derived from 'const std::move_iterator<_Iterator>'
+     MappingTable::iterator last = runmap.empty() ? runmap.end() : (runmap.end() - 1);
+                                                                                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_tree.h:61,
+                 from /usr/local/include/c++/4.9.0/map:60,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1136:5: note: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator-(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1136:5: note:   template argument deduction/substitution failed:
+main.cpp:8:83: note:   'std::map<int, int>::iterator {aka std::_Rb_tree_iterator<std::pair<const int, int> >}' is not derived from 'const std::move_iterator<_Iterator>'
+     MappingTable::iterator last = runmap.empty() ? runmap.end() : (runmap.end() - 1);
+                                                                                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_tree.h:61,
+                 from /usr/local/include/c++/4.9.0/map:60,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:380:5: note: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator-(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
+main.cpp:8:83: note:   'std::map<int, int>::iterator {aka std::_Rb_tree_iterator<std::pair<const int, int> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+     MappingTable::iterator last = runmap.empty() ? runmap.end() : (runmap.end() - 1);
+                                                                                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_tree.h:61,
+                 from /usr/local/include/c++/4.9.0/map:60,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:328:5: note: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator-(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
+main.cpp:8:83: note:   'std::map<int, int>::iterator {aka std::_Rb_tree_iterator<std::pair<const int, int> >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+     MappingTable::iterator last = runmap.empty() ? runmap.end() : (runmap.end() - 1);
+                                                                                   ^
