@@ -1,0 +1,1 @@
+for CC in clang gcc; do for std in c11; do echo $CC $std && $CC -O3 -x c -std=$std -Wall -Wextra -pedantic -Wno-unused-variable main.cpp && ./a.out || echo; done; done
