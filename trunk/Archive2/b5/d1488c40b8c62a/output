@@ -1,0 +1,52 @@
+main.cpp:89:8: warning: unused variable 'to_point' [-Wunused-variable]
+  auto to_point = [](const std::string& field) -> maybe_t<point_t> 
+       ^
+main.cpp:100:8: warning: unused variable 'convert' [-Wunused-variable]
+  auto convert = [](const db_row_t& dbrow) -> my_row_t
+       ^
+main.cpp:42:45: error: no viable conversion from 'pair<typename __decay_and_strip<const vector<vector<basic_string<char>, allocator<basic_string<char> > >, allocator<vector<basic_string<char>, allocator<basic_string<char> > > > > &>::__type, typename __decay_and_strip<bool>::__type>' to 'maybe_t<std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > > >'
+maybe_t<T> make_just(const T& val) { return std::make_pair(val, true);};
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:67:10: note: in instantiation of function template specialization 'make_just<std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > > >' requested here
+  return make_just(rows); 
+         ^
+main.cpp:30:8: note: candidate constructor (the implicit move constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<const vector<vector<basic_string<char>, allocator<basic_string<char> > >, allocator<vector<basic_string<char>, allocator<basic_string<char> > > > > &>::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'maybe_t<std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > > > &&' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:30:8: note: candidate constructor (the implicit copy constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<const vector<vector<basic_string<char>, allocator<basic_string<char> > >, allocator<vector<basic_string<char>, allocator<basic_string<char> > > > > &>::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'const maybe_t<std::vector<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >, std::allocator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > > > > &' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:32:3: note: candidate constructor not viable: expects an l-value for 1st argument
+  maybe_t(std::pair<T, bool>& val) : std::pair<T, bool>(val) {};
+  ^
+main.cpp:45:36: error: no viable conversion from 'pair<typename __decay_and_strip<tuple<int, int> >::__type, typename __decay_and_strip<bool>::__type>' to 'maybe_t<std::tuple<int, int> >'
+maybe_t<T> make_nothing() { return std::make_pair(T(), true);};
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:94:14: note: in instantiation of function template specialization 'make_nothing<std::tuple<int, int> >' requested here
+      return make_nothing<point_t>();
+             ^
+main.cpp:30:8: note: candidate constructor (the implicit move constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<tuple<int, int> >::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'maybe_t<std::tuple<int, int> > &&' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:30:8: note: candidate constructor (the implicit copy constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<tuple<int, int> >::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'const maybe_t<std::tuple<int, int> > &' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:32:3: note: candidate constructor not viable: expects an l-value for 1st argument
+  maybe_t(std::pair<T, bool>& val) : std::pair<T, bool>(val) {};
+  ^
+main.cpp:42:45: error: no viable conversion from 'pair<typename __decay_and_strip<const tuple<int, int> &>::__type, typename __decay_and_strip<bool>::__type>' to 'maybe_t<std::tuple<int, int> >'
+maybe_t<T> make_just(const T& val) { return std::make_pair(val, true);};
+                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:97:12: note: in instantiation of function template specialization 'make_just<std::tuple<int, int> >' requested here
+    return make_just(point_t(x, y));
+           ^
+main.cpp:30:8: note: candidate constructor (the implicit move constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<const tuple<int, int> &>::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'maybe_t<std::tuple<int, int> > &&' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:30:8: note: candidate constructor (the implicit copy constructor) not viable: cannot bind base class object of type 'pair<typename __decay_and_strip<const tuple<int, int> &>::__type, typename __decay_and_strip<bool>::__type>' to derived class reference 'const maybe_t<std::tuple<int, int> > &' for 1st argument
+struct maybe_t : public std::pair<T, bool>
+       ^
+main.cpp:32:3: note: candidate constructor not viable: expects an l-value for 1st argument
+  maybe_t(std::pair<T, bool>& val) : std::pair<T, bool>(val) {};
+  ^
+2 warnings and 3 errors generated.
