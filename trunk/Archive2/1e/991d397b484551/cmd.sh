@@ -1,0 +1,1 @@
+No such file or directory - /root/coliru/Web/../Archive/c96b4d51c9ac8b90cd4f69be1cd767b6/cmd.sh
