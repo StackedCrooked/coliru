@@ -1,0 +1,25 @@
+main.cpp:121:6: error: redefinition of 'TimePoints'
+enum TimePoints { // Lets assume t1 > t2 > t3 > t4
+     ^
+main.cpp:9:6: note: previous definition is here
+enum TimePoints { // Lets assume t1 > t2 > t3 > t4
+     ^
+main.cpp:132:8: error: redefinition of 'tickerUpdateInfo'
+struct tickerUpdateInfo {
+       ^
+main.cpp:20:8: note: previous definition is here
+struct tickerUpdateInfo {
+       ^
+main.cpp:182:26: error: redefinition of 'activity_histo'
+std::map<Symbol, size_t> activity_histo(ticker_update_info_set const& tuis, TimeT since)
+                         ^
+main.cpp:70:26: note: previous definition is here
+std::map<Symbol, size_t> activity_histo(ticker_update_info_set const& tuis, TimeT since)
+                         ^
+main.cpp:194:5: error: redefinition of 'main'
+int main()
+    ^
+main.cpp:98:5: note: previous definition is here
+int main()
+    ^
+4 errors generated.
