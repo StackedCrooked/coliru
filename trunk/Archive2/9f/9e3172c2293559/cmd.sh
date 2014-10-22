@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -Wextra -pedantic -shared -o liblib.so /Archive2/0d/dc24fcabadf690/main.cpp && g++ -std=c++11 -O2 -Wall -Wextra -pedantic main.cpp -ldl && ./a.out
