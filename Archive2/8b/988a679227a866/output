@@ -1,0 +1,26 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/vector:61:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:46:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:120:23: error: call to deleted constructor of 'Copyable'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:253:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<Copyable>::construct<Copyable, Copyable>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:399:4: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Copyable> >::_S_construct<Copyable, Copyable>' requested here
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/vector.tcc:96:21: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Copyable> >::construct<Copyable, Copyable>' requested here
+            _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish,
+                           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_vector.h:932:9: note: in instantiation of function template specialization 'std::vector<Copyable, std::allocator<Copyable> >::emplace_back<Copyable>' requested here
+      { emplace_back(std::move(__x)); }
+        ^
+main.cpp:28:12: note: in instantiation of member function 'std::vector<Copyable, std::allocator<Copyable> >::push_back' requested here
+   objects.push_back(Copyable{});
+           ^
+main.cpp:18:4: note: 'Copyable' has been explicitly marked deleted here
+   Copyable(Copyable&&) = delete;
+   ^
+1 error generated.
