@@ -1,0 +1,1 @@
+g++ -O2 -Wall -Wextra -pedantic main.cpp -lboost_thread -lboost_system && ./a.out
