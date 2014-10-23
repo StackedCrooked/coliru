@@ -1,0 +1,50 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/memory:63:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:46:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:120:23: error: no matching constructor for initialization of 'A'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:253:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<A>::construct<A, int>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:399:4: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<A> >::_S_construct<A, int>' requested here
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr_base.h:515:30: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<A> >::construct<A, int>' requested here
+          allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+                                    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:120:23: note: in instantiation of function template specialization 'std::_Sp_counted_ptr_inplace<A, std::allocator<A>, 2>::_Sp_counted_ptr_inplace<int>' requested here
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:253:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<std::_Sp_counted_ptr_inplace<A, std::allocator<A>, 2> >::construct<std::_Sp_counted_ptr_inplace<A, std::allocator<A>, 2>, const std::allocator<A>, int>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/alloc_traits.h:399:4: note: (skipping 2 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        { _S_construct(__a, __p, std::forward<_Args>(__args)...); }
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr_base.h:1089:14: note: in instantiation of function template specialization 'std::__shared_count<2>::__shared_count<A, std::allocator<A>, int>' requested here
+        : _M_ptr(), _M_refcount(__tag, (_Tp*)0, __a,
+                    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:316:4: note: in instantiation of function template specialization 'std::__shared_ptr<A, 2>::__shared_ptr<std::allocator<A>, int>' requested here
+        : __shared_ptr<_Tp>(__tag, __a, std::forward<_Args>(__args)...)
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:587:14: note: in instantiation of function template specialization 'std::shared_ptr<A>::shared_ptr<std::allocator<A>, int>' requested here
+      return shared_ptr<_Tp>(_Sp_make_shared_tag(), __a,
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:603:19: note: in instantiation of function template specialization 'std::allocate_shared<A, std::allocator<A>, int>' requested here
+      return std::allocate_shared<_Tp>(std::allocator<_Tp_nc>(),
+                  ^
+main.cpp:9:10: note: in instantiation of function template specialization 'std::make_shared<A, int>' requested here
+    std::make_shared<A>(0); // doesn't work
+         ^
+main.cpp:3:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'int' to 'const A' for 1st argument
+struct A {
+       ^
+main.cpp:3:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'int' to 'A' for 1st argument
+struct A {
+       ^
+main.cpp:4:5: note: candidate constructor not viable: no known conversion from 'int' to 'std::shared_ptr<int>' for 1st argument
+    A(std::shared_ptr<int> p)  {}
+    ^
+1 error generated.
