@@ -1,0 +1,22 @@
+main.cpp:278:28: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+char *SHARED_MEMORY_NAME = "MySharedMemory";
+                           ^
+main.cpp:279:29: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+char *SHARED_QUEUE_NAME  =  "MyQueue";
+                            ^
+main.cpp:301:5: error: unknown type name 'STARTUPINFO'
+    STARTUPINFO info1={sizeof(info1)};
+    ^
+main.cpp:302:5: error: unknown type name 'PROCESS_INFORMATION'
+    PROCESS_INFORMATION processInfo1;
+    ^
+main.cpp:307:5: error: unknown type name 'LPTSTR'
+    LPTSTR szCmdline = _tcsdup(TEXT("ClientTest.exe"));
+    ^
+main.cpp:307:32: error: use of undeclared identifier 'TEXT'
+    LPTSTR szCmdline = _tcsdup(TEXT("ClientTest.exe"));
+                               ^
+main.cpp:308:48: error: use of undeclared identifier 'TRUE'
+    CreateProcess(NULL, szCmdline, NULL, NULL, TRUE, 0, NULL, NULL, &info1, &processInfo1);
+                                               ^
+2 warnings and 5 errors generated.
