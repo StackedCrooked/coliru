@@ -1,0 +1,44 @@
+---------------------------------
+test 01
+print ntfs
+
+time_point(1412097043), location(58,99), msg("hello")
+time_point(1412097643), location(32,41), msg("python")
+time_point(1412097943), location(1,-384741888), msg("java")
+time_point(1416332798), location(25,65), msg("caharp")
+time_point(1412098063), location(23,87), msg("c++")
+
+---------------------------------
+test 02
+print ntfs
+
+time_point(1412097043), location(58,99), msg("hello")
+time_point(1412097643), location(32,41), msg("python")
+error!! reading location field fail. invalid location pattern
+error!! reading time_point field fail. invalid date_time pattern
+time_point(1412098063), location(23,87), msg("c++")
+
+---------------------------------
+test 03
+
+print ntfs
+
+time_point(1412097043), location(58,99), msg("hello")
+error!! read msg field fail.  my size is 6 but max size is 5
+error!! read location field fail. invalid location pattern
+error!! read time_point field fail. invalid date_time pattern
+time_point(1412098063), location(23,87), msg("c++")
+
+------------------
+print all valid ntfs
+
+time_point(1412097043), location(58,99), msg("hello")
+time_point(1412098063), location(23,87), msg("c++")
+
+------------------
+print all invalid ntfs
+
+error!! read location field fail. invalid location pattern
+error!! read time_point field fail. invalid date_time pattern
+error!! read msg field fail.  my size is 6 but max size is 5
+
