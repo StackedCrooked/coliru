@@ -1,0 +1,10 @@
+main.cpp:38:44: error: non-type template argument of type 'bool (InfraStupidLog::*)() const' cannot be converted to a value of type 'typename IsInterestedRetriever::type' (aka 'bool (InfraStupidLog::*)()')
+template struct Spy<IsInterestedRetriever, &InfraStupidLog::IsInterested>;
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:22:43: note: template parameter is declared here
+template<typename Tag, typename Tag::type M>
+                                          ^
+main.cpp:47:40: error: call to pointer to member function of type 'bool ()' drops 'const' qualifier
+    (log.*get(IsInterestedRetriever{}))();
+                                       ^
+2 errors generated.
