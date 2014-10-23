@@ -1,0 +1,233 @@
+main.cpp:14:45: error: 'a' does not name a type
+ typedef  std::string             db_field_t;a
+                                             ^
+main.cpp:16:22: error: 'db_row_t' was not declared in this scope
+ typedef  std::vector<db_row_t>   db_rows_t;
+                      ^
+main.cpp:16:30: error: template argument 1 is invalid
+ typedef  std::vector<db_row_t>   db_rows_t;
+                              ^
+main.cpp:16:30: error: template argument 2 is invalid
+main.cpp:16:43: error: invalid type in declaration before ';' token
+ typedef  std::vector<db_row_t>   db_rows_t;
+                                           ^
+main.cpp:18:31: error: 'db_row_t' does not name a type
+ std::size_t field_count(const db_row_t&  row)   { return row.size();}
+                               ^
+main.cpp: In function 'std::size_t field_count(const int&)':
+main.cpp:18:62: error: request for member 'size' in 'row', which is of non-class type 'const int'
+ std::size_t field_count(const db_row_t&  row)   { return row.size();}
+                                                              ^
+main.cpp: In function 'std::size_t row_count(const db_rows_t&)':
+main.cpp:19:63: error: request for member 'size' in 'rows', which is of non-class type 'const db_rows_t {aka const int}'
+ std::size_t row_count  (const db_rows_t& rows)  { return rows.size();} 
+                                                               ^
+main.cpp: At global scope:
+main.cpp:22:24: error: 'db_row_t' does not name a type
+ db_field_t field(const db_row_t& row) 
+                        ^
+main.cpp: In function 'db_field_t field(const int&)':
+main.cpp:24:15: error: invalid types 'const int[int]' for array subscript
+   return row[n]; 
+               ^
+main.cpp: In function 'db_rows_t test_01::make_sample_01()':
+main.cpp:68:46: error: 'db_row_t' was not declared in this scope
+   std::function<db_row_t(const std::string[3])> convert = 
+                                              ^
+main.cpp:68:47: error: template argument 1 is invalid
+   std::function<db_row_t(const std::string[3])> convert = 
+                                               ^
+main.cpp:68:57: error: invalid type in declaration before '=' token
+   std::function<db_row_t(const std::string[3])> convert = 
+                                                         ^
+main.cpp:69:38: error: 'db_row_t' does not name a type
+     [](const std::string strs[3]) -> db_row_t 
+                                      ^
+main.cpp: In lambda function:
+main.cpp:71:7: error: 'db_row_t' is not captured
+       db_row_t row;
+       ^
+main.cpp:72:56: error: 'row' was not declared in this scope
+       std::copy(&strs[0], &strs[3], std::back_inserter(row));
+                                                        ^
+main.cpp: In function 'db_rows_t test_01::make_sample_01()':
+main.cpp:74:6: error: invalid user-defined conversion from 'test_01::make_sample_01()::<lambda(const string*)>' to 'int' [-fpermissive]
+      };
+      ^
+main.cpp:69:38: note: candidate is: test_01::make_sample_01()::<lambda(const string*)>::operator int (*)(const string*)() const <near match>
+     [](const std::string strs[3]) -> db_row_t 
+                                      ^
+main.cpp:69:38: note:   no known conversion from 'int (*)(const string*) {aka int (*)(const std::basic_string<char>*)}' to 'int'
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h: In instantiation of 'class std::back_insert_iterator<int>':
+main.cpp:77:67:   required from here
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:437:7: error: 'int' is not a class, struct, or union type
+       operator=(const typename _Container::value_type& __value)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:444:7: error: 'int' is not a class, struct, or union type
+       operator=(typename _Container::value_type&& __value)
+       ^
+main.cpp: In function 'void test_01::main(Logger&, LineSeperator&)':
+main.cpp:125:31: error: 'db_row_t' does not name a type
+   auto to_ntf_log = [&](const db_row_t& dbrow) -> gui_ntf_t
+                               ^
+main.cpp:130:4: error: expected ')' before ';' token
+   };
+    ^
+main.cpp: In lambda function:
+main.cpp:130:4: error: expected '{' before ';' token
+main.cpp: In function 'void test_01::main(Logger&, LineSeperator&)':
+main.cpp:135:31: error: there are no arguments to 'begin' that depend on a template parameter, so a declaration of 'begin' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:135:31: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:135:45: error: there are no arguments to 'end' that depend on a template parameter, so a declaration of 'end' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+main.cpp: In function 'void test_02::main(Logger&, LineSeperator&)':
+main.cpp:269:31: error: 'db_row_t' does not name a type
+   auto to_ntf_log = [&](const db_row_t& dbrow) -> maybe_t<gui_ntf_t>
+                               ^
+main.cpp:286:4: error: expected ')' before ';' token
+   };
+    ^
+main.cpp: In lambda function:
+main.cpp:286:4: error: expected '{' before ';' token
+main.cpp: In function 'void test_02::main(Logger&, LineSeperator&)':
+main.cpp:297:31: error: there are no arguments to 'begin' that depend on a template parameter, so a declaration of 'begin' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:297:45: error: there are no arguments to 'end' that depend on a template parameter, so a declaration of 'end' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+main.cpp: At global scope:
+main.cpp:355:43: error: 'db_row_t' does not name a type
+ Value<maybe_t<db_field_t>> field_cv(const db_row_t& row)
+                                           ^
+main.cpp: In function 'void test_03::main(Logger&, LineSeperator&)':
+main.cpp:412:31: error: 'db_row_t' does not name a type
+   auto to_ntf_log = [&](const db_row_t& dbrow) -> maybe_t<gui_ntf_t>
+                               ^
+main.cpp:434:4: error: expected ')' before ';' token
+   };
+    ^
+main.cpp: In lambda function:
+main.cpp:434:4: error: expected '{' before ';' token
+main.cpp: In function 'void test_03::main(Logger&, LineSeperator&)':
+main.cpp:446:31: error: there are no arguments to 'begin' that depend on a template parameter, so a declaration of 'begin' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:446:45: error: there are no arguments to 'end' that depend on a template parameter, so a declaration of 'end' must be available [-fpermissive]
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+In file included from /usr/local/include/c++/4.9.0/algorithm:62:0,
+                 from /usr/local/include/c++/4.9.0/regex:38,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/stl_algo.h: In instantiation of '_OIter std::transform(_IIter, _IIter, _OIter, _UnaryOperation) [with _IIter = const std::basic_string<char> (*)[3]; _OIter = std::back_insert_iterator<int>; _UnaryOperation = int]':
+main.cpp:77:77:   required from here
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:4163:33: error: '__unary_op' cannot be used as a function
+  *__result = __unary_op(*__first);
+                                 ^
+main.cpp: In instantiation of 'void test_01::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]':
+main.cpp:480:32:   required from here
+main.cpp:135:31: error: 'begin' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:135:31: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:87:5: note:   'std::begin'
+     begin(_Tp (&__arr)[_Nm])
+     ^
+main.cpp:135:45: error: 'end' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+main.cpp:135:45: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:97:5: note:   'std::end'
+     end(_Tp (&__arr)[_Nm])
+     ^
+main.cpp: In instantiation of 'void test_02::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]':
+main.cpp:481:32:   required from here
+main.cpp:297:31: error: 'begin' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:297:31: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:87:5: note:   'std::begin'
+     begin(_Tp (&__arr)[_Nm])
+     ^
+main.cpp:297:45: error: 'end' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+main.cpp:297:45: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:97:5: note:   'std::end'
+     end(_Tp (&__arr)[_Nm])
+     ^
+main.cpp: In instantiation of 'void test_03::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]':
+main.cpp:482:32:   required from here
+main.cpp:446:31: error: 'begin' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                               ^
+main.cpp:446:31: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:87:5: note:   'std::begin'
+     begin(_Tp (&__arr)[_Nm])
+     ^
+main.cpp:446:45: error: 'end' was not declared in this scope
+   std::transform(begin(db_rows), end(db_rows), std::back_inserter(gui_ntfs), 
+                                             ^
+main.cpp:446:45: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/string:51:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from /usr/local/include/c++/4.9.0/functional:55,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/range_access.h:97:5: note:   'std::end'
+     end(_Tp (&__arr)[_Nm])
+     ^
+In file included from /usr/local/include/c++/4.9.0/algorithm:62:0,
+                 from /usr/local/include/c++/4.9.0/regex:38,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/stl_algo.h: At global scope:
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3749:5: error: '_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = __gnu_cxx::__normal_iterator<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >*, std::vector<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >; _Funct = test_01::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const gui_ntf_t&)>]', declared using local type 'test_01::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const gui_ntf_t&)>', is used but never defined [-fpermissive]
+     for_each(_InputIterator __first, _InputIterator __last, _Function __f)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3749:5: error: '_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = __gnu_cxx::__normal_iterator<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*, std::vector<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >; _Funct = test_02::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>]', declared using local type 'test_02::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>', is used but never defined [-fpermissive]
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:3749:5: error: '_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = __gnu_cxx::__normal_iterator<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*, std::vector<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >; _Funct = test_03::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>]', declared using local type 'test_03::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>', is used but never defined [-fpermissive]
+/usr/local/include/c++/4.9.0/bits/stl_algo.h:4488:5: error: '_BIter std::partition(_BIter, _BIter, _Predicate) [with _BIter = __gnu_cxx::__normal_iterator<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*, std::vector<maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >; _Predicate = test_03::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>]', declared using local type 'test_03::main(Logger&, LineSeperator&) [with Logger = std::basic_ostream<char>; LineSeperator = const char [2]]::<lambda(const maybe_t<std::tuple<long int, std::tuple<int, int>, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)>', is used but never defined [-fpermissive]
+     partition(_ForwardIterator __first, _ForwardIterator __last,
+     ^
