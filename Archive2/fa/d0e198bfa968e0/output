@@ -1,0 +1,7 @@
++ clang -x c -fsanitize=undefined -Wall -Wextra -Wconversion -O3 -pedantic-errors main.cpp
+main.cpp:13:25: warning: format specifies type 'int' but the argument has type 'time_t' (aka 'long') [-Wformat]
+    printf("[%d] %s\n", currentTime, szDebugString);
+             ~~         ^~~~~~~~~~~
+             %ld
+1 warning generated.
++ ./a.out
