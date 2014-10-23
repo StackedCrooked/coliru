@@ -1,0 +1,1 @@
+ln -s /Archive2/59/849e0c6f857a48/main.cpp match.hpp && g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp && ./a.out
