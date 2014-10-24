@@ -1,0 +1,121 @@
+true
+true
+true
+true
+true
+
+main:
+.LFB4:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$0, %eax
+	call	halfthree
+	movss	%xmm0, -4(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	movaps	%xmm0, %xmm1
+	addss	-4(%rbp), %xmm1
+	movss	%xmm1, -4(%rbp)
+	movl	$0, %eax
+	call	three
+	movss	-4(%rbp), %xmm1
+	ucomiss	%xmm0, %xmm1
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm1
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	print
+	movl	$0, %eax
+	call	halfthree
+	movss	%xmm0, -4(%rbp)
+	movl	$0, %eax
+	call	two
+	movaps	%xmm0, %xmm2
+	mulss	-4(%rbp), %xmm2
+	movss	%xmm2, -4(%rbp)
+	movl	$0, %eax
+	call	three
+	movss	-4(%rbp), %xmm2
+	ucomiss	%xmm0, %xmm2
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm2
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	print
+	movl	$0, %eax
+	call	halfthree
+	movss	%xmm0, -4(%rbp)
+	movl	$0, %eax
+	call	two
+	movaps	%xmm0, %xmm3
+	mulss	-4(%rbp), %xmm3
+	movss	%xmm3, -4(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	movss	%xmm0, -8(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	addss	-8(%rbp), %xmm0
+	movss	-4(%rbp), %xmm3
+	ucomiss	%xmm0, %xmm3
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm3
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	print
+	movl	$0, %eax
+	call	two
+	movss	%xmm0, -4(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	movaps	%xmm0, %xmm4
+	mulss	-4(%rbp), %xmm4
+	movss	%xmm4, -4(%rbp)
+	movl	$0, %eax
+	call	three
+	movss	-4(%rbp), %xmm4
+	ucomiss	%xmm0, %xmm4
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm4
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	print
+	movl	$0, %eax
+	call	two
+	movss	%xmm0, -4(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	movaps	%xmm0, %xmm5
+	mulss	-4(%rbp), %xmm5
+	movss	%xmm5, -4(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	movss	%xmm0, -8(%rbp)
+	movl	$0, %eax
+	call	halfthree
+	addss	-8(%rbp), %xmm0
+	movss	-4(%rbp), %xmm5
+	ucomiss	%xmm0, %xmm5
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm5
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	print
+	leave
+	.cfi_def_cfa 7, 8
+	ret
