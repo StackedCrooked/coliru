@@ -1,0 +1,105 @@
+true
+true
+true
+true
+true
+
+main:
+.LFB1041:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	call	_Z9halfthreev
+	movss	%xmm0, -4(%rbp)
+	call	_Z9halfthreev
+	movaps	%xmm0, %xmm1
+	addss	-4(%rbp), %xmm1
+	movss	%xmm1, -4(%rbp)
+	call	_Z5threev
+	movss	-4(%rbp), %xmm1
+	ucomiss	%xmm0, %xmm1
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm1
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	_Z5printb
+	call	_Z9halfthreev
+	movss	%xmm0, -4(%rbp)
+	call	_Z3twov
+	movaps	%xmm0, %xmm2
+	mulss	-4(%rbp), %xmm2
+	movss	%xmm2, -4(%rbp)
+	call	_Z5threev
+	movss	-4(%rbp), %xmm2
+	ucomiss	%xmm0, %xmm2
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm2
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	_Z5printb
+	call	_Z9halfthreev
+	movss	%xmm0, -4(%rbp)
+	call	_Z3twov
+	movaps	%xmm0, %xmm3
+	mulss	-4(%rbp), %xmm3
+	movss	%xmm3, -4(%rbp)
+	call	_Z9halfthreev
+	movss	%xmm0, -8(%rbp)
+	call	_Z9halfthreev
+	addss	-8(%rbp), %xmm0
+	movss	-4(%rbp), %xmm3
+	ucomiss	%xmm0, %xmm3
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm3
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	_Z5printb
+	call	_Z3twov
+	movss	%xmm0, -4(%rbp)
+	call	_Z9halfthreev
+	movaps	%xmm0, %xmm4
+	mulss	-4(%rbp), %xmm4
+	movss	%xmm4, -4(%rbp)
+	call	_Z5threev
+	movss	-4(%rbp), %xmm4
+	ucomiss	%xmm0, %xmm4
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm4
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	_Z5printb
+	call	_Z3twov
+	movss	%xmm0, -4(%rbp)
+	call	_Z9halfthreev
+	movaps	%xmm0, %xmm5
+	mulss	-4(%rbp), %xmm5
+	movss	%xmm5, -4(%rbp)
+	call	_Z9halfthreev
+	movss	%xmm0, -8(%rbp)
+	call	_Z9halfthreev
+	addss	-8(%rbp), %xmm0
+	movss	-4(%rbp), %xmm5
+	ucomiss	%xmm0, %xmm5
+	setnp	%dl
+	movl	$0, %eax
+	ucomiss	%xmm0, %xmm5
+	cmove	%edx, %eax
+	movzbl	%al, %eax
+	movl	%eax, %edi
+	call	_Z5printb
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret

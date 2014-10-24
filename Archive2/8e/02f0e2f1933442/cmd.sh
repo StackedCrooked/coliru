@@ -1,0 +1,1 @@
+g++ -O0 main.cpp && ./a.out; echo; g++ -O0 -S main.cpp -o - | perl -e "while(<>){ print if(/main:/../ret/); }"
