@@ -1,0 +1,1 @@
+ln -s /Archive2/0d/759b1f550f70f0/main.cpp Bitmask.h && g++ -std=c++11 -O2 -Wall -Wextra -pedantic-errors -c main.cpp
