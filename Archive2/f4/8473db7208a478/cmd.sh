@@ -1,0 +1,1 @@
+gcc -std=c99 -fpermissive main.cpp && ./a.out
