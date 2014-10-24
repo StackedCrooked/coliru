@@ -1,0 +1,26 @@
+main.cpp: In member function ‘virtual void TruckProducer::run()’:
+main.cpp:37:14: error: ‘std::mt19937’ has not been declared
+         std::mt19937::result_type seed = (size_t)time(0) + std::this_thread::get_id().hash() ;
+              ^
+main.cpp:39:30: error: ‘uniform_int_distribution’ is not a member of ‘std’
+   auto dice_rand = std::bind(std::uniform_int_distribution<int>(Const::X_MACHINE_ARRIVE_TIME_MIN,Const::X_MACHINE_ARRIVE_TIME_MAX),std::mt19937(seed));
+                              ^
+main.cpp:39:60: error: expected primary-expression before ‘int’
+   auto dice_rand = std::bind(std::uniform_int_distribution<int>(Const::X_MACHINE_ARRIVE_TIME_MIN,Const::X_MACHINE_ARRIVE_TIME_MAX),std::mt19937(seed));
+                                                            ^
+main.cpp:39:132: error: ‘mt19937’ is not a member of ‘std’
+   auto dice_rand = std::bind(std::uniform_int_distribution<int>(Const::X_MACHINE_ARRIVE_TIME_MIN,Const::X_MACHINE_ARRIVE_TIME_MAX),std::mt19937(seed));
+                                                                                                                                    ^
+main.cpp:39:145: error: ‘seed’ was not declared in this scope
+   auto dice_rand = std::bind(std::uniform_int_distribution<int>(Const::X_MACHINE_ARRIVE_TIME_MIN,Const::X_MACHINE_ARRIVE_TIME_MAX),std::mt19937(seed));
+                                                                                                                                                 ^
+main.cpp: At global scope:
+main.cpp:48:2: warning: extra ‘;’ [-Wpedantic]
+ };
+  ^
+main.cpp:50:14: warning: unused parameter ‘nArgs’ [-Wunused-parameter]
+ int main(int nArgs, char *args[]) {
+              ^
+main.cpp:50:32: warning: unused parameter ‘args’ [-Wunused-parameter]
+ int main(int nArgs, char *args[]) {
+                                ^
