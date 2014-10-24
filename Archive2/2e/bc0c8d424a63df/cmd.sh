@@ -1,0 +1,1 @@
+echo "GCC" && g++ -std=c++11 -O2 -Wall -pedantic main.cpp && ./a.out && echo "CLANG:" && clang++ -stdlib=libc++ -Wall -pedantic -std=c++11 main.cpp && ./a.out
