@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> make_task(F&&, Args&& ...) [with F = int (&)(int); Args = {int}; typename std::result_of<_Functor(_ArgTypes ...)>::type = int]':
+main.cpp:49:39:   required from here
+main.cpp:37:5: error: no matching function for call to 'std::vector<std::function<void()> >::emplace(make_task(F&&, Args&& ...) [with F = int (&)(int); Args = {int}; typename std::result_of<_Functor(_ArgTypes ...)>::type = int]::<lambda()>)'
+     tasks.emplace([task]() { (*task)(); });
+     ^
+main.cpp:37:5: note: candidate is:
+In file included from /usr/local/include/c++/4.9.0/vector:64:0,
+                 from main.cpp:6:
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:970:9: note: template<class ... _Args> std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::emplace(std::vector<_Tp, _Alloc>::const_iterator, _Args&& ...) [with _Args = {_Args ...}; _Tp = std::function<void()>; _Alloc = std::allocator<std::function<void()> >]
+         emplace(const_iterator __position, _Args&&... __args);
+         ^
+/usr/local/include/c++/4.9.0/bits/stl_vector.h:970:9: note:   template argument deduction/substitution failed:
+main.cpp:37:5: note:   cannot convert '<lambda closure object>make_task(F&&, Args&& ...) [with F = int (&)(int); Args = {int}; typename std::result_of<_Functor(_ArgTypes ...)>::type = int]::<lambda()>{std::shared_ptr<std::packaged_task<int()> >((*(const std::shared_ptr<std::packaged_task<int()> >*)(& task)))}' (type 'make_task(F&&, Args&& ...) [with F = int (&)(int); Args = {int}; typename std::result_of<_Functor(_ArgTypes ...)>::type = int]::<lambda()>') to type 'std::vector<std::function<void()> >::const_iterator {aka __gnu_cxx::__normal_iterator<const std::function<void()>*, std::vector<std::function<void()> > >}'
+     tasks.emplace([task]() { (*task)(); });
+     ^
