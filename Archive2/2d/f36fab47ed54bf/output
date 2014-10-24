@@ -1,0 +1,52 @@
+main.cpp: In function ‘int main()’:
+main.cpp:69:5: error: ‘Foo’ was not declared in this scope
+     Foo f;
+     ^
+main.cpp:71:10: error: ‘foo’ was not declared in this scope
+     Foo* foo = new Foo1;
+          ^
+main.cpp:75:9: error: ‘unique_ptr’ is not a member of ‘std’
+         std::unique_ptr<Base> f(new Foo1);
+         ^
+main.cpp:75:29: error: expected primary-expression before ‘>’ token
+         std::unique_ptr<Base> f(new Foo1);
+                             ^
+main.cpp:75:41: error: ‘f’ was not declared in this scope
+         std::unique_ptr<Base> f(new Foo1);
+                                         ^
+main.cpp:77:9: error: ‘shared_ptr’ is not a member of ‘std’
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+         ^
+main.cpp:77:29: error: expected primary-expression before ‘>’ token
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+                             ^
+main.cpp:77:31: error: ‘p’ was not declared in this scope
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+                               ^
+main.cpp:77:35: error: ‘make_shared’ is not a member of ‘std’
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+                                   ^
+main.cpp:77:56: error: expected primary-expression before ‘>’ token
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+                                                        ^
+main.cpp:77:58: error: expected primary-expression before ‘)’ token
+         std::shared_ptr<Base> p = std::make_shared<Foo1>();
+                                                          ^
+main.cpp:78:9: error: ‘shared_ptr’ is not a member of ‘std’
+         std::shared_ptr<Base> k = p;
+         ^
+main.cpp:78:29: error: expected primary-expression before ‘>’ token
+         std::shared_ptr<Base> k = p;
+                             ^
+main.cpp:78:31: error: ‘k’ was not declared in this scope
+         std::shared_ptr<Base> k = p;
+                               ^
+main.cpp:82:51: error: conversion from ‘std::vector<double>::iterator {aka __gnu_cxx::__normal_iterator<double*, std::vector<double> >}’ to non-scalar type ‘std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}’ requested
+     std::vector<int>::const_iterator it = k.begin();
+                                                   ^
+main.cpp:87:22: warning: unused variable ‘a’ [-Wunused-variable]
+     for (const auto& a : k) {
+                      ^
+main.cpp:72:10: warning: unused variable ‘tab’ [-Wunused-variable]
+     int* tab = new int[1454];
+          ^
