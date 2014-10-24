@@ -1,0 +1,1 @@
+g++  -O2 -Wall -pthread main.cpp && time ./a.out
