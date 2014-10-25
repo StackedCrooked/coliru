@@ -1,0 +1,23 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/functional:477:
+In file included from /usr/include/c++/v1/memory:604:
+In file included from /usr/include/c++/v1/iterator:332:
+/usr/include/c++/v1/__functional_base:73:43: error: invalid operands to binary expression ('int' and 'const A')
+        { return _VSTD::forward<_T1>(__t) < _VSTD::forward<_T2>(__u); }
+                 ~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/map:470:17: note: in instantiation of function template specialization 'std::__1::less<void>::operator()<const char &, const A &>' requested here
+        {return static_cast<const _Compare&>(*this) (__x, __y.__cc.first);}
+                ^
+/usr/include/c++/v1/__tree:2029:26: note: in instantiation of function template specialization 'std::__1::__map_value_compare<A, std::__1::__value_type<A, int>, std::__1::less<void>, true>::operator()<char>' requested here
+    if (__p != end() && !value_comp()(__v, *__p))
+                         ^
+/usr/include/c++/v1/map:1097:68: note: in instantiation of function template specialization 'std::__1::__tree<std::__1::__value_type<A, int>, std::__1::__map_value_compare<A, std::__1::__value_type<A, int>, std::__1::less<void>, true>, std::__1::allocator<std::__1::__value_type<A, int> > >::find<char>' requested here
+    find(const _K2& __k)                           {return __tree_.find(__k);}
+                                                                   ^
+main.cpp:23:7: note: in instantiation of function template specialization 'std::__1::map<A, int, std::__1::less<void>, std::__1::allocator<std::__1::pair<const A, int> > >::find<char>' requested here
+    m.find ('a'); // error
+      ^
+/usr/include/c++/v1/utility:419:1: note: candidate template ignored: could not match 'pair<type-parameter-0-0, type-parameter-0-1>' against 'const char'
+operator< (const pair<_T1,_T2>& __x, const pair<_T1,_T2>& __y)
+^
+1 error generated.
