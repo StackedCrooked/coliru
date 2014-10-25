@@ -1,0 +1,39 @@
+main.cpp:7:40: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+    fixed_string() : boost::string_ref(storage_.begin(), 0) { }
+                                       ^
+main.cpp:26:22: note: in instantiation of member function 'fixed_string<32>::fixed_string' requested here
+    fixed_string<32> demo;
+                     ^
+main.cpp:11:29: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+        : boost::string_ref(storage_.begin(), M-1)
+                            ^
+main.cpp:27:12: note: in instantiation of function template specialization 'fixed_string<32>::fixed_string<6>' requested here
+    demo = "hello";
+           ^
+main.cpp:14:17: warning: array index 6 is past the end of the array (which contains 6 elements) [-Warray-bounds]
+        assert(!s[M]);
+                ^ ~
+/usr/include/assert.h:92:5: note: expanded from macro 'assert'
+  ((expr)                                                               \
+    ^
+main.cpp:10:18: note: array 's' declared here
+    fixed_string(char const (&s)[M]) 
+                 ^
+main.cpp:11:29: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+        : boost::string_ref(storage_.begin(), M-1)
+                            ^
+main.cpp:30:12: note: in instantiation of function template specialization 'fixed_string<32>::fixed_string<7>' requested here
+    demo = "world!";
+           ^
+main.cpp:14:17: warning: array index 7 is past the end of the array (which contains 7 elements) [-Warray-bounds]
+        assert(!s[M]);
+                ^ ~
+/usr/include/assert.h:92:5: note: expanded from macro 'assert'
+  ((expr)                                                               \
+    ^
+main.cpp:10:18: note: array 's' declared here
+    fixed_string(char const (&s)[M]) 
+                 ^
+5 warnings generated.
+fs: 'hello'
+fs: 'world!'
