@@ -1,0 +1,16 @@
+main.cpp:18:12: error: no type named 'array' in namespace 'boost'
+    boost::array<char, N> storage_;
+    ~~~~~~~^
+main.cpp:18:17: error: expected member name or ';' after declaration specifiers
+    boost::array<char, N> storage_;
+    ~~~~~~~~~~~~^
+main.cpp:6:40: error: use of undeclared identifier 'storage_'
+    fixed_string() : boost::string_ref(storage_.begin(), 0) { }
+                                       ^
+main.cpp:10:29: error: use of undeclared identifier 'storage_'
+        : boost::string_ref(storage_.begin(), M-1)
+                            ^
+main.cpp:14:31: error: use of undeclared identifier 'storage_'
+        std::copy(s, s+(M-1), storage_.begin());
+                              ^
+5 errors generated.
