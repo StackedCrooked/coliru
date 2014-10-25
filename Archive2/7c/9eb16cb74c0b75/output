@@ -1,0 +1,21 @@
+main.cpp:7:40: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+    fixed_string() : boost::string_ref(storage_.begin(), 0) { }
+                                       ^
+main.cpp:26:22: note: in instantiation of member function 'fixed_string<32>::fixed_string' requested here
+    fixed_string<32> demo;
+                     ^
+main.cpp:11:29: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+        : boost::string_ref(storage_.begin(), M-1)
+                            ^
+main.cpp:27:12: note: in instantiation of function template specialization 'fixed_string<32>::fixed_string<6>' requested here
+    demo = "hello";
+           ^
+main.cpp:11:29: warning: field 'storage_' is uninitialized when used here [-Wuninitialized]
+        : boost::string_ref(storage_.begin(), M-1)
+                            ^
+main.cpp:30:12: note: in instantiation of function template specialization 'fixed_string<32>::fixed_string<7>' requested here
+    demo = "world!";
+           ^
+3 warnings generated.
+fs: 'hello'
+fs: 'world!'
