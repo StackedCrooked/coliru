@@ -1,0 +1,25 @@
++ g++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:7:28: error: expected primary-expression before 'int'
+     A<float> a(A<float>::A<int>());
+                            ^
++ clang++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:7:15: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    A<float> a(A<float>::A<int>());
+              ^~~~~~~~~~~~~~~~~~~~
+main.cpp:7:16: note: add a pair of parentheses to declare a variable
+    A<float> a(A<float>::A<int>());
+               ^
+               (                 )
+1 warning generated.
++ ./a.out
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread -lcxxrt -ldl main.cpp
+main.cpp:7:15: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    A<float> a(A<float>::A<int>());
+              ^~~~~~~~~~~~~~~~~~~~
+main.cpp:7:16: note: add a pair of parentheses to declare a variable
+    A<float> a(A<float>::A<int>());
+               ^
+               (                 )
+1 warning generated.
++ ./a.out
