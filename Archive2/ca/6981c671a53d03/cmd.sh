@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -pedantic -pthread -stdlib=libc++ main.cpp && ./a.out && cat log.txt
