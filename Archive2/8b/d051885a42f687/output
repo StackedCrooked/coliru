@@ -1,0 +1,6 @@
++ clang++ -std=c++1y -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:9:11: warning: comparison of distinct pointer types ('int **' and 'const int **') uses non-standard composite pointer type 'const int *const *' [-Wcompare-distinct-pointer-types]
+   if (p1 == p2) { }
+       ~~ ^  ~~
+1 warning generated.
++ ./a.out
