@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O3 -Wall -Wextra -pedantic-errors -c -S -fomit-frame-pointer main.cpp && cat main.s
