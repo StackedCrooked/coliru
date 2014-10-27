@@ -1,0 +1,25 @@
+main.cpp: In member function 'Return overloaded_function<Return(Args ...), Rest ...>::operator()(Args ...)':
+main.cpp:26:5: error: expected ';' before 'vector'
+     vector<string> names{typeid(Args).name()...};
+     ^
+main.cpp: In function 'int main()':
+main.cpp:50:17: error: no match for call to '(overloaded_function<int(int), float(float, float), std::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> >)>) (float, float)'
+   three(3.F, 1.F);
+                 ^
+main.cpp:11:7: note: candidate is:
+ class overloaded_function<Return(Args...), Rest...> : public overloaded_function<Rest...>
+       ^
+main.cpp:23:10: note: Return overloaded_function<Return(Args ...), Rest ...>::operator()(Args ...) [with Return = int; Args = {int}; Rest = {float(float, float), std::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> >)}]
+   Return operator()(Args... args)
+          ^
+main.cpp:23:10: note:   candidate expects 1 argument, 2 provided
+main.cpp:51:21: error: no match for call to '(overloaded_function<int(int), float(float, float), std::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> >)>) (std::string)'
+   three(string("yo"));
+                     ^
+main.cpp:11:7: note: candidate is:
+ class overloaded_function<Return(Args...), Rest...> : public overloaded_function<Rest...>
+       ^
+main.cpp:23:10: note: Return overloaded_function<Return(Args ...), Rest ...>::operator()(Args ...) [with Return = int; Args = {int}; Rest = {float(float, float), std::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> >)}]
+   Return operator()(Args... args)
+          ^
+main.cpp:23:10: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'int'
