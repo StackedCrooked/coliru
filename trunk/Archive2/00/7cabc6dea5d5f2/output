@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:35:20: error: use of deleted function 'S2::S2(const S2&)'
+     auto no_copy = b;
+                    ^
+main.cpp:18:8: note: 'S2::S2(const S2&)' is implicitly deleted because the default definition would be ill-formed:
+ struct S2 {
+        ^
+main.cpp:18:8: error: use of deleted function 'constexpr not_a_unique_ptr::not_a_unique_ptr(const not_a_unique_ptr&)'
+main.cpp:1:8: note: 'constexpr not_a_unique_ptr::not_a_unique_ptr(const not_a_unique_ptr&)' is implicitly declared as deleted because 'not_a_unique_ptr' declares a move constructor or move assignment operator
+ struct not_a_unique_ptr {
+        ^
