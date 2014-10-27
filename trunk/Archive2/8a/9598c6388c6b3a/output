@@ -1,0 +1,19 @@
+clang c11
+main.cpp:21:10: error: passing 'intFunction' (aka 'int (*)(int, int)') to parameter of type 'void *' converts between void pointer and function pointer [-Werror,-Wpedantic]
+    free(vf.func);
+         ^~~~~~~
+/usr/include/stdlib.h:488:25: note: passing argument to parameter '__ptr' here
+extern void free (void *__ptr) __THROW;
+                        ^
+1 error generated.
+
+gcc c11
+main.cpp: In function 'main':
+main.cpp:21:5: error: ISO C forbids passing argument 1 of 'free' between function pointer and 'void *' [-Wpedantic]
+     free(vf.func);
+     ^
+In file included from main.cpp:2:0:
+/usr/include/stdlib.h:488:13: note: expected 'void *' but argument is of type 'intFunction'
+ extern void free (void *__ptr) __THROW;
+             ^
+
