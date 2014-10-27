@@ -1,0 +1,31 @@
+main.cpp:9:9: error: no template named 'repetitive_view' in namespace 'boost::fusion::result_of'; did you mean 'boost::fusion::repetitive_view'?
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        boost::fusion::repetitive_view
+/usr/local/include/boost/fusion/view/repetitive_view/repetitive_view.hpp:27:40: note: 'boost::fusion::repetitive_view' declared here
+    template<typename Sequence> struct repetitive_view 
+                                       ^
+main.cpp:9:51: error: no template named 'reverse_view' in namespace 'boost::fusion::result_of'; did you mean 'boost::fusion::reverse_view'?
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+                                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                  boost::fusion::reverse_view
+/usr/local/include/boost/fusion/view/reverse_view/reverse_view.hpp:36:12: note: 'boost::fusion::reverse_view' declared here
+    struct reverse_view : sequence_base<reverse_view<Sequence> >
+           ^
+main.cpp:9:108: error: no member named 'type' in 'boost::fusion::reverse_view<const std::pair<std::basic_string<char>, std::basic_string<char> > >'
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+main.cpp:9:115: warning: extra qualification on member 'type' [-Wextra-qualification]
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+                                                                                                                  ^
+main.cpp:9:115: error: typedef declarator cannot be qualified
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+                                                                                                                ~~^
+main.cpp:9:119: error: expected ';' after top level declarator
+typedef boost::fusion::result_of::repetitive_view<boost::fusion::result_of::reverse_view<pair_type const>::type>::type pair_as_vkvkvkvkv;
+                                                                                                                      ^
+                                                                                                                      ;
+main.cpp:23:30: error: use of undeclared identifier 'pair_as_vkv'
+        karma::rule<OutputIterator, pair_as_vkv()> pair;
+                                    ^
+1 warning and 6 errors generated.
