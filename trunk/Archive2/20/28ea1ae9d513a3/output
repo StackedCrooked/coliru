@@ -1,0 +1,15 @@
+clang++ c++14
+main.cpp:6:15: error: non-const lvalue reference to type 'std::_Bit_reference' cannot bind to a temporary of type 'reference' (aka 'std::_Bit_reference')
+    for(auto& x : v)
+              ^ ~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_bvector.h:696:5: note: selected 'begin' function with iterator type 'iterator' (aka 'std::_Bit_iterator')
+    begin() _GLIBCXX_NOEXCEPT
+    ^
+1 error generated.
+
+g++ c++14
+main.cpp: In function 'int main()':
+main.cpp:6:19: error: invalid initialization of non-const reference of type 'std::_Bit_reference&' from an rvalue of type 'std::_Bit_iterator::reference {aka std::_Bit_reference}'
+     for(auto& x : v)
+                   ^
+
