@@ -1,0 +1,24 @@
+clang++ c++14
+main.cpp:33:20: error: implicit instantiation of undefined template 'std::hash<Bar>'
+    std::hash<Bar> h2;
+                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/functional_hash.h:58:12: note: template is declared here
+    struct hash;
+           ^
+main.cpp:34:20: error: implicit instantiation of undefined template 'std::hash<Baz>'
+    std::hash<Baz> h3;
+                   ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/functional_hash.h:58:12: note: template is declared here
+    struct hash;
+           ^
+2 errors generated.
+
+g++ c++14
+main.cpp: In function 'int main()':
+main.cpp:33:20: error: aggregate 'std::hash<Bar> h2' has incomplete type and cannot be defined
+     std::hash<Bar> h2;
+                    ^
+main.cpp:34:20: error: aggregate 'std::hash<Baz> h3' has incomplete type and cannot be defined
+     std::hash<Baz> h3;
+                    ^
+
