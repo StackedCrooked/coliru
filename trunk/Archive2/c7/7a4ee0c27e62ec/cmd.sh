@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -Wextra -pedantic -Werror -Wno-unused-parameter -pthread main.cpp && ./a.out
