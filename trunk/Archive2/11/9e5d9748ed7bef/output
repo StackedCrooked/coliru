@@ -1,0 +1,158 @@
+main.cpp: In instantiation of 'void RenderVisitor<RenderStateTypes>::operator()(AnimatedStateType&) [with AnimatedStateType = A; RenderStateTypes = {A, B}]':
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = A; Visitor = RenderVisitor<A, B>; boost::detail::variant::invoke_visitor<Visitor>::result_type = void]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T = A; typename Visitor::result_type = void; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T = A; NoBackupFlag = boost::variant<A, B>::has_fallback_type_; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, A, boost::mpl::l_item<mpl_::long_<1l>, B, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; NoBackupFlag = boost::variant<A, B>::has_fallback_type_; typename Visitor::result_type = void; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = RenderVisitor<A, B>; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = RenderVisitor<A, B>; Visitable = boost::variant<A, B>; typename Visitor::result_type = void]'
+main.cpp:26:47:   required from 'void MultiCollection<T>::traverse(Visitor&) [with Visitor = RenderVisitor<A, B>; T = {A, B}]'
+main.cpp:98:26:   required from here
+main.cpp:42:80: error: no matching function for call to 'get(boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >&)'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+main.cpp:42:80: note: candidates are:
+In file included from /usr/local/include/boost/tuple/tuple.hpp:28:0,
+                 from main.cpp:1:
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:230:1: note: template<int N, class HT, class TT> typename boost::tuples::access_traits<typename boost::tuples::element<N, boost::tuples::cons<HT, TT> >::type>::const_type boost::tuples::get(const boost::tuples::cons<HT, TT>&)
+ get(const cons<HT, TT>& c) {
+ ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:230:1: note:   template argument deduction/substitution failed:
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:216:1: note: template<int N, class HT, class TT> typename boost::tuples::access_traits<typename boost::tuples::element<N, boost::tuples::cons<HT, TT> >::type>::non_const_type boost::tuples::get(boost::tuples::cons<HT, TT>&)
+ get(cons<HT, TT>& c) {
+ ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:216:1: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:101:1: note: template<class U, class T0, class ... TN> typename boost::add_pointer<T>::type boost::get(boost::variant<T0, TN ...>*)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:101:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   mismatched types 'boost::variant<T0, TN ...>*' and 'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:116:1: note: template<class U, class T0, class ... TN> typename boost::add_pointer<const U>::type boost::get(const boost::variant<T0, TN ...>*)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:116:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   mismatched types 'const boost::variant<T0, TN ...>*' and 'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:131:1: note: template<class U, class T0, class ... TN> typename boost::add_reference<T>::type boost::get(boost::variant<T0, TN ...>&)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:131:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >' is not derived from 'boost::variant<T0, TN ...>'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:147:1: note: template<class U, class T0, class ... TN> typename boost::add_reference<const U>::type boost::get(const boost::variant<T0, TN ...>&)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:147:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >' is not derived from 'const boost::variant<T0, TN ...>'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+main.cpp: In instantiation of 'void RenderVisitor<RenderStateTypes>::operator()(AnimatedStateType&) [with AnimatedStateType = B; RenderStateTypes = {A, B}]':
+/usr/local/include/boost/variant/variant.hpp:944:32:   required from 'boost::detail::variant::invoke_visitor<Visitor>::result_type boost::detail::variant::invoke_visitor<Visitor>::internal_visit(T&, int) [with T = B; Visitor = RenderVisitor<A, B>; boost::detail::variant::invoke_visitor<Visitor>::result_type = void]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:113:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke_impl(int, Visitor&, VoidPtrCV, T*, mpl_::true_) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T = B; typename Visitor::result_type = void; mpl_::true_ = mpl_::bool_<true>]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:156:9:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl_invoke(int, Visitor&, VoidPtrCV, T*, NoBackupFlag, int) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T = B; NoBackupFlag = boost::variant<A, B>::has_fallback_type_; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/visitation_impl.hpp:237:5:   required from 'typename Visitor::result_type boost::detail::variant::visitation_impl(int, int, Visitor&, VoidPtrCV, mpl_::false_, NoBackupFlag, Which*, step0*) [with Which = mpl_::int_<0>; step0 = boost::detail::variant::visitation_impl_step<boost::mpl::l_iter<boost::mpl::l_item<mpl_::long_<2l>, A, boost::mpl::l_item<mpl_::long_<1l>, B, boost::mpl::l_end> > >, boost::mpl::l_iter<boost::mpl::l_end> >; Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; NoBackupFlag = boost::variant<A, B>::has_fallback_type_; typename Visitor::result_type = void; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = RenderVisitor<A, B>; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = RenderVisitor<A, B>; Visitable = boost::variant<A, B>; typename Visitor::result_type = void]'
+main.cpp:26:47:   required from 'void MultiCollection<T>::traverse(Visitor&) [with Visitor = RenderVisitor<A, B>; T = {A, B}]'
+main.cpp:98:26:   required from here
+main.cpp:42:80: error: no matching function for call to 'get(boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >&)'
+main.cpp:42:80: note: candidates are:
+In file included from /usr/local/include/boost/tuple/tuple.hpp:28:0,
+                 from main.cpp:1:
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:230:1: note: template<int N, class HT, class TT> typename boost::tuples::access_traits<typename boost::tuples::element<N, boost::tuples::cons<HT, TT> >::type>::const_type boost::tuples::get(const boost::tuples::cons<HT, TT>&)
+ get(const cons<HT, TT>& c) {
+ ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:230:1: note:   template argument deduction/substitution failed:
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:216:1: note: template<int N, class HT, class TT> typename boost::tuples::access_traits<typename boost::tuples::element<N, boost::tuples::cons<HT, TT> >::type>::non_const_type boost::tuples::get(boost::tuples::cons<HT, TT>&)
+ get(cons<HT, TT>& c) {
+ ^
+/usr/local/include/boost/tuple/detail/tuple_basic.hpp:216:1: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:101:1: note: template<class U, class T0, class ... TN> typename boost::add_pointer<T>::type boost::get(boost::variant<T0, TN ...>*)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:101:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   mismatched types 'boost::variant<T0, TN ...>*' and 'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:116:1: note: template<class U, class T0, class ... TN> typename boost::add_pointer<const U>::type boost::get(const boost::variant<T0, TN ...>*)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:116:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   mismatched types 'const boost::variant<T0, TN ...>*' and 'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:131:1: note: template<class U, class T0, class ... TN> typename boost::add_reference<T>::type boost::get(boost::variant<T0, TN ...>&)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:131:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >' is not derived from 'boost::variant<T0, TN ...>'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+In file included from /usr/local/include/boost/variant.hpp:22:0,
+                 from main.cpp:2:
+/usr/local/include/boost/variant/get.hpp:147:1: note: template<class U, class T0, class ... TN> typename boost::add_reference<const U>::type boost::get(const boost::variant<T0, TN ...>&)
+ get(
+ ^
+/usr/local/include/boost/variant/get.hpp:147:1: note:   template argument deduction/substitution failed:
+main.cpp:42:80: note:   'boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >' is not derived from 'const boost::variant<T0, TN ...>'
+         auto& states = boost::get<std::vector<AnimatedStateType>>(renderStates_);
+                                                                                ^
+main.cpp: In instantiation of 'void RenderVisitor<RenderStateTypes>::Flusher<CurrenrStateType>::operator()(std::vector<StateType>&) const [with StateType = A; CurrenrStateType = B; RenderStateTypes = {A, B}]':
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:35:17:   required from 'void boost::fusion::detail::for_each_linear(const First&, const Last&, const F&, mpl_::false_) [with First = boost::fusion::boost_tuple_iterator<boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > > >; Last = boost::fusion::boost_tuple_iterator<boost::tuples::null_type>; F = RenderVisitor<A, B>::Flusher<B>; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:52:77:   required from 'void boost::fusion::detail::for_each_dispatch(Sequence&, const F&, Tag) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<B>; Tag = boost::fusion::forward_traversal_tag]'
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:143:89:   required from 'void boost::fusion::detail::for_each(Sequence&, const F&, mpl_::false_) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<B>; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/fusion/algorithm/iteration/for_each.hpp:39:81:   required from 'typename boost::enable_if<boost::fusion::traits::is_sequence<Sequence>, void>::type boost::fusion::for_each(Sequence&, const F&) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<B>; typename boost::enable_if<boost::fusion::traits::is_sequence<Sequence>, void>::type = void]'
+main.cpp:41:55:   required from 'void RenderVisitor<RenderStateTypes>::operator()(AnimatedStateType&) [with AnimatedStateType = B; RenderStateTypes = {A, B}]'
+/usr/local/include/boost/variant/variant.hpp:944:32:   [ skipping 4 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = RenderVisitor<A, B>; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = RenderVisitor<A, B>; Visitable = boost::variant<A, B>; typename Visitor::result_type = void]'
+main.cpp:26:47:   required from 'void MultiCollection<T>::traverse(Visitor&) [with Visitor = RenderVisitor<A, B>; T = {A, B}]'
+main.cpp:98:26:   required from here
+main.cpp:80:52: error: invalid use of non-static data member 'RenderVisitor<A, B>::renderStates_'
+     boost::tuple<std::vector<RenderStateTypes>...> renderStates_;
+                                                    ^
+main.cpp:64:67: error: from this location
+             flush(boost::get<std::vector<StateType>>(renderStates_));
+                                                                   ^
+main.cpp: In instantiation of 'void RenderVisitor<RenderStateTypes>::Flusher<CurrenrStateType>::operator()(std::vector<StateType>&) const [with StateType = B; CurrenrStateType = A; RenderStateTypes = {A, B}]':
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:35:17:   required from 'void boost::fusion::detail::for_each_linear(const First&, const Last&, const F&, mpl_::false_) [with First = boost::fusion::boost_tuple_iterator<boost::tuples::cons<std::vector<B, std::allocator<B> >, boost::tuples::null_type> >; Last = boost::fusion::boost_tuple_iterator<boost::tuples::null_type>; F = RenderVisitor<A, B>::Flusher<A>; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:37:99:   required from 'void boost::fusion::detail::for_each_linear(const First&, const Last&, const F&, mpl_::false_) [with First = boost::fusion::boost_tuple_iterator<boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > > >; Last = boost::fusion::boost_tuple_iterator<boost::tuples::null_type>; F = RenderVisitor<A, B>::Flusher<A>; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:52:77:   required from 'void boost::fusion::detail::for_each_dispatch(Sequence&, const F&, Tag) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<A>; Tag = boost::fusion::forward_traversal_tag]'
+/usr/local/include/boost/fusion/algorithm/iteration/detail/for_each.hpp:143:89:   required from 'void boost::fusion::detail::for_each(Sequence&, const F&, mpl_::false_) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<A>; mpl_::false_ = mpl_::bool_<false>]'
+/usr/local/include/boost/fusion/algorithm/iteration/for_each.hpp:39:81:   required from 'typename boost::enable_if<boost::fusion::traits::is_sequence<Sequence>, void>::type boost::fusion::for_each(Sequence&, const F&) [with Sequence = boost::tuples::tuple<std::vector<A, std::allocator<A> >, std::vector<B, std::allocator<B> > >; F = RenderVisitor<A, B>::Flusher<A>; typename boost::enable_if<boost::fusion::traits::is_sequence<Sequence>, void>::type = void]'
+main.cpp:41:55:   [ skipping 5 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/variant/variant.hpp:2245:13:   required from 'static typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor_impl(int, int, Visitor&, VoidPtrCV) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; VoidPtrCV = void*; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2256:13:   required from 'typename Visitor::result_type boost::variant<T0, TN>::internal_apply_visitor(Visitor&) [with Visitor = boost::detail::variant::invoke_visitor<RenderVisitor<A, B> >; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/variant.hpp:2279:52:   required from 'typename Visitor::result_type boost::variant<T0, TN>::apply_visitor(Visitor&) [with Visitor = RenderVisitor<A, B>; T0_ = A; TN = {B}; typename Visitor::result_type = void]'
+/usr/local/include/boost/variant/detail/apply_visitor_unary.hpp:60:43:   required from 'typename Visitor::result_type boost::apply_visitor(Visitor&, Visitable&) [with Visitor = RenderVisitor<A, B>; Visitable = boost::variant<A, B>; typename Visitor::result_type = void]'
+main.cpp:26:47:   required from 'void MultiCollection<T>::traverse(Visitor&) [with Visitor = RenderVisitor<A, B>; T = {A, B}]'
+main.cpp:98:26:   required from here
+main.cpp:80:52: error: invalid use of non-static data member 'RenderVisitor<A, B>::renderStates_'
+     boost::tuple<std::vector<RenderStateTypes>...> renderStates_;
+                                                    ^
+main.cpp:64:67: error: from this location
+             flush(boost::get<std::vector<StateType>>(renderStates_));
+                                                                   ^
