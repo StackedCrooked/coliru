@@ -1,0 +1,20 @@
+main.cpp:13:33: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    std::vector< double > vec_f (int (f));
+                                ^~~~~~~~~
+main.cpp:13:34: note: add a pair of parentheses to declare a variable
+    std::vector< double > vec_f (int (f));
+                                 ^
+                                 (      )
+main.cpp:14:33: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    std::vector< double > vec_g ();
+                                ^~
+main.cpp:14:33: note: remove parentheses to declare a variable
+    std::vector< double > vec_g ();
+                                ^~
+main.cpp:27:5: error: subscript of pointer to function type 'std::vector<double> (int)'
+    vec_f[0] = 1.;
+    ^~~~~
+main.cpp:29:5: error: subscript of pointer to function type 'std::vector<double> ()'
+    vec_g[0] = 1.;
+    ^~~~~
+2 warnings and 2 errors generated.
