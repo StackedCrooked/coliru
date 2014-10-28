@@ -1,0 +1,31 @@
+main.cpp:22:12: error: no viable conversion from 'std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, int> >' to 'key_iterator<typename _Rb_tree_iterator<pair<const basic_string<char>, int> >::value_type>'
+    return t;
+           ^
+main.cpp:35:27: note: in instantiation of function template specialization 'make_key_iterator<std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, int> > >' requested here
+    auto res=std::find_if(make_key_iterator(m.begin()), make_key_iterator(m.end()), [](const std::string& s)
+                          ^
+main.cpp:7:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, int> >' to 'const key_iterator<std::pair<const std::basic_string<char>, int> > &' for 1st argument
+struct key_iterator
+       ^
+main.cpp:7:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, int> >' to 'key_iterator<std::pair<const std::basic_string<char>, int> > &&' for 1st argument
+struct key_iterator
+       ^
+main.cpp:11:22: note: candidate template ignored: could not match 'pair' against '_Rb_tree_iterator'
+    using base_type::base_type;
+                     ^
+main.cpp:11:22: note: candidate template ignored: could not match 'pair' against '_Rb_tree_iterator'
+In file included from main.cpp:4:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/algorithm:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:162:10: error: no matching function for call to '__iterator_category'
+                       std::__iterator_category(__first));
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:3803:19: note: in instantiation of function template specialization 'std::__find_if<key_iterator<std::pair<const std::basic_string<char>, int> >, __gnu_cxx::__ops::_Iter_pred<(lambda at main.cpp:35:85)> >' requested here
+      return std::__find_if(__first, __last,
+                  ^
+main.cpp:35:19: note: in instantiation of function template specialization 'std::find_if<key_iterator<std::pair<const std::basic_string<char>, int> >, (lambda at main.cpp:35:85)>' requested here
+    auto res=std::find_if(make_key_iterator(m.begin()), make_key_iterator(m.end()), [](const std::string& s)
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator_base_types.h:201:5: note: candidate template ignored: substitution failure [with _Iter = key_iterator<std::pair<const std::basic_string<char>, int> >]: no type named 'iterator_category' in 'std::iterator_traits<key_iterator<std::pair<const std::basic_string<char>, int> > >'
+    __iterator_category(const _Iter&)
+    ^
+2 errors generated.
