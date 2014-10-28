@@ -1,0 +1,1 @@
+for CC in g++; do for std in c++14; do echo $CC $std && $CC -O3 -x c++ -std=$std main.cpp && time ./a.out || echo; done; done
