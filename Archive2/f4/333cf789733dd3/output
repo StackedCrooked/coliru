@@ -1,0 +1,23 @@
+main.cpp:25:15: error: no matching constructor for initialization of 'Map'
+    map = new Map(gamePtr); // acts as "parent" to refer back (is needed.)
+              ^   ~~~~~~~
+main.cpp:16:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'Game *' to 'const Map' for 1st argument
+class Map {
+      ^
+main.cpp:16:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'Game *' to 'Map' for 1st argument
+class Map {
+      ^
+main.cpp:16:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+main.cpp:41:10: error: 'gamePtr' is a private member of 'Game'
+    game.gamePtr->map->test();
+         ^
+main.cpp:7:15: note: declared private here
+        Game* gamePtr;
+              ^
+main.cpp:41:19: error: 'map' is a private member of 'Game'
+    game.gamePtr->map->test();
+                  ^
+main.cpp:6:14: note: declared private here
+        Map *map;
+             ^
+3 errors generated.
