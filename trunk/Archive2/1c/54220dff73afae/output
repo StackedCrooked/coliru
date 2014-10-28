@@ -1,0 +1,58 @@
+main.cpp:4:64: warning: expression result unused [-Wunused-value]
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                                               ^
+main.cpp:11:35: error: too many arguments to function call, expected 2, have 3
+    auto x = f<int, int>; x(3, 4, nullptr);
+                          ~       ^~~~~~~
+main.cpp:4:64: warning: expression result unused [-Wunused-value]
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                                               ^
+main.cpp:8:5: note: in instantiation of function template specialization 'f<int, int, nullptr_t>' requested here
+    f<int, int>(3, 4, nullptr);
+    ^
+main.cpp:4:64: warning: expression result unused [-Wunused-value]
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                                               ^
+main.cpp:4:47: error: use of overloaded operator '<<' is ambiguous (with operand types 'ostream' (aka 'basic_ostream<char>') and 'nullptr_t')
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                    ~~~~~~~~~ ^  ~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:108:7: note: candidate function
+      operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:117:7: note: candidate function
+      operator<<(__ios_type& (*__pf)(__ios_type&))
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:127:7: note: candidate function
+      operator<<(ios_base& (*__pf) (ios_base&))
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:245:7: note: candidate function
+      operator<<(const void* __p)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:270:7: note: candidate function
+      operator<<(__streambuf_type* __sb);
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:530:5: note: candidate function [with _Traits = std::char_traits<char>]
+    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:543:5: note: candidate function [with _Traits = std::char_traits<char>]
+    operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:548:5: note: candidate function [with _Traits = std::char_traits<char>]
+    operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/ostream.tcc:321:5: note: candidate function [with _CharT = char, _Traits = std::char_traits<char>]
+    operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ostream:174:7: note: candidate function
+      operator<<(bool __n)
+      ^
+main.cpp:4:64: warning: expression result unused [-Wunused-value]
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                                               ^
+main.cpp:11:14: note: in instantiation of function template specialization 'f<int, int>' requested here
+    auto x = f<int, int>; x(3, 4, nullptr);
+             ^
+main.cpp:4:64: warning: expression result unused [-Wunused-value]
+void f(T... args) { int dummy[] { ((std::cout << args << "\n")?1:0, 0)..., 0 }; (void) dummy; }
+                                                               ^
+5 warnings and 2 errors generated.
