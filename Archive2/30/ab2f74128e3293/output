@@ -1,0 +1,35 @@
+main.cpp:22:14: error: no member named 'cout' in namespace 'std'; did you mean 'count'?
+        std::cout << matching << "\n";
+        ~~~~~^~~~
+             count
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:3947:5: note: 'count' declared here
+    count(_InputIterator __first, _InputIterator __last, const _Tp& __value)
+    ^
+main.cpp:22:9: error: reference to overloaded function could not be resolved; did you mean to call it?
+        std::cout << matching << "\n";
+        ^~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_algo.h:3947:5: note: possible target for call
+    count(_InputIterator __first, _InputIterator __last, const _Tp& __value)
+    ^
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:852:64: note: candidate template ignored: could not match 'shared_ptr' against 'edge_desc_impl'
+template<class E, class T, class Y> std::basic_ostream<E, T> & operator<< (std::basic_ostream<E, T> & os, shared_ptr<Y> const & p)
+                                                               ^
+/usr/local/include/boost/optional/optional.hpp:1232:1: note: candidate template ignored: could not match 'optional' against 'edge_desc_impl'
+operator<<(std::basic_ostream<CharType, CharTrait>& out, optional<T> const& v);
+^
+/usr/local/include/boost/range/iterator_range_io.hpp:55:49: note: candidate template ignored: could not match 'iterator_range' against 'edge_desc_impl'
+        inline std::basic_ostream<Elem,Traits>& operator<<( 
+                                                ^
+/usr/local/include/boost/regex/v4/basic_regex.hpp:685:4: note: candidate template ignored: could not match 'basic_regex' against 'edge_desc_impl'
+   operator << (std::basic_ostream<charT, traits>& os, 
+   ^
+/usr/local/include/boost/regex/v4/sub_match.hpp:428:4: note: candidate template ignored: could not match 'sub_match' against 'edge_desc_impl'
+   operator << (std::basic_ostream<charT, traits>& os,
+   ^
+/usr/local/include/boost/regex/v4/match_results.hpp:670:4: note: candidate template ignored: could not match 'match_results' against 'edge_desc_impl'
+   operator << (std::basic_ostream<charT, traits>& os,
+   ^
+main.cpp:19:48: warning: expression result unused [-Wunused-value]
+    add_edge(currentVertex, endVertex, 'i', g).first;
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~~~~
+1 warning and 2 errors generated.
