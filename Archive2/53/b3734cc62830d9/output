@@ -1,0 +1,21 @@
+main.cpp:1:27: warning: unused variable 'x' [-Wunused-variable]
+int main() {  static char x[1024 * 1024 * 1] = {}; }
+                          ^
+1 warning generated.
+	.text
+	.file	"main.cpp"
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	xorl	%eax, %eax
+	retq
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
