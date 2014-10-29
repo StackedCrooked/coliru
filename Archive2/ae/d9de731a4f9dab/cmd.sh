@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Os -Wall -pthread main.cpp -lboost_system &&./a.out
