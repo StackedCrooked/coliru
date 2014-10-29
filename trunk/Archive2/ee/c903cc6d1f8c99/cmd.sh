@@ -1,0 +1,1 @@
+g++ -std=c++1y -fno-elide-constructors -Wall -pedantic -pthread main.cpp && ./a.out
