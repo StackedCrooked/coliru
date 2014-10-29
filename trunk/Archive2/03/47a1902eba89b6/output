@@ -1,0 +1,18 @@
++ clang++ -std=c++11 -O0 -Wall -Werror main.cpp
+main.cpp:156:17: error: variable 'tempNumerator' is used uninitialized whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+            if (f.numerator <0)
+                ^~~~~~~~~~~~~~
+main.cpp:161:17: note: uninitialized use occurs here
+            if (tempNumerator == 1 && f.denominator ==1 )
+                ^~~~~~~~~~~~~
+main.cpp:156:13: note: remove the 'if' if its condition is always true
+            if (f.numerator <0)
+            ^~~~~~~~~~~~~~~~~~~
+main.cpp:155:30: note: initialize the variable 'tempNumerator' to silence this warning
+            int tempNumerator;
+                             ^
+                              = 0
+main.cpp:182:33: error: unused variable 'r' [-Werror,-Wunused-variable]
+    struct fraction a, b, c, d, r, bad;
+                                ^
+2 errors generated.
