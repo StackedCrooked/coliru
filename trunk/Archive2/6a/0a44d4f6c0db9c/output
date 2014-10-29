@@ -1,0 +1,24 @@
++ clang++ -std=c++14 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:8:39: warning: unused parameter 'a' [-Wunused-parameter]
+    static T test( const std::string &a  ) { std::cout << "default\n"  ;return T() ; } 
+                                      ^
+main.cpp:14:48: warning: unused parameter 'a' [-Wunused-parameter]
+    static inline int test( const std::string &a  )
+                                               ^
+main.cpp:25:60: warning: unused parameter 'a' [-Wunused-parameter]
+    static inline std::array<T,N> test( const std::string &a )
+                                                           ^
+main.cpp:47:9: warning: unused variable 'x' [-Wunused-variable]
+    int x = 10 ;
+        ^
+main.cpp:48:25: warning: unused variable 'arr' [-Wunused-variable]
+    std::array<int, 10> arr = {{0}} ;
+                        ^
+5 warnings generated.
++ ./a.out
+int specialization
+100
+std::array<T,N> specialization
+0
+std::array<T,N> specialization
+0
