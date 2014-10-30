@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:18:7: warning: unused variable 'b1' [-Wunused-variable]
+    B b1 ;
+      ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/memory:81:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unique_ptr.h:74:16: error: invalid application of 'sizeof' to an incomplete type 'A'
+        static_assert(sizeof(_Tp)>0,
+                      ^~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unique_ptr.h:236:4: note: in instantiation of member function 'std::default_delete<A>::operator()' requested here
+          get_deleter()(__ptr);
+          ^
+main.cpp:11:9: note: in instantiation of member function 'std::unique_ptr<A, std::default_delete<A> >::~unique_ptr' requested here
+        func() ;
+        ^
+main.cpp:3:7: note: forward declaration of 'A'
+class A ;
+      ^
+1 warning and 1 error generated.
