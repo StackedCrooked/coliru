@@ -1,0 +1,46 @@
+*** glibc detected *** ./a.out: double free or corruption (out): 0x00007fff48f057b0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f69fe0c8846]
+./a.out[0x400fa6]
+./a.out[0x400ec2]
+./a.out[0x400d60]
+./a.out[0x400b20]
+./a.out[0x400aae]
+./a.out[0x400a3f]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f69fe06b76d]
+./a.out[0x4008b9]
+======= Memory map: ========
+00400000-00402000 r-xp 00000000 ca:01 737490                             /tmp/1414685798.36181/a.out
+00601000-00602000 r--p 00001000 ca:01 737490                             /tmp/1414685798.36181/a.out
+00602000-00603000 rw-p 00002000 ca:01 737490                             /tmp/1414685798.36181/a.out
+0120d000-0122e000 rw-p 00000000 00:00 0                                  [heap]
+7f69fdd4e000-7f69fde49000 r-xp 00000000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f69fde49000-7f69fe048000 ---p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f69fe048000-7f69fe049000 r--p 000fa000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f69fe049000-7f69fe04a000 rw-p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f69fe04a000-7f69fe1ff000 r-xp 00000000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f69fe1ff000-7f69fe3fe000 ---p 001b5000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f69fe3fe000-7f69fe402000 r--p 001b4000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f69fe402000-7f69fe404000 rw-p 001b8000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f69fe404000-7f69fe409000 rw-p 00000000 00:00 0 
+7f69fe409000-7f69fe421000 r-xp 00000000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f69fe421000-7f69fe620000 ---p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f69fe620000-7f69fe621000 r--p 00017000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f69fe621000-7f69fe622000 rw-p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f69fe622000-7f69fe626000 rw-p 00000000 00:00 0 
+7f69fe626000-7f69fe63c000 r-xp 00000000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f69fe63c000-7f69fe83b000 ---p 00016000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f69fe83b000-7f69fe83c000 rw-p 00015000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f69fe83c000-7f69fe927000 r-xp 00000000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f69fe927000-7f69feb26000 ---p 000eb000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f69feb26000-7f69feb2f000 r--p 000ea000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f69feb2f000-7f69feb31000 rw-p 000f3000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f69feb31000-7f69feb46000 rw-p 00000000 00:00 0 
+7f69feb46000-7f69feb68000 r-xp 00000000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f69fed60000-7f69fed68000 rw-p 00000000 00:00 0 
+7f69fed68000-7f69fed69000 r--p 00022000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f69fed69000-7f69fed6b000 rw-p 00023000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fff48ee5000-7fff48f06000 rw-p 00000000 00:00 0                          [stack]
+7fff48fff000-7fff49000000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+bash: line 7: 18671 Aborted                 (core dumped) ./a.out
