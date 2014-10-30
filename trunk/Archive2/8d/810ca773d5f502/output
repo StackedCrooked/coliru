@@ -1,0 +1,13 @@
+main.cpp:34:1: warning: array index 10 is past the end of the array (which contains 10 elements) [-Warray-bounds]
+student1[ NUM_GRADES ] = rand() % 50 + 50;
+^         ~~~~~~~~~~
+main.cpp:20:1: note: array 'student1' declared here
+int student1[ NUM_GRADES ] = { 0 };
+^
+main.cpp:97:25: warning: expression result unused [-Wunused-value]
+cout << setw( 4 ) << a[ i, j ];
+                        ^
+2 warnings generated.
+/tmp/main-5edfe6.o: In function `main':
+main.cpp:(.text+0x16b): undefined reference to `printDatabase(int const (*) [10], char const (*) [20])'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
