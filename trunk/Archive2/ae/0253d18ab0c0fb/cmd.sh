@@ -1,0 +1,1 @@
+set -x; clang++ -std=c++11 -O3 -Wall -Wextra -pedantic-errors -pthread -stdlib=libc++ main.cpp && ./a.out; g++ -std=c++11 -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out
