@@ -1,0 +1,1 @@
+g++ -O3 main.cpp && time ./a.out && g++ -O3 -DTINY main.cpp && time ./a.out
