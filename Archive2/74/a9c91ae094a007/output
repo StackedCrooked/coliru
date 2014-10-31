@@ -1,0 +1,62 @@
+clang c11
+main.cpp:5:16: error: expected ';' at end of declaration
+   int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+               ^
+               ;
+main.cpp:11:9: warning: expression result unused [-Wunused-value]
+   for (i; i < 9; i++) {
+        ^
+main.cpp:14:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:9:12: warning: expression result unused [-Wunused-value]
+   list1 [i];
+   ~~~~~  ~^
+3 warnings and 1 error generated.
+
+gcc c11
+main.cpp: In function 'main':
+main.cpp:5:4: warning: ISO C forbids nested functions [-Wpedantic]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+    ^
+main.cpp:5:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                 ^
+main.cpp:5:19: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                   ^
+main.cpp:5:23: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                       ^
+main.cpp:5:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                           ^
+main.cpp:5:31: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                               ^
+main.cpp:5:35: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                                   ^
+main.cpp:5:39: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                                       ^
+main.cpp:5:43: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                                           ^
+main.cpp:5:47: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                                               ^
+main.cpp:5:18: warning: statement with no effect [-Wunused-value]
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                  ^
+main.cpp:5:51: error: expected ';' before '}' token
+    int list1[9] {5, 10, 15, 20, 25, 30, 35, 40, 45};
+                                                   ^
+main.cpp:9:4: error: 'list1' undeclared (first use in this function)
+    list1 [i];
+    ^
+main.cpp:9:4: note: each undeclared identifier is reported only once for each function it appears in
+main.cpp:11:4: warning: statement with no effect [-Wunused-value]
+    for (i; i < 9; i++) {
+    ^
+
