@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wuninitialized -Werror -pedantic -pthread main.cpp && ./a.out
