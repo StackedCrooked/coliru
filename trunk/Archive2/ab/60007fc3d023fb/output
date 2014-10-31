@@ -1,0 +1,27 @@
+main.cpp:49:3: error: unknown type name 'curry_t'
+  curry_t<curry_helper<F, std::decay_t<Arg>>> {
+  ^
+main.cpp:49:10: error: expected ';' at end of declaration
+  curry_t<curry_helper<F, std::decay_t<Arg>>> {
+         ^
+         ;
+main.cpp:49:10: error: expected unqualified-id
+main.cpp:55:12: error: use of undeclared identifier 'curry_t'
+    return curry_t<curry_helper<F, std::decay_t<First>>>{
+           ^
+main.cpp:55:56: error: expected '(' for function-style cast or type construction
+    return curry_t<curry_helper<F, std::decay_t<First>>>{
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+main.cpp:55:56: error: initializer list cannot be used on the right hand side of operator '>'
+    return curry_t<curry_helper<F, std::decay_t<First>>>{
+                                                       ^~
+main.cpp:54:68: warning: unused parameter 'args' [-Wunused-parameter]
+static auto apply_(std::false_type, F&& f, First&& first, Args&&...args) {
+                                                                   ^
+main.cpp:102:36: error: called object type 'decltype(apply(this->f, std::forward<double>(args), std::forward<int>(args), std::forward<nullptr_t>(args)))' (aka 'void') is not a function or function pointer
+    std::cout << f(3.14,10,nullptr)(nullptr) << "\n";
+                 ~~~~~~~~~~~~~~~~~~^
+main.cpp:107:16: error: called object type 'decltype(apply(this->f, std::forward<char>(args)))' (aka 'void') is not a function or function pointer
+    x =  f('a')(2);
+         ~~~~~~^
+1 warning and 8 errors generated.
