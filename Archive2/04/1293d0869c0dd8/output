@@ -1,0 +1,11 @@
+main.cpp: In function 'typename std::enable_if<std::is_convertible<T, Variant>::value, CByteArray>::type serialize(const T&)':
+main.cpp:21:36: error: call of overloaded 'serialize(Variant)' is ambiguous
+     return serialize(Variant(value));
+                                    ^
+main.cpp:21:36: note: candidates are:
+main.cpp:12:1: note: typename std::enable_if<std::is_pod<_Tp>::value, CByteArray>::type serialize(const T&) [with T = Variant; typename std::enable_if<std::is_pod<_Tp>::value, CByteArray>::type = CByteArray]
+ serialize(const T& value)
+ ^
+main.cpp:19:1: note: typename std::enable_if<std::is_convertible<T, Variant>::value, CByteArray>::type serialize(const T&) [with T = Variant; typename std::enable_if<std::is_convertible<T, Variant>::value, CByteArray>::type = CByteArray]
+ serialize(const T& value)
+ ^
