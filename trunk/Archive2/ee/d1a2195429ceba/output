@@ -1,0 +1,16 @@
+main.cpp:8:22: error: addition of default argument on redeclaration makes this constructor a copy constructor
+X::X(const X& x, int i = 7) { std::cout << "ctor" << std::endl; }
+                     ^   ~
+main.cpp:5:5: note: previous declaration is here
+    X(const X&, int i);
+    ^
+main.cpp:12:3: error: call to constructor of 'X' is ambiguous
+X z = x;
+  ^   ~
+main.cpp:3:8: note: candidate is the implicit copy constructor
+struct X {
+       ^
+main.cpp:8:4: note: candidate constructor
+X::X(const X& x, int i = 7) { std::cout << "ctor" << std::endl; }
+   ^
+2 errors generated.
