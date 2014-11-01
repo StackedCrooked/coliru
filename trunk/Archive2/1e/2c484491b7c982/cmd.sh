@@ -1,0 +1,1 @@
+g++ -std=c++11 -Os -Wall -pthread main.cpp -lboost_system && for ((i=0; i=10; ++i)); do date; sleep .1; done | ./a.out
