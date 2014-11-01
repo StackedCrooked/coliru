@@ -1,0 +1,17 @@
+main.cpp:5:20: error: constexpr variable 'o' must be initialized by a constant expression
+    constexpr auto o = std::experimental::make_optional(5);
+                   ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:5:24: note: non-constexpr constructor 'optional' cannot be used in a constant expression
+    constexpr auto o = std::experimental::make_optional(5);
+                       ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/experimental/optional:457:11: note: declared here
+    class optional
+          ^
+main.cpp:6:20: error: static_assert expression is not an integral constant expression
+    static_assert( *o == 5, "it workses" );
+                   ^~~~~~~
+main.cpp:6:20: note: initializer of 'o' is not a constant expression
+main.cpp:5:20: note: declared here
+    constexpr auto o = std::experimental::make_optional(5);
+                   ^
+2 errors generated.
