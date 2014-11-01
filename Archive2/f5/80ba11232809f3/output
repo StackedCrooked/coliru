@@ -1,0 +1,72 @@
+In file included from /usr/include/c++/4.8/regex:35:0,
+                 from main.cpp:4:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp: In function 'int main()':
+main.cpp:15:5: error: 'regex' was not declared in this scope
+     regex self_regex("REGULAR EXPRESSIONS",
+     ^
+main.cpp:15:11: error: expected ';' before 'self_regex'
+     regex self_regex("REGULAR EXPRESSIONS",
+           ^
+main.cpp:17:9: error: 'regex_search' is not a member of 'std'
+     if (std::regex_search(s, self_regex)) {
+         ^
+main.cpp:17:30: error: 'self_regex' was not declared in this scope
+     if (std::regex_search(s, self_regex)) {
+                              ^
+main.cpp:21:5: error: 'regex' is not a member of 'std'
+     std::regex word_regex("(\\S+)");
+     ^
+main.cpp:21:16: error: expected ';' before 'word_regex'
+     std::regex word_regex("(\\S+)");
+                ^
+main.cpp:22:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto words_begin = 
+     ^
+main.cpp:22:10: error: 'words_begin' does not name a type
+     auto words_begin = 
+          ^
+main.cpp:24:5: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     auto words_end = std::sregex_iterator();
+     ^
+main.cpp:24:10: error: 'words_end' does not name a type
+     auto words_end = std::sregex_iterator();
+          ^
+main.cpp:27:32: error: 'words_begin' was not declared in this scope
+               << std::distance(words_begin, words_end)
+                                ^
+main.cpp:27:45: error: 'words_end' was not declared in this scope
+               << std::distance(words_begin, words_end)
+                                             ^
+main.cpp:32:10: error: 'sregex_iterator' is not a member of 'std'
+     for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+          ^
+main.cpp:32:31: error: expected ';' before 'i'
+     for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+                               ^
+main.cpp:32:48: error: 'i' was not declared in this scope
+     for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+                                                ^
+main.cpp:33:9: error: 'smatch' is not a member of 'std'
+         std::smatch match = *i;
+         ^
+main.cpp:33:21: error: expected ';' before 'match'
+         std::smatch match = *i;
+                     ^
+main.cpp:34:33: error: 'match' was not declared in this scope
+         std::string match_str = match.str();
+                                 ^
+main.cpp:40:5: error: 'regex' is not a member of 'std'
+     std::regex long_word_regex("(\\w{7,})");
+     ^
+main.cpp:40:16: error: expected ';' before 'long_word_regex'
+     std::regex long_word_regex("(\\w{7,})");
+                ^
+main.cpp:41:25: error: 'regex_replace' is not a member of 'std'
+     std::string new_s = std::regex_replace(s, long_word_regex, "[$&]");
+                         ^
+main.cpp:41:47: error: 'long_word_regex' was not declared in this scope
+     std::string new_s = std::regex_replace(s, long_word_regex, "[$&]");
+                                               ^
