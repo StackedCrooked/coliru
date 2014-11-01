@@ -1,0 +1,16 @@
+main.cpp:16:14: error: zero size arrays are an extension [-Werror,-Wzero-length-array]
+    LOL(test[0]);
+             ^
+main.cpp:11:43: note: expanded from macro 'LOL'
+#define LOL(x) {string s = #x; Counter c##x; cout<<s.substr(0,1+s.find('['))<<Counter::k<<"]="<<x<<'\n'; }
+                                          ^
+main.cpp:16:5: warning: unused variable 'ctest' [-Wunused-variable]
+    LOL(test[0]);
+    ^
+main.cpp:11:40: note: expanded from macro 'LOL'
+#define LOL(x) {string s = #x; Counter c##x; cout<<s.substr(0,1+s.find('['))<<Counter::k<<"]="<<x<<'\n'; }
+                                       ^
+<scratch space>:178:1: note: expanded from here
+ctest
+^
+1 warning and 1 error generated.
