@@ -1,0 +1,18 @@
+=================================================================
+==2898==ERROR: AddressSanitizer: attempting double-free on 0x60200000eff0 in thread T0:
+    #0 0x43d6bb in operator delete(void*) /root/stacked-crooked/llvm/clang/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:94:3
+    #1 0x4c21b3 in main (/tmp/1414817219-797565148/a.out+0x4c21b3)
+    #2 0x7f426060c76c in __libc_start_main /build/buildd/eglibc-2.15/csu/libc-start.c:226
+    #3 0x4c208c in _start (/tmp/1414817219-797565148/a.out+0x4c208c)
+
+0x60200000eff0 is located 0 bytes inside of 4-byte region [0x60200000eff0,0x60200000eff4)
+freed by thread T0 here:
+    #0 0x43d6bb in operator delete(void*) /root/stacked-crooked/llvm/clang/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:94:3
+    #1 0x4c21a6 in main (/tmp/1414817219-797565148/a.out+0x4c21a6)
+
+previously allocated by thread T0 here:
+    #0 0x43d17b in operator new(unsigned long) /root/stacked-crooked/llvm/clang/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:62:35
+    #1 0x4c2196 in main (/tmp/1414817219-797565148/a.out+0x4c2196)
+
+SUMMARY: AddressSanitizer: double-free /root/stacked-crooked/llvm/clang/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:94 operator delete(void*)
+==2898==ABORTING
