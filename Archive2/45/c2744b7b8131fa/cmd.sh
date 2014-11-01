@@ -1,0 +1,1 @@
+clang++ -std=c++1z -O3 -Wall -Wextra -pedantic -fsanitize=undefined,address,integer,leak -pthread main.cpp && ./a.out
