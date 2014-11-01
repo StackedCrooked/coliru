@@ -1,0 +1,27 @@
+
+g++/libstdc++
+main.cpp: In function 'int main()':
+main.cpp:19:54: error: too many braces around initializer for 'double' [-fpermissive]
+     double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                                      ^
+
+clang++/libc++
+main.cpp:19:34: error: too many braces around scalar initializer [-Werror]
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                 ^~~
+main.cpp:19:33: warning: braces around scalar initializer
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                ^~~~~
+main.cpp:19:39: warning: braces around scalar initializer
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                      ^~~
+main.cpp:19:43: warning: braces around scalar initializer
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                          ^~~
+main.cpp:19:47: warning: braces around scalar initializer
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                              ^~~
+main.cpp:19:51: warning: braces around scalar initializer
+    double* x6 = new double[5] {{{1}},{2},{3},{4},{5}};
+                                                  ^~~
+5 warnings and 1 error generated.
