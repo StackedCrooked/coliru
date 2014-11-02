@@ -1,0 +1,26 @@
+main.cpp: In function 'int production(int)':
+main.cpp:40:60: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'pthread_t {aka long unsigned int}' [-Wformat=]
+  printf("Producteur %u a produit %d\n", pthread_self(),item);
+                                                            ^
+main.cpp:44:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: In function 'int consommation(int*)':
+main.cpp:53:65: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'pthread_t {aka long unsigned int}' [-Wformat=]
+  printf("Consommateur %u a consommé %d\n", pthread_self(),*item);
+                                                                 ^
+main.cpp:58:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: In function 'void* producer(void*)':
+main.cpp:66:13: error: 'usleep' was not declared in this scope
+  usleep(rNum);
+             ^
+main.cpp: In function 'void* consumer(void*)':
+main.cpp:90:13: error: 'usleep' was not declared in this scope
+  usleep(rNum);
+             ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:127:22: error: 'usleep' was not declared in this scope
+  usleep(mainSleepTime);
+                      ^
