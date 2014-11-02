@@ -1,0 +1,2 @@
+echo 'test Cable< Channels<3> >' && clang++ -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ && ./a.out
+echo 'test Cable< Tricked<3> >' && clang++ -DNOT_OK -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ && ./a.out

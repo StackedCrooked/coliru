@@ -1,0 +1,11 @@
+test Cable< Channels<3> >
+ok
+
+test Cable< Tricked<3> >
+main.cpp:16:5: error: static_assert failed "Cable must be intantiated with type Channels<N>"
+    static_assert( is_channel<T>(), "Cable must be intantiated with type Channels<N>" ) ;
+    ^              ~~~~~~~~~~~~~~~
+main.cpp:38:29: note: in instantiation of template class 'Cable<Tricked<3> >' requested here
+        Cable< Tricked<3> > this_is_not_ok ;
+                            ^
+1 error generated.
