@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wall -Wextra -Werror -pedantic-errors main.cpp -o main && ./main
