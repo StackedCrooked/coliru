@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'auto decorator::fun(Args&& ...) [with Args = {foo_t}]':
+main.cpp:30:16:   required from here
+main.cpp:17:45: error: no matching function for call to 'base::fun(foo_t)'
+     return b.fun(std::forward<Args>(args)...);
+                                             ^
+main.cpp:17:45: note: candidate is:
+main.cpp:5:8: note: void base::fun(unsigned int)
+   void fun(unsigned) {}
+        ^
+main.cpp:5:8: note:   no known conversion for argument 1 from 'foo_t' to 'unsigned int'
