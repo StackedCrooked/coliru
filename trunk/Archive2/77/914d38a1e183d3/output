@@ -1,0 +1,16 @@
+main.cpp:47:7: error: 'optional' does not name a type
+       optional<job_t> dequeue()
+       ^
+main.cpp: In static member function 'static void thread_pool::worker_thread(thread_pool&)':
+main.cpp:27:18: error: 'optional' was not declared in this scope
+           while (optional<job_t> job = q.dequeue())
+                  ^
+main.cpp:27:32: error: expected primary-expression before '>' token
+           while (optional<job_t> job = q.dequeue())
+                                ^
+main.cpp:27:34: error: 'job' was not declared in this scope
+           while (optional<job_t> job = q.dequeue())
+                                  ^
+main.cpp:27:42: error: 'class thread_pool' has no member named 'dequeue'
+           while (optional<job_t> job = q.dequeue())
+                                          ^
