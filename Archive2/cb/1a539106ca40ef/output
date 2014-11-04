@@ -1,0 +1,71 @@
++ clang++ -std=c++11 -O -Wall -Wextra -pedantic-errors -pthread -stdlib=libstdc++ -S -o - main.cpp
+	.text
+	.file	"main.cpp"
+	.globl	_Z1fj
+	.align	16, 0x90
+	.type	_Z1fj,@function
+_Z1fj:                                  # @_Z1fj
+	.cfi_startproc
+# BB#0:
+                                        # kill: EDI<def> EDI<kill> RDI<def>
+	movl	$1, %eax
+	testl	%edi, %edi
+	je	.LBB0_11
+# BB#1:                                 # %tailrecurse.i.preheader
+	movl	%edi, %esi
+	andl	$3, %esi
+	xorl	%eax, %eax
+	testl	%edi, %edi
+	movl	$1, %r8d
+	je	.LBB0_3
+# BB#2:                                 # %tailrecurse.i.preheader
+	testl	%esi, %esi
+	movl	$0, %ecx
+	movl	%edi, %edx
+	je	.LBB0_8
+.LBB0_3:                                # %unr.cmp6
+	movl	$1, %ecx
+	xorl	%eax, %eax
+	cmpl	$1, %esi
+	movl	%edi, %edx
+	je	.LBB0_7
+# BB#4:                                 # %unr.cmp
+	movl	$1, %eax
+	xorl	%ecx, %ecx
+	cmpl	$2, %esi
+	movl	%edi, %edx
+	je	.LBB0_6
+# BB#5:                                 # %tailrecurse.i.unr
+	leal	-1(%rdi), %edx
+	movl	$1, %ecx
+	movl	$1, %eax
+.LBB0_6:                                # %tailrecurse.i.unr1
+	decl	%edx
+	addq	%rax, %rcx
+.LBB0_7:                                # %tailrecurse.i.unr2
+	decl	%edx
+	addq	%rcx, %rax
+	movq	%rax, %r8
+.LBB0_8:                                # %tailrecurse.i.preheader.split
+	cmpl	$4, %edi
+	jb	.LBB0_11
+# BB#9:
+	movq	%r8, %rax
+	.align	16, 0x90
+.LBB0_10:                               # %tailrecurse.i
+                                        # =>This Inner Loop Header: Depth=1
+	addq	%rax, %rcx
+	addq	%rcx, %rax
+	addq	%rax, %rcx
+	addq	%rcx, %rax
+	addl	$-4, %edx
+	jne	.LBB0_10
+.LBB0_11:                               # %_Z4fibojym.exit
+	retq
+.Ltmp0:
+	.size	_Z1fj, .Ltmp0-_Z1fj
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
