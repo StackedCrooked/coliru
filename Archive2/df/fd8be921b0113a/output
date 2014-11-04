@@ -1,0 +1,50 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z1fm
+	.align	16, 0x90
+	.type	_Z1fm,@function
+_Z1fm:                                  # @_Z1fm
+	.cfi_startproc
+# BB#0:
+	xorl	%esi, %esi
+	movl	$1, %edx
+	jmp	_Z4fibommm              # TAILCALL
+.Ltmp0:
+	.size	_Z1fm, .Ltmp0-_Z1fm
+	.cfi_endproc
+
+	.section	.text._Z4fibommm,"axG",@progbits,_Z4fibommm,comdat
+	.weak	_Z4fibommm
+	.align	16, 0x90
+	.type	_Z4fibommm,@function
+_Z4fibommm:                             # @_Z4fibommm
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+.Ltmp2:
+	.cfi_offset %rbx, -16
+	movq	%rsi, %rbx
+	cmpq	$2, %rdi
+	jae	.LBB1_1
+# BB#2:
+	movq	%rdi, %rax
+	popq	%rbx
+	retq
+.LBB1_1:
+	decq	%rdi
+	leaq	(%rdx,%rbx), %rax
+	movq	%rdx, %rsi
+	movq	%rax, %rdx
+	callq	_Z4fibommm
+	addq	%rbx, %rax
+	popq	%rbx
+	retq
+.Ltmp3:
+	.size	_Z4fibommm, .Ltmp3-_Z4fibommm
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
