@@ -1,0 +1,1 @@
+set -x ; clang++ -std=c++11 -O0 -Wall -Werror main.cpp && ./a.out
