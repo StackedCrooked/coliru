@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ && ./a.out <<< '1/2/3 4/5   /6   7 / 8 / 9 1?2?3'
