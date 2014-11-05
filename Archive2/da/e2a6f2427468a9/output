@@ -1,0 +1,58 @@
+Noisy()
+Noisy()
+Noisy()
+~Noisy()
+~Noisy()
+~Noisy()
+
+Noisy()
+Noisy()
+Noisy()
+~Noisy()
+~Noisy()
+~Noisy()
+
+Noisy()
+Noisy()
+Noisy()
+~Noisy()
+*** glibc detected *** ./a.out: munmap_chunk(): invalid pointer: 0x00000000022b9018 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f0ee7ee1846]
+./a.out[0x400e3a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f0ee7e8476d]
+./a.out[0x400b09]
+======= Memory map: ========
+00400000-00402000 r-xp 00000000 ca:01 426706                             /tmp/1415214999.62031/a.out
+00601000-00602000 rw-p 00001000 ca:01 426706                             /tmp/1415214999.62031/a.out
+022b9000-022da000 rw-p 00000000 00:00 0                                  [heap]
+7f0ee7e63000-7f0ee8018000 r-xp 00000000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f0ee8018000-7f0ee8217000 ---p 001b5000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f0ee8217000-7f0ee821b000 r--p 001b4000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f0ee821b000-7f0ee821d000 rw-p 001b8000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f0ee821d000-7f0ee8222000 rw-p 00000000 00:00 0 
+7f0ee8222000-7f0ee823a000 r-xp 00000000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f0ee823a000-7f0ee8439000 ---p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f0ee8439000-7f0ee843a000 r--p 00017000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f0ee843a000-7f0ee843b000 rw-p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7f0ee843b000-7f0ee843f000 rw-p 00000000 00:00 0 
+7f0ee843f000-7f0ee8455000 r-xp 00000000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f0ee8455000-7f0ee8654000 ---p 00016000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f0ee8654000-7f0ee8655000 rw-p 00015000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f0ee8655000-7f0ee8750000 r-xp 00000000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f0ee8750000-7f0ee894f000 ---p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f0ee894f000-7f0ee8950000 r--p 000fa000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f0ee8950000-7f0ee8951000 rw-p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f0ee8951000-7f0ee8a3c000 r-xp 00000000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f0ee8a3c000-7f0ee8c3b000 ---p 000eb000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f0ee8c3b000-7f0ee8c44000 r--p 000ea000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f0ee8c44000-7f0ee8c46000 rw-p 000f3000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f0ee8c46000-7f0ee8c5b000 rw-p 00000000 00:00 0 
+7f0ee8c5b000-7f0ee8c7d000 r-xp 00000000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f0ee8e74000-7f0ee8e7d000 rw-p 00000000 00:00 0 
+7f0ee8e7d000-7f0ee8e7e000 r--p 00022000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f0ee8e7e000-7f0ee8e80000 rw-p 00023000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7ffffe6cf000-7ffffe6f0000 rw-p 00000000 00:00 0                          [stack]
+7ffffe7ff000-7ffffe800000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+bash: line 7: 32574 Aborted                 (core dumped) ./a.out
