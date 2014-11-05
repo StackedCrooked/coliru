@@ -1,0 +1,12 @@
++ g++-4.9 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp: In function 'int main()':
+main.cpp:31:12: error: call of overloaded 'g(<brace-enclosed initializer list>)' is ambiguous
+     g({1,2}); // ok
+            ^
+main.cpp:31:12: note: candidates are:
+main.cpp:22:6: note: void g(const Foo&)
+ void g(Foo const &) {}
+      ^
+main.cpp:23:6: note: void g(const std::vector<Bar>&)
+ void g(std::vector<Bar> const &) {}
+      ^
