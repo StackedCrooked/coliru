@@ -1,0 +1,207 @@
+main.cpp:107:18: error: expected ';' after top level declarator
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+                 ^
+                 ;
+main.cpp:108:1: error: expected unqualified-id
+{
+^
+main.cpp:116:6: error: redefinition of 'fractionType'
+bool fractionType fractionType::operator - (const fractionType& rightFraction);
+     ^
+main.cpp:107:6: note: previous definition is here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:116:18: error: expected ';' after top level declarator
+bool fractionType fractionType::operator - (const fractionType& rightFraction);
+                 ^
+                 ;
+main.cpp:117:1: error: expected unqualified-id
+{
+^
+main.cpp:125:6: error: redefinition of 'fractionType'
+bool fractionType fractionType::operator * (const fractionType& rightFraction);
+     ^
+main.cpp:107:6: note: previous definition is here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:125:18: error: expected ';' after top level declarator
+bool fractionType fractionType::operator * (const fractionType& rightFraction);
+                 ^
+                 ;
+main.cpp:126:1: error: expected unqualified-id
+{
+^
+main.cpp:134:6: error: redefinition of 'fractionType'
+bool fractionType fractionType::operator / (const fractionType& rightFraction);
+     ^
+main.cpp:107:6: note: previous definition is here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:134:18: error: expected ';' after top level declarator
+bool fractionType fractionType::operator / (const fractionType& rightFraction);
+                 ^
+                 ;
+main.cpp:135:1: error: expected unqualified-id
+{
+^
+main.cpp:152:48: error: must use 'class' tag to refer to type 'fractionType' in this scope
+ostream& operator << (ostream& osObject, const fractionType& myFraction)
+                                               ^
+                                               class 
+main.cpp:107:6: note: class 'fractionType' is hidden by a non-type declaration of 'fractionType' here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:158:48: error: must use 'class' tag to refer to type 'fractionType' in this scope
+istream& operator >> (istream& isObject, const fractionType& myFraction)
+                                               ^
+                                               class 
+main.cpp:107:6: note: class 'fractionType' is hidden by a non-type declaration of 'fractionType' here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:161:28: error: 'a' is a private member of 'fractionType'
+    isObject >> myFraction.a >> ch >> myFraction.b;
+                           ^
+main.cpp:36:9: note: declared private here
+    int a;
+        ^
+main.cpp:161:14: error: invalid operands to binary expression ('istream' (aka 'basic_istream<char>') and 'int')
+    isObject >> myFraction.a >> ch >> myFraction.b;
+    ~~~~~~~~ ^  ~~~~~~~~~~~~
+/usr/include/c++/v1/istream:200:20: note: candidate function not viable: no known conversion from 'const int' to 'std::__1::basic_istream<char, std::__1::char_traits<char> > &(*)(std::__1::basic_istream<char, std::__1::char_traits<char> > &)' for 1st argument
+    basic_istream& operator>>(basic_istream& (*__pf)(basic_istream&));
+                   ^
+/usr/include/c++/v1/istream:201:20: note: candidate function not viable: no known conversion from 'const int' to 'basic_ios<char_type, traits_type> &(*)(basic_ios<char_type, traits_type> &)' for 1st argument
+    basic_istream& operator>>(basic_ios<char_type, traits_type>&
+                   ^
+/usr/include/c++/v1/istream:203:20: note: candidate function not viable: no known conversion from 'const int' to 'std::__1::ios_base &(*)(std::__1::ios_base &)' for 1st argument
+    basic_istream& operator>>(ios_base& (*__pf)(ios_base&));
+                   ^
+/usr/include/c++/v1/istream:204:20: note: candidate function not viable: no known conversion from 'const int' to 'basic_streambuf<char_type, traits_type> *' for 1st argument
+    basic_istream& operator>>(basic_streambuf<char_type, traits_type>* __sb);
+                   ^
+/usr/include/c++/v1/istream:205:20: note: candidate function not viable: no known conversion from 'const int' to 'bool &' for 1st argument
+    basic_istream& operator>>(bool& __n);
+                   ^
+/usr/include/c++/v1/istream:206:20: note: candidate function not viable: no known conversion from 'const int' to 'short &' for 1st argument
+    basic_istream& operator>>(short& __n);
+                   ^
+/usr/include/c++/v1/istream:207:20: note: candidate function not viable: no known conversion from 'const int' to 'unsigned short &' for 1st argument
+    basic_istream& operator>>(unsigned short& __n);
+                   ^
+/usr/include/c++/v1/istream:208:20: note: candidate function not viable: 1st argument ('const int') would lose const qualifier
+    basic_istream& operator>>(int& __n);
+                   ^
+/usr/include/c++/v1/istream:209:20: note: candidate function not viable: no known conversion from 'const int' to 'unsigned int &' for 1st argument
+    basic_istream& operator>>(unsigned int& __n);
+                   ^
+/usr/include/c++/v1/istream:210:20: note: candidate function not viable: no known conversion from 'const int' to 'long &' for 1st argument
+    basic_istream& operator>>(long& __n);
+                   ^
+/usr/include/c++/v1/istream:211:20: note: candidate function not viable: no known conversion from 'const int' to 'unsigned long &' for 1st argument
+    basic_istream& operator>>(unsigned long& __n);
+                   ^
+/usr/include/c++/v1/istream:212:20: note: candidate function not viable: no known conversion from 'const int' to 'long long &' for 1st argument
+    basic_istream& operator>>(long long& __n);
+                   ^
+/usr/include/c++/v1/istream:213:20: note: candidate function not viable: no known conversion from 'const int' to 'unsigned long long &' for 1st argument
+    basic_istream& operator>>(unsigned long long& __n);
+                   ^
+/usr/include/c++/v1/istream:214:20: note: candidate function not viable: no known conversion from 'const int' to 'float &' for 1st argument
+    basic_istream& operator>>(float& __f);
+                   ^
+/usr/include/c++/v1/istream:215:20: note: candidate function not viable: no known conversion from 'const int' to 'double &' for 1st argument
+    basic_istream& operator>>(double& __f);
+                   ^
+/usr/include/c++/v1/istream:216:20: note: candidate function not viable: no known conversion from 'const int' to 'long double &' for 1st argument
+    basic_istream& operator>>(long double& __f);
+                   ^
+/usr/include/c++/v1/istream:217:20: note: candidate function not viable: no known conversion from 'const int' to 'void *&' for 1st argument
+    basic_istream& operator>>(void*& __p);
+                   ^
+/usr/include/c++/v1/istream:789:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from 'const int' to 'unsigned char *' for 2nd argument
+operator>>(basic_istream<char, _Traits>& __is, unsigned char* __s)
+^
+/usr/include/c++/v1/istream:797:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from 'const int' to 'signed char *' for 2nd argument
+operator>>(basic_istream<char, _Traits>& __is, signed char* __s)
+^
+/usr/include/c++/v1/istream:832:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from 'const int' to 'unsigned char &' for 2nd argument
+operator>>(basic_istream<char, _Traits>& __is, unsigned char& __c)
+^
+/usr/include/c++/v1/istream:840:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from 'const int' to 'signed char &' for 2nd argument
+operator>>(basic_istream<char, _Traits>& __is, signed char& __c)
+^
+/usr/include/c++/v1/istream:1450:1: note: candidate function [with _CharT = char, _Traits = std::__1::char_traits<char>, _Tp = const int] not viable: no known conversion from 'istream' (aka 'basic_istream<char>') to 'basic_istream<char, std::__1::char_traits<char> > &&' for 1st argument
+operator>>(basic_istream<_CharT, _Traits>&& __is, _Tp& __x)
+^
+main.cpp:158:10: note: candidate function not viable: no known conversion from 'const int' to 'const class fractionType' for 2nd argument
+istream& operator >> (istream& isObject, const fractionType& myFraction)
+         ^
+/usr/include/c++/v1/istream:804:1: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'const int')
+operator>>(basic_istream<_CharT, _Traits>& __is, _CharT& __c)
+^
+/usr/include/c++/v1/istream:740:1: note: candidate template ignored: could not match '_CharT *' against 'int'
+operator>>(basic_istream<_CharT, _Traits>& __is, _CharT* __s)
+^
+/usr/include/c++/v1/istream:1531:1: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const int'
+operator>>(basic_istream<_CharT, _Traits>& __is,
+^
+/usr/include/c++/v1/istream:1663:1: note: candidate template ignored: could not match 'bitset<_Size>' against 'const int'
+operator>>(basic_istream<_CharT, _Traits>& __is, bitset<_Size>& __x)
+^
+/usr/include/c++/v1/iomanip:301:1: note: candidate template ignored: could not match '__iom_t7<type-parameter-0-2>' against 'const int'
+operator>>(basic_istream<_CharT, _Traits>& __is, const __iom_t7<_MoneyT>& __x)
+^
+/usr/include/c++/v1/iomanip:420:1: note: candidate template ignored: could not match '__iom_t9<type-parameter-0-0>' against 'const int'
+operator>>(basic_istream<_CharT, _Traits>& __is, const __iom_t9<_CharT>& __x)
+^
+/usr/include/c++/v1/iomanip:616:33: note: candidate template ignored: could not match '__quoted_proxy<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const int'
+basic_istream<_CharT, _Traits>& operator>>(
+                                ^
+main.cpp:161:50: error: 'b' is a private member of 'fractionType'
+    isObject >> myFraction.a >> ch >> myFraction.b;
+                                                 ^
+main.cpp:37:9: note: declared private here
+    int b;
+        ^
+main.cpp:172:5: error: must use 'class' tag to refer to type 'fractionType' in this scope
+    fractionType num1(5, 6);
+    ^
+    class 
+main.cpp:107:6: note: class 'fractionType' is hidden by a non-type declaration of 'fractionType' here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:173:5: error: must use 'class' tag to refer to type 'fractionType' in this scope
+    fractionType num2();
+    ^
+    class 
+main.cpp:107:6: note: class 'fractionType' is hidden by a non-type declaration of 'fractionType' here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:173:22: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    fractionType num2();
+                     ^~
+main.cpp:173:22: note: remove parentheses to declare a variable
+    fractionType num2();
+                     ^~
+main.cpp:174:5: error: must use 'class' tag to refer to type 'fractionType' in this scope
+    fractionType num3();
+    ^
+    class 
+main.cpp:107:6: note: class 'fractionType' is hidden by a non-type declaration of 'fractionType' here
+bool fractionType fractionType::operator + (const fractionType& rightFraction);
+     ^
+main.cpp:174:22: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    fractionType num3();
+                     ^~
+main.cpp:174:22: note: remove parentheses to declare a variable
+    fractionType num3();
+                     ^~
+main.cpp:181:34: warning: address of function 'num2' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    cout << "Line 8: Num2 = " << num2 << endl;
+    ~~~~                         ^~~~
+main.cpp:181:34: note: prefix with the address-of operator to silence this warning
+    cout << "Line 8: Num2 = " << num2 << endl;
+                                 ^
+                                 &
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+3 warnings and 20 errors generated.
