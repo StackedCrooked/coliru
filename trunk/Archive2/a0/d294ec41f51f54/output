@@ -1,0 +1,11 @@
++ g++-4.9 -std=c++1y -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+main.cpp: In function 'int main(int, char**)':
+main.cpp:14:61: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t {aka long unsigned int}' [-Wformat=]
+         printf("write = %d\n", fwrite(buf, 1, sizeof buf, f));
+                                                             ^
+main.cpp:24:53: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t {aka long unsigned int}' [-Wformat=]
+     printf("read = %d\n", fread(p, 1, sizeof buf, f));
+                                                     ^
++ ./a.out
+write = 32768
+read = 32768
