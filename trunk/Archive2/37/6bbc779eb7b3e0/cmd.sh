@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wextra -pedantic -fno-elide-constructors -utf8 main.cpp && ./a.out
