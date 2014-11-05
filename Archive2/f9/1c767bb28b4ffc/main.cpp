@@ -1,0 +1,14 @@
+#include <iostream>     // std::cin, std::cout
+#include <fstream>      // std::ifstream
+#include <string>       // std::string
+
+int main () {
+    std::string s;
+    std::cout << "Enter the name of an existing text file: ";
+    if(!std::getline(std::cin, s))
+        return 1;
+    std::ifstream is(s);     // open file
+    char c;
+    while (is.get(c))          // loop while extraction from file is possible
+        std::cout << c;
+}
