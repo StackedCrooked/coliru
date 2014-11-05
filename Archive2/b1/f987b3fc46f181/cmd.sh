@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pthread main.cpp -lboost_system -lboost_thread -lboost_context -lboost_coroutine && ./a.out
