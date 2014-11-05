@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O0 -Wall -pedantic -Wpedantic -Wdeprecated-declarations -Werror -Wextra -pthread main.cpp && ./a.out
