@@ -1,0 +1,1 @@
+echo "The quick brown fox jumped over the lazy dogs." > blah.txt; clang++ -std=c++14 -stdlib=libc++ main.cpp -Weverything -Wno-c++98-compat -lsupc++ && ./a.out blah.txt; printf "INPUT: %s\nOUTPUT: %s\n" "$(cat blah.txt)" "$(cat output.txt)"
