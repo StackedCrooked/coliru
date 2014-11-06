@@ -1,0 +1,40 @@
+main.cpp: In function 'int main()':
+main.cpp:21:29: error: type/value mismatch at argument 2 in template parameter list for 'template<class _Tp, class _Dp> class std::unique_ptr'
+ unique_ptr<double, std::free> up1 ((double*)malloc(sizeof(double));
+                             ^
+main.cpp:21:29: error:   expected a type, got 'free'
+main.cpp:21:35: error: invalid type in declaration before '(' token
+ unique_ptr<double, std::free> up1 ((double*)malloc(sizeof(double));
+                                   ^
+main.cpp:21:67: error: expected ')' before ';' token
+ unique_ptr<double, std::free> up1 ((double*)malloc(sizeof(double));
+                                                                   ^
+main.cpp:23:13: error: no matching function for call to 'std::unique_ptr<double>::swap(int&)'
+ up2.swap(up1);
+             ^
+main.cpp:23:13: note: candidate is:
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:349:7: note: void std::unique_ptr<_Tp, _Dp>::swap(std::unique_ptr<_Tp, _Dp>&) [with _Tp = double; _Dp = std::default_delete<double>]
+       swap(unique_ptr& __u) noexcept
+       ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:349:7: note:   no known conversion for argument 1 from 'int' to 'std::unique_ptr<double>&'
+main.cpp:27:12: error: the value of 'pp' is not usable in a constant expression
+ unique_ptr<pp, decltype(free)*> intptr; //initialized with a custom deleter
+            ^
+main.cpp:26:7: note: 'pp' was not declared 'constexpr'
+ char* pp=(char*)malloc(10*sizeof(char));
+       ^
+main.cpp:27:31: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp, class _Dp> class std::unique_ptr'
+ unique_ptr<pp, decltype(free)*> intptr; //initialized with a custom deleter
+                               ^
+main.cpp:27:31: error:   expected a type, got 'pp'
+main.cpp:27:39: error: invalid type in declaration before ';' token
+ unique_ptr<pp, decltype(free)*> intptr; //initialized with a custom deleter
+                                       ^
+main.cpp:28:2: error: invalid type argument of unary '*' (have 'int')
+ *intptr=5;
+  ^
+main.cpp:17:9: warning: unused variable 'len' [-Wunused-variable]
+     int len=ups->size();
+         ^
