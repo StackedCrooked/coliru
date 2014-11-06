@@ -1,0 +1,23 @@
+main.cpp:15:37: error: 'decay_t' was not declared in this scope
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+                                     ^
+main.cpp:15:52: error: template argument 1 is invalid
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+                                                    ^
+main.cpp:15:53: error: expected parameter pack before '...'
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+                                                     ^
+main.cpp:15:53: error: template argument 1 is invalid
+main.cpp:15:56: error: template argument 1 is invalid
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+                                                        ^
+main.cpp:15:8: error: template argument 1 is invalid
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+        ^
+main.cpp:15:58: error: expected unqualified-id before '>' token
+ future<when_any_result<future<tuple<decay_t<Futures>...>>>> when_any(Futures&&...)
+                                                          ^
+main.cpp: In function 'int main(int, const char**)':
+main.cpp:27:30: error: 'when_any' was not declared in this scope
+     auto any = when_any(f1,f2).get();
+                              ^
