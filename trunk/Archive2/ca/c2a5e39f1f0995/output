@@ -1,0 +1,47 @@
+*** glibc detected *** ./a.out: free(): invalid next size (fast): 0x000000000109a3c0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7fd51e99b846]
+./a.out[0x408f70]
+./a.out[0x408f40]
+./a.out[0x408ece]
+./a.out[0x408e59]
+./a.out[0x408db8]
+./a.out[0x402f6f]
+./a.out[0x40195b]
+./a.out[0x401d52]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fd51e93e76d]
+./a.out[0x4016a9]
+======= Memory map: ========
+00400000-00422000 r-xp 00000000 ca:01 737480                             /tmp/1415293746-155001110/a.out
+00622000-00623000 rw-p 00022000 ca:01 737480                             /tmp/1415293746-155001110/a.out
+0109a000-010bb000 rw-p 00000000 00:00 0                                  [heap]
+7fd51e91d000-7fd51ead2000 r-xp 00000000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fd51ead2000-7fd51ecd1000 ---p 001b5000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fd51ecd1000-7fd51ecd5000 r--p 001b4000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fd51ecd5000-7fd51ecd7000 rw-p 001b8000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7fd51ecd7000-7fd51ecdc000 rw-p 00000000 00:00 0 
+7fd51ecdc000-7fd51ecf4000 r-xp 00000000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fd51ecf4000-7fd51eef3000 ---p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fd51eef3000-7fd51eef4000 r--p 00017000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fd51eef4000-7fd51eef5000 rw-p 00018000 ca:01 1141665                    /lib/x86_64-linux-gnu/libpthread-2.15.so
+7fd51eef5000-7fd51eef9000 rw-p 00000000 00:00 0 
+7fd51eef9000-7fd51ef0f000 r-xp 00000000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7fd51ef0f000-7fd51f10e000 ---p 00016000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7fd51f10e000-7fd51f10f000 rw-p 00015000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7fd51f10f000-7fd51f20a000 r-xp 00000000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7fd51f20a000-7fd51f409000 ---p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7fd51f409000-7fd51f40a000 r--p 000fa000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7fd51f40a000-7fd51f40b000 rw-p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7fd51f40b000-7fd51f4f6000 r-xp 00000000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7fd51f4f6000-7fd51f6f5000 ---p 000eb000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7fd51f6f5000-7fd51f6fe000 r--p 000ea000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7fd51f6fe000-7fd51f700000 rw-p 000f3000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7fd51f700000-7fd51f715000 rw-p 00000000 00:00 0 
+7fd51f715000-7fd51f737000 r-xp 00000000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fd51f92f000-7fd51f937000 rw-p 00000000 00:00 0 
+7fd51f937000-7fd51f938000 r--p 00022000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fd51f938000-7fd51f93a000 rw-p 00023000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fffa4438000-7fffa4459000 rw-p 00000000 00:00 0                          [stack]
+7fffa45ff000-7fffa4600000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+bash: line 7: 28170 Aborted                 (core dumped) ./a.out
