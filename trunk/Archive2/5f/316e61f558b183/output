@@ -1,0 +1,34 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:8:40: error: no matching function for call to 'swap(int [2][3], int [2][3], int)'
+     static_assert(noexcept(swap(x, y, 0)), "");
+                                        ^
+main.cpp:8:40: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/utility:70,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:166:5: note: template<class _Tp> void std::swap(_Tp&, _Tp&)
+     swap(_Tp& __a, _Tp& __b)
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:166:5: note:   template argument deduction/substitution failed:
+main.cpp:8:40: note:   candidate expects 2 arguments, 3 provided
+     static_assert(noexcept(swap(x, y, 0)), "");
+                                        ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/utility:70,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:185:5: note: template<class _Tp, long unsigned int _Nm> void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
+     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:185:5: note:   template argument deduction/substitution failed:
+main.cpp:8:40: note:   candidate expects 2 arguments, 3 provided
+     static_assert(noexcept(swap(x, y, 0)), "");
+                                        ^
+In file included from /usr/local/include/c++/4.9.0/utility:70:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:254:5: note: template<class _T1, class _T2> void std::swap(std::pair<_T1, _T2>&, std::pair<_T1, _T2>&)
+     swap(pair<_T1, _T2>& __x, pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:254:5: note:   template argument deduction/substitution failed:
+main.cpp:8:40: note:   mismatched types 'std::pair<_T1, _T2>' and 'int [2][3]'
+     static_assert(noexcept(swap(x, y, 0)), "");
+                                        ^
