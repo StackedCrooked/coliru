@@ -1,0 +1,13 @@
+main.cpp:15:4: error: functional-style cast from 'void' to 'Foo' uses deleted function
+   Foo({1, 2});   // Foo(int = 1, int = 2)
+   ^~~~~~~~~~
+main.cpp:6:5: note: candidate constructor has been explicitly deleted
+    Foo(const Foo& f) = delete;
+    ^
+main.cpp:19:4: error: no matching function for call to 'bar'
+   bar({1, 2});   // error: no matching function for call to 'bar'  <<< Why? <<<
+   ^~~
+main.cpp:9:6: note: candidate function not viable: requires 2 arguments, but 1 was provided
+void bar(int x, int y) { std::cout << "bar(int = " << x << ", int = " << y << ")" << std::endl; }
+     ^
+2 errors generated.
