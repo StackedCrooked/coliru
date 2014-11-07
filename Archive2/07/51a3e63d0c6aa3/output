@@ -1,0 +1,40 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:9:50: warning: unused parameter 'consumer' [-Wunused-parameter]
+    void Register( std::function<bool(const T&)> consumer )
+                                                 ^
+main.cpp:16:52: warning: unused parameter 'consumer' [-Wunused-parameter]
+        inline void Register(const FunctionObject& consumer)
+                                                   ^
+main.cpp:24:12: error: use of undeclared identifier 'con'; did you mean 'cos'?
+ void func(con)
+           ^~~
+           cos
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:64:13: note: 'cos' declared here
+__MATHCALL (cos,, (_Mdouble_ __x));
+            ^
+/usr/include/math.h:55:25: note: expanded from macro '__MATHCALL'
+  __MATHDECL (_Mdouble_,function,suffix, args)
+                        ^
+/usr/include/math.h:57:22: note: expanded from macro '__MATHDECL'
+  __MATHDECL_1(type, function,suffix, args); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+main.cpp:24:7: error: variable has incomplete type 'void'
+ void func(con)
+      ^
+main.cpp:24:16: error: expected ';' after top level declarator
+ void func(con)
+               ^
+               ;
+main.cpp:28:5: error: use of undeclared identifier 'funct'
+    funct(A());
+    ^
+2 warnings and 4 errors generated.
