@@ -1,0 +1,15 @@
+clang++ c++14
+main.cpp:3:25: error: in-class initializer for static data member of type 'const double' requires 'constexpr' specifier [-Wstatic-float-init]
+    static const double x = 5.5;
+                        ^   ~~~
+main.cpp:3:5: note: add 'constexpr'
+    static const double x = 5.5;
+    ^
+    constexpr 
+1 error generated.
+
+g++ c++14
+main.cpp:3:29: error: 'constexpr' needed for in-class initialization of static data member 'const double Simple::x' of non-integral type [-fpermissive]
+     static const double x = 5.5;
+                             ^
+
