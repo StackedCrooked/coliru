@@ -1,0 +1,22 @@
+gnu
+0 1 4 9 16 25 36 49 64 81 
+**** ok ****
+
+llvm
+main.cpp:19:18: error: implicit instantiation of undefined template 'std::vector<int, std::allocator<int> >'
+    for( int v : shogun::foo( {0,1,2,3,4,5,6,7,8,9} ) ) std::cout << v << ' ' ;
+                 ^
+main.cpp:5:44: note: template is declared here
+    template < typename, typename > struct vector ;
+                                           ^
+main.cpp:25:10: error: no type named 'vector' in namespace 'std'; did you mean 'hecto'?
+    std::vector<int> foo( std::vector<int> v )
+    ~~~~~^~~~~~
+         hecto
+/usr/include/c++/v1/ratio:265:43: note: 'hecto' declared here
+typedef ratio<                100LL, 1LL> hecto;
+                                          ^
+main.cpp:25:16: error: expected unqualified-id
+    std::vector<int> foo( std::vector<int> v )
+               ^
+3 errors generated.
