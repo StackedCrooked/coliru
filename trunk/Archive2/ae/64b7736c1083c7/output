@@ -1,0 +1,64 @@
+main.cpp:36:21: error: invalid operands to binary expression ('const char *' and '__gnu_cxx::__normal_iterator<char *, std::basic_string<char> >')
+            if (end == std::mismatch(s.begin(), s.begin(), s.rbegin()).first)
+                ~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:12:9: note: in instantiation of function template specialization 'main()::(anonymous class)::operator()<const char *, const char *>' requested here
+        f(s,first,len);
+        ^
+main.cpp:23:5: note: in instantiation of function template specialization 'tokenize<const char *, (lambda at main.cpp:31:51)>' requested here
+    tokenize(b, end(range), f);
+    ^
+main.cpp:31:5: note: in instantiation of function template specialization 'tokenize<char [34], (lambda at main.cpp:31:51)>' requested here
+    tokenize("hortus racecar musicus religiosus", [&](auto start, auto end, size_t len) {
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:292:5: note: candidate template ignored: could not match 'reverse_iterator<type-parameter-0-0>' against 'const char *'
+    operator==(const reverse_iterator<_Iterator>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:342:5: note: candidate template ignored: could not match 'reverse_iterator<type-parameter-0-0>' against 'const char *'
+    operator==(const reverse_iterator<_IteratorL>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:823:5: note: candidate template ignored: could not match '__normal_iterator<type-parameter-0-0, type-parameter-0-2>' against 'const char *'
+    operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:830:5: note: candidate template ignored: could not match '__normal_iterator<type-parameter-0-0, type-parameter-0-1>' against 'const char *'
+    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: candidate template ignored: could not match 'move_iterator<type-parameter-0-0>' against 'const char *'
+    operator==(const move_iterator<_IteratorL>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: candidate template ignored: could not match 'move_iterator<type-parameter-0-0>' against 'const char *'
+    operator==(const move_iterator<_Iterator>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/postypes.h:216:5: note: candidate template ignored: could not match 'fpos<type-parameter-0-0>' against 'const char *'
+    operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_pair.h:214:5: note: candidate template ignored: could not match 'pair<type-parameter-0-0, type-parameter-0-1>' against 'const char *'
+    operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/ext/new_allocator.h:139:5: note: candidate template ignored: could not match 'new_allocator<type-parameter-0-0>' against 'const char *'
+    operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:128:5: note: candidate template ignored: could not match 'allocator<type-parameter-0-0>' against 'const char *'
+    operator==(const allocator<_T1>&, const allocator<_T2>&)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/allocator.h:133:5: note: candidate template ignored: could not match 'allocator<type-parameter-0-0>' against 'const char *'
+    operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/basic_string.h:2505:5: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const char *'
+    operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/basic_string.h:2512:5: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, char_traits<type-parameter-0-0>, allocator<type-parameter-0-0> >' against 'const char *'
+    operator==(const basic_string<_CharT>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/basic_string.h:2526:5: note: candidate template ignored: could not match 'basic_string' against '__normal_iterator'
+    operator==(const _CharT* __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/basic_string.h:2538:5: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against 'const char *'
+    operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: candidate template ignored: could not match 'istreambuf_iterator<type-parameter-0-0, type-parameter-0-1>' against 'const char *'
+    operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stream_iterator.h:130:5: note: candidate template ignored: could not match 'istream_iterator<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>' against 'const char *'
+    operator==(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+    ^
+1 error generated.
