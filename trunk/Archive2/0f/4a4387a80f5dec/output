@@ -1,0 +1,39 @@
+*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x0000000002541010 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f6adbb95846]
+./a.out[0x400a37]
+./a.out[0x400927]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f6adbb3876d]
+./a.out[0x4007e9]
+======= Memory map: ========
+00400000-00401000 r-xp 00000000 ca:01 737465                             /tmp/1415353475-800631300/a.out
+00601000-00602000 rw-p 00001000 ca:01 737465                             /tmp/1415353475-800631300/a.out
+02541000-02562000 rw-p 00000000 00:00 0                                  [heap]
+7f6adbb17000-7f6adbccc000 r-xp 00000000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f6adbccc000-7f6adbecb000 ---p 001b5000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f6adbecb000-7f6adbecf000 r--p 001b4000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f6adbecf000-7f6adbed1000 rw-p 001b8000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f6adbed1000-7f6adbed6000 rw-p 00000000 00:00 0 
+7f6adbed6000-7f6adbeec000 r-xp 00000000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f6adbeec000-7f6adc0eb000 ---p 00016000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f6adc0eb000-7f6adc0ec000 rw-p 00015000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f6adc0ec000-7f6adc1e7000 r-xp 00000000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f6adc1e7000-7f6adc3e6000 ---p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f6adc3e6000-7f6adc3e7000 r--p 000fa000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f6adc3e7000-7f6adc3e8000 rw-p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f6adc3e8000-7f6adc4d3000 r-xp 00000000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f6adc4d3000-7f6adc6d2000 ---p 000eb000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f6adc6d2000-7f6adc6db000 r--p 000ea000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f6adc6db000-7f6adc6dd000 rw-p 000f3000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f6adc6dd000-7f6adc6f2000 rw-p 00000000 00:00 0 
+7f6adc6f2000-7f6adc714000 r-xp 00000000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f6adc90b000-7f6adc914000 rw-p 00000000 00:00 0 
+7f6adc914000-7f6adc915000 r--p 00022000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f6adc915000-7f6adc917000 rw-p 00023000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fff8b4cb000-7fff8b4ec000 rw-p 00000000 00:00 0                          [stack]
+7fff8b5aa000-7fff8b5ab000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+X::X()
+X::~X()
+X::~X()
+bash: line 7: 20067 Aborted                 (core dumped) ./a.out
