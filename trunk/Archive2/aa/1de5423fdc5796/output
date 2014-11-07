@@ -1,0 +1,40 @@
+main.cpp: In constructor 'X::X()':
+main.cpp:2:30: error: 'cout' is not a member of 'std'
+     X()                    { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp: In destructor 'X::~X()':
+main.cpp:3:30: error: 'cout' is not a member of 'std'
+     ~X()                   { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp: In copy constructor 'X::X(const X&)':
+main.cpp:4:30: error: 'cout' is not a member of 'std'
+     X(X const&)            { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp: In constructor 'X::X(X&&)':
+main.cpp:5:30: error: 'cout' is not a member of 'std'
+     X(X&&)                 { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp: In member function 'X& X::operator=(const X&)':
+main.cpp:6:30: error: 'cout' is not a member of 'std'
+     X& operator=(X const&) { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp:6:72: warning: no return statement in function returning non-void [-Wreturn-type]
+     X& operator=(X const&) { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                                                                        ^
+main.cpp: In member function 'X& X::operator=(X&&)':
+main.cpp:7:30: error: 'cout' is not a member of 'std'
+     X& operator=(X&&)      { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                              ^
+main.cpp:7:72: warning: no return statement in function returning non-void [-Wreturn-type]
+     X& operator=(X&&)      { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                                                                        ^
+main.cpp: In function 'int main()':
+main.cpp:12:16: error: 'funky_ptr' was not declared in this scope
+     auto ptr = funky_ptr<X>(new X);
+                ^
+main.cpp:12:27: error: expected primary-expression before '>' token
+     auto ptr = funky_ptr<X>(new X);
+                           ^
+main.cpp:14:14: error: unable to deduce 'auto' from 'ptr'
+     auto b = ptr;
+              ^
