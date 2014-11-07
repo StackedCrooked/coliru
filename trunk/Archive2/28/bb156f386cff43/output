@@ -1,0 +1,47 @@
+main.cpp: In member function 'X& X::operator=(const X&)':
+main.cpp:20:72: warning: no return statement in function returning non-void [-Wreturn-type]
+     X& operator=(X const&) { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                                                                        ^
+main.cpp: In member function 'X& X::operator=(X&&)':
+main.cpp:21:72: warning: no return statement in function returning non-void [-Wreturn-type]
+     X& operator=(X&&)      { std::cout << __PRETTY_FUNCTION__ << "\n"; } 
+                                                                        ^
+*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x00000000009e8010 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f254c2db846]
+./a.out[0x400a37]
+./a.out[0x400927]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f254c27e76d]
+./a.out[0x4007e9]
+======= Memory map: ========
+00400000-00401000 r-xp 00000000 ca:01 737464                             /tmp/1415351175-591724698/a.out
+00601000-00602000 rw-p 00001000 ca:01 737464                             /tmp/1415351175-591724698/a.out
+009e8000-00a09000 rw-p 00000000 00:00 0                                  [heap]
+7f254c25d000-7f254c412000 r-xp 00000000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f254c412000-7f254c611000 ---p 001b5000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f254c611000-7f254c615000 r--p 001b4000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f254c615000-7f254c617000 rw-p 001b8000 ca:01 607501                     /lib/x86_64-linux-gnu/libc-2.15.so
+7f254c617000-7f254c61c000 rw-p 00000000 00:00 0 
+7f254c61c000-7f254c632000 r-xp 00000000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f254c632000-7f254c831000 ---p 00016000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f254c831000-7f254c832000 rw-p 00015000 ca:01 1712534                    /usr/local/lib64/libgcc_s.so.1
+7f254c832000-7f254c92d000 r-xp 00000000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f254c92d000-7f254cb2c000 ---p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f254cb2c000-7f254cb2d000 r--p 000fa000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f254cb2d000-7f254cb2e000 rw-p 000fb000 ca:01 1141809                    /lib/x86_64-linux-gnu/libm-2.15.so
+7f254cb2e000-7f254cc19000 r-xp 00000000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f254cc19000-7f254ce18000 ---p 000eb000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f254ce18000-7f254ce21000 r--p 000ea000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f254ce21000-7f254ce23000 rw-p 000f3000 ca:01 1712539                    /usr/local/lib64/libstdc++.so.6.0.20
+7f254ce23000-7f254ce38000 rw-p 00000000 00:00 0 
+7f254ce38000-7f254ce5a000 r-xp 00000000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f254d051000-7f254d05a000 rw-p 00000000 00:00 0 
+7f254d05a000-7f254d05b000 r--p 00022000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7f254d05b000-7f254d05d000 rw-p 00023000 ca:01 1141815                    /lib/x86_64-linux-gnu/ld-2.15.so
+7fffdf4c0000-7fffdf4e1000 rw-p 00000000 00:00 0                          [stack]
+7fffdf5ff000-7fffdf600000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+X::X()
+X::~X()
+X::~X()
+bash: line 7: 12735 Aborted                 (core dumped) ./a.out
