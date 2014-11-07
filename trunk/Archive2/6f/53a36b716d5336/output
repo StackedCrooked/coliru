@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:9:50: warning: unused parameter 'consumer' [-Wunused-parameter]
+    void Register( std::function<bool(const T&)> consumer )
+                                                 ^
+main.cpp:16:52: warning: unused parameter 'consumer' [-Wunused-parameter]
+        inline void Register(const FunctionObject& consumer)
+                                                   ^
+2 warnings generated.
++ ./a.out
+FunctionObject
+FunctionObject
