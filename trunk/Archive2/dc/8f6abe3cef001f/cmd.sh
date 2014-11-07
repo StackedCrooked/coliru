@@ -1,0 +1,1 @@
+g++ -std=c++14 -O2 -Wall -Wextra -pedantic-errors main.cpp -lboost_random && ./a.out
