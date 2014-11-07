@@ -1,0 +1,1 @@
+dmcs main.cpp -optimize+ -out:main.exe && ilasm main.cpp
