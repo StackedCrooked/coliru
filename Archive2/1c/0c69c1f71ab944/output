@@ -1,0 +1,53 @@
+main.cpp:100:10: warning: unused variable 'success' [-Wunused-variable]
+    bool success = qi::phrase_parse(begin, end, *g, space, ast); // Only fills "key 1" & not "key 2"
+         ^
+1 warning generated.
+<value_key>
+  <try>[key 1] value 1\n[key</try>
+  <header>
+    <try>[key 1] value 1\n[key</try>
+    <success> value 1\n[key 2] 2.7</success>
+    <attributes>[[k, e, y,  , 1]]</attributes>
+  </header>
+  <fail/>
+</value_key>
+<string_key>
+  <try>[key 1] value 1\n[key</try>
+  <header>
+    <try>[key 1] value 1\n[key</try>
+    <success> value 1\n[key 2] 2.7</success>
+    <attributes>[[k, e, y,  , 1]]</attributes>
+  </header>
+  <success>[key 2] 2.78\n</success>
+  <attributes>[[[k, e, y,  , 1], [v, a, l, u, e, 1]]]</attributes>
+</string_key>
+static bool boost::spirit::traits::push_back_container<hdb::AST, hdb::Key<std::basic_string<char> >, void>::call(hdb::AST &, const hdb::Key<std::string> &)
+<value_key>
+  <try>[key 2] 2.78\n</try>
+  <header>
+    <try>[key 2] 2.78\n</try>
+    <success> 2.78\n</success>
+    <attributes>[[k, e, y,  , 2]]</attributes>
+  </header>
+  <success>\n</success>
+  <attributes>[[[k, e, y,  , 2], 2.78]]</attributes>
+</value_key>
+static bool boost::spirit::traits::push_back_container<hdb::AST, hdb::Key<double>, void>::call(hdb::AST &, const hdb::Key<double> &)
+<value_key>
+  <try>\n</try>
+  <header>
+    <try>\n</try>
+    <fail/>
+  </header>
+  <fail/>
+</value_key>
+<string_key>
+  <try>\n</try>
+  <header>
+    <try>\n</try>
+    <fail/>
+  </header>
+  <fail/>
+</string_key>
+string_key:	key 1, value1
+value_key:	key 2, 2.78
