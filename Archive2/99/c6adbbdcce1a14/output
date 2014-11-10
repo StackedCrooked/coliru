@@ -1,0 +1,15 @@
++ mv main.cpp main.c
++ gcc -std=c90 -O0 -Wall -Wextra -pedantic -pthread main.c
+main.c: In function 'main':
+main.c:4:13: warning: multi-character character constant [-Wmultichar]
+     int x = 'ABC';
+             ^
++ ./a.out abc
+4276803
++ clang -std=c90 -O0 -Wall -pedantic -pthread main.c
+main.c:4:13: warning: multi-character character constant [-Wmultichar]
+    int x = 'ABC';
+            ^
+1 warning generated.
++ ./a.out abc
+4276803
