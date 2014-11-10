@@ -1,0 +1,56 @@
+main.cpp: In function 'int main()':
+main.cpp:96:51: error: cannot allocate an object of abstract type 'Book'
+     auto items = initializer_list<Item*>{new Book(), new Album(), new Magazine(), new Game()};
+                                                   ^
+main.cpp:28:8: note:   because the following virtual functions are pure within 'Book':
+ struct Book : public Item, public Accepter<Book, ItemVisitor> {
+        ^
+main.cpp:18:18: note: 	virtual void Item::accept(ItemVisitor&)
+     virtual void accept(ItemVisitor& visitor) = 0;
+                  ^
+main.cpp:96:64: error: cannot allocate an object of abstract type 'Album'
+     auto items = initializer_list<Item*>{new Book(), new Album(), new Magazine(), new Game()};
+                                                                ^
+main.cpp:31:8: note:   because the following virtual functions are pure within 'Album':
+ struct Album : public Item, public Accepter<Album, ItemVisitor> {
+        ^
+main.cpp:18:18: note: 	virtual void Item::accept(ItemVisitor&)
+     virtual void accept(ItemVisitor& visitor) = 0;
+                  ^
+main.cpp:96:80: error: cannot allocate an object of abstract type 'Magazine'
+     auto items = initializer_list<Item*>{new Book(), new Album(), new Magazine(), new Game()};
+                                                                                ^
+main.cpp:34:8: note:   because the following virtual functions are pure within 'Magazine':
+ struct Magazine : public Item, public Accepter<Magazine, ItemVisitor> {
+        ^
+main.cpp:18:18: note: 	virtual void Item::accept(ItemVisitor&)
+     virtual void accept(ItemVisitor& visitor) = 0;
+                  ^
+main.cpp:96:92: error: cannot allocate an object of abstract type 'Game'
+     auto items = initializer_list<Item*>{new Book(), new Album(), new Magazine(), new Game()};
+                                                                                            ^
+main.cpp:37:8: note:   because the following virtual functions are pure within 'Game':
+ struct Game : public Item, public Accepter<Game, ItemVisitor> {
+        ^
+main.cpp:18:18: note: 	virtual void Item::accept(ItemVisitor&)
+     virtual void accept(ItemVisitor& visitor) = 0;
+                  ^
+main.cpp:96:93: error: no matching function for call to 'std::initializer_list<Item*>::initializer_list(<brace-enclosed initializer list>)'
+     auto items = initializer_list<Item*>{new Book(), new Album(), new Magazine(), new Game()};
+                                                                                             ^
+main.cpp:96:93: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/initializer_list:66:17: note: constexpr std::initializer_list<_E>::initializer_list() [with _E = Item*]
+       constexpr initializer_list() noexcept
+                 ^
+/usr/include/c++/4.8/initializer_list:66:17: note:   candidate expects 0 arguments, 4 provided
+/usr/include/c++/4.8/initializer_list:62:17: note: constexpr std::initializer_list<_E>::initializer_list(std::initializer_list<_E>::const_iterator, std::initializer_list<_E>::size_type) [with _E = Item*; std::initializer_list<_E>::const_iterator = Item* const*; std::initializer_list<_E>::size_type = long unsigned int]
+       constexpr initializer_list(const_iterator __a, size_type __l)
+                 ^
+/usr/include/c++/4.8/initializer_list:62:17: note:   candidate expects 2 arguments, 4 provided
+/usr/include/c++/4.8/initializer_list:47:11: note: constexpr std::initializer_list<Item*>::initializer_list(const std::initializer_list<Item*>&)
+     class initializer_list
+           ^
+/usr/include/c++/4.8/initializer_list:47:11: note:   candidate expects 1 argument, 4 provided
+/usr/include/c++/4.8/initializer_list:47:11: note: constexpr std::initializer_list<Item*>::initializer_list(std::initializer_list<Item*>&&)
+/usr/include/c++/4.8/initializer_list:47:11: note:   candidate expects 1 argument, 4 provided
