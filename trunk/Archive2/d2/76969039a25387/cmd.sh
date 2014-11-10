@@ -1,0 +1,1 @@
+clang++ -std=c++14 -Wall -pedantic -fno-elide-constructors main.cpp && ./a.out
