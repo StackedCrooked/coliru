@@ -1,0 +1,16 @@
+main.cpp:53:16: warning: expression result unused [-Wunused-value]
+std::cout << m[1, 'a', 'b'];
+               ^
+main.cpp:53:19: warning: expression result unused [-Wunused-value]
+std::cout << m[1, 'a', 'b'];
+                  ^~~
+main.cpp:53:15: error: no viable overloaded operator[] for type 'map_t' (aka 'unordered_map<const key_t, N::data, N::key_hash, N::key_equal>')
+std::cout << m[1, 'a', 'b'];
+             ~^~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:626:7: note: candidate function not viable: no known conversion from 'char' to 'const key_type' (aka 'const std::tuple<int, char, char>') for 1st argument
+      operator[](const key_type& __k)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unordered_map.h:630:7: note: candidate function not viable: no known conversion from 'char' to 'key_type' (aka 'const std::tuple<int, char, char>') for 1st argument
+      operator[](key_type&& __k)
+      ^
+2 warnings and 1 error generated.
