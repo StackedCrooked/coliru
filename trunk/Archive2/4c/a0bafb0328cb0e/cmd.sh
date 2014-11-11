@@ -1,0 +1,4 @@
+set -ex
+clang++ -std=gnu++1z -stdlib=libc++ -Ofast -W -Wall -Wextra -Weverything -pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded main.cpp
+./a.out
+echo $?
