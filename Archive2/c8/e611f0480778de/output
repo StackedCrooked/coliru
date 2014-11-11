@@ -1,0 +1,42 @@
+main.cpp:6:36: error: invalid use of '::'
+   constexpr optref( std::nullopt_t ) noexcept : optref() {};
+                                    ^
+main.cpp:6:36: error: expected ';' at end of member declaration
+main.cpp:6:38: error: expected unqualified-id before 'noexcept'
+   constexpr optref( std::nullopt_t ) noexcept : optref() {};
+                                      ^
+main.cpp:9:60: warning: extra ';' [-Wpedantic]
+   explicit optref( U& u ) noexcept : ptr(std::addressof(u));
+                                                            ^
+main.cpp:13:37: error: declaration of 'operator=' as non-function
+   optref& operator=( std::nullopt_t ) noexcept { ptr = nullptr; }
+                                     ^
+main.cpp:13:19: error: expected ';' at end of member declaration
+   optref& operator=( std::nullopt_t ) noexcept { ptr = nullptr; }
+                   ^
+main.cpp:13:37: error: ISO C++ forbids declaration of 'nullopt_t' with no type [-fpermissive]
+   optref& operator=( std::nullopt_t ) noexcept { ptr = nullptr; }
+                                     ^
+main.cpp:13:37: error: invalid use of '::'
+main.cpp:13:37: error: expected ';' at end of member declaration
+main.cpp:13:39: error: expected unqualified-id before 'noexcept'
+   optref& operator=( std::nullopt_t ) noexcept { ptr = nullptr; }
+                                       ^
+main.cpp:28:1: error: expected ';' after struct definition
+ }
+ ^
+main.cpp: In constructor 'optref<T>::optref(U&)':
+main.cpp:9:42: error: 'addressof' is not a member of 'std'
+   explicit optref( U& u ) noexcept : ptr(std::addressof(u));
+                                          ^
+main.cpp:9:59: error: expected '{' at end of input
+   explicit optref( U& u ) noexcept : ptr(std::addressof(u));
+                                                           ^
+main.cpp: In member function 'optref<T>& optref<T>::operator=(U&)':
+main.cpp:16:37: error: 'addressof' is not a member of 'std'
+   optref& operator=( U& u ) { ptr = std::addressof(u); }
+                                     ^
+main.cpp: In member function 'void optref<T>::emplace(U&)':
+main.cpp:27:32: error: 'addressof' is not a member of 'std'
+   void emplace( U& u ) { ptr = std::addressof(u); } 
+                                ^
