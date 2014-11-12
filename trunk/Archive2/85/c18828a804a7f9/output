@@ -1,0 +1,26 @@
+main.cpp: In constructor 'FuncWrapper::FuncWrapper()':
+main.cpp:27:64: error: no matching function for call to 'std::function<float(float)>::function(float (FuncWrapper::*)(float))'
+   FuncWrapper() : UseUserFunction(false), foo(&FuncWrapper::def) {}
+                                                                ^
+main.cpp:27:64: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/include/c++/4.8/functional:2255:2: note: template<class _Functor, class> std::function<_Res(_ArgTypes ...)>::function(_Functor)
+  function(_Functor);
+  ^
+/usr/include/c++/4.8/functional:2255:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:2230:7: note: std::function<_Res(_ArgTypes ...)>::function(std::function<_Res(_ArgTypes ...)>&&) [with _Res = float; _ArgTypes = {float}]
+       function(function&& __x) : _Function_base()
+       ^
+/usr/include/c++/4.8/functional:2230:7: note:   no known conversion for argument 1 from 'float (FuncWrapper::*)(float)' to 'std::function<float(float)>&&'
+/usr/include/c++/4.8/functional:2433:5: note: std::function<_Res(_ArgTypes ...)>::function(const std::function<_Res(_ArgTypes ...)>&) [with _Res = float; _ArgTypes = {float}]
+     function<_Res(_ArgTypes...)>::
+     ^
+/usr/include/c++/4.8/functional:2433:5: note:   no known conversion for argument 1 from 'float (FuncWrapper::*)(float)' to 'const std::function<float(float)>&'
+/usr/include/c++/4.8/functional:2210:7: note: std::function<_Res(_ArgTypes ...)>::function(std::nullptr_t) [with _Res = float; _ArgTypes = {float}; std::nullptr_t = std::nullptr_t]
+       function(nullptr_t) noexcept
+       ^
+/usr/include/c++/4.8/functional:2210:7: note:   no known conversion for argument 1 from 'float (FuncWrapper::*)(float)' to 'std::nullptr_t'
+/usr/include/c++/4.8/functional:2203:7: note: std::function<_Res(_ArgTypes ...)>::function() [with _Res = float; _ArgTypes = {float}]
+       function() noexcept
+       ^
+/usr/include/c++/4.8/functional:2203:7: note:   candidate expects 0 arguments, 1 provided
