@@ -1,0 +1,1 @@
+g++ -fsanitize=undefined -std=c99 -x c -O2 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
