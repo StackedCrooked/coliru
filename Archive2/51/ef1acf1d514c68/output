@@ -1,0 +1,26 @@
++ clang++ -stdlib=libc++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
+main.cpp:13:7: error: call to implicitly-deleted copy constructor of 'X'
+    X x2(x1);
+      ^  ~~
+main.cpp:8:18: note: explicitly defaulted function was implicitly deleted here
+struct X { X(){} X(X const&) =default; M m; }; // X(X const&) is actually deleted!
+                 ^
+main.cpp:8:42: note: copy constructor of 'X' is implicitly deleted because field 'm' has a deleted copy constructor
+struct X { X(){} X(X const&) =default; M m; }; // X(X const&) is actually deleted!
+                                         ^
+main.cpp:7:18: note: 'M' has been explicitly marked deleted here
+struct M { M(){} M(M const&) =delete; };
+                 ^
+1 error generated.
++ g++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
+main.cpp: In function 'int main()':
+main.cpp:13:12: error: use of deleted function 'X::X(const X&)'
+     X x2(x1);
+            ^
+main.cpp:8:18: note: 'X::X(const X&)' is implicitly deleted because the default definition would be ill-formed:
+ struct X { X(){} X(X const&) =default; M m; }; // X(X const&) is actually deleted!
+                  ^
+main.cpp:8:18: error: use of deleted function 'M::M(const M&)'
+main.cpp:7:18: note: declared here
+ struct M { M(){} M(M const&) =delete; };
+                  ^
