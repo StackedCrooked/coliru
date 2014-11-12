@@ -1,0 +1,10 @@
+main.cpp:39:62: error: static data member 'a' already has an initializer
+const a_initializer<int>::array_type a_initializer<int>::a = a_initializer<int>::a;
+                                                             ^
+main.cpp:12:47: note: previous initialization is here
+        static constexpr std::array<int, 5> a {{1, 2, 3, 4, 5}};
+                                              ^
+main.cpp:42:50: error: declaration of constexpr static data member 'a' requires an initializer
+constexpr a_initializer<int>::array_type A<int>::a;
+                                                 ^
+2 errors generated.
