@@ -1,0 +1,18 @@
+g++
+PRETTY: int (* bar::foo::{anonymous}::bar(int (*)(int*)))(int*) [with int i = 1337]
+func:   bar
+Columbo:bar
+Edward: bar::foo::{anonymous}::bar
+PRETTY: void bar::foo::{anonymous}::foobar()
+func:   foobar
+Columbo:bar::foo::{anonymous}::foobar
+Edward: bar::foo::{anonymous}::foobar
+clang++
+PRETTY: int (*bar::foo::(anonymous namespace)::bar(int (*)(int *)) [i = 1337])(int *)
+func:   bar
+Columbo:bar
+Edward: namespace)::bar
+PRETTY: void bar::foo::(anonymous namespace)::foobar()
+func:   foobar
+Columbo:bar::foo::(anonymous namespace)::foobar
+Edward: namespace)::foobar
