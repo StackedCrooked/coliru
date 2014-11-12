@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:22:15: error: 'A' is an ambiguous base of 'D'
+    A* a = (A*)d;                   // compile-time error
+               ^
+main.cpp:23:7: error: redeclaration of 'A* a'
+    A* a = reinterpret_cast<A*>(d); // this compiles
+       ^
+main.cpp:22:7: note: 'A* a' previously declared here
+    A* a = (A*)d;                   // compile-time error
+       ^
+main.cpp:22:7: warning: unused variable 'a' [-Wunused-variable]
