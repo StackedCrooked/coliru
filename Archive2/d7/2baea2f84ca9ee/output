@@ -1,0 +1,16 @@
+main.cpp:82:99: error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'typename lazy_disable_if<is_const<Bar>, result_of::at<Bar, int_<0> > >::type' (aka 'adt_attribute_proxy<Bar, 0, is_const<Bar>::value>')
+                        VisitorApplication<FusionVisitorConcept, current_t>::read_handle(visitor, boost::fusion::at<N>(s));
+                                                                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:139:61: note: in instantiation of member function 'visitor::detail::iteration::members_impl<ReadMemberVisitor, Bar, mpl_::int_<0> >::read_handle' requested here
+                iteration::Struct<FusionVisitorConcept, T>::read_handle(visitor, t);
+                                                            ^
+main.cpp:208:59: note: in instantiation of member function 'visitor::detail::struct_application<ReadMemberVisitor, Bar>::read_handle' requested here
+    visitor::VisitorApplication<FusionVisitorConcept, T>::read_handle(visitor, o);
+                                                          ^
+main.cpp:276:5: note: in instantiation of function template specialization 'apply_read_fusion_visitor<ReadMemberVisitor, Bar>' requested here
+    apply_read_fusion_visitor(rv, bo);
+    ^
+main.cpp:153:78: note: passing argument to parameter 't' here
+            static inline void read_handle(FusionVisitorConcept& visitor, T& t) {
+                                                                             ^
+1 error generated.
