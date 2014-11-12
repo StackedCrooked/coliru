@@ -1,0 +1,49 @@
+main.cpp:9:49: error: use of undeclared identifier 'is_slicable_t'
+        template <typename X = typename std::enable_if<is_slicable_t::value>::type>
+                                                       ^
+main.cpp:9:70: error: expected ',' or '>' in template-parameter-list
+        template <typename X = typename std::enable_if<is_slicable_t::value>::type>
+                                                                            ^
+main.cpp:10:2: error: unknown type name 'slice_t'
+        slice_t operator[] ( int i ) {
+        ^
+main.cpp:11:25: error: use of undeclared identifier 'res'
+                return const_slice_t( res, dims, strides, origins );
+                                      ^
+main.cpp:14:49: error: use of undeclared identifier 'is_slicable_t'
+        template <typename X = typename std::enable_if<is_slicable_t::value>::type>
+                                                       ^
+main.cpp:14:70: error: expected ',' or '>' in template-parameter-list
+        template <typename X = typename std::enable_if<is_slicable_t::value>::type>
+                                                                            ^
+main.cpp:15:2: error: unknown type name 'const_slice_t'
+        const_slice_t operator[] ( int i ) const {
+        ^
+main.cpp:15:37: error: non-member function cannot have 'const' qualifier
+        const_slice_t operator[] ( int i ) const {
+                                           ^~~~~~
+main.cpp:16:25: error: use of undeclared identifier 'res'
+                return const_slice_t( res, dims, strides, origins );
+                                      ^
+main.cpp:19:2: error: unknown type name 'reference'
+        reference operator[] ( index_type i ) {
+        ^
+main.cpp:19:25: error: unknown type name 'index_type'
+        reference operator[] ( index_type i ) {
+                               ^
+main.cpp:20:10: error: use of undeclared identifier 'res'
+                return res[ from_index( i, strides, origins ) ];
+                       ^
+main.cpp:23:2: error: unknown type name 'const_reference'
+        const_reference operator[] ( index_type i ) const {
+        ^
+main.cpp:23:31: error: unknown type name 'index_type'
+        const_reference operator[] ( index_type i ) const {
+                                     ^
+main.cpp:23:46: error: non-member function cannot have 'const' qualifier
+        const_reference operator[] ( index_type i ) const {
+                                                    ^~~~~~
+main.cpp:24:10: error: use of undeclared identifier 'res'
+                return res[ from_index( i, strides, origins ) ];
+                       ^
+16 errors generated.
