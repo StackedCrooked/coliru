@@ -1,0 +1,1 @@
+set -x; g++ -std=c++11 -Wall -Wextra -pedantic main.cpp && ./a.out; g++ -std=c++11 -Wall -Wextra -pedantic -DDEFINE_A main.cpp && ./a.out
