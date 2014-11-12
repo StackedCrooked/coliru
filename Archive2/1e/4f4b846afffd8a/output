@@ -1,0 +1,30 @@
+void DisplayMemberVisitor::empty_object()
+void DisplayMemberVisitor::start_member(const char*):	'integer_value'
+void DisplayMemberVisitor::value(const T&) [with T = int]:	8
+void DisplayMemberVisitor::finish_member(const char*):	'integer_value'
+
+<integer_value>8</integer_value>
+void ReadMemberVisitor::start_member(const char*):	'integer_value'
+void ReadMemberVisitor::value(T&) [with T = int] -> '8'
+void ReadMemberVisitor::finish_member(const char*):	'integer_value'
+
+-----------
+void DisplayMemberVisitor::empty_object()
+void DisplayMemberVisitor::start_member(const char*):	'bar_value'
+void DisplayMemberVisitor::empty_object()
+void DisplayMemberVisitor::start_member(const char*):	'integer_value'
+void DisplayMemberVisitor::value(const T&) [with T = int]:	78
+void DisplayMemberVisitor::finish_member(const char*):	'integer_value'
+void DisplayMemberVisitor::finish_member(const char*):	'bar_value'
+
+<bar_value><integer_value>78</integer_value></bar_value>
+
+-----------
+void ReadMemberVisitor::start_member(const char*):	'bar_value'
+void ReadMemberVisitor::start_member(const char*):	'integer_value'
+void ReadMemberVisitor::value(T&) [with T = int] -> '78'
+void ReadMemberVisitor::finish_member(const char*):	'integer_value'
+void ReadMemberVisitor::finish_member(const char*):	'bar_value'
+
+-----------
+78 == 78
