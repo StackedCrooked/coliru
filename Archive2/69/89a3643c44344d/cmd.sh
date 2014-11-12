@@ -1,0 +1,1 @@
+clang++ -std=c++1z -stdlib=libc++ main.cpp -lsupc++ -pthread -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof && ./a.out <<< "1 2 3 4 5 6 7 8 9 10"
