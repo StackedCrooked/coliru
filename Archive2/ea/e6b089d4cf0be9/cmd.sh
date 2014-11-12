@@ -1,0 +1,1 @@
+for CC in clang++ g++; do for std in c++14; do echo $CC $std && $CC -O3 -x c++ -std=$std -Wall -Wextra -pedantic -Wno-unused-variable -c main.cpp && echo time ./a.out || echo; done; done
