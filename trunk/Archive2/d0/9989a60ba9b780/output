@@ -1,0 +1,13 @@
+In file included from /usr/include/c++/4.8/algorithm:62:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/stl_algo.h: In instantiation of '_RandomAccessIterator std::__unguarded_partition(_RandomAccessIterator, _RandomAccessIterator, const _Tp&, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Namespace::Bar*, std::vector<Namespace::Bar> >; _Tp = Namespace::Bar; _Compare = bool (*)(Namespace::Bar&, Namespace::Bar&)]':
+/usr/include/c++/4.8/bits/stl_algo.h:2319:78:   required from '_RandomAccessIterator std::__unguarded_partition_pivot(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Namespace::Bar*, std::vector<Namespace::Bar> >; _Compare = bool (*)(Namespace::Bar&, Namespace::Bar&)]'
+/usr/include/c++/4.8/bits/stl_algo.h:2360:62:   required from 'void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Namespace::Bar*, std::vector<Namespace::Bar> >; _Size = long int; _Compare = bool (*)(Namespace::Bar&, Namespace::Bar&)]'
+/usr/include/c++/4.8/bits/stl_algo.h:5513:44:   required from 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Namespace::Bar*, std::vector<Namespace::Bar> >; _Compare = bool (*)(Namespace::Bar&, Namespace::Bar&)]'
+main.cpp:20:70:   required from here
+/usr/include/c++/4.8/bits/stl_algo.h:2287:35: error: invalid initialization of reference of type 'Namespace::Bar&' from expression of type 'const Namespace::Bar'
+    while (__comp(*__first, __pivot))
+                                   ^
+/usr/include/c++/4.8/bits/stl_algo.h:2290:34: error: invalid initialization of reference of type 'Namespace::Bar&' from expression of type 'const Namespace::Bar'
+    while (__comp(__pivot, *__last))
+                                  ^
