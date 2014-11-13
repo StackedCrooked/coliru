@@ -1,0 +1,17 @@
+main.cpp: In instantiation of 'void foo(const string&, const U& ...) [with U = {int}; std::string = std::basic_string<char>]':
+main.cpp:17:71:   required from here
+main.cpp:12:15: error: no matching function for call to 'foo(const int&)'
+     foo( u... );
+               ^
+main.cpp:12:15: note: candidates are:
+main.cpp:3:6: note: void foo(const string&)
+ void foo( const std::string & s )
+      ^
+main.cpp:3:6: note:   no known conversion for argument 1 from 'const int' to 'const string& {aka const std::basic_string<char>&}'
+main.cpp:9:6: note: template<class ... U> void foo(const string&, const U& ...)
+ void foo( const std::string & s, const U & ... u )
+      ^
+main.cpp:9:6: note:   template argument deduction/substitution failed:
+main.cpp:12:15: note:   cannot convert 'u#0' (type 'const int') to type 'const string& {aka const std::basic_string<char>&}'
+     foo( u... );
+               ^
