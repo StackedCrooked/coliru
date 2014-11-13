@@ -1,0 +1,18 @@
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp: In function 'int main()':
+main.cpp:8:11: warning: unused variable 'ref' [-Wunused-variable]
+     bool& ref = Proxy();
+           ^
++ ./a.out
++ clang++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp:8:11: warning: unused variable 'ref' [-Wunused-variable]
+    bool& ref = Proxy();
+          ^
+1 warning generated.
++ ./a.out
++ clang++ -stdlib=libc++ -O3 -std=c++1y -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp:8:11: warning: unused variable 'ref' [-Wunused-variable]
+    bool& ref = Proxy();
+          ^
+1 warning generated.
++ ./a.out
