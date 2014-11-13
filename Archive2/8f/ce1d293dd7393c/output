@@ -1,0 +1,26 @@
++ mv main.cpp main.c
++ gcc -std=c99 -O0 -Wall -Wextra -pedantic -pthread main.c
+main.c: In function 'main':
+main.c:24:7: warning: operation on 'a' may be undefined [-Wsequence-point]
+  b = a-- + a + 1;      // a = 96, b = 97 + 97 + 1 = 195
+       ^
+main.c:30:4: warning: operation on 'b' may be undefined [-Wsequence-point]
+  b = --a + b-- + 1;      // a = 45, b = 45 + 44 + 1 = 90
+    ^
++ ./a.out abc
+a1 = 96, b1 = 194
+a2 = 45, b2 = 90
++ clang -std=c99 -O0 -Wall -pedantic -pthread main.c
+main.c:24:7: warning: unsequenced modification and access to 'a' [-Wunsequenced]
+        b = a-- + a + 1;                                                // a = 96, b = 97 + 97 + 1 = 195
+             ^    ~
+main.c:30:13: warning: multiple unsequenced modifications to 'b' [-Wunsequenced]
+        b = --a + b-- + 1;                                              // a = 45, b = 45 + 44 + 1 = 90
+          ~        ^
+main.c:33:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+3 warnings generated.
++ ./a.out abc
+a1 = 96, b1 = 194
+a2 = 45, b2 = 90
