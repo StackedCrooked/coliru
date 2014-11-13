@@ -1,0 +1,56 @@
+main.cpp: In function 'int main()':
+main.cpp:10:35: error: use of deleted function 'std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)'
+     std::ofstream f3(std::move(f1));
+                                   ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/fstream:599:11: note: 'std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/4.8/fstream:599:11: error: use of deleted function 'std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)'
+In file included from /usr/include/c++/4.8/istream:39:0,
+                 from /usr/include/c++/4.8/fstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/ostream:58:11: note: 'std::basic_ostream<char>::basic_ostream(const std::basic_ostream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ostream : virtual public basic_ios<_CharT, _Traits>
+           ^
+/usr/include/c++/4.8/ostream:58:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+In file included from /usr/include/c++/4.8/ios:44:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/fstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_ios.h:66:11: note: 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ios : public ios_base
+           ^
+In file included from /usr/include/c++/4.8/ios:42:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/fstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/ios_base.h:786:5: error: 'std::ios_base::ios_base(const std::ios_base&)' is private
+     ios_base(const ios_base&);
+     ^
+In file included from /usr/include/c++/4.8/ios:44:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/fstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_ios.h:66:11: error: within this context
+     class basic_ios : public ios_base
+           ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/fstream:599:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/4.8/fstream:599:11: error: use of deleted function 'std::basic_filebuf<char>::basic_filebuf(const std::basic_filebuf<char>&)'
+/usr/include/c++/4.8/fstream:72:11: note: 'std::basic_filebuf<char>::basic_filebuf(const std::basic_filebuf<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_filebuf : public basic_streambuf<_CharT, _Traits>
+           ^
+In file included from /usr/include/c++/4.8/ios:43:0,
+                 from /usr/include/c++/4.8/istream:38,
+                 from /usr/include/c++/4.8/fstream:38,
+                 from main.cpp:1:
+/usr/include/c++/4.8/streambuf:802:7: error: 'std::basic_streambuf<_CharT, _Traits>::basic_streambuf(const std::basic_streambuf<_CharT, _Traits>&) [with _CharT = char; _Traits = std::char_traits<char>]' is private
+       basic_streambuf(const basic_streambuf& __sb)
+       ^
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/fstream:72:11: error: within this context
+     class basic_filebuf : public basic_streambuf<_CharT, _Traits>
+           ^
