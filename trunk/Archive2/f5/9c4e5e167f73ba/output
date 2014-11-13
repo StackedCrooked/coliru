@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:129:5: error: 'CartesianCoordinate' is not a member of 'geometry'
+     geometry::CartesianCoordinate<double> c(1, 2, 3);
+     ^
+main.cpp:129:5: note: suggested alternative:
+main.cpp:120:83: note:   'geometry::coordinate::CartesianCoordinate'
+         template <typename T> using CartesianCoordinate = Coordinate<T, Cartesian>;
+                                                                                   ^
+main.cpp:129:35: error: expected primary-expression before 'double'
+     geometry::CartesianCoordinate<double> c(1, 2, 3);
+                                   ^
+main.cpp:130:5: error: 'SphericalCoordinate' is not a member of 'geometry'
+     geometry::SphericalCoordinate<double> s(c);
+     ^
+main.cpp:130:5: note: suggested alternative:
+main.cpp:121:83: note:   'geometry::coordinate::SphericalCoordinate'
+         template <typename T> using SphericalCoordinate = Coordinate<T, Spherical>;
+                                                                                   ^
+main.cpp:130:35: error: expected primary-expression before 'double'
+     geometry::SphericalCoordinate<double> s(c);
+                                   ^
+main.cpp:131:13: error: 'c' was not declared in this scope
+     cout << c << endl << s << endl;
+             ^
+main.cpp:131:26: error: 's' was not declared in this scope
+     cout << c << endl << s << endl;
+                          ^
