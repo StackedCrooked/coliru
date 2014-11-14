@@ -1,0 +1,26 @@
+main.cpp:34:16: error: 'begin' function uses 'auto' type specifier without trailing return type
+     auto begin()        { return container.begin(); }
+                ^
+main.cpp:34:16: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:35:14: error: 'end' function uses 'auto' type specifier without trailing return type
+     auto end()          { return container.end(); }
+              ^
+main.cpp:35:14: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp: In function 'int main()':
+main.cpp:43:23: warning: use of 'auto' in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+     myModule.Search([](auto& sm) { return sm.size() < 5; });
+                       ^
+main.cpp:46:34: error: invalid use of 'auto'
+     std::for_each(myModule.begin(), myModule.end(), [&row_top](auto&) { std::cout << "row_top: " << ++row_top << "\n"; });
+                                  ^
+main.cpp:46:50: error: invalid use of 'auto'
+     std::for_each(myModule.begin(), myModule.end(), [&row_top](auto&) { std::cout << "row_top: " << ++row_top << "\n"; });
+                                                  ^
+main.cpp:46:63: warning: use of 'auto' in lambda parameter declaration only available with -std=c++1y or -std=gnu++1y
+     std::for_each(myModule.begin(), myModule.end(), [&row_top](auto&) { std::cout << "row_top: " << ++row_top << "\n"; });
+                                                               ^
+main.cpp: In instantiation of 'void TSearchModule<Obj, Container>::Search(const Cond&) [with Cond = main()::<lambda(auto:1&)>; Obj = spObj; Container = std::vector<spObj, std::allocator<spObj> >]':
+main.cpp:43:59:   required from here
+main.cpp:30:60: error: invalid use of 'auto'
+         while (cond(const_cast<TSearchModule const&>(*this))) {
+                                                            ^
