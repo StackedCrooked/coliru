@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_thread -lboost_system && (time ./a.out& sleep 1; netcat 127.0.0.1 6767 <<<"hello"; wait)
