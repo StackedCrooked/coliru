@@ -1,0 +1,35 @@
+main.cpp: In constructor 'Employee::Employee(int, int, int)':
+main.cpp:32:3: error: no matching function for call to 'Person::Person()'
+   {
+   ^
+main.cpp:32:3: note: candidates are:
+main.cpp:6:3: note: Person::Person(int, int)
+   Person (int age, int weight)
+   ^
+main.cpp:6:3: note:   candidate expects 2 arguments, 0 provided
+main.cpp:3:7: note: constexpr Person::Person(const Person&)
+ class Person
+       ^
+main.cpp:3:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:7: note: constexpr Person::Person(Person&&)
+main.cpp:3:7: note:   candidate expects 1 argument, 0 provided
+main.cpp: At global scope:
+main.cpp:31:17: warning: unused parameter 'age' [-Wunused-parameter]
+   Employee (int age, int weight, int salary)
+                 ^
+main.cpp:31:26: warning: unused parameter 'weight' [-Wunused-parameter]
+   Employee (int age, int weight, int salary)
+                          ^
+main.cpp: In member function 'void Employee::showInfo()':
+main.cpp:24:7: error: 'int Person::m_age' is private
+   int m_age;
+       ^
+main.cpp:38:29: error: within this context
+     std::cout << "I am " << m_age << " years old " ;
+                             ^
+main.cpp:25:7: error: 'int Person::m_weight' is private
+   int m_weight;
+       ^
+main.cpp:39:35: error: within this context
+     std::cout << "and weighs " << m_weight << " kilo " ;
+                                   ^
