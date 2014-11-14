@@ -1,0 +1,1 @@
+set -x ; g++ --std=gnu++11 main.cpp && ./a.out
