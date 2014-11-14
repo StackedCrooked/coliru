@@ -1,0 +1,15 @@
+main.cpp:34:16: error: 'begin' function uses 'auto' type specifier without trailing return type
+     auto begin()        { return container.begin(); }
+                ^
+main.cpp:34:16: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:35:14: error: 'end' function uses 'auto' type specifier without trailing return type
+     auto end()          { return container.end(); }
+              ^
+main.cpp:35:14: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp: In function 'int main()':
+main.cpp:47:34: error: invalid use of 'auto'
+     std::for_each(myModule.begin(), myModule.end(), [&row_top](spObj const&) { std::cout << "row_top: " << ++row_top << "\n"; });
+                                  ^
+main.cpp:47:50: error: invalid use of 'auto'
+     std::for_each(myModule.begin(), myModule.end(), [&row_top](spObj const&) { std::cout << "row_top: " << ++row_top << "\n"; });
+                                                  ^
