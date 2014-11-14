@@ -1,0 +1,85 @@
+main.cpp:1:2: error: invalid preprocessing directive #!
+ #!/bin/bash
+  ^
+main.cpp:4:2: error: invalid preprocessing directive #!
+ #!/bin/bash
+  ^
+main.cpp:6:42: error: stray '#' in program
+ if [ -d logs ]; then echo Error; exit 1  #there is a dir named logs
+                                          ^
+main.cpp:11:1: error: stray '`' in program
+ num_of_lines=`wc -l < ${1}`  #counting lines in given file 
+ ^
+main.cpp:11:1: error: stray '`' in program
+main.cpp:11:30: error: stray '#' in program
+ num_of_lines=`wc -l < ${1}`  #counting lines in given file 
+                              ^
+main.cpp:17:1: error: stray '`' in program
+ var=`head -$i "$1"|tail -1|wc -c`
+ ^
+main.cpp:17:1: error: stray '`' in program
+main.cpp:23:5: error: stray '`' in program
+     echo $i: `sed -n "${i}p" ${1} | cut -d"@" -f1`        # prints line_num, then 
+     ^
+main.cpp:23:5: error: stray '`' in program
+main.cpp:23:59: error: stray '#' in program
+     echo $i: `sed -n "${i}p" ${1} | cut -d"@" -f1`        # prints line_num, then 
+                                                           ^
+main.cpp:24:6: error: invalid preprocessing directive #prints
+    # prints only the first (f1) part of this line, until '@'
+      ^
+main.cpp:26:2: error: stray '`' in program
+  lin=`head -$i "$1" |tail -1`
+  ^
+main.cpp:26:2: error: stray '`' in program
+main.cpp:28:2: error: stray '`' in program
+  h[1]=`cut -d"@" -f2 temp.txt`
+  ^
+main.cpp:28:2: error: stray '`' in program
+main.cpp:29:2: error: stray '`' in program
+  h[2]=`cut -d"@" -f3 temp.txt`
+  ^
+main.cpp:29:2: error: stray '`' in program
+main.cpp:30:2: error: stray '`' in program
+  h[3]=`cut -d"@" -f4 temp.txt`
+  ^
+main.cpp:30:2: error: stray '`' in program
+main.cpp:3:1: error: 'echo' does not name a type
+ echo "Hello World!" 
+ ^
+main.cpp:6:17: error: 'then' does not name a type
+ if [ -d logs ]; then echo Error; exit 1  #there is a dir named logs
+                 ^
+main.cpp:6:34: error: 'exit' does not name a type
+ if [ -d logs ]; then echo Error; exit 1  #there is a dir named logs
+                                  ^
+main.cpp:11:31: error: 'counting' does not name a type
+ num_of_lines=`wc -l < ${1}`  #counting lines in given file 
+                               ^
+main.cpp:15:35: error: expected unqualified-id before 'do'
+ while [[ $i -le $num_of_lines ]]; do 
+                                   ^
+main.cpp:19:1: error: expected constructor, destructor, or type conversion before '(' token
+ (( i=i-1 ))
+ ^
+main.cpp:23:35: error: expected unqualified-id before '|' token
+     echo $i: `sed -n "${i}p" ${1} | cut -d"@" -f1`        # prints line_num, then 
+                                   ^
+main.cpp:33:24: error: expected constructor, destructor, or type conversion before '(' token
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi
+                        ^
+main.cpp:33:42: error: 'fi' does not name a type
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi
+                                          ^
+main.cpp:35:24: error: expected constructor, destructor, or type conversion before '(' token
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi
+                        ^
+main.cpp:35:42: error: 'fi' does not name a type
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi
+                                          ^
+main.cpp:37:24: error: expected constructor, destructor, or type conversion before '(' token
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi  
+                        ^
+main.cpp:37:42: error: 'fi' does not name a type
+  if ((  $?==0 )); then (( sum=sum+1 )) ; fi  
+                                          ^
