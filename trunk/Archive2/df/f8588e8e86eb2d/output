@@ -1,0 +1,123 @@
+main.cpp:7:9: warning: private field 'a' is not used [-Wunused-private-field]
+    int a;
+        ^
+1 warning generated.
+	.text
+	.file	"main.cpp"
+	.globl	_ZN1AC2Ev
+	.align	16, 0x90
+	.type	_ZN1AC2Ev,@function
+_ZN1AC2Ev:                              # @_ZN1AC2Ev
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+.Ltmp1:
+	.cfi_offset %rbx, -16
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str, %esi
+	movl	$11, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	movq	_ZSt4cout+240(%rax), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_5
+# BB#1:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_3
+# BB#2:
+	movb	67(%rbx), %al
+	jmp	.LBB0_4
+.LBB0_3:
+	movq	%rbx, %rdi
+	callq	_ZNKSt5ctypeIcE13_M_widen_initEv
+	movq	(%rbx), %rax
+	movl	$10, %esi
+	movq	%rbx, %rdi
+	callq	*48(%rax)
+.LBB0_4:                                # %_ZNKSt5ctypeIcE5widenEc.exit
+	movsbl	%al, %esi
+	movl	$_ZSt4cout, %edi
+	callq	_ZNSo3putEc
+	movq	%rax, %rdi
+	popq	%rbx
+	jmp	_ZNSo5flushEv           # TAILCALL
+.LBB0_5:
+	callq	_ZSt16__throw_bad_castv
+.Ltmp2:
+	.size	_ZN1AC2Ev, .Ltmp2-_ZN1AC2Ev
+	.cfi_endproc
+
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp3:
+	.cfi_def_cfa_offset 16
+	callq	_ZN1AC2Ev
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str1, %esi
+	movl	$6, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str1, %esi
+	movl	$6, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str1, %esi
+	movl	$6, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	xorl	%eax, %eax
+	popq	%rdx
+	retq
+.Ltmp4:
+	.size	main, .Ltmp4-main
+	.cfi_endproc
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_main.cpp,@function
+_GLOBAL__sub_I_main.cpp:                # @_GLOBAL__sub_I_main.cpp
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp5:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp6:
+	.size	_GLOBAL__sub_I_main.cpp, .Ltmp6-_GLOBAL__sub_I_main.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"Constructor"
+	.size	.L.str, 12
+
+	.type	.L.str1,@object         # @.str1
+.L.str1:
+	.asciz	"hello\n"
+	.size	.L.str1, 7
+
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_main.cpp
+
+	.globl	_ZN1AC1Ev
+_ZN1AC1Ev = _ZN1AC2Ev
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
