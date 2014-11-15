@@ -1,0 +1,45 @@
+main.cpp:8:2: error: stray '#' in program
+ }#include <iostream>
+  ^
+main.cpp:1:1: error: 'urn' does not name a type
+ urn std::accumulate(beg, end, 0);
+ ^
+main.cpp:3:5: error: 'RAIter' does not name a type
+     RAIter mid = beg + len/2;
+     ^
+main.cpp:4:19: error: 'async' is not a member of 'std'
+     auto handle = std::async(std::launch::async,
+                   ^
+main.cpp:4:35: error: 'std::launch' has not been declared
+     auto handle = std::async(std::launch::async,
+                                   ^
+main.cpp:5:31: error: 'parallel_sum' was not declared in this scope
+                               parallel_sum<RAIter>, mid, end);
+                               ^
+main.cpp:5:44: error: 'RAIter' was not declared in this scope
+                               parallel_sum<RAIter>, mid, end);
+                                            ^
+main.cpp:5:51: error: expected primary-expression before ',' token
+                               parallel_sum<RAIter>, mid, end);
+                                                   ^
+main.cpp:5:53: error: 'mid' was not declared in this scope
+                               parallel_sum<RAIter>, mid, end);
+                                                     ^
+main.cpp:5:58: error: 'end' was not declared in this scope
+                               parallel_sum<RAIter>, mid, end);
+                                                          ^
+main.cpp:6:28: error: 'beg' was not declared in this scope
+     int sum = parallel_sum(beg, mid);
+                            ^
+main.cpp:6:33: error: 'mid' was not declared in this scope
+     int sum = parallel_sum(beg, mid);
+                                 ^
+main.cpp:6:36: error: 'parallel_sum' was not declared in this scope
+     int sum = parallel_sum(beg, mid);
+                                    ^
+main.cpp:7:5: error: expected unqualified-id before 'return'
+     return sum + handle.get();
+     ^
+main.cpp:8:1: error: expected declaration before '}' token
+ }#include <iostream>
+ ^
