@@ -1,0 +1,18 @@
++ g++ -std=c++11 -fno-elide-constructors -O2 -pedantic main.cpp
++ ./a.out
+Inside f1
+Inside A constr
+Just before return from f1
+Inside copy constr
+Inside copy constr
++ clang++ -std=c++11 -fno-elide-constructors -O2 -pedantic main.cpp
+main.cpp:16:5: warning: control reaches end of non-void function [-Wreturn-type]
+    }
+    ^
+1 warning generated.
++ ./a.out
+Inside f1
+Inside A constr
+Just before return from f1
+Inside copy constr
+Inside copy constr
