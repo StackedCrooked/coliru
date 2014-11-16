@@ -20,9 +20,8 @@ for i in {1..10} ; do
         ./run.sh
         echo "WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY"
     done
-    echo "POSSIBLE RESTART LOOP DETECTED. WAITING."
-    sleep 60
     echo "RESTARTING WEBSERVER NOW"
+    sleep 60
 done
 
 echo "TOO MANY RESTARTS. REBOOTING SOON."
