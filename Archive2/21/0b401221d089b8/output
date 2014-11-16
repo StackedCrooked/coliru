@@ -1,0 +1,55 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z3fooi
+	.align	16, 0x90
+	.type	_Z3fooi,@function
+_Z3fooi:                                # @_Z3fooi
+	.cfi_startproc
+# BB#0:
+	cmpl	$5, %edi
+	ja	.LBB0_2
+# BB#1:                                 # %switch.lookup
+	movslq	%edi, %rax
+	movl	.Lswitch.table1(,%rax,4), %eax
+	retq
+.LBB0_2:
+	movl	$50, %eax
+	retq
+.Ltmp0:
+	.size	_Z3fooi, .Ltmp0-_Z3fooi
+	.cfi_endproc
+
+	.globl	_Z3bari
+	.align	16, 0x90
+	.type	_Z3bari,@function
+_Z3bari:                                # @_Z3bari
+	.cfi_startproc
+# BB#0:
+	cmpl	$5, %edi
+	ja	.LBB1_2
+# BB#1:                                 # %switch.lookup
+	movslq	%edi, %rax
+	movl	.Lswitch.table1(,%rax,4), %eax
+	retq
+.LBB1_2:
+	movl	$50, %eax
+	retq
+.Ltmp1:
+	.size	_Z3bari, .Ltmp1-_Z3bari
+	.cfi_endproc
+
+	.type	.Lswitch.table1,@object # @switch.table1
+	.section	.rodata,"a",@progbits
+	.align	16
+.Lswitch.table1:
+	.long	5                       # 0x5
+	.long	22                      # 0x16
+	.long	0                       # 0x0
+	.long	7                       # 0x7
+	.long	1                       # 0x1
+	.long	100                     # 0x64
+	.size	.Lswitch.table1, 24
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
