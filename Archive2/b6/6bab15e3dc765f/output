@@ -1,0 +1,129 @@
+main.cpp:4:18: error: 'size_t' in namespace 'std' does not name a type
+             std::size_t currhash = 0;
+                  ^
+main.cpp:5:43: error: 'std::size_t' has not been declared
+             hash_combiner operator()(std::size_t nexthash) {
+                                           ^
+main.cpp: In member function 'Wide::Util::hash_combiner Wide::Util::hash_combiner::operator()(int)':
+main.cpp:6:17: error: 'currhash' was not declared in this scope
+                 currhash ^= nexthash;
+                 ^
+main.cpp: At global scope:
+main.cpp:11:18: error: 'size_t' in namespace 'std' does not name a type
+             std::size_t currhash = 0;
+                  ^
+main.cpp:12:43: error: 'std::size_t' has not been declared
+             hash_permuter operator()(std::size_t nexthash) {
+                                           ^
+main.cpp: In member function 'Wide::Util::hash_permuter Wide::Util::hash_permuter::operator()(int)':
+main.cpp:13:17: error: 'currhash' was not declared in this scope
+                 currhash = (31 * currhash) + nexthash;
+                 ^
+main.cpp: In function 'Algorithm Wide::Util::hash_range(Algorithm, Iterator, Iterator)':
+main.cpp:18:15: error: 'hash' is not a member of 'std'
+             A(std::hash<typename Iterator::value_type>()(*begin));
+               ^
+main.cpp:18:54: error: expected '(' before '>' token
+             A(std::hash<typename Iterator::value_type>()(*begin));
+                                                      ^
+main.cpp:18:56: error: expected primary-expression before ')' token
+             A(std::hash<typename Iterator::value_type>()(*begin));
+                                                        ^
+main.cpp: In function 'Algorithm Wide::Util::hash(Algorithm, T&&)':
+main.cpp:24:22: error: 'hash' is not a member of 'std'
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                      ^
+main.cpp:24:22: note: suggested alternative:
+main.cpp:23:79: note:   'Wide::Util::hash'
+         template<typename Algorithm, typename T, typename... Other> Algorithm hash(Algorithm A, T&& arg) {
+                                                                               ^
+main.cpp:24:46: error: 'decay' in namespace 'std' does not name a template type
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                              ^
+main.cpp:24:51: error: expected '(' before '<' token
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                   ^
+main.cpp:24:53: error: expected primary-expression before '>' token
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                     ^
+main.cpp:24:54: error: '::type' has not been declared
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                      ^
+main.cpp:24:62: error: expected primary-expression before ')' token
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                              ^
+main.cpp:24:64: error: 'forward' is not a member of 'std'
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                                ^
+main.cpp:24:78: error: expected primary-expression before '>' token
+             return A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg)));
+                                                                              ^
+main.cpp: In function 'Algorithm Wide::Util::hash(Algorithm, T&&, Other&& ...)':
+main.cpp:27:27: error: 'hash' is not a member of 'std'
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                           ^
+main.cpp:27:27: note: suggested alternative:
+main.cpp:26:79: note:   'Wide::Util::hash'
+         template<typename Algorithm, typename T, typename... Other> Algorithm hash(Algorithm A, T&& arg, Other&&... other) {            
+                                                                               ^
+main.cpp:27:51: error: 'decay' in namespace 'std' does not name a template type
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                   ^
+main.cpp:27:56: error: expected '(' before '<' token
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                        ^
+main.cpp:27:58: error: expected primary-expression before '>' token
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                          ^
+main.cpp:27:59: error: '::type' has not been declared
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                           ^
+main.cpp:27:67: error: expected primary-expression before ')' token
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                                   ^
+main.cpp:27:69: error: 'forward' is not a member of 'std'
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                                     ^
+main.cpp:27:83: error: expected primary-expression before '>' token
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                                                   ^
+main.cpp:27:93: error: 'forward' is not a member of 'std'
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                                                             ^
+main.cpp:27:111: error: expected primary-expression before '>' token
+             return hash(A(std::hash<typename std::decay<T>::type>()(std::forward<T>(arg))), std::forward<Other>(other)...);
+                                                                                                               ^
+main.cpp: At global scope:
+main.cpp:29:102: error: 'std::tuple' has not been declared
+         template<typename... T, unsigned... Is, typename Algorithm> Algorithm hash(Algorithm A, std::tuple<T...> args, indices<Is...>) {
+                                                                                                      ^
+main.cpp:29:107: error: expected ',' or '...' before '<' token
+         template<typename... T, unsigned... Is, typename Algorithm> Algorithm hash(Algorithm A, std::tuple<T...> args, indices<Is...>) {
+                                                                                                           ^
+main.cpp: In function 'Algorithm Wide::Util::hash(Algorithm, int)':
+main.cpp:30:28: error: 'get' is not a member of 'std'
+             return hash(A, std::get<Is>(args)...);
+                            ^
+main.cpp:30:41: error: 'args' was not declared in this scope
+             return hash(A, std::get<Is>(args)...);
+                                         ^
+main.cpp: At global scope:
+main.cpp:32:86: error: 'std::tuple' has not been declared
+         template<typename... T, typename Algorithm> Algorithm hash(Algorithm A, std::tuple<T...> args) {
+                                                                                      ^
+main.cpp:32:91: error: expected ',' or '...' before '<' token
+         template<typename... T, typename Algorithm> Algorithm hash(Algorithm A, std::tuple<T...> args) {
+                                                                                           ^
+main.cpp: In function 'Algorithm Wide::Util::hash(Algorithm, int)':
+main.cpp:33:28: error: 'move' is not a member of 'std'
+             return hash(A, std::move(args), indices_gen<sizeof...(T)>());
+                            ^
+main.cpp:33:38: error: 'args' was not declared in this scope
+             return hash(A, std::move(args), indices_gen<sizeof...(T)>());
+                                      ^
+main.cpp:33:45: error: 'indices_gen' was not declared in this scope
+             return hash(A, std::move(args), indices_gen<sizeof...(T)>());
+                                             ^
+main.cpp:33:71: error: expected primary-expression before ')' token
+             return hash(A, std::move(args), indices_gen<sizeof...(T)>());
+                                                                       ^
