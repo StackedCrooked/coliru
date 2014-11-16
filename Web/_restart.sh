@@ -2,9 +2,6 @@
 source coliru_env.source
 source logger.source
 
-# Cleanup coliru processes
-pkill -u 2002
-pkill -u 2001
 
 
 # Setup directories and set permissions
@@ -16,4 +13,19 @@ chown -R webserver:coliru /tmp
 /sbin/iptables -A OUTPUT -m owner --uid-owner 2002 -j DROP
 
 # Start the webserver
-./run.sh
+for i in {1..10} ; do 
+    for i in {1..10} ; do
+        pkill -u 2002
+        pkill -u 2001
+        ./run.sh
+        echo "WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY"
+    done
+    echo "POSSIBLE RESTART LOOP DETECTED. WAITING."
+    sleep 60
+    echo "RESTARTING WEBSERVER NOW"
+done
+
+echo "TOO MANY RESTARTS. REBOOTING SOON."
+sleep 300
+reboot
+
