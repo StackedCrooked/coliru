@@ -1,0 +1,105 @@
+main.cpp:32:11: error: 'Noisy Test::foo() &&' cannot be overloaded
+     Noisy foo() && {
+           ^
+main.cpp:26:11: error: with 'Noisy Test::foo()'
+     Noisy foo() {
+           ^
+main.cpp: In member function 'Noisy Test::foo()':
+main.cpp:6:5: error: 'Noisy::Noisy()' is private
+     Noisy() {
+     ^
+main.cpp:27:15: error: within this context
+         Noisy temp;
+               ^
+main.cpp:18:5: error: 'Noisy::~Noisy()' is private
+     ~Noisy() {
+     ^
+main.cpp:27:15: error: within this context
+         Noisy temp;
+               ^
+main.cpp:10:5: error: 'Noisy::Noisy(Noisy&&)' is private
+     Noisy(Noisy&& rhs) {
+     ^
+main.cpp:29:30: error: within this context
+         return std::move(temp);
+                              ^
+main.cpp:18:5: error: 'Noisy::~Noisy()' is private
+     ~Noisy() {
+     ^
+main.cpp:29:30: error: within this context
+         return std::move(temp);
+                              ^
+main.cpp: In member function 'Noisy Test::foo() &&':
+main.cpp:10:5: error: 'Noisy::Noisy(Noisy&&)' is private
+     Noisy(Noisy&& rhs) {
+     ^
+main.cpp:34:27: error: within this context
+         return std::move(n);
+                           ^
+main.cpp:18:5: error: 'Noisy::~Noisy()' is private
+     ~Noisy() {
+     ^
+main.cpp:34:27: error: within this context
+         return std::move(n);
+                           ^
+main.cpp: In function 'int main()':
+main.cpp:40:7: error: assignment of read-only variable 'c'
+     c = "def";
+       ^
+/usr/local/include/c++/4.9.0/bits/move.h: In instantiation of 'void std::swap(_Tp&, _Tp&) [with _Tp = Noisy]':
+main.cpp:28:26:   required from here
+main.cpp:10:5: error: 'Noisy::Noisy(Noisy&&)' is private
+     Noisy(Noisy&& rhs) {
+     ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:175:19: error: within this context
+       _Tp __tmp = _GLIBCXX_MOVE(__a);
+                   ^
+main.cpp:18:5: error: 'Noisy::~Noisy()' is private
+     ~Noisy() {
+     ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:175:19: error: within this context
+       _Tp __tmp = _GLIBCXX_MOVE(__a);
+                   ^
+main.cpp:18:5: error: 'Noisy::~Noisy()' is private
+     ~Noisy() {
+     ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:175:19: error: within this context
+       _Tp __tmp = _GLIBCXX_MOVE(__a);
+                   ^
+/usr/local/include/c++/4.9.0/bits/move.h:176:11: error: use of deleted function 'Noisy& Noisy::operator=(const Noisy&)'
+       __a = _GLIBCXX_MOVE(__b);
+           ^
+main.cpp:3:7: note: 'Noisy& Noisy::operator=(const Noisy&)' is implicitly declared as deleted because 'Noisy' declares a move constructor or move assignment operator
+ class Noisy {
+       ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:177:11: error: use of deleted function 'Noisy& Noisy::operator=(const Noisy&)'
+       __b = _GLIBCXX_MOVE(__tmp);
+           ^
