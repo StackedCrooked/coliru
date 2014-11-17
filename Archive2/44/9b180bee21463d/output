@@ -1,0 +1,11 @@
+main.cpp:11:11: warning: unused variable 'j' [-Wunused-variable]
+    MyInt j = count<Container, MyInt>(c);
+          ^
+1 warning generated.
+/tmp/main-a2db5e.o: In function `test(Container const&)':
+main.cpp:(.text+0x7): undefined reference to `int count<Container, int>(Container const&)'
+main.cpp:(.text+0x11): undefined reference to `MyInt count<Container, MyInt>(Container const&)'
+/tmp/main-a2db5e.o: In function `main':
+main.cpp:(.text+0x4b): undefined reference to `int count<Container, int>(Container const&)'
+main.cpp:(.text+0x55): undefined reference to `MyInt count<Container, MyInt>(Container const&)'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
