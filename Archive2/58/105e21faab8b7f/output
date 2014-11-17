@@ -1,0 +1,8 @@
+main.cpp: In instantiation of 'auto wrap(Func, Args&& ...) [with Func = void (*)(int); Args = {int}]':
+main.cpp:21:15:   required from here
+main.cpp:13:50: error: 'void t' has incomplete type
+     auto t = function(std::forward<Args>(args)...);
+                                                  ^
+main.cpp:17:12: error: unable to deduce 'auto' from 't'
+     return t;
+            ^
