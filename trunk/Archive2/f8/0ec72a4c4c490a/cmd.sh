@@ -1,0 +1,1 @@
+uname -a; lsb_release -a; clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_system -lboost_thread -lboost_log && ./a.out; tail test.[12]
