@@ -1,0 +1,14 @@
++ clang++ -stdlib=libc++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
++ ./a.out
+Run...
++ g++ -std=c++1y -Wall -Wextra -pedantic-errors -O3 main.cpp
+main.cpp: In function 'int main()':
+main.cpp:21:22: error: 'pi' is not a valid template argument for type 'const float&' because object 'pi' has not external linkage
+   TestClass<float, pi> test2;
+                      ^
+main.cpp:21:29: error: invalid type in declaration before ';' token
+   TestClass<float, pi> test2;
+                             ^
+main.cpp:21:24: warning: unused variable 'test2' [-Wunused-variable]
+   TestClass<float, pi> test2;
+                        ^
