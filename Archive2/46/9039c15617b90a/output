@@ -1,0 +1,36 @@
+main.cpp:4:27: error: 'string' in namespace 'std' does not name a type
+     TestError( const std::string &description )
+                           ^
+main.cpp:11:10: error: 'string' in namespace 'std' does not name a type
+     std::string m_description;
+          ^
+main.cpp: In constructor 'TestError::TestError(const int&)':
+main.cpp:5:11: error: class 'TestError' does not have any field named 'm_description'
+         : m_description( description )
+           ^
+main.cpp: In function 'void test_assert(const char*, U, V)':
+main.cpp:17:5: error: 'ostringstream' is not a member of 'std'
+     std::ostringstream full_description;
+     ^
+main.cpp:19:5: error: 'full_description' was not declared in this scope
+     full_description << description
+     ^
+main.cpp:20:28: error: must #include <typeinfo> before using typeid
+         << ": " << typeid(U).name() << " benchmark=" << benchmark
+                            ^
+main.cpp:21:28: error: must #include <typeinfo> before using typeid
+         <<  " " << typeid(V).name() << " value="     << value;
+                            ^
+main.cpp:26:9: error: 'cout' is not a member of 'std'
+         std::cout << "PASSED: " << full_description.str() << std::endl;
+         ^
+main.cpp:26:62: error: 'endl' is not a member of 'std'
+         std::cout << "PASSED: " << full_description.str() << std::endl;
+                                                              ^
+main.cpp: In function 'int main()':
+main.cpp:30:5: error: 'string' is not a member of 'std'
+     std::string name{ "foo" };
+     ^
+main.cpp:31:18: error: 'name' was not declared in this scope
+     test_assert( name+" operator int", int(1), int(1) );
+                  ^
