@@ -1,0 +1,41 @@
+main.cpp:13:13: error: expected template-name before '<' token
+ struct B : C<T> {
+             ^
+main.cpp:13:13: error: expected '{' before '<' token
+main.cpp:13:13: error: expected unqualified-id before '<' token
+main.cpp:15:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp: In function 'int main()':
+main.cpp:20:37: error: 'C' is not a template
+     std::cout << "C<A>: " << sizeof(C<A>) << std::endl;
+                                     ^
+main.cpp:20:39: error: 'A' was not declared in this scope
+     std::cout << "C<A>: " << sizeof(C<A>) << std::endl;
+                                       ^
+main.cpp:21:38: error: 'C' is not a template
+     std::cout << "C<A2>: " << sizeof(C<A2>) << std::endl;
+                                      ^
+main.cpp:21:40: error: 'A2' was not declared in this scope
+     std::cout << "C<A2>: " << sizeof(C<A2>) << std::endl;
+                                        ^
+main.cpp:23:39: error: the value of 'A' is not usable in a constant expression
+     std::cout << "B<A>: " << sizeof(B<A>) << std::endl;
+                                       ^
+main.cpp:20:39: note: 'A' was not declared 'constexpr'
+     std::cout << "C<A>: " << sizeof(C<A>) << std::endl;
+                                       ^
+main.cpp:23:40: error: type/value mismatch at argument 1 in template parameter list for 'template<class T> struct B'
+     std::cout << "B<A>: " << sizeof(B<A>) << std::endl;
+                                        ^
+main.cpp:23:40: error:   expected a type, got 'A'
+main.cpp:24:40: error: the value of 'A2' is not usable in a constant expression
+     std::cout << "B<A2>: " << sizeof(B<A2>) << std::endl;
+                                        ^
+main.cpp:21:40: note: 'A2' was not declared 'constexpr'
+     std::cout << "C<A2>: " << sizeof(C<A2>) << std::endl;
+                                        ^
+main.cpp:24:42: error: type/value mismatch at argument 1 in template parameter list for 'template<class T> struct B'
+     std::cout << "B<A2>: " << sizeof(B<A2>) << std::endl;
+                                          ^
+main.cpp:24:42: error:   expected a type, got 'A2'
