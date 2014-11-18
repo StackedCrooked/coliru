@@ -1,0 +1,1 @@
+for a in {1..100}; do echo $RANDOM,$RANDOM,$RANDOM; done > A.csv; clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp && ./a.out
