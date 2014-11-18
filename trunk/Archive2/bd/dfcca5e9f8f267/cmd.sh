@@ -1,0 +1,1 @@
+clang++ -std=c++1z -stdlib=libc++ main.cpp -Weverything -Wno-c++98-compat -Wno-padded -pthread -lsupc++ && ./a.out
