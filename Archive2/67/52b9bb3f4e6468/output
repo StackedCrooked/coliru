@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'T&& A<T>::f() [with T = int]':
+main.cpp:9:40:   required from here
+main.cpp:3:40: error: cannot bind 'int' lvalue to 'int&&'
+   T&& f () { return static_cast<T&&> (r); }                                                                         
+                                        ^
+main.cpp: In member function 'T&& A<T>::f() [with T = int]':
+main.cpp:3:43: warning: control reaches end of non-void function [-Wreturn-type]
+   T&& f () { return static_cast<T&&> (r); }                                                                         
+                                           ^
+gcc: FAIL
+clang: SUCCESS
