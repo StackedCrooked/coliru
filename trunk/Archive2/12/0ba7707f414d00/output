@@ -1,0 +1,10 @@
+main.cpp:11:12: error: use of deleted function 'B::B()'
+ B *b = new B;
+            ^
+main.cpp:9:8: note: 'B::B()' is implicitly deleted because the default definition would be ill-formed:
+ struct B: A { };
+        ^
+main.cpp:9:8: error: use of deleted function 'A::~A()'
+main.cpp:6:5: note: declared here
+     ~A() = delete; //{ std::cout << "~A::A()" << std::endl; };
+     ^
