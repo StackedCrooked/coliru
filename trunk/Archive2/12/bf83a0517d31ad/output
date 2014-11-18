@@ -1,0 +1,16 @@
+clang
+main.cpp:10:5: error: attempt to use a deleted function
+    B() noexcept {};
+    ^
+main.cpp:6:5: note: '~A' has been explicitly marked deleted here
+    ~A() = delete;
+    ^
+1 error generated.
+g++
+main.cpp: In constructor 'B::B()':
+main.cpp:10:18: error: use of deleted function 'A::~A()'
+     B() noexcept {};
+                  ^
+main.cpp:6:5: note: declared here
+     ~A() = delete;
+     ^
