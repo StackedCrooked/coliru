@@ -1,0 +1,1 @@
+clang++ -std=c++14 -O0 -Werror -Wall main.cpp -lboost_system -lboost_chrono -lboost_context -lboost_coroutine  && time ./a.out
