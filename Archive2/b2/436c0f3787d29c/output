@@ -1,0 +1,16 @@
+main.cpp:27:24: error: no matching constructor for initialization of 'asio::deadline_timer' (aka 'basic_deadline_timer<boost::posix_time::ptime>')
+  asio::deadline_timer timer (io, ::boost::chrono::seconds (1));
+                       ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/asio/basic_deadline_timer.hpp:163:3: note: candidate constructor not viable: no known conversion from '::boost::chrono::seconds' (aka 'duration<boost::int_least64_t>') to 'const time_type' (aka 'const boost::posix_time::ptime') for 2nd argument
+  basic_deadline_timer(boost::asio::io_service& io_service,
+  ^
+/usr/local/include/boost/asio/basic_deadline_timer.hpp:182:3: note: candidate constructor not viable: no known conversion from '::boost::chrono::seconds' (aka 'duration<boost::int_least64_t>') to 'const duration_type' (aka 'const boost::posix_time::time_duration') for 2nd argument
+  basic_deadline_timer(boost::asio::io_service& io_service,
+  ^
+/usr/local/include/boost/asio/basic_deadline_timer.hpp:148:12: note: candidate constructor not viable: requires single argument 'io_service', but 2 arguments were provided
+  explicit basic_deadline_timer(boost::asio::io_service& io_service)
+           ^
+/usr/local/include/boost/asio/basic_deadline_timer.hpp:126:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+class basic_deadline_timer
+      ^
+1 error generated.
