@@ -1,0 +1,1 @@
+touch sample_0.log; tail -F sample_0.log & clang++ -std=c++11 -O0 -Werror -Wall main.cpp -pthread -lboost_system -lboost_chrono -lboost_thread -lboost_log && ./a.out
