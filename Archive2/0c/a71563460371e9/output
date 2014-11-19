@@ -1,0 +1,23 @@
+*** llvm ok ***
+
+
+main.cpp: In function 'int main()':
+main.cpp:29:42: error: use of deleted function 'MazeCreationException::MazeCreationException(const string&)'
+     MazeCreationException hello( "hello" ) ; // the GNU and microsoft libraries choke on this
+                                          ^
+main.cpp:5:31: note: 'MazeCreationException::MazeCreationException(const string&)' is implicitly deleted because the default definition would be ill-formed:
+     using std::runtime_error::runtime_error ;
+                               ^
+main.cpp:5:31: error: no matching function for call to 'std::runtime_error::runtime_error()'
+main.cpp:5:31: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/stdexcept:119:5: note: std::runtime_error::runtime_error(const string&)
+     runtime_error(const string& __arg);
+     ^
+/usr/local/include/c++/4.9.0/stdexcept:119:5: note:   candidate expects 1 argument, 0 provided
+/usr/local/include/c++/4.9.0/stdexcept:112:9: note: std::runtime_error::runtime_error(const std::runtime_error&)
+   class runtime_error : public exception 
+         ^
+/usr/local/include/c++/4.9.0/stdexcept:112:9: note:   candidate expects 1 argument, 0 provided
+
+*** gnu broken ***
