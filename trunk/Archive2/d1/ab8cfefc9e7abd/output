@@ -1,0 +1,70 @@
+Line 1: #include <algorithm>
+Line 2: #include <iostream>
+Line 3: 
+Line 4: // for mmap:
+Line 5: #include <sys/mman.h>
+Line 6: #include <sys/stat.h>
+Line 7: #include <fcntl.h>
+Line 8: #include <cstring>
+Line 9: 
+Line 10: const char* map_file(const char* fname, size_t& length);
+Line 11: 
+Line 12: int main()
+Line 13: {
+Line 14:     size_t length;
+Line 15:     const char* f = map_file("main.cpp", length);
+Line 16:     const char* l = f + length;
+Line 17: 
+Line 18:     uintmax_t m_numLines = 0;
+Line 19:     const char * lineStart = f;
+Line 20:     const char * lineEnd = 0;
+Line 21:     while (f && f!=l)
+Line 22:     {        
+Line 23:         if ((f = static_cast<const char*>(memchr(f, '\n', l-f))))
+Line 24:         {
+Line 25:             m_numLines++;
+Line 26:             lineEnd = f;
+Line 27:             
+Line 28:             std::string line(lineStart,lineEnd);
+Line 29:             
+Line 30:             lineStart = lineEnd + 1;
+Line 31:             f++;    
+Line 32:             
+Line 33:             std::cout << "Line " << m_numLines << ": " << line << std::endl;
+Line 34:         }
+Line 35:         
+Line 36:         
+Line 37:     }
+Line 38: 
+Line 39:     //std::cout << f << std::endl;
+Line 40:     std::cout << "m_numLines = " << m_numLines << "\n";
+Line 41: }
+Line 42: 
+Line 43: void handle_error(const char* msg) {
+Line 44:     perror(msg); 
+Line 45:     exit(255);
+Line 46: }
+Line 47: 
+Line 48: const char* map_file(const char* fname, size_t& length)
+Line 49: {
+Line 50:     int fd = open(fname, O_RDONLY);
+Line 51:     if (fd == -1)
+Line 52:         handle_error("open");
+Line 53: 
+Line 54:     posix_fadvise(fd, 0, 0, 1);  // FDADVICE_SEQUENTIAL
+Line 55: 
+Line 56:     // obtain file size
+Line 57:     struct stat sb;
+Line 58:     if (fstat(fd, &sb) == -1)
+Line 59:         handle_error("fstat");
+Line 60: 
+Line 61:     length = sb.st_size;
+Line 62: 
+Line 63:     const char* addr = static_cast<const char*>(mmap(NULL, length, PROT_READ, MAP_PRIVATE, fd, 0u));
+Line 64:     if (addr == MAP_FAILED)
+Line 65:         handle_error("mmap");
+Line 66: 
+Line 67:     // TODO close fd at some point in time, call munmap(...)
+Line 68:     return addr;
+Line 69: }
+m_numLines = 69
