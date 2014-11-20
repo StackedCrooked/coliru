@@ -1,0 +1,1 @@
+clang++ -x c -std=c11 -Wall -pedantic main.cpp && ./a.out
