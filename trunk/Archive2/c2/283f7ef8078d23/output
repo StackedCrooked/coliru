@@ -1,0 +1,29 @@
+main.cpp: In function 'int* availableStackFrameAddr()':
+main.cpp:12:5: warning: address of local variable 'a' returned [-Wreturn-local-addr]
+ int a;
+     ^
+main.cpp: In function 'void foo()':
+main.cpp:18:41: warning: format '%p' expects argument of type 'void*', but argument 2 has type 'int*' [-Wformat=]
+ printf("%p\n", availableStackFrameAddr());
+                                         ^
+main.cpp: In function 'void bar()':
+main.cpp:24:49: warning: format '%p' expects argument of type 'void*', but argument 2 has type 'int*' [-Wformat=]
+ printf("%p %d\n", availableStackFrameAddr(), a.a);
+                                                 ^
+main.cpp: In function 'void baz()':
+main.cpp:30:49: warning: format '%p' expects argument of type 'void*', but argument 2 has type 'int*' [-Wformat=]
+ printf("%p %d\n", availableStackFrameAddr(), a.b);
+                                                 ^
+main.cpp: In function 'void bazz()':
+main.cpp:37:57: warning: format '%p' expects argument of type 'void*', but argument 2 has type 'int*' [-Wformat=]
+ printf("%p %d %d\n", availableStackFrameAddr(), a.a, a.b);
+                                                         ^
+main.cpp: In function 'int main()':
+main.cpp:40:41: warning: format '%p' expects argument of type 'void*', but argument 2 has type 'int*' [-Wformat=]
+ printf("%p\n", availableStackFrameAddr());
+                                         ^
+0x7fff04f7ff18
+0x7fff04f7ff1c
+0x7fff04f7feec 1
+0x7fff04f7feec 2
+0x7fff04f7feec 11 22
