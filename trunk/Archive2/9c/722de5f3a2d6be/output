@@ -1,0 +1,27 @@
+main.cpp:19:3: warning: implicit declaration of function 'scanf_s' is invalid in C99 [-Wimplicit-function-declaration]
+                scanf_s("%d", &value);
+                ^
+main.cpp:22:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+                if (c = 1)
+                    ~~^~~
+main.cpp:22:9: note: place parentheses around the assignment to silence this warning
+                if (c = 1)
+                      ^
+                    (    )
+main.cpp:22:9: note: use '==' to turn this assignment into an equality comparison
+                if (c = 1)
+                      ^
+                      ==
+main.cpp:29:18: warning: relational comparison result unused [-Wunused-comparison]
+                else if (value < max, c <= n)
+                         ~~~~~~^~~~~
+main.cpp:34:18: warning: relational comparison result unused [-Wunused-comparison]
+                else if (value < min, c <= n)
+                         ~~~~~~^~~~~
+main.cpp:8:12: warning: unused variable 'sum' [-Wunused-variable]
+    int n, sum = 0, c, value;
+           ^
+5 warnings generated.
+/tmp/main-e3ddd2.o: In function `main':
+main.cpp:(.text+0x2b): undefined reference to `scanf_s'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
