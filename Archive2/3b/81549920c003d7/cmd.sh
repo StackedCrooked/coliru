@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wextra -Wall -pedantic main.cpp && ./a.out <<<"MATRIX.{variable_name}=[1,2,3;4,5,6]"
