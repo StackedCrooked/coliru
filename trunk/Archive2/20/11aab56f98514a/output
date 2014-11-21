@@ -1,0 +1,16 @@
+main.cpp: In instantiation of 'void f(I0, I1) [with I0 = int*; I1 = double*]':
+main.cpp:24:25:   required from here
+main.cpp:15:5: error: static assertion failed: Iterator value types are not the same!
+     static_assert(is_same<ValueType<I0>, ValueType<I1>>::value, "Iterator value types are not the same!");
+     ^
+main.cpp: In instantiation of 'void f(I0, I1) [with I0 = int*; I1 = std::basic_string<char>*]':
+main.cpp:25:25:   required from here
+main.cpp:13:5: error: static assertion failed: ValueType<I0> is not convertible to ValueType<I1>!
+     static_assert(is_convertible<ValueType<I0>, ValueType<I1>>::value, "ValueType<I0> is not convertible to ValueType<I1>!");
+     ^
+main.cpp:14:5: error: static assertion failed: ValueType<I1> is not convertible to ValueType<I0>!
+     static_assert(is_convertible<ValueType<I1>, ValueType<I0>>::value, "ValueType<I1> is not convertible to ValueType<I0>!");
+     ^
+main.cpp:15:5: error: static assertion failed: Iterator value types are not the same!
+     static_assert(is_same<ValueType<I0>, ValueType<I1>>::value, "Iterator value types are not the same!");
+     ^
