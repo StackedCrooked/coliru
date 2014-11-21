@@ -1,0 +1,1 @@
+g++ -O2 -Wall -pedantic -pthread -lboost_program_options main.cpp && ./a.out
