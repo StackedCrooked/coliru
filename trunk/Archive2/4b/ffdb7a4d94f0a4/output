@@ -1,0 +1,11 @@
+main.cpp:12:12: warning: returning address of local temporary object [-Wreturn-stack-address]
+    return buf.arr;
+           ^~~
+main.cpp:9:35: note: binding reference variable 'buf' here
+const char* foo(int id, tmp_buf&& buf = tmp_buf())
+                                  ^     ~~~~~~~~~
+1 warning generated.
+at call site: foo(75BCD15) [~] 
+after call site:  [~] 
+pi=3.142857
+foo(75BCD15)
