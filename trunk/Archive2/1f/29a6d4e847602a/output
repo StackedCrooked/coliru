@@ -1,0 +1,20 @@
+main.cpp: In constructor 'C<T>::C()':
+main.cpp:18:7: error: class 'C<T>' does not have any field named 'A'
+     : A(17)
+       ^
+main.cpp: In instantiation of 'C<T>::C() [with T = int]':
+main.cpp:25:12:   required from here
+main.cpp:18:11: error: no matching function for call to 'A<int>::A()'
+     : A(17)
+           ^
+main.cpp:18:11: note: candidates are:
+main.cpp:3:5: note: A<T>::A(T) [with T = int]
+     A(T) {}
+     ^
+main.cpp:3:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:2:8: note: constexpr A<int>::A(const A<int>&)
+ struct A { 
+        ^
+main.cpp:2:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:2:8: note: constexpr A<int>::A(A<int>&&)
+main.cpp:2:8: note:   candidate expects 1 argument, 0 provided
