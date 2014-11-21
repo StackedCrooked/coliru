@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:20:7: warning: variable 'a4' set but not used [-Wunused-but-set-variable]
+     A a4 = {4,5}; // OK: copy-list-initialization selects A::A(int, int)
+       ^
+main.cpp:21:9: warning: unused variable 'na1' [-Wunused-variable]
+     int na1 = a1; // OK: copy-initialization selects A::operator int()
+         ^
+main.cpp:22:9: warning: unused variable 'na2' [-Wunused-variable]
+     int na2 = static_cast<int>(a1); // OK: static_cast performs direct-initialization
+         ^
+main.cpp:23:7: warning: variable 'a5' set but not used [-Wunused-but-set-variable]
+     A a5 = (A)1; // OK: explicit cast performs static_cast
+       ^
+main.cpp:30:9: warning: unused variable 'nb2' [-Wunused-variable]
+     int nb2 = static_cast<int>(b2); // OK: static_cast performs direct-initialization
+         ^
+main.cpp:31:7: warning: variable 'b5' set but not used [-Wunused-but-set-variable]
+     B b5 = (B)1; // OK: explicit cast performs static_cast
+       ^
