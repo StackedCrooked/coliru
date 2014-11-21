@@ -1,0 +1,16 @@
+main.cpp:10:10: error: no matching function for call to 'declval'
+  return std::declval<Variant>(std::declval<T>()).which();
+         ^~~~~~~~~~~~~~~~~~~~~
+main.cpp:17:16: note: in instantiation of function template specialization 'variant_type_index<double, boost::variant<int, std::basic_string<char>, double, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_, boost::detail::variant::void_> >' requested here
+  std::cout << variant_type_index<double, myvariant>()<< '\n';
+               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:2001:5: note: candidate function template not viable: requires 0 arguments, but 1 was provided
+    declval() noexcept
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/type_traits:2003:7: error: static_assert failed "declval() must not be used!"
+      static_assert(__declval_protector<_Tp>::__stop,
+      ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:10:37: note: in instantiation of function template specialization 'std::declval<double>' requested here
+  return std::declval<Variant>(std::declval<T>()).which();
+                                    ^
+2 errors generated.
