@@ -1,0 +1,33 @@
+main.cpp:19:1: error: expected '}' at end of input
+ }
+ ^
+main.cpp: In destructor 'virtual Bar::~Bar()':
+main.cpp:6:13: error: 'Foo::~Foo()' is private
+     virtual ~Foo() = default;
+             ^
+main.cpp:11:20: error: within this context
+     virtual ~Bar() { std::cout << "It's a ba." << std::endl; }
+                    ^
+main.cpp: In member function 'int Bar::main()':
+main.cpp:15:24: error: use of deleted function 'Bar::Bar()'
+     Foo* foo = new Bar();
+                        ^
+main.cpp:9:7: note: 'Bar::Bar()' is implicitly deleted because the default definition would be ill-formed:
+ class Bar : public Foo
+       ^
+main.cpp:6:13: error: 'virtual Foo::~Foo()' is private
+     virtual ~Foo() = default;
+             ^
+main.cpp:9:7: error: within this context
+ class Bar : public Foo
+       ^
+main.cpp:6:13: error: 'virtual Foo::~Foo()' is private
+     virtual ~Foo() = default;
+             ^
+main.cpp:16:12: error: within this context
+     delete foo;
+            ^
+main.cpp: At global scope:
+main.cpp:19:1: error: expected unqualified-id at end of input
+ }
+ ^
