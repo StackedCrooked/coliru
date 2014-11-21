@@ -1,0 +1,24 @@
+clang++ c++14
+main.cpp:3:10: error: field has incomplete type 'char []'
+    char stars[]; int starsLength;
+         ^
+main.cpp:4:10: error: field has incomplete type 'char []'
+    char planets[]; int planetsLength;
+         ^
+main.cpp:5:2: error: expected ';' after class
+}
+ ^
+ ;
+3 errors generated.
+
+g++ c++14
+main.cpp:3:16: warning: ISO C++ forbids zero-size array 'stars' [-Wpedantic]
+     char stars[]; int starsLength;
+                ^
+main.cpp:4:18: warning: ISO C++ forbids zero-size array 'planets' [-Wpedantic]
+     char planets[]; int planetsLength;
+                  ^
+main.cpp:5:1: error: expected ';' after class definition
+ }
+ ^
+
