@@ -1,0 +1,1 @@
+g++ -std=c++11 -Os -pthread main.cpp -lboost_system -lboost_program_options && ./a.out
