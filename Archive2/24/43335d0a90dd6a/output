@@ -1,0 +1,7 @@
+main.cpp:9:5: error: static_assert failed "Wrong Type"
+    static_assert(std::is_same<typename std::iterator_traits<Iterator>::value_type, T>::value, "Wrong Type");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:20:18: note: in instantiation of function template specialization 'contains<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, double>' requested here
+    std::cout << contains(std::begin(v), std::end(v), 43.0); // Wrong type
+                 ^
+1 error generated.
