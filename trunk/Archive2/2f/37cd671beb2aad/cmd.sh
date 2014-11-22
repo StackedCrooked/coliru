@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wextra -Wall -pedantic -pthread main.cpp -lboost_thread -lboost_system && ./a.out; tail -n100 report.ini

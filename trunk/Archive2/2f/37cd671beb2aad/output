@@ -1,0 +1,34 @@
+main.cpp:8:35: warning: unused parameter 'v' [-Wunused-parameter]
+        void validate(boost::any& v, 
+                                  ^
+main.cpp:9:64: warning: unused parameter 'xs' [-Wunused-parameter]
+                const std::vector< std::basic_string<charT> >& xs, 
+                                                               ^
+main.cpp:10:31: warning: unused parameter 'p' [-Wunused-parameter]
+                unsigned int* p, int)
+                              ^
+3 warnings generated.
+/tmp/main-c345a7.o: In function `main':
+main.cpp:(.text+0xa): undefined reference to `boost::program_options::options_description::m_default_line_length'
+main.cpp:(.text+0x1b): undefined reference to `boost::program_options::options_description::options_description(unsigned int, unsigned int)'
+main.cpp:(.text+0x28): undefined reference to `boost::program_options::variables_map::variables_map()'
+main.cpp:(.text+0x53): undefined reference to `boost::program_options::options_description::add_options()'
+main.cpp:(.text+0xd5): undefined reference to `boost::program_options::options_description_easy_init::operator()(char const*, boost::program_options::value_semantic const*)'
+main.cpp:(.text+0x101): undefined reference to `boost::program_options::detail::cmdline::set_options_description(boost::program_options::options_description const&)'
+main.cpp:(.text+0x12f): undefined reference to `boost::program_options::store(boost::program_options::basic_parsed_options<char> const&, boost::program_options::variables_map&, bool)'
+main.cpp:(.text+0x167): undefined reference to `boost::program_options::notify(boost::program_options::variables_map&)'
+main.cpp:(.text+0x1a1): undefined reference to `vtable for boost::program_options::variables_map'
+main.cpp:(.text+0x279): undefined reference to `vtable for boost::program_options::variables_map'
+/tmp/main-c345a7.o: In function `boost::program_options::basic_command_line_parser<char>::basic_command_line_parser(int, char const* const*)':
+main.cpp:(.text._ZN5boost15program_options25basic_command_line_parserIcEC2EiPKPKc[_ZN5boost15program_options25basic_command_line_parserIcEC2EiPKPKc]+0x42): undefined reference to `boost::program_options::detail::cmdline::cmdline(std::vector<std::string, std::allocator<std::string> > const&)'
+/tmp/main-c345a7.o: In function `boost::program_options::basic_command_line_parser<char>::run()':
+main.cpp:(.text._ZN5boost15program_options25basic_command_line_parserIcE3runEv[_ZN5boost15program_options25basic_command_line_parserIcE3runEv]+0x17): undefined reference to `boost::program_options::detail::cmdline::get_canonical_option_prefix()'
+main.cpp:(.text._ZN5boost15program_options25basic_command_line_parserIcE3runEv[_ZN5boost15program_options25basic_command_line_parserIcE3runEv]+0x3d): undefined reference to `boost::program_options::detail::cmdline::run()'
+/tmp/main-c345a7.o: In function `std::vector<std::string, std::allocator<std::string> > boost::program_options::to_internal<std::string>(std::vector<std::string, std::allocator<std::string> > const&)':
+main.cpp:(.text._ZN5boost15program_options11to_internalISsEESt6vectorISsSaISsEERKS2_IT_SaIS5_EE[_ZN5boost15program_options11to_internalISsEESt6vectorISsSaISsEERKS2_IT_SaIS5_EE]+0x43): undefined reference to `boost::program_options::to_internal(std::string const&)'
+/tmp/main-c345a7.o: In function `boost::program_options::typed_value<unsigned int, char>::name() const':
+main.cpp:(.text._ZNK5boost15program_options11typed_valueIjcE4nameEv[_ZNK5boost15program_options11typed_valueIjcE4nameEv]+0x1d): undefined reference to `boost::program_options::arg'
+/tmp/main-c345a7.o:(.rodata._ZTVN5boost15program_options11typed_valueIjcEE[_ZTVN5boost15program_options11typed_valueIjcEE]+0x38): undefined reference to `boost::program_options::value_semantic_codecvt_helper<char>::parse(boost::any&, std::vector<std::string, std::allocator<std::string> > const&, bool) const'
+/tmp/main-c345a7.o:(.rodata._ZTIN5boost15program_options11typed_valueIjcEE[_ZTIN5boost15program_options11typed_valueIjcEE]+0x18): undefined reference to `typeinfo for boost::program_options::value_semantic_codecvt_helper<char>'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+tail: cannot open `report.ini' for reading: No such file or directory
