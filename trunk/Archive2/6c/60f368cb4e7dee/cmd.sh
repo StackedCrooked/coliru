@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && echo "10 1 3 4 -5 6 -1 0 -3 5 -2" | ./a.out
