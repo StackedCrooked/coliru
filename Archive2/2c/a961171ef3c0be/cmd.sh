@@ -1,0 +1,1 @@
+g++ -Wall -pedantic -Wextra main.cpp -lm && echo 0 0.6 0.1 1e-6 | ./a.out
