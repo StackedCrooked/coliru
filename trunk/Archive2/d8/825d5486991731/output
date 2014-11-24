@@ -1,0 +1,256 @@
+	.text
+	.file	"main.cpp"
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rbp
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+	pushq	%rbx
+.Ltmp1:
+	.cfi_def_cfa_offset 24
+	pushq	%rax
+.Ltmp2:
+	.cfi_def_cfa_offset 32
+.Ltmp3:
+	.cfi_offset %rbx, -24
+.Ltmp4:
+	.cfi_offset %rbp, -16
+	xorl	%ebp, %ebp
+	.align	16, 0x90
+.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+	movl	%ebp, %eax
+	cmpl	$3, %ebp
+	ja	.LBB0_37
+# BB#2:                                 #   in Loop: Header=BB0_1 Depth=1
+	jmpq	*.LJTI0_0(,%rax,8)
+.LBB0_3:                                #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZTIi+8(%rip), %rbx
+	movzbl	(%rbx), %eax
+	cmpl	$42, %eax
+	jne	.LBB0_5
+# BB#4:                                 #   in Loop: Header=BB0_1 Depth=1
+	incq	%rbx
+.LBB0_5:                                # %select.end
+                                        #   in Loop: Header=BB0_1 Depth=1
+	testq	%rbx, %rbx
+	je	.LBB0_6
+# BB#7:                                 #   in Loop: Header=BB0_1 Depth=1
+	movq	%rbx, %rdi
+	callq	strlen
+	movl	$_ZSt4cout, %edi
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	jmp	.LBB0_8
+.LBB0_11:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZTIf+8(%rip), %rbx
+	movzbl	(%rbx), %eax
+	cmpl	$42, %eax
+	jne	.LBB0_13
+# BB#12:                                #   in Loop: Header=BB0_1 Depth=1
+	incq	%rbx
+.LBB0_13:                               # %select.end2
+                                        #   in Loop: Header=BB0_1 Depth=1
+	testq	%rbx, %rbx
+	je	.LBB0_14
+# BB#15:                                #   in Loop: Header=BB0_1 Depth=1
+	movq	%rbx, %rdi
+	callq	strlen
+	movl	$_ZSt4cout, %edi
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	jmp	.LBB0_16
+.LBB0_19:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZTId+8(%rip), %rbx
+	movzbl	(%rbx), %eax
+	cmpl	$42, %eax
+	jne	.LBB0_21
+# BB#20:                                #   in Loop: Header=BB0_1 Depth=1
+	incq	%rbx
+.LBB0_21:                               # %select.end4
+                                        #   in Loop: Header=BB0_1 Depth=1
+	testq	%rbx, %rbx
+	je	.LBB0_22
+# BB#23:                                #   in Loop: Header=BB0_1 Depth=1
+	movq	%rbx, %rdi
+	callq	strlen
+	movl	$_ZSt4cout, %edi
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	jmp	.LBB0_24
+.LBB0_27:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZTIb+8(%rip), %rbx
+	movzbl	(%rbx), %eax
+	cmpl	$42, %eax
+	jne	.LBB0_29
+# BB#28:                                #   in Loop: Header=BB0_1 Depth=1
+	incq	%rbx
+.LBB0_29:                               # %select.end6
+                                        #   in Loop: Header=BB0_1 Depth=1
+	testq	%rbx, %rbx
+	je	.LBB0_30
+# BB#31:                                #   in Loop: Header=BB0_1 Depth=1
+	movq	%rbx, %rdi
+	callq	strlen
+	movl	$_ZSt4cout, %edi
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	jmp	.LBB0_32
+.LBB0_6:                                #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	leaq	_ZSt4cout(%rax), %rdi
+	movl	_ZSt4cout+32(%rax), %esi
+	orl	$1, %esi
+	callq	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+.LBB0_8:                                # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	movq	_ZSt4cout+240(%rax), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_39
+# BB#9:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_35
+# BB#10:                                #   in Loop: Header=BB0_1 Depth=1
+	movb	67(%rbx), %al
+	jmp	.LBB0_36
+.LBB0_14:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	leaq	_ZSt4cout(%rax), %rdi
+	movl	_ZSt4cout+32(%rax), %esi
+	orl	$1, %esi
+	callq	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+.LBB0_16:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i9.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	movq	_ZSt4cout+240(%rax), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_39
+# BB#17:                                # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i10.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_35
+# BB#18:                                #   in Loop: Header=BB0_1 Depth=1
+	movb	67(%rbx), %al
+	jmp	.LBB0_36
+.LBB0_22:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	leaq	_ZSt4cout(%rax), %rdi
+	movl	_ZSt4cout+32(%rax), %esi
+	orl	$1, %esi
+	callq	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+.LBB0_24:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i14.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	movq	_ZSt4cout+240(%rax), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_39
+# BB#25:                                # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_35
+# BB#26:                                #   in Loop: Header=BB0_1 Depth=1
+	movb	67(%rbx), %al
+	jmp	.LBB0_36
+.LBB0_30:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	leaq	_ZSt4cout(%rax), %rdi
+	movl	_ZSt4cout+32(%rax), %esi
+	orl	$1, %esi
+	callq	_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate
+.LBB0_32:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i19.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movq	_ZSt4cout(%rip), %rax
+	movq	-24(%rax), %rax
+	movq	_ZSt4cout+240(%rax), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_39
+# BB#33:                                # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_35
+# BB#34:                                #   in Loop: Header=BB0_1 Depth=1
+	movb	67(%rbx), %al
+	jmp	.LBB0_36
+.LBB0_35:                               #   in Loop: Header=BB0_1 Depth=1
+	movq	%rbx, %rdi
+	callq	_ZNKSt5ctypeIcE13_M_widen_initEv
+	movq	(%rbx), %rax
+	movl	$10, %esi
+	movq	%rbx, %rdi
+	callq	*48(%rax)
+.LBB0_36:                               # %_ZNK12handle_casesISt5tupleIJifdbEEZ4mainE3$_0EclIN4mpl_10integral_cImLm3EEEEEvT_.exit.i.i.i
+                                        #   in Loop: Header=BB0_1 Depth=1
+	movsbl	%al, %esi
+	movl	$_ZSt4cout, %edi
+	callq	_ZNSo3putEc
+	movq	%rax, %rdi
+	callq	_ZNSo5flushEv
+.LBB0_37:                               # %_Z11do_with_nthISt5tupleIJifdbEEZ4mainE3$_0EvRKT_T0_i.exit
+                                        #   in Loop: Header=BB0_1 Depth=1
+	incl	%ebp
+	cmpl	$4, %ebp
+	jl	.LBB0_1
+# BB#38:
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	popq	%rbx
+	popq	%rbp
+	retq
+.LBB0_39:
+	callq	_ZSt16__throw_bad_castv
+.Ltmp5:
+	.size	main, .Ltmp5-main
+	.cfi_endproc
+	.section	.rodata,"a",@progbits
+	.align	8
+.LJTI0_0:
+	.quad	.LBB0_3
+	.quad	.LBB0_11
+	.quad	.LBB0_19
+	.quad	.LBB0_27
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_main.cpp,@function
+_GLOBAL__sub_I_main.cpp:                # @_GLOBAL__sub_I_main.cpp
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp6:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp7:
+	.size	_GLOBAL__sub_I_main.cpp, .Ltmp7-_GLOBAL__sub_I_main.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_main.cpp
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
