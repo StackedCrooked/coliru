@@ -1,0 +1,16 @@
+main.cpp:18:7: error: no viable overloaded '='
+    b = foo();    //Statement B
+    ~ ^ ~~~~~
+main.cpp:6:10: note: candidate function not viable: expects an l-value for 1st argument
+    foo& operator=(foo&)
+         ^
+1 error generated.
+main.cpp: In function 'int main()':
+main.cpp:18:7: error: no match for 'operator=' (operand types are 'foo' and 'foo')
+     b = foo();    //Statement B
+       ^
+main.cpp:18:7: note: candidate is:
+main.cpp:6:10: note: foo& foo::operator=(foo&)
+     foo& operator=(foo&)
+          ^
+main.cpp:6:10: note:   no known conversion for argument 1 from 'foo' to 'foo&'
