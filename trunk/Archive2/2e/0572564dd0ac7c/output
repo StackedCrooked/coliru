@@ -1,0 +1,14 @@
+main.cpp:19:3: error: no matching constructor for initialization of 'A'
+A a{c, b};
+  ^~~~~~~
+main.cpp:13:5: note: candidate constructor not viable: no known conversion from 'B' to 'const C' for 2nd argument
+    A(const C&, const C&){ }
+    ^
+main.cpp:14:5: note: candidate constructor not viable: requires 1 argument, but 2 were provided
+    A(const B&){ }
+    ^
+main.cpp:11:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+struct A
+       ^
+main.cpp:11:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+1 error generated.
