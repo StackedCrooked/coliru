@@ -1,0 +1,21 @@
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp: In function 'int main()':
+main.cpp:30:41: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         Node *root=createNode("Ravinder");
+                                         ^
++ ./a.out
+Ravinder
++ clang++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp:30:31: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        Node *root=createNode("Ravinder");
+                              ^
+1 warning generated.
++ ./a.out
+Ravinder
++ clang++ -stdlib=libc++ -O3 -std=c++1y -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp:30:31: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+        Node *root=createNode("Ravinder");
+                              ^
+1 warning generated.
++ ./a.out
+Ravinder
