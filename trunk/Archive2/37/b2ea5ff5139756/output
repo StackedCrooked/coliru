@@ -1,0 +1,8 @@
++ gcc -x c -std=c99 -pedantic-errors main.cpp
+main.cpp: In function 'main':
+main.cpp:12:5: error: passing argument 1 of 'f' from incompatible pointer type
+     f(ptr); // shouldn't this be a compilation error ? 
+     ^
+main.cpp:6:6: note: expected 'struct T1 *' but argument is of type 'struct T2 *'
+ void f(T1 *ptr) { printf("f called\n"); }
+      ^
