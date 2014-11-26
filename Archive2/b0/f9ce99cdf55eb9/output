@@ -1,0 +1,6 @@
+main.cpp: In instantiation of 'auto apply_impl(std::index_sequence<Is ...>, FunctionT&&, ArgTuple&&) [with ArgTuple = std::tuple<std::unique_ptr<int, std::default_delete<int> >&&>&; FunctionT = void (&)(std::unique_ptr<int>&&); long unsigned int ...Is = {0ul}; std::index_sequence<Is ...> = std::integer_sequence<long unsigned int, 0ul>]':
+main.cpp:13:117:   required from 'auto apply(FunctionT&&, ArgTuple&&) [with ArgTuple = std::tuple<std::unique_ptr<int, std::default_delete<int> >&&>; FunctionT = void (&)(std::unique_ptr<int>&&)]'
+main.cpp:25:5:   required from here
+main.cpp:8:35: error: cannot bind 'std::unique_ptr<int>' lvalue to 'std::unique_ptr<int>&&'
+     return f(std::get<Is>(args)...);
+                                   ^
