@@ -1,0 +1,17 @@
+main.cpp: In function 'constexpr int factorial(int)':
+main.cpp:10:1: error: body of constexpr function 'constexpr int factorial(int)' not a return-statement
+ }
+ ^
+main.cpp: In function 'int main()':
+main.cpp:41:23: error: 'constexpr int factorial(int)' called in a constant expression
+     constN<factorial(4)> out1; // computed at compile time
+                       ^
+main.cpp:41:24: note: in template argument for type 'int' 
+     constN<factorial(4)> out1; // computed at compile time
+                        ^
+main.cpp:41:30: error: invalid type in declaration before ';' token
+     constN<factorial(4)> out1; // computed at compile time
+                              ^
+main.cpp:41:26: warning: unused variable 'out1' [-Wunused-variable]
+     constN<factorial(4)> out1; // computed at compile time
+                          ^
