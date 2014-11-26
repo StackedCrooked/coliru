@@ -1,0 +1,1 @@
+clang++ -Weverything -std=c++1z -stdlib=libc++ main.cpp -lsupc++

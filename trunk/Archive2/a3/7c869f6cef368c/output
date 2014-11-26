@@ -1,0 +1,62 @@
+main.cpp:9:1: warning: 'constexpr' specifier is incompatible with C++98 [-Wc++98-compat]
+constexpr std::tuple<Int, unsigned, unsigned> civil_from_days(Int z) noexcept {
+^
+main.cpp:9:70: warning: noexcept specifications are incompatible with C++98 [-Wc++98-compat]
+constexpr std::tuple<Int, unsigned, unsigned> civil_from_days(Int z) noexcept {
+                                                                     ^
+main.cpp:10:5: warning: static_assert declarations are incompatible with C++98 [-Wc++98-compat]
+    static_assert(
+    ^
+main.cpp:13:2: warning: static_assert declarations are incompatible with C++98 [-Wc++98-compat]
+        static_assert(
+        ^
+main.cpp:17:12: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const Int era = (z >= 0 ? z : z - 146096) / 146097;
+                  ^
+main.cpp:18:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned doe = static_cast<unsigned>(z - era * 146097); // [0, 146096]
+                       ^
+main.cpp:19:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned yoe =
+                       ^
+main.cpp:21:12: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const Int y = static_cast<Int>(yoe) + era * 400;
+                  ^
+main.cpp:22:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned doy = doe - (365 * yoe + yoe / 4 - yoe / 100); // [0, 365]
+                       ^
+main.cpp:23:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned mp = (5 * doy + 2) / 153;                      // [0, 11]
+                       ^
+main.cpp:24:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned d = doy - (153 * mp + 2) / 5 + 1;              // [1, 31]
+                       ^
+main.cpp:25:17: warning: variable declaration in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        const unsigned m = mp + (mp < 10 ? 3 : -9);                   // [1, 12]
+                       ^
+main.cpp:16:2: warning: use of this statement in a constexpr function is incompatible with C++ standards before C++1y [-Wc++98-c++11-compat]
+        z += 719468;
+        ^
+main.cpp:29:20: warning: default template arguments for a function template are incompatible with C++98 [-Wc++98-compat]
+template <typename Duration = std::chrono::hours>
+                   ^          ~~~~~~~~~~~~~~~~~~
+main.cpp:30:26: warning: declaration shadows a local variable [-Wshadow]
+void print_time(Duration timezone = std::chrono::hours(0)) {
+                         ^
+/usr/include/time.h:292:17: note: previous declaration is here
+extern long int timezone;
+                ^
+main.cpp:33:62: warning: consecutive right angle brackets are incompatible with C++98 (use '> >') [-Wc++98-compat]
+        typedef duration<int, ratio_multiply<hours::period, ratio<24>>::type> days;
+                                                                    ^~
+                                                                    > >
+main.cpp:48:2: warning: 'auto' type specifier is incompatible with C++98 [-Wc++98-compat]
+        auto date = civil_from_days(d.count()); // assumes that system_clock uses
+        ^~~~
+main.cpp:25:41: warning: operand of ? changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        const unsigned m = mp + (mp < 10 ? 3 : -9);                   // [1, 12]
+                              ~                ^~
+main.cpp:48:14: note: in instantiation of function template specialization 'civil_from_days<int>' requested here
+        auto date = civil_from_days(d.count()); // assumes that system_clock uses
+                    ^
+18 warnings generated.
