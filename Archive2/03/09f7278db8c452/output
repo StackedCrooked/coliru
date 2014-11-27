@@ -1,0 +1,33 @@
+	.text
+	.file	"main.cpp"
+	.globl	=Z4testSt6atomicIiE
+	.align	16, 0x90
+	.type	=Z4testSt6atomicIiE,@function
+=Z4testSt6atomicIiE:                    # @=Z4testSt6atomicIiE
+	.cfi=startproc
+# BB#0:
+	push	rax
+.Ltmp0:
+	.cfi=def=cfa=offset 16
+	mov	dword ptr [rsp], edi
+===========================================================v
+===========================================================v
+	lock
+	inc	dword ptr [rsp]
+===========================================================v
+	lock
+	inc	dword ptr [rsp]
+===========================================================v
+	lock
+	inc	dword ptr [rsp]
+===========================================================v
+===========================================================v
+	pop	rax
+	ret
+.Ltmp1:
+	.size	=Z4testSt6atomicIiE, .Ltmp1-=Z4testSt6atomicIiE
+	.cfi=endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE=350/final 217394)"
+	.section	".note.GNU-stack","",@progbits

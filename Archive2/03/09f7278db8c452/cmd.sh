@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -Wall -pthread -pedantic -S -masm=intel main.cpp -o - | perl -pe 's,\s+call\s+_Z43,================,g; s,_,=,g'
