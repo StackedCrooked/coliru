@@ -1,0 +1,18 @@
+main.cpp: In constructor 'test::test(Range&&, Encoding&&, Validation&&) [with Range = const char (&)[5]; Encoding = const encoder_t; Validation = const validator_t]':
+main.cpp:46:18: error: cannot bind 'const encoder_t' lvalue to 'const encoder_t&&'
+     test( "woof" );
+                  ^
+main.cpp: In function 'int main()':
+main.cpp:46:18: error: cannot bind 'const encoder_t' lvalue to 'const encoder_t&&'
+main.cpp:30:5: error: in passing argument 2 of 'test::test(Range&&, Encoding&&, Validation&&) [with Range = const char (&)[5]; Encoding = const encoder_t; Validation = const validator_t]'
+     test ( Range&& range, Encoding&& encoding = encoder, Validation&& validation = validator ) {
+     ^
+main.cpp: In constructor 'test::test(Range&&, Encoding&&, Validation&&) [with Range = const char (&)[5]; Encoding = const encoder_t; Validation = const validator_t]':
+main.cpp:46:18: error: cannot bind 'const validator_t' lvalue to 'const validator_t&&'
+     test( "woof" );
+                  ^
+main.cpp: In function 'int main()':
+main.cpp:46:18: error: cannot bind 'const validator_t' lvalue to 'const validator_t&&'
+main.cpp:30:5: error: in passing argument 3 of 'test::test(Range&&, Encoding&&, Validation&&) [with Range = const char (&)[5]; Encoding = const encoder_t; Validation = const validator_t]'
+     test ( Range&& range, Encoding&& encoding = encoder, Validation&& validation = validator ) {
+     ^
