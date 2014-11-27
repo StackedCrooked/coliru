@@ -1,0 +1,18 @@
+main.cpp: In function 'int main()':
+main.cpp:20:18: error: no matching function for call to 'test::test(const char [5])'
+     test( "woof" );
+                  ^
+main.cpp:20:18: note: candidates are:
+main.cpp:12:5: note: template<class Range, class Encoding, class Validation> test::test(Range&&, Encoding&&, Validation&&)
+     test ( Range&& range, Encoding&& encoding = encoder, Validation&& validation = validator ) {
+     ^
+main.cpp:12:5: note:   template argument deduction/substitution failed:
+main.cpp:20:18: note:   couldn't deduce template parameter 'Encoding'
+     test( "woof" );
+                  ^
+main.cpp:9:8: note: constexpr test::test(const test&)
+ struct test {
+        ^
+main.cpp:9:8: note:   no known conversion for argument 1 from 'const char [5]' to 'const test&'
+main.cpp:9:8: note: constexpr test::test(test&&)
+main.cpp:9:8: note:   no known conversion for argument 1 from 'const char [5]' to 'test&&'
