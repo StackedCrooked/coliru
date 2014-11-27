@@ -1,0 +1,22 @@
++ g++ -std=c++14 -O2 -Wall -Wextra -pedantic -pthread main.cpp -lm
+main.cpp:16:35: error: invalid use of non-static member function 'void mem_type::update(std::vector<int>)'
+ using mem_fn = decltype(mem_type::update);
+                                   ^
+main.cpp:17:24: error: 'mem_fn' was not declared in this scope
+ using f_pm = parameter<mem_fn>::first_param;
+                        ^
+main.cpp:17:30: error: template argument 1 is invalid
+ using f_pm = parameter<mem_fn>::first_param;
+                              ^
++ clang++ -std=c++14 -O2 -Wall -Wextra -pedantic -pthread main.cpp -lm
+main.cpp:16:35: error: call to non-static member function without an object argument
+using mem_fn = decltype(mem_type::update);
+                        ~~~~~~~~~~^~~~~~
+main.cpp:17:24: error: use of undeclared identifier 'mem_fn'
+using f_pm = parameter<mem_fn>::first_param;
+                       ^
+main.cpp:17:33: error: expected ';' after alias declaration
+using f_pm = parameter<mem_fn>::first_param;
+                                ^
+                                ;
+3 errors generated.
