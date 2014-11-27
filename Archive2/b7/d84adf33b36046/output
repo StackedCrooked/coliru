@@ -1,0 +1,24 @@
+*********** g++ **********
+main.cpp: In function 'void g()':
+main.cpp:7:9: warning: unused variable 'i' [-Wunused-variable]
+     int i; // #2 i has no linkage
+         ^
+main.cpp: At global scope:
+main.cpp:3:13: warning: 'void f()' declared 'static' but never defined [-Wunused-function]
+ static void f();
+             ^
+/tmp/ccgcSGEy.o: In function `g()':
+main.cpp:(.text+0x2): undefined reference to `i'
+/tmp/ccgcSGEy.o: In function `main':
+main.cpp:(.text.startup+0x21): undefined reference to `i'
+collect2: error: ld returned 1 exit status
+********** clang++ **********
+main.cpp:7:9: warning: unused variable 'i' [-Wunused-variable]
+    int i; // #2 i has no linkage
+        ^
+main.cpp:3:13: warning: unused function 'f' [-Wunused-function]
+static void f();
+            ^
+2 warnings generated.
+0
+5
