@@ -1,0 +1,19 @@
+main.cpp: In instantiation of 'decltype (((void)(test::c.*test::f()), void())) test(C, F) [with C = X; F = void (X::*)(); decltype (((void)(test::c.*test::f()), void())) = void]':
+main.cpp:30:17:   required from here
+main.cpp:13:13: warning: parameter 'c' set but not used [-Wunused-but-set-parameter]
+ auto test(C c, F f) -> decltype((void)(c.*f)(), void())
+             ^
+main.cpp:13:18: warning: parameter 'f' set but not used [-Wunused-but-set-parameter]
+ auto test(C c, F f) -> decltype((void)(c.*f)(), void())
+                  ^
+main.cpp: In instantiation of 'decltype (((void)(test::c->*test::f()), void())) test(C, F) [with C = X*; F = void (X::*)(); decltype (((void)(test::c->*test::f()), void())) = void]':
+main.cpp:31:17:   required from here
+main.cpp:21:13: warning: parameter 'c' set but not used [-Wunused-but-set-parameter]
+ auto test(C c, F f) -> decltype((void)((c->*f)()), void())
+             ^
+main.cpp:21:18: warning: parameter 'f' set but not used [-Wunused-but-set-parameter]
+ auto test(C c, F f) -> decltype((void)((c->*f)()), void())
+                  ^
+Reference overload called
+Pointer overload called
+Catch-all overload called
