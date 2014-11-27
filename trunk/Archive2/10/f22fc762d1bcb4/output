@@ -1,0 +1,13 @@
+main.cpp:13:26: error: constexpr variable cannot have non-literal type 'const Base'
+    constexpr const Base d(nullptr);
+                         ^
+main.cpp:6:5: note: 'Base' is not literal because it has a user-provided destructor
+    ~Base() noexcept { delete type; }
+    ^
+main.cpp:14:42: error: constexpr variable cannot have non-literal type 'const std::unique_ptr<int>'
+    constexpr const std::unique_ptr<int> p;
+                                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/unique_ptr.h:232:7: note: 'unique_ptr<int, std::default_delete<int> >' is not literal because it has a user-provided destructor
+      ~unique_ptr() noexcept
+      ^
+2 errors generated.
