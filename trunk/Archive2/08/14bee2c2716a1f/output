@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:69:53: error: aggregate 'TD<Stack<Disk<4>, Stack<Disk<3>, Stack<Disk<2>, Stack<Disk<1>, NullType> > > > > td1' has incomplete type and cannot be defined
+     TD<STACK_4(Disk<4>, Disk<3>, Disk<2>, Disk<1>)> td1;
+                                                     ^
+main.cpp:70:66: error: aggregate 'TD<Stack<Disk<4>, Stack<Disk<3>, Stack<Disk<2>, NullType> > > > td2' has incomplete type and cannot be defined
+     TD<Pop<STACK_4(Disk<4>, Disk<3>, Disk<2>, Disk<1>)>::result> td2;
+                                                                  ^
+main.cpp:71:83: error: aggregate 'TD<Stack<Disk<4>, Stack<Disk<3>, Stack<Disk<2>, Stack<Disk<5>, NullType> > > > > td3' has incomplete type and cannot be defined
+     TD<Push<Pop<STACK_4(Disk<4>, Disk<3>, Disk<2>, Disk<1>)>::result, 5>::result> td3;
+                                                                                   ^
