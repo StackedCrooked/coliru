@@ -1,0 +1,44 @@
+main.cpp:83:15: error: explicit specialization in non-namespace scope 'struct Hanoi<S1, S2, S3>'
+     template <>
+               ^
+main.cpp:84:12: error: template parameters not deducible in partial specialization:
+     struct MoveDisc<1, 2> {
+            ^
+main.cpp:84:12: note:         'S1'
+main.cpp:84:12: note:         'S2'
+main.cpp:84:12: note:         'S3'
+main.cpp:95:1: error: expected unqualified-id before 'static_assert'
+ static_assert(
+ ^
+main.cpp:111:38: error: type/value mismatch at argument 2 in template parameter list for 'template<class S, int M> struct Push'
+         Push<STACK_1(Disk<2>), Disk<1>>::result,
+                                      ^
+main.cpp:111:38: error:   expected a constant of type 'int', got 'Disk<1>'
+main.cpp:113:5: error: template argument 1 is invalid
+     >::value, "test2"
+     ^
+main.cpp:121:25: error: 'MoveDisk' in 'struct Hanoi<Stack<Disk<4>, Stack<Disk<3>, Stack<Disk<2>, Stack<Disk<1>, NullType> > > >, NullType, NullType>' does not name a template type
+             STACK_0()>::MoveDisk<1,2>::result,
+                         ^
+main.cpp:121:33: error: expected template-argument before '<' token
+             STACK_0()>::MoveDisk<1,2>::result,
+                                 ^
+main.cpp:121:33: error: expected '>' before '<' token
+main.cpp:126:5: error: wrong number of template arguments (1, should be 2)
+     >::value, "test3"
+     ^
+In file included from /usr/local/include/c++/4.9.0/bits/move.h:57:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/stl_tree.h:61,
+                 from /usr/local/include/c++/4.9.0/map:60,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/type_traits:896:12: error: provided for 'template<class, class> struct std::is_same'
+     struct is_same;
+            ^
+main.cpp:126:8: error: expected '(' before 'value'
+     >::value, "test3"
+        ^
+main.cpp:126:8: error: expected ',' before 'value'
+main.cpp:126:8: error: expected string-literal before 'value'
+main.cpp:126:8: error: expected ')' before 'value'
