@@ -1,0 +1,1 @@
+ulimit -a; for a in {1..1024}; do echo -n 0123456789; done | nc -l 6767& clang++ -pthread -std=c++0x -Os -Werror -Wall main.cpp -lboost_system && ./a.out | wc
