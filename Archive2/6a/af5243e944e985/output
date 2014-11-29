@@ -1,0 +1,33 @@
+main.c:12:1: error: unknown type name 'bool'
+ bool bBreakJob = false;
+ ^
+main.c:12:18: error: 'false' undeclared here (not in a function)
+ bool bBreakJob = false;
+                  ^
+main.c: In function 'sig_handler':
+main.c:23:21: error: 'true' undeclared (first use in this function)
+         bBreakJob = true;
+                     ^
+main.c:23:21: note: each undeclared identifier is reported only once for each function it appears in
+main.c: In function 'main':
+main.c:63:32: error: 'AF_INET' undeclared (first use in this function)
+     int listen_socket = socket(AF_INET, SOCK_STREAM, 0); 
+                                ^
+main.c:63:41: error: 'SOCK_STREAM' undeclared (first use in this function)
+     int listen_socket = socket(AF_INET, SOCK_STREAM, 0); 
+                                         ^
+main.c:64:39: error: 'F_GETFL' undeclared (first use in this function)
+     int iFlags = fcntl(listen_socket, F_GETFL);
+                                       ^
+main.c:65:15: error: 'O_NONBLOCK' undeclared (first use in this function)
+     iFlags |= O_NONBLOCK;
+               ^
+main.c:66:26: error: 'F_SETFL' undeclared (first use in this function)
+     fcntl(listen_socket, F_SETFL, iFlags);
+                          ^
+main.c:67:24: error: storage size of 'sin' isn't known
+     struct sockaddr_in sin;
+                        ^
+main.c:70:33: error: 'INADDR_ANY' undeclared (first use in this function)
+     sin.sin_addr.s_addr = htonl(INADDR_ANY);
+                                 ^
