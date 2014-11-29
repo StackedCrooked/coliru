@@ -1,0 +1,64 @@
+main.c:16:1: error: unknown type name 'bool'
+ bool bBreakJob = false;
+ ^
+main.c:16:18: error: 'false' undeclared here (not in a function)
+ bool bBreakJob = false;
+                  ^
+main.c: In function 'sig_handler':
+main.c:27:21: error: 'true' undeclared (first use in this function)
+         bBreakJob = true;
+                     ^
+main.c:27:21: note: each undeclared identifier is reported only once for each function it appears in
+main.c: In function 'main':
+main.c:46:22: error: storage size of 'act' isn't known
+     struct sigaction act, oact;
+                      ^
+main.c:46:27: error: storage size of 'oact' isn't known
+     struct sigaction act, oact;
+                           ^
+main.c:47:5: error: unknown type name 'sigset_t'
+     sigset_t set;
+     ^
+main.c:48:5: error: implicit declaration of function 'sigemptyset' [-Werror=implicit-function-declaration]
+     sigemptyset(&set);
+     ^
+main.c:49:5: error: implicit declaration of function 'sigaddset' [-Werror=implicit-function-declaration]
+     sigaddset(&set, SIGINT);
+     ^
+main.c:53:5: error: implicit declaration of function 'sigprocmask' [-Werror=implicit-function-declaration]
+     sigprocmask(SIG_UNBLOCK, &set, NULL);
+     ^
+main.c:53:17: error: 'SIG_UNBLOCK' undeclared (first use in this function)
+     sigprocmask(SIG_UNBLOCK, &set, NULL);
+                 ^
+main.c:57:5: error: implicit declaration of function 'sigaction' [-Werror=implicit-function-declaration]
+     sigaction(SIGINT, &act, NULL);
+     ^
+main.c:63:5: error: unknown type name 'fd_set'
+     fd_set wset;
+     ^
+main.c:64:5: error: unknown type name 'fd_set'
+     fd_set rset;
+     ^
+main.c:80:5: error: implicit declaration of function 'FD_ZERO' [-Werror=implicit-function-declaration]
+     FD_ZERO(&wset);
+     ^
+main.c:81:5: error: implicit declaration of function 'FD_SET' [-Werror=implicit-function-declaration]
+     FD_SET(fds[0], &wset);
+     ^
+main.c:83:5: error: implicit declaration of function 'FD_ISSET' [-Werror=implicit-function-declaration]
+     while (FD_ISSET(fds[0], &wset))
+     ^
+main.c:86:9: error: implicit declaration of function 'select' [-Werror=implicit-function-declaration]
+         res = select(fmax, &rset, NULL, NULL, NULL);
+         ^
+main.c:117:5: error: implicit declaration of function 'FD_CLR' [-Werror=implicit-function-declaration]
+     FD_CLR(fds[0], &wset);
+     ^
+main.c:46:27: error: unused variable 'oact' [-Werror=unused-variable]
+     struct sigaction act, oact;
+                           ^
+main.c:46:22: error: unused variable 'act' [-Werror=unused-variable]
+     struct sigaction act, oact;
+                      ^
+cc1: all warnings being treated as errors

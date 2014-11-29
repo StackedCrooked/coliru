@@ -1,0 +1,1 @@
+mv main.cpp main.c && gcc -std=c99 -Wall -Werror main.c && ./a.out
