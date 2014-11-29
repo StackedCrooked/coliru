@@ -1,0 +1,23 @@
++ g++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:7:17: error: use of deleted function 'A::A()'
+  A * aa = new A();
+                 ^
+main.cpp:1:8: note: 'A::A()' is implicitly deleted because the default definition would be ill-formed:
+ struct A {
+        ^
+main.cpp:1:8: error: uninitialized const member in 'struct A'
+main.cpp:2:15: note: 'const int A::j' should be initialized
+     const int j;
+               ^
+main.cpp:7:6: warning: unused variable 'aa' [-Wunused-variable]
+  A * aa = new A();
+      ^
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:7:15: error: call to implicitly-deleted default constructor of 'A'
+        A * aa = new A();
+                     ^
+main.cpp:2:15: note: default constructor of 'A' is implicitly deleted because field 'j' of const-qualified type 'const int' would not be initialized
+    const int j;
+              ^
+1 error generated.
