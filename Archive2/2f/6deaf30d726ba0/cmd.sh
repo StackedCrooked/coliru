@@ -1,0 +1,1 @@
+mv main.cpp main.c && gcc -Wall -Werror main.c && ./a.out
