@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:71:88: error: 'type' in 'struct boost::result_of<SelectFunctor<List<Element2<double> > >(Element2<double>)>' does not name a type
+  typedef boost::result_of<SelectFunctor<ListDouble>(typename ListDouble::list_type) >::type result_type;
+                                                                                        ^
+In file included from main.cpp:2:0:
+main.cpp:72:37: error: 'result_type' was not declared in this scope
+  BOOST_STATIC_ASSERT(boost::is_same<result_type, double&>::value);
+                                     ^
+main.cpp:72:57: error: template argument 1 is invalid
+  BOOST_STATIC_ASSERT(boost::is_same<result_type, double&>::value);
+                                                         ^
+main.cpp:69:9: warning: unused variable 'val' [-Wunused-variable]
+  double val = sel(list[0]);
+         ^
