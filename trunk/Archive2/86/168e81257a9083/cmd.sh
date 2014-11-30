@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread -S -fverbose-asm -masm=intel -fno-dwarf2-cfi-asm -feliminate-dwarf2-dups -g -feliminate-unused-debug-symbols  main.cpp && grep -v '.L' main.s
