@@ -1,0 +1,24 @@
+main.cpp: In constructor 'Foo::Foo(Bar)':
+main.cpp:6:10: error: 'a' has incomplete type
+  Foo(Bar a) {
+          ^
+main.cpp:3:7: error: forward declaration of 'class Bar'
+ class Bar;
+       ^
+main.cpp: In member function 'Bar::operator Foo()':
+main.cpp:14:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:21:11: error: conversion from 'Bar' to 'Foo' is ambiguous
+  Foo f3 = b; //which?
+           ^
+main.cpp:18:6: note: candidates are:
+  Bar b;
+      ^
+main.cpp:12:2: note: Bar::operator Foo()
+  operator Foo() {
+  ^
+main.cpp:6:2: note: Foo::Foo(Bar)
+  Foo(Bar a) {
+  ^
