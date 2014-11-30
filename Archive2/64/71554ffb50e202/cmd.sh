@@ -1,0 +1,1 @@
+clang++ -pthread -std=c++0x -Os -Werror -Wall main.cpp -lboost_system -lboost_serialization && ./a.out
