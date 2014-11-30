@@ -1,0 +1,1 @@
+java main.cpp && javac main.class
