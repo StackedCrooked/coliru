@@ -1,0 +1,89 @@
+main.cpp:244:29: error: non-template 'MoveDisc' used as template
+     typedef typename part1::MoveDisc<F, T>::result part2;
+                             ^
+main.cpp:244:29: note: use 'Solve<H, D, F, T, V>::part1::template MoveDisc' to indicate that it is a template
+main.cpp:244:29: error: declaration does not declare anything [-fpermissive]
+main.cpp:250:47: error: to refer to a type member of a template parameter, use 'typename H:: Stack1' [-fpermissive]
+     typedef typename Solve<H, SizeOf<H::Stack1>::value, 1, 3, 2>::result result;
+                                               ^
+main.cpp:243:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+     typedef typename Solve<H, D-1, F, V, T>::result part1;
+                                                     ^
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:243:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+ struct Solve {
+        ^
+main.cpp:245:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+     typedef typename Solve<H, D-1, V, T, F>::result result;
+                                                     ^
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:245:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+ struct Solve {
+        ^
+main.cpp:243:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+     typedef typename Solve<H, D-1, F, V, T>::result part1;
+                                                     ^
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -894, 3, 2, 1>'
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:243:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+ struct Solve {
+        ^
+main.cpp:245:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+     typedef typename Solve<H, D-1, V, T, F>::result result;
+                                                     ^
+main.cpp:245:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -894, 3, 2, 1>'
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:245:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 1, 2, 3>'
+ struct Solve {
+        ^
+main.cpp:243:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+     typedef typename Solve<H, D-1, F, V, T>::result part1;
+                                                     ^
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -894, 2, 1, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -893, 2, 3, 1>'
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:243:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 2, 3, 1>'
+ struct Solve {
+        ^
+main.cpp:245:53: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) instantiating 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+     typedef typename Solve<H, D-1, V, T, F>::result result;
+                                                     ^
+main.cpp:245:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -894, 2, 1, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -893, 2, 3, 1>'
+main.cpp:243:53:   recursively required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 3, 1, 2, 3>'
+main.cpp:243:53:   required from 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, 4, 1, 3, 2>'
+main.cpp:250:74:   required from 'struct Solution<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType> >'
+main.cpp:261:10:   required from here
+
+main.cpp:245:53: error: invalid use of incomplete type 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+main.cpp:242:8: error: declaration of 'struct Solve<Hanoi<Stack<Disc<4>, Stack<Disc<3>, Stack<Disc<2>, Stack<Disc<1>, NullType> > > >, NullType, NullType>, -895, 3, 1, 2>'
+ struct Solve {
+        ^
+main.cpp:267:5: error: template argument 1 is invalid
+     >::value, "Solution<> is not working."
+     ^
