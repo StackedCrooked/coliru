@@ -1,0 +1,11 @@
++ g++-4.9 -std=c++11 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
+main.cpp:7:71: warning: '__func__' is not defined outside of function scope
+     MyException(const std::string message, const std::string caller = __func__)
+                                                                       ^
++ ./a.out
++ clang++ -std=c++11 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -stdlib=libc++ -pthread main.cpp -lsupc++
+main.cpp:7:71: warning: predefined identifier is only valid inside function [-Wpredefined-identifier-outside-function]
+    MyException(const std::string message, const std::string caller = __func__)
+                                                                      ^
+1 warning generated.
++ ./a.out
