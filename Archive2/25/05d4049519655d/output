@@ -1,0 +1,14 @@
+In file included from main.cpp:2:
+/usr/include/c++/v1/type_traits:3386:13: error: only enumeration types have underlying types
+    typedef _LIBCPP_UNDERLYING_TYPE(_Tp) type;
+            ^
+/usr/include/c++/v1/__config:348:38: note: expanded from macro '_LIBCPP_UNDERLYING_TYPE'
+#  define _LIBCPP_UNDERLYING_TYPE(T) __underlying_type(T)
+                                     ^
+main.cpp:5:62: note: in instantiation of template class 'std::__1::underlying_type<int>' requested here
+typename std::enable_if<std::is_enum<E>::value,typename std::underlying_type<E>::type>::type
+                                                             ^
+main.cpp:19:12: note: while substituting deduced template arguments into function template 'to_integral' [with E = int]
+  auto a = to_integral(42);
+           ^
+1 error generated.
