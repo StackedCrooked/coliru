@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:20:24: error: expected primary-expression before ']' token
+     char* a = new char[]({'a', 'b', 'c', 0});
+                        ^
+main.cpp:20:44: error: parenthesized initializer in array new [-fpermissive]
+     char* a = new char[]({'a', 'b', 'c', 0});
+                                            ^
+main.cpp:20:44: warning: list-initializer for non-class type must not be parenthesized
+main.cpp:21:35: error: no matching function for call to 'my_equal(const char [4], char*&)'
+     std::cout << my_equal("abc", a) << std::endl;
+                                   ^
+main.cpp:21:35: note: candidates are:
+main.cpp:7:10: note: template<class T> bool my_equal(const T&, const T&)
+     bool my_equal(const T& a, const T& b) {
+          ^
+main.cpp:7:10: note:   template argument deduction/substitution failed:
+main.cpp:21:35: note:   deduced conflicting types for parameter 'const T' ('char [4]' and 'char*')
+     std::cout << my_equal("abc", a) << std::endl;
+                                   ^
+main.cpp:12:10: note: template<class T> bool my_equal(const char*, const char*)
+     bool my_equal(const char* a, const char* b) {
+          ^
+main.cpp:12:10: note:   template argument deduction/substitution failed:
+main.cpp:21:35: note:   couldn't deduce template parameter 'T'
+     std::cout << my_equal("abc", a) << std::endl;
+                                   ^
+main.cpp:20: confused by earlier errors, bailing out
