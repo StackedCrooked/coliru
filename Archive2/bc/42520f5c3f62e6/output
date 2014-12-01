@@ -1,0 +1,9 @@
+In file included from /usr/local/include/boost/graph/adjacency_list.hpp:36:0,
+                 from main.cpp:7:
+/usr/local/include/boost/property_map/property_map.hpp: In instantiation of 'void boost::put(const boost::put_get_helper<Reference, PropertyMap>&, K, const V&) [with PropertyMap = boost::adj_list_vertex_property_map<boost::adjacency_list<boost::setS, boost::setS, boost::undirectedS, VertexProperty>, double, const double&, double VertexProperty::*>; Reference = const double&; K = void*; V = double]':
+/usr/local/include/boost/property_map/dynamic_property_map.hpp:151:62:   required from 'void boost::detail::dynamic_property_map_adaptor<PropertyMap>::do_put(const boost::any&, const boost::any&, mpl_::bool_<true>) [with PropertyMap = boost::adj_list_vertex_property_map<boost::adjacency_list<boost::setS, boost::setS, boost::undirectedS, VertexProperty>, double, const double&, double VertexProperty::*>]'
+/usr/local/include/boost/property_map/dynamic_property_map.hpp:188:77:   required from 'void boost::detail::dynamic_property_map_adaptor<PropertyMap>::put(const boost::any&, const boost::any&) [with PropertyMap = boost::adj_list_vertex_property_map<boost::adjacency_list<boost::setS, boost::setS, boost::undirectedS, VertexProperty>, double, const double&, double VertexProperty::*>]'
+main.cpp:49:1:   required from here
+/usr/local/include/boost/property_map/property_map.hpp:309:44: error: assignment of read-only location '(&((const boost::adj_list_vertex_property_map<boost::adjacency_list<boost::setS, boost::setS, boost::undirectedS, VertexProperty>, double, const double&, double VertexProperty::*>&)pa))->boost::adj_list_vertex_property_map<Graph, ValueType, Reference, Tag>::operator[]<boost::adjacency_list<boost::setS, boost::setS, boost::undirectedS, VertexProperty>, double, const double&, double VertexProperty::*>(k)'
+     static_cast<const PropertyMap&>(pa)[k] = v;
+                                            ^
