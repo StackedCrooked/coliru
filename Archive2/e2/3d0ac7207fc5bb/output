@@ -1,0 +1,16 @@
+main.cpp:30:5: error: invalid abstract return type 'base_type'
+     base_type create(std::string name)
+     ^
+main.cpp:4:7: note:   because the following virtual functions are pure within 'base_type':
+ class base_type {
+       ^
+main.cpp:8:32: note: 	virtual const string& base_type::name() const
+     virtual const std::string& name() const = 0;
+                                ^
+main.cpp: In member function 'base_type named_object_factory::create(std::string)':
+main.cpp:30:15: error: invalid abstract return type for member function 'base_type named_object_factory::create(std::string)'
+     base_type create(std::string name)
+               ^
+main.cpp:33:32: error: cannot allocate an object of abstract type 'base_type'
+         return std::move(object);
+                                ^
