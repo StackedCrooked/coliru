@@ -1,0 +1,34 @@
+main.cpp: In constructor 'Controller::Controller(EventLoop*, const IComponentFactory&)':
+main.cpp:49:9: error: 'controller' was not declared in this scope
+         controller = factory(*(IAvailabilityEventHandler*)this);
+         ^
+main.cpp:49:63: error: no match for call to '(const IComponentFactory {aka const boost::function<IComponent*(EventLoop&)>}) (IAvailabilityEventHandler&)'
+         controller = factory(*(IAvailabilityEventHandler*)this);
+                                                               ^
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:18:0,
+                 from /usr/local/include/boost/function/detail/function_iterate.hpp:14,
+                 from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52,
+                 from /usr/local/include/boost/function.hpp:64,
+                 from main.cpp:6:
+/usr/local/include/boost/function/function_template.hpp:1050:7: note: candidate is:
+ class function<BOOST_FUNCTION_PARTIAL_SPEC>
+       ^
+/usr/local/include/boost/function/function_template.hpp:761:17: note: boost::function1<R, T1>::result_type boost::function1<R, T1>::operator()(T0) const [with R = IComponent*; T0 = EventLoop&; boost::function1<R, T1>::result_type = IComponent*]
+     result_type operator()(BOOST_FUNCTION_PARMS) const
+                 ^
+/usr/local/include/boost/function/function_template.hpp:761:17: note:   no known conversion for argument 1 from 'IAvailabilityEventHandler' to 'EventLoop&'
+/usr/local/include/boost/function/function_template.hpp: In instantiation of 'static R boost::detail::function::function_obj_invoker1<FunctionObj, R, T0>::invoke(boost::detail::function::function_buffer&, T0) [with FunctionObj = Factory<IComponent, AmfComponent, EventLoop, IAvailabilityEventHandler>; R = IComponent*; T0 = EventLoop&]':
+/usr/local/include/boost/function/function_template.hpp:934:38:   required from 'void boost::function1<R, T1>::assign_to(Functor) [with Functor = Factory<IComponent, AmfComponent, EventLoop, IAvailabilityEventHandler>; R = IComponent*; T0 = EventLoop&]'
+/usr/local/include/boost/function/function_template.hpp:722:7:   required from 'boost::function1<R, T1>::function1(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = Factory<IComponent, AmfComponent, EventLoop, IAvailabilityEventHandler>; R = IComponent*; T0 = EventLoop&; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+/usr/local/include/boost/function/function_template.hpp:1071:16:   required from 'boost::function<R(T0)>::function(Functor, typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type) [with Functor = Factory<IComponent, AmfComponent, EventLoop, IAvailabilityEventHandler>; R = IComponent*; T0 = EventLoop&; typename boost::enable_if_c<boost::type_traits::ice_not<boost::is_integral<Functor>::value>::value, int>::type = int]'
+main.cpp:62:58:   required from here
+/usr/local/include/boost/function/function_template.hpp:132:42: error: no match for call to '(Factory<IComponent, AmfComponent, EventLoop, IAvailabilityEventHandler>) (EventLoop&)'
+           return (*f)(BOOST_FUNCTION_ARGS);
+                                          ^
+main.cpp:12:8: note: candidate is:
+ struct Factory {
+        ^
+main.cpp:16:20: note: AbstractClass* Factory<AbstractClass, ConcreteClass, Loop, EventHandler>::operator()(EventHandler&) [with AbstractClass = IComponent; ConcreteClass = AmfComponent; Loop = EventLoop; EventHandler = IAvailabilityEventHandler]
+     AbstractClass* operator ()(EventHandler& handler) {
+                    ^
+main.cpp:16:20: note:   no known conversion for argument 1 from 'EventLoop' to 'IAvailabilityEventHandler&'
