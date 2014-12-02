@@ -1,0 +1,135 @@
+
+Just before a declaration ( foo a; )
+>> construction (ID0)
+
+Just before b declaration ( foo b; )
+>> construction (ID1)
+
+Just before c declaration ( foo c; )
+>> construction (ID2)
+
+Just before d declaration ( foo d( f() ); )
+I'm in f(), which returns a foo by value!
+>> construction (ID3)
+>> move construction (ID4 <-- ID3)
+>> destruction (ID3)
+Exiting f()...
+>> move construction (ID5 <-- ID4)
+>> destruction (ID4)
+
+Just before a to b assigment ( b = a )
+>> copy assigment ( ID1 = ID0)
+
+Just before ctor call to b assigment ( b = foo() )
+>> construction (ID6)
+>> move assigment ( ID1 = ID6)
+>> destruction (ID6)
+
+Just before f() call to b assigment ( b = f() )
+I'm in f(), which returns a foo by value!
+>> construction (ID7)
+>> move construction (ID8 <-- ID7)
+>> destruction (ID7)
+Exiting f()...
+>> move assigment ( ID1 = ID8)
+>> destruction (ID8)
+
+Just before g1( foo ) call with lvalue arg ( g1( a ) )
+>> copy construction (ID9 <== ID0)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID9)
+
+Just before g1( foo ) call with rvalue arg ( g1( f() ) )
+I'm in f(), which returns a foo by value!
+>> construction (ID10)
+>> move construction (ID11 <-- ID10)
+>> destruction (ID10)
+Exiting f()...
+>> move construction (ID12 <-- ID11)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID12)
+>> destruction (ID11)
+
+Just before g1( foo ) call with lvalue ==> rvalue arg ( g1( std::move( a ) ) )
+>> move construction (ID13 <-- ID0)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID13)
+
+Just before g2( const foo& ) call with lvalue arg ( g2( b ) )
+I'm in g2(), which gets a foo by const lvalue reference!
+Exiting g2()...
+
+Just before g2( const foo& ) call with rvalue arg ( g2( f() ) )
+I'm in f(), which returns a foo by value!
+>> construction (ID14)
+>> move construction (ID15 <-- ID14)
+>> destruction (ID14)
+Exiting f()...
+I'm in g2(), which gets a foo by const lvalue reference!
+Exiting g2()...
+>> destruction (ID15)
+
+Just before g2( const foo& ) call with lvalue ==> rvalue arg ( g2( std::move( b ) ) )
+I'm in g2(), which gets a foo by const lvalue reference!
+Exiting g2()...
+
+Just before g3( foo&& ) call with rvalue arg ( g3( f() ) )
+I'm in f(), which returns a foo by value!
+>> construction (ID16)
+>> move construction (ID17 <-- ID16)
+>> destruction (ID16)
+Exiting f()...
+I'm in g3(), which gets an rvalue foo reference!
+Exiting g3()...
+>> destruction (ID17)
+
+Just before g3( foo&& ) call with lvalue ==> rvalue arg ( g3( std::move( c ) ) )
+I'm in g3(), which gets an rvalue foo reference!
+Exiting g3()...
+
+Just before h() call with lvalue arg ( h( d ) )
+I'm in h(), which sends a foo to g() through perfect forwarding!
+>> copy construction (ID18 <== ID5)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID18)
+Exiting h()...
+
+Just before h() call with rvalue arg ( h( f() ) )
+I'm in f(), which returns a foo by value!
+>> construction (ID19)
+>> move construction (ID20 <-- ID19)
+>> destruction (ID19)
+Exiting f()...
+I'm in h(), which sends a foo to g() through perfect forwarding!
+>> move construction (ID21 <-- ID20)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID21)
+Exiting h()...
+>> destruction (ID20)
+
+Just before h() call with lvalue ==> rvalue arg ( h( std::move( d ) ) )
+I'm in h(), which sends a foo to g() through perfect forwarding!
+>> move construction (ID22 <-- ID5)
+I'm in g1(), which gets a foo by value!
+Exiting g1()...
+>> destruction (ID22)
+Exiting h()...
+# Normal constructor calls: 10
+# Copy constructor calls: 2
+# Move constructor calls: 11
+# Copy assigment calls: 1
+# Move assigment calls: 2
+# Destructor calls: 19
+# 
+# Total instantations: 23
+# Total destructions: 19
+# Current alive instances: 4
+>> destruction (ID5)
+>> destruction (ID2)
+>> destruction (ID1)
+>> destruction (ID0)
