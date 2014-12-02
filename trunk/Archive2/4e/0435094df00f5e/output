@@ -1,0 +1,37 @@
+main.cpp:7:19: error: no matching constructor for initialization of 'valarray<int>'
+    valarray<int> va(std::begin(v), std::end(v));
+                  ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/valarray:805:5: note: candidate constructor not viable: no known conversion from 'decltype(__c.begin())' (aka '__wrap_iter<pointer>') to 'const value_type' (aka 'const int') for 1st argument
+    valarray(const value_type& __x, size_t __n);
+    ^
+/usr/include/c++/v1/valarray:806:5: note: candidate constructor not viable: no known conversion from 'decltype(__c.begin())' (aka '__wrap_iter<pointer>') to 'const value_type *' (aka 'const int *') for 1st argument
+    valarray(const value_type* __p, size_t __n);
+    ^
+/usr/include/c++/v1/valarray:804:14: note: candidate constructor not viable: requires single argument '__n', but 2 arguments were provided
+    explicit valarray(size_t __n);
+             ^
+/usr/include/c++/v1/valarray:807:5: note: candidate constructor not viable: requires single argument '__v', but 2 arguments were provided
+    valarray(const valarray& __v);
+    ^
+/usr/include/c++/v1/valarray:809:5: note: candidate constructor not viable: requires single argument '__v', but 2 arguments were provided
+    valarray(valarray&& __v) _NOEXCEPT;
+    ^
+/usr/include/c++/v1/valarray:812:5: note: candidate constructor not viable: requires single argument '__il', but 2 arguments were provided
+    valarray(initializer_list<value_type> __il);
+    ^
+/usr/include/c++/v1/valarray:814:5: note: candidate constructor not viable: requires single argument '__sa', but 2 arguments were provided
+    valarray(const slice_array<value_type>& __sa);
+    ^
+/usr/include/c++/v1/valarray:815:5: note: candidate constructor not viable: requires single argument '__ga', but 2 arguments were provided
+    valarray(const gslice_array<value_type>& __ga);
+    ^
+/usr/include/c++/v1/valarray:816:5: note: candidate constructor not viable: requires single argument '__ma', but 2 arguments were provided
+    valarray(const mask_array<value_type>& __ma);
+    ^
+/usr/include/c++/v1/valarray:817:5: note: candidate constructor not viable: requires single argument '__ia', but 2 arguments were provided
+    valarray(const indirect_array<value_type>& __ia);
+    ^
+/usr/include/c++/v1/valarray:803:5: note: candidate constructor not viable: requires 0 arguments, but 2 were provided
+    valarray() : __begin_(0), __end_(0) {}
+    ^
+1 error generated.
