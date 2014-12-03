@@ -1,0 +1,15 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:16:20: warning: unused parameter 'a' [-Wunused-parameter]
+    void dummy(int a, int b, int c) {}
+                   ^
+main.cpp:16:27: warning: unused parameter 'b' [-Wunused-parameter]
+    void dummy(int a, int b, int c) {}
+                          ^
+main.cpp:16:34: warning: unused parameter 'c' [-Wunused-parameter]
+    void dummy(int a, int b, int c) {}
+                                 ^
+3 warnings generated.
++ ./a.out
+hi
+bye
+moo
