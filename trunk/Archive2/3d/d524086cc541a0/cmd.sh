@@ -1,0 +1,1 @@
+printf 'run\nbt\n' > gdb.sc ; g++ -std=c++11 -g -Wall -pedantic -pthread main.cpp &&  gdb -batch -x gdb.sc ./a.out
