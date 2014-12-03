@@ -1,0 +1,82 @@
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	_Z3barv
+	.type	_Z3barv, @function
+_Z3barv:
+.LFB1:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$16, %edi
+	call	_Znwm
+	movq	$_ZTV1D+24, (%rax)
+	movq	$_ZTV1D+48, 8(%rax)
+	movl	dummy(%rip), %eax
+	addl	$1, %eax
+	movl	%eax, dummy(%rip)
+	movl	$1, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_Z3barv, .-_Z3barv
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.hidden	_ZTC1D8_1C
+	.weak	_ZTC1D8_1C
+	.section	.rodata._ZTC1D8_1C,"aG",@progbits,_ZTV1D,comdat
+	.align 16
+	.type	_ZTC1D8_1C, @object
+	.size	_ZTC1D8_1C, 24
+_ZTC1D8_1C:
+	.quad	-8
+	.quad	0
+	.quad	0
+	.hidden	_ZTC1D0_1B
+	.weak	_ZTC1D0_1B
+	.section	.rodata._ZTC1D0_1B,"aG",@progbits,_ZTV1D,comdat
+	.align 16
+	.type	_ZTC1D0_1B, @object
+	.size	_ZTC1D0_1B, 24
+_ZTC1D0_1B:
+	.quad	0
+	.quad	0
+	.quad	0
+	.weak	_ZTT1D
+	.section	.rodata._ZTT1D,"aG",@progbits,_ZTV1D,comdat
+	.align 32
+	.type	_ZTT1D, @object
+	.size	_ZTT1D, 32
+_ZTT1D:
+	.quad	_ZTV1D+24
+	.quad	_ZTC1D0_1B+24
+	.quad	_ZTC1D8_1C+24
+	.quad	_ZTV1D+48
+	.weak	_ZTV1D
+	.section	.rodata._ZTV1D,"aG",@progbits,_ZTV1D,comdat
+	.align 32
+	.type	_ZTV1D, @object
+	.size	_ZTV1D, 48
+_ZTV1D:
+	.quad	0
+	.quad	0
+	.quad	0
+	.quad	-8
+	.quad	-8
+	.quad	0
+	.globl	dummy
+	.bss
+	.align 4
+	.type	dummy, @object
+	.size	dummy, 4
+dummy:
+	.zero	4
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
