@@ -1,0 +1,11 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:28:46: error: variable 'columnIndex' cannot be implicitly captured in a lambda with no capture-default specified
+            row.erase(std::next(row.begin(), columnIndex));
+                                             ^
+main.cpp:25:9: note: 'columnIndex' declared here
+    int columnIndex = 1;
+        ^
+main.cpp:27:9: note: lambda expression begins here
+        [](std::vector<float>& row) {
+        ^
+1 error generated.
