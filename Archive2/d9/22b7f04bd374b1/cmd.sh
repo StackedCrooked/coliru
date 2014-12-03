@@ -1,0 +1,1 @@
+clang++ -std=c++14 -Wno-gnu-statement-expression -Wall -pedantic main.cpp && ./a.out
