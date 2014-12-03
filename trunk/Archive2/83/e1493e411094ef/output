@@ -1,0 +1,13 @@
++ gcc -x c -std=c99 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'main':
+main.cpp:2:45: error: incompatible types when assigning to type 'struct <anonymous>' from type 'struct <anonymous>'
+     struct {int x;} a; struct {int x;} b; a = b;
+                                             ^
+main.cpp:2:21: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+     struct {int x;} a; struct {int x;} b; a = b;
+                     ^
++ clang -x c -std=c99 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:2:45: error: assigning to 'struct (anonymous struct at main.cpp:2:5)' from incompatible type 'struct (anonymous struct at main.cpp:2:24)'
+    struct {int x;} a; struct {int x;} b; a = b;
+                                            ^ ~
+1 error generated.
