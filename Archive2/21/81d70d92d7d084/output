@@ -1,0 +1,25 @@
++ gcc -x c -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'main':
+main.cpp:2:45: error: incompatible types when assigning to type 'struct <anonymous>' from type 'struct <anonymous>'
+     struct {int x;} a; struct {int x;} b; a = b;.
+                                             ^
+main.cpp:2:49: error: expected expression before '.' token
+     struct {int x;} a; struct {int x;} b; a = b;.
+                                                 ^
+main.cpp:2:21: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+     struct {int x;} a; struct {int x;} b; a = b;.
+                     ^
+main.cpp:3:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
++ clang -x c -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:2:45: error: assigning to 'struct (anonymous struct at main.cpp:2:5)' from incompatible type 'struct (anonymous struct at main.cpp:2:24)'
+    struct {int x;} a; struct {int x;} b; a = b;.
+                                            ^ ~
+main.cpp:2:49: error: expected expression
+    struct {int x;} a; struct {int x;} b; a = b;.
+                                                ^
+main.cpp:3:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+1 warning and 2 errors generated.
