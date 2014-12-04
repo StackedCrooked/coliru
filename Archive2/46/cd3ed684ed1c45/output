@@ -1,0 +1,20 @@
+main.cpp:17:19: warning: multi-character character constant [-Wmultichar]
+  while (str[i] != '/0'){ // on parcourt la chaine de caractère
+                   ^
+main.cpp: In function 'char* SumCharsAndDigits(const char*)':
+main.cpp:19:9: error: invalid types 'char[int]' for array subscript
+    sol[i] = MajToMin(&str[i]); // on passe les majuscules en minuscules
+         ^
+main.cpp:19:29: error: 'MajToMin' was not declared in this scope
+    sol[i] = MajToMin(&str[i]); // on passe les majuscules en minuscules
+                             ^
+main.cpp:21:11: error: assignment of read-only location '*(str + ((sizetype)i))'
+    str[i] = value; // on change la valeur des caractères : éléments de ascii vers valeur alphabet
+           ^
+main.cpp:26:33: error: cannot convert 'double' to 'const char*' for argument '1' to 'long int strtol(const char*, char**, int)'
+   somme = strtol(somme, NULL, 10);
+                                 ^
+main.cpp: In function 'const char* MajToMin(const char*)':
+main.cpp:32:7: warning: address of local variable 'value' returned [-Wreturn-local-addr]
+  char value;
+       ^
