@@ -1,0 +1,33 @@
+clang++ c++14
+main.cpp:5:22: error: constexpr variable 'PI' must be initialized by a constant expression
+    constexpr double PI = 4*atan(1);
+                     ^    ~~~~~~~~~
+main.cpp:5:29: note: non-constexpr function 'atan' cannot be used in a constant expression
+    constexpr double PI = 4*atan(1);
+                            ^
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:59:13: note: declared here
+__MATHCALL (atan,, (_Mdouble_ __x));
+            ^
+/usr/include/math.h:55:25: note: expanded from macro '__MATHCALL'
+  __MATHDECL (_Mdouble_,function,suffix, args)
+                        ^
+/usr/include/math.h:57:22: note: expanded from macro '__MATHDECL'
+  __MATHDECL_1(type, function,suffix, args); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+1 error generated.
+
+g++ c++14
+3.14159
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.004s
