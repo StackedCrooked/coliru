@@ -1,0 +1,1 @@
+g++ -std=c++0x -Os -Werror -Wall main.cpp && ./a.out
