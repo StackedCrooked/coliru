@@ -1,0 +1,1 @@
+set -x; mv main.cpp main.c ; gcc -std=c89 -O0 -Wall -Wextra -pedantic -pthread main.c && ./a.out abc
