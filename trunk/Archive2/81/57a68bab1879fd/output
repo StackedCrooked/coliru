@@ -1,0 +1,11 @@
+main.cpp: In function 'void display(const mystruct&, const std::list<std::basic_string<char> >&)':
+main.cpp:24:34: error: no match for 'operator[]' (operand types are 'const std::map<std::basic_string<char>, std::vector<std::basic_string<char> > >' and 'const std::basic_string<char>')
+        vector<string> v = s.mymap[*it];
+                                  ^
+main.cpp:24:34: note: candidate is:
+In file included from /usr/local/include/c++/4.9.0/map:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.0/bits/stl_map.h:491:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::basic_string<char>; _Tp = std::vector<std::basic_string<char> >; _Compare = std::less<std::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::basic_string<char>, std::vector<std::basic_string<char> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = std::vector<std::basic_string<char> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::basic_string<char>] <near match>
+       operator[](const key_type& __k)
+       ^
+/usr/local/include/c++/4.9.0/bits/stl_map.h:491:7: note:   no known conversion for implicit 'this' parameter from 'const std::map<std::basic_string<char>, std::vector<std::basic_string<char> > >*' to 'std::map<std::basic_string<char>, std::vector<std::basic_string<char> > >*'
