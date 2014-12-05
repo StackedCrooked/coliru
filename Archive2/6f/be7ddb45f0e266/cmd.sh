@@ -1,0 +1,1 @@
+sed '1,/^#-8<-/d' main.cpp | clang-format
