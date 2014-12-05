@@ -1,0 +1,1 @@
+g++ -std=c++11 main.cpp -S -masm=intel -o - | c++filt
