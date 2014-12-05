@@ -1,0 +1,69 @@
+main.cpp:15:44: error: no viable conversion from '__normal_iterator<const_pointer, [...]>' to '__normal_iterator<pointer, [...]>'
+    for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                           ^   ~~~~~~~~~~~~~~
+main.cpp:71:32: note: in instantiation of function template specialization 'map_vec<int (*)(int), int>' requested here
+    const std::vector<int> a = map_vec(foo, v);
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const_iterator' (aka '__normal_iterator<const_pointer, std::vector<int, std::allocator<int> > >') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:733:9: note: candidate template ignored: substitution failure [with _Iter = const int *]: no type named '__type' in '__gnu_cxx::__enable_if<false, std::vector<int, std::allocator<int> > >'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+main.cpp:27:44: error: no viable conversion from '__normal_iterator<const_pointer, [...]>' to '__normal_iterator<pointer, [...]>'
+    for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                           ^   ~~~~~~~~~~~~~~
+main.cpp:72:32: note: in instantiation of function template specialization 'map_vec<int (*)(int, const std::vector<int, std::allocator<int> > &), int>' requested here
+    const std::vector<int> b = map_vec(bar, v);
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const_iterator' (aka '__normal_iterator<const_pointer, std::vector<int, std::allocator<int> > >') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:733:9: note: candidate template ignored: substitution failure [with _Iter = const int *]: no type named '__type' in '__gnu_cxx::__enable_if<false, std::vector<int, std::allocator<int> > >'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+main.cpp:15:44: error: no viable conversion from '__normal_iterator<const_pointer, [...]>' to '__normal_iterator<pointer, [...]>'
+    for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                           ^   ~~~~~~~~~~~~~~
+main.cpp:75:32: note: in instantiation of function template specialization 'map_vec<AddNum, int>' requested here
+    const std::vector<int> c = map_vec(add2, v);
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const_iterator' (aka '__normal_iterator<const_pointer, std::vector<int, std::allocator<int> > >') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:733:9: note: candidate template ignored: substitution failure [with _Iter = const int *]: no type named '__type' in '__gnu_cxx::__enable_if<false, std::vector<int, std::allocator<int> > >'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+main.cpp:27:44: error: no viable conversion from '__normal_iterator<const_pointer, [...]>' to '__normal_iterator<pointer, [...]>'
+    for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                           ^   ~~~~~~~~~~~~~~
+main.cpp:78:32: note: in instantiation of function template specialization 'map_vec<AddNumMulSize, int>' requested here
+    const std::vector<int> d = map_vec(add2mulsz, v);
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const_iterator' (aka '__normal_iterator<const_pointer, std::vector<int, std::allocator<int> > >') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/stl_iterator.h:733:9: note: candidate template ignored: substitution failure [with _Iter = const int *]: no type named '__type' in '__gnu_cxx::__enable_if<false, std::vector<int, std::allocator<int> > >'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+4 errors generated.
+main.cpp: In instantiation of 'typename ignore_value<sizeof (declval<F>()(declval<const T>())), std::vector<T> >::type map_vec(F, const std::vector<T>&) [with F = int (*)(int); T = int; typename ignore_value<sizeof (declval<F>()(declval<const T>())), std::vector<T> >::type = std::vector<int>]':
+main.cpp:71:46:   required from here
+main.cpp:15:61: error: conversion from 'std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}' to non-scalar type 'std::vector<int>::iterator {aka __gnu_cxx::__normal_iterator<int*, std::vector<int> >}' requested
+     for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                                             ^
+main.cpp: In instantiation of 'typename ignore_value<sizeof (declval<F>()(declval<const T>(), declval<const std::vector<T> >())), std::vector<T> >::type map_vec(F, const std::vector<T>&) [with F = int (*)(int, const std::vector<int>&); T = int; typename ignore_value<sizeof (declval<F>()(declval<const T>(), declval<const std::vector<T> >())), std::vector<T> >::type = std::vector<int>]':
+main.cpp:72:46:   required from here
+main.cpp:27:61: error: conversion from 'std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}' to non-scalar type 'std::vector<int>::iterator {aka __gnu_cxx::__normal_iterator<int*, std::vector<int> >}' requested
+     for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                                             ^
+main.cpp: In instantiation of 'typename ignore_value<sizeof (declval<F>()(declval<const T>())), std::vector<T> >::type map_vec(F, const std::vector<T>&) [with F = AddNum; T = int; typename ignore_value<sizeof (declval<F>()(declval<const T>())), std::vector<T> >::type = std::vector<int>]':
+main.cpp:75:47:   required from here
+main.cpp:15:61: error: conversion from 'std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}' to non-scalar type 'std::vector<int>::iterator {aka __gnu_cxx::__normal_iterator<int*, std::vector<int> >}' requested
+     for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                                             ^
+main.cpp: In instantiation of 'typename ignore_value<sizeof (declval<F>()(declval<const T>(), declval<const std::vector<T> >())), std::vector<T> >::type map_vec(F, const std::vector<T>&) [with F = AddNumMulSize; T = int; typename ignore_value<sizeof (declval<F>()(declval<const T>(), declval<const std::vector<T> >())), std::vector<T> >::type = std::vector<int>]':
+main.cpp:78:52:   required from here
+main.cpp:27:61: error: conversion from 'std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}' to non-scalar type 'std::vector<int>::iterator {aka __gnu_cxx::__normal_iterator<int*, std::vector<int> >}' requested
+     for (typename std::vector<T>::iterator i = source.begin(); i != source.end(); ++i)
+                                                             ^
