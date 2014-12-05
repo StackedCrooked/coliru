@@ -1,0 +1,14 @@
+Can't find usable .clang-format, using LLVM style
+#include <vector>
+
+class A {
+public:
+  int &x;
+  A(int &x) : x(x) {}
+};
+
+int main() {
+  std::vector<A> v;
+  int x = 0;
+  v.push_back(A(x));
+}
