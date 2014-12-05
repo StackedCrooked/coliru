@@ -1,0 +1,49 @@
+main.cpp: In function 'int main()':
+main.cpp:68:16: warning: unused variable 'a' [-Wunused-variable]
+     const auto a = map_vec(foo, v);
+                ^
+main.cpp:69:16: warning: unused variable 'b' [-Wunused-variable]
+     const auto b = map_vec(bar, v);
+                ^
+main.cpp:72:16: warning: unused variable 'c' [-Wunused-variable]
+     const auto c = map_vec(add2, v);
+                ^
+main.cpp:75:16: warning: unused variable 'd' [-Wunused-variable]
+     const auto d = map_vec(add2mulsz, v);
+                ^
+main.cpp: In instantiation of 'decltype (fnc(declval<T>())) map_vec(F&&, const std::vector<T>&) [with T = int; F = int (&)(int); decltype (fnc(declval<T>())) = int]':
+main.cpp:68:34:   required from here
+main.cpp:16:12: error: cannot convert 'std::vector<int>' to 'int' in return
+     return dest;
+            ^
+main.cpp: In instantiation of 'decltype (fnc(declval<T>(), source)) map_vec(F&&, const std::vector<T>&) [with T = int; F = int (&)(int, const std::vector<int>&); decltype (fnc(declval<T>(), source)) = int]':
+main.cpp:69:34:   required from here
+main.cpp:31:12: error: cannot convert 'std::vector<int>' to 'int' in return
+     return dest;
+            ^
+main.cpp: In instantiation of 'decltype (fnc(declval<T>())) map_vec(F&&, const std::vector<T>&) [with T = int; F = const AddNum&; decltype (fnc(declval<T>())) = int]':
+main.cpp:72:35:   required from here
+main.cpp:16:12: error: cannot convert 'std::vector<int>' to 'int' in return
+     return dest;
+            ^
+main.cpp: In instantiation of 'decltype (fnc(declval<T>(), source)) map_vec(F&&, const std::vector<T>&) [with T = int; F = const AddNumMulSize&; decltype (fnc(declval<T>(), source)) = int]':
+main.cpp:75:40:   required from here
+main.cpp:31:12: error: cannot convert 'std::vector<int>' to 'int' in return
+     return dest;
+            ^
+main.cpp: In function 'decltype (fnc(declval<T>())) map_vec(F&&, const std::vector<T>&) [with T = int; F = int (&)(int); decltype (fnc(declval<T>())) = int]':
+main.cpp:17:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'decltype (fnc(declval<T>(), source)) map_vec(F&&, const std::vector<T>&) [with T = int; F = int (&)(int, const std::vector<int>&); decltype (fnc(declval<T>(), source)) = int]':
+main.cpp:32:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'decltype (fnc(declval<T>())) map_vec(F&&, const std::vector<T>&) [with T = int; F = const AddNum&; decltype (fnc(declval<T>())) = int]':
+main.cpp:17:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+main.cpp: In function 'decltype (fnc(declval<T>(), source)) map_vec(F&&, const std::vector<T>&) [with T = int; F = const AddNumMulSize&; decltype (fnc(declval<T>(), source)) = int]':
+main.cpp:32:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
