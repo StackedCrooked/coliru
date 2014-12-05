@@ -1,0 +1,1 @@
+g++-4.8 -std=c++98 -g -fno-elide-constructors -Wall -Wextra -pedantic -pthread -pedantic-errors main.cpp -lm  && ./a.out
