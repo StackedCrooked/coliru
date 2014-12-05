@@ -1,0 +1,24 @@
+#include <vector>
+
+class Example
+{
+    class Member
+    {
+    public:
+        struct Comparer
+        {
+            virtual ~Comparer()
+            {
+            }
+            virtual int compareRecordRecord(void const* lhsRec, void const* rhsRec) const
+                noexcept = 0;
+            virtual int compareRecordValue(void const* lhsRec, void const* rhsVal) const
+                noexcept = 0;
+            virtual int compareValueRecord(void const* lhsVal, void const* rhsRec) const
+                noexcept = 0;
+            virtual int compareValueValue(void const* lhsVal, void const* rhsVal) const
+                noexcept = 0;
+            virtual Comparer* clone() const noexcept = 0;
+        };
+    };
+};
