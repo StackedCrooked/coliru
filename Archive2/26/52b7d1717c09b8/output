@@ -1,0 +1,22 @@
+clang++ c++14
+main.cpp:16:14: warning: unused parameter 'argc' [-Wunused-parameter]
+int main(int argc, char **argv)
+             ^
+main.cpp:16:27: warning: unused parameter 'argv' [-Wunused-parameter]
+int main(int argc, char **argv)
+                          ^
+2 warnings generated.
+time ./a.out
+g++ c++14
+main.cpp: In function 'int main(int, char**)':
+main.cpp:18:12: warning: variable 'A' set but not used [-Wunused-but-set-variable]
+     Base * A;
+            ^
+main.cpp: At global scope:
+main.cpp:16:14: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main(int argc, char **argv)
+              ^
+main.cpp:16:27: warning: unused parameter 'argv' [-Wunused-parameter]
+ int main(int argc, char **argv)
+                           ^
+time ./a.out
