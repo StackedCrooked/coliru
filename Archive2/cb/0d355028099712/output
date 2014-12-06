@@ -1,0 +1,18 @@
++ g++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
++ echo 0
+0
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
++ echo 0
+0
++ clang++ -stdlib=libc++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:13:5: error: no matching function for call to 'isfinite'
+    std::isfinite( foo ); // Does not
+    ^~~~~~~~~~~~~
+/usr/include/c++/v1/cmath:376:25: note: candidate template ignored: disabled by 'enable_if' [with _A1 = Foo]
+typename std::enable_if<std::is_arithmetic<_A1>::value, bool>::type
+                        ^
+1 error generated.
++ echo 1
+1
