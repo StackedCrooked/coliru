@@ -1,0 +1,47 @@
+main.cpp: In instantiation of 'struct Return<int (*)(int)>':
+main.cpp:35:1:   required by substitution of 'template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&) [with F = int (*)(int); C = std::vector<int>]'
+main.cpp:102:46:   required from here
+main.cpp:21:37: error: 'int (*)(int)' is not a class, struct, or union type
+     typedef typename T::result_type type;
+                                     ^
+main.cpp: In function 'int main()':
+main.cpp:102:46: error: no matching function for call to 'map_vec(int (&)(int), std::vector<int>&)'
+     const std::vector<int> a = map_vec(foo, v);
+                                              ^
+main.cpp:102:46: note: candidates are:
+main.cpp:35:1: note: template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&)
+ map_vec(F fnc, const C& source)
+ ^
+main.cpp:35:1: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:49:1: note: template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>(), declval<C>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&)
+ map_vec(F fnc, const C& source)
+ ^
+main.cpp:49:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>(), declval<C>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&) [with F = int (*)(int); C = std::vector<int>]':
+main.cpp:102:46:   required from here
+main.cpp:48:46: error: too many arguments to function
+ typename static_expr_check<sizeof(declval<F>()(declval<int>(), declval<C>())), std::vector<typename Return<F>::type> >::type
+                                              ^
+main.cpp: In instantiation of 'struct Return<int (*)(int, std::vector<int>)>':
+main.cpp:49:1:   required by substitution of 'template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>(), declval<C>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&) [with F = int (*)(int, std::vector<int>); C = std::vector<int>]'
+main.cpp:103:46:   required from here
+main.cpp:21:37: error: 'int (*)(int, std::vector<int>)' is not a class, struct, or union type
+     typedef typename T::result_type type;
+                                     ^
+main.cpp:103:46: error: no matching function for call to 'map_vec(int (&)(int, std::vector<int>), std::vector<int>&)'
+     const std::vector<int> b = map_vec(bar, v);
+                                              ^
+main.cpp:103:46: note: candidates are:
+main.cpp:35:1: note: template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&)
+ map_vec(F fnc, const C& source)
+ ^
+main.cpp:35:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&) [with F = int (*)(int, std::vector<int>); C = std::vector<int>]':
+main.cpp:103:46:   required from here
+main.cpp:34:46: error: too few arguments to function
+ typename static_expr_check<sizeof(declval<F>()(declval<int>())), std::vector<typename Return<F>::type> >::type
+                                              ^
+main.cpp:49:1: note: template<class F, class C> typename static_expr_check<sizeof (declval<F>()(declval<int>(), declval<C>())), std::vector<typename Return<T>::type> >::type map_vec(F, const C&)
+ map_vec(F fnc, const C& source)
+ ^
+main.cpp:49:1: note:   substitution of deduced template arguments resulted in errors seen above
