@@ -1,0 +1,1 @@
+clang++ -std=c++14 -O2 -Wall -pedantic -fsanitize=undefined -m64 main.cpp && ./a.out
