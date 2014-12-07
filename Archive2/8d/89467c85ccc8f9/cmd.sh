@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out --help --my-int=5 --my-float 1.0 --my-string="20 5" --my-bool
