@@ -1,0 +1,1 @@
+g++-4.7 main.cpp && ./a.out
