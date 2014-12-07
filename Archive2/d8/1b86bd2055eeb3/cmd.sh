@@ -1,0 +1,1 @@
+clang++ -cc1 -ast-view main.cpp
