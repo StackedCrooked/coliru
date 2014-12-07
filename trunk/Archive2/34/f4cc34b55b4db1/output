@@ -1,0 +1,14 @@
+main.cpp:30:9: error: use of undeclared identifier 'memset'; did you mean 'wmemset'?
+        memset(ch, 0, 80);
+        ^~~~~~
+        wmemset
+/usr/include/wchar.h:335:17: note: 'wmemset' declared here
+extern wchar_t *wmemset (wchar_t *__s, wchar_t __c, size_t __n) __THROW;
+                ^
+main.cpp:30:16: error: cannot initialize a parameter of type 'wchar_t *' with an lvalue of type 'char *'
+        memset(ch, 0, 80);
+               ^~
+/usr/include/wchar.h:335:35: note: passing argument to parameter '__s' here
+extern wchar_t *wmemset (wchar_t *__s, wchar_t __c, size_t __n) __THROW;
+                                  ^
+2 errors generated.
