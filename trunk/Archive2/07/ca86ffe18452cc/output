@@ -1,0 +1,13 @@
+main.cpp: In instantiation of 'void g(T) [with T = abc::A]':
+main.cpp:35:6:   required from here
+main.cpp:9:9: error: use of 'template<class T> auto abc::f(double, T)' before deduction of 'auto'
+   f(x, p);                           
+         ^
+main.cpp:9:9: error: use of 'auto abc::f(double, T) [with T = abc::A]' before deduction of 'auto'
+main.cpp:9:9: error: invalid use of 'auto'
+main.cpp: In instantiation of 'void g(T) [with T = int]':
+main.cpp:38:7:   required from here
+main.cpp:9:9: error: 'f' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+main.cpp:27:6: note: 'auto f(double, int)' declared here, later in the translation unit
+ auto f(double, int) {                                                                                 
+      ^
