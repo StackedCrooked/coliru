@@ -1,0 +1,64 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z9busy_idlev
+	.align	16, 0x90
+	.type	_Z9busy_idlev,@function
+_Z9busy_idlev:                          # @_Z9busy_idlev
+	.cfi_startproc
+# BB#0:
+	movl	$0, -4(%rsp)
+	movl	-4(%rsp), %eax
+	cmpl	$999999, %eax           # imm = 0xF423F
+	jg	.LBB0_2
+	.align	16, 0x90
+.LBB0_1:                                # %.lr.ph
+                                        # =>This Inner Loop Header: Depth=1
+	incl	-4(%rsp)
+	movl	-4(%rsp), %eax
+	cmpl	$1000000, %eax          # imm = 0xF4240
+	jl	.LBB0_1
+.LBB0_2:                                # %._crit_edge
+	retq
+.Ltmp0:
+	.size	_Z9busy_idlev, .Ltmp0-_Z9busy_idlev
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
+-----------
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	_Z9busy_idlev
+	.type	_Z9busy_idlev, @function
+_Z9busy_idlev:
+.LFB0:
+	.cfi_startproc
+	movl	$0, -4(%rsp)
+	movl	-4(%rsp), %eax
+	cmpl	$999999, %eax
+	jg	.L1
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movl	-4(%rsp), %eax
+	addl	$1, %eax
+	movl	%eax, -4(%rsp)
+	movl	-4(%rsp), %eax
+	cmpl	$999999, %eax
+	jle	.L4
+.L1:
+	rep; ret
+	.cfi_endproc
+.LFE0:
+	.size	_Z9busy_idlev, .-_Z9busy_idlev
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
