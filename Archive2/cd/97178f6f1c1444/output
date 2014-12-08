@@ -1,0 +1,21 @@
+--- g++ ---
+0
+1
+2
+3
+4
+ok
+--- clang++ ---
+main.cpp:10:6: error: no type named 'vector' in namespace 'std'
+std::vector< int, std::allocator<int> > foo() { return { 0, 1, 2, 3, 4 } ; }
+~~~~~^
+main.cpp:10:12: error: expected unqualified-id
+std::vector< int, std::allocator<int> > foo() { return { 0, 1, 2, 3, 4 } ; }
+           ^
+main.cpp:16:18: error: implicit instantiation of undefined template 'std::vector<int, std::allocator<int> >'
+    for( int v : foo() ) std::cout << v << '\n' ;
+                 ^
+main.cpp:4:44: note: template is declared here
+    template < typename, typename > struct vector ;
+                                           ^
+3 errors generated.
