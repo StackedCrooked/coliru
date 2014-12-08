@@ -1,0 +1,23 @@
++ clang++ -std=c++11 -stdlib=libc++ -Wall -Wextra -pedantic -pthread main.cpp -c
+main.cpp:44:27: error: no matching function for call to 'INVOKE'
+    using type = decltype(detail::INVOKE(
+                          ^~~~~~~~~~~~~~
+main.cpp:54:34: note: in instantiation of template class 'result_of<int A::*const (A)>' requested here
+static_assert(std::is_same<int&&,result_of<decltype(foo)(A)>::type>(), "Failure.");
+                                 ^
+main.cpp:11:13: note: candidate template ignored: substitution failure [with F = int A::*const, Args = <A>]: called object type 'int A::*' is not a function or function pointer
+inline auto INVOKE(F&& f, Args&&... args) ->
+            ^
+main.cpp:17:13: note: candidate template ignored: substitution failure [with Base = A, T = int, Derived = A]
+inline auto INVOKE(T Base::*&& pmd, Derived&& ref) ->
+            ^
+main.cpp:23:13: note: candidate template ignored: substitution failure [with PMD = int A::*const, Pointer = A]: indirection requires pointer operand ('A' invalid)
+inline auto INVOKE(PMD&& pmd, Pointer&& ptr) ->
+            ^
+main.cpp:29:13: note: candidate template ignored: substitution failure [with Base = A, T = int, Derived = A, Args = <>]: called object type 'int' is not a function or function pointer
+inline auto INVOKE(T Base::*&& pmf, Derived&& ref, Args&&... args) ->
+            ^
+main.cpp:35:13: note: candidate template ignored: substitution failure [with PMF = int A::*const, Pointer = A, Args = <>]: indirection requires pointer operand ('A' invalid)
+inline auto INVOKE(PMF&& pmf, Pointer&& ptr, Args&&... args) ->
+            ^
+1 error generated.
