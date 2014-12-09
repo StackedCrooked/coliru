@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'void f(const T&) [with T = Bla<int>]':
+main.cpp:37:15:   required from here
+main.cpp:20:26: warning: unused variable 'some_var_of_template_type' [-Wunused-variable]
+   typename T::value_type some_var_of_template_type;
+                          ^
+main.cpp: In instantiation of 'void f_no_cruft(const Class<T>&) [with Class = Bla_no_cruft; T = int]':
+main.cpp:38:33:   required from here
+main.cpp:26:5: warning: unused variable 'some_var_of_template_type' [-Wunused-variable]
+   T some_var_of_template_type;
+     ^
+main.cpp: In instantiation of 'void f_more_args(const Class<T, ArgTypes ...>&) [with Class = Bla_more_args; T = int; ArgTypes = {void}]':
+main.cpp:39:35:   required from here
+main.cpp:32:5: warning: unused variable 'some_var_of_template_type' [-Wunused-variable]
+   T some_var_of_template_type;
+     ^
