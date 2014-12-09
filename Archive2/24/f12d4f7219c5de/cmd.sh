@@ -1,0 +1,1 @@
+clang++ -std=c++03 -Os -Werror -pthread -Wall main.cpp -lrt && ./a.out
