@@ -1,0 +1,17 @@
+main.cpp: In instantiation of 'OutputIt test3(char32_t, OutputIt) [with OutputIt = std::ostream_iterator<char>]':
+main.cpp:50:54:   required from here
+main.cpp:36:89: error: no matching function for call to 'test3(char32_t&, std::ostream_iterator<char>&, std::__iterator_traits<std::ostream_iterator<char>, true>::iterator_category)'
+     return test3(v, output, typename std::iterator_traits<OutputIt>::iterator_category());
+                                                                                         ^
+main.cpp:36:89: note: candidate is:
+main.cpp:34:10: note: template<class OutputIt> OutputIt test3(char32_t, OutputIt)
+ OutputIt test3(char32_t v, OutputIt output)
+          ^
+main.cpp:34:10: note:   template argument deduction/substitution failed:
+main.cpp:36:89: note:   candidate expects 2 arguments, 3 provided
+     return test3(v, output, typename std::iterator_traits<OutputIt>::iterator_category());
+                                                                                         ^
+main.cpp: In function 'OutputIt test3(char32_t, OutputIt) [with OutputIt = std::ostream_iterator<char>]':
+main.cpp:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
