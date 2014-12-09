@@ -1,0 +1,7 @@
+main.cpp:3:42: warning: returning reference to local temporary object [-Wreturn-stack-address]
+    const A& operator=(const A&){ return A(); }
+                                         ^~~
+main.cpp:8:42: warning: returning reference to local temporary object [-Wreturn-stack-address]
+    const B& operator=(const B&){ return B(); } //What does that function have to do with the function defined in another class (in our case it's A)?
+                                         ^~~
+2 warnings generated.
