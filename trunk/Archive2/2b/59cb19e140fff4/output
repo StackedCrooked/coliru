@@ -1,0 +1,33 @@
++ g++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+Should be array version:
+size_t StringLength(TChar (&)[TSize]) [with TChar = const char; long unsigned int TSize = 4ul; size_t = long unsigned int]
+size_t StringLength(TChar (&)[TSize]) [with TChar = char; long unsigned int TSize = 10ul; size_t = long unsigned int]
+size_t StringLength(TChar (&)[TSize]) [with TChar = const char; long unsigned int TSize = 10ul; size_t = long unsigned int]
+Should be pointer version:
+size_t StringLength(const TChar* const&) [with TChar = char; size_t = long unsigned int]
+size_t StringLength(const TChar* const&) [with TChar = char; size_t = long unsigned int]
++ echo 0
+0
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+Should be array version:
+size_t StringLength(TChar (&)[TSize]) [TChar = const char, TSize = 4]
+size_t StringLength(TChar (&)[TSize]) [TChar = char, TSize = 10]
+size_t StringLength(TChar (&)[TSize]) [TChar = const char, TSize = 10]
+Should be pointer version:
+size_t StringLength(const TChar *const &) [TChar = char]
+size_t StringLength(const TChar *const &) [TChar = char]
++ echo 0
+0
++ clang++ -stdlib=libc++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
+Should be array version:
+size_t StringLength(TChar (&)[TSize]) [TChar = const char, TSize = 4]
+size_t StringLength(TChar (&)[TSize]) [TChar = char, TSize = 10]
+size_t StringLength(TChar (&)[TSize]) [TChar = const char, TSize = 10]
+Should be pointer version:
+size_t StringLength(const TChar *const &) [TChar = char]
+size_t StringLength(const TChar *const &) [TChar = char]
++ echo 0
+0
