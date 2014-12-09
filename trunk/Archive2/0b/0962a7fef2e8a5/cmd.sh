@@ -1,0 +1,1 @@
+clang++ -std=c++1y -fno-elide-constructors   -lboost_regex main.cpp && ./a.out
