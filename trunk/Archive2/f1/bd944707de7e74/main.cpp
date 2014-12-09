@@ -1,0 +1,51 @@
+#include <iterator>
+#include <iostream>
+
+// Utility typedef template for output iterator SFINAE
+template<typename OutputIt, typename Category,
+    typename Tag = typename std::iterator_traits<OutputIt>::iterator_category>
+using is_iterator_category = typename std::enable_if<
+        std::is_same<Tag, Category>::value
+        >::type;
+
+// Use is_output_iterator
+template<typename OutputIt,
+         typename = is_iterator_category<OutputIt, std::output_iterator_tag>>
+OutputIt test(char32_t v, OutputIt output)
+{
+    *output++ = v;
+    return output;
+}
+
+// SFINAE
+
+template<typename OutputIt,
+         typename Tag = typename std::iterator_traits<OutputIt>::iterator_category,
+         typename = typename std::enable_if<std::is_same<Tag, std::output_iterator_tag>::value>::type>
+OutputIt test2(char32_t v, OutputIt output)
+{
+    *output++ = v;
+    return output;
+}
+
+// Tag dispatch
+
+template<typename OutputIt>
+OutputIt test3(char32_t v, OutputIt output, std::output_iterator_tag)
+{
+    *output++ = v;
+    return output;
+}
+
+template<typename OutputIt>
+OutputIt test3(char32_t v, OutputIt output)
+{
+    return test3(v, output, typename std::iterator_traits<OutputIt>::iterator_category());
+}
+
+int main()
+{
+    test('A', std::ostream_iterator<char>(std::cout));
+    test2('B', std::ostream_iterator<char>(std::cout));
+    test3('C', std::ostream_iterator<char>(std::cout));
+}
