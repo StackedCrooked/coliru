@@ -1,0 +1,1 @@
+g++ -std=c++11 -O0 -Wall -pedantic -Wpedantic -Wdeprecated-declarations -Wextra -pthread main.cpp && ./a.out
