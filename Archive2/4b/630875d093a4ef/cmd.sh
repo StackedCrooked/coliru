@@ -1,0 +1,20 @@
+clang++ -std=c++11 -Os -Werror -Wall main.cpp && ./a.out <<INPUT
+2
+john
+secret
+1
+john
+secret
+1
+john
+oops
+1
+mary
+secret
+2
+mary
+secret2
+1
+mary
+secret2
+INPUT
