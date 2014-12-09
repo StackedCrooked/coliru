@@ -1,0 +1,32 @@
+- Tmp --------------------------------------------------------------------
+= lvalue + lvalue ==================================================================
+Tmp1 - Copy Constructor s1
+Tmp1 - Move Constructor s1s2
+
+= rvalue + lvalue ==================================================================
+Tmp1 - Move Constructor t1s2
+
+= lvalue + rvalue ==================================================================
+Tmp1 - Copy Constructor s1
+Tmp1 - Move Constructor s1t2
+
+= rvalue + rvalue ==================================================================
+Tmp1 - Move Constructor t1t2
+
+- Tmp2 --------------------------------------------------------------------
+= lvalue + lvalue ==================================================================
+Tmp2 operator+(const Tmp2& lhs, const Tmp2& rhs)
+Tmp2 - Copy Constructor s1
+
+= rvalue + lvalue ==================================================================
+Tmp2 operator+(Tmp2&& lhs, const Tmp2& rhs)
+Tmp2 - Move Constructor t1s2
+
+= lvalue + rvalue ==================================================================
+Tmp2 operator+(const Tmp2& lhs, Tmp2&& rhs)
+Tmp2 - Move Constructor t2s1
+
+= rvalue + rvalue ==================================================================
+Tmp2 operator+(Tmp2&& lhs, Tmp2&& rhs)
+Tmp2 - Move Constructor t1t2
+
