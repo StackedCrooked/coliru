@@ -1,0 +1,17 @@
++ g++-4.7 -std=c++11 -O2 -Wall -pedantic main.cpp
++ ./a.out
+10
+Function<R(Args ...)>::Impl<F>::~Impl() [with F = main()::<lambda()>; R = int; Args = {}]
+Function<R(Args ...)>::Impl<F>::~Impl() [with F = main()::<lambda()>; R = int; Args = {}]
++ g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp
++ ./a.out
+10
+Function<R(Args ...)>::Impl<F>::~Impl() [with F = main()::__lambda2; R = int; Args = {}]
+Function<R(Args ...)>::Impl<F>::~Impl() [with F = main()::__lambda1; R = int; Args = {}]
++ g++-4.9 -std=c++11 -O2 -Wall -pedantic main.cpp
++ ./a.out
++ clang++ -std=c++11 -O2 -Wall -pedantic main.cpp
++ ./a.out
+10
+virtual Function<int ()>::Impl<(lambda at main.cpp:148:27)>::~Impl() [Signature = int (), F = (lambda at main.cpp:148:27)]
+virtual Function<int ()>::Impl<(lambda at main.cpp:147:26)>::~Impl() [Signature = int (), F = (lambda at main.cpp:147:26)]
