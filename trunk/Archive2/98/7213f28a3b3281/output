@@ -1,0 +1,24 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z3fooRK8vector3dS1_S1_
+	.align	16, 0x90
+	.type	_Z3fooRK8vector3dS1_S1_,@function
+_Z3fooRK8vector3dS1_S1_:                # @_Z3fooRK8vector3dS1_S1_
+	.cfi_startproc
+# BB#0:
+	movq	(%rdi), %xmm0
+	movq	(%rsi), %xmm2
+	addps	%xmm0, %xmm2
+	movss	8(%rdi), %xmm1
+	addss	8(%rsi), %xmm1
+	movq	(%rdx), %xmm0
+	addps	%xmm2, %xmm0
+	addss	8(%rdx), %xmm1
+	retq
+.Ltmp0:
+	.size	_Z3fooRK8vector3dS1_S1_, .Ltmp0-_Z3fooRK8vector3dS1_S1_
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
