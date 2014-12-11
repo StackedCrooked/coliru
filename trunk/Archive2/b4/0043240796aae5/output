@@ -1,0 +1,23 @@
+main.cpp:7:20: error: incomplete type 'Monster::Alien' named in nested name specifier
+      friend  void Alien::poison(); // *** error: incomplete type 'Monster::Alien' (declared, but not defined)
+                   ^~~~~~~
+main.cpp:5:13: note: forward declaration of 'Monster::Alien'
+      class Alien; // this declares the nested class Monster::Alien 
+            ^
+main.cpp:20:5: error: unknown type name 'B'
+    B* pointer = nullptr ; // *** error: unknown type name 'B'. 'B' does not name a type
+    ^
+2 errors generated.
+---------
+main.cpp:7:34: error: invalid use of incomplete type 'class Monster::Alien'
+       friend  void Alien::poison(); // *** error: incomplete type 'Monster::Alien' (declared, but not defined)
+                                  ^
+main.cpp:5:13: error: forward declaration of 'class Monster::Alien'
+       class Alien; // this declares the nested class Monster::Alien 
+             ^
+main.cpp:14:42: warning: 'void Monster::Alien::poison()' is already a friend of class 'Monster'
+       friend void Monster::Alien::poison(); // fine: same as above
+                                          ^
+main.cpp:20:5: error: 'B' does not name a type
+     B* pointer = nullptr ; // *** error: unknown type name 'B'. 'B' does not name a type
+     ^
