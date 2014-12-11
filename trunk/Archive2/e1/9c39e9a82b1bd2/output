@@ -1,0 +1,16 @@
+main.cpp: In function 'int main()':
+main.cpp:38:41: error: no matching function for call to 'ToString(const char [2], <unresolved overloaded function type>)'
+     std::cout << ToString("A", std::endl);
+                                         ^
+main.cpp:38:41: note: candidates are:
+main.cpp:19:13: note: std::string ToString(Args&& ...) [with Args = {}; std::string = std::basic_string<char>]
+ std::string ToString(Args&& ...args)
+             ^
+main.cpp:19:13: note:   candidate expects 0 arguments, 2 provided
+main.cpp:27:13: note: template<class ... Args> std::string ToString()
+ std::string ToString()
+             ^
+main.cpp:27:13: note:   template argument deduction/substitution failed:
+main.cpp:38:41: note:   candidate expects 0 arguments, 2 provided
+     std::cout << ToString("A", std::endl);
+                                         ^
