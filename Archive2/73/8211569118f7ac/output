@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:22:70: error: no matching function for call to 'duration_cast(std::chrono::_V2::system_clock::time_point&)'
+   duration<double> start_span = duration_cast<duration<double>>(start);
+                                                                      ^
+main.cpp:22:70: note: candidate is:
+In file included from main.cpp:9:0:
+/usr/local/include/c++/4.9.0/chrono:194:7: note: template<class _ToDur, class _Rep, class _Period> constexpr typename std::enable_if<std::chrono::__is_duration<_Tp>::value, _ToDur>::type std::chrono::duration_cast(const std::chrono::duration<_Rep, _Period>&)
+       duration_cast(const duration<_Rep, _Period>& __d)
+       ^
+/usr/local/include/c++/4.9.0/chrono:194:7: note:   template argument deduction/substitution failed:
+main.cpp:22:70: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::chrono::duration<_Rep, _Period>'
+   duration<double> start_span = duration_cast<duration<double>>(start);
+                                                                      ^
