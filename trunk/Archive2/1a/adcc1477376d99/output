@@ -1,0 +1,55 @@
+main.cpp:8:7: error: no viable conversion from 'int *' to 'std::shared_ptr<int>'
+S2 x {new int{0}};
+      ^~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:103:7: note: candidate constructor not viable: no known conversion from 'int *' to 'const std::shared_ptr<int> &' for 1st argument
+      shared_ptr(const shared_ptr&) noexcept = default;
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:226:7: note: candidate constructor not viable: no known conversion from 'int *' to 'std::shared_ptr<int> &&' for 1st argument
+      shared_ptr(shared_ptr&& __r) noexcept
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:265:17: note: candidate constructor not viable: no known conversion from 'int *' to 'nullptr_t' for 1st argument
+      constexpr shared_ptr(nullptr_t __p) noexcept
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:218:2: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'int *'
+        shared_ptr(const shared_ptr<_Tp1>& __r) noexcept
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:236:2: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'int *'
+        shared_ptr(shared_ptr<_Tp1>&& __r) noexcept
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:253:2: note: candidate template ignored: could not match 'auto_ptr<type-parameter-0-0>' against 'int *'
+        shared_ptr(std::auto_ptr<_Tp1>&& __r);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:257:2: note: candidate template ignored: could not match 'unique_ptr<type-parameter-0-0, type-parameter-0-1>' against 'int *'
+        shared_ptr(std::unique_ptr<_Tp1, _Del>&& __r)
+        ^
+main.cpp:13:5: error: non-ASCII characters are not allowed outside of literals and identifiers
+    ∗y.p = 1;                // change y, affects x
+    ^
+main.cpp:13:12: error: no viable overloaded '='
+    ∗y.p = 1;                // change y, affects x
+     ~~~ ^ ~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:268:19: note: candidate function not viable: no known conversion from 'int' to 'const std::shared_ptr<int>' for 1st argument
+      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:289:7: note: candidate function not viable: no known conversion from 'int' to 'std::shared_ptr<int>' for 1st argument
+      operator=(shared_ptr&& __r) noexcept
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:272:2: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'int'
+        operator=(const shared_ptr<_Tp1>& __r) noexcept
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:281:2: note: candidate template ignored: could not match 'auto_ptr<type-parameter-0-0>' against 'int'
+        operator=(std::auto_ptr<_Tp1>&& __r)
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:297:2: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'int'
+        operator=(shared_ptr<_Tp1>&& __r) noexcept
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/shared_ptr.h:305:2: note: candidate template ignored: could not match 'unique_ptr<type-parameter-0-0, type-parameter-0-1>' against 'int'
+        operator=(std::unique_ptr<_Tp1, _Del>&& __r)
+        ^
+main.cpp:14:5: error: non-ASCII characters are not allowed outside of literals and identifiers
+    ∗x.p = 2;                // change x; affects y
+    ^
+main.cpp:16:5: error: non-ASCII characters are not allowed outside of literals and identifiers
+    ∗x.p = 4;                // change x; affects y
+    ^
+5 errors generated.
