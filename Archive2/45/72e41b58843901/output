@@ -1,0 +1,10 @@
+main.cpp:32:32: warning: the ellipsis in 'template<class T, class X> Object<Derived>::Object(T&&, ...) [with T = T; X = X; Derived = Generic]' is not inherited [-Winherited-variadic-ctor]
+         using Object<Generic>::Object;
+                                ^
+main.cpp:20:72: note: 'template<class T, class X> Object<Derived>::Object(T&&, ...) [with T = T; X = X; Derived = Generic]' declared here
+         template<typename T, SUBFAIL_UNLESS(IS_FLOATING(T)) > explicit Object( T&& t, ... ) : Object{ pyob_from_floating(t) }  { }
+                                                                        ^
+main.cpp:32:32: error: 'template<class T, class X> Generic::Generic(T&&)' inherited from 'Object<Generic>'
+         using Object<Generic>::Object;
+                                ^
+main.cpp:32:32: error: conflicts with version inherited from 'Object<Generic>'
