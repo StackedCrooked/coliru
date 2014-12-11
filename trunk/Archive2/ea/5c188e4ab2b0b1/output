@@ -1,0 +1,36 @@
++ g++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'typename std::enable_if<(std::is_nothrow_constructible<T>::value && std::is_nothrow_move_constructible<_Tp>::value), T&>::type recycle(T&, A&& ...) [with T = main()::foo; A = {double}; typename std::enable_if<(std::is_nothrow_constructible<T>::value && std::is_nothrow_move_constructible<_Tp>::value), T&>::type = main()::foo&]':
+main.cpp:27:19:   required from here
+main.cpp:12:13: warning: narrowing conversion of 'arg#0' from 'double' to 'float' inside { } [-Wnarrowing]
+ { obj.~T(); new (&obj) T{arg...}; return obj; }
+             ^
+main.cpp: In instantiation of 'typename std::enable_if<(std::is_nothrow_constructible<T>::value && std::is_nothrow_move_constructible<_Tp>::value), T&>::type recycle(T&, A&& ...) [with T = main()::foo; A = {int}; typename std::enable_if<(std::is_nothrow_constructible<T>::value && std::is_nothrow_move_constructible<_Tp>::value), T&>::type = main()::foo&]':
+main.cpp:28:17:   required from here
+main.cpp:12:13: warning: narrowing conversion of 'arg#0' from 'int' to 'float' inside { } [-Wnarrowing]
++ ./a.out
++ echo 0
+0
++ clang++ -std=c++1y -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:12:26: error: non-constant-expression cannot be narrowed from type 'double' to 'float' in initializer list [-Wc++11-narrowing]
+{ obj.~T(); new (&obj) T{arg...}; return obj; }
+                         ^~~
+main.cpp:27:5: note: in instantiation of function template specialization 'recycle<foo, double>' requested here
+    recycle(b, 5.0);       // succeeds calling #2 (undesired implicit double --> float conversion)
+    ^
+main.cpp:12:26: note: insert an explicit cast to silence this issue
+{ obj.~T(); new (&obj) T{arg...}; return obj; }
+                         ^~~
+                         static_cast<float>( )
+main.cpp:12:26: error: non-constant-expression cannot be narrowed from type 'int' to 'float' in initializer list [-Wc++11-narrowing]
+{ obj.~T(); new (&obj) T{arg...}; return obj; }
+                         ^~~
+main.cpp:28:5: note: in instantiation of function template specialization 'recycle<foo, int>' requested here
+    recycle(b, 5);         // succeeds calling #2 (undesired implicit int ---> float conversion)
+    ^
+main.cpp:12:26: note: insert an explicit cast to silence this issue
+{ obj.~T(); new (&obj) T{arg...}; return obj; }
+                         ^~~
+                         static_cast<float>( )
+2 errors generated.
++ echo 1
+1
