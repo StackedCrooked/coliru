@@ -1,0 +1,70 @@
+main.cpp:10:5: error: constructor cannot be redeclared
+    base(T) { std::cout << "floating point\n"; }
+    ^
+main.cpp:7:5: note: previous declaration is here
+    base(T) { std::cout << "integral\n"; }
+    ^
+main.cpp:9:37: error: template parameter redefines default argument
+    template<typename T, typename = typename std::enable_if< std::is_floating_point<T>::value, int >::type>
+                                    ^
+main.cpp:6:37: note: previous default template argument defined here
+    template<typename T, typename = typename std::enable_if< std::is_integral<T>::value, int >::type>
+                                    ^
+main.cpp:10:5: error: redefinition of 'base'
+    base(T) { std::cout << "floating point\n"; }
+    ^
+main.cpp:7:5: note: previous definition is here
+    base(T) { std::cout << "integral\n"; }
+    ^
+main.cpp:20:5: error: call to deleted constructor of 'derived'
+    derived{42};
+    ^      ~~~~
+main.cpp:15:17: note: deleted constructor was inherited here
+    using base::base;
+                ^
+main.cpp:7:5: note: constructor cannot be inherited
+    base(T) { std::cout << "integral\n"; }
+    ^
+main.cpp:21:5: error: no matching constructor for initialization of 'derived'
+    derived{4.2};
+    ^      ~~~~~
+main.cpp:13:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'double' to 'const derived &' for 1st argument
+struct derived : base
+       ^
+main.cpp:13:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'double' to 'derived &&' for 1st argument
+struct derived : base
+       ^
+main.cpp:6:62: note: candidate template ignored: disabled by 'enable_if' [with T = double]
+    template<typename T, typename = typename std::enable_if< std::is_integral<T>::value, int >::type>
+                                                             ^
+main.cpp:13:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 1 was provided
+struct derived : base
+       ^
+5 errors generated.
+
+=======================================================
+
+main.cpp:10:5: error: 'template<class T, class> base::base(T)' cannot be overloaded
+     base(T) { std::cout << "floating point\n"; }
+     ^
+main.cpp:7:5: error: with 'template<class T, class> base::base(T)'
+     base(T) { std::cout << "integral\n"; }
+     ^
+main.cpp: In function 'int main()':
+main.cpp:21:16: error: no matching function for call to 'derived::derived(<brace-enclosed initializer list>)'
+     derived{4.2};
+                ^
+main.cpp:21:16: note: candidates are:
+main.cpp:15:17: note: template<class T, class> derived::derived(T)
+     using base::base;
+                 ^
+main.cpp:15:17: note:   template argument deduction/substitution failed:
+main.cpp:6:26: error: no type named 'type' in 'struct std::enable_if<false, int>'
+     template<typename T, typename = typename std::enable_if< std::is_integral<T>::value, int >::type>
+                          ^
+main.cpp:13:8: note: constexpr derived::derived(const derived&)
+ struct derived : base
+        ^
+main.cpp:13:8: note:   no known conversion for argument 1 from 'double' to 'const derived&'
+main.cpp:13:8: note: constexpr derived::derived(derived&&)
+main.cpp:13:8: note:   no known conversion for argument 1 from 'double' to 'derived&&'
