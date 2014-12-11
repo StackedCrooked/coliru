@@ -1,0 +1,35 @@
+main.cpp: In function 'int main()':
+main.cpp:8:47: error: no matching function for call to 'move(std::basic_stringstream<char>::__string_type)'
+     const std::string s = boost::move(ss.str());
+                                               ^
+main.cpp:8:47: note: candidates are:
+In file included from /usr/local/include/boost/move/utility.hpp:20:0,
+                 from /usr/local/include/boost/move/move.hpp:21,
+                 from main.cpp:3:
+/usr/local/include/boost/move/utility_core.hpp:44:10: note: typename boost::move_detail::enable_if_c<(boost::enable_move_utility_emulation<T>::value && (! boost::has_move_emulation_enabled<T>::value)), T&>::type boost::move(T&) [with T = std::basic_string<char>; typename boost::move_detail::enable_if_c<(boost::enable_move_utility_emulation<T>::value && (! boost::has_move_emulation_enabled<T>::value)), T&>::type = std::basic_string<char>&]
+          move(T& x) BOOST_NOEXCEPT
+          ^
+/usr/local/include/boost/move/utility_core.hpp:44:10: note:   no known conversion for argument 1 from 'std::basic_stringstream<char>::__string_type {aka std::basic_string<char>}' to 'std::basic_string<char>&'
+/usr/local/include/boost/move/utility_core.hpp:52:10: note: template<class T> typename boost::move_detail::enable_if_c<(boost::enable_move_utility_emulation<T>::value && boost::has_move_emulation_enabled<T>::value), boost::rv<T>&>::type boost::move(T&)
+          move(T& x) BOOST_NOEXCEPT
+          ^
+/usr/local/include/boost/move/utility_core.hpp:52:10: note:   template argument deduction/substitution failed:
+/usr/local/include/boost/move/utility_core.hpp: In substitution of 'template<class T> typename boost::move_detail::enable_if_c<(boost::enable_move_utility_emulation<T>::value && boost::has_move_emulation_enabled<T>::value), boost::rv<T>&>::type boost::move(T&) [with T = std::basic_string<char>]':
+main.cpp:8:47:   required from here
+/usr/local/include/boost/move/utility_core.hpp:52:10: error: no type named 'type' in 'struct boost::move_detail::enable_if_c<false, boost::rv<std::basic_string<char> >&>'
+/usr/local/include/boost/move/utility_core.hpp:60:10: note: template<class T> typename boost::move_detail::enable_if_c<(boost::enable_move_utility_emulation<T>::value && boost::has_move_emulation_enabled<T>::value), boost::rv<T>&>::type boost::move(boost::rv<T>&)
+          move(rv<T>& x) BOOST_NOEXCEPT
+          ^
+/usr/local/include/boost/move/utility_core.hpp:60:10: note:   template argument deduction/substitution failed:
+main.cpp:8:47: note:   'std::basic_stringstream<char>::__string_type {aka std::basic_string<char>}' is not derived from 'boost::rv<T>'
+     const std::string s = boost::move(ss.str());
+                                               ^
+In file included from /usr/local/include/boost/move/move.hpp:24:0,
+                 from main.cpp:3:
+/usr/local/include/boost/move/algorithm.hpp:47:6: note: template<class I, class O> O boost::move(I, I, O)
+    O move(I f, I l, O result)
+      ^
+/usr/local/include/boost/move/algorithm.hpp:47:6: note:   template argument deduction/substitution failed:
+main.cpp:8:47: note:   candidate expects 3 arguments, 1 provided
+     const std::string s = boost::move(ss.str());
+                                               ^
