@@ -1,0 +1,26 @@
+main.cpp:6:9: warning: identifier 'static_assert' is a keyword in C++11 [-Wc++0x-compat]
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+         ^
+main.cpp: In destructor 'A<T>::~A()':
+main.cpp:6:56: error: there are no arguments to 'static_assert' that depend on a template parameter, so a declaration of 'static_assert' must be available [-fpermissive]
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                                                        ^
+main.cpp:6:56: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: At global scope:
+main.cpp:18:20: error: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     A<impl> m_impl{};
+                    ^
+main.cpp:18:19: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     A<impl> m_impl{};
+                   ^
+main.cpp:18:20: error: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     A<impl> m_impl{};
+                    ^
+main.cpp: In instantiation of 'A<T>::~A() [with T = B::impl]':
+main.cpp:18:20:   required from here
+main.cpp:6:29: error: invalid application of 'sizeof' to incomplete type 'B::impl'
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                             ^
+main.cpp:6:56: error: 'static_assert' was not declared in this scope
+         static_assert(sizeof(T) > 0, "T is incomplete.");
+                                                        ^
