@@ -1,0 +1,49 @@
+main.cpp: In function 'int main()':
+main.cpp:14:38: error: no matching function for call to 'std::unique_ptr<int, main()::<lambda(int*)> >::unique_ptr(<brace-enclosed initializer list>)'
+         { open("main.cpp", O_RDONLY) };
+                                      ^
+main.cpp:14:38: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:228:2: note: template<class _Up, class> std::unique_ptr<_Tp, _Dp>::unique_ptr(std::auto_ptr<_Up>&&)
+  unique_ptr(auto_ptr<_Up>&& __u) noexcept;
+  ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:228:2: note:   template argument deduction/substitution failed:
+main.cpp:14:38: note:   mismatched types 'std::auto_ptr<_Up>' and 'int'
+         { open("main.cpp", O_RDONLY) };
+                                      ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:220:2: note: template<class _Up, class _Ep, class> std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Up, _Ep>&&)
+  unique_ptr(unique_ptr<_Up, _Ep>&& __u) noexcept
+  ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:220:2: note:   template argument deduction/substitution failed:
+main.cpp:14:38: note:   mismatched types 'std::unique_ptr<_Tp, _Dp>' and 'int'
+         { open("main.cpp", O_RDONLY) };
+                                      ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:205:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>&&) [with _Tp = int; _Dp = main()::<lambda(int*)>]
+       unique_ptr(unique_ptr&& __u) noexcept
+       ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:205:7: note:   no known conversion for argument 1 from 'int' to 'std::unique_ptr<int, main()::<lambda(int*)> >&&'
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:200:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr(std::nullptr_t) [with _Tp = int; _Dp = main()::<lambda(int*)>; std::nullptr_t = std::nullptr_t]
+       constexpr unique_ptr(nullptr_t) noexcept : unique_ptr() { }
+                 ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:200:17: note:   no known conversion for argument 1 from 'int' to 'std::nullptr_t'
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:193:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::remove_reference<_To>::type&&) [with _Tp = int; _Dp = main()::<lambda(int*)>; std::unique_ptr<_Tp, _Dp>::pointer = int*; typename std::remove_reference<_To>::type = main()::<lambda(int*)>]
+       unique_ptr(pointer __p,
+       ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:193:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:181:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer, typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type) [with _Tp = int; _Dp = main()::<lambda(int*)>; std::unique_ptr<_Tp, _Dp>::pointer = int*; typename std::conditional<std::is_reference<_Dp>::value, _Dp, const _Dp&>::type = const main()::<lambda(int*)>&]
+       unique_ptr(pointer __p,
+       ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:181:7: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:169:7: note: std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Tp = int; _Dp = main()::<lambda(int*)>; std::unique_ptr<_Tp, _Dp>::pointer = int*] <near match>
+       unique_ptr(pointer __p) noexcept
+       ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:169:7: note:   no known conversion for argument 1 from 'int' to 'std::unique_ptr<int, main()::<lambda(int*)> >::pointer {aka int*}'
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:157:17: note: constexpr std::unique_ptr<_Tp, _Dp>::unique_ptr() [with _Tp = int; _Dp = main()::<lambda(int*)>]
+       constexpr unique_ptr() noexcept
+                 ^
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:157:17: note:   candidate expects 0 arguments, 1 provided
