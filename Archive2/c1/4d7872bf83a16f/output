@@ -1,0 +1,18 @@
++ g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:24:9: warning: unused variable 'fd' [-Wunused-variable]
+     int fd = p.get();
+         ^
+In file included from /usr/local/include/c++/4.9.0/memory:81:0,
+                 from main.cpp:9:
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h: In instantiation of 'std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = int; _Dp = posix_close]':
+main.cpp:23:65:   required from here
+/usr/local/include/c++/4.9.0/bits/unique_ptr.h:235:12: error: invalid operands of types 'int' and 'std::nullptr_t' to binary 'operator!='
+  if (__ptr != nullptr)
+            ^
++ clang++ -stdlib=libc++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:24:9: warning: unused variable 'fd' [-Wunused-variable]
+    int fd = p.get();
+        ^
+1 warning generated.
++ ./a.out
