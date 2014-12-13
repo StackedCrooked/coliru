@@ -1,0 +1,14 @@
+main.cpp: In constructor 'any<Fun>::any(const T&)':
+main.cpp:31:37: error: wrong number of template arguments (1, should be 2)
+     any(const T& t) : ptr(new wrap<T>) { ptr->assign(&t); }
+                                     ^
+main.cpp:16:8: error: provided for 'template<class T, class Fun> struct wrap'
+ struct wrap : base<Fun>
+        ^
+main.cpp: In function 'int main()':
+main.cpp:44:9: error: missing template arguments before 'a'
+     any a{1};
+         ^
+main.cpp:45:5: error: 'a' was not declared in this scope
+     a.dump(std::cout);
+     ^
