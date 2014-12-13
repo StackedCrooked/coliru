@@ -1,0 +1,11 @@
+main.cpp:18:3: error: call to constructor of 'A' is ambiguous
+A b({B()}); //ill-formed
+  ^ ~~~~~
+main.cpp:11:8: note: candidate is the implicit move constructor
+struct A
+       ^
+main.cpp:11:8: note: candidate is the implicit copy constructor
+main.cpp:14:5: note: candidate constructor
+    A(int){ std::cout << "A(int, int)" << std::endl; }
+    ^
+1 error generated.
