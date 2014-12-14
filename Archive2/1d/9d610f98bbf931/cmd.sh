@@ -1,0 +1,1 @@
+clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out <<< '0 0 0 1 0 1 0 0 0 1 1 1 1 1 0 1 0 1 0 0 1 1 1 0'
