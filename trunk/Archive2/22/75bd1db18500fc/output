@@ -1,0 +1,17 @@
+main.cpp: In function 'void foo(int)':
+main.cpp:3:6: error: 'cout' is not a member of 'std'
+      std::cout << a;
+      ^
+main.cpp: At global scope:
+main.cpp:7:19: error: 'signal' does not name a type
+  using signal_t = signal<void(int)>;
+                   ^
+main.cpp:9:2: error: 'signal_t' does not name a type
+  signal_t<int> sig;
+  ^
+main.cpp:10:2: error: 'sig' does not name a type
+  sig.connect(foo);
+  ^
+main.cpp:11:5: error: expected constructor, destructor, or type conversion before '(' token
+  sig(23123);
+     ^
