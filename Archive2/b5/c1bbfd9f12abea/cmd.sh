@@ -1,0 +1,1 @@
+g++ -std=c++1y -O2 -pedantic -lboost_system -lboost_timer main.cpp && ./a.out
