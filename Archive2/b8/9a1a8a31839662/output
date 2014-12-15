@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:55:64: error: no matching function for call to 'transform_tuple(my_tuple<int, double>&, doubler)'
+     std::tuple<double, double> b = transform_tuple(a, doubler{});
+                                                                ^
+main.cpp:55:64: note: candidate is:
+main.cpp:28:1: note: template<class F, class T> decltype (transform_tuple_helper<0ul, std::tuple_size<T>::value, F, T>::do_(f, t)) transform_tuple(T, F)
+ transform_tuple(T t, F f) 
+ ^
+main.cpp:28:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class F, class T> decltype (transform_tuple_helper<0ul, std::tuple_size<T>::value, F, T>::do_(f, t)) transform_tuple(T, F) [with F = doubler; T = my_tuple<int, double>]':
+main.cpp:55:64:   required from here
+main.cpp:29:85: error: incomplete type 'std::tuple_size<my_tuple<int, double> >' used in nested name specifier
+     -> decltype(transform_tuple_helper<0, std::tuple_size<T>::value, F, T>::do_(f, t))
+                                                                                     ^
