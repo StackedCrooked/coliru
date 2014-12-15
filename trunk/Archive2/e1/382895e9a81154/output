@@ -1,0 +1,14 @@
+main.cpp:6:12: warning: unused variable 'j' [-Wunused-variable]
+    double j = reinterpret_cast<double&&>(std::move(i));
+           ^
+1 warning generated.
+
+=======================================================
+
+main.cpp: In function 'int main()':
+main.cpp:6:55: error: invalid cast of an rvalue expression of type 'std::remove_reference<int&>::type {aka int}' to type 'double&&'
+     double j = reinterpret_cast<double&&>(std::move(i));
+                                                       ^
+main.cpp:6:12: warning: unused variable 'j' [-Wunused-variable]
+     double j = reinterpret_cast<double&&>(std::move(i));
+            ^
