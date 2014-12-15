@@ -1,0 +1,49 @@
+	.file	"main.cpp"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"\n Enter a Number : "
+.LC1:
+	.string	"%d"
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC2:
+	.string	"\n The Factorial of %d is : %ld"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB3:
+	.section	.text.startup,"ax",@progbits
+.LHOTB3:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB12:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movl	$.LC0, %edi
+	xorl	%eax, %eax
+	call	printf
+	leaq	12(%rsp), %rsi
+	movl	$.LC1, %edi
+	xorl	%eax, %eax
+	call	scanf
+	movl	12(%rsp), %edi
+	call	_Z4facti
+	movl	12(%rsp), %esi
+	movq	%rax, %rdx
+	movl	$.LC2, %edi
+	xorl	%eax, %eax
+	call	printf
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE12:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE3:
+	.section	.text.startup
+.LHOTE3:
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
