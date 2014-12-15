@@ -1,0 +1,72 @@
+main.cpp:14:47: error: unknown type name 'op'
+auto zipwith3 = [](auto x1, auto x2, auto x3, op)
+                                              ^
+main.cpp:22:14: error: expected ';' after return statement
+   return out
+             ^
+             ;
+main.cpp:24:37: error: unknown type name 'op'
+auto zipwith = [](auto x1, auto x2, op)
+                                    ^
+main.cpp:26:42: error: use of undeclared identifier 'x3'
+   std::vector<decltype(op(x1[0], x2[0], x3[0]))> out;
+                                         ^
+main.cpp:26:51: error: C++ requires a type specifier for all declarations
+   std::vector<decltype(op(x1[0], x2[0], x3[0]))> out;
+                                                  ^~~
+main.cpp:29:40: error: use of undeclared identifier 'b3'
+   for (;b1!=x1.end() && b2!=x2.end()&&b3!=x3.end(); ++b1, ++b2)
+                                       ^
+main.cpp:29:44: error: use of undeclared identifier 'x3'
+   for (;b1!=x1.end() && b2!=x2.end()&&b3!=x3.end(); ++b1, ++b2)
+                                           ^
+main.cpp:38:17: error: use of undeclared identifier 'td'
+using max_t   = td::vector<int>;
+                ^
+main.cpp:38:27: error: expected ';' after alias declaration
+using max_t   = td::vector<int>;
+                          ^
+                          ;
+main.cpp:40:36: error: use of undeclared identifier 'max_t'
+using acc_t  = std::tuple<count_t, max_t, event_t>;
+                                   ^
+main.cpp:42:1: error: unknown type name 'acc_t'
+acc_t handler(const acc_t& acc, event_t& nows)
+^
+main.cpp:42:21: error: unknown type name 'acc_t'
+acc_t handler(const acc_t& acc, event_t& nows)
+                    ^
+main.cpp:45:5: error: unknown type name 'max_t'
+    max_t  & maxs = std::get<1>(acc);
+    ^
+main.cpp:47:26: error: use of undeclared identifier 'prevs'; did you mean 'prvs'?
+    auto cnt2 = zipwith3(prevs, nows, cnts, 
+                         ^~~~~
+                         prvs
+main.cpp:46:14: note: 'prvs' declared here
+    event_t& prvs = std::get<2>(acc); 
+             ^
+main.cpp:47:17: error: no matching function for call to object of type '(lambda at main.cpp:14:17)'
+    auto cnt2 = zipwith3(prevs, nows, cnts, 
+                ^~~~~~~~
+main.cpp:14:17: note: candidate function [with $auto-0-0 = std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, $auto-0-1 = std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, $auto-0-2 = std::__1::vector<int, std::__1::allocator<int> >] not viable: no known conversion from '(lambda at main.cpp:48:17)' to 'int' for 4th argument
+auto zipwith3 = [](auto x1, auto x2, auto x3, op)
+                ^
+main.cpp:49:25: error: use of undeclared identifier 'cnts2'
+    auto max2 = zipwith(cnts2, maxs, std::max<count_t,max_t>());
+                        ^
+main.cpp:49:55: error: use of undeclared identifier 'max_t'
+    auto max2 = zipwith(cnts2, maxs, std::max<count_t,max_t>());
+                                                      ^
+main.cpp:50:12: error: use of undeclared identifier 'acc_t'; did you mean 'acct'?
+    return acc_t{cnt2, maxs2, nows};    
+           ^~~~~
+           acct
+/usr/include/unistd.h:948:12: note: 'acct' declared here
+extern int acct (__const char *__name) __THROW;
+           ^
+main.cpp:50:12: error: cannot initialize return object of type 'int' with an lvalue of type 'int (const char *) throw()'
+    return acc_t{cnt2, maxs2, nows};    
+           ^~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
