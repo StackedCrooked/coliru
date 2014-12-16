@@ -1,0 +1,21 @@
+main.cpp: In function 'int main()':
+main.cpp:9:26: error: no matching function for call to 'std::basic_ofstream<char>::basic_ofstream(std::string&)'
+     std::ofstream f2(name);
+                          ^
+main.cpp:9:26: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/include/c++/4.8/fstream:640:7: note: std::basic_ofstream<_CharT, _Traits>::basic_ofstream(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ofstream(const char* __s,
+       ^
+/usr/include/c++/4.8/fstream:640:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const char*'
+/usr/include/c++/4.8/fstream:625:7: note: std::basic_ofstream<_CharT, _Traits>::basic_ofstream() [with _CharT = char; _Traits = std::char_traits<char>]
+       basic_ofstream(): __ostream_type(), _M_filebuf()
+       ^
+/usr/include/c++/4.8/fstream:625:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/4.8/fstream:599:11: note: std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/4.8/fstream:599:11: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const std::basic_ofstream<char>&'
+main.cpp:10:22: error: 'move' is not a member of 'std'
+     std::ofstream f3(std::move(f1));
+                      ^
