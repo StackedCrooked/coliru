@@ -1,0 +1,2 @@
+g++ -std=c++03 -DAPPROACH=TOKENIZE -DN=200000 -O2 -Wall -pedantic -pthread main.cpp && time ./a.out &&
+g++ -std=c++03 -DAPPROACH=SCAN     -DN=200000 -O2 -Wall -pedantic -pthread main.cpp && time ./a.out
