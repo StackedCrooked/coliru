@@ -1,0 +1,21 @@
+main.cpp:4:12: error: non-constant-expression cannot be narrowed from type 'int' to 'bool' in initializer list [-Wc++11-narrowing]
+    bool b{d};
+           ^
+main.cpp:4:12: note: insert an explicit cast to silence this issue
+    bool b{d};
+           ^
+           static_cast<bool>( )
+main.cpp:4:10: warning: unused variable 'b' [-Wunused-variable]
+    bool b{d};
+         ^
+1 warning and 1 error generated.
+
+=======================================================
+
+main.cpp: In function 'int main()':
+main.cpp:4:13: warning: narrowing conversion of 'd' from 'int' to 'bool' inside { } [-Wnarrowing]
+     bool b{d};
+             ^
+main.cpp:4:10: warning: unused variable 'b' [-Wunused-variable]
+     bool b{d};
+          ^
