@@ -1,0 +1,13 @@
+main.cpp:76:5: error: prototype for 'RET Mediator::change(Object*, RET (Object::*)(ARGS1 ...), const ARGS2& ...)' does not match any in class 'Mediator'
+ RET Mediator::change (Object* o, RET (Object::*f)(ARGS1...), const ARGS2&... args) {
+     ^
+main.cpp:12:9: error: candidate is: template<class RET, class ... ARGS1, class ... ARGS2> RET Mediator::change(Object*, RET (Object::*)(ARGS1 ...), ARGS2 ...)
+     RET change (Object*, RET (Object::*)(ARGS1...), ARGS2...);
+         ^
+main.cpp: In function 'int main()':
+main.cpp:87:13: warning: unused variable 'a' [-Wunused-variable]
+     Object *a = new A(6, 1.2, 'a', 1111, mediator);
+             ^
+main.cpp:88:13: warning: unused variable 'b' [-Wunused-variable]
+     Object *b = new B(2, 6.5, 'b', 2222, mediator);
+             ^
