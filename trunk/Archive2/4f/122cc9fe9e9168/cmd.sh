@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pthread main.cpp && time ./a.out; cat test.xml
