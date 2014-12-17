@@ -1,0 +1,18 @@
+main.cpp:70:20: error: no matching function for call to 'call(<unresolved overloaded function type>, int)'
+ int k = call(foo, 5);
+                    ^
+main.cpp:70:20: note: candidates are:
+main.cpp:47:1: note: template<class F> typename expr_check<sizeof (declval<F>()()), typename func_ptr_result<T>::type>::type call(const F&)
+ call(const F& f) {
+ ^
+main.cpp:47:1: note:   template argument deduction/substitution failed:
+main.cpp:70:20: note:   candidate expects 1 argument, 2 provided
+ int k = call(foo, 5);
+                    ^
+main.cpp:53:1: note: template<class F, class A> typename expr_check<sizeof (declval<F>()(declval<A>())), typename func_ptr_result<T>::type>::type call(const F&, const A&)
+ call(const F& f, const A& a) {
+ ^
+main.cpp:53:1: note:   template argument deduction/substitution failed:
+main.cpp:70:20: note:   couldn't deduce template parameter 'F'
+ int k = call(foo, 5);
+                    ^
