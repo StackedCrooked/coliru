@@ -1,0 +1,1 @@
+gcc -std=c++1y -O2 -E -Wall main.cpp -o a.S && cat a.S
