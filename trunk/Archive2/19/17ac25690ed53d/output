@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:18:20: error: no match for 'operator=' (operand types are 'std::reference_wrapper<std::basic_ostream<char> >' and 'std::reference_wrapper<const std::basic_ostream<char> >')
+     foos[0].stream = std::cref(std::cerr);
+                    ^
+main.cpp:18:20: note: candidate is:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.0/functional:418:7: note: std::reference_wrapper<_Tp>& std::reference_wrapper<_Tp>::operator=(const std::reference_wrapper<_Tp>&) [with _Tp = std::basic_ostream<char>]
+       operator=(const reference_wrapper<_Tp>& __inref) noexcept
+       ^
+/usr/local/include/c++/4.9.0/functional:418:7: note:   no known conversion for argument 1 from 'std::reference_wrapper<const std::basic_ostream<char> >' to 'const std::reference_wrapper<std::basic_ostream<char> >&'
