@@ -1,0 +1,117 @@
+clang++ c++11 1
+main.cpp:12:2: error: invalid preprocessing directive
+#elseif TEST == 2
+ ^
+main.cpp:11:5: error: expression contains unexpanded parameter pack 'Args'
+    bar(std::forward<Args>(args...));      // variant 1
+    ^                ~~~~
+main.cpp:13:9: error: no matching function for call to 'forward'
+    bar(std::forward<Args...>(args...));   // variant 2
+        ^~~~~~~~~~~~~~~~~~~~~
+main.cpp:20:5: note: in instantiation of function template specialization 'foo<>' requested here
+    foo();
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/move.h:76:5: note: candidate function template not viable: requires single argument '__t', but no arguments were provided
+    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/move.h:87:5: note: candidate function template not viable: requires single argument '__t', but no arguments were provided
+    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    ^
+main.cpp:13:9: error: no matching function for call to 'forward'
+    bar(std::forward<Args...>(args...));   // variant 2
+        ^~~~~~~~~~~~~~~~~~~~~
+main.cpp:22:5: note: in instantiation of function template specialization 'foo<int, int>' requested here
+    foo(1,2);
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/move.h:76:5: note: candidate function template not viable: requires single argument '__t', but 2 arguments were provided
+    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.0/../../../../include/c++/4.9.0/bits/move.h:87:5: note: candidate function template not viable: requires single argument '__t', but 2 arguments were provided
+    forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+    ^
+4 errors generated.
+
+clang++ c++11 2
+012
+clang++ c++11 3
+012
+g++ c++11 1
+main.cpp:12:2: error: invalid preprocessing directive #elseif
+ #elseif TEST == 2
+  ^
+main.cpp: In function 'void foo(Args&& ...)':
+main.cpp:11:37: error: parameter packs not expanded with '...':
+     bar(std::forward<Args>(args...));      // variant 1
+                                     ^
+main.cpp:11:37: note:         'Args'
+main.cpp: In instantiation of 'void foo(Args&& ...) [with Args = {}]':
+main.cpp:20:9:   required from here
+main.cpp:13:38: error: no matching function for call to 'forward()'
+     bar(std::forward<Args...>(args...));   // variant 2
+                                      ^
+main.cpp:13:38: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:13:38: note:   candidate expects 1 argument, 0 provided
+     bar(std::forward<Args...>(args...));   // variant 2
+                                      ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:13:38: note:   candidate expects 1 argument, 0 provided
+     bar(std::forward<Args...>(args...));   // variant 2
+                                      ^
+main.cpp: In instantiation of 'void foo(Args&& ...) [with Args = {int, int}]':
+main.cpp:22:12:   required from here
+main.cpp:13:38: error: no matching function for call to 'forward(int&, int&)'
+main.cpp:13:38: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:13:38: error: wrong number of template arguments (2, should be 1)
+     bar(std::forward<Args...>(args...));   // variant 2
+                                      ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/ios:40,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:13:38: error: wrong number of template arguments (2, should be 1)
+     bar(std::forward<Args...>(args...));   // variant 2
+                                      ^
+
+g++ c++11 2
+012
+g++ c++11 3
+012
