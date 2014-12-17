@@ -1,0 +1,1 @@
+gcc -std=c++1y -O2 -Wall main.cpp && ./a.out
