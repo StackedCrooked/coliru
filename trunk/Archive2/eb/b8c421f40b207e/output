@@ -1,0 +1,20 @@
+main.cpp: In constructor 'type::type(int)':
+main.cpp:25:13: warning: 'type::value_' will be initialized after [-Wreorder]
+     int_ptr value_;
+             ^
+main.cpp:24:10: warning:   'int* type::value_ptr_' [-Wreorder]
+     int* value_ptr_;
+          ^
+main.cpp:9:5: warning:   when initialized here [-Wreorder]
+     type(int value)
+     ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:13:56: warning: '*((void*)(& object)+8).std::__shared_ptr<int, (__gnu_cxx::_Lock_policy)2u>::_M_ptr' is used uninitialized in this function [-Wuninitialized]
+         printf("value_ptr_ = %p\n", (void*) value_ptr_);
+                                                        ^
+main.cpp:30:10: note: '*((void*)(& object)+8).std::__shared_ptr<int, (__gnu_cxx::_Lock_policy)2u>::_M_ptr' was declared here
+     type object(1337);
+          ^
+value_ptr_ = (nil)
+value_ptr_ = 0x2096020
+Value = 1337
