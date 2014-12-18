@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:13:21: error: invalid new-expression of abstract class type 'B'
+ Abstract* a = new B();
+                     ^
+main.cpp:6:7: note:   because the following virtual functions are pure within 'B':
+ class B : public Abstract
+       ^
+main.cpp:3:14: note: 	virtual void Abstract::work()
+ virtual void work() = 0;
+              ^
