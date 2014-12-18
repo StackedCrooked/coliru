@@ -1,0 +1,43 @@
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	test()
+	.type	test(), @function
+test():
+.LFB0:
+	.cfi_startproc
+	sub	rsp, 24
+	.cfi_def_cfa_offset 32
+	call	get()
+	movzx	edx, ah
+	mov	BYTE PTR [rsp], al
+	mov	rdi, rsp
+	mov	BYTE PTR [rsp+1], dl
+	mov	rdx, rax
+	shr	rdx, 16
+	mov	BYTE PTR [rsp+2], dl
+	mov	rdx, rax
+	shr	rdx, 24
+	mov	BYTE PTR [rsp+3], dl
+	mov	rdx, rax
+	shr	rax, 40
+	shr	rdx, 32
+	mov	BYTE PTR [rsp+5], al
+	mov	BYTE PTR [rsp+4], dl
+	call	set(Items const&)
+	add	rsp, 24
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	test(), .-test()
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.0"
+	.section	.note.GNU-stack,"",@progbits
