@@ -1,0 +1,39 @@
+main.cpp: In instantiation of 'class _reversed<int [3]>':
+main.cpp:55:27:   required from here
+main.cpp:19:32: error: 'int [3]' is not a class, struct, or union type
+   typename I::reverse_iterator begin() { return iterable.rbegin(); }
+                                ^
+main.cpp:20:32: error: 'int [3]' is not a class, struct, or union type
+   typename I::reverse_iterator end() { return iterable.rend(); }
+                                ^
+main.cpp: In function 'int main()':
+main.cpp:55:27: error: 'begin' was not declared in this scope
+   for ( auto && e : omg | just_reversed )
+                           ^
+main.cpp:55:27: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/bits/basic_string.h:42:0,
+                 from /usr/local/include/c++/4.9.0/string:52,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/initializer_list:89:5: note:   'std::begin'
+     begin(initializer_list<_Tp> __ils) noexcept
+     ^
+main.cpp:55:27: error: 'end' was not declared in this scope
+   for ( auto && e : omg | just_reversed )
+                           ^
+main.cpp:55:27: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.0/bits/basic_string.h:42:0,
+                 from /usr/local/include/c++/4.9.0/string:52,
+                 from /usr/local/include/c++/4.9.0/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.0/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.0/ios:42,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/initializer_list:99:5: note:   'std::end'
+     end(initializer_list<_Tp> __ils) noexcept
+     ^
