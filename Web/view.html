@@ -154,7 +154,7 @@
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
-                    f(httpRequest.responseText.trim());
+                    f(httpRequest.responseText);//.trim());
                 }
             }
         };
@@ -166,7 +166,7 @@
         app.editor.setValue(obj.src);
         app.editor.getSession().setScrollLeft(0);
         app.cmd = obj.cmd;
-        app.cmd_output = obj.output.trim();
+        app.cmd_output = obj.output;//.trim();
         
         // Scan for a command that looks like "title <name>" and use the <name> part as Window title.
         try { 
