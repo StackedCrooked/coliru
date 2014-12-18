@@ -1,0 +1,13 @@
+main.cpp:1:56: error: 'A' is a private member of 'A'
+class A{}; class B : private A{}; class C : public B { A* a; };
+                                                       ^
+main.cpp:1:22: note: constrained by private inheritance here
+class A{}; class B : private A{}; class C : public B { A* a; };
+                     ^~~~~~~~~
+main.cpp:1:7: note: member is declared here
+class A{}; class B : private A{}; class C : public B { A* a; };
+      ^
+main.cpp:1:59: warning: private field 'a' is not used [-Wunused-private-field]
+class A{}; class B : private A{}; class C : public B { A* a; };
+                                                          ^
+1 warning and 1 error generated.
