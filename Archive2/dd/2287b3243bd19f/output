@@ -1,0 +1,53 @@
+In file included from main.cpp:3:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:35:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support for the \
+ ^
+main.cpp:6:14: error: no type named 'tuple' in namespace 'std'
+    Foo(std::tuple<int, float>) 
+        ~~~~~^
+main.cpp:6:19: error: expected ')'
+    Foo(std::tuple<int, float>) 
+                  ^
+main.cpp:6:8: note: to match this '('
+    Foo(std::tuple<int, float>) 
+       ^
+main.cpp:18:10: error: no member named 'tuple' in namespace 'std'
+    std::tuple<int, float> t(1, 3.14);
+    ~~~~~^
+main.cpp:18:19: error: expected '(' for function-style cast or type construction
+    std::tuple<int, float> t(1, 3.14);
+               ~~~^
+main.cpp:19:28: error: C++ requires a type specifier for all declarations
+    std::pair<Foo, Foo> p1(t, t);
+                           ^
+main.cpp:19:31: error: unknown type name 't'
+    std::pair<Foo, Foo> p1(t, t);
+                              ^
+main.cpp:19:27: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    std::pair<Foo, Foo> p1(t, t);
+                          ^~~~~~
+main.cpp:19:28: note: add a pair of parentheses to declare a variable
+    std::pair<Foo, Foo> p1(t, t);
+                           ^
+                           ()
+main.cpp:20:33: error: no type named 'piecewise_construct' in namespace 'std'
+    std::pair<Foo, Foo> p2(std::piecewise_construct, t, t);
+                           ~~~~~^
+main.cpp:20:54: error: C++ requires a type specifier for all declarations
+    std::pair<Foo, Foo> p2(std::piecewise_construct, t, t);
+                                                     ^
+main.cpp:20:57: error: unknown type name 't'
+    std::pair<Foo, Foo> p2(std::piecewise_construct, t, t);
+                                                        ^
+main.cpp:20:27: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+    std::pair<Foo, Foo> p2(std::piecewise_construct, t, t);
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:20:28: note: add a pair of parentheses to declare a variable
+    std::pair<Foo, Foo> p2(std::piecewise_construct, t, t);
+                           ^
+                           (
+main.cpp:21:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+}
+ ^
+2 warnings and 11 errors generated.
