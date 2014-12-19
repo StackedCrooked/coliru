@@ -1,0 +1,59 @@
+main.cpp:4:5: error: 'GroundFloor' does not name a type
+     GroundFloor *groundfloor;
+     ^
+main.cpp:5:2: error: 'Floor' does not name a type
+  Floor *floors[4];
+  ^
+main.cpp:6:2: error: 'Lift' does not name a type
+  Lift *lift;
+  ^
+main.cpp: In constructor 'Building::Building(int, int, int, int, int)':
+main.cpp:9:6: warning: 'Building::maxCapacity' will be initialized after [-Wreorder]
+  int maxCapacity;
+      ^
+main.cpp:8:6: warning:   'int Building::numVisitors' [-Wreorder]
+  int numVisitors;
+      ^
+main.cpp:12:2: warning:   when initialized here [-Wreorder]
+  Building(int N, int Nf, int Ng, int No, int Nl) : maxCapacity(N), numVisitors(0) {
+  ^
+main.cpp:13:3: error: 'groundfloor' was not declared in this scope
+   groundfloor = new GroundFloor(Ng);
+   ^
+main.cpp:13:21: error: expected type-specifier before 'GroundFloor'
+   groundfloor = new GroundFloor(Ng);
+                     ^
+main.cpp:15:4: error: 'floors' was not declared in this scope
+    floors[i] = new Floor(Nf, No, i+1);
+    ^
+main.cpp:15:20: error: expected type-specifier before 'Floor'
+    floors[i] = new Floor(Nf, No, i+1);
+                    ^
+main.cpp:16:3: error: 'lift' was not declared in this scope
+   lift = new Lift(Nl,groundfloor,floors);
+   ^
+main.cpp:16:14: error: expected type-specifier before 'Lift'
+   lift = new Lift(Nl,groundfloor,floors);
+              ^
+main.cpp:17:3: error: 'cout' was not declared in this scope
+   cout << "A new building is ready for serving citizens!" << endl;
+   ^
+main.cpp:17:62: error: 'endl' was not declared in this scope
+   cout << "A new building is ready for serving citizens!" << endl;
+                                                              ^
+main.cpp: In destructor 'Building::~Building()':
+main.cpp:20:10: error: 'groundfloor' was not declared in this scope
+   delete groundfloor;
+          ^
+main.cpp:22:11: error: 'floors' was not declared in this scope
+    delete floors[i];
+           ^
+main.cpp:23:10: error: 'lift' was not declared in this scope
+   delete lift;
+          ^
+main.cpp:24:3: error: 'cout' was not declared in this scope
+   cout << "Service not available any longer. Go elsewhere!" << endl;
+   ^
+main.cpp:24:64: error: 'endl' was not declared in this scope
+   cout << "Service not available any longer. Go elsewhere!" << endl;
+                                                                ^
