@@ -1,0 +1,991 @@
+main.cpp:17:14: error: 'InType' has not been declared
+     auto get(InType const& in, int2type<N>) const
+              ^
+main.cpp:22:14: error: 'InType' has not been declared
+     auto get(InType const& in, int2type<ArgsSize-1>) const
+              ^
+main.cpp:22:41: error: 'ArgsSize' was not declared in this scope
+     auto get(InType const& in, int2type<ArgsSize-1>) const
+                                         ^
+main.cpp:22:51: error: template argument 1 is invalid
+     auto get(InType const& in, int2type<ArgsSize-1>) const
+                                                   ^
+main.cpp:27:21: error: 'InType' has not been declared
+     auto operator[](InType const& in) const
+                     ^
+main.cpp: In member function 'auto SwitchMap<Args>::get(const int&, int) const':
+main.cpp:24:25: error: 'ArgsSize' was not declared in this scope
+         return std::get<ArgsSize-1>(t);
+                         ^
+main.cpp: In instantiation of 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 4; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]':
+main.cpp:19:80:   recursively required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 2; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:19:80:   required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 0; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:29:36:   required from 'auto SwitchMap<Args>::operator[](const int&) const [with Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:43:27:   required from here
+main.cpp:19:19: error: no match for 'operator==' (operand types are 'const int' and 'const std::basic_string<char>')
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+main.cpp:19:19: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.0/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.0/ios:44,
+                 from /usr/local/include/c++/4.9.0/ostream:38,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note: template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/local/include/c++/4.9.0/bits/streambuf_iterator.h:204:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::istreambuf_iterator<_CharT, _Traits>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/tuple:838:5: note: template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Elements ...>&, const std::tuple<_Elements ...>&)
+     operator==(const tuple<_TElements...>& __t,
+     ^
+/usr/local/include/c++/4.9.0/tuple:838:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::tuple<_Elements ...>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/array:232:5: note: template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^
+/usr/local/include/c++/4.9.0/array:232:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::array<_Tp, _Nm>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2538:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const _CharT* __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2526:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const _CharT*' and 'int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+     operator==(const basic_string<_CharT>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2512:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::basic_string<_CharT>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2505:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note: template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:133:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::allocator<_CharT>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/string:41:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/local/include/c++/4.9.0/bits/allocator.h:128:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::allocator<_CharT>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/char_traits.h:40:0,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/local/include/c++/4.9.0/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::fpos<_StateT>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator==(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1069:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::move_iterator<_Iterator>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:1063:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::move_iterator<_Iterator>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:342:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::reverse_iterator<_Iterator>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:292:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::reverse_iterator<_Iterator>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/utility:70:0,
+                 from /usr/local/include/c++/4.9.0/tuple:38,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_pair.h:214:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const std::pair<_T1, _T2>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.0/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.0/string:41,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note: template<class _Tp> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<_Tp>&, const __gnu_cxx::new_allocator<_Tp>&)
+     operator==(const new_allocator<_Tp>&, const new_allocator<_Tp>&)
+     ^
+/usr/local/include/c++/4.9.0/ext/new_allocator.h:139:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const __gnu_cxx::new_allocator<_Tp>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note: template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)
+     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:830:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_Iterator, _Container>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from /usr/local/include/c++/4.9.0/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.0/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.0/string:40,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note: template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)
+     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+     ^
+/usr/local/include/c++/4.9.0/bits/stl_iterator.h:823:5: note:   template argument deduction/substitution failed:
+main.cpp:19:19: note:   mismatched types 'const __gnu_cxx::__normal_iterator<_IteratorL, _Container>' and 'const int'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                   ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/tuple: In instantiation of 'struct std::tuple_element<1ul, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >':
+/usr/local/include/c++/4.9.0/tuple:680:12:   recursively required from 'struct std::tuple_element<4ul, std::tuple<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >'
+/usr/local/include/c++/4.9.0/tuple:680:12:   required from 'struct std::tuple_element<5ul, std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >'
+/usr/local/include/c++/4.9.0/tuple:764:5:   required by substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 5ul; _Elements = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:19:80:   recursively required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 2; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:19:80:   required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 0; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:29:36:   required from 'auto SwitchMap<Args>::operator[](const int&) const [with Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:43:27:   required from here
+/usr/local/include/c++/4.9.0/tuple:680:12: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+     struct tuple_element<__i, tuple<_Head, _Tail...> >
+            ^
+In file included from /usr/local/include/c++/4.9.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/utility:84:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+main.cpp: In instantiation of 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 4; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]':
+main.cpp:19:80:   recursively required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 2; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:19:80:   required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 0; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:29:36:   required from 'auto SwitchMap<Args>::operator[](const int&) const [with Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:43:27:   required from here
+main.cpp:19:54: error: no matching function for call to 'get(const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+main.cpp:19:54: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/utility:142:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:142:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::pair<_Tp1, _Tp2>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from /usr/local/include/c++/4.9.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/utility:147:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:147:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::pair<_Tp1, _Tp2>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from /usr/local/include/c++/4.9.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/utility:152:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:152:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' is not derived from 'const std::pair<_Tp1, _Tp2>'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from /usr/local/include/c++/4.9.0/tuple:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/utility:158:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:158:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/utility:163:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:163:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/utility:168:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:168:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/utility:173:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:173:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/utility:178:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:178:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/utility:183:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.0/utility:183:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/array:272:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.0/array:272:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::array<_Tp, _Nm>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from /usr/local/include/c++/4.9.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/array:281:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.0/array:281:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::array<_Tp, _Nm>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from /usr/local/include/c++/4.9.0/tuple:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/array:289:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.0/array:289:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' is not derived from 'const std::array<_Tp, _Nm>'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/tuple:757:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:757:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::tuple<_Elements ...>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:764:5: note:   substitution of deduced template arguments resulted in errors seen above
+/usr/local/include/c++/4.9.0/tuple:771:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:771:5: note:   template argument deduction/substitution failed:
+main.cpp:19:54: note:   types 'std::tuple<_Elements ...>' and 'const std::tuple<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' have incompatible cv-qualifiers
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                      ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.0/tuple:788:5: note: template<class _Tp, class ... _Types> constexpr _Tp& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:788:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/tuple:793:5: note: template<class _Tp, class ... _Types> constexpr _Tp&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Types...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:793:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/tuple:798:5: note: template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.0/tuple:798:5: note:   template argument deduction/substitution failed:
+main.cpp:19:80: error: use of 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 6; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]' before deduction of 'auto'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                                                                ^
+main.cpp:19:80: error: invalid use of 'auto'
+main.cpp: In instantiation of 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 2; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]':
+main.cpp:19:80:   required from 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 0; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:29:36:   required from 'auto SwitchMap<Args>::operator[](const int&) const [with Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:43:27:   required from here
+main.cpp:19:37: error: third operand to the conditional operator is of type 'void', but the second operand is neither a throw-expression nor of type 'void'
+         return in == std::get<N>(t) ? std::get<N+1>(t) : get(in,int2type<N+2>());
+                                     ^
+main.cpp: In instantiation of 'auto SwitchMap<Args>::get(const int&, SwitchMap<Args>::int2type<N>) const [with int N = 0; Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]':
+main.cpp:29:36:   required from 'auto SwitchMap<Args>::operator[](const int&) const [with Args = {int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}]'
+main.cpp:43:27:   required from here
+main.cpp:19:37: error: third operand to the conditional operator is of type 'void', but the second operand is neither a throw-expression nor of type 'void'
+main.cpp: In function 'int main()':
+main.cpp:43:14: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'void')
+     std::cout<<switchMap[1]<<std::endl;
+              ^
+main.cpp:43:14: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:108:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:117:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:127:7: note:   no known conversion for argument 1 from 'void' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/local/include/c++/4.9.0/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:166:7: note:   no known conversion for argument 1 from 'void' to 'long int'
+/usr/local/include/c++/4.9.0/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:170:7: note:   no known conversion for argument 1 from 'void' to 'long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:174:7: note:   no known conversion for argument 1 from 'void' to 'bool'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'void' to 'short int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:181:7: note:   no known conversion for argument 1 from 'void' to 'short unsigned int'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'void' to 'int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:192:7: note:   no known conversion for argument 1 from 'void' to 'unsigned int'
+/usr/local/include/c++/4.9.0/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:201:7: note:   no known conversion for argument 1 from 'void' to 'long long int'
+/usr/local/include/c++/4.9.0/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:205:7: note:   no known conversion for argument 1 from 'void' to 'long long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:220:7: note:   no known conversion for argument 1 from 'void' to 'double'
+/usr/local/include/c++/4.9.0/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:224:7: note:   no known conversion for argument 1 from 'void' to 'float'
+/usr/local/include/c++/4.9.0/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:232:7: note:   no known conversion for argument 1 from 'void' to 'long double'
+/usr/local/include/c++/4.9.0/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/local/include/c++/4.9.0/ostream:245:7: note:   no known conversion for argument 1 from 'void' to 'const void*'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:602:5: note: template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&)
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.0/ostream:602:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/ostream: In substitution of 'template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = void]':
+main.cpp:43:27:   required from here
+/usr/local/include/c++/4.9.0/ostream:602:5: error: forming reference to void
+/usr/local/include/c++/4.9.0/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'const unsigned char*'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'const signed char*'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   mismatched types 'const _CharT*' and 'void'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'unsigned char'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'signed char'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'char'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &1))' (type 'void') to type 'char'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   deduced conflicting types for parameter '_CharT' ('char' and 'void')
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note:   template argument deduction/substitution failed:
+main.cpp:43:27: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'void'
+     std::cout<<switchMap[1]<<std::endl;
+                           ^
+main.cpp:44:14: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'void')
+     std::cout<<switchMap[2]<<std::endl;
+              ^
+main.cpp:44:14: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:108:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:117:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:127:7: note:   no known conversion for argument 1 from 'void' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/local/include/c++/4.9.0/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:166:7: note:   no known conversion for argument 1 from 'void' to 'long int'
+/usr/local/include/c++/4.9.0/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:170:7: note:   no known conversion for argument 1 from 'void' to 'long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:174:7: note:   no known conversion for argument 1 from 'void' to 'bool'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'void' to 'short int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:181:7: note:   no known conversion for argument 1 from 'void' to 'short unsigned int'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'void' to 'int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:192:7: note:   no known conversion for argument 1 from 'void' to 'unsigned int'
+/usr/local/include/c++/4.9.0/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:201:7: note:   no known conversion for argument 1 from 'void' to 'long long int'
+/usr/local/include/c++/4.9.0/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:205:7: note:   no known conversion for argument 1 from 'void' to 'long long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:220:7: note:   no known conversion for argument 1 from 'void' to 'double'
+/usr/local/include/c++/4.9.0/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:224:7: note:   no known conversion for argument 1 from 'void' to 'float'
+/usr/local/include/c++/4.9.0/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:232:7: note:   no known conversion for argument 1 from 'void' to 'long double'
+/usr/local/include/c++/4.9.0/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/local/include/c++/4.9.0/ostream:245:7: note:   no known conversion for argument 1 from 'void' to 'const void*'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:602:5: note: template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&)
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.0/ostream:602:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'const unsigned char*'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'const signed char*'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   mismatched types 'const _CharT*' and 'void'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'unsigned char'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'signed char'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'char'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &2))' (type 'void') to type 'char'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   deduced conflicting types for parameter '_CharT' ('char' and 'void')
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note:   template argument deduction/substitution failed:
+main.cpp:44:27: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'void'
+     std::cout<<switchMap[2]<<std::endl;
+                           ^
+main.cpp:45:14: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'void')
+     std::cout<<switchMap[4]<<std::endl;
+              ^
+main.cpp:45:14: note: candidates are:
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:108:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:117:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/local/include/c++/4.9.0/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.9.0/ostream:127:7: note:   no known conversion for argument 1 from 'void' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/local/include/c++/4.9.0/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:166:7: note:   no known conversion for argument 1 from 'void' to 'long int'
+/usr/local/include/c++/4.9.0/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:170:7: note:   no known conversion for argument 1 from 'void' to 'long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:174:7: note:   no known conversion for argument 1 from 'void' to 'bool'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'void' to 'short int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:181:7: note:   no known conversion for argument 1 from 'void' to 'short unsigned int'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'void' to 'int'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:192:7: note:   no known conversion for argument 1 from 'void' to 'unsigned int'
+/usr/local/include/c++/4.9.0/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:201:7: note:   no known conversion for argument 1 from 'void' to 'long long int'
+/usr/local/include/c++/4.9.0/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/local/include/c++/4.9.0/ostream:205:7: note:   no known conversion for argument 1 from 'void' to 'long long unsigned int'
+/usr/local/include/c++/4.9.0/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:220:7: note:   no known conversion for argument 1 from 'void' to 'double'
+/usr/local/include/c++/4.9.0/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:224:7: note:   no known conversion for argument 1 from 'void' to 'float'
+/usr/local/include/c++/4.9.0/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/local/include/c++/4.9.0/ostream:232:7: note:   no known conversion for argument 1 from 'void' to 'long double'
+/usr/local/include/c++/4.9.0/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/local/include/c++/4.9.0/ostream:245:7: note:   no known conversion for argument 1 from 'void' to 'const void*'
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:602:5: note: template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&)
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.0/ostream:602:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.0/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'const unsigned char*'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'const signed char*'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/ostream:609:0,
+                 from /usr/local/include/c++/4.9.0/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.0/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'const char*'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/local/include/c++/4.9.0/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   mismatched types 'const _CharT*' and 'void'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'unsigned char'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'signed char'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'char'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   cannot convert 'switchMap.SwitchMap<Args>::operator[]<{int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> >}>((* &4))' (type 'void') to type 'char'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/iostream:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.0/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/local/include/c++/4.9.0/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   deduced conflicting types for parameter '_CharT' ('char' and 'void')
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
+In file included from /usr/local/include/c++/4.9.0/string:52:0,
+                 from /usr/local/include/c++/4.9.0/stdexcept:39,
+                 from /usr/local/include/c++/4.9.0/array:38,
+                 from /usr/local/include/c++/4.9.0/tuple:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.9.0/bits/basic_string.h:2772:5: note:   template argument deduction/substitution failed:
+main.cpp:45:27: note:   mismatched types 'const std::basic_string<_CharT, _Traits, _Alloc>' and 'void'
+     std::cout<<switchMap[4]<<std::endl;
+                           ^
