@@ -1,0 +1,58 @@
++ g++-4.9 -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp
++ ./a.out
++ clang++ -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -stdlib=libc++ -pthread main.cpp -lsupc++
+main.cpp:9:13: error: no matching constructor for initialization of 'std::string' (aka 'basic_string<char, char_traits<char>, allocator<char> >')
+std::string bar{Foo{}};
+            ^  ~~~~~~~
+/usr/include/c++/v1/string:1375:40: note: candidate constructor not viable: no known conversion from 'Foo' to 'const allocator_type' (aka 'const std::__1::allocator<char>') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY explicit basic_string(const allocator_type& __a);
+                                       ^
+/usr/include/c++/v1/string:1376:5: note: candidate constructor not viable: no known conversion from 'Foo' to 'const std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > &' for 1st argument
+    basic_string(const basic_string& __str);
+    ^
+/usr/include/c++/v1/string:1380:5: note: candidate constructor not viable: no known conversion from 'Foo' to 'std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > &&' for 1st argument
+    basic_string(basic_string&& __str)
+    ^
+/usr/include/c++/v1/string:1385:31: note: candidate constructor not viable: no known conversion from 'Foo' to 'const value_type *' (aka 'const char *') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY basic_string(const value_type* __s);
+                              ^
+/usr/include/c++/v1/string:1406:5: note: candidate constructor not viable: no known conversion from 'Foo' to 'initializer_list<value_type>' for 1st argument
+    basic_string(initializer_list<value_type> __il);
+    ^
+/usr/include/c++/v1/string:1400:9: note: candidate constructor template not viable: requires 2 arguments, but 1 was provided
+        basic_string(_InputIterator __first, _InputIterator __last);
+        ^
+/usr/include/c++/v1/string:1403:9: note: candidate constructor template not viable: requires 3 arguments, but 1 was provided
+        basic_string(_InputIterator __first, _InputIterator __last, const allocator_type& __a);
+        ^
+/usr/include/c++/v1/string:1373:31: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+    _LIBCPP_INLINE_VISIBILITY basic_string()
+                              ^
+/usr/include/c++/v1/string:1408:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(initializer_list<value_type> __il, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1393:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(size_type __n, value_type __c);
+    ^
+/usr/include/c++/v1/string:1389:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(const value_type* __s, size_type __n);
+    ^
+/usr/include/c++/v1/string:1387:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(const value_type* __s, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1383:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(basic_string&& __str, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1377:5: note: candidate constructor not viable: requires 2 arguments, but 1 was provided
+    basic_string(const basic_string& __str, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1391:5: note: candidate constructor not viable: requires 3 arguments, but 1 was provided
+    basic_string(const value_type* __s, size_type __n, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1395:5: note: candidate constructor not viable: requires 3 arguments, but 1 was provided
+    basic_string(size_type __n, value_type __c, const allocator_type& __a);
+    ^
+/usr/include/c++/v1/string:1396:5: note: candidate constructor not viable: requires at least 2 arguments, but 1 was provided
+    basic_string(const basic_string& __str, size_type __pos, size_type __n = npos,
+    ^
+1 error generated.
