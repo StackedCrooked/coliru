@@ -1,0 +1,10 @@
+main.cpp:16:5: error: call to 'f' is ambiguous
+    f<int>("ab");
+    ^~~~~~
+main.cpp:4:27: note: candidate function [with T = int]
+template<typename T> void f(const char*) //#1
+                          ^
+main.cpp:9:42: note: candidate function [with T = int, N = 3]
+template<typename T, std::size_t N> void f(const char(&)[N]) //#2
+                                         ^
+1 error generated.
