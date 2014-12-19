@@ -1,0 +1,41 @@
++ g++ -v -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ./configure --disable-multilib
+Thread model: posix
+gcc version 4.9.2 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-std=c++11' '-O2' '-Wall' '-Wpedantic' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE -D_REENTRANT main.cpp -quiet -dumpbase main.cpp -mtune=generic -march=x86-64 -auxbase main -O2 -Wall -Wpedantic -std=c++11 -version -o /tmp/ccDTYynF.s
+GNU C++ (GCC) version 4.9.2 (x86_64-unknown-linux-gnu)
+	compiled by GNU C version 4.9.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
+GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/x86_64-unknown-linux-gnu
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/backward
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/include
+ /usr/local/include
+ /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/include-fixed
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++ (GCC) version 4.9.2 (x86_64-unknown-linux-gnu)
+	compiled by GNU C version 4.9.2, GMP version 5.0.2, MPFR version 3.1.0-p3, MPC version 0.9
+GGC heuristics: --param ggc-min-expand=30 --param ggc-min-heapsize=4096
+Compiler executable checksum: d70edf565bd638f828d18b62f7b923ce
+main.cpp: In instantiation of 'struct pointer_type_or_default<U>':
+main.cpp:20:31:   required from here
+main.cpp:15:42: error: no type named 'pointer_type' in 'struct U'
+     using type = typename T::pointer_type;
+                                          ^
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:20:38: warning: unused variable 'test' [-Wunused-variable]
+    pointer_type_or_default<U>::type test;
+                                     ^
+1 warning generated.
++ ./a.out
