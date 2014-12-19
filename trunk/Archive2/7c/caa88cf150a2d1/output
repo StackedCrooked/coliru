@@ -1,0 +1,29 @@
+
+main.cpp:19:11:
+    Could not deduce (Eq a) arising from the literal `0'
+    from the context (Num a)
+      bound by the instance declaration at main.cpp:18:10-27
+    Possible fix: add (Eq a) to the context of the instance declaration
+    In the pattern: 0
+    In an equation for `yesNo': yesNo 0 = False
+    In the instance declaration for `YesNo a'
+
+main.cpp:24:13:
+    Overlapping instances for YesNo (Maybe a0)
+      arising from a use of `yesNo'
+    Matching instances:
+      instance YesNo (Maybe a) -- Defined at main.cpp:14:10
+      instance Num a => YesNo a -- Defined at main.cpp:18:10
+    In the second argument of `(.)', namely `yesNo'
+    In the expression: print . yesNo
+    In a stmt of a 'do' block: print . yesNo $ Nothing
+
+main.cpp:26:13:
+    Overlapping instances for YesNo [a2]
+      arising from a use of `yesNo'
+    Matching instances:
+      instance YesNo [a] -- Defined at main.cpp:10:10
+      instance Num a => YesNo a -- Defined at main.cpp:18:10
+    In the second argument of `(.)', namely `yesNo'
+    In the expression: print . yesNo
+    In a stmt of a 'do' block: print . yesNo $ []
