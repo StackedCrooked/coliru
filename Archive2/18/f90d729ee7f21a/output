@@ -1,0 +1,50 @@
+
+
+    ===  GCC  ===  
+
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	operator<(MAC, MAC)
+	.type	operator<(MAC, MAC), @function
+operator<(MAC, MAC):
+.LFB14:
+	.cfi_startproc
+	cmp	rdi, rsi
+	setb	al
+	ret
+	.cfi_endproc
+.LFE14:
+	.size	operator<(MAC, MAC), .-operator<(MAC, MAC)
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
+
+
+    === CLANG ===  
+
+	.text
+	.file	"main.cpp"
+	.globl	operator<(MAC, MAC)
+	.align	16, 0x90
+	.type	operator<(MAC, MAC),@function
+operator<(MAC, MAC):                             # @operator<(MAC, MAC)
+	.cfi_startproc
+# BB#0:
+	cmp	rdi, rsi
+	setb	al
+	ret
+.Ltmp0:
+	.size	operator<(MAC, MAC), .Ltmp0-operator<(MAC, MAC)
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
