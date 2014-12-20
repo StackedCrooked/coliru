@@ -1,0 +1,26 @@
+main.cpp: In instantiation of 'void bar(Ts&& ...) [with Ts = {bool, int}]':
+main.cpp:14:18:   required from here
+main.cpp:9:32: error: no matching function for call to 'forward(bool&)'
+     foo( std::forward<Ts...>(ts)... );
+                                ^
+main.cpp:9:32: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.2/utility:70,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:9:32: error: wrong number of template arguments (2, should be 1)
+     foo( std::forward<Ts...>(ts)... );
+                                ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.2/utility:70,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:9:32: error: wrong number of template arguments (2, should be 1)
+     foo( std::forward<Ts...>(ts)... );
+                                ^
