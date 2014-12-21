@@ -1,0 +1,21 @@
+main.cpp:6:17: error: static_assert expression is not an integral constant expression
+  static_assert(x > 0, "x must be > 0");
+                ^~~~~
+main.cpp:6:17: note: read of non-const variable 'x' is not allowed in a constant expression
+main.cpp:4:32: note: declared here
+constexpr int do_something(int x)
+                               ^
+main.cpp:10:5: error: non-constexpr declaration of 'do_something' follows constexpr declaration
+int do_something(int x)
+    ^
+main.cpp:4:15: note: previous declaration is here
+constexpr int do_something(int x)
+              ^
+main.cpp:19:18: error: use of undeclared identifier 'do_somathing'; did you mean 'do_something'?
+    std::cout << do_somathing(argc) << std::endl;
+                 ^~~~~~~~~~~~
+                 do_something
+main.cpp:4:15: note: 'do_something' declared here
+constexpr int do_something(int x)
+              ^
+3 errors generated.
