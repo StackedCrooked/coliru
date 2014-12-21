@@ -1,0 +1,16 @@
+main.cpp:34:17: error: 'invokeQueued' is a private member of 'SomeClass'
+    SomeClass().invokeQueued(signal, i);
+    ~~~~~~~~~~~~^~~~~~~~~~~~
+main.cpp:22:10: note: implicitly declared private here
+    void invokeQueued(CSignal<Arguments...>& signal, const identity_t<Arguments>&... args)
+         ^
+main.cpp:24:43: error: 'invoke' is a private member of 'CSignal<float>'
+        m_queue.emplace_back([=](){signal.invoke(args...);});
+                                   ~~~~~~~^~~~~~
+main.cpp:34:17: note: in instantiation of function template specialization 'SomeClass::invokeQueued<float>' requested here
+    SomeClass().invokeQueued(signal, i);
+                ^
+main.cpp:16:10: note: implicitly declared private here
+    void invoke(ActualArguments&&... args) const {}
+         ^
+2 errors generated.
