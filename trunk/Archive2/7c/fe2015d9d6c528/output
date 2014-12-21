@@ -1,0 +1,35 @@
+main.cpp:5:17: error: static_assert expression is not an integral constant expression
+  static_assert(x > 0, "x must be > 0");
+                ^~~~~
+main.cpp:5:17: note: read of non-const variable 'x' is not allowed in a constant expression
+main.cpp:3:32: note: declared here
+constexpr int do_something(int x)
+                               ^
+main.cpp:9:5: error: non-constexpr declaration of 'do_something' follows constexpr declaration
+int do_something(int x)
+    ^
+main.cpp:3:15: note: previous declaration is here
+constexpr int do_something(int x)
+              ^
+main.cpp:11:15: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+  if(x > 0) { cout << "x must be > 0" << endl; exit(-1); }
+              ^~~~
+              std::cout
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/iostream:61:18: note: 'std::cout' declared here
+  extern ostream cout;          /// Linked to standard output
+                 ^
+main.cpp:11:42: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+  if(x > 0) { cout << "x must be > 0" << endl; exit(-1); }
+                                         ^~~~
+                                         std::endl
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ostream:564:5: note: 'std::endl' declared here
+    endl(basic_ostream<_CharT, _Traits>& __os)
+    ^
+main.cpp:18:18: error: use of undeclared identifier 'do_somathing'; did you mean 'do_something'?
+    std::cout << do_somathing(argc) << std::endl;
+                 ^~~~~~~~~~~~
+                 do_something
+main.cpp:3:15: note: 'do_something' declared here
+constexpr int do_something(int x)
+              ^
+5 errors generated.
