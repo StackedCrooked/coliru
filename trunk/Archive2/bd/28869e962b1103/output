@@ -1,0 +1,22 @@
+main.cpp: In member function 'void test::meow(double)':
+main.cpp:10:22: warning: ISO C++ does not allow initializers in lambda expression capture lists [-Wpedantic]
+   auto purr = [ self = *this ]( auto&& p ) {
+                      ^
+main.cpp:10:40: error: parameter declared 'auto'
+   auto purr = [ self = *this ]( auto&& p ) {
+                                        ^
+main.cpp: In lambda function:
+main.cpp:11:31: error: 'p' was not declared in this scope
+    self.a += static_cast<int>(p);
+                               ^
+main.cpp: In member function 'void test::meow(double)':
+main.cpp:13:11: error: no match for call to '(test::meow(double)::__lambda0) (double&)'
+   purr( x );
+           ^
+main.cpp:10:30: note: candidate is:
+   auto purr = [ self = *this ]( auto&& p ) {
+                              ^
+main.cpp:10:42: note: test::meow(double)::__lambda0
+   auto purr = [ self = *this ]( auto&& p ) {
+                                          ^
+main.cpp:10:42: note:   candidate expects 0 arguments, 1 provided
