@@ -1,0 +1,15 @@
+main.cpp:20:6: error: template-id 'foo<>' for 'void MyObj<3>::foo(r_ptr<int>) const' does not match any template declaration
+ void MyObj<3>::foo(r_ptr<int> ptr) const{
+      ^
+main.cpp:20:36: note: saw 1 'template<>', need 2 for specializing a member function template
+ void MyObj<3>::foo(r_ptr<int> ptr) const{
+                                    ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:28:11: error: no matching function for call to 'MyObj<3>::foo()'
+     x.foo();
+           ^
+main.cpp:28:11: note: candidate is:
+main.cpp:14:10: note: void MyObj<x>::foo(r_ptr<int>) const [with int x = 3; r_ptr<int> = int* __restrict__]
+     void foo(r_ptr<int> ptr) const;
+          ^
+main.cpp:14:10: note:   candidate expects 1 argument, 0 provided
