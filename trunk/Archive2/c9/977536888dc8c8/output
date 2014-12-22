@@ -1,0 +1,50 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/iterator:61:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator_base_types.h:154:35: error: typename specifier refers to non-type member 'pointer' in 'MyClass::MyIterator'
+      typedef typename _Iterator::pointer           pointer;
+              ~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator_base_types.h:160:14: note: in instantiation of template class 'std::__iterator_traits<MyClass::MyIterator, true>' requested here
+    : public __iterator_traits<_Iterator> { };
+             ^
+/usr/local/include/boost/iterator/iterator_traits.hpp:28:37: note: in instantiation of template class 'std::iterator_traits<MyClass::MyIterator>' requested here
+    typedef typename boost::detail::iterator_traits<Iterator>::reference type;
+                                    ^
+/usr/local/include/boost/foreach.hpp:393:5: note: in instantiation of template class 'boost::iterators::iterator_reference<MyClass::MyIterator>' requested here
+  : iterator_reference<BOOST_DEDUCED_TYPENAME foreach_iterator<T, C>::type>
+    ^
+/usr/local/include/boost/foreach.hpp:761:31: note: in instantiation of template class 'boost::foreach_detail_::foreach_reference<MyClass, mpl_::bool_<false> >' requested here
+inline BOOST_DEDUCED_TYPENAME foreach_reference<T, C>::type
+                              ^
+main.cpp:119:5: note: while substituting deduced template arguments into function template 'deref' [with T = MyClass, C = mpl_::bool_<false>]
+    BOOST_FOREACH(int i, c) {
+    ^
+/usr/local/include/boost/foreach.hpp:1101:20: note: expanded from macro 'BOOST_FOREACH'
+        for (VAR = BOOST_FOREACH_DEREF(COL); !BOOST_FOREACH_ID(_foreach_continue); BOOST_FOREACH_ID(_foreach_continue) = true)
+                   ^
+/usr/local/include/boost/foreach.hpp:1034:5: note: expanded from macro 'BOOST_FOREACH_DEREF'
+    boost::foreach_detail_::deref(                                                              \
+    ^
+main.cpp:44:17: note: referenced member 'pointer' is declared here
+            int pointer          = 0;
+                ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/iterator:61:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator_base_types.h:154:35: error: 'pointer' is a private member of 'MyClass::MyIterator'
+      typedef typename _Iterator::pointer           pointer;
+                                  ^
+main.cpp:44:17: note: declared private here
+            int pointer          = 0;
+                ^
+main.cpp:119:5: error: no matching function for call to 'deref'
+    BOOST_FOREACH(int i, c) {
+    ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/foreach.hpp:1101:20: note: expanded from macro 'BOOST_FOREACH'
+        for (VAR = BOOST_FOREACH_DEREF(COL); !BOOST_FOREACH_ID(_foreach_continue); BOOST_FOREACH_ID(_foreach_continue) = true)
+                   ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/foreach.hpp:1034:5: note: expanded from macro 'BOOST_FOREACH_DEREF'
+    boost::foreach_detail_::deref(                                                              \
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/foreach.hpp:762:1: note: candidate template ignored: substitution failure [with T = MyClass, C = mpl_::bool_<false>]
+deref(auto_any_t cur, type2type<T, C> *)
+^
+3 errors generated.
