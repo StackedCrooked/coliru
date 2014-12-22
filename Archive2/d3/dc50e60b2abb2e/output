@@ -1,0 +1,12 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:24:13: error: no matching function for call to 'foo()'
+     foo<fp>();
+             ^
+main.cpp:24:13: note: candidate is:
+main.cpp:13:6: note: template<void (* fp)(r_ptr<int>)> void foo()
+ void foo(){
+      ^
+main.cpp:13:6: note:   template argument deduction/substitution failed:
+main.cpp:24:13: error: could not convert template argument 'fp' to 'void (*)(r_ptr<int>) {aka void (*)(int* __restrict__)}'
+     foo<fp>();
+             ^
