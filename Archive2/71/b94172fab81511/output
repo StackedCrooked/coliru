@@ -1,0 +1,10 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:31:42: error: 'mat' is not a valid template argument for type 'const matrix<2ul>&' because object 'mat' has not external linkage
+     static_assert(std::is_same<ty1<2, mat>, foo<true, false, true, false>>::value, "Oops");
+                                          ^
+main.cpp:31:73: error: template argument 1 is invalid
+     static_assert(std::is_same<ty1<2, mat>, foo<true, false, true, false>>::value, "Oops");
+                                                                         ^
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
