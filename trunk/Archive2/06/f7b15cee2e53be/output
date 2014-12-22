@@ -1,0 +1,40 @@
+main.cpp:18:11: error: call to 'threshold' is ambiguous
+    img = threshold(std::move(img));
+          ^~~~~~~~~
+main.cpp:9:7: note: candidate function
+Image threshold(Image&& img){
+      ^
+main.cpp:15:7: note: candidate function
+Image threshold(Image img){
+      ^
+main.cpp:22:43: error: calling a private constructor of class 'Image'
+Image functionThatReturnsImage() { return Image(); }
+                                          ^
+main.cpp:5:5: note: implicitly declared private here
+    Image() = default;
+    ^
+main.cpp:25:11: error: calling a private constructor of class 'Image'
+    Image img("filename.png");
+          ^
+main.cpp:6:5: note: implicitly declared private here
+    Image(const char*) {}
+    ^
+main.cpp:26:11: error: calling a private constructor of class 'Image'
+    Image img2;
+          ^
+main.cpp:5:5: note: implicitly declared private here
+    Image() = default;
+    ^
+main.cpp:31:18: error: call to 'threshold' is ambiguous
+    Image img3 = threshold(functionThatReturnsImage());
+                 ^~~~~~~~~
+main.cpp:9:7: note: candidate function
+Image threshold(Image&& img){
+      ^
+main.cpp:15:7: note: candidate function
+Image threshold(Image img){
+      ^
+main.cpp:33:1: error: extraneous closing brace ('}')
+}
+^
+6 errors generated.
