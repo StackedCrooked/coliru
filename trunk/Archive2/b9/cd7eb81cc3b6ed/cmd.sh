@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -Wall -pedantic main.cpp -S && cat main.s
