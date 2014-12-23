@@ -1,0 +1,1 @@
+ghc -x hs main.cpp && ./a.out
