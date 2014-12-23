@@ -1,0 +1,544 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z9violationi
+	.align	16, 0x90
+	.type	_Z9violationi,@function
+_Z9violationi:                          # @_Z9violationi
+	.cfi_startproc
+# BB#0:
+	pushq	%r14
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+	pushq	%rbx
+.Ltmp1:
+	.cfi_def_cfa_offset 24
+	pushq	%rax
+.Ltmp2:
+	.cfi_def_cfa_offset 32
+.Ltmp3:
+	.cfi_offset %rbx, -24
+.Ltmp4:
+	.cfi_offset %r14, -16
+	movl	%edi, %ebx
+	movl	$_ZSt4cout, %edi
+	movl	$.L.str, %esi
+	movl	$19, %edx
+	callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+	movl	$_ZSt4cout, %edi
+	movl	%ebx, %esi
+	callq	_ZNSolsEi
+	movq	%rax, %r14
+	movq	(%r14), %rax
+	movq	-24(%rax), %rax
+	movq	240(%rax,%r14), %rbx
+	testq	%rbx, %rbx
+	je	.LBB0_5
+# BB#1:                                 # %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit
+	cmpb	$0, 56(%rbx)
+	je	.LBB0_3
+# BB#2:
+	movb	67(%rbx), %al
+	jmp	.LBB0_4
+.LBB0_3:
+	movq	%rbx, %rdi
+	callq	_ZNKSt5ctypeIcE13_M_widen_initEv
+	movq	(%rbx), %rax
+	movl	$10, %esi
+	movq	%rbx, %rdi
+	callq	*48(%rax)
+.LBB0_4:                                # %_ZNKSt5ctypeIcE5widenEc.exit
+	movsbl	%al, %esi
+	movq	%r14, %rdi
+	callq	_ZNSo3putEc
+	movq	%rax, %rdi
+	addq	$8, %rsp
+	popq	%rbx
+	popq	%r14
+	jmp	_ZNSo5flushEv           # TAILCALL
+.LBB0_5:
+	callq	_ZSt16__throw_bad_castv
+.Ltmp5:
+	.size	_Z9violationi, .Ltmp5-_Z9violationi
+	.cfi_endproc
+
+	.globl	_Z12test_closurev
+	.align	16, 0x90
+	.type	_Z12test_closurev,@function
+_Z12test_closurev:                      # @_Z12test_closurev
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin1:
+	.cfi_lsda 3, .Lexception1
+# BB#0:
+	pushq	%rbp
+.Ltmp12:
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+.Ltmp13:
+	.cfi_def_cfa_offset 24
+	pushq	%rbx
+.Ltmp14:
+	.cfi_def_cfa_offset 32
+.Ltmp15:
+	.cfi_offset %rbx, -32
+.Ltmp16:
+	.cfi_offset %r14, -24
+.Ltmp17:
+	.cfi_offset %rbp, -16
+.Ltmp6:
+	movl	$80000000, %edi         # imm = 0x4C4B400
+	callq	_Znwm
+	movq	%rax, %r14
+.Ltmp7:
+# BB#1:                                 # %.lr.ph
+	xorl	%ebp, %ebp
+	xorl	%esi, %esi
+	movl	$80000000, %edx         # imm = 0x4C4B400
+	movq	%r14, %rdi
+	callq	memset
+	movl	$4, %ebx
+	jmp	.LBB1_2
+	.align	16, 0x90
+.LBB1_5:                                # %._crit_edge4
+                                        #   in Loop: Header=BB1_2 Depth=1
+	movl	(%r14,%rbx), %ebp
+	addq	$4, %rbx
+.LBB1_2:                                # =>This Inner Loop Header: Depth=1
+	testl	%ebp, %ebp
+	je	.LBB1_4
+# BB#3:                                 #   in Loop: Header=BB1_2 Depth=1
+.Ltmp9:
+	movl	%ebp, %edi
+	callq	_Z9violationi
+.Ltmp10:
+.LBB1_4:                                #   in Loop: Header=BB1_2 Depth=1
+	cmpq	$80000000, %rbx         # imm = 0x4C4B400
+	jne	.LBB1_5
+# BB#8:                                 # %._crit_edge
+	testq	%r14, %r14
+	je	.LBB1_9
+# BB#12:
+	movq	%r14, %rdi
+	popq	%rbx
+	popq	%r14
+	popq	%rbp
+	jmp	_ZdlPv                  # TAILCALL
+.LBB1_9:                                # %_ZNSt6vectorIiSaIiEED2Ev.exit
+	popq	%rbx
+	popq	%r14
+	popq	%rbp
+	retq
+.LBB1_6:
+.Ltmp11:
+	movq	%rax, %rbp
+	testq	%r14, %r14
+	je	.LBB1_11
+# BB#7:
+	movq	%r14, %rdi
+	callq	_ZdlPv
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume
+.LBB1_10:
+.Ltmp8:
+	movq	%rax, %rbp
+.LBB1_11:                               # %_ZNSt6vectorIiSaIiEED2Ev.exit2
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume
+.Ltmp18:
+	.size	_Z12test_closurev, .Ltmp18-_Z12test_closurev
+	.cfi_endproc
+.Leh_func_end1:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table1:
+.Lexception1:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	"\266\200\200"          # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	52                      # Call site table length
+.Lset0 = .Ltmp6-.Leh_func_begin1        # >> Call Site 1 <<
+	.long	.Lset0
+.Lset1 = .Ltmp7-.Ltmp6                  #   Call between .Ltmp6 and .Ltmp7
+	.long	.Lset1
+.Lset2 = .Ltmp8-.Leh_func_begin1        #     jumps to .Ltmp8
+	.long	.Lset2
+	.byte	0                       #   On action: cleanup
+.Lset3 = .Ltmp7-.Leh_func_begin1        # >> Call Site 2 <<
+	.long	.Lset3
+.Lset4 = .Ltmp9-.Ltmp7                  #   Call between .Ltmp7 and .Ltmp9
+	.long	.Lset4
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset5 = .Ltmp9-.Leh_func_begin1        # >> Call Site 3 <<
+	.long	.Lset5
+.Lset6 = .Ltmp10-.Ltmp9                 #   Call between .Ltmp9 and .Ltmp10
+	.long	.Lset6
+.Lset7 = .Ltmp11-.Leh_func_begin1       #     jumps to .Ltmp11
+	.long	.Lset7
+	.byte	0                       #   On action: cleanup
+.Lset8 = .Ltmp10-.Leh_func_begin1       # >> Call Site 4 <<
+	.long	.Lset8
+.Lset9 = .Leh_func_end1-.Ltmp10         #   Call between .Ltmp10 and .Leh_func_end1
+	.long	.Lset9
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.text
+	.globl	_Z11test_manualv
+	.align	16, 0x90
+	.type	_Z11test_manualv,@function
+_Z11test_manualv:                       # @_Z11test_manualv
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin2:
+	.cfi_lsda 3, .Lexception2
+# BB#0:
+	pushq	%rbp
+.Ltmp25:
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+.Ltmp26:
+	.cfi_def_cfa_offset 24
+	pushq	%rbx
+.Ltmp27:
+	.cfi_def_cfa_offset 32
+.Ltmp28:
+	.cfi_offset %rbx, -32
+.Ltmp29:
+	.cfi_offset %r14, -24
+.Ltmp30:
+	.cfi_offset %rbp, -16
+.Ltmp19:
+	movl	$80000000, %edi         # imm = 0x4C4B400
+	callq	_Znwm
+	movq	%rax, %r14
+.Ltmp20:
+# BB#1:                                 # %.lr.ph
+	xorl	%ebp, %ebp
+	xorl	%esi, %esi
+	movl	$80000000, %edx         # imm = 0x4C4B400
+	movq	%r14, %rdi
+	callq	memset
+	movl	$4, %ebx
+	jmp	.LBB2_2
+	.align	16, 0x90
+.LBB2_5:                                # %._crit_edge5
+                                        #   in Loop: Header=BB2_2 Depth=1
+	movl	(%r14,%rbx), %ebp
+	addq	$4, %rbx
+.LBB2_2:                                # =>This Inner Loop Header: Depth=1
+	testl	%ebp, %ebp
+	je	.LBB2_4
+# BB#3:                                 #   in Loop: Header=BB2_2 Depth=1
+.Ltmp22:
+	movl	%ebp, %edi
+	callq	_Z9violationi
+.Ltmp23:
+.LBB2_4:                                #   in Loop: Header=BB2_2 Depth=1
+	cmpq	$80000000, %rbx         # imm = 0x4C4B400
+	jne	.LBB2_5
+# BB#8:                                 # %._crit_edge
+	testq	%r14, %r14
+	je	.LBB2_9
+# BB#12:
+	movq	%r14, %rdi
+	popq	%rbx
+	popq	%r14
+	popq	%rbp
+	jmp	_ZdlPv                  # TAILCALL
+.LBB2_9:                                # %_ZNSt6vectorIiSaIiEED2Ev.exit
+	popq	%rbx
+	popq	%r14
+	popq	%rbp
+	retq
+.LBB2_6:
+.Ltmp24:
+	movq	%rax, %rbp
+	testq	%r14, %r14
+	je	.LBB2_11
+# BB#7:
+	movq	%r14, %rdi
+	callq	_ZdlPv
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume
+.LBB2_10:
+.Ltmp21:
+	movq	%rax, %rbp
+.LBB2_11:                               # %_ZNSt6vectorIiSaIiEED2Ev.exit3
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume
+.Ltmp31:
+	.size	_Z11test_manualv, .Ltmp31-_Z11test_manualv
+	.cfi_endproc
+.Leh_func_end2:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table2:
+.Lexception2:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.asciz	"\266\200\200"          # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	52                      # Call site table length
+.Lset10 = .Ltmp19-.Leh_func_begin2      # >> Call Site 1 <<
+	.long	.Lset10
+.Lset11 = .Ltmp20-.Ltmp19               #   Call between .Ltmp19 and .Ltmp20
+	.long	.Lset11
+.Lset12 = .Ltmp21-.Leh_func_begin2      #     jumps to .Ltmp21
+	.long	.Lset12
+	.byte	0                       #   On action: cleanup
+.Lset13 = .Ltmp20-.Leh_func_begin2      # >> Call Site 2 <<
+	.long	.Lset13
+.Lset14 = .Ltmp22-.Ltmp20               #   Call between .Ltmp20 and .Ltmp22
+	.long	.Lset14
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset15 = .Ltmp22-.Leh_func_begin2      # >> Call Site 3 <<
+	.long	.Lset15
+.Lset16 = .Ltmp23-.Ltmp22               #   Call between .Ltmp22 and .Ltmp23
+	.long	.Lset16
+.Lset17 = .Ltmp24-.Leh_func_begin2      #     jumps to .Ltmp24
+	.long	.Lset17
+	.byte	0                       #   On action: cleanup
+.Lset18 = .Ltmp23-.Leh_func_begin2      # >> Call Site 4 <<
+	.long	.Lset18
+.Lset19 = .Leh_func_end2-.Ltmp23        #   Call between .Ltmp23 and .Leh_func_end2
+	.long	.Lset19
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+.Leh_func_begin3:
+	.cfi_lsda 3, .Lexception3
+# BB#0:
+	pushq	%rbp
+.Ltmp44:
+	.cfi_def_cfa_offset 16
+	pushq	%r15
+.Ltmp45:
+	.cfi_def_cfa_offset 24
+	pushq	%r14
+.Ltmp46:
+	.cfi_def_cfa_offset 32
+	pushq	%rbx
+.Ltmp47:
+	.cfi_def_cfa_offset 40
+	pushq	%rax
+.Ltmp48:
+	.cfi_def_cfa_offset 48
+.Ltmp49:
+	.cfi_offset %rbx, -40
+.Ltmp50:
+	.cfi_offset %r14, -32
+.Ltmp51:
+	.cfi_offset %r15, -24
+.Ltmp52:
+	.cfi_offset %rbp, -16
+.Ltmp32:
+	movl	$80000000, %edi         # imm = 0x4C4B400
+	callq	_Znwm
+	movq	%rax, %r15
+.Ltmp33:
+# BB#1:                                 # %.lr.ph.i
+	xorl	%ebp, %ebp
+	xorl	%esi, %esi
+	movl	$80000000, %edx         # imm = 0x4C4B400
+	movq	%r15, %rdi
+	callq	memset
+	movl	$4, %ebx
+	jmp	.LBB3_2
+	.align	16, 0x90
+.LBB3_5:                                # %._crit_edge4.i
+                                        #   in Loop: Header=BB3_2 Depth=1
+	movl	(%r15,%rbx), %ebp
+	addq	$4, %rbx
+.LBB3_2:                                # =>This Inner Loop Header: Depth=1
+	testl	%ebp, %ebp
+	je	.LBB3_4
+# BB#3:                                 #   in Loop: Header=BB3_2 Depth=1
+.Ltmp35:
+	movl	%ebp, %edi
+	callq	_Z9violationi
+.Ltmp36:
+.LBB3_4:                                #   in Loop: Header=BB3_2 Depth=1
+	cmpq	$80000000, %rbx         # imm = 0x4C4B400
+	jne	.LBB3_5
+# BB#9:                                 # %._crit_edge.i
+	testq	%r15, %r15
+	je	.LBB3_11
+# BB#10:
+	movq	%r15, %rdi
+	callq	_ZdlPv
+.LBB3_11:                               # %_Z12test_closurev.exit
+.Ltmp38:
+	movl	$80000000, %edi         # imm = 0x4C4B400
+	callq	_Znwm
+	movq	%rax, %r15
+.Ltmp39:
+# BB#12:                                # %.lr.ph.i1
+	xorl	%ebp, %ebp
+	xorl	%esi, %esi
+	movl	$80000000, %edx         # imm = 0x4C4B400
+	movq	%r15, %rdi
+	callq	memset
+	movl	$4, %ebx
+	jmp	.LBB3_13
+	.align	16, 0x90
+.LBB3_16:                               # %._crit_edge5.i
+                                        #   in Loop: Header=BB3_13 Depth=1
+	movl	(%r15,%rbx), %ebp
+	addq	$4, %rbx
+.LBB3_13:                               # =>This Inner Loop Header: Depth=1
+	testl	%ebp, %ebp
+	je	.LBB3_15
+# BB#14:                                #   in Loop: Header=BB3_13 Depth=1
+.Ltmp41:
+	movl	%ebp, %edi
+	callq	_Z9violationi
+.Ltmp42:
+.LBB3_15:                               #   in Loop: Header=BB3_13 Depth=1
+	cmpq	$80000000, %rbx         # imm = 0x4C4B400
+	jne	.LBB3_16
+# BB#19:                                # %._crit_edge.i3
+	testq	%r15, %r15
+	je	.LBB3_21
+# BB#20:
+	movq	%r15, %rdi
+	callq	_ZdlPv
+.LBB3_21:                               # %_Z11test_manualv.exit
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	popq	%rbx
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	retq
+.LBB3_6:
+.Ltmp37:
+	jmp	.LBB3_7
+.LBB3_18:
+.Ltmp43:
+.LBB3_7:
+	movq	%rax, %r14
+	testq	%r15, %r15
+	je	.LBB3_24
+# BB#8:
+	movq	%r15, %rdi
+	callq	_ZdlPv
+	movq	%r14, %rdi
+	callq	_Unwind_Resume
+.LBB3_17:
+.Ltmp34:
+	jmp	.LBB3_23
+.LBB3_22:
+.Ltmp40:
+.LBB3_23:                               # %unwind_resume
+	movq	%rax, %r14
+.LBB3_24:                               # %unwind_resume
+	movq	%r14, %rdi
+	callq	_Unwind_Resume
+.Ltmp53:
+	.size	main, .Ltmp53-main
+	.cfi_endproc
+.Leh_func_end3:
+	.section	.gcc_except_table,"a",@progbits
+	.align	4
+GCC_except_table3:
+.Lexception3:
+	.byte	255                     # @LPStart Encoding = omit
+	.byte	3                       # @TType Encoding = udata4
+	.byte	93                      # @TType base offset
+	.byte	3                       # Call site Encoding = udata4
+	.byte	91                      # Call site table length
+.Lset20 = .Ltmp32-.Leh_func_begin3      # >> Call Site 1 <<
+	.long	.Lset20
+.Lset21 = .Ltmp33-.Ltmp32               #   Call between .Ltmp32 and .Ltmp33
+	.long	.Lset21
+.Lset22 = .Ltmp34-.Leh_func_begin3      #     jumps to .Ltmp34
+	.long	.Lset22
+	.byte	0                       #   On action: cleanup
+.Lset23 = .Ltmp33-.Leh_func_begin3      # >> Call Site 2 <<
+	.long	.Lset23
+.Lset24 = .Ltmp35-.Ltmp33               #   Call between .Ltmp33 and .Ltmp35
+	.long	.Lset24
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset25 = .Ltmp35-.Leh_func_begin3      # >> Call Site 3 <<
+	.long	.Lset25
+.Lset26 = .Ltmp36-.Ltmp35               #   Call between .Ltmp35 and .Ltmp36
+	.long	.Lset26
+.Lset27 = .Ltmp37-.Leh_func_begin3      #     jumps to .Ltmp37
+	.long	.Lset27
+	.byte	0                       #   On action: cleanup
+.Lset28 = .Ltmp38-.Leh_func_begin3      # >> Call Site 4 <<
+	.long	.Lset28
+.Lset29 = .Ltmp39-.Ltmp38               #   Call between .Ltmp38 and .Ltmp39
+	.long	.Lset29
+.Lset30 = .Ltmp40-.Leh_func_begin3      #     jumps to .Ltmp40
+	.long	.Lset30
+	.byte	0                       #   On action: cleanup
+.Lset31 = .Ltmp39-.Leh_func_begin3      # >> Call Site 5 <<
+	.long	.Lset31
+.Lset32 = .Ltmp41-.Ltmp39               #   Call between .Ltmp39 and .Ltmp41
+	.long	.Lset32
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+.Lset33 = .Ltmp41-.Leh_func_begin3      # >> Call Site 6 <<
+	.long	.Lset33
+.Lset34 = .Ltmp42-.Ltmp41               #   Call between .Ltmp41 and .Ltmp42
+	.long	.Lset34
+.Lset35 = .Ltmp43-.Leh_func_begin3      #     jumps to .Ltmp43
+	.long	.Lset35
+	.byte	0                       #   On action: cleanup
+.Lset36 = .Ltmp42-.Leh_func_begin3      # >> Call Site 7 <<
+	.long	.Lset36
+.Lset37 = .Leh_func_end3-.Ltmp42        #   Call between .Ltmp42 and .Leh_func_end3
+	.long	.Lset37
+	.long	0                       #     has no landing pad
+	.byte	0                       #   On action: cleanup
+	.align	4
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_main.cpp,@function
+_GLOBAL__sub_I_main.cpp:                # @_GLOBAL__sub_I_main.cpp
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp54:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp55:
+	.size	_GLOBAL__sub_I_main.cpp, .Ltmp55-_GLOBAL__sub_I_main.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"Violation found at "
+	.size	.L.str, 20
+
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_main.cpp
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
