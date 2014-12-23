@@ -1,0 +1,14 @@
+main.cpp: In function 'void g()':
+main.cpp:6:9: warning: unused variable 'i' [-Wunused-variable]
+     int i; // #2 i has no linkage
+         ^
+main.cpp: At global scope:
+main.cpp:2:13: warning: 'void f()' defined but not used [-Wunused-function]
+ static void f(){}
+             ^
+main.cpp:3:12: warning: 'i' defined but not used [-Wunused-variable]
+ static int i = 101; // #1
+            ^
+/tmp/ccV2SSqL.o: In function `g()':
+main.cpp:(.text+0x6): undefined reference to `i'
+collect2: error: ld returned 1 exit status
