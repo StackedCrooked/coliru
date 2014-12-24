@@ -1,0 +1,13 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/vector:265:
+In file included from /usr/include/c++/v1/__bit_reference:15:
+/usr/include/c++/v1/algorithm:1128:13: error: no matching function for call to object of type '(lambda at main.cpp:7:46)'
+        if (__pred(*__first))
+            ^~~~~~
+main.cpp:7:17: note: in instantiation of function template specialization 'std::__1::count_if<std::__1::__wrap_iter<const std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *>, (lambda at main.cpp:7:46)>' requested here
+    return std::count_if(v.begin(), v.end(), [size] (std::string &s)->bool { return s.size() > size; });
+                ^
+main.cpp:7:46: note: candidate function not viable: 1st argument ('const std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >') would lose const qualifier
+    return std::count_if(v.begin(), v.end(), [size] (std::string &s)->bool { return s.size() > size; });
+                                             ^
+1 error generated.
