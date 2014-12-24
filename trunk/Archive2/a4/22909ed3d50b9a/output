@@ -1,0 +1,57 @@
+main.cpp:5:3: error: 'steady_clock' does not name a type
+   steady_clock::time_point Timeout;
+   ^
+main.cpp:11:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector<int> in_view_entities;
+        ^
+main.cpp:20:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector<msg> cur_msgblk;                                         //unsent data
+        ^
+main.cpp:21:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector< std::pair<unsigned int,std::vector<msg>> > old_msgblks; //list of unacked reliable packets. we pair them with their pak_nums.
+        ^
+main.cpp:22:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector<msg> unrel_msgblk;                                       //Unreliable data like player positions.
+        ^
+main.cpp:24:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector< std::pair<unsigned int,std::string> > ext_buffer;  //For multiple packet handling, instead of msgs, it holds the serialized strings, and paired up with their pak_num.
+        ^
+main.cpp:25:8: error: 'vector' in namespace 'std' does not name a template type
+   std::vector<msg> last_ext_msgblk;                               //Hold in the last ext_msgblk msgs, so we can add on new data.
+        ^
+main.cpp: In constructor 'client::client(int)':
+main.cpp:32:5: error: 'Timeout' was not declared in this scope
+     Timeout = steady_clock::now();
+     ^
+main.cpp:32:15: error: 'steady_clock' has not been declared
+     Timeout = steady_clock::now();
+               ^
+main.cpp:34:39: error: 'MAP_WIDTH' was not declared in this scope
+     for(int i = 0, x = 0, y = 0; i < (MAP_WIDTH*MAP_HEIGHT)/4; ++i, ++x) //a tile_field is 4x4 spot, so we divide it by 4.
+                                       ^
+main.cpp:34:49: error: 'MAP_HEIGHT' was not declared in this scope
+     for(int i = 0, x = 0, y = 0; i < (MAP_WIDTH*MAP_HEIGHT)/4; ++i, ++x) //a tile_field is 4x4 spot, so we divide it by 4.
+                                                 ^
+main.cpp: In member function 'void client::delayTimeout()':
+main.cpp:47:5: error: 'Timeout' was not declared in this scope
+     Timeout = steady_clock::now();
+     ^
+main.cpp:47:15: error: 'steady_clock' has not been declared
+     Timeout = steady_clock::now();
+               ^
+main.cpp: In member function 'bool client::timed_out()':
+main.cpp:52:20: error: 'Timeout' was not declared in this scope
+   bool timed_out(){Timeout = steady_clock::now();
+                    ^
+main.cpp:52:30: error: 'steady_clock' has not been declared
+   bool timed_out(){Timeout = steady_clock::now();
+                              ^
+main.cpp:53:12: error: 'duration_cast' was not declared in this scope
+     return duration_cast<seconds>(steady_clock::now() - Timeout).count() >= 5; }
+            ^
+main.cpp:53:26: error: 'seconds' was not declared in this scope
+     return duration_cast<seconds>(steady_clock::now() - Timeout).count() >= 5; }
+                          ^
+main.cpp:53:35: error: 'steady_clock' has not been declared
+     return duration_cast<seconds>(steady_clock::now() - Timeout).count() >= 5; }
+                                   ^
