@@ -1,0 +1,2 @@
+#clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors -lsupc++ main.cpp && ./a.out
+g++-4.6 --version | head -n1 && g++-4.6 -std=c++98 -O3 -Wall -Wextra -pedantic-errors -lsupc++ main.cpp && ./a.out
