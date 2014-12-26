@@ -1,0 +1,1 @@
+echo Which methods are gonna be invoked?
