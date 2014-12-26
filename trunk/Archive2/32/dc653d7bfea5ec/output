@@ -1,0 +1,21 @@
+main.cpp: In function 'int main()':
+main.cpp:19:7: error: ambiguous overload for 'operator=' (operand types are 'Byte' and 'int')
+     b = i;  // ambiguous
+       ^
+main.cpp:19:7: note: candidates are:
+main.cpp:7:32: note: Byte& Byte::operator=(T) [with T = int]
+     template<typename T> Byte& operator=(T t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
+main.cpp:8:32: note: Byte& Byte::operator=(const T&) [with T = int]
+     template<typename T> Byte& operator=(const T& t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
+main.cpp:20:7: error: ambiguous overload for 'operator=' (operand types are 'Byte' and 'const int')
+     b = ci; // ambigous
+       ^
+main.cpp:20:7: note: candidates are:
+main.cpp:7:32: note: Byte& Byte::operator=(T) [with T = int]
+     template<typename T> Byte& operator=(T t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
+main.cpp:8:32: note: Byte& Byte::operator=(const T&) [with T = int]
+     template<typename T> Byte& operator=(const T& t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
