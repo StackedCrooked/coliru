@@ -1,0 +1,1 @@
+g++ -std=c++11 -Os -Wall main.cpp && ./a.out
