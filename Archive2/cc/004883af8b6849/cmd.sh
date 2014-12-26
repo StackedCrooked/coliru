@@ -1,0 +1,1 @@
+clang++ -std=c++14 main.cpp -Wall -Wextra -pedantic -Werror -stdlib=libc++
