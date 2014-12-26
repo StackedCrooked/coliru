@@ -1,0 +1,16 @@
+main.cpp: In function 'int main()':
+main.cpp:15:7: error: ambiguous overload for 'operator=' (operand types are 'Byte' and 'Byte')
+     b = b;
+       ^
+main.cpp:15:7: note: candidates are:
+main.cpp:7:32: note: Byte& Byte::operator=(T) [with T = Byte]
+     template<typename T> Byte& operator=(T t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
+main.cpp:8:32: note: Byte& Byte::operator=(T&) [with T = Byte]
+     template<typename T> Byte& operator=(T& t) { puts(__PRETTY_FUNCTION__); return *this; }
+                                ^
+main.cpp:5:8: note: Byte& Byte::operator=(const Byte&)
+ struct Byte
+        ^
+main.cpp:5:8: note: Byte& Byte::operator=(Byte&&) <near match>
+main.cpp:5:8: note:   no known conversion for argument 1 from 'Byte' to 'Byte&&'
