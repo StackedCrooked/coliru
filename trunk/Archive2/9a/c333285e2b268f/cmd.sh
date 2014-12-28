@@ -1,0 +1,1 @@
+ln -s main.cpp main.c && clang -std=c99 -O3 -Wall -Wextra -pedantic-errors main.c && ./a.out <<< jane123 && ./a.out <<< jane1234 && ./a.out <<< jane12345
