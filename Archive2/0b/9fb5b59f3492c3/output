@@ -1,0 +1,232 @@
+--------------------------------------------------------------
+Parsing 'Some.Module.Package.ident'
+<start>
+  <try>Some.Module.Package.</try>
+  <module_path_>
+    <try>Some.Module.Package.</try>
+    <module_path_item>
+      <try>Some.Module.Package.</try>
+      <success>.Module.Package.iden</success>
+      <attributes>[[S, o, m, e]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>Module.Package.ident</try>
+      <success>.Package.ident</success>
+      <attributes>[[M, o, d, u, l, e]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>Package.ident</try>
+      <success>.ident</success>
+      <attributes>[[P, a, c, k, a, g, e]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>ident</try>
+      <fail/>
+    </module_path_item>
+    <success>.ident</success>
+    <attributes>[[[S, o, m, e], [M, o, d, u, l, e], [P, a, c, k, a, g, e]]]</attributes>
+  </module_path_>
+  <value_name_>
+    <try>ident</try>
+    <lowercase_ident>
+      <try>ident</try>
+      <success></success>
+      <attributes>[[i, d, e, n, t]]</attributes>
+    </lowercase_ident>
+    <success></success>
+    <attributes>[[i, d, e, n, t]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[[S, o, m, e], [M, o, d, u, l, e], [P, a, c, k, a, g, e]], [i, d, e, n, t]]]</attributes>
+</start>
+Parse succeeded
+--------------------------------------------------------------
+Parsing 'ident'
+<start>
+  <try>ident</try>
+  <module_path_>
+    <try>ident</try>
+    <module_path_item>
+      <try>ident</try>
+      <fail/>
+    </module_path_item>
+    <fail/>
+  </module_path_>
+  <value_name_>
+    <try>ident</try>
+    <lowercase_ident>
+      <try>ident</try>
+      <success></success>
+      <attributes>[[i, d, e, n, t]]</attributes>
+    </lowercase_ident>
+    <success></success>
+    <attributes>[[i, d, e, n, t]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[], [i, d, e, n, t]]]</attributes>
+</start>
+Parse succeeded
+--------------------------------------------------------------
+Parsing 'A.B.C_.mod'
+<start>
+  <try>A.B.C_.mod</try>
+  <module_path_>
+    <try>A.B.C_.mod</try>
+    <module_path_item>
+      <try>A.B.C_.mod</try>
+      <success>.B.C_.mod</success>
+      <attributes>[[A]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>B.C_.mod</try>
+      <success>.C_.mod</success>
+      <attributes>[[B]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>C_.mod</try>
+      <success>.mod</success>
+      <attributes>[[C, _]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>mod</try>
+      <fail/>
+    </module_path_item>
+    <success>.mod</success>
+    <attributes>[[[A], [B], [C, _]]]</attributes>
+  </module_path_>
+  <value_name_>
+    <try>mod</try>
+    <lowercase_ident>
+      <try>mod</try>
+      <success></success>
+      <attributes>[[m, o, d]]</attributes>
+    </lowercase_ident>
+    <success></success>
+    <attributes>[[m, o, d]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[[A], [B], [C, _]], [m, o, d]]]</attributes>
+</start>
+Parse succeeded
+--------------------------------------------------------------
+Parsing 'A.B.C_.(mod)'
+<start>
+  <try>A.B.C_.(mod)</try>
+  <module_path_>
+    <try>A.B.C_.(mod)</try>
+    <module_path_item>
+      <try>A.B.C_.(mod)</try>
+      <success>.B.C_.(mod)</success>
+      <attributes>[[A]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>B.C_.(mod)</try>
+      <success>.C_.(mod)</success>
+      <attributes>[[B]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>C_.(mod)</try>
+      <success>.(mod)</success>
+      <attributes>[[C, _]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>(mod)</try>
+      <fail/>
+    </module_path_item>
+    <success>.(mod)</success>
+    <attributes>[[[A], [B], [C, _]]]</attributes>
+  </module_path_>
+  <value_name_>
+    <try>(mod)</try>
+    <lowercase_ident>
+      <try>(mod)</try>
+      <fail/>
+    </lowercase_ident>
+    <operator_name>
+      <try>mod)</try>
+      <success>)</success>
+      <attributes>[[m, o, d]]</attributes>
+    </operator_name>
+    <success></success>
+    <attributes>[[m, o, d]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[[A], [B], [C, _]], [m, o, d]]]</attributes>
+</start>
+Parse succeeded
+--------------------------------------------------------------
+Parsing 'A.B.C_.(!=)'
+<start>
+  <try>A.B.C_.(!=)</try>
+  <module_path_>
+    <try>A.B.C_.(!=)</try>
+    <module_path_item>
+      <try>A.B.C_.(!=)</try>
+      <success>.B.C_.(!=)</success>
+      <attributes>[[A]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>B.C_.(!=)</try>
+      <success>.C_.(!=)</success>
+      <attributes>[[B]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>C_.(!=)</try>
+      <success>.(!=)</success>
+      <attributes>[[C, _]]</attributes>
+    </module_path_item>
+    <module_path_item>
+      <try>(!=)</try>
+      <fail/>
+    </module_path_item>
+    <success>.(!=)</success>
+    <attributes>[[[A], [B], [C, _]]]</attributes>
+  </module_path_>
+  <value_name_>
+    <try>(!=)</try>
+    <lowercase_ident>
+      <try>(!=)</try>
+      <fail/>
+    </lowercase_ident>
+    <operator_name>
+      <try>!=)</try>
+      <success>)</success>
+      <attributes>[[!, =]]</attributes>
+    </operator_name>
+    <success></success>
+    <attributes>[[!, =]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[[A], [B], [C, _]], [!, =]]]</attributes>
+</start>
+Parse succeeded
+--------------------------------------------------------------
+Parsing '(!)'
+<start>
+  <try>(!)</try>
+  <module_path_>
+    <try>(!)</try>
+    <module_path_item>
+      <try>(!)</try>
+      <fail/>
+    </module_path_item>
+    <fail/>
+  </module_path_>
+  <value_name_>
+    <try>(!)</try>
+    <lowercase_ident>
+      <try>(!)</try>
+      <fail/>
+    </lowercase_ident>
+    <operator_name>
+      <try>!)</try>
+      <success>)</success>
+      <attributes>[[!]]</attributes>
+    </operator_name>
+    <success></success>
+    <attributes>[[!]]</attributes>
+  </value_name_>
+  <success></success>
+  <attributes>[[[], [!]]]</attributes>
+</start>
+Parse succeeded
