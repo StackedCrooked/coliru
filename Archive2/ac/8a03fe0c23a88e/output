@@ -1,0 +1,165 @@
+------- clang++ -------
+
+	.text
+	.file	"main.cpp"
+	.globl	_Z11divide_by_8i
+	.align	16, 0x90
+	.type	_Z11divide_by_8i,@function
+_Z11divide_by_8i:                       # @_Z11divide_by_8i
+	.cfi_startproc
+# BB#0:
+	movl	%edi, %eax
+	sarl	$31, %eax
+	shrl	$29, %eax
+	addl	%edi, %eax
+	sarl	$3, %eax
+	retq
+.Ltmp0:
+	.size	_Z11divide_by_8i, .Ltmp0-_Z11divide_by_8i
+	.cfi_endproc
+
+	.globl	_Z12divide_by_8uj
+	.align	16, 0x90
+	.type	_Z12divide_by_8uj,@function
+_Z12divide_by_8uj:                      # @_Z12divide_by_8uj
+	.cfi_startproc
+# BB#0:
+	shrl	$3, %edi
+	movl	%edi, %eax
+	retq
+.Ltmp1:
+	.size	_Z12divide_by_8uj, .Ltmp1-_Z12divide_by_8uj
+	.cfi_endproc
+
+	.globl	_Z11divide_by_9i
+	.align	16, 0x90
+	.type	_Z11divide_by_9i,@function
+_Z11divide_by_9i:                       # @_Z11divide_by_9i
+	.cfi_startproc
+# BB#0:
+	movslq	%edi, %rax
+	imulq	 $954437177, %rax       # imm = 0x38E38E39
+	movq	%rax, %rcx
+	shrq	$63, %rcx
+	sarq	$33, %rax
+	addl	%ecx, %eax
+                                        # kill: EAX<def> EAX<kill> RAX<kill>
+	retq
+.Ltmp2:
+	.size	_Z11divide_by_9i, .Ltmp2-_Z11divide_by_9i
+	.cfi_endproc
+
+	.globl	_Z12divide_by_9uj
+	.align	16, 0x90
+	.type	_Z12divide_by_9uj,@function
+_Z12divide_by_9uj:                      # @_Z12divide_by_9uj
+	.cfi_startproc
+# BB#0:
+	movl	%edi, %eax
+	imulq	 $954437177, %rax       # imm = 0x38E38E39
+	shrq	$33, %rax
+                                        # kill: EAX<def> EAX<kill> RAX<kill>
+	retq
+.Ltmp3:
+	.size	_Z12divide_by_9uj, .Ltmp3-_Z12divide_by_9uj
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
+
+-----  g++ ------
+
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 5,,31
+	.globl	_Z11divide_by_8i
+	.type	_Z11divide_by_8i, @function
+_Z11divide_by_8i:
+.LFB0:
+	.cfi_startproc
+	testl	%edi, %edi
+	leal	7(%rdi), %eax
+	cmovns	%edi, %eax
+	sarl	$3, %eax
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	_Z11divide_by_8i, .-_Z11divide_by_8i
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+.LCOLDB1:
+	.text
+.LHOTB1:
+	.p2align 5,,31
+	.globl	_Z12divide_by_8uj
+	.type	_Z12divide_by_8uj, @function
+_Z12divide_by_8uj:
+.LFB1:
+	.cfi_startproc
+	movl	%edi, %eax
+	shrl	$3, %eax
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	_Z12divide_by_8uj, .-_Z12divide_by_8uj
+	.section	.text.unlikely
+.LCOLDE1:
+	.text
+.LHOTE1:
+	.section	.text.unlikely
+.LCOLDB2:
+	.text
+.LHOTB2:
+	.p2align 5,,31
+	.globl	_Z11divide_by_9i
+	.type	_Z11divide_by_9i, @function
+_Z11divide_by_9i:
+.LFB2:
+	.cfi_startproc
+	movl	%edi, %eax
+	movl	$954437177, %edx
+	sarl	$31, %edi
+	imull	%edx
+	sarl	%edx
+	movl	%edx, %eax
+	subl	%edi, %eax
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	_Z11divide_by_9i, .-_Z11divide_by_9i
+	.section	.text.unlikely
+.LCOLDE2:
+	.text
+.LHOTE2:
+	.section	.text.unlikely
+.LCOLDB3:
+	.text
+.LHOTB3:
+	.p2align 5,,31
+	.globl	_Z12divide_by_9uj
+	.type	_Z12divide_by_9uj, @function
+_Z12divide_by_9uj:
+.LFB3:
+	.cfi_startproc
+	movl	%edi, %eax
+	movl	$954437177, %edx
+	mull	%edx
+	movl	%edx, %eax
+	shrl	%eax
+	ret
+	.cfi_endproc
+.LFE3:
+	.size	_Z12divide_by_9uj, .-_Z12divide_by_9uj
+	.section	.text.unlikely
+.LCOLDE3:
+	.text
+.LHOTE3:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
