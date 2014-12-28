@@ -1,0 +1,17 @@
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ./configure --disable-multilib
+Thread model: posix
+gcc version 4.9.2 (GCC) 
+main.cpp: In function 'int main()':
+main.cpp:18:8: error: cannot allocate an object of abstract type 'A'
+  test(b);
+        ^
+main.cpp:1:8: note:   because the following virtual functions are pure within 'A':
+ struct A {
+        ^
+main.cpp:2:16: note: 	virtual void A::f()
+   virtual void f()=0; // abstract
+                ^
