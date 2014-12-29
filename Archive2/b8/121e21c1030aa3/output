@@ -1,0 +1,16 @@
+main.cpp:13:19: warning: variadic templates only available with -std=c++11 or -std=gnu++11
+ template <typename... Ts>
+                   ^
+main.cpp:14:1: error: expected unqualified-id before 'using'
+ using make_column_variant = typename boost::make_variant_over<
+ ^
+main.cpp: In function 'int main()':
+main.cpp:23:5: error: 'make_column_variant' was not declared in this scope
+     make_column_variant<int, float, std::string> v(std::string("hello world"));
+     ^
+main.cpp:23:25: error: expected primary-expression before 'int'
+     make_column_variant<int, float, std::string> v(std::string("hello world"));
+                         ^
+main.cpp:24:18: error: 'v' was not declared in this scope
+     std::cout << v;
+                  ^
