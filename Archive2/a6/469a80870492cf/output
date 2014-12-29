@@ -1,0 +1,23 @@
++ clang++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
++ clang++ -DFIXED -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
++ diff -y -W250 a b
+main.cpp:44:16: error: call to 'component_impl' is ambiguous								    |	111
+        return component_impl<FilterComponents...>(b);									    <
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~									    <
+main.cpp:44:16: note: in instantiation of function template specialization 'component_impl<Bar, Baz>' requested here	    <
+        return component_impl<FilterComponents...>(b);									    <
+               ^													    <
+main.cpp:60:5: note: in instantiation of function template specialization 'component_impl<Foo, Bar, Baz>' requested here    <
+    component_impl<FilterComponents...>(b);										    <
+    ^															    <
+main.cpp:66:18: note: in instantiation of function template specialization 'component_mask<Foo, Bar, Baz>' requested here   <
+    std::cout << component_mask<Foo,Bar,Baz>() << '\n';									    <
+                 ^													    <
+main.cpp:38:35: note: candidate function [with FilterComponent = Baz]							    <
+    std::bitset<components_count> component_impl(std::bitset<components_count> &b);					    <
+                                  ^											    <
+main.cpp:41:35: note: candidate function [with FilterComponent = Baz, FilterComponents = <>]				    <
+    std::bitset<components_count> component_impl(std::bitset<components_count> &b)					    <
+                                  ^											    <
+1 error generated.													    <
