@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall main.cpp && ./a.out <<< "1 sehe 123 3 1 sehe 4 45 7 42 8 100 9 4 q 5"
