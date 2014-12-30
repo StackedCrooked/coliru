@@ -1,0 +1,10 @@
+main.cpp:26:28: error: typename specifier refers to non-type member 'Type' in 'A<C, void>'
+    typedef typename A<C>::Type Type; // typename required
+            ~~~~~~~~~~~~~~~^~~~
+main.cpp:32:5: note: in instantiation of function template specialization 'f<std::basic_string<char> >' requested here
+    f(std::string{}); // ill-formed
+    ^
+main.cpp:16:9: note: referenced member 'Type' is declared here
+    int Type;
+        ^
+1 error generated.
