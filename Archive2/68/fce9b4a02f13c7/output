@@ -1,0 +1,82 @@
+main.cpp: In member function 'const Object* Object::Proxy::operator->() const':
+main.cpp:50:65: error: taking address of temporary [-fpermissive]
+         const Object* operator->() const { return &container[key]; }
+                                                                 ^
+main.cpp: In function 'int main()':
+main.cpp:62:15: error: no matching function for call to 'Object::Object(<brace-enclosed initializer list>)'
+     Object ob{}, idx{}, idx2{}, target{};
+               ^
+main.cpp:62:15: note: candidates are:
+main.cpp:18:5: note: Object::Object(PyObject*)
+     Object(PyObject* _p) : p{_p} {}
+     ^
+main.cpp:18:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(const Object&)
+ class Object {
+       ^
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(Object&&)
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:62:22: error: no matching function for call to 'Object::Object(<brace-enclosed initializer list>)'
+     Object ob{}, idx{}, idx2{}, target{};
+                      ^
+main.cpp:62:22: note: candidates are:
+main.cpp:18:5: note: Object::Object(PyObject*)
+     Object(PyObject* _p) : p{_p} {}
+     ^
+main.cpp:18:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(const Object&)
+ class Object {
+       ^
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(Object&&)
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:62:30: error: no matching function for call to 'Object::Object(<brace-enclosed initializer list>)'
+     Object ob{}, idx{}, idx2{}, target{};
+                              ^
+main.cpp:62:30: note: candidates are:
+main.cpp:18:5: note: Object::Object(PyObject*)
+     Object(PyObject* _p) : p{_p} {}
+     ^
+main.cpp:18:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(const Object&)
+ class Object {
+       ^
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(Object&&)
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:62:40: error: no matching function for call to 'Object::Object(<brace-enclosed initializer list>)'
+     Object ob{}, idx{}, idx2{}, target{};
+                                        ^
+main.cpp:62:40: note: candidates are:
+main.cpp:18:5: note: Object::Object(PyObject*)
+     Object(PyObject* _p) : p{_p} {}
+     ^
+main.cpp:18:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(const Object&)
+ class Object {
+       ^
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:13:7: note: constexpr Object::Object(Object&&)
+main.cpp:13:7: note:   candidate expects 1 argument, 0 provided
+main.cpp:63:24: error: no match for 'operator=' (operand types are 'const Object' and 'Object')
+     ob[idx] = ob[idx2] = target{};
+                        ^
+main.cpp:63:24: note: candidates are:
+main.cpp:13:7: note: Object& Object::operator=(const Object&) <near match>
+ class Object {
+       ^
+main.cpp:13:7: note:   no known conversion for implicit 'this' parameter from 'const Object*' to 'Object*'
+main.cpp:13:7: note: Object& Object::operator=(Object&&) <near match>
+main.cpp:13:7: note:   no known conversion for argument 1 from 'Object' to 'Object&&'
+main.cpp:64:24: error: no matching function for call to 'Object::someMethod() const'
+     ob[idx].someMethod();
+                        ^
+main.cpp:64:24: note: candidate is:
+main.cpp:20:10: note: void Object::someMethod() <near match>
+     void someMethod() { cout << "In someMethod() \n"; }
+          ^
+main.cpp:20:10: note:   no known conversion for implicit 'this' parameter from 'const Object*' to 'Object*'
+main.cpp:66:15: warning: unused variable 'w' [-Wunused-variable]
+     PyObject* w = ob[idx]->p;
+               ^
