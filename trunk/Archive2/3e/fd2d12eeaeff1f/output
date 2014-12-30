@@ -1,0 +1,14 @@
+main.cpp: In instantiation of 'IT<C> fn(C&) [with C = T; IT<C> = I<int, T>; typename std::remove_reference<decltype (declval<C&>().fn(0))>::type = int]':
+main.cpp:27:9:   required from here
+main.cpp:20:26: error: no matching function for call to 'T::fn()'
+   return IT<C>(&c, c.fn());
+                          ^
+main.cpp:20:26: note: candidate is:
+main.cpp:11:8: note: int& T::fn(int)
+   int& fn(int);
+        ^
+main.cpp:11:8: note:   candidate expects 1 argument, 0 provided
+main.cpp: In function 'IT<C> fn(C&) [with C = T; IT<C> = I<int, T>; typename std::remove_reference<decltype (declval<C&>().fn(0))>::type = int]':
+main.cpp:21:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
