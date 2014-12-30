@@ -1,0 +1,22 @@
+main.cpp:1:6: error: 'OpenCLProcess' has not been declared
+ void OpenCLProcess::debug()
+      ^
+main.cpp: In function 'void debug()':
+main.cpp:3:26: error: 'programSources' was not declared in this scope
+     for(auto const& ps : programSources) {
+                          ^
+main.cpp:4:3: error: 'cout' is not a member of 'std'
+   std::cout << ps.first <<":\n"<< ps.second <<"\n"<< std::endl;
+   ^
+main.cpp:4:54: error: 'endl' is not a member of 'std'
+   std::cout << ps.first <<":\n"<< ps.second <<"\n"<< std::endl;
+                                                      ^
+main.cpp:6:2: error: 'cout' is not a member of 'std'
+  std::cout <<"And once more: "<< programSources["program.cl"] << std::endl;
+  ^
+main.cpp:6:34: error: 'programSources' was not declared in this scope
+  std::cout <<"And once more: "<< programSources["program.cl"] << std::endl;
+                                  ^
+main.cpp:6:66: error: 'endl' is not a member of 'std'
+  std::cout <<"And once more: "<< programSources["program.cl"] << std::endl;
+                                                                  ^
