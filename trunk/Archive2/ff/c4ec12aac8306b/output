@@ -1,0 +1,102 @@
+main.cpp:8:1: error: 'PyObject' does not name a type
+ PyObject* PyObject_GetItem( PyObject* pyob, PyObject* key ) { cout << "In PyObject_GetItem \n"; return void; }
+ ^
+main.cpp:9:24: error: variable or field 'PyObject_SetItem' declared void
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                        ^
+main.cpp:9:24: error: 'PyObject' was not declared in this scope
+main.cpp:9:34: error: 'pyob' was not declared in this scope
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                                  ^
+main.cpp:9:40: error: 'PyObject' was not declared in this scope
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                                        ^
+main.cpp:9:50: error: 'key' was not declared in this scope
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                                                  ^
+main.cpp:9:55: error: 'PyObject' was not declared in this scope
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                                                       ^
+main.cpp:9:65: error: 'value' was not declared in this scope
+ void PyObject_SetItem( PyObject* pyob, PyObject* key, PyObject* value ) { cout << "In PyObject_SetItem \n"; }
+                                                                 ^
+main.cpp:13:5: error: 'PyObject' does not name a type
+     PyObject* p;
+     ^
+main.cpp: In member function 'const Object Object::operator[](const Object&) const':
+main.cpp:20:42: error: 'p' was not declared in this scope
+         return Object{ PyObject_GetItem( p, key.p ) }; 
+                                          ^
+main.cpp:20:49: error: 'const class Object' has no member named 'p'
+         return Object{ PyObject_GetItem( p, key.p ) }; 
+                                                 ^
+main.cpp:20:51: error: 'PyObject_GetItem' was not declared in this scope
+         return Object{ PyObject_GetItem( p, key.p ) }; 
+                                                   ^
+main.cpp: In member function 'const Object::Proxy& Object::Proxy::operator=(const Object&)':
+main.cpp:42:41: error: 'const class Object' has no member named 'p'
+             PyObject_SetItem( container.p, key.p, rhs_ob.p );
+                                         ^
+main.cpp:42:48: error: 'const class Object' has no member named 'p'
+             PyObject_SetItem( container.p, key.p, rhs_ob.p );
+                                                ^
+main.cpp:42:58: error: 'const class Object' has no member named 'p'
+             PyObject_SetItem( container.p, key.p, rhs_ob.p );
+                                                          ^
+main.cpp:42:60: error: 'PyObject_SetItem' was not declared in this scope
+             PyObject_SetItem( container.p, key.p, rhs_ob.p );
+                                                            ^
+main.cpp: In member function 'const Object* Object::Proxy::operator->() const':
+main.cpp:46:65: error: taking address of temporary [-fpermissive]
+         const Object* operator->() const { return &container[key]; }
+                                                                 ^
+main.cpp: In function 'int main()':
+main.cpp:58:15: error: uninitialized const member 'Object::memberOb'
+     Object ob{}, idx{}, idx2{}, target{};
+               ^
+main.cpp:58:22: error: uninitialized const member 'Object::memberOb'
+     Object ob{}, idx{}, idx2{}, target{};
+                      ^
+main.cpp:58:30: error: uninitialized const member 'Object::memberOb'
+     Object ob{}, idx{}, idx2{}, target{};
+                              ^
+main.cpp:58:40: error: uninitialized const member 'Object::memberOb'
+     Object ob{}, idx{}, idx2{}, target{};
+                                        ^
+main.cpp:59:24: error: no match for 'operator=' (operand types are 'const Object' and 'Object')
+     ob[idx] = ob[idx2] = target{};
+                        ^
+main.cpp:59:24: note: candidates are:
+main.cpp:11:7: note: Object& Object::operator=(const Object&) <near match>
+ class Object {
+       ^
+main.cpp:11:7: note:   no known conversion for implicit 'this' parameter from 'const Object*' to 'Object*'
+main.cpp:11:7: note: Object& Object::operator=(Object&&) <near match>
+main.cpp:11:7: note:   no known conversion for argument 1 from 'Object' to 'Object&&'
+main.cpp:60:24: error: no matching function for call to 'Object::someMethod() const'
+     ob[idx].someMethod();
+                        ^
+main.cpp:60:24: note: candidate is:
+main.cpp:16:10: note: void Object::someMethod() <near match>
+     void someMethod() { cout << "In someMethod() \n"; }
+          ^
+main.cpp:16:10: note:   no known conversion for implicit 'this' parameter from 'const Object*' to 'Object*'
+main.cpp:61:31: error: uninitialized const member 'Object::memberOb'
+     ob[idx].memberOb = Object{};
+                               ^
+main.cpp:61:22: error: use of deleted function 'Object& Object::operator=(Object&&)'
+     ob[idx].memberOb = Object{};
+                      ^
+main.cpp:11:7: note: 'Object& Object::operator=(Object&&)' is implicitly deleted because the default definition would be ill-formed:
+ class Object {
+       ^
+main.cpp:11:7: error: non-static reference member 'Object& Object::memberOb', can't use default assignment operator
+main.cpp:62:5: error: 'PyObject' was not declared in this scope
+     PyObject* w = ob[idx]->p;
+     ^
+main.cpp:62:15: error: 'w' was not declared in this scope
+     PyObject* w = ob[idx]->p;
+               ^
+main.cpp:62:28: error: 'const class Object' has no member named 'p'
+     PyObject* w = ob[idx]->p;
+                            ^
