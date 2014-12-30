@@ -1,0 +1,16 @@
++ clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:7:15: error: cannot increment value of type 'char [6]'
+     while (*s++ = *t++);
+             ~^
+main.cpp:7:22: error: cannot increment value of type 'char [6]'
+     while (*s++ = *t++);
+                    ~^
+2 errors generated.
++ g++ -std=c++11 -O3 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:7:15: error: lvalue required as increment operand
+      while (*s++ = *t++);
+               ^
+main.cpp:7:22: error: lvalue required as increment operand
+      while (*s++ = *t++);
+                      ^
