@@ -1,0 +1,13 @@
+main.cpp:39:5: error: no matching function for call to 'htf'
+    htf(l); // doesn't work, list is not accepted
+    ^~~
+main.cpp:24:54: note: candidate template ignored: disabled by 'enable_if' [with X = std::__1::list<int, std::__1::allocator<int> >]
+         typename Requires = typename std::enable_if<is_one_of<X, TPL<std::vector>, TPL<std::map>, TPL<std::set>>::value>::type>
+                                                     ^
+main.cpp:42:47: error: use of class template 'std::map' requires template arguments
+    static_assert(is_one_of<std::vector<int>, std::map, std::list, std::set>{}, "!");
+                                              ^~~~~~~~
+/usr/include/c++/v1/map:783:29: note: template is declared here
+class _LIBCPP_TYPE_VIS_ONLY map
+                            ^
+2 errors generated.
