@@ -1,0 +1,106 @@
+Before transformation: 
+Nodes {
+  "hello",
+  Data {1,2,3},
+  Nodes {
+    "more nested",
+    Nodes {
+      Data {2,3,4},
+      Data {3,4,5},
+      Data {4,5,6},
+    },
+    "nodes",
+  },
+};
+After transformation:  
+Nodes {
+  Nodes {
+    "sedon",
+    Nodes {
+      Data {6,5,4},
+      Data {5,4,3},
+      Data {4,3,2},
+    },
+    "detsen erom",
+  },
+  Data {3,2,1},
+  "olleh",
+};
+Roundtrip tree_equal: true
+//////////////////////////////////////////////////
+// manipulate SharedTree "copies"
+Shared: Nodes {
+  "hello",
+  Data {1,2,3},
+  Nodes {
+    "more nested",
+    Nodes {
+      Data {2,3,4},
+      Data {3,4,5},
+      Data {4,5,6},
+    },
+    "nodes",
+  },
+};
+Equal to source: true
+Shared2: Nodes {
+  "hello",
+  Data {1,2,3},
+  Nodes {
+    "more nested",
+    Nodes {
+      Data {2,3,4},
+      Data {3,4,5},
+      Data {4,5,6},
+    },
+    "nodes",
+  },
+  "added to a shared tree",
+};
+Shared tree_equal: true
+Equal to source: false
+//////////////////////////////////////////////////
+// now let's see about CowTree
+Cow: Nodes {
+  "hello",
+  Data {1,2,3},
+  Nodes {
+    "more nested",
+    Nodes {
+      Data {2,3,4},
+      Data {3,4,5},
+      Data {4,5,6},
+    },
+    "nodes",
+  },
+};
+Equal to source: true
+Ucased: Nodes {
+  "HELLO",
+  Data {1,2,3},
+  Nodes {
+    "MORE NESTED",
+    Nodes {
+      Data {2,3,4},
+      Data {3,4,5},
+      Data {4,5,6},
+    },
+    "NODES",
+  },
+};
+Equal to cow source: false
+Subtree from ucased: Nodes {
+  Data {2,3,4},
+  Data {3,4,5},
+  Data {4,5,6},
+};
+Subtree from cow: Nodes {
+  Data {2,3,4},
+  Data {3,4,5},
+  Data {4,5,6},
+};
+Subtrees match: true
+Subtrees shared: true
+Siblings unshared: true
+Parents unshared: true
+Roots unshared: true
