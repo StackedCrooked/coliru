@@ -1,0 +1,13 @@
+main.cpp:152:5: error: no matching function for call to 'compare'
+    compare(B{}, B{});
+    ^~~~~~~
+/usr/include/c++/v1/type_traits:225:78: note: candidate template ignored: disabled by 'enable_if' [with T = B]
+template <bool _Bp, class _Tp = void> using enable_if_t = typename enable_if<_Bp, _Tp>::type;
+                                                                             ^
+main.cpp:120:5: error: static_assert failed "Invalid container type"
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:149:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+2 errors generated.
