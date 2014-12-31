@@ -1,0 +1,84 @@
+Object{ ob }
+Object{ idx }
+Object{ targ }
+- - - - - - - - - - - - - - - - 
+EXECUTING: PyObject pyob_in_const_ob = "pyob_in_const_ob"; const Object const_ob(&pyob_in_const_ob); result = const_ob[idx];
+Object{ pyob_in_const_ob }
+const Object Object::operator[]            setting pyob_in_const_ob[idx] CONST-SHORTCUT
+PyObject_GetItem                           pyob_in_const_ob[idx]
+Object{ item@pyob_in_const_ob[idx] }
+const Object& operator= 
+- - - - - - - - - - - - - - - - 
+EXECUTING: Object out = ob[idx];
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Proxy::operator Object() const             R-VALUE ACCESS
+PyObject_GetItem                           ob[idx]
+Object{ item@ob[idx] }
+~Proxy()
+- - - - - - - - - - - - - - - - 
+EXECUTING: ob[idx] = targ
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Proxy& Proxy::operator= (const Object&)    L-VALUE ACCESS
+PyObject_SetItem                           ob[idx]=targ
+~Proxy()
+- - - - - - - - - - - - - - - - 
+EXECUTING: auto x = ob[idx]
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+- - - - - - - - - - - - - - - - 
+EXECUTING: PyObject d="idy"; Object idy=Object(&d); ob[idx] = ob[idy];
+Object{ idy }
+Proxy Object::operator[]                   creating proxy obj for ob[idy]
+Proxy(ob, idy)
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Proxy& Proxy::operator= (const Proxy&)     PROXY-PROXY
+getting rhs... 
+Object Proxy::operator->()
+PyObject_GetItem                           ob[idy]
+Object{ item@ob[idy] }
+Object* Object::operator ->
+... = item@ob[idy]
+PyObject_SetItem                           ob[idx]=item@ob[idy]
+~Proxy()
+~Proxy()
+- - - - - - - - - - - - - - - - 
+EXECUTING: ob[idx] = ob[idy] = targ
+Proxy Object::operator[]                   creating proxy obj for ob[idy]
+Proxy(ob, idy)
+Proxy& Proxy::operator= (const Object&)    L-VALUE ACCESS
+PyObject_SetItem                           ob[idy]=targ
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Proxy& Proxy::operator= (const Proxy&)     PROXY-PROXY
+getting rhs... 
+Object Proxy::operator->()
+PyObject_GetItem                           ob[idy]
+Object{ item@ob[idy] }
+Object* Object::operator ->
+... = item@ob[idy]
+PyObject_SetItem                           ob[idx]=item@ob[idy]
+~Proxy()
+~Proxy()
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Object Proxy::operator->()
+PyObject_GetItem                           ob[idx]
+Object{ item@ob[idx] }
+Object* Object::operator ->
+Object::someMethod()
+~Proxy()
+- - - - - - - - - - - - - - - - 
+EXECUTING: PyObject* w = ob[idx]->p;
+Proxy Object::operator[]                   creating proxy obj for ob[idx]
+Proxy(ob, idx)
+Object Proxy::operator->()
+PyObject_GetItem                           ob[idx]
+Object{ item@ob[idx] }
+Object* Object::operator ->
+~Proxy()
+- - - - - - - - - - - - - - - - 
+EXECUTING: 
+0x13283600x7fff9a08dbf0~Proxy()
