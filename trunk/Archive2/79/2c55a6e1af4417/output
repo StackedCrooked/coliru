@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:25:24: error: no matching function for call to 'fn(C)'
+     fn<B<int>, int>(C()); // Fails as expected
+                        ^
+main.cpp:25:24: note: candidate is:
+main.cpp:20:54: note: template<class X, class Y> typename enable_if_is_base_of<X, container<Y> >::type fn(X&&)
+ typename enable_if_is_base_of<X, container<Y>>::type fn(X&& x) { }
+                                                      ^
+main.cpp:20:54: note:   template argument deduction/substitution failed:
+main.cpp:25:24: note:   cannot convert 'C()' (type 'C') to type 'B<int>&&'
+     fn<B<int>, int>(C()); // Fails as expected
+                        ^
