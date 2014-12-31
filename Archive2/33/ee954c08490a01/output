@@ -1,0 +1,10 @@
+main.cpp:31:5: error: no matching function for call to 'htf'
+    htf(l); // doesn't work, list is not accepted
+    ^~~
+main.cpp:19:54: note: candidate template ignored: disabled by 'enable_if' [with X = std::__1::list<int, std::__1::allocator<int> >]
+         typename Requires = typename std::enable_if<is_one_of<X, std::vector, std::map, std::set>::value>::type>
+                                                     ^
+main.cpp:34:5: error: static_assert failed "!"
+    static_assert(is_one_of<std::vector<int>, std::map, std::list, std::set>{}, "!");
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
