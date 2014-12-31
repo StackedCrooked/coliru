@@ -1,0 +1,1 @@
+g++ -std=c++1y -O2 -Wall -Wno-strict-aliasing -pedantic -pthread main.cpp -ffunction-sections -flto -Xlinker --icf=all -fuse-ld=gold && ./a.out
