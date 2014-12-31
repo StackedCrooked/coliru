@@ -1,0 +1,109 @@
+main.cpp:62:9: error: static_assert failed "begin(T) failed"
+        error("begin(T) failed")
+        ^~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:55: note: expanded from macro 'error'
+        template <typename T> struct FailureMessage { static_assert(detail::ConceptFailed<T>{}, MSG); };\
+                                                      ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:40:48: note: in instantiation of template class 'detail::HasBegin::FailureMessage<B>' requested here
+        static auto test(int) -> decltype(void(T::template verify<Args...>(1)), std::true_type{});
+                                               ^
+main.cpp:47:35: note: while substituting deduced template arguments into function template 'test' [with T = (no value)]
+constexpr bool Concept = decltype(detail::ConceptImpl<T>::test(0)){};
+                                  ^
+main.cpp:53:37: note: in instantiation of variable template specialization 'Concept<detail::HasBegin (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                    ^
+main.cpp:115:19: note: in instantiation of variable template specialization 'Concepts<detail::HasBegin (B), detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+                  ^
+main.cpp:141:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+main.cpp:74:9: error: static_assert failed "end(T) failed"
+        error("end(T) failed")
+        ^~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:55: note: expanded from macro 'error'
+        template <typename T> struct FailureMessage { static_assert(detail::ConceptFailed<T>{}, MSG); };\
+                                                      ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:40:48: note: in instantiation of template class 'detail::HasEnd::FailureMessage<B>' requested here
+        static auto test(int) -> decltype(void(T::template verify<Args...>(1)), std::true_type{});
+                                               ^
+main.cpp:47:35: note: while substituting deduced template arguments into function template 'test' [with T = (no value)]
+constexpr bool Concept = decltype(detail::ConceptImpl<T>::test(0)){};
+                                  ^
+main.cpp:53:37: note: in instantiation of variable template specialization 'Concept<detail::HasEnd (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                    ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:115:19: note: in instantiation of variable template specialization 'Concepts<detail::HasBegin (B), detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+                  ^
+main.cpp:141:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+main.cpp:85:9: error: static_assert failed "T::size() not satisfied"
+        error("T::size() not satisfied")
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:55: note: expanded from macro 'error'
+        template <typename T> struct FailureMessage { static_assert(detail::ConceptFailed<T>{}, MSG); };\
+                                                      ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:40:48: note: in instantiation of template class 'detail::HasSize::FailureMessage<B>' requested here
+        static auto test(int) -> decltype(void(T::template verify<Args...>(1)), std::true_type{});
+                                               ^
+main.cpp:47:35: note: while substituting deduced template arguments into function template 'test' [with T = (no value)]
+constexpr bool Concept = decltype(detail::ConceptImpl<T>::test(0)){};
+                                  ^
+main.cpp:53:37: note: in instantiation of variable template specialization 'Concept<detail::HasSize (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                    ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasSize (B), detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:115:19: note: in instantiation of variable template specialization 'Concepts<detail::HasBegin (B), detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+                  ^
+main.cpp:141:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+main.cpp:107:9: error: static_assert failed "T::value_type is missing"
+        error("T::value_type is missing")
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:55: note: expanded from macro 'error'
+        template <typename T> struct FailureMessage { static_assert(detail::ConceptFailed<T>{}, MSG); };\
+                                                      ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:40:48: note: in instantiation of template class 'detail::HasValueType::FailureMessage<B>' requested here
+        static auto test(int) -> decltype(void(T::template verify<Args...>(1)), std::true_type{});
+                                               ^
+main.cpp:47:35: note: while substituting deduced template arguments into function template 'test' [with T = (no value)]
+constexpr bool Concept = decltype(detail::ConceptImpl<T>::test(0)){};
+                                  ^
+main.cpp:53:37: note: in instantiation of variable template specialization 'Concept<detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                    ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasSize (B), detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:53:51: note: in instantiation of variable template specialization 'Concepts<detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+constexpr bool Concepts<T, Ts...> = Concept<T> && Concepts<Ts...>;
+                                                  ^
+main.cpp:115:19: note: in instantiation of variable template specialization 'Concepts<detail::HasBegin (B), detail::HasEnd (B), detail::HasSize (B), detail::HasValueType (B)>' requested here
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+                  ^
+main.cpp:141:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+main.cpp:115:5: error: static_assert failed "Invalid container type"
+    static_assert(Concepts<HasBegin(ContainerType), HasEnd(ContainerType), HasSize(ContainerType), HasValueType(ContainerType)>
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:141:10: note: in instantiation of function template specialization 'sort<B>' requested here
+    B b; sort(b);
+         ^
+5 errors generated.
