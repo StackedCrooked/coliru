@@ -1,0 +1,22 @@
+main.cpp:5:16: error: template declaration of 'constexpr const bool condition'
+ constexpr bool condition = argument::output;
+                ^
+main.cpp:21:40: error: 'condition' was not declared in this scope
+ using inner = typename outer<argument, condition<argument>>::output;
+                                        ^
+main.cpp:21:50: error: template argument 2 is invalid
+ using inner = typename outer<argument, condition<argument>>::output;
+                                                  ^
+main.cpp:21:24: error: expected nested-name-specifier
+ using inner = typename outer<argument, condition<argument>>::output;
+                        ^
+main.cpp: In function 'int main()':
+main.cpp:33:5: error: 'inner' was not declared in this scope
+     inner<argument> value;
+     ^
+main.cpp:33:19: error: expected primary-expression before '>' token
+     inner<argument> value;
+                   ^
+main.cpp:33:21: error: 'value' was not declared in this scope
+     inner<argument> value;
+                     ^
