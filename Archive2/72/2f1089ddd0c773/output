@@ -1,0 +1,35 @@
+main.cpp:38:20: error: 'operator|' function uses 'auto' type specifier without trailing return type
+ auto operator|(A, B)
+                    ^
+main.cpp:38:20: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:63:22: error: invalid use of 'auto'
+     using hlp_list = decltype(vlan_tag | ipv4_tag | ipv6_tag);
+                      ^
+main.cpp:74:22: error: invalid use of 'auto'
+     using hlp_list = decltype(tcp_tag | udp_tag);
+                      ^
+main.cpp:75:22: error: invalid use of 'auto'
+     using llp_list = decltype(eth_tag | vlan_tag);
+                      ^
+main.cpp:94:22: error: invalid use of 'auto'
+     using hlp_list = decltype(tcp_tag | udp_tag);
+                      ^
+main.cpp:95:22: error: invalid use of 'auto'
+     using llp_list = decltype(eth_tag | vlan_tag);
+                      ^
+main.cpp:115:22: error: invalid use of 'auto'
+     using llp_list = decltype(ipv4_tag | ipv6_tag);
+                      ^
+main.cpp: In function 'int main()':
+main.cpp:139:22: error: invalid use of 'auto'
+         | (eth_tag | ipv4_tag | udp_tag)
+                      ^
+main.cpp:140:22: error: invalid use of 'auto'
+         | (eth_tag | ipv6_tag | tcp_tag)
+                      ^
+main.cpp:141:22: error: invalid use of 'auto'
+         | (eth_tag | ipv6_tag | udp_tag)
+                      ^
+main.cpp:145:22: error: 'paths' was not declared in this scope
+     print_type(paths());
+                      ^
