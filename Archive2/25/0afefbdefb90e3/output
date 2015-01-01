@@ -1,0 +1,40 @@
+main.cpp:8:12: warning: ISO C++11 does not allow conversion from string literal to 'key_type' (aka 'char *') [-Wwritable-strings]
+    aArray["First"] = "William";
+           ^
+main.cpp:8:23: warning: ISO C++11 does not allow conversion from string literal to 'mapped_type' (aka 'char *') [-Wwritable-strings]
+    aArray["First"] = "William";
+                      ^
+main.cpp:9:12: warning: ISO C++11 does not allow conversion from string literal to 'key_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Second"] = "James";
+           ^
+main.cpp:9:24: warning: ISO C++11 does not allow conversion from string literal to 'mapped_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Second"] = "James";
+                       ^
+main.cpp:10:12: warning: ISO C++11 does not allow conversion from string literal to 'key_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Third"] = "Michael";
+           ^
+main.cpp:10:23: warning: ISO C++11 does not allow conversion from string literal to 'mapped_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Third"] = "Michael";
+                      ^
+main.cpp:11:12: warning: ISO C++11 does not allow conversion from string literal to 'key_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Forth"] = "Jayden";
+           ^
+main.cpp:11:23: warning: ISO C++11 does not allow conversion from string literal to 'mapped_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Forth"] = "Jayden";
+                      ^
+main.cpp:12:12: warning: ISO C++11 does not allow conversion from string literal to 'key_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Fifth"] = "Ashley";
+           ^
+main.cpp:12:23: warning: ISO C++11 does not allow conversion from string literal to 'mapped_type' (aka 'char *') [-Wwritable-strings]
+    aArray["Fifth"] = "Ashley";
+                      ^
+main.cpp:14:44: error: no viable conversion from '_Rb_tree_iterator<pair<char *const, char *>>' to '_Rb_tree_iterator<pair<const std::basic_string<char>, std::basic_string<char>>>'
+    for(std::map<string, string>::iterator it=aArray.begin();it!=aArray.end();++it){
+                                           ^  ~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_tree.h:172:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'const std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, std::basic_string<char> > > &' for 1st argument
+    struct _Rb_tree_iterator
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_tree.h:172:12: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '_Rb_tree_iterator<value_type>') to 'std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, std::basic_string<char> > > &&' for 1st argument
+    struct _Rb_tree_iterator
+           ^
+10 warnings and 1 error generated.
