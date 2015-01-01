@@ -1,0 +1,16 @@
++ g++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In instantiation of '<lambda(auto:1, int)> [with auto:1 = fake_anything]':
+main.cpp:30:103:   required by substitution of 'template<class T> using signature_t = typename extract_signature<decltype (& T:: operator()<fake_anything>)>::type [with T = <lambda(auto:1, int)>]'
+main.cpp:33:57:   required from here
+main.cpp:9:38: error: no match for call to '(fake_anything) (int)'
+   return myself(x - 1) + myself(x - 2);
+                                      ^
+main.cpp:9:22: error: no match for call to '(fake_anything) (int)'
+   return myself(x - 1) + myself(x - 2);
+                      ^
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:6:6: warning: variable 'fib' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+auto fib = [](auto myself, int x) -> int{
+     ^
+1 warning generated.
++ ./a.out
