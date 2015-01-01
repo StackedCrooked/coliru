@@ -1,0 +1,2 @@
+#title std::promise(allocator_arg_t,...) and std::allocate_shared (for TaskQueue with memory pool and allocators)
+g++ -std=c++11 -O2 -Wall -pedantic -Wno-enum-compare -pthread main.cpp -ltbb && ./a.out
