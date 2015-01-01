@@ -1,0 +1,10 @@
+main.cpp:12:32: error: no matching function for call to 'declval'
+        using foo = typename decltype(asdf::declval<A>())::type;
+                                      ^~~~~~~~~~~~~~~~
+main.cpp:22:10: note: in instantiation of template class 'A<void>' requested here
+        A<void> a;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/type_traits:2234:44: note: candidate template ignored: disabled by 'enable_if' [with T = A<void>]
+    using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+                                           ^
+1 error generated.
