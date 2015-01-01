@@ -1,0 +1,64 @@
+libc++
+/////////////////////////////////////////////////////////////////////////////////
+is vector<T> nothrow_move_constructible if T is nothrow_move_constructible? true
+is vector<T> nothrow_move_assignable if T is nothrow_move_assignable? true
+/////////////////////////////////////////////////////////////////////////////////
+0 1 2 3 
+4 5 6 7 
+
+0.0 1.0 2.0 3.0 
+4.0 5.0 6.0 7.0 
+
+0 1 2 
+3 0 0 
+6 7 8 
+
+0.0 1.0 2.0 
+3.0 0.0 0.0 
+6.0 7.0 8.0 
+
+0 1 2 
+3 9 9 
+6 7 8 
+
+
+libstdc++
+g++ (GCC) 4.9.2
+/////////////////////////////////////////////////////////////////////////////////
+is vector<T> nothrow_move_constructible if T is nothrow_move_constructible? true
+is vector<T> nothrow_move_assignable if T is nothrow_move_assignable? true
+/////////////////////////////////////////////////////////////////////////////////
+0 1 2 3 
+4 5 6 7 
+
+0.0 1.0 2.0 3.0 
+4.0 5.0 6.0 7.0 
+
+0 1 2 
+3 0 0 
+6 7 8 
+
+0.0 1.0 2.0 
+3.0 0.0 0.0 
+6.0 7.0 8.0 
+
+0 1 2 
+3 9 9 
+6 7 8 
+
+
+libstdc++ 4.8
+main.cpp: In instantiation of 'struct matrix<long long int>':
+main.cpp:131:17:   required from here
+main.cpp:104:16: error: function 'matrix<T>& matrix<T>::operator=(matrix<T>&&) [with T = long long int]' defaulted on its first declaration with an exception-specification that differs from the implicit declaration 'matrix<long long int>& matrix<long long int>::operator=(matrix<long long int>&&)'
+     matrix<T>& operator= ( matrix<T>&& that ) noexcept = default ; // defaulted move assignment
+                ^
+main.cpp: In instantiation of 'struct matrix<float>':
+main.cpp:132:30:   required from here
+main.cpp:104:16: error: function 'matrix<T>& matrix<T>::operator=(matrix<T>&&) [with T = float]' defaulted on its first declaration with an exception-specification that differs from the implicit declaration 'matrix<float>& matrix<float>::operator=(matrix<float>&&)'
+main.cpp: In instantiation of 'struct matrix<int>':
+main.cpp:133:28:   required from here
+main.cpp:104:16: error: function 'matrix<T>& matrix<T>::operator=(matrix<T>&&) [with T = int]' defaulted on its first declaration with an exception-specification that differs from the implicit declaration 'matrix<int>& matrix<int>::operator=(matrix<int>&&)'
+main.cpp: In instantiation of 'struct matrix<double>':
+main.cpp:153:25:   required from here
+main.cpp:104:16: error: function 'matrix<T>& matrix<T>::operator=(matrix<T>&&) [with T = double]' defaulted on its first declaration with an exception-specification that differs from the implicit declaration 'matrix<double>& matrix<double>::operator=(matrix<double>&&)'
