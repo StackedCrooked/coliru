@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall main.cpp -lboost_system -lboost_filesystem -lboost_iostreams; cp main.cpp data.dat; ./a.out; xxd data.dat
