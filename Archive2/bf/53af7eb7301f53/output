@@ -1,0 +1,78 @@
+
+test_map_vector_string
+map[].resize
+Arena3 +48
+Arena1 +96
+Arena2 +3200
+
+map[].back().resize()
+Arena3 +48
+Arena3 +112
+Arena3 -48
+
+map.emplace
+Arena3 +32
+Arena2 +32
+Arena1 +96
+
+map.insert
+Arena3 +32
+Arena2 +32
+Arena1 +96
+Arena2 -32
+Arena3 -32
+Arena1 -96
+
+map assign array
+Arena3 +64
+Arena3 +64
+Arena3 +64
+Arena2 +64
+Arena3 +64
+Arena3 +64
+Arena2 +64
+Arena3 +64
+Arena3 +64
+Arena1 +96
+Arena3 +64
+Arena2 +64
+Arena3 +64
+Arena3 +64
+Arena3 -64
+Arena3 -64
+Arena2 -64
+Arena3 -64
+Arena3 -64
+Arena3 -64
+Arena3 -64
+Arena3 -64
+Arena2 -64
+
+scope exit
+Arena3 -64
+Arena3 -64
+Arena2 -64
+Arena3 -64
+Arena1 -96
+Arena2 -32
+Arena3 -32
+Arena1 -96
+Arena3 -112
+Arena2 -3200
+Arena3 -48
+Arena1 -96
+
+test_vector_string
+Arena1 +32
+Arena2 +32
+30 31
+
+scope exit
+Arena2 -32
+Arena1 -32
+Done
+~Default(): Allocated=0 Freed=0
+~Arena4(): Allocated=0 Freed=0
+~Arena3(): Allocated=912 Freed=912
+~Arena2(): Allocated=3488 Freed=3488
+~Arena1(): Allocated=416 Freed=416
