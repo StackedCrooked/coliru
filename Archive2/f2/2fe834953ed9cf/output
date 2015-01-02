@@ -1,0 +1,40 @@
+In file included from /usr/local/include/boost/range/any_range.hpp:17:0,
+                 from main.cpp:4:
+/usr/local/include/boost/range/detail/any_iterator.hpp:131:15: error: 'postfix_increment_proxy' is not a class template
+         class postfix_increment_proxy<
+               ^
+/usr/local/include/boost/range/detail/any_iterator.hpp:176:15: error: 'writable_postfix_increment_proxy' is not a class template
+         class writable_postfix_increment_proxy<
+               ^
+In file included from /usr/local/include/boost/range/size_type.hpp:20:0,
+                 from /usr/local/include/boost/range/size.hpp:21,
+                 from /usr/local/include/boost/range/functions.hpp:20,
+                 from /usr/local/include/boost/range.hpp:18,
+                 from main.cpp:2:
+/usr/local/include/boost/range/concepts.hpp: In instantiation of 'boost::range_detail::SinglePassIteratorConcept<Iterator>::~SinglePassIteratorConcept() [with Iterator = boost::iterators::function_input_iterator<r10gen, int>]':
+/usr/local/include/boost/concept/detail/general.hpp:38:28:   required from 'static void boost::concepts::requirement<boost::concepts::failed************ Model::************>::failed() [with Model = boost::range_detail::SinglePassIteratorConcept<boost::iterators::function_input_iterator<r10gen, int> >]'
+/usr/local/include/boost/range/concepts.hpp:276:9:   required from 'struct boost::SinglePassRangeConcept<boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > >'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:32:62:   required by substitution of 'template<class Model> boost::concepts::detail::yes boost::concepts::detail::has_constraints_(Model*, boost::concepts::detail::wrap_constraints<Model, (& Model:: constraints)>*) [with Model = boost::SinglePassRangeConcept<boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > >]'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:42:5:   required from 'const bool boost::concepts::not_satisfied<boost::SinglePassRangeConcept<boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > > >::value'
+/usr/local/include/boost/concept/detail/has_constraints.hpp:45:31:   [ skipping 2 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/local/include/boost/concept/detail/general.hpp:50:8:   required from 'struct boost::concepts::requirement_<void (*)(boost::SinglePassRangeConcept<boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > >)>'
+/usr/local/include/boost/range/adaptor/transformed.hpp:117:13:   required from 'boost::range::joined_range<const SinglePassRange1, const SinglePassRange2> boost::range::join(const SinglePassRange1&, const SinglePassRange2&) [with SinglePassRange1 = boost::iterator_range<std::istream_iterator<int> >; SinglePassRange2 = boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> >]'
+main.cpp:23:96:   required from 'static decltype (boost::range::join(forward<R1>(r1), detail::multi_join_dispatch::call((forward<Rs>)(detail::multi_join_dispatch::call::ranges)...))) detail::multi_join_dispatch::call(R1&&, Rs&& ...) [with R1 = const boost::iterator_range<std::istream_iterator<int> >&; Rs = {const boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> >&}; decltype (boost::range::join(forward<R1>(r1), detail::multi_join_dispatch::call((forward<Rs>)(detail::multi_join_dispatch::call::ranges)...))) = boost::range::joined_range<const boost::iterator_range<std::istream_iterator<int> >, const boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > >]'
+main.cpp:29:75:   required from 'decltype (detail::multi_join_dispatch::call((forward<Rs>)(multi_join::ranges)...)) multi_join(Rs&& ...) [with Rs = {const boost::iterator_range<std::istream_iterator<int, char, std::char_traits<char>, long int> >&, const boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> >&}; decltype (detail::multi_join_dispatch::call((forward<Rs>)(multi_join::ranges)...)) = boost::range::joined_range<const boost::iterator_range<std::istream_iterator<int> >, const boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> > >]'
+main.cpp:59:50:   required from 'AnyR random_compose_input(const R1&, const R2&, const R3&, const R4&) [with R1 = boost::iterator_range<std::istream_iterator<int> >; R2 = boost::iterator_range<std::istream_iterator<int> >; R3 = boost::iterator_range<std::istream_iterator<int> >; R4 = boost::iterator_range<boost::iterators::function_input_iterator<r10gen, int> >; AnyR = boost::range_detail::any_range<const int, boost::iterators::single_pass_traversal_tag, int>]'
+main.cpp:115:50:   required from here
+/usr/local/include/boost/range/concepts.hpp:158:32: error: no matching function for call to 'boost::iterators::function_input_iterator<r10gen, int>::function_input_iterator(boost::iterators::impl::function_input_iterator<r10gen, int>&)'
+                 Iterator i2(++i);
+                                ^
+/usr/local/include/boost/range/concepts.hpp:158:32: note: candidates are:
+In file included from main.cpp:6:0:
+/usr/local/include/boost/iterator/function_input_iterator.hpp:135:9: note: boost::iterators::function_input_iterator<Function, Input>::function_input_iterator(Function&, Input) [with Function = r10gen; Input = int]
+         function_input_iterator(Function & f, Input i)
+         ^
+/usr/local/include/boost/iterator/function_input_iterator.hpp:135:9: note:   candidate expects 2 arguments, 1 provided
+/usr/local/include/boost/iterator/function_input_iterator.hpp:114:11: note: boost::iterators::function_input_iterator<r10gen, int>::function_input_iterator(const boost::iterators::function_input_iterator<r10gen, int>&)
+     class function_input_iterator
+           ^
+/usr/local/include/boost/iterator/function_input_iterator.hpp:114:11: note:   no known conversion for argument 1 from 'boost::iterators::impl::function_input_iterator<r10gen, int>' to 'const boost::iterators::function_input_iterator<r10gen, int>&'
+/usr/local/include/boost/iterator/function_input_iterator.hpp:114:11: note: boost::iterators::function_input_iterator<r10gen, int>::function_input_iterator(boost::iterators::function_input_iterator<r10gen, int>&&)
+/usr/local/include/boost/iterator/function_input_iterator.hpp:114:11: note:   no known conversion for argument 1 from 'boost::iterators::impl::function_input_iterator<r10gen, int>' to 'boost::iterators::function_input_iterator<r10gen, int>&&'
