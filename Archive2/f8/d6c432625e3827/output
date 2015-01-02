@@ -1,0 +1,10 @@
+main.cpp:4:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+constexpr int x(
+              ^
+main.cpp:8:12: note: non-constexpr function 'min<int>' cannot be used in a constant expression
+    return std::min({ a * c, a * d, b * c, b * d});
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algo.h:3439:5: note: declared here
+    min(initializer_list<_Tp> __l)
+    ^
+1 error generated.
