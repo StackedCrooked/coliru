@@ -1,0 +1,177 @@
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional: In instantiation of '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]':
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/functional:1396:50: error: no match for call to '(std::greater_equal<int>) (std::_No_tuple_element, int&)'
+         (get<_Indexes>(_M_bound_args), __args)...);
+                                                  ^
+In file included from /usr/local/include/c++/4.9.2/functional:49:0,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/bits/stl_function.h:376:12: note: candidate is:
+     struct greater_equal : public binary_function<_Tp, _Tp, bool>
+            ^
+/usr/local/include/c++/4.9.2/bits/stl_function.h:379:7: note: bool std::greater_equal<_Tp>::operator()(const _Tp&, const _Tp&) const [with _Tp = int]
+       operator()(const _Tp& __x, const _Tp& __y) const
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_function.h:379:7: note:   no known conversion for argument 1 from 'std::_No_tuple_element' to 'const int&'
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'struct std::tuple_element<1ul, std::tuple<int&> >':
+/usr/local/include/c++/4.9.2/tuple:772:5:   required by substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&) [with long unsigned int __i = 1ul; _Elements = {int&}]'
+/usr/local/include/c++/4.9.2/functional:1157:61:   required from 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]'
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/tuple:680:12: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+     struct tuple_element<__i, tuple<_Head, _Tail...> >
+            ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/utility:85:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]':
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/functional:1157:61: error: no matching function for call to 'get(std::tuple<int&>&)'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+/usr/local/include/c++/4.9.2/functional:1157:61: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/utility:143:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:143:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/utility:148:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:148:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/utility:153:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:153:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/tuple:39:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/array:272:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/array:272:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'std::array<_Tp, _Nm>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/tuple:39:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/array:281:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/array:281:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'std::array<_Tp, _Nm>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/tuple:39:0,
+                 from /usr/local/include/c++/4.9.2/functional:55,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/array:289:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/array:289:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:8:0:
+/usr/local/include/c++/4.9.2/functional:1157:61: note:   'std::tuple<int&>' is not derived from 'const std::array<_Tp, _Nm>'
+        ::std::get<(is_placeholder<_Arg>::value - 1)>(__tuple));
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from main.cpp:8:
+/usr/local/include/c++/4.9.2/tuple:756:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:756:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+/usr/local/include/c++/4.9.2/functional:1157:61:   required from 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]'
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/tuple:756:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]':
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+/usr/local/include/c++/4.9.2/functional:1157:61:   required from 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]'
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type std::_Mu<_Arg, false, true>::operator()(const volatile _Arg&, _Tuple&) const volatile [with _Tuple = std::tuple<int&>; _Arg = std::_Placeholder<2>; typename std::_Mu<_Arg, false, true>::result<std::_Mu<_Arg, false, true>(_Arg, _Tuple)>::type = std::_No_tuple_element&&]':
+/usr/local/include/c++/4.9.2/functional:1396:46:   required from '_Result std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__call(std::tuple<_Args2 ...>&&, std::_Index_tuple<_Indexes ...>, typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type) [with _Res = bool; _Args = {int&}; long unsigned int ..._Indexes = {0ul, 1ul}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; typename std::_Bind_result<_Result, _Functor(_Bound_args ...)>::__disable_if_void<_Res>::type = int]'
+/usr/local/include/c++/4.9.2/functional:1496:24:   required from 'std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type std::_Bind_result<_Result, _Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {int&}; _Result = bool; _Functor = std::greater_equal<int>; _Bound_args = {std::_Placeholder<2>, int}; std::_Bind_result<_Result, _Functor(_Bound_args ...)>::result_type = bool]'
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:293:31:   required from 'bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:120:22:   required from '_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_negate<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:173:41:   required from '_InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = __gnu_cxx::__ops::_Iter_pred<std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:567:42:   required from '_IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:509:64:   required from 'bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Predicate = std::_Bind_result<bool, std::greater_equal<int>(std::_Placeholder<2>, int)>]'
+main.cpp:16:1:   required from here
+/usr/local/include/c++/4.9.2/tuple:772:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:772:5: note:   substitution of deduced template arguments resulted in errors seen above
