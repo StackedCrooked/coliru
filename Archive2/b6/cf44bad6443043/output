@@ -1,0 +1,21 @@
+In file included from main.cpp:2:
+In file included from /usr/include/c++/v1/tuple:126:
+/usr/include/c++/v1/__tuple:161:5: error: static_assert failed "tuple_element index out of range"
+    static_assert(_Ip != 0, "tuple_element index out of range");
+    ^             ~~~~~~~~
+/usr/include/c++/v1/__tuple:175:22: note: in instantiation of template class 'std::__1::tuple_element<0, std::__1::__tuple_types<> >' requested here
+    typedef typename tuple_element<_Ip-1, __tuple_types<_Tp...> >::type type;
+                     ^
+/usr/include/c++/v1/tuple:154:22: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::__tuple_types<int> >' requested here
+    typedef typename tuple_element<_Ip, __tuple_types<_Tp...> >::type type;
+                     ^
+main.cpp:11:34: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::tuple<int> >' requested here
+    using type = T<typename std::tuple_element<Is, std::tuple<Ts...>>::type...>;
+                                 ^
+main.cpp:25:5: note: in instantiation of template class 'template_with_params_impl<B, 3, std::__1::integer_sequence<unsigned long, 0, 1, 2>, int>' requested here
+    template_with_params<B, 3, int>::type(); // create type B<int, void, void>
+    ^
+main.cpp:25:38: error: use of undeclared identifier 'type'
+    template_with_params<B, 3, int>::type(); // create type B<int, void, void>
+                                     ^
+2 errors generated.
