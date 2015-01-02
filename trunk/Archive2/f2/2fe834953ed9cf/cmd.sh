@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic main.cpp && ./a.out <(echo {100..110}) <(echo {200..220}) <(echo {300..330})
