@@ -22,5 +22,4 @@ rp() { chown -R webserver:coliru . ; }
         echo "sleeping for 3600 seconds"
         sleep 3600
     done
-}
-
+} & disown
