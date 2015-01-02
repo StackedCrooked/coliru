@@ -1,0 +1,10 @@
+clang++ c++11
+main.cpp:13:14: error: call to implicitly-deleted default constructor of 'Bar<Foo>'
+    Bar<Foo> test;
+             ^
+main.cpp:9:13: note: default constructor of 'Bar<Foo>' is implicitly deleted because field 'foo' of const-qualified type 'const Foo' would not be initialized
+    const T foo;
+            ^
+1 error generated.
+
+g++ c++11
