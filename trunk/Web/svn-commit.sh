@@ -16,8 +16,7 @@ rp() { chown -R webserver:coliru . ; }
                     { echo "Commit failed!" && svn cleanup && sleep 5 && svn up ; rp; }
                 }
             }
-            sleep 1
-            #sleep $((10 + $(($RANDOM % 50))))
+            sleep $((10 + $(($RANDOM % 20))))
         )
         done 2>&1 | tee -a _svn-commit.log
         echo "sleeping for 3600 seconds"
