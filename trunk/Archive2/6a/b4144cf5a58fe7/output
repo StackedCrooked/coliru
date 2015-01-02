@@ -1,0 +1,38 @@
+main.cpp:44:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp:46:11: error: '::main' must return 'int'
+ void main() {
+           ^
+main.cpp: In function 'int main()':
+main.cpp:48:5: error: 'Array' was not declared in this scope
+     Array<unsigned int> myIntArray(10, 0);
+     ^
+main.cpp:48:11: error: expected primary-expression before 'unsigned'
+     Array<unsigned int> myIntArray(10, 0);
+           ^
+main.cpp:49:5: error: 'DoubleArray' was not declared in this scope
+     DoubleArray<unsigned int> myDblArray(10, 10);
+     ^
+main.cpp:49:5: note: suggested alternative:
+main.cpp:9:7: note:   'VenkataLibrary::DoubleArray'
+ class DoubleArray {
+       ^
+main.cpp:49:17: error: expected primary-expression before 'unsigned'
+     DoubleArray<unsigned int> myDblArray(10, 10);
+                 ^
+main.cpp:51:5: error: 'cout' was not declared in this scope
+     cout << myDblArray[1][1] << std::endl; //**// System crashes here. And I am expecting zero** here.
+     ^
+main.cpp:51:13: error: 'myDblArray' was not declared in this scope
+     cout << myDblArray[1][1] << std::endl; //**// System crashes here. And I am expecting zero** here.
+             ^
+main.cpp:51:33: error: 'endl' is not a member of 'std'
+     cout << myDblArray[1][1] << std::endl; //**// System crashes here. And I am expecting zero** here.
+                                 ^
+main.cpp:53:5: error: 'myIntArray' was not declared in this scope
+     myIntArray[0] = 2;
+     ^
+main.cpp:55:31: error: 'endl' is not a member of 'std'
+      cout << myIntArray[0] << std::endl;
+                               ^
