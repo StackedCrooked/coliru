@@ -1,0 +1,34 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/thread:39:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:1665:56: error: no type named 'type' in 'std::result_of<(lambda at main.cpp:9:13) (void (*)())>'
+      typedef typename result_of<_Callable(_Args...)>::type result_type;
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/thread:135:41: note: in instantiation of template class 'std::_Bind_simple<(lambda at main.cpp:9:13) (void (*)())>' requested here
+        _M_start_thread(_M_make_routine(std::__bind_simple(
+                                        ^
+main.cpp:8:9: note: in instantiation of function template specialization 'std::thread::thread<(lambda at main.cpp:9:13), void (&)()>' requested here
+        Thread(
+        ^
+main.cpp:29:19: note: in instantiation of function template specialization 'interruptible::interruptible<void (&)()>' requested here
+    interruptible a(DoStuff);
+                  ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/thread:39:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:1694:50: error: no type named 'type' in 'std::result_of<(lambda at main.cpp:9:13) (void (*)())>'
+        typename result_of<_Callable(_Args...)>::type
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+2 errors generated.
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/local/include/c++/4.9.2/thread:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'struct std::_Bind_simple<interruptible::interruptible(F&&, A&& ...) [with F = void (&)(); A = {}]::<lambda(void (&)())>(void (*)())>':
+/usr/local/include/c++/4.9.2/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = interruptible::interruptible(F&&, A&& ...) [with F = void (&)(); A = {}]::<lambda(void (&)())>; _Args = {void (&)()}]'
+main.cpp:15:9:   required from 'interruptible::interruptible(F&&, A&& ...) [with F = void (&)(); A = {}]'
+main.cpp:29:28:   required from here
+/usr/local/include/c++/4.9.2/functional:1665:61: error: no type named 'type' in 'class std::result_of<interruptible::interruptible(F&&, A&& ...) [with F = void (&)(); A = {}]::<lambda(void (&)())>(void (*)())>'
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/local/include/c++/4.9.2/functional:1695:9: error: no type named 'type' in 'class std::result_of<interruptible::interruptible(F&&, A&& ...) [with F = void (&)(); A = {}]::<lambda(void (&)())>(void (*)())>'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
