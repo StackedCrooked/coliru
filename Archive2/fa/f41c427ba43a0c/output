@@ -1,0 +1,8 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
+main.cpp:9:3: error: variable of type 'A' has private destructor
+A a;
+  ^
+main.cpp:4:1: note: declared private here
+~A() = default;
+^
+1 error generated.
