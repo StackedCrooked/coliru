@@ -1,0 +1,13 @@
++ clang++ -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -fno-elide-constructors -stdlib=libc++ main.cpp -lsupc++
++ ./a.out
+bar      0x7fffd722c470
+bar      0x7fffd722c468
+---- 1 ----
+bar copy 0x7fffd722c418
+bar move 0x7ec010
+~bar     0x7fffd722c418
+---- 2 ----
+~bar     0x7ec010
+---- 3 ----
+~bar     0x7fffd722c468
+~bar     0x7fffd722c470
