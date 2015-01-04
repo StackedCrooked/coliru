@@ -1,0 +1,15 @@
++ g++-4.9 -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -fno-elide-constructors main.cpp
++ ./a.out
+bar      0x7fff8e85bac9
+bar      0x7fff8e85baca
+---- 1 ----
+bar copy 0x7fff8e85baf0
+bar move 0x7fff8e85bae0
+~bar     0x7fff8e85baf0
+bar move 0x2061038
+~bar     0x7fff8e85bae0
+---- 2 ----
+~bar     0x2061038
+---- 3 ----
+~bar     0x7fff8e85baca
+~bar     0x7fff8e85bac9
