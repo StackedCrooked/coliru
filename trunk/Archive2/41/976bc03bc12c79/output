@@ -1,0 +1,16 @@
++ g++-4.9 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -fno-elide-constructors main.cpp
+main.cpp: In function 'int main()':
+main.cpp:4:1: error: 'A::~A()' is private
+ ~A() = default;
+ ^
+main.cpp:9:3: error: within this context
+ A a;
+   ^
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -fno-elide-constructors -stdlib=libc++ main.cpp -lsupc++
+main.cpp:9:3: error: variable of type 'A' has private destructor
+A a;
+  ^
+main.cpp:4:1: note: declared private here
+~A() = default;
+^
+1 error generated.
