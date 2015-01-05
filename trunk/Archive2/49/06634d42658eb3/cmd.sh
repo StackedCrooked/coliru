@@ -1,0 +1,1 @@
+g++ -std=c++14 -O0 -Wall -pedantic -Wno-overflow -pthread main.cpp -ldl -lssl -lcrypto && ./a.out
