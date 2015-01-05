@@ -1,0 +1,23 @@
+main.cpp: In instantiation of 'class MustBeEqComparable<NotComparableAtAll>':
+main.cpp:68:44:   required from here
+main.cpp:55:5: error: static assertion failed: Type T is not equality comparable!
+     static_assert(is_equality_comparable<T>::value, "Type T is not equality comparable!");
+     ^
+main.cpp: In instantiation of 'class MustBeLessThanComparable<NotComparableAtAll>':
+main.cpp:72:50:   required from here
+main.cpp:61:5: error: static assertion failed: Type T is not less than comparable!
+     static_assert(is_less_than_comparable<T>::value, "Type T is not less than comparable!");
+     ^
+main.cpp: In function 'int main()':
+main.cpp:66:38: warning: unused variable 'a' [-Wunused-variable]
+     MustBeEqComparable<EqComparable> a;
+                                      ^
+main.cpp:68:44: warning: unused variable 'b' [-Wunused-variable]
+     MustBeEqComparable<NotComparableAtAll> b; // issues error
+                                            ^
+main.cpp:70:50: warning: unused variable 'c' [-Wunused-variable]
+     MustBeLessThanComparable<LessThanComparable> c;
+                                                  ^
+main.cpp:72:50: warning: unused variable 'd' [-Wunused-variable]
+     MustBeLessThanComparable<NotComparableAtAll> d; // issues error
+                                                  ^
