@@ -1,0 +1,21 @@
+Before adding to map:
+	[abc, [Count: 123]; def, [Count: 456]; ghi, [Count: 789]; ]
+After one call to:
+	getCounter("jkl") = [Count: 0]:
+	[abc, [Count: 123]; def, [Count: 456]; ghi, [Count: 789]; jkl, [Count: 0]; ]
+After one call to:
+	getCounter("abc") = [Count: 123]:
+	[abc, [Count: 123]; def, [Count: 456]; ghi, [Count: 789]; jkl, [Count: 0]; ]
+After one call to:
+	getCounter("def", 123456789) = [Count: 456]:
+	[abc, [Count: 123]; def, [Count: 456]; ghi, [Count: 789]; jkl, [Count: 0]; ]
+After replacing value [Count: 456] from key "def" with value [Count: 579]:
+	[abc, [Count: 123]; def, [Count: 579]; ghi, [Count: 789]; jkl, [Count: 0]; ]
+After one call to:
+	getCounter("xyz", 123456789) = [Count: 123456789]:
+	[abc, [Count: 123]; def, [Count: 579]; ghi, [Count: 789]; jkl, [Count: 0]; xyz, [Count: 123456789]; ]
+After one call to:
+	getCounter("abc") = [Count: 123]:
+	[abc, [Count: 123]; def, [Count: 579]; ghi, [Count: 789]; jkl, [Count: 0]; xyz, [Count: 123456789]; ]
+After `operator += 9876543210` on [Count: 123] = [Count: 9876543333]:
+	[abc, [Count: 9876543333]; def, [Count: 579]; ghi, [Count: 789]; jkl, [Count: 0]; xyz, [Count: 123456789]; ]
