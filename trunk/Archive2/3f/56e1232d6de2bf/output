@@ -1,0 +1,13 @@
+main.cpp:6:33: error: no member named 'make_unique' in namespace 'std'
+  std::unique_ptr<int> p = std::make_unique<int>(3); 
+                           ~~~~~^
+main.cpp:6:48: error: expected '(' for function-style cast or type construction
+  std::unique_ptr<int> p = std::make_unique<int>(3); 
+                                            ~~~^
+main.cpp:7:25: error: call to deleted constructor of 'std::unique_ptr<int>'
+  auto f = [=](int j){ *p = j; }; 
+                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unique_ptr.h:356:7: note: 'unique_ptr' has been explicitly marked deleted here
+      unique_ptr(const unique_ptr&) = delete;
+      ^
+3 errors generated.
