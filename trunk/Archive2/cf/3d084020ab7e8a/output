@@ -1,0 +1,16 @@
+main.cpp:12:38: error: type/value mismatch at argument 1 in template parameter list for 'template<class _Tp> class std::shared_ptr'
+     std::shared_ptr<shared_stack_node> data_;
+                                      ^
+main.cpp:12:38: error:   expected a type, got 'shared_stack_node'
+main.cpp: In member function 'const T& shared_stack<T>::top() const':
+main.cpp:16:40: error: base operand of '->' is not a pointer
+     const T& top() const { return data_->head; }
+                                        ^
+main.cpp: In member function 'void shared_stack<T>::pop()':
+main.cpp:17:31: error: base operand of '->' is not a pointer
+     void pop() { data_ = data_->tail; }
+                               ^
+main.cpp: At global scope:
+main.cpp:23:1: error: expected unqualified-id before '...' token
+ ...
+ ^
