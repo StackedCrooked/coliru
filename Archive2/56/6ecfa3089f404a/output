@@ -1,0 +1,130 @@
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:175:14: error: no viable overloaded '='
+      first_ = *buffers_.begin();
+      ~~~~~~ ^ ~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/asio/impl/read.hpp:45:44: note: in instantiation of member function 'boost::asio::detail::consuming_buffers<boost::asio::mutable_buffer, ByteBuffer>::consuming_buffers' requested here
+    mutable_buffer, MutableBufferSequence> tmp(buffers);
+                                           ^
+/usr/local/include/boost/asio/impl/read.hpp:73:10: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer, boost::asio::detail::transfer_all_t>' requested here
+  return read(s, buffers, transfer_all(), ec);
+         ^
+main.cpp:317:18: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer>' requested here
+    boost::asio::read(socket, response,ec);
+                 ^
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'value_type' (aka 'char') to 'const boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'value_type' (aka 'char') to 'boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:211:27: error: member function 'end' not viable: 'this' argument has type 'const ByteBuffer', but function is not marked const
+        begin_remainder_, buffers_.end(), max_size_);
+                          ^~~~~~~~
+/usr/local/include/boost/asio/impl/read.hpp:49:14: note: in instantiation of member function 'boost::asio::detail::consuming_buffers<boost::asio::mutable_buffer, ByteBuffer>::begin' requested here
+  while (tmp.begin() != tmp.end())
+             ^
+/usr/local/include/boost/asio/impl/read.hpp:73:10: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer, boost::asio::detail::transfer_all_t>' requested here
+  return read(s, buffers, transfer_all(), ec);
+         ^
+main.cpp:317:18: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer>' requested here
+    boost::asio::read(socket, response,ec);
+                 ^
+main.cpp:265:14: note: 'end' declared here
+    iterator end() {
+             ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:51:3: error: constructor for 'boost::asio::detail::consuming_buffers_iterator<boost::asio::mutable_buffer, ByteBuffer::const_iterator>' must explicitly initialize the member 'begin_remainder_' which does not have a default constructor
+  consuming_buffers_iterator()
+  ^
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:217:12: note: in instantiation of member function 'boost::asio::detail::consuming_buffers_iterator<boost::asio::mutable_buffer, ByteBuffer::const_iterator>::consuming_buffers_iterator' requested here
+    return const_iterator();
+           ^
+/usr/local/include/boost/asio/impl/read.hpp:49:29: note: in instantiation of member function 'boost::asio::detail::consuming_buffers<boost::asio::mutable_buffer, ByteBuffer>::end' requested here
+  while (tmp.begin() != tmp.end())
+                            ^
+/usr/local/include/boost/asio/impl/read.hpp:73:10: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer, boost::asio::detail::transfer_all_t>' requested here
+  return read(s, buffers, transfer_all(), ec);
+         ^
+main.cpp:317:18: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer>' requested here
+    boost::asio::read(socket, response,ec);
+                 ^
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:148:19: note: member is declared here
+  Buffer_Iterator begin_remainder_;
+                  ^
+main.cpp:12:11: note: 'ByteBuffer::const_iterator' declared here
+    class const_iterator:
+          ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:51:3: error: constructor for 'boost::asio::detail::consuming_buffers_iterator<boost::asio::mutable_buffer, ByteBuffer::const_iterator>' must explicitly initialize the member 'end_remainder_' which does not have a default constructor
+  consuming_buffers_iterator()
+  ^
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:149:19: note: member is declared here
+  Buffer_Iterator end_remainder_;
+                  ^
+main.cpp:12:11: note: 'ByteBuffer::const_iterator' declared here
+    class const_iterator:
+          ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:238:18: error: no viable overloaded '='
+          first_ = *begin_remainder_++;
+          ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/asio/impl/read.hpp:52:9: note: in instantiation of member function 'boost::asio::detail::consuming_buffers<boost::asio::mutable_buffer, ByteBuffer>::consume' requested here
+    tmp.consume(bytes_transferred);
+        ^
+/usr/local/include/boost/asio/impl/read.hpp:73:10: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer, boost::asio::detail::transfer_all_t>' requested here
+  return read(s, buffers, transfer_all(), ec);
+         ^
+main.cpp:317:18: note: in instantiation of function template specialization 'boost::asio::read<boost::asio::basic_stream_socket<boost::asio::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, ByteBuffer>' requested here
+    boost::asio::read(socket, response,ec);
+                 ^
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'const value_type' (aka 'const char') to 'const boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'const value_type' (aka 'const char') to 'boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+In file included from main.cpp:4:
+In file included from /usr/local/include/boost/asio.hpp:38:
+In file included from /usr/local/include/boost/asio/buffered_stream.hpp:22:
+In file included from /usr/local/include/boost/asio/buffered_write_stream.hpp:29:
+In file included from /usr/local/include/boost/asio/write.hpp:618:
+In file included from /usr/local/include/boost/asio/impl/write.hpp:23:
+/usr/local/include/boost/asio/detail/consuming_buffers.hpp:253:16: error: no viable overloaded '='
+        first_ = *begin_remainder_++;
+        ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'const value_type' (aka 'const char') to 'const boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+/usr/local/include/boost/asio/buffer.hpp:92:7: note: candidate function (the implicit move assignment operator) not viable: no known conversion from 'const value_type' (aka 'const char') to 'boost::asio::mutable_buffer' for 1st argument
+class mutable_buffer
+      ^
+main.cpp:68:21: warning: private field 'buffer_' is not used [-Wunused-private-field]
+        ByteBuffer* buffer_;
+                    ^
+1 warning and 6 errors generated.
