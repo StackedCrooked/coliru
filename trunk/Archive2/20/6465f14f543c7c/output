@@ -1,0 +1,17 @@
+main.cpp:26:9: error: use of undeclared identifier 'customcrd'
+        customcrd { {  {1,  2},  {3,  4},  {5,  6} }, cartesian },
+        ^
+main.cpp:31:64: error: use of undeclared identifier 'customcrd'; did you mean 'customCRD'?
+    std::cout << "{9,10} found: " << boost::empty(v | filtered(customcrd::havingcorner(coordinate(9,10)))) << "\n";
+                                                               ^~~~~~~~~
+                                                               customCRD
+main.cpp:13:8: note: 'customCRD' declared here
+struct customCRD {
+       ^
+main.cpp:31:75: error: no member named 'havingcorner' in 'customCRD'; did you mean 'havingCorner'?
+    std::cout << "{9,10} found: " << boost::empty(v | filtered(customcrd::havingcorner(coordinate(9,10)))) << "\n";
+                                                               ~~~~~~~~~~~^
+main.cpp:17:12: note: 'havingCorner' declared here
+    struct havingCorner {
+           ^
+3 errors generated.
