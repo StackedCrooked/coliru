@@ -1,0 +1,22 @@
+clang++ c++11
+main.cpp:6:29: error: invalid use of 'this' outside of a non-static member function
+    void fillBg(int color = this->color);
+                            ^
+1 error generated.
+
+clang++ c++14
+main.cpp:6:29: error: invalid use of 'this' outside of a non-static member function
+    void fillBg(int color = this->color);
+                            ^
+1 error generated.
+
+g++ c++11
+main.cpp:6:29: error: 'this' may not be used in this context
+     void fillBg(int color = this->color);
+                             ^
+
+g++ c++14
+main.cpp:6:29: error: 'this' may not be used in this context
+     void fillBg(int color = this->color);
+                             ^
+
