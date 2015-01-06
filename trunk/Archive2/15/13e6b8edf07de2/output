@@ -1,0 +1,21 @@
+main.cpp:30:2: error: static_assert failed "wrong function"
+        static_assert(is_callable_with <Func, U>::value, "wrong function");
+        ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:51:3: note: in instantiation of function template specialization 'MedianEx<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, (lambda at main.cpp:51:36)>' requested here
+         MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+         ^
+main.cpp:33:50: error: no matching function for call to object of type '(lambda at main.cpp:51:36)'
+        sort(src_begin, src_end, [&](U a, U b) { return func(a) < func(b); });
+                                                        ^~~~
+main.cpp:51:36: note: candidate function not viable: no known conversion from 'U' (aka 'int') to 'std::string' (aka 'basic_string<char>') for 1st argument
+         MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                          ^
+main.cpp:51:36: note: conversion candidate of type 'std::basic_string<char> (*)(std::string)'
+main.cpp:38:13: error: no matching function for call to object of type '(lambda at main.cpp:51:36)'
+                median = (func(*(src_begin + (count / 2 + 1))) +
+                          ^~~~
+main.cpp:51:36: note: candidate function not viable: no known conversion from 'int' to 'std::string' (aka 'basic_string<char>') for 1st argument
+         MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                          ^
+main.cpp:51:36: note: conversion candidate of type 'std::basic_string<char> (*)(std::string)'
+3 errors generated.
