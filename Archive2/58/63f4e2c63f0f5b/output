@@ -1,0 +1,52 @@
+main.cpp: In instantiation of 'double MedianEx(InputIterator, InputIterator, Func) [with InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; Func = main()::<lambda(std::string)>]':
+main.cpp:51:73:   required from here
+main.cpp:30:2: error: static assertion failed: wrong function
+  static_assert(is_callable_with <Func, U>::value, "wrong function");
+  ^
+main.cpp:39:34: error: no match for call to '(main()::<lambda(std::string)>) (int&)'
+   func(*(src_begin + (count / 2)))) /
+                                  ^
+main.cpp:51:37: note: candidates are:
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                     ^
+main.cpp:39:34: note: std::string (*)(std::string) {aka std::basic_string<char> (*)(std::basic_string<char>)} <conversion>
+   func(*(src_begin + (count / 2)))) /
+                                  ^
+main.cpp:39:34: note:   candidate expects 2 arguments, 2 provided
+main.cpp:51:56: note: main()::<lambda(std::string)>
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                                        ^
+main.cpp:51:56: note:   no known conversion for argument 1 from 'int' to 'std::string {aka std::basic_string<char>}'
+main.cpp:38:48: error: no match for call to '(main()::<lambda(std::string)>) (int&)'
+   median = (func(*(src_begin + (count / 2 + 1))) +
+                                                ^
+main.cpp:51:37: note: candidates are:
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                     ^
+main.cpp:38:48: note: std::string (*)(std::string) {aka std::basic_string<char> (*)(std::basic_string<char>)} <conversion>
+   median = (func(*(src_begin + (count / 2 + 1))) +
+                                                ^
+main.cpp:38:48: note:   candidate expects 2 arguments, 2 provided
+main.cpp:51:56: note: main()::<lambda(std::string)>
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                                        ^
+main.cpp:51:56: note:   no known conversion for argument 1 from 'int' to 'std::string {aka std::basic_string<char>}'
+main.cpp:42:43: error: no match for call to '(main()::<lambda(std::string)>) (int&)'
+   median = func(*(src_begin + (count / 2)));
+                                           ^
+main.cpp:51:37: note: candidates are:
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                     ^
+main.cpp:42:43: note: std::string (*)(std::string) {aka std::basic_string<char> (*)(std::basic_string<char>)} <conversion>
+   median = func(*(src_begin + (count / 2)));
+                                           ^
+main.cpp:42:43: note:   candidate expects 2 arguments, 2 provided
+main.cpp:51:56: note: main()::<lambda(std::string)>
+   MedianEx(arr.begin(), arr.end(), [](std::string value){return value; });//error
+                                                        ^
+main.cpp:51:56: note:   no known conversion for argument 1 from 'int' to 'std::string {aka std::basic_string<char>}'
+In file included from /usr/local/include/c++/4.9.2/algorithm:62:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4705:5: error: 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; _Compare = MedianEx(InputIterator, InputIterator, Func) [with InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; Func = main()::<lambda(std::string)>]::<lambda(U, U)>]', declared using local type 'MedianEx(InputIterator, InputIterator, Func) [with InputIterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; Func = main()::<lambda(std::string)>]::<lambda(U, U)>', is used but never defined [-fpermissive]
+     sort(_RandomAccessIterator __first, _RandomAccessIterator __last,
+     ^
