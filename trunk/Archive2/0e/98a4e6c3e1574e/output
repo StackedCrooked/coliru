@@ -1,0 +1,36 @@
++ clang++ -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:5:14: fatal error: recursive template instantiation exceeded maximum depth of 256
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967043>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967044>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967045>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967046>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967047>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: (skipping 247 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<4294967295>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<0>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<1>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:5:14: note: in instantiation of function template specialization 'fact<2>' requested here
+    return T*fact<T-1>();
+             ^
+main.cpp:9:19: note: in instantiation of function template specialization 'fact<3>' requested here
+    static_assert(fact<3>()==6,  "fact doesn't work");
+                  ^
+1 error generated.
