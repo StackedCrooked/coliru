@@ -1,0 +1,48 @@
+main.cpp:9:12: error: 'trap' does not name a type
+     static trap
+            ^
+main.cpp:22:30: error: expected identifier before '*' token
+ template<typename RET, Base::*f> // <-- one trap for each f in Base that gets enabled!
+                              ^
+main.cpp: In function 'RET trap(void*, ...)':
+main.cpp:27:20: error: base operand of '->' has non-pointer type 'Base'
+         return base->f(...);
+                    ^
+main.cpp:27:24: error: expected primary-expression before '...' token
+         return base->f(...);
+                        ^
+main.cpp:29:11: error: expected '(' before '{' token
+     catch {
+           ^
+main.cpp:29:11: error: expected type-specifier before '{' token
+main.cpp:29:11: error: expected ')' before '{' token
+main.cpp: In member function 'void Trampoline::enable_f1()':
+main.cpp:43:62: error: no matching function for call to 'trap()'
+     void enable_f1() { table.fp_1 = trap<int, &Base::func_1>(); }
+                                                              ^
+main.cpp:43:62: note: candidate is:
+main.cpp:23:5: note: template<class RET, int* f> RET trap(void*, ...)
+ RET trap( void* self, ... )
+     ^
+main.cpp:23:5: note:   template argument deduction/substitution failed:
+main.cpp:43:62: error: could not convert template argument '&Base::func_1' to 'int*'
+     void enable_f1() { table.fp_1 = trap<int, &Base::func_1>(); }
+                                                              ^
+main.cpp: In member function 'void Trampoline::enable_f2()':
+main.cpp:44:24: error: expected primary-expression before '?' token
+     void enable_f2() { ? }
+                        ^
+main.cpp:44:26: error: expected primary-expression before '}' token
+     void enable_f2() { ? }
+                          ^
+main.cpp:44:26: error: expected ':' before '}' token
+main.cpp:44:26: error: expected primary-expression before '}' token
+main.cpp: In member function 'void Trampoline::enable_f3()':
+main.cpp:45:24: error: expected primary-expression before '?' token
+     void enable_f3() { ? }
+                        ^
+main.cpp:45:26: error: expected primary-expression before '}' token
+     void enable_f3() { ? }
+                          ^
+main.cpp:45:26: error: expected ':' before '}' token
+main.cpp:45:26: error: expected primary-expression before '}' token
