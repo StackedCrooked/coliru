@@ -1,0 +1,1 @@
+clang++ -std=c++14 -Os -Wall -pedantic main.cpp && ./a.out
