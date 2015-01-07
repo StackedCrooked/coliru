@@ -1,0 +1,58 @@
+main.cpp:1:5: error: expected unqualified-id before 'protected'
+     protected:
+     ^
+main.cpp:4:19: error: 'F1' has not been declared
+         template <F1 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                   ^
+main.cpp: In function 'void add_method(const char*, const char*)':
+main.cpp:4:117: error: 'handler' was not declared in this scope
+         template <F1 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                                                                                                                     ^
+main.cpp:4:127: error: expected primary-expression before ')' token
+         template <F1 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                                                                                                                               ^
+main.cpp:4:127: error: there are no arguments to 'PCF' that depend on a template parameter, so a declaration of 'PCF' must be available [-fpermissive]
+main.cpp:4:127: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: At global scope:
+main.cpp:5:19: error: 'F2' has not been declared
+         template <F2 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                   ^
+main.cpp:5:37: error: redefinition of 'template<int f> void add_method(const char*, const char*)'
+         template <F2 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                                     ^
+main.cpp:4:37: note: 'template<int f> void add_method(const char*, const char*)' previously declared here
+         template <F1 f> static void add_method( const char* name, const char* doc="" )  { add_method( name, f, PCF(&handler<f>), doc ); }
+                                     ^
+main.cpp:7:5: error: expected unqualified-id before 'private'
+     private:
+     ^
+main.cpp:11:16: error: 'PyObject' does not name a type
+         static PyObject* handlerX( int i, std::function<Object()> lambda )
+                ^
+main.cpp:26:19: error: 'F0' has not been declared
+         template< F0 f > static P handler( P o, P   )      { return handlerX( 0, [&] ()->Object { return (final(o) ->* f)(                         ); }  ); }
+                   ^
+main.cpp:25:19: error: 'PyObject' does not name a type
+         #define P PyObject*
+                   ^
+main.cpp:26:33: note: in expansion of macro 'P'
+         template< F0 f > static P handler( P o, P   )      { return handlerX( 0, [&] ()->Object { return (final(o) ->* f)(                         ); }  ); }
+                                 ^
+main.cpp:27:19: error: 'F1' has not been declared
+         template< F1 f > static P handler( P o, P a )      { return handlerX( 1, [&] ()->Object { return (final(o) ->* f)( to_tuple(a)             ); }  ); }
+                   ^
+main.cpp:25:19: error: 'PyObject' does not name a type
+         #define P PyObject*
+                   ^
+main.cpp:27:33: note: in expansion of macro 'P'
+         template< F1 f > static P handler( P o, P a )      { return handlerX( 1, [&] ()->Object { return (final(o) ->* f)( to_tuple(a)             ); }  ); }
+                                 ^
+main.cpp:28:19: error: 'F2' has not been declared
+         template< F2 f > static P handler( P o, P a, P k ) { return handlerX( 2, [&] ()->Object { return (final(o) ->* f)( to_tuple(a), to_dict(k) ); }  ); }
+                   ^
+main.cpp:25:19: error: 'PyObject' does not name a type
+         #define P PyObject*
+                   ^
+main.cpp:28:33: note: in expansion of macro 'P'
+         template< F2 f > static P handler( P o, P a, P k ) { return handlerX( 2, [&] ()->Object { return (final(o) ->* f)( to_tuple(a), to_dict(k) ); }  ); }
+                                 ^
