@@ -1,0 +1,13 @@
+In file included from main.cpp:5:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/algorithm:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algo.h:4163:14: error: no matching function for call to object of type '(lambda at main.cpp:12:73)'
+        *__result = __unary_op(*__first);
+                    ^~~~~~~~~~
+main.cpp:12:10: note: in instantiation of function template specialization 'std::transform<std::_Rb_tree_iterator<std::pair<const int, std::basic_string<char> > >, std::back_insert_iterator<std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > > >, (lambda at main.cpp:12:73)>' requested here
+    std::transform(myMap.begin(), myMap.end(), std::back_inserter(vec), [](std::pair<int, std::string>& entry) { return entry.second; });
+         ^
+main.cpp:12:73: note: candidate function not viable: no known conversion from 'std::pair<const int, std::basic_string<char> >' to 'std::pair<int, std::string> &' for 1st argument
+    std::transform(myMap.begin(), myMap.end(), std::back_inserter(vec), [](std::pair<int, std::string>& entry) { return entry.second; });
+                                                                        ^
+main.cpp:12:73: note: conversion candidate of type 'std::basic_string<char> (*)(std::pair<int, std::string> &)'
+1 error generated.
