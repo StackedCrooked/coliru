@@ -1,0 +1,26 @@
+main.cpp: In function 'void print(std::string, ...)':
+main.cpp:11:50: error: no matching function for call to 'find(std::basic_string<char>::iterator&, std::basic_string<char>::iterator&, char)'
+     std::string::iterator f = std::find(s, e, '%');  // find %
+                                                  ^
+main.cpp:11:50: note: candidate is:
+In file included from /usr/local/include/c++/4.9.2/bits/locale_facets.h:48:0,
+                 from /usr/local/include/c++/4.9.2/bits/basic_ios.h:37,
+                 from /usr/local/include/c++/4.9.2/ios:44,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/streambuf_iterator.h:369:5: note: template<class _CharT2> typename __gnu_cxx::__enable_if<std::__is_char<_CharT2>::__value, std::istreambuf_iterator<_CharT> >::__type std::find(std::istreambuf_iterator<_CharT>, std::istreambuf_iterator<_CharT>, const _CharT2&)
+     find(istreambuf_iterator<_CharT> __first,
+     ^
+/usr/local/include/c++/4.9.2/bits/streambuf_iterator.h:369:5: note:   template argument deduction/substitution failed:
+main.cpp:11:50: note:   '__gnu_cxx::__normal_iterator<char*, std::basic_string<char> >' is not derived from 'std::istreambuf_iterator<_CharT>'
+     std::string::iterator f = std::find(s, e, '%');  // find %
+                                                  ^
+In file included from main.cpp:2:0:
+main.cpp:26:25: error: cannot receive objects of non-trivially-copyable type 'std::string {aka class std::basic_string<char>}' through '...'; 
+       std::string val = va_arg(LIST, std::string);
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:35:53: error: cannot pass objects of non-trivially-copyable type 'std::string {aka class std::basic_string<char>}' through '...'
+  print("%d%c%f%s", 2, 'a', 6.34, std::string("test"));
+                                                     ^
