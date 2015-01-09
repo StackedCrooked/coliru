@@ -1,0 +1,12 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:12:17: warning: unsequenced modification and access to 'a' [-Wunsequenced]
+    a ^= b ^= a ^= b;
+      ~~        ^
+1 warning generated.
++ ./a.out
+20 66
+66 20
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp
++ ./a.out
+20 66
+66 20
