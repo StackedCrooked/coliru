@@ -1,0 +1,52 @@
+main.cpp:59:1: error: 'static' can only be specified inside the class definition
+static std::vector<int> Reverse<true>::FixSort(const std::vector<int>& original) {
+^~~~~~~
+main.cpp:63:17: error: no member named 'rbegin' in namespace 'std'; did you mean 'begin'?
+        std::sort(std::rbegin(returnVec), std::rend(returnVec));
+                  ~~~~~^~~~~~
+                       begin
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/initializer_list:89:5: note: 'begin' declared here
+    begin(initializer_list<_Tp> __ils) noexcept
+    ^
+main.cpp:63:12: error: no matching function for call to 'begin'
+        std::sort(std::rbegin(returnVec), std::rend(returnVec));
+                  ^~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/initializer_list:89:5: note: candidate template ignored: could not match 'initializer_list' against 'vector'
+    begin(initializer_list<_Tp> __ils) noexcept
+    ^
+main.cpp:63:41: error: no member named 'rend' in namespace 'std'
+        std::sort(std::rbegin(returnVec), std::rend(returnVec));
+                                          ~~~~~^
+main.cpp:72:1: error: 'static' can only be specified inside the class definition
+static std::vector<int> Reverse<false>::FixSort(const std::vector<int>& original) {
+^~~~~~~
+main.cpp:88:17: error: no template named 'istream_iterator' in namespace 'std'; did you mean 'istreambuf_iterator'?
+        std::copy(std::istream_iterator<std::string>(inputFile),
+                  ~~~~~^~~~~~~~~~~~~~~~
+                       istreambuf_iterator
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:50:11: note: 'istreambuf_iterator' declared here
+    class istreambuf_iterator
+          ^
+main.cpp:88:12: error: no matching conversion for functional-style cast from 'std::ifstream' (aka 'basic_ifstream<char>') to 'std::istreambuf_iterator<std::string>'
+        std::copy(std::istream_iterator<std::string>(inputFile),
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:106:7: note: candidate constructor not viable: no known conversion from 'std::ifstream' (aka 'basic_ifstream<char>') to 'const std::istreambuf_iterator<std::basic_string<char>, std::char_traits<std::basic_string<char> > >' for 1st argument
+      istreambuf_iterator(const istreambuf_iterator&) noexcept = default;
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:112:7: note: candidate constructor not viable: no known conversion from 'std::ifstream' (aka 'basic_ifstream<char>') to 'istream_type &' (aka 'basic_istream<std::basic_string<char>, std::char_traits<std::basic_string<char> > > &') for 1st argument
+      istreambuf_iterator(istream_type& __s) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:116:7: note: candidate constructor not viable: no known conversion from 'std::ifstream' (aka 'basic_ifstream<char>') to 'streambuf_type *' (aka 'basic_streambuf<std::basic_string<char>, std::char_traits<std::basic_string<char> > > *') for 1st argument
+      istreambuf_iterator(streambuf_type* __s) _GLIBCXX_USE_NOEXCEPT
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:102:26: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      _GLIBCXX_CONSTEXPR istreambuf_iterator() _GLIBCXX_USE_NOEXCEPT
+                         ^
+main.cpp:89:8: error: no template named 'istream_iterator' in namespace 'std'; did you mean 'istreambuf_iterator'?
+                std::istream_iterator<std::string>(),
+                ~~~~~^~~~~~~~~~~~~~~~
+                     istreambuf_iterator
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:50:11: note: 'istreambuf_iterator' declared here
+    class istreambuf_iterator
+          ^
+8 errors generated.
