@@ -1,0 +1,52 @@
+main.cpp:2:37: error: expected template-name before '<' token
+ struct FruitMapKey : variant_map_key<TValue> {
+                                     ^
+main.cpp:2:37: error: expected '{' before '<' token
+main.cpp:2:37: error: expected unqualified-id before '<' token
+main.cpp:4:2: warning: extra ';' [-Wpedantic]
+ };
+  ^
+main.cpp:6:30: error: expected template-name before '<' token
+ struct FruitMap : variant_map<FruitMap, FruitMapKey> {
+                              ^
+main.cpp:6:30: error: expected '{' before '<' token
+main.cpp:6:30: error: expected unqualified-id before '<' token
+main.cpp:14:17: error: 'Key' in 'struct FruitMap' does not name a template type
+ const FruitMap::Key<int> FruitMap::Apple;
+                 ^
+main.cpp:15:17: error: 'Key' in 'struct FruitMap' does not name a template type
+ const FruitMap::Key<double> FruitMap::Orange;
+                 ^
+main.cpp:18:3: error: expected initializer before 'FruitMap'
+   FruitMap fm;
+   ^
+main.cpp:19:16: error: 'fm' was not declared in this scope
+   int* apple = fm.get(FruitMap::Apple);
+                ^
+main.cpp:19:23: error: incomplete type 'FruitMap' used in nested name specifier
+   int* apple = fm.get(FruitMap::Apple);
+                       ^
+main.cpp:20:8: error: 'cout' in namespace 'std' does not name a type
+   std::cout << "apple ptr is " << apple << "\n";
+        ^
+main.cpp:21:3: error: 'fm' does not name a type
+   fm.set(FruitMap::Orange, 1.5);
+   ^
+main.cpp:23:20: error: 'fm' was not declared in this scope
+   double* orange = fm.get(FruitMap::Orange);
+                    ^
+main.cpp:23:27: error: incomplete type 'FruitMap' used in nested name specifier
+   double* orange = fm.get(FruitMap::Orange);
+                           ^
+main.cpp:24:8: error: 'cout' in namespace 'std' does not name a type
+   std::cout << "orange ptr is " << orange << "\n";
+        ^
+main.cpp:25:8: error: 'cout' in namespace 'std' does not name a type
+   std::cout << "orange value is " << *orange << "\n";
+        ^
+main.cpp:27:3: error: expected unqualified-id before 'return'
+   return 0l
+   ^
+main.cpp:28:1: error: expected declaration before '}' token
+ }
+ ^
