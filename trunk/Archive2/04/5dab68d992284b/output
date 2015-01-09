@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:93:118: error: wrong number of template arguments (2, should be 4)
+ #define BIND(c_slot, cxx_target) c_slot = Generate< decltype(&c_slot), &c_slot,   decltype(&cxx_target), &cxx_target >::call;
+                                                                                                                      ^
+main.cpp:97:5: note: in expansion of macro 'BIND'
+     BIND( table.tp_getattr, Base::getattr );
+     ^
+main.cpp:67:8: error: provided for 'template<class Fc, Fc f, class Target, Target target> struct Generate'
+ struct Generate;
+        ^
