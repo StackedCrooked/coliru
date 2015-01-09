@@ -1,0 +1,54 @@
+main.cpp: In instantiation of 'const T& Lazy<T, Factory>::get() const [with T = std::basic_string<char>; Factory = main()::<lambda()>]':
+main.cpp:28:25:   required from here
+main.cpp:9:61: error: no match for 'operator=' (operand types are 'const boost::optional<std::basic_string<char> >' and 'const char*')
+     T const& get() const { return *(_value? _value : _value = _factory()); }
+                                                             ^
+main.cpp:9:61: note: candidates are:
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:2:
+/usr/local/include/boost/optional/optional.hpp:867:5: note: typename boost::disable_if_c<(boost::is_base_of<boost::optional_detail::optional_tag, typename boost::decay<Expr>::type>::value || boost::is_same<typename boost::decay<Expr>::type, int boost::detail::none_helper::*>::value), boost::optional<T>&>::type boost::optional<T>::operator=(Expr&&) [with Expr = const char*; T = std::basic_string<char>; typename boost::disable_if_c<(boost::is_base_of<boost::optional_detail::optional_tag, typename boost::decay<Expr>::type>::value || boost::is_same<typename boost::decay<Expr>::type, int boost::detail::none_helper::*>::value), boost::optional<T>&>::type = boost::optional<std::basic_string<char> >&] <near match>
+     operator= ( Expr&& expr )
+     ^
+/usr/local/include/boost/optional/optional.hpp:867:5: note:   no known conversion for implicit 'this' parameter from 'const boost::optional<std::basic_string<char> >*' to 'boost::optional<std::basic_string<char> >*'
+/usr/local/include/boost/optional/optional.hpp:888:15: note: template<class U> boost::optional<T>& boost::optional<T>::operator=(const boost::optional<U>&) [with U = U; T = std::basic_string<char>]
+     optional& operator= ( optional<U> const& rhs )
+               ^
+/usr/local/include/boost/optional/optional.hpp:888:15: note:   template argument deduction/substitution failed:
+main.cpp:9:61: note:   mismatched types 'const boost::optional<T>' and 'const char*'
+     T const& get() const { return *(_value? _value : _value = _factory()); }
+                                                             ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:2:
+/usr/local/include/boost/optional/optional.hpp:899:15: note: template<class U> boost::optional<T>& boost::optional<T>::operator=(boost::optional<U>&&) [with U = U; T = std::basic_string<char>]
+     optional& operator= ( optional<U> && rhs )
+               ^
+/usr/local/include/boost/optional/optional.hpp:899:15: note:   template argument deduction/substitution failed:
+main.cpp:9:61: note:   mismatched types 'boost::optional<T>' and 'const char*'
+     T const& get() const { return *(_value? _value : _value = _factory()); }
+                                                             ^
+In file included from /usr/local/include/boost/optional.hpp:15:0,
+                 from main.cpp:2:
+/usr/local/include/boost/optional/optional.hpp:909:15: note: boost::optional<T>& boost::optional<T>::operator=(const boost::optional<T>&) [with T = std::basic_string<char>]
+     optional& operator= ( optional const& rhs )
+               ^
+/usr/local/include/boost/optional/optional.hpp:909:15: note:   no known conversion for argument 1 from 'const char*' to 'const boost::optional<std::basic_string<char> >&'
+/usr/local/include/boost/optional/optional.hpp:917:15: note: boost::optional<T>& boost::optional<T>::operator=(boost::optional<T>&&) [with T = std::basic_string<char>]
+     optional& operator= ( optional && rhs ) 
+               ^
+/usr/local/include/boost/optional/optional.hpp:917:15: note:   no known conversion for argument 1 from 'const char*' to 'boost::optional<std::basic_string<char> >&&'
+/usr/local/include/boost/optional/optional.hpp:927:15: note: boost::optional<T>& boost::optional<T>::operator=(boost::optional<T>::argument_type) [with T = std::basic_string<char>; boost::optional<T>::argument_type = const std::basic_string<char>&] <near match>
+     optional& operator= ( argument_type val )
+               ^
+/usr/local/include/boost/optional/optional.hpp:927:15: note:   no known conversion for implicit 'this' parameter from 'const boost::optional<std::basic_string<char> >*' to 'boost::optional<std::basic_string<char> >*'
+/usr/local/include/boost/optional/optional.hpp:935:15: note: boost::optional<T>& boost::optional<T>::operator=(boost::optional<T>::rval_reference_type) [with T = std::basic_string<char>; boost::optional<T>::rval_reference_type = std::basic_string<char>&&] <near match>
+     optional& operator= ( rval_reference_type val )
+               ^
+/usr/local/include/boost/optional/optional.hpp:935:15: note:   no known conversion for implicit 'this' parameter from 'const boost::optional<std::basic_string<char> >*' to 'boost::optional<std::basic_string<char> >*'
+/usr/local/include/boost/optional/optional.hpp:946:15: note: boost::optional<T>& boost::optional<T>::operator=(boost::none_t) [with T = std::basic_string<char>; boost::none_t = int boost::detail::none_helper::*]
+     optional& operator= ( none_t none_ ) BOOST_NOEXCEPT
+               ^
+/usr/local/include/boost/optional/optional.hpp:946:15: note:   no known conversion for argument 1 from 'const char*' to 'boost::none_t {aka int boost::detail::none_helper::*}'
+main.cpp: In member function 'const T& Lazy<T, Factory>::get() const [with T = std::basic_string<char>; Factory = main()::<lambda()>]':
+main.cpp:9:76: warning: control reaches end of non-void function [-Wreturn-type]
+     T const& get() const { return *(_value? _value : _value = _factory()); }
+                                                                            ^
