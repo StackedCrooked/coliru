@@ -1,0 +1,36 @@
+main.cpp: In instantiation of 'static R trap<R (Base::*)(Args ...), t>::call(Args ...) [with R = int; Args = Noisy&, Noisy; R (Base::* t)(Args ...) = &Base::target]':
+main.cpp:40:61:   required from here
+main.cpp:34:53: error: no matching function for call to 'move(Noisy&)'
+         return (get_base()->*t)(std::move<Args>(args)...); // WRONG!
+                                                     ^
+main.cpp:34:53: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/move.h:101:5: note: template<class _Tp> constexpr typename std::remove_reference< <template-parameter-1-1> >::type&& std::move(_Tp&&)
+     move(_Tp&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/bits/move.h:101:5: note:   template argument deduction/substitution failed:
+main.cpp:34:53: note:   cannot convert 'args#1' (type 'Noisy') to type 'Noisy&&'
+         return (get_base()->*t)(std::move<Args>(args)...); // WRONG!
+                                                     ^
+In file included from /usr/local/include/c++/4.9.2/bits/char_traits.h:39:0,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_algobase.h:489:5: note: template<class _II, class _OI> _OI std::move(_II, _II, _OI)
+     move(_II __first, _II __last, _OI __result)
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_algobase.h:489:5: note:   template argument deduction/substitution failed:
+main.cpp:34:53: note:   candidate expects 3 arguments, 1 provided
+         return (get_base()->*t)(std::move<Args>(args)...); // WRONG!
+                                                     ^
+main.cpp: In static member function 'static R trap<R (Base::*)(Args ...), t>::call(Args ...) [with R = int; Args = {Noisy&, Noisy}; R (Base::* t)(Args ...) = &Base::target]':
+main.cpp:35:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
