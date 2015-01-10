@@ -1,0 +1,17 @@
+main.cpp:10:9: error: 'QString' does not name a type
+         QString m_par3;
+         ^
+main.cpp: In member function 'void SSet::serialize(Archive&, unsigned int)':
+main.cpp:20:5: error: 'boost' has not been declared
+     boost::serialization::split_free(ar, m_par3, version);
+     ^
+main.cpp:20:42: error: 'm_par3' was not declared in this scope
+     boost::serialization::split_free(ar, m_par3, version);
+                                          ^
+main.cpp:21:40: error: there are no arguments to 'BOOST_SERIALIZATION_NVP' that depend on a template parameter, so a declaration of 'BOOST_SERIALIZATION_NVP' must be available [-fpermissive]
+     ar & BOOST_SERIALIZATION_NVP(m_par1);    
+                                        ^
+main.cpp:21:40: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:22:40: error: there are no arguments to 'BOOST_SERIALIZATION_NVP' that depend on a template parameter, so a declaration of 'BOOST_SERIALIZATION_NVP' must be available [-fpermissive]
+     ar & BOOST_SERIALIZATION_NVP(m_par2);
+                                        ^
