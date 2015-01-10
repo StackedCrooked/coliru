@@ -1,0 +1,34 @@
++ clang++ -stdlib=libc++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:6:10: error: redefinition of 'foo'
+    auto foo = Foo();       // <- error C2086: 'Foo foo' : redefinition
+         ^
+main.cpp:5:9: note: previous definition is here
+    Foo foo;
+        ^
+main.cpp:9:10: error: redefinition of 'boo'
+    auto boo = new Bar();   // <- error C2040: 'boo' : 'auto' differs in levels of indirection from 'Bar *'
+         ^
+main.cpp:8:10: note: previous definition is here
+    Bar* boo = new Bar();
+         ^
+2 errors generated.
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:6:10: error: conflicting declaration 'auto foo'
+     auto foo = Foo();       // <- error C2086: 'Foo foo' : redefinition
+          ^
+main.cpp:5:9: note: previous declaration as 'Foo foo'
+     Foo foo;
+         ^
+main.cpp:9:10: error: conflicting declaration 'auto boo'
+     auto boo = new Bar();   // <- error C2040: 'boo' : 'auto' differs in levels of indirection from 'Bar *'
+          ^
+main.cpp:8:10: note: previous declaration as 'Bar* boo'
+     Bar* boo = new Bar();
+          ^
+main.cpp:5:9: warning: unused variable 'foo' [-Wunused-variable]
+     Foo foo;
+         ^
+main.cpp:8:10: warning: unused variable 'boo' [-Wunused-variable]
+     Bar* boo = new Bar();
+          ^
