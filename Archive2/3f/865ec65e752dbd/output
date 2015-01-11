@@ -1,0 +1,108 @@
+In file included from /usr/local/include/boost/property_tree/xml_parser.hpp:19:0,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp: In instantiation of 'void boost::property_tree::xml_parser::read_xml_node(boost::property_tree::detail::rapidxml::xml_node<Ch>*, Ptree&, int) [with Ptree = boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >; Ch = char]':
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:130:50:   required from 'void boost::property_tree::xml_parser::read_xml_internal(std::basic_istream<typename Ptree::key_type::value_type>&, Ptree&, int, const string&) [with Ptree = boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >; typename Ptree::key_type::value_type = char; typename Ptree::key_type::value_type = char; std::string = std::basic_string<char>]'
+/usr/local/include/boost/property_tree/xml_parser.hpp:85:54:   required from 'void boost::property_tree::xml_parser::read_xml(const string&, Ptree&, int, const std::locale&) [with Ptree = boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >; std::string = std::basic_string<char>]'
+main.cpp:25:33:   required from here
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:47:40: error: no match for 'operator=' (operand types are 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::data_type {aka std::basic_string<wchar_t>}' and 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}')
+                         pt_attr.data() = typename Ptree::key_type(attr->value(), attr->value_size());
+                                        ^
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:47:40: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:554:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator=(const basic_string& __str) 
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:554:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const std::basic_string<wchar_t>&'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:562:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(const _CharT*) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator=(const _CharT* __s) 
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:562:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const wchar_t*'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:573:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(_CharT) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator=(_CharT __c) 
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:573:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'wchar_t'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:589:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator=(basic_string&& __str)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:589:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'std::basic_string<wchar_t>&&'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:601:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator=(std::initializer_list<_Tp>) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:601:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'std::initializer_list<wchar_t>'
+In file included from /usr/local/include/boost/property_tree/xml_parser.hpp:19:0,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:64:69: error: no matching function for call to 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::basic_ptree(char*)'
+                                                 Ptree(node->value())));
+                                                                     ^
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:64:69: note: candidates are:
+In file included from /usr/local/include/boost/property_tree/ptree.hpp:516:0,
+                 from /usr/local/include/boost/property_tree/xml_parser.hpp:14,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:191:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree(const boost::property_tree::basic_ptree<Key, Data, KeyCompare>&) [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >]
+     basic_ptree<K, D, C>::basic_ptree(const basic_ptree<K, D, C> &rhs)
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:191:5: note:   no known conversion for argument 1 from 'char*' to 'const boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >&'
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:185:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree(const data_type&) [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >; boost::property_tree::basic_ptree<Key, Data, KeyCompare>::data_type = std::basic_string<wchar_t>]
+     basic_ptree<K, D, C>::basic_ptree(const data_type &d)
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:185:5: note:   no known conversion for argument 1 from 'char*' to 'const data_type& {aka const std::basic_string<wchar_t>&}'
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:179:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree() [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >]
+     basic_ptree<K, D, C>::basic_ptree()
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:179:5: note:   candidate expects 0 arguments, 1 provided
+In file included from /usr/local/include/boost/property_tree/xml_parser.hpp:19:0,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:66:31: error: no match for 'operator+=' (operand types are 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::data_type {aka std::basic_string<wchar_t>}' and 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}')
+                     pt.data() += typename Ptree::key_type(node->value(), node->value_size());
+                               ^
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:66:31: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:949:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator+=(const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator+=(const basic_string& __str)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:949:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const std::basic_string<wchar_t>&'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:958:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator+=(const _CharT*) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator+=(const _CharT* __s)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:958:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const wchar_t*'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:967:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator+=(_CharT) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator+=(_CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:967:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'wchar_t'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:980:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::operator+=(std::initializer_list<_Tp>) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>]
+       operator+=(initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:980:7: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'std::initializer_list<wchar_t>'
+In file included from /usr/local/include/boost/property_tree/xml_parser.hpp:19:0,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:75:103: error: no matching function for call to 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::basic_ptree(boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type)'
+                                     Ptree(typename Ptree::key_type(node->value(), node->value_size()))));
+                                                                                                       ^
+/usr/local/include/boost/property_tree/detail/xml_parser_read_rapidxml.hpp:75:103: note: candidates are:
+In file included from /usr/local/include/boost/property_tree/ptree.hpp:516:0,
+                 from /usr/local/include/boost/property_tree/xml_parser.hpp:14,
+                 from main.cpp:4:
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:191:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree(const boost::property_tree::basic_ptree<Key, Data, KeyCompare>&) [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >]
+     basic_ptree<K, D, C>::basic_ptree(const basic_ptree<K, D, C> &rhs)
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:191:5: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >&'
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:185:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree(const data_type&) [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >; boost::property_tree::basic_ptree<Key, Data, KeyCompare>::data_type = std::basic_string<wchar_t>]
+     basic_ptree<K, D, C>::basic_ptree(const data_type &d)
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:185:5: note:   no known conversion for argument 1 from 'boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<wchar_t> >::key_type {aka std::basic_string<char>}' to 'const data_type& {aka const std::basic_string<wchar_t>&}'
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:179:5: note: boost::property_tree::basic_ptree<Key, Data, KeyCompare>::basic_ptree() [with Key = std::basic_string<char>; Data = std::basic_string<wchar_t>; KeyCompare = std::less<std::basic_string<char> >]
+     basic_ptree<K, D, C>::basic_ptree()
+     ^
+/usr/local/include/boost/property_tree/detail/ptree_implementation.hpp:179:5: note:   candidate expects 0 arguments, 1 provided
