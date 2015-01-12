@@ -1,0 +1,16 @@
+main.cpp: In instantiation of 'Logic::Logic(T) [with T = const char*]':
+main.cpp:32:16:   required from here
+main.cpp:22:39: error: use of deleted function 'safe_bool::safe_bool(T) [with T = const char*]'
+     Logic(T val): Logic(safe_bool(val)) {}
+                                       ^
+main.cpp:12:5: note: declared here
+     safe_bool(T) = delete;
+     ^
+main.cpp: In instantiation of 'Logic::Logic(T) [with T = int]':
+main.cpp:33:11:   required from here
+main.cpp:22:39: error: use of deleted function 'safe_bool::safe_bool(T) [with T = int]'
+     Logic(T val): Logic(safe_bool(val)) {}
+                                       ^
+main.cpp:12:5: note: declared here
+     safe_bool(T) = delete;
+     ^
