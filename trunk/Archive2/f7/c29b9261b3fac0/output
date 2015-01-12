@@ -1,0 +1,421 @@
+main.cpp:41:8: error: redefinition of 'struct RKD'
+ struct RKD {
+        ^
+main.cpp:10:8: error: previous definition of 'struct RKD'
+ struct RKD {
+        ^
+main.cpp: In function 'int main()':
+main.cpp:49:5: error: redefinition of 'int main()'
+ int main() {
+     ^
+main.cpp:14:5: note: 'int main()' previously defined here
+ int main() {
+     ^
+main.cpp: At global scope:
+main.cpp:66:1: error: 'typename std::result_of<_Functor(_ArgTypes ...)>::type std::_Bind_simple<_Callable(_Args ...)>::_M_invoke(std::_Index_tuple<_Indices ...>) [with long unsigned int ..._Indices = {}; _Callable = main()::<lambda()>; _Args = {}; typename std::result_of<_Functor(_ArgTypes ...)>::type = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1695:9: note: previous declaration 'typename std::result_of<_Functor(_ArgTypes ...)>::type std::_Bind_simple<_Callable(_Args ...)>::_M_invoke(std::_Index_tuple<_Indices ...>) [with long unsigned int ..._Indices = {}; _Callable = main()::<lambda()>; _Args = {}; typename std::result_of<_Functor(_ArgTypes ...)>::type = void]'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
+/usr/local/include/c++/4.9.2/functional:1695:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 0ul; _Elements = {main()::<lambda()>}; typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type = main()::<lambda()>&]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:756:5: note: previous declaration 'constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 0ul; _Elements = {main()::<lambda()>}; typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type = main()::<lambda()>&]'
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:756:5: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr typename std::__add_ref<_Head>::type std::__get_helper(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int __i = 0ul; _Head = main()::<lambda()>; _Tail = {}; typename std::__add_ref<_Head>::type = main()::<lambda()>&]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:743:5: note: previous declaration 'constexpr typename std::__add_ref<_Head>::type std::__get_helper(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int __i = 0ul; _Head = main()::<lambda()>; _Tail = {}; typename std::__add_ref<_Head>::type = main()::<lambda()>&]'
+     __get_helper(_Tuple_impl<__i, _Head, _Tail...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:743:5: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> std::allocator_traits<_Alloc>::_S_destroy(_Alloc&, _Tp*) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:281:2: note: previous declaration 'static std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> std::allocator_traits<_Alloc>::_S_destroy(_Alloc&, _Tp*) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> = void]'
+  _S_destroy(_Alloc& __a, _Tp* __p)
+  ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:281:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> std::allocator_traits<_Alloc>::_S_destroy(_Alloc&, _Tp*) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:281:2: note: previous declaration 'static std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> std::allocator_traits<_Alloc>::_S_destroy(_Alloc&, _Tp*) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; std::_Require<typename std::allocator_traits<_Alloc>::__destroy_helper<_Tp>::type> = void]'
+  _S_destroy(_Alloc& __a, _Tp* __p)
+  ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:281:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/memory:63,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: previous declaration 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]'
+         construct(_Up* __p, _Args&&... __args)
+         ^
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: previous declaration 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+  _S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+  ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: previous declaration 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+  static auto construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+              ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:510:2: note: previous declaration 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  _Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:510:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:510:2: note: previous declaration 'std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  _Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:510:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/memory:63,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: previous declaration 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>]'
+         construct(_Up* __p, _Args&&... __args)
+         ^
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: previous declaration 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+  _S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+  ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: previous declaration 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u>; _Args = {const std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, std::_Bind_simple<main()::<lambda()>()>}; _Alloc = std::allocator<std::_Sp_counted_ptr_inplace<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >, std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >, (__gnu_cxx::_Lock_policy)2u> >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+  static auto construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+              ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:608:2: note: previous declaration 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  __shared_count(_Sp_make_shared_tag, _Tp*, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:608:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:608:2: note: previous declaration 'std::__shared_count<_Lp>::__shared_count(std::_Sp_make_shared_tag, _Tp*, const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  __shared_count(_Sp_make_shared_tag, _Tp*, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:608:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:1087:2: note: previous declaration 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  __shared_ptr(_Sp_make_shared_tag __tag, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:1087:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/bits/shared_ptr.h:52:0,
+                 from /usr/local/include/c++/4.9.2/memory:82,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:1087:2: note: previous declaration 'std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; __gnu_cxx::_Lock_policy _Lp = (__gnu_cxx::_Lock_policy)2u]'
+  __shared_ptr(_Sp_make_shared_tag __tag, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr_base.h:1087:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:82:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:314:2: note: previous declaration 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]'
+  shared_ptr(_Sp_make_shared_tag __tag, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:314:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:82:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:314:2: note: previous declaration 'std::shared_ptr<_Tp>::shared_ptr(std::_Sp_make_shared_tag, const _Alloc&, _Args&& ...) [with _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}; _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >]'
+  shared_ptr(_Sp_make_shared_tag __tag, const _Alloc& __a,
+  ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:314:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:82:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:585:5: note: previous declaration 'std::shared_ptr<_Tp1> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Alloc = std::allocator<std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> > >; _Args = {std::_Bind_simple<main()::<lambda()>()>}]'
+     allocate_shared(const _Alloc& __a, _Args&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:585:5: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:82:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:600:5: note: previous declaration 'std::shared_ptr<_Tp1> std::make_shared(_Args&& ...) [with _Tp = std::thread::_Impl<std::_Bind_simple<main()::<lambda()>()> >; _Args = {std::_Bind_simple<main()::<lambda()>()>}]'
+     make_shared(_Args&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/bits/shared_ptr.h:600:5: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {}; <template-parameter-2-2> = void; _Callable = main()::<lambda()>; _Args = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1677:9: note: previous declaration 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {}; <template-parameter-2-2> = void; _Callable = main()::<lambda()>; _Args = {}]'
+         _Bind_simple(_Callable&& __callable, _Args2&&... __args)
+         ^
+/usr/local/include/c++/4.9.2/functional:1677:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {}; <template-parameter-2-2> = void; _Callable = main()::<lambda()>; _Args = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1677:9: note: previous declaration 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {}; <template-parameter-2-2> = void; _Callable = main()::<lambda()>; _Args = {}]'
+         _Bind_simple(_Callable&& __callable, _Args2&&... __args)
+         ^
+/usr/local/include/c++/4.9.2/functional:1677:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::tuple< <template-parameter-1-1> >::tuple(_UElements&& ...) [with _UElements = {main()::<lambda()>}; <template-parameter-2-2> = void; _Elements = {main()::<lambda()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:404:19: note: previous declaration 'constexpr std::tuple< <template-parameter-1-1> >::tuple(_UElements&& ...) [with _UElements = {main()::<lambda()>}; <template-parameter-2-2> = void; _Elements = {main()::<lambda()>}]'
+         constexpr tuple(_UElements&&... __elements)
+                   ^
+/usr/local/include/c++/4.9.2/tuple:404:19: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::tuple< <template-parameter-1-1> >::tuple(_UElements&& ...) [with _UElements = {main()::<lambda()>}; <template-parameter-2-2> = void; _Elements = {main()::<lambda()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:404:19: note: previous declaration 'constexpr std::tuple< <template-parameter-1-1> >::tuple(_UElements&& ...) [with _UElements = {main()::<lambda()>}; <template-parameter-2-2> = void; _Elements = {main()::<lambda()>}]'
+         constexpr tuple(_UElements&&... __elements)
+                   ^
+/usr/local/include/c++/4.9.2/tuple:404:19: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = main()::<lambda()>; _UTail = {}; <template-parameter-2-3> = void; long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:260:19: note: previous declaration 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = main()::<lambda()>; _UTail = {}; <template-parameter-2-3> = void; long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]'
+         constexpr _Tuple_impl(_UHead&& __head, _UTail&&... __tail)
+                   ^
+/usr/local/include/c++/4.9.2/tuple:260:19: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = main()::<lambda()>; _UTail = {}; <template-parameter-2-3> = void; long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:260:19: note: previous declaration 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = main()::<lambda()>; _UTail = {}; <template-parameter-2-3> = void; long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]'
+         constexpr _Tuple_impl(_UHead&& __head, _UTail&&... __tail)
+                   ^
+/usr/local/include/c++/4.9.2/tuple:260:19: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<main()::<lambda()>()>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1720:5: note: previous declaration 'typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<main()::<lambda()>()>]'
+     __bind_simple(_Callable&& __callable, _Args&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1720:5: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::tuple< <template-parameter-1-1> >::tuple(std::tuple< <template-parameter-1-1> >&&) [with _Elements = {main()::<lambda()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:409:17: note: previous declaration 'constexpr std::tuple< <template-parameter-1-1> >::tuple(std::tuple< <template-parameter-1-1> >&&) [with _Elements = {main()::<lambda()>}]'
+       constexpr tuple(tuple&&) = default; 
+                 ^
+/usr/local/include/c++/4.9.2/tuple:409:17: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::tuple< <template-parameter-1-1> >::tuple(std::tuple< <template-parameter-1-1> >&&) [with _Elements = {main()::<lambda()>}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:409:17: note: previous declaration 'constexpr std::tuple< <template-parameter-1-1> >::tuple(std::tuple< <template-parameter-1-1> >&&) [with _Elements = {main()::<lambda()>}]'
+       constexpr tuple(tuple&&) = default; 
+                 ^
+/usr/local/include/c++/4.9.2/tuple:409:17: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:267:7: note: previous declaration 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]'
+       _Tuple_impl(_Tuple_impl&& __in)
+       ^
+/usr/local/include/c++/4.9.2/tuple:267:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:267:7: note: previous declaration 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(std::_Tuple_impl<_Idx, _Head, _Tail ...>&&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]'
+       _Tuple_impl(_Tuple_impl&& __in)
+       ^
+/usr/local/include/c++/4.9.2/tuple:267:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static constexpr _Head& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_head(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:239:7: note: previous declaration 'static constexpr _Head& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_head(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}]'
+       _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
+       ^
+/usr/local/include/c++/4.9.2/tuple:239:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Inherited& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_tail(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}; std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Inherited = std::_Tuple_impl<1ul>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/tuple:245:7: note: previous declaration 'static constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Inherited& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_tail(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 0ul; _Head = main()::<lambda()>; _Tail = {}; std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Inherited = std::_Tuple_impl<1ul>]'
+       _M_tail(_Tuple_impl& __t) noexcept { return __t; }
+       ^
+/usr/local/include/c++/4.9.2/tuple:245:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.2/thread:133:7: note: previous declaration 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}]'
+       thread(_Callable&& __f, _Args&&... __args)
+       ^
+/usr/local/include/c++/4.9.2/thread:133:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}]' conflicts with a previous declaration
+ }
+ ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.2/thread:133:7: note: previous declaration 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda()>; _Args = {}]'
+       thread(_Callable&& __f, _Args&&... __args)
+       ^
+/usr/local/include/c++/4.9.2/thread:133:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {main()::<lambda()>}; _Tp = std::thread]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/memory:63,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: previous declaration 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::thread; _Args = {main()::<lambda()>}; _Tp = std::thread]'
+         construct(_Up* __p, _Args&&... __args)
+         ^
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:119:9: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {main()::<lambda()>}; _Alloc = std::allocator<std::thread>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: previous declaration 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {main()::<lambda()>}; _Alloc = std::allocator<std::thread>; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+  _S_construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+  ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:252:2: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {main()::<lambda()>}; _Tp = std::thread; _Alloc = std::allocator<std::thread>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/vector:69:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/vector.tcc:407:7: note: previous declaration 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {main()::<lambda()>}; _Tp = std::thread; _Alloc = std::allocator<std::thread>]'
+       vector<_Tp, _Alloc>::
+       ^
+/usr/local/include/c++/4.9.2/bits/vector.tcc:407:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {main()::<lambda()>}; _Alloc = std::allocator<std::thread>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/ext/alloc_traits.h:36:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_construct.h:61,
+                 from /usr/local/include/c++/4.9.2/memory:64,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: previous declaration 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::thread; _Args = {main()::<lambda()>}; _Alloc = std::allocator<std::thread>; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+  static auto construct(_Alloc& __a, _Tp* __p, _Args&&... __args)
+              ^
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:397:14: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
+main.cpp:66:1: error: 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {main()::<lambda()>}; _Tp = std::thread; _Alloc = std::allocator<std::thread>]' conflicts with a previous declaration
+ }
+ ^
+In file included from /usr/local/include/c++/4.9.2/vector:69:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/vector.tcc:91:7: note: previous declaration 'void std::vector<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {main()::<lambda()>}; _Tp = std::thread; _Alloc = std::allocator<std::thread>]'
+       vector<_Tp, _Alloc>::
+       ^
+/usr/local/include/c++/4.9.2/bits/vector.tcc:91:7: note: -fabi-version=6 (or =0) avoids this error with a change in mangling
