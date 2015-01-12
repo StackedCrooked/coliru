@@ -1,0 +1,16 @@
+main.cpp:54:11: error: 'class Blah::InnerClass' is private
+     class InnerClass
+           ^
+main.cpp:67:46: error: within this context
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+                                              ^
+main.cpp:34:11: note: in definition of macro 'IMPLEMENT_GET_PRIVATE_VAR'
+   typedef VarType InClass::*Member; \
+           ^
+main.cpp:67:57: warning: extra ';' [-Wpedantic]
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+                                                         ^
+main.cpp: In function 'int main()':
+main.cpp:76:53: error: request for member 'A' in 'GetPrivate((BlahInnerAccessor(), BlahInnerAccessor()))', which is of non-class type 'BlahInnerAccessor::Member {aka Blah::InnerClass Blah::*}'
+     int& ARef = GET_PRIVATE(Blah, &BlahInst, Inner).A;
+                                                     ^
