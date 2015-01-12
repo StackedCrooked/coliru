@@ -1,0 +1,134 @@
+In file included from main.cpp:6:
+In file included from /usr/local/include/boost/mpl/transform.hpp:28:
+In file included from /usr/local/include/boost/mpl/aux_/inserter_algorithm.hpp:18:
+In file included from /usr/local/include/boost/mpl/back_inserter.hpp:18:
+In file included from /usr/local/include/boost/mpl/push_back.hpp:18:
+/usr/local/include/boost/mpl/aux_/push_back_impl.hpp:40:9: error: no matching function for call to 'assertion_failed'
+        BOOST_MPL_ASSERT_MSG(
+        ^~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/mpl/assert.hpp:435:48: note: expanded from macro 'BOOST_MPL_ASSERT_MSG'
+#define BOOST_MPL_ASSERT_MSG( c, msg, types_ ) \
+                                               ^
+/usr/local/include/boost/mpl/assert.hpp:429:9: note: expanded from macro '\
+BOOST_MPL_ASSERT_MSG_IMPL'
+        boost::mpl::assertion_failed<(c)>( BOOST_PP_CAT(mpl_assert_arg,counter)::assert_arg() ) \
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/mpl/assert.hpp:60:58: note: expanded from macro '\
+BOOST_MPL_AUX_ASSERT_CONSTANT'
+#   define BOOST_MPL_AUX_ASSERT_CONSTANT(T, expr) enum { expr }
+                                                         ^
+/usr/local/include/boost/mpl/push_back.hpp:30:7: note: in instantiation of template class 'boost::mpl::push_back_impl<boost::mpl::aux::set_tag>::apply<boost::mpl::set0<mpl_::na>, int>' requested here
+    : push_back_impl< typename sequence_tag<Sequence>::type >
+      ^
+/usr/local/include/boost/mpl/aux_/has_type.hpp:20:1: note: in instantiation of template class 'boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>' requested here
+BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(has_type, type, true)
+^
+/usr/local/include/boost/mpl/has_xxx.hpp:245:65: note: expanded from macro 'BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF'
+            , boost::mpl::aux::type_wrapper<BOOST_MSVC_TYPENAME U::name>* = 0 \
+                                                                ^
+/usr/local/include/boost/mpl/aux_/has_type.hpp:20:1: note: while substituting deduced template arguments into function template 'test' [with U = boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>]
+BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(has_type, type, true)
+^
+/usr/local/include/boost/mpl/has_xxx.hpp:253:18: note: expanded from macro 'BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF'
+          sizeof(gcc_3_2_wknd::test(static_cast<t_*>(0))) \
+                 ^
+/usr/local/include/boost/config/suffix.hpp:394:72: note: expanded from macro 'BOOST_STATIC_CONSTANT'
+#     define BOOST_STATIC_CONSTANT(type, assignment) static const type assignment
+                                                                       ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:53:20: note: in instantiation of template class 'boost::mpl::aux::has_type<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, mpl_::bool_<true> >' requested here
+            , aux::has_type< F< U1,U2 > >::value
+                   ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:48:7: note: in instantiation of template class 'boost::mpl::quote2<push_back, mpl_::void_>::apply<boost::mpl::set0<mpl_::na>, int>' requested here
+    : F::template apply< T1,T2 >
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp:204:26: note: (skipping 1 context in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+        typedef typename apply_wrap2<
+                         ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:48:7: note: in instantiation of template class 'boost::mpl::bind2<boost::mpl::quote2<push_back, mpl_::void_>, mpl_::arg<1>, mpl_::arg<2> >::apply<boost::mpl::set0<mpl_::na>, int, mpl_::na, mpl_::na, mpl_::na>' requested here
+    : F::template apply< T1,T2 >
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp:69:7: note: in instantiation of template class 'boost::mpl::apply_wrap2<boost::mpl::protect<boost::mpl::bind2<boost::mpl::quote2<push_back, mpl_::void_>, mpl_::arg<1>, mpl_::arg<2> >, 0>, boost::mpl::set0<mpl_::na>, int>' requested here
+    : apply_wrap2<
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp:67:22: note: in instantiation of template class 'boost::mpl::apply2<boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> >, boost::mpl::set0<mpl_::na>, int>' requested here
+    typedef typename apply2< ForwardOp, state0, typename deref<iter0>::type >::type state1;
+                     ^
+/usr/local/include/boost/mpl/fold.hpp:33:27: note: in instantiation of template class 'boost::mpl::aux::fold_impl<2, boost::mpl::v_iter<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, 0>, boost::mpl::v_iter<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, 2>, boost::mpl::set0<mpl_::na>, boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> > >' requested here
+    typedef typename aux::fold_impl<
+                          ^
+main.cpp:29:26: note: in instantiation of template class 'boost::mpl::fold<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, boost::mpl::set0<mpl_::na>, boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> > >' requested here
+    typename boost::mpl::fold<
+                         ^
+/usr/local/include/boost/mpl/assert.hpp:83:5: note: candidate function [with C = false] not viable: no known conversion from 'boost::mpl::failed ************(boost::mpl::push_back_impl<boost::mpl::aux::set_tag>::apply<boost::mpl::set0<mpl_::na>, int>::REQUESTED_PUSH_BACK_SPECIALIZATION_FOR_SEQUENCE_DOES_NOT_EXIST::************)(boost::mpl::set0<mpl_::na>)' to 'typename assert<false>::type' (aka 'mpl_::assert<false>') for 1st argument
+int assertion_failed( typename assert<C>::type );
+    ^
+In file included from main.cpp:6:
+In file included from /usr/local/include/boost/mpl/transform.hpp:28:
+In file included from /usr/local/include/boost/mpl/aux_/inserter_algorithm.hpp:18:
+In file included from /usr/local/include/boost/mpl/back_inserter.hpp:18:
+/usr/local/include/boost/mpl/push_back.hpp:31:20: error: 'apply' following the 'template' keyword does not refer to a template
+        ::template apply< Sequence,T >
+                   ^~~~~
+/usr/local/include/boost/mpl/aux_/has_type.hpp:20:1: note: in instantiation of template class 'boost::mpl::push_back<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >' requested here
+BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(has_type, type, true)
+^
+/usr/local/include/boost/mpl/has_xxx.hpp:245:65: note: expanded from macro 'BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF'
+            , boost::mpl::aux::type_wrapper<BOOST_MSVC_TYPENAME U::name>* = 0 \
+                                                                ^
+/usr/local/include/boost/mpl/aux_/has_type.hpp:20:1: note: while substituting deduced template arguments into function template 'test' [with U = boost::mpl::push_back<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >]
+BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF(has_type, type, true)
+^
+/usr/local/include/boost/mpl/has_xxx.hpp:253:18: note: expanded from macro 'BOOST_MPL_HAS_XXX_TRAIT_NAMED_DEF'
+          sizeof(gcc_3_2_wknd::test(static_cast<t_*>(0))) \
+                 ^
+/usr/local/include/boost/config/suffix.hpp:394:72: note: expanded from macro 'BOOST_STATIC_CONSTANT'
+#     define BOOST_STATIC_CONSTANT(type, assignment) static const type assignment
+                                                                       ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:53:20: note: in instantiation of template class 'boost::mpl::aux::has_type<boost::mpl::push_back<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >, mpl_::bool_<true> >' requested here
+            , aux::has_type< F< U1,U2 > >::value
+                   ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:48:7: note: in instantiation of template class 'boost::mpl::quote2<push_back, mpl_::void_>::apply<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >' requested here
+    : F::template apply< T1,T2 >
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp:204:26: note: in instantiation of template class 'boost::mpl::apply_wrap2<boost::mpl::quote2<push_back, mpl_::void_>, boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >' requested here
+        typedef typename apply_wrap2<
+                         ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:48:7: note: in instantiation of template class 'boost::mpl::bind2<boost::mpl::quote2<push_back, mpl_::void_>, mpl_::arg<1>, mpl_::arg<2> >::apply<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na>' requested here
+    : F::template apply< T1,T2 >
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp:69:7: note: in instantiation of template class 'boost::mpl::apply_wrap2<boost::mpl::protect<boost::mpl::bind2<boost::mpl::quote2<push_back, mpl_::void_>, mpl_::arg<1>, mpl_::arg<2> >, 0>, boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >' requested here
+    : apply_wrap2<
+      ^
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp:69:22: note: in instantiation of template class 'boost::mpl::apply2<boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> >, boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> >' requested here
+    typedef typename apply2< ForwardOp, state1, typename deref<iter1>::type >::type state2;
+                     ^
+/usr/local/include/boost/mpl/fold.hpp:33:27: note: in instantiation of template class 'boost::mpl::aux::fold_impl<2, boost::mpl::v_iter<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, 0>, boost::mpl::v_iter<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, 2>, boost::mpl::set0<mpl_::na>, boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> > >' requested here
+    typedef typename aux::fold_impl<
+                          ^
+main.cpp:29:26: note: in instantiation of template class 'boost::mpl::fold<boost::mpl::vector<int, std::basic_string<char>, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na>, boost::mpl::set0<mpl_::na>, boost::mpl::push_back<mpl_::arg<1>, mpl_::arg<2> > >' requested here
+    typename boost::mpl::fold<
+                         ^
+In file included from main.cpp:15:
+In file included from /usr/local/include/boost/variant.hpp:17:
+/usr/local/include/boost/variant/variant.hpp:2296:5: error: static_assert failed "( ::boost::mpl::is_sequence<Types>::value )"
+    BOOST_STATIC_ASSERT(( ::boost::mpl::is_sequence<Types>::value ));
+    ^                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/boost/static_assert.hpp:78:41: note: expanded from macro 'BOOST_STATIC_ASSERT'
+#     define BOOST_STATIC_ASSERT( ... ) static_assert(__VA_ARGS__, #__VA_ARGS__)
+                                        ^
+main.cpp:28:23: note: in instantiation of template class 'boost::make_variant_over<boost::mpl::push_back<boost::mpl::push_back<boost::mpl::set0<mpl_::na>, int>, std::basic_string<char> > >' requested here
+struct dynamic_at_c : boost::make_variant_over<
+                      ^
+main.cpp:71:17: error: no matching function for call to 'dynamic_at_c'
+    auto idx0 = dynamic_at_c(vec, 0);
+                ^~~~~~~~~~~~
+main.cpp:52:6: note: candidate template ignored: substitution failure [with S = boost::fusion::vector<int, std::basic_string<char>, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_>]: no type named 'type' in 'result_of::dynamic_at_c<boost::fusion::vector<int, std::basic_string<char>, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_> >'
+auto dynamic_at_c(const S& seq, std::size_t idx)
+     ^
+main.cpp:72:17: error: no matching function for call to 'dynamic_at_c'
+    auto idx1 = dynamic_at_c(vec, 1);
+                ^~~~~~~~~~~~
+main.cpp:52:6: note: candidate template ignored: substitution failure [with S = boost::fusion::vector<int, std::basic_string<char>, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_>]: no type named 'type' in 'result_of::dynamic_at_c<boost::fusion::vector<int, std::basic_string<char>, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_, boost::fusion::void_> >'
+auto dynamic_at_c(const S& seq, std::size_t idx)
+     ^
+5 errors generated.
