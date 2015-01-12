@@ -1,0 +1,31 @@
+main.cpp:45:11: error: 'class Blah::InnerClass' is private
+     class InnerClass
+           ^
+main.cpp:58:46: error: within this context
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+                                              ^
+main.cpp:25:11: note: in definition of macro 'IMPLEMENT_GET_PRIVATE_VAR'
+   typedef VarType InClass::*Member; \
+           ^
+main.cpp:30:18: error: 'AccessPrivate' is not a class template
+  template struct AccessPrivate<InClass##VarName##Accessor, &InClass::VarName>;
+                  ^
+main.cpp:58:1: note: in expansion of macro 'IMPLEMENT_GET_PRIVATE_VAR'
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+ ^
+main.cpp:30:18: error: explicit instantiation of non-template type 'AccessPrivate'
+  template struct AccessPrivate<InClass##VarName##Accessor, &InClass::VarName>;
+                  ^
+main.cpp:58:1: note: in expansion of macro 'IMPLEMENT_GET_PRIVATE_VAR'
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+ ^
+main.cpp:58:57: warning: extra ';' [-Wpedantic]
+ IMPLEMENT_GET_PRIVATE_VAR(Blah, Inner, Blah::InnerClass);
+                                                         ^
+main.cpp: In function 'int main()':
+main.cpp:67:53: error: request for member 'A' in 'GetPrivate((BlahInnerAccessor(), BlahInnerAccessor()))', which is of non-class type 'BlahInnerAccessor::Member {aka Blah::InnerClass Blah::*}'
+     int& ARef = GET_PRIVATE(Blah, &BlahInst, Inner).A;
+                                                     ^
+main.cpp:67:10: warning: unused variable 'ARef' [-Wunused-variable]
+     int& ARef = GET_PRIVATE(Blah, &BlahInst, Inner).A;
+          ^
