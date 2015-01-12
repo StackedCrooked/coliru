@@ -1,0 +1,1 @@
+clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
