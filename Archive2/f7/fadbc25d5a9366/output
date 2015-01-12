@@ -1,0 +1,31 @@
++ clang++ -stdlib=libc++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:57:3: error: no matching function for call to 'merge'
+  merge(start, pivot, end, left_len, right_len);
+  ^~~~~
+main.cpp:64:3: note: in instantiation of function template specialization 'merge_sort<std::__1::__wrap_iter<double *> >' requested here
+  merge_sort(vl.begin(), vl.end(), vl.size());
+  ^
+main.cpp:15:6: note: candidate template ignored: couldn't infer template argument 'T'
+void merge(typename std::vector<T>::iterator start, typename std::vector<T>::iterator pivot, typename std::vector<T>::iterator end, int left_len, int right_len) {
+     ^
+/usr/include/c++/v1/algorithm:4348:1: note: candidate template ignored: deduced conflicting types for parameter '_InputIterator2' ('std::__1::__wrap_iter<double *>' vs. 'int')
+merge(_InputIterator1 __first1, _InputIterator1 __last1,
+^
+/usr/include/c++/v1/algorithm:4332:1: note: candidate function template not viable: requires 6 arguments, but 5 were provided
+merge(_InputIterator1 __first1, _InputIterator1 __last1,
+^
+1 error generated.
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'void merge_sort(Iter, Iter, int) [with Iter = __gnu_cxx::__normal_iterator<double*, std::vector<double> >]':
+main.cpp:64:45:   required from here
+main.cpp:57:47: error: no matching function for call to 'merge(__gnu_cxx::__normal_iterator<double*, std::vector<double> >&, __gnu_cxx::__normal_iterator<double*, std::vector<double> >&, __gnu_cxx::__normal_iterator<double*, std::vector<double> >&, int&, int&)'
+   merge(start, pivot, end, left_len, right_len);
+                                               ^
+main.cpp:57:47: note: candidate is:
+main.cpp:15:6: note: template<class T> void merge(typename std::vector<T>::iterator, typename std::vector<T>::iterator, typename std::vector<T>::iterator, int, int)
+ void merge(typename std::vector<T>::iterator start, typename std::vector<T>::iterator pivot, typename std::vector<T>::iterator end, int left_len, int right_len) {
+      ^
+main.cpp:15:6: note:   template argument deduction/substitution failed:
+main.cpp:57:47: note:   couldn't deduce template parameter 'T'
+   merge(start, pivot, end, left_len, right_len);
+                                               ^
