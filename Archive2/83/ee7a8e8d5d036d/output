@@ -1,0 +1,57 @@
++ clang++ -stdlib=libc++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:12: error: missing 'typename' prior to dependent type name 'std::vector<T>::iterator'
+void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+           ^~~~~~~~~~~~~~~~~~~~~~~~
+           typename 
+main.cpp:15:44: error: missing 'typename' prior to dependent type name 'std::vector<T>::iterator'
+void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~
+                                           typename 
+main.cpp:15:76: error: missing 'typename' prior to dependent type name 'std::vector<T>::iterator'
+void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~
+                                                                           typename 
+main.cpp:17:3: error: missing 'typename' prior to dependent type name 'std::vector<T>::iterator'
+  std::vector<T>::iterator i, j;
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+  typename 
+main.cpp:57:3: error: no matching function for call to 'merge'
+  merge(start, pivot, end, left_len, right_len);
+  ^~~~~
+main.cpp:64:3: note: in instantiation of function template specialization 'merge_sort<std::__1::__wrap_iter<double *> >' requested here
+  merge_sort(vl.begin(), vl.end(), vl.size());
+  ^
+main.cpp:15:6: note: candidate template ignored: couldn't infer template argument 'T'
+void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+     ^
+/usr/include/c++/v1/algorithm:4348:1: note: candidate template ignored: deduced conflicting types for parameter '_InputIterator2' ('std::__1::__wrap_iter<double *>' vs. 'int')
+merge(_InputIterator1 __first1, _InputIterator1 __last1,
+^
+/usr/include/c++/v1/algorithm:4332:1: note: candidate function template not viable: requires 6 arguments, but 5 were provided
+merge(_InputIterator1 __first1, _InputIterator1 __last1,
+^
+5 errors generated.
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:28: error: variable or field 'merge' declared void
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                            ^
+main.cpp:15:37: error: expected ')' before 'start'
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                     ^
+main.cpp:15:69: error: expected ')' before 'pivot'
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                                                     ^
+main.cpp:15:101: error: expected ')' before 'end'
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                                                                                     ^
+main.cpp:15:106: error: expected primary-expression before 'int'
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                                                                                          ^
+main.cpp:15:120: error: expected primary-expression before 'int'
+ void merge(std::vector<T>::iterator start, std::vector<T>::iterator pivot, std::vector<T>::iterator end, int left_len, int right_len) {
+                                                                                                                        ^
+main.cpp: In instantiation of 'void merge_sort(Iter, Iter, int) [with Iter = __gnu_cxx::__normal_iterator<double*, std::vector<double> >]':
+main.cpp:64:45:   required from here
+main.cpp:57:47: error: 'merge' was not declared in this scope
+   merge(start, pivot, end, left_len, right_len);
+                                               ^
