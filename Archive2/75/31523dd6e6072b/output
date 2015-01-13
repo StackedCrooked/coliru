@@ -1,0 +1,33 @@
+Hello from GCC 4.9.2 ! 
+Start local scope1.
+Thing with id 1 created!
+Thing with id 2 created!
+1
+Thing with id 2 deleted!
+End of local scope1.
+Thing with id 1 deleted!
+Start local scope2.
+Thing with id 1 created!
+Thing with id 2 created!
+Thing with id 3 created!
+End of local scope2.
+Start local scope3.
+Thing with id 4 created!
+Thing with id 5 created!
+Thing with id 6 created!
+Thing with id 6 deleted!
+van
+End of local scope3.
+Thing with id 5 deleted!
+Thing with id 4 deleted!
+End of program.
+Thing with id 1 deleted!
+*** glibc detected *** ./a.out: double free or corruption (out): 0x00007fffe6a0f800 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f186c1f4846]
+./a.out[0x402205]
+./a.out[0x4015e3]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f186c19776d]
+./a.out[0x401851]
+======= Memory map: ========
+bash: line 7:  5298 Aborted                 (core dumped) ./a.out
