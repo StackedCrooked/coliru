@@ -1,0 +1,167 @@
+main.cpp: In member function 'void Stack::pop(const Packet&)':
+main.cpp:33:17: error: 'EthernetDecoder' was not declared in this scope
+                 EthernetDecoder ethdec(packet);
+                 ^
+main.cpp:34:22: error: 'ethdec' was not declared in this scope
+                 if (!ethdec.isValid())
+                      ^
+main.cpp:39:25: error: 'ethdec' was not declared in this scope
+                 switch (ethdec.getEtherType())
+                         ^
+main.cpp:41:26: error: 'EtherType' has not been declared
+                     case EtherType::IPv4: break;
+                          ^
+main.cpp:42:26: error: 'EtherType' has not been declared
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                          ^
+main.cpp:42:66: error: 'ARPDecoder' was not declared in this scope
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                                                                  ^
+main.cpp:42:75: error: 'handle' was not declared in this scope
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                                                                           ^
+main.cpp:43:36: error: 'Warning' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected ethertype: " << ethdec.getEtherType(); return; }
+                                    ^
+main.cpp:43:43: error: 'LOG' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected ethertype: " << ethdec.getEtherType(); return; }
+                                           ^
+main.cpp:46:17: error: 'IPv4Decoder' was not declared in this scope
+                 IPv4Decoder ipdec(ethdec);
+                 ^
+main.cpp:47:22: error: 'ipdec' was not declared in this scope
+                 if (!ipdec.isValid())
+                      ^
+main.cpp:52:25: error: 'ipdec' was not declared in this scope
+                 switch (ipdec.getProtocol())
+                         ^
+main.cpp:54:26: error: 'IPProtNum' has not been declared
+                     case IPProtNum::TCP: break;
+                          ^
+main.cpp:55:26: error: 'IPProtNum' has not been declared
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                          ^
+main.cpp:55:60: error: 'ethdec' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                            ^
+main.cpp:55:66: error: 'UDPDecoder' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                                  ^
+main.cpp:55:75: error: 'handle' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                                           ^
+main.cpp:56:36: error: 'Warning' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected protocol number: " << ipdec.getProtocol(); return; }
+                                    ^
+main.cpp:56:43: error: 'LOG' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected protocol number: " << ipdec.getProtocol(); return; }
+                                           ^
+main.cpp:59:17: error: 'TCPDecoder' was not declared in this scope
+                 TCPDecoder tcpdec(ipdec);
+                 ^
+main.cpp:60:22: error: 'tcpdec' was not declared in this scope
+                 if (!tcpdec.isValid(ipdec))
+                      ^
+main.cpp:60:37: error: 'ipdec' was not declared in this scope
+                 if (!tcpdec.isValid(ipdec))
+                                     ^
+main.cpp:65:28: error: 'tcpdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                            ^
+main.cpp:65:36: error: 'ipdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                                    ^
+main.cpp:65:43: error: 'ethdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                                           ^
+main.cpp:72:17: error: 'EthernetDecoder' was not declared in this scope
+                 EthernetDecoder ethdec(packet);
+                 ^
+main.cpp:73:22: error: 'ethdec' was not declared in this scope
+                 if (!ethdec.isValid())
+                      ^
+main.cpp:78:25: error: 'ethdec' was not declared in this scope
+                 switch (ethdec.getEtherType())
+                         ^
+main.cpp:80:26: error: 'EtherType' has not been declared
+                     case EtherType::IPv6: break;
+                          ^
+main.cpp:81:26: error: 'EtherType' has not been declared
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                          ^
+main.cpp:81:66: error: 'ARPDecoder' was not declared in this scope
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                                                                  ^
+main.cpp:81:75: error: 'handle' was not declared in this scope
+                     case EtherType::ARP: handle(ARPDecoder(ethdec), ethdec); return;
+                                                                           ^
+main.cpp:82:36: error: 'Warning' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected ethertype: " << ethdec.getEtherType(); return; }
+                                    ^
+main.cpp:82:43: error: 'LOG' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected ethertype: " << ethdec.getEtherType(); return; }
+                                           ^
+main.cpp:85:17: error: 'IPv6Decoder' was not declared in this scope
+                 IPv6Decoder ipdec(ethdec);
+                 ^
+main.cpp:86:22: error: 'ipdec' was not declared in this scope
+                 if (!ipdec.isValid())
+                      ^
+main.cpp:91:25: error: 'ipdec' was not declared in this scope
+                 switch (ipdec.getProtocol())
+                         ^
+main.cpp:93:26: error: 'IPProtNum' has not been declared
+                     case IPProtNum::TCP: break;
+                          ^
+main.cpp:94:26: error: 'IPProtNum' has not been declared
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                          ^
+main.cpp:94:60: error: 'ethdec' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                            ^
+main.cpp:94:66: error: 'UDPDecoder' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                                  ^
+main.cpp:94:75: error: 'handle' was not declared in this scope
+                     case IPProtNum::UDP: handle(UDPDecoder(ethdec), ethdec); return;
+                                                                           ^
+main.cpp:95:36: error: 'Warning' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected protocol number: " << ipdec.getProtocol(); return; }
+                                    ^
+main.cpp:95:43: error: 'LOG' was not declared in this scope
+                     default: { LOG(Warning) << "Unexpected protocol number: " << ipdec.getProtocol(); return; }
+                                           ^
+main.cpp:98:17: error: 'TCPDecoder' was not declared in this scope
+                 TCPDecoder tcpdec(ipdec);
+                 ^
+main.cpp:99:22: error: 'tcpdec' was not declared in this scope
+                 if (!tcpdec.isValid(ipdec))
+                      ^
+main.cpp:99:37: error: 'ipdec' was not declared in this scope
+                 if (!tcpdec.isValid(ipdec))
+                                     ^
+main.cpp:104:28: error: 'tcpdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                            ^
+main.cpp:104:36: error: 'ipdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                                    ^
+main.cpp:104:43: error: 'ethdec' was not declared in this scope
+                 mImpl->pop(tcpdec, ipdec, ethdec);
+                                           ^
+main.cpp: In member function 'int EthernetDecoder::getEtherType() const':
+main.cpp:151:39: error: 'IPv4' was not declared in this scope
+     int getEtherType() const { return IPv4; }
+                                       ^
+main.cpp: In member function 'int VLANDecoder::getEtherType() const':
+main.cpp:159:39: error: 'IPv4' was not declared in this scope
+     int getEtherType() const { return IPv4; }
+                                       ^
+main.cpp: In member function 'int IPv4Decoder::getProtocol() const':
+main.cpp:167:38: error: 'TCP' was not declared in this scope
+     int getProtocol() const { return TCP; }
+                                      ^
+main.cpp: In member function 'int IPv6Decoder::getProtocol() const':
+main.cpp:175:38: error: 'TCP' was not declared in this scope
+     int getProtocol() const { return TCP; }
+                                      ^
