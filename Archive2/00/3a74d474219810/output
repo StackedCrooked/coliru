@@ -1,0 +1,71 @@
+main.cpp:12:34: error: 'Car' was not declared in this scope
+     virtual void show_car(vector<Car> _carvector) = 0;
+                                  ^
+main.cpp:12:37: error: template argument 1 is invalid
+     virtual void show_car(vector<Car> _carvector) = 0;
+                                     ^
+main.cpp:12:37: error: template argument 2 is invalid
+main.cpp:29:5: error: '_manufacturer' does not name a type
+     _manufacturer = "Opel";
+     ^
+main.cpp:30:1: error: '_model' does not name a type
+ _model = "Astra";
+ ^
+main.cpp:31:1: error: '_type' does not name a type
+ _type = "Hatchback";
+ ^
+main.cpp:32:1: error: '_engine' does not name a type
+ _engine = 1900;
+ ^
+main.cpp:33:1: error: '_enginetype' does not name a type
+ _enginetype = "Diesel";
+ ^
+main.cpp:34:1: error: '_yearofproduction' does not name a type
+ _yearofproduction = 1999;
+ ^
+main.cpp:35:1: error: '_geartype' does not name a type
+ _geartype = "Manual";
+ ^
+main.cpp:36:1: error: '_noofgears' does not name a type
+ _noofgears = 5;
+ ^
+main.cpp:37:1: error: '_price' does not name a type
+ _price = "5600";
+ ^
+main.cpp: In member function 'void Car::show_car(std::vector<Car>)':
+main.cpp:54:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < _carvector.size(); i++)
+                           ^
+main.cpp: In function 'int main()':
+main.cpp:89:5: error: cannot declare variable 'carobject' to be of abstract type 'Car'
+ Car carobject;
+     ^
+main.cpp:16:7: note:   because the following virtual functions are pure within 'Car':
+ class Car : virtual public Handling
+       ^
+main.cpp:12:18: note: 	virtual void Handling::show_car(int)
+     virtual void show_car(vector<Car> _carvector) = 0;
+                  ^
+main.cpp:101:1: error: expected initializer before 'carvector'
+ carvector.push_back(Car(_manufacturer, _model, _type, _engine, _enginetype,_yearofproduction, _geartype, _noofgears, _price));
+ ^
+main.cpp:94:9: warning: unused variable '_engine' [-Wunused-variable]
+     int _engine;
+         ^
+main.cpp:96:9: warning: unused variable '_yearofproduction' [-Wunused-variable]
+     int _yearofproduction;
+         ^
+main.cpp:98:9: warning: unused variable '_noofgears' [-Wunused-variable]
+     int _noofgears;
+         ^
+In file included from /usr/local/include/c++/4.9.2/vector:62:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/stl_construct.h: In instantiation of 'void std::_Construct(_T1*, _Args&& ...) [with _T1 = Car; _Args = {const Car&}]':
+/usr/local/include/c++/4.9.2/bits/stl_uninitialized.h:75:53:   required from 'static _ForwardIterator std::__uninitialized_copy<_TrivialValueTypes>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Car*, std::vector<Car> >; _ForwardIterator = Car*; bool _TrivialValueTypes = false]'
+/usr/local/include/c++/4.9.2/bits/stl_uninitialized.h:125:41:   required from '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Car*, std::vector<Car> >; _ForwardIterator = Car*]'
+/usr/local/include/c++/4.9.2/bits/stl_uninitialized.h:278:63:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const Car*, std::vector<Car> >; _ForwardIterator = Car*; _Tp = Car]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:324:32:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = Car; _Alloc = std::allocator<Car>]'
+main.cpp:102:29:   required from here
+/usr/local/include/c++/4.9.2/bits/stl_construct.h:75:7: error: invalid new-expression of abstract class type 'Car'
+     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+       ^
