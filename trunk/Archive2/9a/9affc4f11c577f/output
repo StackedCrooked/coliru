@@ -1,0 +1,81 @@
+In file included from main.cpp:3:
+/usr/include/c++/v1/deque:912:49: error: invalid application of 'sizeof' to an incomplete type 'value_type' (aka 'R')
+    static const difference_type __block_size = sizeof(value_type) < 256 ? 4096 / sizeof(value_type) : 16;
+                                                ^~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/deque:1183:15: note: in instantiation of template class 'std::__1::__deque_base<R, std::__1::allocator<R> >' requested here
+    : private __deque_base<_Tp, _Allocator>
+              ^
+main.cpp:18:7: note: in instantiation of template class 'std::__1::deque<R, std::__1::allocator<R> >' requested here
+    V v;
+      ^
+main.cpp:14:8: note: definition of 'R' is not complete until the closing '}'
+struct R
+       ^
+In file included from main.cpp:3:
+/usr/include/c++/v1/deque:1193:30: error: '__alloc_traits' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::__alloc_traits        __alloc_traits;
+                             ^
+main.cpp:18:7: note: in instantiation of template class 'std::__1::deque<R, std::__1::allocator<R> >' requested here
+    V v;
+      ^
+/usr/include/c++/v1/deque:904:54: note: declared protected here
+    typedef allocator_traits<allocator_type>         __alloc_traits;
+                                                     ^
+/usr/include/c++/v1/deque:1194:30: error: 'reference' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::reference             reference;
+                             ^
+/usr/include/c++/v1/deque:905:54: note: declared protected here
+    typedef value_type&                              reference;
+                                                     ^
+/usr/include/c++/v1/deque:1195:30: error: 'const_reference' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::const_reference       const_reference;
+                             ^
+/usr/include/c++/v1/deque:906:54: note: declared protected here
+    typedef const value_type&                        const_reference;
+                                                     ^
+/usr/include/c++/v1/deque:1196:30: error: 'iterator' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::iterator              iterator;
+                             ^
+/usr/include/c++/v1/deque:934:64: note: declared protected here
+                             difference_type, __block_size>    iterator;
+                                                               ^
+/usr/include/c++/v1/deque:1197:30: error: 'const_iterator' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::const_iterator        const_iterator;
+                             ^
+/usr/include/c++/v1/deque:936:64: note: declared protected here
+                             difference_type, __block_size>    const_iterator;
+                                                               ^
+/usr/include/c++/v1/deque:1198:30: error: 'size_type' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::size_type             size_type;
+                             ^
+/usr/include/c++/v1/deque:907:54: note: declared protected here
+    typedef typename __alloc_traits::size_type       size_type;
+                                                     ^
+/usr/include/c++/v1/deque:1199:30: error: 'difference_type' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::difference_type       difference_type;
+                             ^
+/usr/include/c++/v1/deque:908:54: note: declared protected here
+    typedef typename __alloc_traits::difference_type difference_type;
+                                                     ^
+/usr/include/c++/v1/deque:1201:30: error: 'pointer' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::pointer               pointer;
+                             ^
+/usr/include/c++/v1/deque:909:54: note: declared protected here
+    typedef typename __alloc_traits::pointer         pointer;
+                                                     ^
+/usr/include/c++/v1/deque:1202:30: error: 'const_pointer' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::const_pointer         const_pointer;
+                             ^
+/usr/include/c++/v1/deque:910:54: note: declared protected here
+    typedef typename __alloc_traits::const_pointer   const_pointer;
+                                                     ^
+/usr/include/c++/v1/deque:1359:30: error: '__map_const_pointer' is a protected member of 'std::__1::__deque_base<R, std::__1::allocator<R> >'
+    typedef typename __base::__map_const_pointer __map_const_pointer;
+                             ^
+/usr/include/c++/v1/deque:930:81: note: declared protected here
+    typedef typename allocator_traits<__const_pointer_allocator>::const_pointer __map_const_pointer;
+                                                                                ^
+main.cpp:25:7: warning: unused variable 'r' [-Wunused-variable]
+    R r;
+      ^
+1 warning and 11 errors generated.
