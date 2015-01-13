@@ -1,0 +1,1 @@
+cat main.cpp | clang++ -x c++-header - -stdlib=libc++ -std=gnu++1z -Ofast -Wall -Wextra -Weverything -pedantic -Wno-c++98-compat -fsyntax-only
