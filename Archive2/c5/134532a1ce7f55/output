@@ -1,0 +1,24 @@
+main.cpp:30:69: error: stray '#' in program
+                             map[ UUID( cxx_target ) ] = std::string(#cxx_target);
+                                                                     ^
+main.cpp: In static member function 'static void Generate<R (Base::*)(Arg ...), target>::call()':
+main.cpp:24:33: error: 'map' was not declared in this scope
+         std::cout << "TARG:" << map[ UUID( cxx_target ) ] << std::endl;
+                                 ^
+main.cpp:24:33: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/map:61:0,
+                 from main.cpp:5:
+/usr/local/include/c++/4.9.2/bits/stl_map.h:96:11: note:   'std::map'
+     class map
+           ^
+main.cpp:24:44: error: 'cxx_target' was not declared in this scope
+         std::cout << "TARG:" << map[ UUID( cxx_target ) ] << std::endl;
+                                            ^
+main.cpp:24:55: error: there are no arguments to 'UUID' that depend on a template parameter, so a declaration of 'UUID' must be available [-fpermissive]
+         std::cout << "TARG:" << map[ UUID( cxx_target ) ] << std::endl;
+                                                       ^
+main.cpp:24:55: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: At global scope:
+main.cpp:30:29: error: 'map' does not name a type
+                             map[ UUID( cxx_target ) ] = std::string(#cxx_target);
+                             ^
