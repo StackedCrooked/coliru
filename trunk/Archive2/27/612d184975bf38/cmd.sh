@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_program_options && ./a.out -I/path/to/{A..H}/include
