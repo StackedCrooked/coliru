@@ -1,0 +1,42 @@
+	.file	"main.cpp"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"%d"
+.LC1:
+	.string	"%d\n"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB2:
+	.section	.text.startup,"ax",@progbits
+.LHOTB2:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB12:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movl	$.LC0, %edi
+	xorl	%eax, %eax
+	leaq	12(%rsp), %rsi
+	movl	$0, 12(%rsp)
+	call	scanf
+	movl	12(%rsp), %eax
+	movl	$.LC1, %edi
+	leal	1000000000(%rax), %esi
+	xorl	%eax, %eax
+	movl	%esi, 12(%rsp)
+	call	printf
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE12:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE2:
+	.section	.text.startup
+.LHOTE2:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
