@@ -1,0 +1,33 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:22:63: error: use of deleted function 'void std::ref(const _Tp&&) [with _Tp = C]'
+     function<void()> f{std::bind( &C::operator(), std::ref(C()) )};
+                                                               ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional:453:10: note: declared here
+     void ref(const _Tp&&) = delete;
+          ^
+main.cpp:22:66: error: no matching function for call to 'std::function<void()>::function(<brace-enclosed initializer list>)'
+     function<void()> f{std::bind( &C::operator(), std::ref(C()) )};
+                                                                  ^
+main.cpp:22:66: note: candidates are:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional:2226:2: note: template<class _Functor, class> std::function<_Res(_ArgTypes ...)>::function(_Functor)
+  function(_Functor);
+  ^
+/usr/local/include/c++/4.9.2/functional:2226:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/functional:2201:7: note: std::function<_Res(_ArgTypes ...)>::function(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {}]
+       function(function&& __x) : _Function_base()
+       ^
+/usr/local/include/c++/4.9.2/functional:2201:7: note:   no known conversion for argument 1 from '<type error>' to 'std::function<void()>&&'
+/usr/local/include/c++/4.9.2/functional:2404:5: note: std::function<_Res(_ArgTypes ...)>::function(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {}]
+     function<_Res(_ArgTypes...)>::
+     ^
+/usr/local/include/c++/4.9.2/functional:2404:5: note:   no known conversion for argument 1 from '<type error>' to 'const std::function<void()>&'
+/usr/local/include/c++/4.9.2/functional:2181:7: note: std::function<_Res(_ArgTypes ...)>::function(std::nullptr_t) [with _Res = void; _ArgTypes = {}; std::nullptr_t = std::nullptr_t]
+       function(nullptr_t) noexcept
+       ^
+/usr/local/include/c++/4.9.2/functional:2181:7: note:   no known conversion for argument 1 from '<type error>' to 'std::nullptr_t'
+/usr/local/include/c++/4.9.2/functional:2174:7: note: std::function<_Res(_ArgTypes ...)>::function() [with _Res = void; _ArgTypes = {}]
+       function() noexcept
+       ^
+/usr/local/include/c++/4.9.2/functional:2174:7: note:   candidate expects 0 arguments, 1 provided
