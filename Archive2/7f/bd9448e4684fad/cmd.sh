@@ -1,0 +1,1 @@
+g++ -fno-elide-constructors -std=c++1y -Os -Wall -pedantic -pthread main.cpp -Wextra -Wconversion && ./a.out
