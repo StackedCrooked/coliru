@@ -1,0 +1,25 @@
+main.cpp:4:30: error: 'Vector3d' has not been declared
+     Quaternion(double angle, Vector3d v) /* */ { }
+                              ^
+main.cpp:4:23: warning: unused parameter 'angle' [-Wunused-parameter]
+     Quaternion(double angle, Vector3d v) /* */ { }
+                       ^
+main.cpp:4:39: warning: unused parameter 'v' [-Wunused-parameter]
+     Quaternion(double angle, Vector3d v) /* */ { }
+                                       ^
+main.cpp:10:32: error: expected ')' before 'axis'
+     QuaternionFactory(Vector3d axis) : _axis{axis} { }
+                                ^
+main.cpp:10:52: error: expected unqualified-id before '{' token
+     QuaternionFactory(Vector3d axis) : _axis{axis} { }
+                                                    ^
+main.cpp:17:5: error: 'Vector3d' does not name a type
+     Vector3d _axis;
+     ^
+main.cpp: In member function 'Quaternion QuaternionFactory::MakeQuaternion(double)':
+main.cpp:14:24: error: '_axis' was not declared in this scope
+         return {angle, _axis};
+                        ^
+main.cpp:14:29: error: could not convert '{angle, <expression error>}' from '<brace-enclosed initializer list>' to 'Quaternion'
+         return {angle, _axis};
+                             ^
