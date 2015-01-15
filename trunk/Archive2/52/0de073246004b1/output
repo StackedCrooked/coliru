@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O0 -Wall -Wimplicit-fallthrough -Wextra -Wconversion -Wall -pthread -pedantic main.cpp
+main.cpp:19:5: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+    case 2:
+    ^
+main.cpp:19:5: note: insert '[[clang::fallthrough]];' to silence this warning
+    case 2:
+    ^
+    [[clang::fallthrough]]; 
+main.cpp:19:5: note: insert 'break;' to avoid fall-through
+    case 2:
+    ^
+    break; 
+1 warning generated.
++ ./a.out
