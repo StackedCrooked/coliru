@@ -1,0 +1,12 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In member function 'void foo< <template-parameter-1-1> >::f()':
+main.cpp:8:16: error: expected primary-expression before 'int'
+         b.quux<int>();
+                ^
+main.cpp:8:16: error: expected ';' before 'int'
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:11: error: use 'template' keyword to treat 'quux' as a dependent template name
+        b.quux<int>();
+          ^
+          template 
+1 error generated.
