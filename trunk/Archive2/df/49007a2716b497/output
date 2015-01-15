@@ -1,0 +1,104 @@
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.type	main._omp_fn.0, @function
+main._omp_fn.0:
+.LFB13:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	call	omp_get_num_threads
+	movl	%eax, %ebp
+	call	omp_get_thread_num
+	movl	%eax, %esi
+	movl	$10000, %eax
+	cltd
+	idivl	%ebp
+	cmpl	%edx, %esi
+	jge	.L4
+	addl	$1, %eax
+	xorl	%edx, %edx
+.L4:
+	imull	%eax, %esi
+	addl	%esi, %edx
+	leal	(%rdx,%rax), %ecx
+	movl	%ecx, %eax
+	subl	%edx, %eax
+	cmpl	%ecx, %edx
+	movl	$0, %edx
+	cmovge	%edx, %eax
+	lock; addl	%eax, (%rbx)
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE13:
+	.size	main._omp_fn.0, .-main._omp_fn.0
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC1:
+	.string	"%d\n"
+	.section	.text.unlikely
+.LCOLDB2:
+	.section	.text.startup,"ax",@progbits
+.LHOTB2:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB12:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	xorl	%esi, %esi
+	movl	$100000, %ebx
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	.p2align 4,,10
+	.p2align 3
+.L10:
+	movl	%esi, (%rsp)
+	xorl	%ecx, %ecx
+	xorl	%edx, %edx
+	movq	%rsp, %rsi
+	movl	$main._omp_fn.0, %edi
+	call	GOMP_parallel
+	subl	$1, %ebx
+	movl	(%rsp), %esi
+	jne	.L10
+	movl	$.LC1, %edi
+	xorl	%eax, %eax
+	call	printf
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 16
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE12:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE2:
+	.section	.text.startup
+.LHOTE2:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
