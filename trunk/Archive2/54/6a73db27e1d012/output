@@ -1,0 +1,81 @@
+main.cpp: In function 'int main()':
+main.cpp:14:65: error: no match for 'operator-' (operand types are 'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' and 'volatile std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >')
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                 ^
+main.cpp:14:65: note: candidates are:
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.2/chrono:650:7: note: template<class _Clock, class _Dur1, class _Dur2> constexpr typename std::common_type<_Duration1, _Duration2>::type std::chrono::operator-(const std::chrono::time_point<_Clock, _Duration1>&, const std::chrono::time_point<_Clock, _Duration2>&)
+       operator-(const time_point<_Clock, _Dur1>& __lhs,
+       ^
+/usr/local/include/c++/4.9.2/chrono:650:7: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   types 'const std::chrono::time_point<_Clock, _Duration2>' and 'volatile std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >' have incompatible cv-qualifiers
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.2/chrono:639:7: note: template<class _Clock, class _Dur1, class _Rep2, class _Period2> constexpr std::chrono::time_point<_Clock, typename std::common_type<_Dur1, std::chrono::duration<_Rep2, _Period2> >::type> std::chrono::operator-(const std::chrono::time_point<_Clock, _Duration1>&, const std::chrono::duration<_Rep2, _Period2>&)
+       operator-(const time_point<_Clock, _Dur1>& __lhs,
+       ^
+/usr/local/include/c++/4.9.2/chrono:639:7: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   types 'const std::chrono::duration<_Rep2, _Period2>' and 'volatile std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >' have incompatible cv-qualifiers
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from main.cpp:3:0:
+/usr/local/include/c++/4.9.2/chrono:393:7: note: template<class _Rep1, class _Period1, class _Rep2, class _Period2> constexpr typename std::common_type<std::chrono::duration<_Rep1, _Period1>, std::chrono::duration<_Rep2, _Period2> >::type std::chrono::operator-(const std::chrono::duration<_Rep1, _Period1>&, const std::chrono::duration<_Rep2, _Period2>&)
+       operator-(const duration<_Rep1, _Period1>& __lhs,
+       ^
+/usr/local/include/c++/4.9.2/chrono:393:7: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::chrono::duration<_Rep1, _Period1>'
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:1128:5: note: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator-(const move_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:1128:5: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::move_iterator<_Iterator>'
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:1121:5: note: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator-(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:1121:5: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::move_iterator<_Iterator>'
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:380:5: note: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator-(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:67:0,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/ios:40,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:328:5: note: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator-(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
+main.cpp:14:67: note:   'std::chrono::_V2::system_clock::time_point {aka std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >}' is not derived from 'const std::reverse_iterator<_Iterator>'
+     volatile auto i = std::chrono::high_resolution_clock::now() - start;
+                                                                   ^
