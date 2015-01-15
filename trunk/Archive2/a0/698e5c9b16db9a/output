@@ -1,0 +1,18 @@
++ clang++ -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:11:9: error: no matching constructor for initialization of 'Foo'
+    Foo foo;
+        ^
+main.cpp:4:5: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+    Foo(const Foo&) = delete;
+    ^
+1 error generated.
++ g++-4.9 -std=c++11 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp: In function 'int main()':
+main.cpp:11:9: error: no matching function for call to 'Foo::Foo()'
+     Foo foo;
+         ^
+main.cpp:11:9: note: candidate is:
+main.cpp:4:5: note: Foo::Foo(const Foo&) <deleted>
+     Foo(const Foo&) = delete;
+     ^
+main.cpp:4:5: note:   candidate expects 1 argument, 0 provided
