@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:49:15: error: no match for 'operator-' (operand types are 'NotDerived1' and 'NotDerived2')
+     nd1 = nd1 - nd2;
+               ^
+main.cpp:49:15: note: candidate is:
+main.cpp:33:3: note: template<class A, class B, class> A operator-(const A&, const B&)
+ A operator-(const A& a, const B& b)
+   ^
+main.cpp:33:3: note:   template argument deduction/substitution failed:
+main.cpp:32:5: error: no type named 'type' in 'struct std::enable_if<false, void>'
+     typename = typename std::enable_if<std::is_base_of<Base, A>::value && std::is_base_of<Base, B>::value>::type>
+     ^
