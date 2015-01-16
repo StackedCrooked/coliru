@@ -1,0 +1,10 @@
+main.cpp:6:23: error: member 'MyTemplateType' declared as a template
+    template<class T> MyTemplateType = std::vector<T>;
+    ~~~~~~~~~~~~~~~~~ ^
+main.cpp:12:65: error: 'MyTemplateType' following the 'template' keyword does not refer to a template
+        template<class T> using MyTType = typename MC::template MyTemplateType<T>;
+                                                                ^~~~~~~~~~~~~~
+main.cpp:22:27: note: in instantiation of template class 'MyOtherClass<MyClass>' requested here
+    MyOtherClass<MyClass> x;
+                          ^
+2 errors generated.
