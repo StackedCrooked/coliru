@@ -1,0 +1,155 @@
+main.cpp:2:18: error: 'string' in namespace 'std' does not name a type
+             std::string m_name, m_doc;
+                  ^
+main.cpp:3:33: error: expected ')' before 'n'
+             Strings(std::string n, std::string d) : m_name{n},m_doc{d} {}
+                                 ^
+main.cpp:3:62: error: expected unqualified-id before ',' token
+             Strings(std::string n, std::string d) : m_name{n},m_doc{d} {}
+                                                              ^
+main.cpp:3:72: error: expected unqualified-id before '{' token
+             Strings(std::string n, std::string d) : m_name{n},m_doc{d} {}
+                                                                        ^
+main.cpp:7:9: error: expected class-name before '{' token
+         {
+         ^
+main.cpp:9:13: error: 'F0' does not name a type
+             F0 f0{nullptr};
+             ^
+main.cpp:9:27: warning: extra ';' [-Wpedantic]
+             F0 f0{nullptr};
+                           ^
+main.cpp:10:13: error: 'F1' does not name a type
+             F1 f1{nullptr};
+             ^
+main.cpp:10:27: warning: extra ';' [-Wpedantic]
+             F1 f1{nullptr};
+                           ^
+main.cpp:11:13: error: 'F2' does not name a type
+             F2 f2{nullptr};
+             ^
+main.cpp:11:27: warning: extra ';' [-Wpedantic]
+             F2 f2{nullptr};
+                           ^
+main.cpp:14:29: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+             using S = const std::string;
+                             ^
+main.cpp:14:29: error: expected ';'
+main.cpp:14:34: error: using-declaration for non-member at class scope
+             using S = const std::string;
+                                  ^
+main.cpp:21:36: error: 'F0' has not been declared
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                    ^
+main.cpp:21:45: error: 'PyCFunction' has not been declared
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                             ^
+main.cpp:22:36: error: 'F1' has not been declared
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                    ^
+main.cpp:22:45: error: 'PyCFunction' has not been declared
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                             ^
+main.cpp:22:13: error: 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)' cannot be overloaded
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+             ^
+main.cpp:21:13: error: with 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)'
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+             ^
+main.cpp:23:36: error: 'F2' has not been declared
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                    ^
+main.cpp:23:45: error: 'PyCFunction' has not been declared
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                             ^
+main.cpp:23:13: error: 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)' cannot be overloaded
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+             ^
+main.cpp:21:13: error: with 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)'
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+             ^
+main.cpp:23:190: error: expected '}' at end of input
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                                                              ^
+main.cpp: In constructor 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)':
+main.cpp:21:95: error: class 'MethodMapItem' does not have any field named 'PyMethodDef'
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                               ^
+main.cpp:21:108: error: 'm_name' was not declared in this scope
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                                            ^
+main.cpp:21:133: error: 'METH_NOARGS' was not declared in this scope
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                                                                     ^
+main.cpp:21:161: error: 'm_doc' was not declared in this scope
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                                                                                                 ^
+main.cpp:21:178: error: class 'MethodMapItem' does not have any field named 'f0'
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                                                                                                                  ^
+main.cpp:21:185: error: too many initializers for 'Strings'
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+                                                                                                                                                                                         ^
+main.cpp:21:13: error: uninitialized const member in 'using S = const int {aka const int}' [-fpermissive]
+             MethodMapItem( C name, F0 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_NOARGS               , m_doc.c_str() }, f0{func} { };
+             ^
+main.cpp:16:15: note: 'MethodMapItem::S MethodMapItem::s' should be initialized
+             S s;
+               ^
+main.cpp: In constructor 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)':
+main.cpp:22:95: error: class 'MethodMapItem' does not have any field named 'PyMethodDef'
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                               ^
+main.cpp:22:108: error: 'm_name' was not declared in this scope
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                                            ^
+main.cpp:22:133: error: 'METH_VARARGS' was not declared in this scope
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                                                                     ^
+main.cpp:22:161: error: 'm_doc' was not declared in this scope
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                                                                                                 ^
+main.cpp:22:178: error: class 'MethodMapItem' does not have any field named 'f1'
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                                                                                                                  ^
+main.cpp:22:185: error: too many initializers for 'Strings'
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+                                                                                                                                                                                         ^
+main.cpp:22:13: error: uninitialized const member in 'using S = const int {aka const int}' [-fpermissive]
+             MethodMapItem( C name, F1 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS              , m_doc.c_str() }, f1{func} { };
+             ^
+main.cpp:16:15: note: 'MethodMapItem::S MethodMapItem::s' should be initialized
+             S s;
+               ^
+main.cpp: In constructor 'MethodMapItem::MethodMapItem(MethodMapItem::C, int, int, MethodMapItem::C)':
+main.cpp:23:95: error: class 'MethodMapItem' does not have any field named 'PyMethodDef'
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                               ^
+main.cpp:23:108: error: 'm_name' was not declared in this scope
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                            ^
+main.cpp:23:133: error: 'METH_VARARGS' was not declared in this scope
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                     ^
+main.cpp:23:146: error: 'METH_KEYWORDS' was not declared in this scope
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                  ^
+main.cpp:23:161: error: 'm_doc' was not declared in this scope
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                                 ^
+main.cpp:23:178: error: class 'MethodMapItem' does not have any field named 'f2'
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                                                  ^
+main.cpp:23:185: error: too many initializers for 'Strings'
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                                                         ^
+main.cpp:23:13: error: uninitialized const member in 'using S = const int {aka const int}' [-fpermissive]
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+             ^
+main.cpp:16:15: note: 'MethodMapItem::S MethodMapItem::s' should be initialized
+             S s;
+               ^
+main.cpp: At global scope:
+main.cpp:23:189: error: expected unqualified-id at end of input
+             MethodMapItem( C name, F2 func, PyCFunction handler, C doc ) : Strings{name,doc}, PyMethodDef{ m_name.c_str(), handler, METH_VARARGS|METH_KEYWORDS, m_doc.c_str() }, f2{func} { };
+                                                                                                                                                                                             ^
