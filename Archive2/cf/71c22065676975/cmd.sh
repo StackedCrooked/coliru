@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out The British make up for the humidity with their dry humour
