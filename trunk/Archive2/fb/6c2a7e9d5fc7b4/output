@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:21:37: error: no matching function for call to 'sort(std::vector<int>::iterator, std::vector<int>::iterator, <unresolved overloaded function type>)'
+     sort(v.begin(), v.end(), compare);
+                                     ^
+main.cpp:21:37: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/algorithm:62:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4676:5: note: template<class _RAIter> void std::sort(_RAIter, _RAIter)
+     sort(_RandomAccessIterator __first, _RandomAccessIterator __last)
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4676:5: note:   template argument deduction/substitution failed:
+main.cpp:21:37: note:   candidate expects 2 arguments, 3 provided
+     sort(v.begin(), v.end(), compare);
+                                     ^
+In file included from /usr/local/include/c++/4.9.2/algorithm:62:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4705:5: note: template<class _RAIter, class _Compare> void std::sort(_RAIter, _RAIter, _Compare)
+     sort(_RandomAccessIterator __first, _RandomAccessIterator __last,
+     ^
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4705:5: note:   template argument deduction/substitution failed:
+main.cpp:21:37: note:   couldn't deduce template parameter '_Compare'
+     sort(v.begin(), v.end(), compare);
+                                     ^
