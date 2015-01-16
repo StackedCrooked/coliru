@@ -1,0 +1,49 @@
+main.cpp:6:17: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using Column  = std::string;
+                ^
+main.cpp:7:17: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using Columns = std::vector<Column>;
+                ^
+main.cpp:8:17: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using CsvLine = Columns;
+                ^
+main.cpp:9:17: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+using CsvFile = std::vector<CsvLine>;
+                ^
+main.cpp:36:27: error: use of undeclared identifier 'R'
+    const std::string s = R"(1997,Ford,E350,"ac, abs, moon","""rusty""",3001.00)";
+                          ^
+main.cpp:36:59: error: expected ';' at end of declaration
+    const std::string s = R"(1997,Ford,E350,"ac, abs, moon","""rusty""",3001.00)";
+                                                          ^
+                                                          ;
+main.cpp:38:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto f(begin(s)), l(end(s));
+    ^
+main.cpp:38:12: error: use of undeclared identifier 'begin'; did you mean 'boost::begin'?
+    auto f(begin(s)), l(end(s));
+           ^~~~~
+           boost::begin
+/usr/local/include/boost/range/begin.hpp:106:61: note: 'boost::begin' declared here
+inline BOOST_DEDUCED_TYPENAME range_iterator<const T>::type begin( const T& r )
+                                                            ^
+main.cpp:38:25: error: use of undeclared identifier 'end'; did you mean 'boost::end'?
+    auto f(begin(s)), l(end(s));
+                        ^~~
+                        boost::end
+/usr/local/include/boost/range/end.hpp:100:61: note: 'boost::end' declared here
+inline BOOST_DEDUCED_TYPENAME range_iterator<const T>::type end( const T& r )
+                                                            ^
+main.cpp:46:13: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& line : parsed) {
+            ^
+main.cpp:46:24: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& line : parsed) {
+                       ^
+main.cpp:47:17: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+            for(auto& col : line)
+                ^
+main.cpp:47:27: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+            for(auto& col : line)
+                          ^
+9 warnings and 4 errors generated.
