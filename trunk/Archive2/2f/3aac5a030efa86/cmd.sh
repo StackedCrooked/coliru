@@ -1,0 +1,1 @@
+clang++ -std=c++03 -Os -Wall -pedantic -Wno-c++0x-compat main.cpp && ./a.out
