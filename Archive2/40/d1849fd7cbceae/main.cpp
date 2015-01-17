@@ -1,0 +1,4 @@
+#include "globals.h"
+
+double  grows[2][L+1] = { { 0, 1, 2, 3}, { 4, 5, 6, 7} };
+
