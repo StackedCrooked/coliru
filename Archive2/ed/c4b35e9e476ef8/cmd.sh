@@ -1,0 +1,1 @@
+g++ -fpermissive main.cpp && ./a.out
