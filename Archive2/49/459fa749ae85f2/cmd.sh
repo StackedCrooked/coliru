@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O2 -ftemplate-depth=20480 -Wall -pedantic -pthread main.cpp && ./a.out
