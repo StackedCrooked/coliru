@@ -1,0 +1,1 @@
+cat >input.txt<<<" 10,9 2.5, 3   4 ,150.32 "; clang++ -std=c++11 -Os -Wall -pedantic main.cpp -lboost_iostreams && ./a.out
