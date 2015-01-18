@@ -1,0 +1,69 @@
+main.cpp: In member function 'void prism::unit_base_t::destroy()':
+main.cpp:122:62: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::unit_base_t*' [-Wformat=]
+             printf("unit_base_t::destroy() this = %X\n", this); 
+                                                              ^
+main.cpp: In function 'prism::owner_ptr_t<prism::unit_base_t> prism::create_default_unit()':
+main.cpp:130:16: error: no matching function for call to 'prism::owner_ptr_t<prism::unit_base_t>::owner_ptr_t(prism::owner_ptr_t<prism::unit_base_t>&)'
+         return a;
+                ^
+main.cpp:130:16: note: candidates are:
+main.cpp:16:9: note: prism::owner_ptr_t<T>::owner_ptr_t(T*) [with T = prism::unit_base_t]
+         owner_ptr_t(T * ptr)
+         ^
+main.cpp:16:9: note:   no known conversion for argument 1 from 'prism::owner_ptr_t<prism::unit_base_t>' to 'prism::unit_base_t*'
+main.cpp:11:9: note: prism::owner_ptr_t<T>::owner_ptr_t() [with T = prism::unit_base_t]
+         owner_ptr_t()
+         ^
+main.cpp:11:9: note:   candidate expects 0 arguments, 1 provided
+main.cpp: At global scope:
+main.cpp:132:2: warning: extra ';' [-Wpedantic]
+ }; // namespace prism
+  ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:136:78: error: no matching function for call to 'prism::owner_ptr_t<prism::unit_base_t>::owner_ptr_t(prism::owner_ptr_t<prism::unit_base_t>)'
+     prism::owner_ptr_t<prism::unit_base_t> unit = prism::create_default_unit();
+                                                                              ^
+main.cpp:136:78: note: candidates are:
+main.cpp:16:9: note: prism::owner_ptr_t<T>::owner_ptr_t(T*) [with T = prism::unit_base_t]
+         owner_ptr_t(T * ptr)
+         ^
+main.cpp:16:9: note:   no known conversion for argument 1 from 'prism::owner_ptr_t<prism::unit_base_t>' to 'prism::unit_base_t*'
+main.cpp:11:9: note: prism::owner_ptr_t<T>::owner_ptr_t() [with T = prism::unit_base_t]
+         owner_ptr_t()
+         ^
+main.cpp:11:9: note:   candidate expects 0 arguments, 1 provided
+main.cpp: In instantiation of 'prism::owner_ptr_t<T>::owner_ptr_t(T*) [with T = prism::unit_base_t]':
+main.cpp:129:39:   required from here
+main.cpp:18:105: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::owner_ptr_t<prism::unit_base_t>*' [-Wformat=]
+             printf("owner_ptr_t::owner_ptr_t(T * ptr) this = %X ptr = %X m_ptr = %X\n", this, ptr, m_ptr);
+                                                                                                         ^
+main.cpp:18:105: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp:18:105: warning: format '%X' expects argument of type 'unsigned int', but argument 4 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp: In instantiation of 'prism::owner_ptr_t<T>::~owner_ptr_t() [with T = prism::unit_base_t]':
+main.cpp:129:39:   required from here
+main.cpp:28:101: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::owner_ptr_t<prism::unit_base_t>*' [-Wformat=]
+             printf("owner_ptr_t::~owner_ptr_t(void) this = %X ptr = %X m_ptr = %X\n", this, 0, m_ptr);
+                                                                                                     ^
+main.cpp:28:101: warning: format '%X' expects argument of type 'unsigned int', but argument 4 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp: In instantiation of 'void prism::owner_ptr_t<T>::assign(T*) [with T = prism::unit_base_t]':
+main.cpp:19:23:   required from 'prism::owner_ptr_t<T>::owner_ptr_t(T*) [with T = prism::unit_base_t]'
+main.cpp:129:39:   required from here
+main.cpp:35:99: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::owner_ptr_t<prism::unit_base_t>*' [-Wformat=]
+             printf("owner_ptr_t::assign(T* ptr) this = %X ptr = %X m_ptr = %X\n", this, ptr, m_ptr);
+                                                                                                   ^
+main.cpp:35:99: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp:35:99: warning: format '%X' expects argument of type 'unsigned int', but argument 4 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp: In instantiation of 'void prism::owner_ptr_t<T>::unassign() [with T = prism::unit_base_t]':
+main.cpp:29:22:   required from 'prism::owner_ptr_t<T>::~owner_ptr_t() [with T = prism::unit_base_t]'
+main.cpp:129:39:   required from here
+main.cpp:49:97: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::owner_ptr_t<prism::unit_base_t>*' [-Wformat=]
+             printf("owner_ptr_t::unassign(void) this = %X ptr = %X m_ptr = %X\n", this, 0, m_ptr);
+                                                                                                 ^
+main.cpp:49:97: warning: format '%X' expects argument of type 'unsigned int', but argument 4 has type 'prism::unit_base_t*' [-Wformat=]
+main.cpp:57:61: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'prism::owner_ptr_t<prism::unit_base_t>*' [-Wformat=]
+                     printf("add_to_garbage; this = %X", this);
+                                                             ^
+main.cpp: In function 'prism::owner_ptr_t<prism::unit_base_t> prism::create_default_unit()':
+main.cpp:131:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
