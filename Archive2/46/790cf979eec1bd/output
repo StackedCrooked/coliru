@@ -1,0 +1,26 @@
++ g++ -std=c++03 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:25: error: expected ',' or '...' before '&&' token
+ void PerfectForwarding(T&& tValue);
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:12:24: error: call of overloaded 'PerfectForwarding(int&)' is ambiguous
+     PerfectForwarding(i);
+                        ^
+main.cpp:12:24: note: candidates are:
+main.cpp:5:6: note: void PerfectForwarding(T&) [with T = int]
+ void PerfectForwarding(T& tValue);
+      ^
+main.cpp:8:6: note: void PerfectForwarding(T) [with T = int]
+ void PerfectForwarding(T&& tValue);
+      ^
++ clang++ -std=c++03 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:25: warning: rvalue references are a C++11 extension [-Wc++11-extensions]
+void PerfectForwarding(T&& tValue);
+                        ^
+main.cpp:13:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+2 warnings generated.
+/tmp/main-73c843.o: In function `main':
+main.cpp:(.text+0x7): undefined reference to `void PerfectForwarding<int>(int&)'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
