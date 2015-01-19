@@ -1,0 +1,1 @@
+g++ -std=c++11 -fext-numeric-literals -O2 -Wall -pedantic -pthread main.cpp && ./a.out
