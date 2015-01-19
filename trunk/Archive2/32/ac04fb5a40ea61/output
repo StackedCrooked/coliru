@@ -1,0 +1,1151 @@
+main:                                   # @main
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$80, %rsp
+	movl	$0, 4(%rsp)
+	leaq	4(%rsp), %rax
+	movq	%rax, 8(%rsp)
+	movq	$0, 48(%rsp)
+	movb	$44, 17(%rsp)
+	leaq	8(%rsp), %rax
+	movq	%rax, 24(%rsp)
+	movq	$.L.str, 56(%rsp)
+	xorps	%xmm0, %xmm0
+	movaps	%xmm0, 64(%rsp)
+	leaq	16(%rsp), %rdi
+	leaq	56(%rsp), %rsi
+	leaq	48(%rsp), %rdx
+	leaq	40(%rsp), %r8
+	leaq	64(%rsp), %r9
+	movl	boost::spirit::unused, %ecx
+	callq	bool boost::spirit::qi::sequence_base<boost::spirit::qi::sequence<boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >::parse_impl<char const*, boost::spirit::unused_type const, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, boost::fusion::vector2<double, double> >(char const*&, char const* const&, boost::spirit::unused_type const&, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> > const&, boost::fusion::vector2<double, double>&, mpl_::bool_<false>) const
+	testb	%al, %al
+	je	.LBB0_3
+	leaq	16(%rsp), %r14
+	leaq	56(%rsp), %r15
+	leaq	48(%rsp), %r12
+	leaq	40(%rsp), %r13
+	leaq	64(%rsp), %rbx
+	movq	24(%rsp), %rax
+	movq	(%rax), %rax
+	incl	(%rax)
+	xorps	%xmm0, %xmm0
+	movaps	%xmm0, 64(%rsp)
+	movl	boost::spirit::unused, %ecx
+	movq	%r14, %rdi
+	movq	%r15, %rsi
+	movq	%r12, %rdx
+	movq	%r13, %r8
+	movq	%rbx, %r9
+	callq	bool boost::spirit::qi::sequence_base<boost::spirit::qi::sequence<boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >::parse_impl<char const*, boost::spirit::unused_type const, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, boost::fusion::vector2<double, double> >(char const*&, char const* const&, boost::spirit::unused_type const&, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> > const&, boost::fusion::vector2<double, double>&, mpl_::bool_<false>) const
+	testb	%al, %al
+	jne	.LBB0_2
+	movq	56(%rsp), %rbx
+	jmp	.LBB0_4
+	incq	%rbx
+	cmpq	48(%rsp), %rbx
+	je	.LBB0_7
+	movsbl	(%rbx), %edi
+	callq	isspace
+	testl	%eax, %eax
+	jne	.LBB0_6
+	testq	%rbx, %rbx
+	je	.LBB0_10
+	cmpb	$0, (%rbx)
+	je	.LBB0_10
+	movl	$8, %edi
+	callq	__cxa_allocate_exception
+	movq	%rbx, (%rax)
+	movl	typeinfo for char const*, %esi
+	xorl	%edx, %edx
+	movq	%rax, %rdi
+	callq	__cxa_throw
+	jmp	.LBB0_10
+	movq	%rax, %rbx
+	cmpl	$1, %edx
+	jne	.LBB0_22
+	movq	%rbx, %rdi
+	callq	__cxa_begin_catch
+	movq	%rax, %rbx
+	movl	std::cout, %edi
+	movl	$.L.str64, %esi
+	movl	$19, %edx
+	callq	std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+	testq	%rbx, %rbx
+	je	.LBB0_16
+	movq	%rbx, %rdi
+	callq	strlen
+	movl	std::cout, %edi
+	movq	%rbx, %rsi
+	movq	%rax, %rdx
+	callq	std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+	jmp	.LBB0_18
+	movl	std::cout, %edi
+	movl	$.L.str62, %esi
+	movl	$20, %edx
+	callq	std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+	movl	4(%rsp), %esi
+	movl	std::cout, %edi
+	callq	std::basic_ostream<char, std::char_traits<char> >::operator<<(int)
+	movl	$.L.str63, %esi
+	movl	$1, %edx
+	movq	%rax, %rdi
+	callq	std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+	jmp	.LBB0_20
+	movq	std::cout(%rip), %rax
+	movq	-24(%rax), %rax
+	leaq	std::cout(%rax), %rdi
+	movl	std::cout+32(%rax), %esi
+	orl	$1, %esi
+	callq	std::basic_ios<char, std::char_traits<char> >::clear(std::_Ios_Iostate)
+	movl	std::cout, %edi
+	movl	$.L.str65, %esi
+	movl	$2, %edx
+	callq	std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+	callq	__cxa_end_catch
+	xorl	%eax, %eax
+	addq	$80, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	retq
+	movq	%rax, %rbx
+	callq	__cxa_end_catch
+	movq	%rbx, %rdi
+	callq	_Unwind_Resume
+GCC_except_table0:
+
+bool boost::spirit::qi::sequence_base<boost::spirit::qi::sequence<boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >::parse_impl<char const*, boost::spirit::unused_type const, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, boost::fusion::vector2<double, double> >(char const*&, char const* const&, boost::spirit::unused_type const&, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> > const&, boost::fusion::vector2<double, double>&, mpl_::bool_<false>) const: # @bool boost::spirit::qi::sequence_base<boost::spirit::qi::sequence<boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::cons<boost::spirit::qi::literal_char<boost::spirit::char_encoding::standard, true, false>, boost::fusion::cons<boost::spirit::qi::any_real_parser<double, boost::spirit::qi::real_policies<double> >, boost::fusion::nil_> > > >::parse_impl<char const*, boost::spirit::unused_type const, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> >, boost::fusion::vector2<double, double> >(char const*&, char const* const&, boost::spirit::unused_type const&, boost::spirit::qi::char_class<boost::spirit::tag::char_code<boost::spirit::tag::space, boost::spirit::char_encoding::standard> > const&, boost::fusion::vector2<double, double>&, mpl_::bool_<false>) const
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$32, %rsp
+	movq	%r9, %r15
+	movq	%rdx, %r13
+	movq	%rsi, %r14
+	movq	%rdi, %r12
+	movq	(%r14), %rbx
+	jmp	.LBB1_1
+	incq	%rbx
+	movq	%rbx, 8(%rsp)
+	cmpq	(%r13), %rbx
+	je	.LBB1_4
+	movsbl	(%rbx), %edi
+	callq	isspace
+	testl	%eax, %eax
+	jne	.LBB1_3
+	leaq	8(%rsp), %rdi
+	leaq	16(%rsp), %rcx
+	movq	%r13, %rsi
+	movq	%r15, %rdx
+	callq	bool boost::spirit::qi::detail::real_impl<double, boost::spirit::qi::real_policies<double> >::parse<char const*, double>(char const*&, char const* const&, double&, boost::spirit::qi::real_policies<double> const&)
+	testb	%al, %al
+	je	.LBB1_5
+	movq	8(%rsp), %rax
+	cmpq	(%r13), %rax
+	je	.LBB1_7
+	movsbl	(%rax), %edi
+	callq	isspace
+	testl	%eax, %eax
+	movq	8(%rsp), %rax
+	je	.LBB1_11
+	incq	%rax
+	movq	%rax, 8(%rsp)
+	cmpq	(%r13), %rax
+	jne	.LBB1_8
+	xorl	%eax, %eax
+	jmp	.LBB1_21
+	xorl	%eax, %eax
+	jmp	.LBB1_21
+	xorl	%eax, %eax
+	jmp	.LBB1_21
+	movq	(%r13), %rcx
+	cmpq	%rcx, %rax
+	je	.LBB1_12
+	movzbl	(%rax), %edx
+	movzbl	1(%r12), %esi
+	cmpl	%edx, %esi
+	jne	.LBB1_14
+	incq	%rax
+	movq	%rax, 8(%rsp)
+	cmpq	%rcx, %rax
+	je	.LBB1_18
+	movsbl	(%rax), %edi
+	callq	isspace
+	testl	%eax, %eax
+	je	.LBB1_18
+	movq	8(%rsp), %rax
+	incq	%rax
+	movq	%rax, 8(%rsp)
+	cmpq	(%r13), %rax
+	jne	.LBB1_16
+	addq	$8, %r15
+	leaq	8(%rsp), %rdi
+	leaq	24(%rsp), %rcx
+	movq	%r13, %rsi
+	movq	%r15, %rdx
+	callq	bool boost::spirit::qi::detail::real_impl<double, boost::spirit::qi::real_policies<double> >::parse<char const*, double>(char const*&, char const* const&, double&, boost::spirit::qi::real_policies<double> const&)
+	testb	%al, %al
+	je	.LBB1_19
+	movq	8(%rsp), %rax
+	movq	%rax, (%r14)
+	movb	$1, %al
+	jmp	.LBB1_21
+	xorl	%eax, %eax
+	jmp	.LBB1_21
+	xorl	%eax, %eax
+	jmp	.LBB1_21
+	xorl	%eax, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	retq
+
+bool boost::spirit::qi::detail::real_impl<double, boost::spirit::qi::real_policies<double> >::parse<char const*, double>(char const*&, char const* const&, double&, boost::spirit::qi::real_policies<double> const&): # @bool boost::spirit::qi::detail::real_impl<double, boost::spirit::qi::real_policies<double> >::parse<char const*, double>(char const*&, char const* const&, double&, boost::spirit::qi::real_policies<double> const&)
+	pushq	%rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$24, %rsp
+	movq	%rdx, %r14
+	movq	%rdi, %r12
+	movq	(%r12), %r15
+	movq	(%rsi), %r10
+	cmpq	%r10, %r15
+	je	.LBB2_93
+	movzbl	(%r15), %ecx
+	cmpl	$45, %ecx
+	sete	%r9b
+	cmpl	$43, %ecx
+	je	.LBB2_4
+	movzbl	%cl, %ecx
+	cmpl	$45, %ecx
+	jne	.LBB2_3
+	leaq	1(%r15), %rcx
+	movq	%rcx, (%r12)
+	movq	(%rsi), %r10
+	jmp	.LBB2_5
+	xorl	%r9d, %r9d
+	movq	%r15, %rcx
+	xorpd	%xmm3, %xmm3
+	movq	%rcx, %rbp
+	subq	%r10, %rbp
+	je	.LBB2_6
+	xorl	%edi, %edi
+	movsbl	(%rcx,%rdi), %ebx
+	cmpl	$48, %ebx
+	jne	.LBB2_10
+	incq	%rdi
+	movq	%rbp, %rdx
+	addq	%rdi, %rdx
+	jne	.LBB2_8
+	jmp	.LBB2_11
+	xorl	%edi, %edi
+	jmp	.LBB2_18
+	leaq	(%rcx,%rdi), %rdx
+	cmpq	%r10, %rdx
+	je	.LBB2_11
+	movb	%bl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_16
+	addl	$-48, %ebx
+	cvtsi2sdl	%ebx, %xmm1
+	leaq	1(%rdx), %rax
+	cmpq	%r10, %rax
+	je	.LBB2_15
+	leaq	-1(%r10), %rcx
+	leaq	-3(%r10), %rdi
+	leaq	-2(%r10), %rbx
+	movsd	.LCPI2_0(%rip), %xmm0
+	movsbl	1(%rdx), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_35
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm1
+	cvtsi2sdl	%ebp, %xmm3
+	addsd	%xmm1, %xmm3
+	cmpq	%rdx, %rbx
+	je	.LBB2_12
+	movsbl	2(%rdx), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_28
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm3
+	cvtsi2sdl	%ebp, %xmm2
+	addsd	%xmm3, %xmm2
+	cmpq	%rdx, %rdi
+	je	.LBB2_30
+	movsbl	3(%rdx), %ebp
+	addq	$3, %rdx
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_32
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm2
+	cvtsi2sdl	%ebp, %xmm1
+	addsd	%xmm2, %xmm1
+	cmpq	%rdx, %rcx
+	jne	.LBB2_25
+	movapd	%xmm1, %xmm3
+	jmp	.LBB2_12
+	testq	%rdi, %rdi
+	jne	.LBB2_12
+	jmp	.LBB2_37
+	testq	%rdi, %rdi
+	je	.LBB2_37
+	movq	%rdx, (%r12)
+	movb	$1, %dil
+	movq	%rdx, %r10
+	jmp	.LBB2_18
+	movq	%rcx, (%r12)
+	movq	(%rsi), %r10
+	movq	%rcx, %r8
+	subq	%r10, %r8
+	je	.LBB2_38
+	movb	(%rcx), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$110, %eax
+	jne	.LBB2_52
+	movb	$110, %bl
+	xorl	%edi, %edi
+	movb	.L.str73(%rdi), %dl
+	testb	%dl, %dl
+	je	.LBB2_46
+	movq	%r8, %rax
+	addq	%rdi, %rax
+	je	.LBB2_52
+	movzbl	(%rcx,%rdi), %ebp
+	movzbl	%bl, %eax
+	cmpl	%ebp, %eax
+	je	.LBB2_45
+	movzbl	%bpl, %eax
+	movzbl	%dl, %edx
+	cmpl	%eax, %edx
+	jne	.LBB2_52
+	movb	.L.str72+1(%rdi), %bl
+	incq	%rdi
+	testb	%bl, %bl
+	jne	.LBB2_41
+	addq	%rdi, %rcx
+	movq	%rcx, (%r12)
+	movq	(%rsi), %r10
+	movsd	.LCPI2_1(%rip), %xmm0
+	cmpq	%r10, %rcx
+	je	.LBB2_69
+	movzbl	(%rcx), %eax
+	cmpl	$40, %eax
+	jne	.LBB2_69
+	leaq	1(%rcx), %rdi
+	movq	%rdi, %rdx
+	cmpq	%rdx, %r10
+	je	.LBB2_52
+	leaq	1(%rdx), %rdi
+	movzbl	(%rdx), %eax
+	cmpl	$41, %eax
+	jne	.LBB2_49
+	decq	%rdx
+	addq	$2, %rdx
+	movq	%rdx, (%r12)
+	jmp	.LBB2_69
+	movq	%rcx, %r8
+	subq	%r10, %r8
+	je	.LBB2_53
+	movb	(%rcx), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$105, %eax
+	jne	.LBB2_55
+	movb	$105, %bl
+	xorl	%eax, %eax
+	movb	.L.str69(%rax), %dl
+	testb	%dl, %dl
+	je	.LBB2_62
+	movq	%r8, %rdi
+	addq	%rax, %rdi
+	je	.LBB2_55
+	movzbl	(%rcx,%rax), %ebp
+	movzbl	%bl, %edi
+	cmpl	%ebp, %edi
+	je	.LBB2_61
+	movzbl	%bpl, %edi
+	movzbl	%dl, %edx
+	cmpl	%edi, %edx
+	jne	.LBB2_55
+	movb	.L.str68+1(%rax), %bl
+	incq	%rax
+	testb	%bl, %bl
+	jne	.LBB2_57
+	addq	%rax, %rcx
+	movq	%rcx, (%r12)
+	movq	%rcx, %rdi
+	subq	(%rsi), %rdi
+	movb	$105, %bl
+	xorl	%eax, %eax
+	movsd	.LCPI2_2(%rip), %xmm0
+	movb	.L.str71(%rax), %dl
+	testb	%dl, %dl
+	je	.LBB2_68
+	movq	%rdi, %rsi
+	addq	%rax, %rsi
+	je	.LBB2_69
+	movzbl	(%rcx,%rax), %esi
+	movzbl	%bl, %ebp
+	cmpl	%esi, %ebp
+	je	.LBB2_67
+	movzbl	%sil, %esi
+	movzbl	%dl, %edx
+	cmpl	%esi, %edx
+	jne	.LBB2_69
+	movb	.L.str70+1(%rax), %bl
+	incq	%rax
+	testb	%bl, %bl
+	jne	.LBB2_63
+	addq	%rax, %rcx
+	movq	%rcx, (%r12)
+	jmp	.LBB2_69
+	xorl	%edi, %edi
+	jmp	.LBB2_18
+	movapd	%xmm1, %xmm3
+	jmp	.LBB2_12
+	xorl	%edi, %edi
+	movq	%rcx, %r10
+	jmp	.LBB2_18
+	xorl	%edi, %edi
+	jmp	.LBB2_18
+	incq	%rdx
+	movapd	%xmm1, %xmm3
+	movq	%rdx, %r10
+	jmp	.LBB2_12
+	addq	$2, %rdx
+	movq	%rdx, %r10
+	jmp	.LBB2_12
+	movapd	%xmm2, %xmm3
+	jmp	.LBB2_12
+	movapd	%xmm2, %xmm3
+	movq	%rdx, %r10
+	movq	%r10, (%r12)
+	movb	$1, %dil
+	movq	(%rsi), %rcx
+	cmpq	%rcx, %r10
+	je	.LBB2_95
+	movzbl	(%r10), %eax
+	cmpl	$46, %eax
+	jne	.LBB2_95
+	leaq	1(%r10), %r11
+	movq	%r11, (%r12)
+	movq	(%rsi), %rdx
+	cmpq	%rdx, %r11
+	je	.LBB2_91
+	movsbl	(%r11), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_90
+	addl	$-48, %ebp
+	mulsd	.LCPI2_0(%rip), %xmm3
+	cvtsi2sdl	%ebp, %xmm1
+	addsd	%xmm3, %xmm1
+	leaq	2(%r10), %rax
+	cmpq	%rdx, %rax
+	je	.LBB2_23
+	movl	%r9d, %ecx
+	leaq	-2(%rdx), %r8
+	leaq	-4(%rdx), %r9
+	leaq	-3(%rdx), %rbx
+	movsd	.LCPI2_0(%rip), %xmm0
+	movq	%r11, %rdi
+	movsbl	2(%r10), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_84
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm1
+	cvtsi2sdl	%ebp, %xmm3
+	addsd	%xmm1, %xmm3
+	cmpq	%r10, %rbx
+	je	.LBB2_85
+	movsbl	3(%r10), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_76
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm3
+	cvtsi2sdl	%ebp, %xmm2
+	addsd	%xmm3, %xmm2
+	cmpq	%r10, %r9
+	je	.LBB2_79
+	addq	$3, %rdi
+	movsbl	4(%r10), %ebp
+	movb	%bpl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB2_81
+	addl	$-48, %ebp
+	mulsd	%xmm0, %xmm2
+	cvtsi2sdl	%ebp, %xmm1
+	addsd	%xmm2, %xmm1
+	addq	$3, %r10
+	cmpq	%r10, %r8
+	jne	.LBB2_73
+	movapd	%xmm1, %xmm3
+	jmp	.LBB2_85
+	testb	%dil, %dil
+	je	.LBB2_92
+	cmpq	%rcx, %r10
+	je	.LBB2_97
+	movb	(%r10), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$101, %eax
+	jne	.LBB2_97
+	leaq	1(%r10), %rbx
+	xorl	%r13d, %r13d
+	movq	%r10, %r11
+	jmp	.LBB2_115
+	movq	%r10, %r11
+	jmp	.LBB2_98
+	movq	%r11, (%r12)
+	xorl	%r13d, %r13d
+	testb	%dil, %dil
+	jne	.LBB2_87
+	jmp	.LBB2_92
+	movapd	%xmm1, %xmm3
+	jmp	.LBB2_86
+	addq	$2, %r10
+	movapd	%xmm1, %xmm3
+	movq	%r10, %rdx
+	jmp	.LBB2_85
+	addq	$2, %rdi
+	movq	%rdi, %rdx
+	jmp	.LBB2_85
+	movapd	%xmm2, %xmm3
+	jmp	.LBB2_85
+	movapd	%xmm2, %xmm3
+	movq	%rdi, %rdx
+	movl	%ecx, %r9d
+	movq	%rdx, (%r12)
+	movl	%edx, %r13d
+	subl	%r11d, %r13d
+	movq	%rdx, %r11
+	cmpq	(%rsi), %r11
+	je	.LBB2_129
+	movb	(%r11), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$101, %eax
+	jne	.LBB2_129
+	leaq	1(%r11), %rbx
+	movq	%rbx, (%r12)
+	movl	$0, 20(%rsp)
+	cmpq	(%rsi), %rbx
+	je	.LBB2_92
+	movsd	%xmm3, 8(%rsp)          # 8-byte Spill
+	movl	%r9d, %ebp
+	movzbl	(%rbx), %eax
+	cmpl	$43, %eax
+	je	.LBB2_118
+	movzbl	%al, %edx
+	cmpl	$45, %edx
+	jne	.LBB2_120
+	addq	$2, %r11
+	movq	%r11, (%r12)
+	movzbl	%al, %eax
+	cmpl	$45, %eax
+	jne	.LBB2_120
+	leaq	20(%rsp), %rdx
+	movq	%r12, %rdi
+	callq	bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::negative_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&)
+	jmp	.LBB2_121
+	testl	%r13d, %r13d
+	je	.LBB2_98
+	movsd	%xmm3, 8(%rsp)          # 8-byte Spill
+	movl	%r9d, %ebx
+	jle	.LBB2_131
+	cmpl	$308, %r13d             # imm = 0x134
+	jl	.LBB2_139
+	movsd	8(%rsp), %xmm0          # 8-byte Reload
+	divsd	.LCPI2_4(%rip), %xmm0
+	movsd	%xmm0, 8(%rsp)          # 8-byte Spill
+	addl	$-307, %r13d            # imm = 0xFFFFFFFFFFFFFECD
+	cvtsi2sdq	%r13, %xmm1
+	jmp	.LBB2_140
+	ucomisd	.LCPI2_5(%rip), %xmm3
+	jne	.LBB2_133
+	jp	.LBB2_133
+	movq	(%rsi), %r8
+	movq	%r11, %rcx
+	subq	%r8, %rcx
+	je	.LBB2_133
+	movb	(%r11), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$110, %eax
+	jne	.LBB2_141
+	movb	$110, %bl
+	xorl	%edi, %edi
+	movb	.L.str73(%rdi), %al
+	testb	%al, %al
+	je	.LBB2_107
+	movq	%rcx, %rdx
+	addq	%rdi, %rdx
+	je	.LBB2_141
+	movzbl	(%r11,%rdi), %ebp
+	movzbl	%bl, %edx
+	cmpl	%ebp, %edx
+	je	.LBB2_106
+	movzbl	%bpl, %edx
+	movzbl	%al, %eax
+	cmpl	%edx, %eax
+	jne	.LBB2_141
+	movb	.L.str72+1(%rdi), %bl
+	incq	%rdi
+	testb	%bl, %bl
+	jne	.LBB2_102
+	addq	%rdi, %r11
+	movq	%r11, (%r12)
+	movq	(%rsi), %r8
+	movsd	.LCPI2_1(%rip), %xmm0
+	cmpq	%r8, %r11
+	je	.LBB2_69
+	movzbl	(%r11), %eax
+	cmpl	$40, %eax
+	jne	.LBB2_69
+	leaq	1(%r11), %rdx
+	movq	%rdx, %rax
+	cmpq	%rax, %r8
+	je	.LBB2_141
+	leaq	1(%rax), %rdx
+	movzbl	(%rax), %ecx
+	cmpl	$41, %ecx
+	jne	.LBB2_110
+	decq	%rax
+	addq	$2, %rax
+	movq	%rax, (%r12)
+	jmp	.LBB2_69
+	leaq	20(%rsp), %rdx
+	movq	%r12, %rdi
+	callq	bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::positive_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&)
+	testb	%al, %al
+	je	.LBB2_122
+	movl	20(%rsp), %eax
+	subl	%r13d, %eax
+	js	.LBB2_125
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm1
+	movsd	.LCPI2_0(%rip), %xmm0
+	callq	pow
+	movsd	8(%rsp), %xmm3          # 8-byte Reload
+	mulsd	%xmm0, %xmm3
+	movl	%ebp, %r9d
+	jmp	.LBB2_133
+	movq	%rbx, (%r12)
+	movq	%r15, (%r12)
+	xorl	%eax, %eax
+	jmp	.LBB2_94
+	movq	%r11, %rdi
+	subq	%r8, %rdi
+	je	.LBB2_133
+	movb	(%r11), %al
+	orb	$32, %al
+	movzbl	%al, %eax
+	cmpl	$105, %eax
+	jne	.LBB2_133
+	movb	$105, %bl
+	xorl	%eax, %eax
+	movb	.L.str69(%rax), %dl
+	testb	%dl, %dl
+	je	.LBB2_149
+	movq	%rdi, %rcx
+	addq	%rax, %rcx
+	je	.LBB2_133
+	movzbl	(%r11,%rax), %ebp
+	movzbl	%bl, %ecx
+	cmpl	%ebp, %ecx
+	je	.LBB2_148
+	movzbl	%bpl, %ecx
+	movzbl	%dl, %edx
+	cmpl	%ecx, %edx
+	jne	.LBB2_133
+	movb	.L.str68+1(%rax), %bl
+	incq	%rax
+	testb	%bl, %bl
+	jne	.LBB2_144
+	addq	%rax, %r11
+	movq	%r11, (%r12)
+	movq	%r11, %rdi
+	subq	(%rsi), %rdi
+	movb	$105, %bl
+	xorl	%eax, %eax
+	movsd	.LCPI2_2(%rip), %xmm0
+	movb	.L.str71(%rax), %dl
+	testb	%dl, %dl
+	je	.LBB2_155
+	movq	%rdi, %rcx
+	addq	%rax, %rcx
+	je	.LBB2_69
+	movzbl	(%r11,%rax), %esi
+	movzbl	%bl, %ecx
+	cmpl	%esi, %ecx
+	je	.LBB2_154
+	movzbl	%sil, %ecx
+	movzbl	%dl, %edx
+	cmpl	%ecx, %edx
+	jne	.LBB2_69
+	movb	.L.str70+1(%rax), %bl
+	incq	%rax
+	testb	%bl, %bl
+	jne	.LBB2_150
+	addq	%rax, %r11
+	movq	%r11, (%r12)
+	testb	%r9b, %r9b
+	je	.LBB2_71
+	xorpd	.LCPI2_3(%rip), %xmm0
+	movsd	%xmm0, (%r14)
+	movb	$1, %al
+	jmp	.LBB2_94
+	negl	%r13d
+	cvtsi2sdq	%r13, %xmm1
+	movsd	.LCPI2_0(%rip), %xmm0
+	callq	pow
+	movsd	8(%rsp), %xmm3          # 8-byte Reload
+	mulsd	%xmm0, %xmm3
+	jmp	.LBB2_132
+	cmpl	$-308, %eax             # imm = 0xFFFFFFFFFFFFFECC
+	jg	.LBB2_127
+	movsd	8(%rsp), %xmm0          # 8-byte Reload
+	divsd	.LCPI2_4(%rip), %xmm0
+	movsd	%xmm0, 8(%rsp)          # 8-byte Spill
+	movl	$-307, %ecx             # imm = 0xFFFFFFFFFFFFFECD
+	subl	%eax, %ecx
+	cvtsi2sdq	%rcx, %xmm1
+	jmp	.LBB2_128
+	movl	%r13d, %eax
+	cvtsi2sdq	%rax, %xmm1
+	movsd	.LCPI2_0(%rip), %xmm0
+	callq	pow
+	movsd	8(%rsp), %xmm3          # 8-byte Reload
+	divsd	%xmm0, %xmm3
+	movl	%ebx, %r9d
+	jmp	.LBB2_133
+	negl	%eax
+	cvtsi2sdq	%rax, %xmm1
+	movsd	.LCPI2_0(%rip), %xmm0
+	callq	pow
+	movsd	8(%rsp), %xmm3          # 8-byte Reload
+	divsd	%xmm0, %xmm3
+	movl	%ebp, %r9d
+	testb	%r9b, %r9b
+	je	.LBB2_135
+	xorpd	.LCPI2_3(%rip), %xmm3
+	movsd	%xmm3, (%r14)
+	movb	$1, %al
+	addq	$24, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	retq
+
+bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::positive_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&): # @bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::positive_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&)
+	pushq	%rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%rbx
+	movq	(%rdi), %rcx
+	movq	(%rsi), %r10
+	movq	%rcx, %rbx
+	subq	%r10, %rbx
+	je	.LBB3_1
+	xorl	%eax, %eax
+	movzbl	(%rcx,%rax), %ebp
+	cmpl	$48, %ebp
+	jne	.LBB3_5
+	incq	%rax
+	movq	%rbx, %rsi
+	addq	%rax, %rsi
+	jne	.LBB3_3
+	jmp	.LBB3_6
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	addq	%rax, %rcx
+	movq	%rcx, %r8
+	subq	%r10, %r8
+	je	.LBB3_6
+	movsbl	(%rcx), %r14d
+	movb	%r14b, %bl
+	addb	$-48, %bl
+	movzbl	%bl, %esi
+	cmpl	$9, %esi
+	ja	.LBB3_15
+	addl	$-48, %r14d
+	leaq	1(%rcx), %rax
+	cmpq	%r10, %rax
+	je	.LBB3_44
+	xorl	%ebp, %ebp
+	movq	%rcx, %r9
+	movsbl	1(%rcx,%rbp), %ebx
+	movb	%bl, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB3_43
+	cmpq	$7, %rbp
+	ja	.LBB3_18
+	imull	$10, %r14d, %eax
+	leal	-48(%rax,%rbx), %r14d
+	jmp	.LBB3_23
+	cmpl	$214748364, %r14d       # imm = 0xCCCCCCC
+	jg	.LBB3_19
+	imull	$10, %r14d, %esi
+	movl	$-2147483601, %eax      # imm = 0xFFFFFFFF8000002F
+	subl	%ebx, %eax
+	cmpl	%eax, %esi
+	jg	.LBB3_21
+	leal	-48(%rsi,%rbx), %r14d
+	leaq	(%r8,%rbp), %r11
+	cmpq	$-2, %r11
+	je	.LBB3_44
+	movsbl	2(%rcx,%rbp), %esi
+	movb	%sil, %al
+	addb	$-48, %al
+	movzbl	%al, %eax
+	cmpl	$9, %eax
+	ja	.LBB3_25
+	leaq	1(%rbp), %r15
+	cmpq	$7, %r15
+	ja	.LBB3_28
+	imull	$10, %r14d, %eax
+	leal	-48(%rax,%rsi), %r14d
+	jmp	.LBB3_33
+	cmpl	$214748364, %r14d       # imm = 0xCCCCCCC
+	jg	.LBB3_29
+	imull	 $10, %r14d
+	movl	$-2147483601, %eax      # imm = 0xFFFFFFFF8000002F
+	subl	%esi, %eax
+	cmpl	%eax, %r14d
+	jg	.LBB3_31
+	leal	-48(%r14,%rsi), %r14d
+	cmpq	$-3, %r11
+	je	.LBB3_44
+	addq	$3, %r9
+	movsbl	3(%rcx,%rbp), %eax
+	movb	%al, %bl
+	addb	$-48, %bl
+	movzbl	%bl, %esi
+	cmpl	$9, %esi
+	ja	.LBB3_35
+	incq	%r15
+	cmpq	$7, %r15
+	ja	.LBB3_39
+	imull	$10, %r14d, %esi
+	jmp	.LBB3_38
+	cmpl	$214748364, %r14d       # imm = 0xCCCCCCC
+	jg	.LBB3_40
+	imull	$10, %r14d, %esi
+	movl	$-2147483601, %ebx      # imm = 0xFFFFFFFF8000002F
+	subl	%eax, %ebx
+	cmpl	%ebx, %esi
+	jg	.LBB3_42
+	leal	-48(%rsi,%rax), %r14d
+	incq	%r15
+	cmpq	$-4, %r11
+	movq	%r15, %rbp
+	jne	.LBB3_12
+	jmp	.LBB3_44
+	testq	%rax, %rax
+	je	.LBB3_7
+	movl	$0, (%rdx)
+	jmp	.LBB3_45
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	testq	%rax, %rax
+	je	.LBB3_16
+	movl	$0, (%rdx)
+	movq	%rcx, (%rdi)
+	jmp	.LBB3_46
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	leaq	1(%rcx,%rbp), %r10
+	jmp	.LBB3_44
+	addq	$2, %r9
+	movq	%r9, %r10
+	jmp	.LBB3_44
+	movq	%r9, %r10
+	movl	%r14d, (%rdx)
+	movq	%r10, (%rdi)
+	movb	$1, %al
+	popq	%rbx
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	retq
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+	xorl	%eax, %eax
+	jmp	.LBB3_47
+
+bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::negative_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&): # @bool boost::spirit::qi::detail::extract_int<int, 10u, 1u, -1, boost::spirit::qi::detail::negative_accumulator<10u>, false>::parse_main<char const*, int>(char const*&, char const* const&, int&)
+	pushq	%r15
+	pushq	%r14
+	pushq	%rbx
+	movq	(%rdi), %r15
+	movq	(%rsi), %r10
+	movq	%r15, %rcx
+	subq	%r10, %rcx
+	je	.LBB4_1
+	xorl	%eax, %eax
+	movzbl	(%r15,%rax), %ebx
+	cmpl	$48, %ebx
+	jne	.LBB4_5
+	incq	%rax
+	movq	%rcx, %rsi
+	addq	%rax, %rsi
+	jne	.LBB4_3
+	jmp	.LBB4_6
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	addq	%rax, %r15
+	movq	%r15, %r8
+	subq	%r10, %r8
+	je	.LBB4_6
+	movsbl	(%r15), %ebx
+	movb	%bl, %cl
+	addb	$-48, %cl
+	movzbl	%cl, %ecx
+	cmpl	$9, %ecx
+	ja	.LBB4_18
+	movl	$48, %esi
+	subl	%ebx, %esi
+	leaq	1(%r15), %rax
+	cmpq	%r10, %rax
+	je	.LBB4_42
+	xorl	%eax, %eax
+	movq	%r15, %r9
+	movsbl	1(%r15,%rax), %ebx
+	movb	%bl, %cl
+	addb	$-48, %cl
+	movzbl	%cl, %ecx
+	cmpl	$9, %ecx
+	ja	.LBB4_41
+	cmpq	$7, %rax
+	ja	.LBB4_21
+	imull	 $10, %esi
+	jmp	.LBB4_15
+	cmpl	$-214748364, %esi       # imm = 0xFFFFFFFFF3333334
+	jl	.LBB4_22
+	imull	 $10, %esi
+	leal	2147483600(%rbx), %ecx
+	cmpl	%ecx, %esi
+	jl	.LBB4_24
+	addl	$48, %esi
+	subl	%ebx, %esi
+	leaq	(%r8,%rax), %r11
+	cmpq	$-2, %r11
+	je	.LBB4_42
+	movsbl	2(%r15,%rax), %ebx
+	movb	%bl, %cl
+	addb	$-48, %cl
+	movzbl	%cl, %ecx
+	cmpl	$9, %ecx
+	ja	.LBB4_17
+	leaq	1(%rax), %r14
+	cmpq	$7, %r14
+	ja	.LBB4_30
+	imull	 $10, %esi
+	jmp	.LBB4_27
+	cmpl	$-214748364, %esi       # imm = 0xFFFFFFFFF3333334
+	jl	.LBB4_31
+	imull	 $10, %esi
+	leal	2147483600(%rbx), %ecx
+	cmpl	%ecx, %esi
+	jl	.LBB4_33
+	addl	$48, %esi
+	subl	%ebx, %esi
+	cmpq	$-3, %r11
+	je	.LBB4_42
+	addq	$3, %r9
+	movsbl	3(%r15,%rax), %eax
+	movb	%al, %cl
+	addb	$-48, %cl
+	movzbl	%cl, %ecx
+	cmpl	$9, %ecx
+	ja	.LBB4_29
+	incq	%r14
+	cmpq	$7, %r14
+	ja	.LBB4_37
+	imull	 $10, %esi
+	jmp	.LBB4_36
+	cmpl	$-214748364, %esi       # imm = 0xFFFFFFFFF3333334
+	jl	.LBB4_38
+	imull	 $10, %esi
+	leal	2147483600(%rax), %ecx
+	cmpl	%ecx, %esi
+	jl	.LBB4_40
+	addl	$48, %esi
+	subl	%eax, %esi
+	incq	%r14
+	cmpq	$-4, %r11
+	movq	%r14, %rax
+	jne	.LBB4_12
+	jmp	.LBB4_42
+	testq	%rax, %rax
+	je	.LBB4_7
+	movl	$0, (%rdx)
+	jmp	.LBB4_43
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	testq	%rax, %rax
+	je	.LBB4_19
+	movl	$0, (%rdx)
+	movq	%r15, (%rdi)
+	jmp	.LBB4_44
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	leaq	1(%r15,%rax), %r10
+	jmp	.LBB4_42
+	addq	$2, %r9
+	movq	%r9, %r10
+	jmp	.LBB4_42
+	movq	%r9, %r10
+	movl	%esi, (%rdx)
+	movq	%r10, (%rdi)
+	movb	$1, %al
+	popq	%rbx
+	popq	%r14
+	popq	%r15
+	retq
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+	xorl	%eax, %eax
+	jmp	.LBB4_45
+
+_GLOBAL__sub_I_main.cpp:                # @_GLOBAL__sub_I_main.cpp
+	pushq	%rax
+	movl	std::__ioinit, %edi
+	callq	std::ios_base::Init::Init()
+	movl	std::ios_base::Init::~Init(), %edi
+	movl	std::__ioinit, %esi
+	movl	$__dso_handle, %edx
+	callq	__cxa_atexit
+	movb	$0, boost::spirit::lit(%rip)
+	movb	$0, boost::spirit::bin(%rip)
+	movb	$0, boost::spirit::oct(%rip)
+	movb	$0, boost::spirit::hex(%rip)
+	movb	$0, boost::spirit::bool_(%rip)
+	movb	$0, boost::spirit::ushort_(%rip)
+	movb	$0, boost::spirit::ulong_(%rip)
+	movb	$0, boost::spirit::uint_(%rip)
+	movb	$0, boost::spirit::short_(%rip)
+	movb	$0, boost::spirit::long_(%rip)
+	movb	$0, boost::spirit::int_(%rip)
+	movb	$0, boost::spirit::ulong_long(%rip)
+	movb	$0, boost::spirit::long_long(%rip)
+	movb	$0, boost::spirit::float_(%rip)
+	movb	$0, boost::spirit::double_(%rip)
+	movb	$0, boost::spirit::long_double(%rip)
+	movb	$0, boost::spirit::repeat(%rip)
+	movb	$0, boost::spirit::eps(%rip)
+	movb	$0, boost::spirit::pad(%rip)
+	movb	$0, boost::spirit::byte_(%rip)
+	movb	$0, boost::spirit::word(%rip)
+	movb	$0, boost::spirit::big_word(%rip)
+	movb	$0, boost::spirit::little_word(%rip)
+	movb	$0, boost::spirit::dword(%rip)
+	movb	$0, boost::spirit::big_dword(%rip)
+	movb	$0, boost::spirit::little_dword(%rip)
+	movb	$0, boost::spirit::qword(%rip)
+	movb	$0, boost::spirit::big_qword(%rip)
+	movb	$0, boost::spirit::little_qword(%rip)
+	movb	$0, boost::spirit::bin_float(%rip)
+	movb	$0, boost::spirit::big_bin_float(%rip)
+	movb	$0, boost::spirit::little_bin_float(%rip)
+	movb	$0, boost::spirit::bin_double(%rip)
+	movb	$0, boost::spirit::big_bin_double(%rip)
+	movb	$0, boost::spirit::little_bin_double(%rip)
+	movb	$0, boost::spirit::skip(%rip)
+	movb	$0, boost::spirit::delimit(%rip)
+	movb	$0, boost::spirit::stream(%rip)
+	movb	$0, boost::spirit::wstream(%rip)
+	movb	$0, boost::spirit::left_align(%rip)
+	movb	$0, boost::spirit::right_align(%rip)
+	movb	$0, boost::spirit::center(%rip)
+	movb	$0, boost::spirit::maxwidth(%rip)
+	movb	$0, boost::spirit::set_state(%rip)
+	movb	$0, boost::spirit::in_state(%rip)
+	movb	$0, boost::spirit::token(%rip)
+	movb	$0, boost::spirit::tokenid(%rip)
+	movb	$0, boost::spirit::raw_token(%rip)
+	movb	$0, boost::spirit::tokenid_mask(%rip)
+	movb	$0, boost::spirit::attr(%rip)
+	movb	$0, boost::spirit::columns(%rip)
+	movb	$0, boost::spirit::auto_(%rip)
+	movb	$0, boost::spirit::ascii::char_(%rip)
+	movb	$0, boost::spirit::ascii::string(%rip)
+	movb	$0, boost::spirit::iso8859_1::char_(%rip)
+	movb	$0, boost::spirit::iso8859_1::string(%rip)
+	movb	$0, boost::spirit::standard::char_(%rip)
+	movb	$0, boost::spirit::standard::string(%rip)
+	movb	$0, boost::spirit::standard_wide::char_(%rip)
+	movb	$0, boost::spirit::standard_wide::string(%rip)
+	popq	%rax
+	retq
+
+
+
+
+
+
+
+
+
+
+
+
+
