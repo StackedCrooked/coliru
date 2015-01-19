@@ -1,0 +1,63 @@
+main.cpp: In function 'void build_intListUniqueNumRepeated(intList*, intListUniqueNumRepeated*)':
+main.cpp:5:14: error: 'init' was not declared in this scope
+ { init(ptrptr);
+              ^
+main.cpp:7:20: error: invalid use of incomplete type 'struct intList'
+   { add(ptrptr, ptr->value);
+                    ^
+main.cpp:4:45: error: forward declaration of 'struct intList'
+ void build_intListUniqueNumRepeated (struct intList*ptr, struct intListUniqueNumRepeated*ptrptr)
+                                             ^
+main.cpp:7:27: error: 'add' was not declared in this scope
+   { add(ptrptr, ptr->value);
+                           ^
+main.cpp: In function 'void add(intListUniqueNumRepeated*, int)':
+main.cpp:12:16: error: no match for 'operator!=' (operand types are 'intListUniqueNumRepeated' and 'long int')
+ { while(*ptrptr!=NULL && (*ptrptr)->value<value);
+                ^
+main.cpp:12:35: error: base operand of '->' has non-pointer type 'intListUniqueNumRepeated'
+ { while(*ptrptr!=NULL && (*ptrptr)->value<value);
+                                   ^
+main.cpp:13:23: error: base operand of '->' has non-pointer type 'intListUniqueNumRepeated'
+   { ptrptr= &(*ptrptr)->next-ptr;
+                       ^
+main.cpp:13:30: error: 'ptr' was not declared in this scope
+   { ptrptr= &(*ptrptr)->next-ptr;
+                              ^
+main.cpp:15:14: error: no match for 'operator!=' (operand types are 'intListUniqueNumRepeated' and 'long int')
+   if (*ptrptr!=NULL && (*ptrptr)->value==value)
+              ^
+main.cpp:15:33: error: base operand of '->' has non-pointer type 'intListUniqueNumRepeated'
+   if (*ptrptr!=NULL && (*ptrptr)->value==value)
+                                 ^
+main.cpp:16:14: error: base operand of '->' has non-pointer type 'intListUniqueNumRepeated'
+     (*ptrptr)->n_instances++;
+              ^
+main.cpp:18:29: error: 'pre_insert' was not declared in this scope
+    pre_insert(ptrptr,value,1);
+                             ^
+main.cpp: In function 'void pre_insert(intListUniqueNumRepeated**, int, int)':
+main.cpp:23:88: error: invalid application of 'sizeof' to incomplete type 'intListUniqueNumRepeated'
+ tmp_ptr=(struct intListUniqueNumRepeated*)malloc(sizeof(struct intListUniqueNumRepeated));
+                                                                                        ^
+main.cpp:24:10: error: invalid use of incomplete type 'struct intListUniqueNumRepeated'
+ (*ptrptr)->value=value;
+          ^
+main.cpp:4:65: error: forward declaration of 'struct intListUniqueNumRepeated'
+ void build_intListUniqueNumRepeated (struct intList*ptr, struct intListUniqueNumRepeated*ptrptr)
+                                                                 ^
+main.cpp:25:10: error: invalid use of incomplete type 'struct intListUniqueNumRepeated'
+ (*ptrptr)->n_instances=n_instances;
+          ^
+main.cpp:4:65: error: forward declaration of 'struct intListUniqueNumRepeated'
+ void build_intListUniqueNumRepeated (struct intList*ptr, struct intListUniqueNumRepeated*ptrptr)
+                                                                 ^
+main.cpp:26:10: error: invalid use of incomplete type 'struct intListUniqueNumRepeated'
+ (*ptrptr)->next-ptr=tmp_ptr;
+          ^
+main.cpp:4:65: error: forward declaration of 'struct intListUniqueNumRepeated'
+ void build_intListUniqueNumRepeated (struct intList*ptr, struct intListUniqueNumRepeated*ptrptr)
+                                                                 ^
+main.cpp:26:17: error: 'ptr' was not declared in this scope
+ (*ptrptr)->next-ptr=tmp_ptr;
+                 ^
