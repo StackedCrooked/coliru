@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O3 -march=native -Wall -pedantic main.cpp -lboost_iostreams && ./a.out
