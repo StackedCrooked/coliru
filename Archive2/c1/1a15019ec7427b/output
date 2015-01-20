@@ -1,0 +1,14 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:45:42: error: no type named 'type' in 'struct std::enable_if<false, void>'
+   static_assert(!has_foo<with_foo_sfinae>::value, "");
+                                          ^
+main.cpp:45:42: error: template argument 2 is invalid
+main.cpp:46:42: error: wrong number of template arguments (1, should be 2)
+   static_assert(!has_foo<with_foo_2param>::value, "");
+                                          ^
+main.cpp:29:35: error: provided for 'template<class T, class> struct with_foo_2param::foo'
+   template<class T, class> struct foo {};
+                                   ^
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
