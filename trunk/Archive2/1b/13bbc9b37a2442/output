@@ -1,0 +1,16 @@
+main.cpp: In function 'int main()':
+main.cpp:3:15: error: invalid use of non-static data member 'A::i'
+ struct A{ int i; };
+               ^
+main.cpp:8:28: error: from this location
+     std::cout << typeid(A::i).name() << '\n';
+                            ^
+main.cpp:4:15: error: invalid use of non-static data member 'B::i'
+ struct B{ int i; void f(); };
+               ^
+main.cpp:9:28: error: from this location
+     std::cout << typeid(B::i).name() << '\n';
+                            ^
+main.cpp:10:28: error: invalid use of non-static member function 'void B::f()'
+     std::cout << typeid(B::f).name() << '\n';
+                            ^
