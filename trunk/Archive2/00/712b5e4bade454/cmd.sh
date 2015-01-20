@@ -1,0 +1,1 @@
+g++ -std=c++14 -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out
