@@ -1,0 +1,39 @@
+main.cpp: In function 'void printDividableBy(std::vector<int>&, int)':
+main.cpp:111:98: error: no matching function for call to 'bind2nd(<unresolved overloaded function type>, int&)'
+     vector<int>::iterator iter = find_if(vect.begin(), vect.end(), bind2nd(isDividableBy, divisor) );
+                                                                                                  ^
+main.cpp:111:98: note: candidate is:
+In file included from /usr/local/include/c++/4.9.2/bits/stl_function.h:1084:0,
+                 from /usr/local/include/c++/4.9.2/string:48,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/backward/binders.h:166:5: note: template<class _Operation, class _Tp> std::binder2nd<_Operation> std::bind2nd(const _Operation&, const _Tp&)
+     bind2nd(const _Operation& __fn, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.2/backward/binders.h:166:5: note:   template argument deduction/substitution failed:
+main.cpp:111:98: note:   couldn't deduce template parameter '_Operation'
+     vector<int>::iterator iter = find_if(vect.begin(), vect.end(), bind2nd(isDividableBy, divisor) );
+                                                                                                  ^
+main.cpp:116:72: error: no matching function for call to 'bind2nd(<unresolved overloaded function type>, int&)'
+         iter = find_if(iter, vect.end(), bind2nd(isDividableBy, divisor));     //start of the next search is from the next item
+                                                                        ^
+main.cpp:116:72: note: candidate is:
+In file included from /usr/local/include/c++/4.9.2/bits/stl_function.h:1084:0,
+                 from /usr/local/include/c++/4.9.2/string:48,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/backward/binders.h:166:5: note: template<class _Operation, class _Tp> std::binder2nd<_Operation> std::bind2nd(const _Operation&, const _Tp&)
+     bind2nd(const _Operation& __fn, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.2/backward/binders.h:166:5: note:   template argument deduction/substitution failed:
+main.cpp:116:72: note:   couldn't deduce template parameter '_Operation'
+         iter = find_if(iter, vect.end(), bind2nd(isDividableBy, divisor));     //start of the next search is from the next item
+                                                                        ^
