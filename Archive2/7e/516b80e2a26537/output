@@ -1,0 +1,21 @@
+main.cpp: In function 'int main()':
+main.cpp:91:65: error: no matching function for call to 'std::vector<id_mixin<Base>*>::push_back(id_mixin<Derived>*)'
+  v.push_back(new id_mixin<Derived>(id_mixin<Derived>::id_type{})); 
+                                                                 ^
+main.cpp:91:65: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from /usr/local/include/c++/4.9.2/bits/random.h:34,
+                 from /usr/local/include/c++/4.9.2/random:49,
+                 from /usr/local/include/c++/4.9.2/bits/stl_algo.h:66,
+                 from /usr/local/include/c++/4.9.2/algorithm:62,
+                 from /usr/local/include/boost/optional/optional.hpp:21,
+                 from /usr/local/include/boost/optional.hpp:15,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = id_mixin<Base>*; _Alloc = std::allocator<id_mixin<Base>*>; std::vector<_Tp, _Alloc>::value_type = id_mixin<Base>*]
+       push_back(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note:   no known conversion for argument 1 from 'id_mixin<Derived>*' to 'id_mixin<Base>* const&'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = id_mixin<Base>*; _Alloc = std::allocator<id_mixin<Base>*>; std::vector<_Tp, _Alloc>::value_type = id_mixin<Base>*]
+       push_back(value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note:   no known conversion for argument 1 from 'id_mixin<Derived>*' to 'id_mixin<Base>*&&'
