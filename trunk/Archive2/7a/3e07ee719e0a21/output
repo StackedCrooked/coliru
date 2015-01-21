@@ -1,0 +1,19 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O0 -Wall -Wimplicit-fallthrough -Wextra -Wconversion -Wformat=2 -Wall -pthread -pedantic main.cpp
+main.cpp:3:1: error: unknown type name 'Enum'; did you mean 'enum'?
+Enum N
+^~~~
+enum
+main.cpp:9:40: error: '...' must immediately precede declared identifier
+template<typename Names, typename Items...>
+                                       ^~~
+                                  ...
+main.cpp:12:19: error: data member type contains unexpanded parameter pack 'Items'
+std::tuple<Items> values;
+           ~~~~~  ^
+main.cpp:15:9: error: use of undeclared identifier 'Names'
+MyTuple<Names, int, int> func()
+        ^
+main.cpp:17:12: error: use of undeclared identifier 'make_tuple'
+    return make_tuple( N::Key, 10, N::Value, 20 ) ;
+           ^
+5 errors generated.
