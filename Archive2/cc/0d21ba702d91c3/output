@@ -1,0 +1,13 @@
+main.cpp: In constructor 'Derived::Derived(int)':
+main.cpp:18:20: error: no matching function for call to 'Base::Base()'
+     Derived(int a) {a_ = a;  std::cout << "  Derived::Derived()\n"; }
+                    ^
+main.cpp:18:20: note: candidates are:
+main.cpp:10:5: note: Base::Base(int)
+     Base(int a) { a_ = a; std::cout << "  Base::Base()\n"; }
+     ^
+main.cpp:10:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:7:8: note: constexpr Base::Base(const Base&)
+ struct Base
+        ^
+main.cpp:7:8: note:   candidate expects 1 argument, 0 provided
