@@ -1,0 +1,1 @@
+gcc --version && gcc -Wall -Wextra -Werror -pedantic main.cpp && ./a.out
