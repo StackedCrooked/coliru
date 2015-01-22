@@ -1,0 +1,1 @@
+g++ -std=c++1y -Wall -pedantic main.cpp && (echo "name = Albert age = 3 name = Robert age = 5 name = Élise age = 4" | ./a.out)
