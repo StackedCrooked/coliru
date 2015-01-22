@@ -1,0 +1,17 @@
++ g++ -std=c++03 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:25:7: warning: variable 'c' set but not used [-Wunused-but-set-variable]
+     A c = b;  // copy ctor
+       ^
++ ./a.out
+template
++ clang++ -std=c++03 -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:26:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.cpp:25:7: warning: unused variable 'c' [-Wunused-variable]
+    A c = b;  // copy ctor
+      ^
+2 warnings generated.
++ ./a.out
+template
