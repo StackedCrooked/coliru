@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:31:13: error: cannot declare variable 'b' to be of abstract type 'MyClass'
+     MyClass b;
+             ^
+main.cpp:21:7: note:   because the following virtual functions are pure within 'MyClass':
+ class MyClass : public AInterface, public AClass
+       ^
+main.cpp:3:22: note: 	virtual void AInterface::A()
+         virtual void A()=0;
+                      ^
+main.cpp:4:22: note: 	virtual void AInterface::B()
+         virtual void B()=0;
+                      ^
+main.cpp:5:22: note: 	virtual void AInterface::C()
+         virtual void C()=0;
+                      ^
+main.cpp:6:22: note: 	virtual void AInterface::C(char)
+         virtual void C(char)=0;
+                      ^
