@@ -1,0 +1,17 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'void Foo(T&&)':
+main.cpp:1:38: error: 'cout' is not a member of 'std'
+ template <typename T> void Foo(T&&) {std::cout << "A";}
+                                      ^
+main.cpp: In function 'void Foo(const char*)':
+main.cpp:2:24: error: 'cout' is not a member of 'std'
+ void Foo(const char*) {std::cout << "B";}
+                        ^
++ clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:1:38: error: use of undeclared identifier 'std'
+template <typename T> void Foo(T&&) {std::cout << "A";}
+                                     ^
+main.cpp:2:24: error: use of undeclared identifier 'std'
+void Foo(const char*) {std::cout << "B";}
+                       ^
+2 errors generated.
