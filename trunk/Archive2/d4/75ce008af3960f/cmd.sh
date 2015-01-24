@@ -1,0 +1,1 @@
+g++ -std=c++03 -Wall -Wextra -pedantic -O3 -pthread main.cpp && ./a.out
