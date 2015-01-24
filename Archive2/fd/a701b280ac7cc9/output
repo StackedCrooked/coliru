@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:46:13: error: call of overloaded 'foo1(double)' is ambiguous
+main.cpp:46:13: note: candidates are:
+main.cpp:7:5: note: typename std::enable_if<std::is_floating_point<_Tp>::value, T>::type foo1(T) [with T = double; typename std::enable_if<std::is_floating_point<_Tp>::value, T>::type = double]
+main.cpp:15:5: note: std::enable_if<std::is_integral<_Tp>::value, T> foo1(T) [with T = double]
+main.cpp:56:15: warning: unused variable 'a1' [-Wunused-variable]
+main.cpp: In instantiation of 'std::enable_if<std::is_integral<_Tp>::value, T> foo1(T) [with T = int]':
+main.cpp:47:12:   required from here
+main.cpp:18:12: error: could not convert 't' from 'int' to 'std::enable_if<true, int>'
+main.cpp: In function 'std::enable_if<std::is_integral<_Tp>::value, T> foo1(T) [with T = int]':
+main.cpp:19:1: warning: control reaches end of non-void function [-Wreturn-type]
