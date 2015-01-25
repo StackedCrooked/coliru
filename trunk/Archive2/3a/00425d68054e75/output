@@ -1,0 +1,15 @@
+clang++ c++14
+2, 3
+
+real	0m0.005s
+user	0m0.004s
+sys	0m0.000s
+g++ c++14
+main.cpp: In instantiation of 'main()::<lambda(auto:1)> [with auto:1 = int]':
+/usr/local/include/c++/4.9.2/functional:2149:71:   required by substitution of 'template<class _Res, class ... _ArgTypes> template<class _Functor> using _Invoke = decltype (std::__callable_functor(declval<_Functor&>())((declval<_ArgTypes>)()...)) [with _Functor = main()::<lambda(auto:1)>; _Res = void; _ArgTypes = {int}]'
+/usr/local/include/c++/4.9.2/functional:2225:9:   required by substitution of 'template<class _Functor, class> std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = main()::<lambda(auto:1)>; <template-parameter-1-2> = <missing>]'
+main.cpp:8:90:   required from here
+main.cpp:8:58: error: 'a' was not declared in this scope
+     std::function<void(int)> f = [&](auto b) { std::cout << a << ", " << b << std::endl; };
+                                                          ^
+
