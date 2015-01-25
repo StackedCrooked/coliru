@@ -1,0 +1,16 @@
+main.cpp: In member function 'B::operator A()':
+main.cpp:12:28: error: no matching function for call to 'A::A()'
+     operator A(){ return A(); }
+                            ^
+main.cpp:12:28: note: candidates are:
+main.cpp:6:5: note: A::A(A&)
+     A(A&){ std::cout << "A(A&)" << std::endl; }
+     ^
+main.cpp:6:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:5: note: A::A(A&&)
+     A(A&&){ std::cout << "A(A&&)" << std::endl; }
+     ^
+main.cpp:5:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:12:31: warning: control reaches end of non-void function [-Wreturn-type]
+     operator A(){ return A(); }
+                               ^
