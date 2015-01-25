@@ -1,0 +1,57 @@
+In file included from /usr/include/c++/4.8/random:35:0,
+                 from main.cpp:5:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+main.cpp: In function 'int main()':
+main.cpp:9:5: error: 'random_device' is not a member of 'std'
+     std::random_device rd;
+     ^
+main.cpp:9:24: error: expected ';' before 'rd'
+     std::random_device rd;
+                        ^
+main.cpp:10:5: error: 'mt19937' is not a member of 'std'
+     std::mt19937 gen(rd());
+     ^
+main.cpp:10:18: error: expected ';' before 'gen'
+     std::mt19937 gen(rd());
+                  ^
+main.cpp:14:5: error: 'normal_distribution' is not a member of 'std'
+     std::normal_distribution<> d(5,2);
+     ^
+main.cpp:14:30: error: expected primary-expression before '>' token
+     std::normal_distribution<> d(5,2);
+                              ^
+main.cpp:14:37: error: 'd' was not declared in this scope
+     std::normal_distribution<> d(5,2);
+                                     ^
+main.cpp:18:16: error: 'round' is not a member of 'std'
+         ++hist[std::round(d(gen))];
+                ^
+main.cpp:18:16: note: suggested alternative:
+In file included from /usr/include/features.h:357:0,
+                 from /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h:39,
+                 from /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:420,
+                 from /usr/include/c++/4.8/iostream:38,
+                 from main.cpp:1:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:311:1: note:   'round'
+ __MATHCALLX (round,, (_Mdouble_ __x), (__const__));
+ ^
+main.cpp:18:29: error: 'gen' was not declared in this scope
+         ++hist[std::round(d(gen))];
+                             ^
+main.cpp:20:9: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     for(auto p : hist) {
+         ^
+main.cpp:20:14: error: 'p' does not name a type
+     for(auto p : hist) {
+              ^
+main.cpp:24:1: error: expected ';' before '}' token
+ }
+ ^
+main.cpp:24:1: error: expected primary-expression before '}' token
+main.cpp:24:1: error: expected ';' before '}' token
+main.cpp:24:1: error: expected primary-expression before '}' token
+main.cpp:24:1: error: expected ')' before '}' token
+main.cpp:24:1: error: expected primary-expression before '}' token
+main.cpp:24:1: error: expected ';' before '}' token
