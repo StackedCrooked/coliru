@@ -1,0 +1,30 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+In file included from /usr/local/include/c++/4.9.2/thread:39:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'struct std::_Bind_simple<main()::<lambda(auto:1&)>(std::reference_wrapper<int>)>':
+/usr/local/include/c++/4.9.2/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = main()::<lambda(auto:1&)>&; _Args = {std::reference_wrapper<int>}]'
+main.cpp:14:31:   required from here
+/usr/local/include/c++/4.9.2/functional:1665:61: error: no type named 'type' in 'class std::result_of<main()::<lambda(auto:1&)>(std::reference_wrapper<int>)>'
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/local/include/c++/4.9.2/functional:1695:9: error: no type named 'type' in 'class std::result_of<main()::<lambda(auto:1&)>(std::reference_wrapper<int>)>'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
++ clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+In file included from main.cpp:2:
+/usr/include/c++/v1/thread:332:5: error: attempt to use a deleted function
+    __invoke(_VSTD::move(_VSTD::get<0>(__t)), _VSTD::move(_VSTD::get<_Indices>(__t))...);
+    ^
+/usr/include/c++/v1/thread:342:5: note: in instantiation of function template specialization 'std::__1::__thread_execute<(lambda at main.cpp:11:14), std::__1::reference_wrapper<int> , 1>' requested here
+    __thread_execute(*__p, _Index());
+    ^
+/usr/include/c++/v1/thread:354:42: note: in instantiation of function template specialization 'std::__1::__thread_proxy<std::__1::tuple<(lambda at main.cpp:11:14), std::__1::reference_wrapper<int> > >' requested here
+    int __ec = pthread_create(&__t_, 0, &__thread_proxy<_Gp>, __p.get());
+                                         ^
+main.cpp:14:5: note: in instantiation of function template specialization 'std::__1::thread::thread<(lambda at main.cpp:11:14) &, std::__1::reference_wrapper<int> , void>' requested here
+    std::thread(g, std::ref(x));         // FAILS TO COMPILE
+    ^
+/usr/include/c++/v1/type_traits:1027:5: note: '~__nat' has been explicitly marked deleted here
+    ~__nat() = delete;
+    ^
+1 error generated.
