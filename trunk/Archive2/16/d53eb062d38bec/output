@@ -1,0 +1,593 @@
+Vtable for Base
+Base::_ZTV4Base: 5u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI4Base)
+16    0u
+24    0u
+32    (int (*)(...))__cxa_pure_virtual
+
+Class Base
+   size=8 align=8
+   base size=8 base align=8
+Base (0x0x7fd42c0355a0) 0 nearly-empty
+    vptr=((& Base::_ZTV4Base) + 16u)
+
+Vtable for OtherBase
+OtherBase::_ZTV9OtherBase: 5u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI9OtherBase)
+16    (int (*)(...))OtherBase::~OtherBase
+24    (int (*)(...))OtherBase::~OtherBase
+32    (int (*)(...))OtherBase::g
+
+Class OtherBase
+   size=8 align=8
+   base size=8 base align=8
+OtherBase (0x0x7fd42c035600) 0 nearly-empty
+    vptr=((& OtherBase::_ZTV9OtherBase) + 16u)
+
+Vtable for Derived
+Derived::_ZTV7Derived: 5u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI7Derived)
+16    (int (*)(...))Derived::~Derived
+24    (int (*)(...))Derived::~Derived
+32    (int (*)(...))Derived::f
+
+Class Derived
+   size=8 align=8
+   base size=8 base align=8
+Derived (0x0x7fd42c02d138) 0 nearly-empty
+    vptr=((& Derived::_ZTV7Derived) + 16u)
+  Base (0x0x7fd42c035660) 0 nearly-empty
+      primary-for Derived (0x0x7fd42c02d138)
+
+Vtable for MultiplyDerived
+MultiplyDerived::_ZTV15MultiplyDerived: 11u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI15MultiplyDerived)
+16    (int (*)(...))MultiplyDerived::~MultiplyDerived
+24    (int (*)(...))MultiplyDerived::~MultiplyDerived
+32    (int (*)(...))MultiplyDerived::f
+40    (int (*)(...))MultiplyDerived::g
+48    (int (*)(...))-8
+56    (int (*)(...))(& _ZTI15MultiplyDerived)
+64    (int (*)(...))MultiplyDerived::_ZThn8_N15MultiplyDerivedD1Ev
+72    (int (*)(...))MultiplyDerived::_ZThn8_N15MultiplyDerivedD0Ev
+80    (int (*)(...))MultiplyDerived::_ZThn8_N15MultiplyDerived1gEv
+
+Class MultiplyDerived
+   size=16 align=8
+   base size=16 base align=8
+MultiplyDerived (0x0x7fd42c04aaf0) 0
+    vptr=((& MultiplyDerived::_ZTV15MultiplyDerived) + 16u)
+  Base (0x0x7fd42c0356c0) 0 nearly-empty
+      primary-for MultiplyDerived (0x0x7fd42c04aaf0)
+  OtherBase (0x0x7fd42c035720) 8 nearly-empty
+      vptr=((& MultiplyDerived::_ZTV15MultiplyDerived) + 64u)
+
+Vtable for OtherDerived
+OtherDerived::_ZTV12OtherDerived: 5u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI12OtherDerived)
+16    (int (*)(...))OtherDerived::~OtherDerived
+24    (int (*)(...))OtherDerived::~OtherDerived
+32    (int (*)(...))OtherDerived::f
+
+Class OtherDerived
+   size=8 align=8
+   base size=8 base align=8
+OtherDerived (0x0x7fd42c02d1a0) 0 nearly-empty
+    vptr=((& OtherDerived::_ZTV12OtherDerived) + 16u)
+  Base (0x0x7fd42c035780) 0 nearly-empty
+      primary-for OtherDerived (0x0x7fd42c02d1a0)
+
+Vtable for DiamondDerived
+DiamondDerived::_ZTV14DiamondDerived: 10u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI14DiamondDerived)
+16    (int (*)(...))DiamondDerived::~DiamondDerived
+24    (int (*)(...))DiamondDerived::~DiamondDerived
+32    (int (*)(...))DiamondDerived::f
+40    (int (*)(...))-8
+48    (int (*)(...))(& _ZTI14DiamondDerived)
+56    (int (*)(...))DiamondDerived::_ZThn8_N14DiamondDerivedD1Ev
+64    (int (*)(...))DiamondDerived::_ZThn8_N14DiamondDerivedD0Ev
+72    (int (*)(...))DiamondDerived::_ZThn8_N14DiamondDerived1fEv
+
+Class DiamondDerived
+   size=16 align=8
+   base size=16 base align=8
+DiamondDerived (0x0x7fd42c0625b0) 0
+    vptr=((& DiamondDerived::_ZTV14DiamondDerived) + 16u)
+  Derived (0x0x7fd42c02d208) 0 nearly-empty
+      primary-for DiamondDerived (0x0x7fd42c0625b0)
+    Base (0x0x7fd42c0357e0) 0 nearly-empty
+        primary-for Derived (0x0x7fd42c02d208)
+  OtherDerived (0x0x7fd42c02d270) 8 nearly-empty
+      vptr=((& DiamondDerived::_ZTV14DiamondDerived) + 56u)
+    Base (0x0x7fd42c035840) 8 nearly-empty
+        primary-for OtherDerived (0x0x7fd42c02d270)
+
+Vtable for VirtuallyDerived
+VirtuallyDerived::_ZTV16VirtuallyDerived: 8u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI16VirtuallyDerived)
+40    (int (*)(...))VirtuallyDerived::~VirtuallyDerived
+48    (int (*)(...))VirtuallyDerived::~VirtuallyDerived
+56    (int (*)(...))VirtuallyDerived::f
+
+VTT for VirtuallyDerived
+VirtuallyDerived::_ZTT16VirtuallyDerived: 2u entries
+0     ((& VirtuallyDerived::_ZTV16VirtuallyDerived) + 40u)
+8     ((& VirtuallyDerived::_ZTV16VirtuallyDerived) + 40u)
+
+Class VirtuallyDerived
+   size=8 align=8
+   base size=8 base align=8
+VirtuallyDerived (0x0x7fd42c02d2d8) 0 nearly-empty
+    vptridx=0u vptr=((& VirtuallyDerived::_ZTV16VirtuallyDerived) + 40u)
+  Base (0x0x7fd42c0358a0) 0 nearly-empty virtual
+      primary-for VirtuallyDerived (0x0x7fd42c02d2d8)
+      vptridx=8u vbaseoffset=-40
+
+Vtable for OtherVirtuallyDerived
+OtherVirtuallyDerived::_ZTV21OtherVirtuallyDerived: 8u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI21OtherVirtuallyDerived)
+40    (int (*)(...))OtherVirtuallyDerived::~OtherVirtuallyDerived
+48    (int (*)(...))OtherVirtuallyDerived::~OtherVirtuallyDerived
+56    (int (*)(...))OtherVirtuallyDerived::f
+
+VTT for OtherVirtuallyDerived
+OtherVirtuallyDerived::_ZTT21OtherVirtuallyDerived: 2u entries
+0     ((& OtherVirtuallyDerived::_ZTV21OtherVirtuallyDerived) + 40u)
+8     ((& OtherVirtuallyDerived::_ZTV21OtherVirtuallyDerived) + 40u)
+
+Class OtherVirtuallyDerived
+   size=8 align=8
+   base size=8 base align=8
+OtherVirtuallyDerived (0x0x7fd42c02d340) 0 nearly-empty
+    vptridx=0u vptr=((& OtherVirtuallyDerived::_ZTV21OtherVirtuallyDerived) + 40u)
+  Base (0x0x7fd42c035900) 0 nearly-empty virtual
+      primary-for OtherVirtuallyDerived (0x0x7fd42c02d340)
+      vptridx=8u vbaseoffset=-40
+
+Vtable for VirtuallyDiamondDerived
+VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived: 16u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI23VirtuallyDiamondDerived)
+40    (int (*)(...))VirtuallyDiamondDerived::~VirtuallyDiamondDerived
+48    (int (*)(...))VirtuallyDiamondDerived::~VirtuallyDiamondDerived
+56    (int (*)(...))VirtuallyDiamondDerived::f
+64    18446744073709551608u
+72    18446744073709551608u
+80    18446744073709551608u
+88    (int (*)(...))-8
+96    (int (*)(...))(& _ZTI23VirtuallyDiamondDerived)
+104   (int (*)(...))VirtuallyDiamondDerived::_ZThn8_N23VirtuallyDiamondDerivedD1Ev
+112   (int (*)(...))VirtuallyDiamondDerived::_ZThn8_N23VirtuallyDiamondDerivedD0Ev
+120   (int (*)(...))VirtuallyDiamondDerived::_ZThn8_N23VirtuallyDiamondDerived1fEv
+
+Construction vtable for VirtuallyDerived (0x0x7fd42c02d3a8 instance) in VirtuallyDiamondDerived
+VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived0_16VirtuallyDerived: 8u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI16VirtuallyDerived)
+40    0u
+48    0u
+56    (int (*)(...))VirtuallyDerived::f
+
+Construction vtable for OtherVirtuallyDerived (0x0x7fd42c02d410 instance) in VirtuallyDiamondDerived
+VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived8_21OtherVirtuallyDerived: 15u entries
+0     18446744073709551608u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI21OtherVirtuallyDerived)
+40    0u
+48    0u
+56    (int (*)(...))OtherVirtuallyDerived::f
+64    8u
+72    8u
+80    (int (*)(...))8
+88    (int (*)(...))(& _ZTI21OtherVirtuallyDerived)
+96    0u
+104   0u
+112   (int (*)(...))OtherVirtuallyDerived::_ZTv0_n32_N21OtherVirtuallyDerived1fEv
+
+VTT for VirtuallyDiamondDerived
+VirtuallyDiamondDerived::_ZTT23VirtuallyDiamondDerived: 7u entries
+0     ((& VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived) + 40u)
+8     ((& VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+16    ((& VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+24    ((& VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived8_21OtherVirtuallyDerived) + 40u)
+32    ((& VirtuallyDiamondDerived::_ZTC23VirtuallyDiamondDerived8_21OtherVirtuallyDerived) + 96u)
+40    ((& VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived) + 40u)
+48    ((& VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived) + 104u)
+
+Class VirtuallyDiamondDerived
+   size=16 align=8
+   base size=16 base align=8
+VirtuallyDiamondDerived (0x0x7fd42c07e460) 0
+    vptridx=0u vptr=((& VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived) + 40u)
+  VirtuallyDerived (0x0x7fd42c02d3a8) 0 nearly-empty
+      primary-for VirtuallyDiamondDerived (0x0x7fd42c07e460)
+      subvttidx=8u
+    Base (0x0x7fd42c035960) 0 nearly-empty virtual
+        primary-for VirtuallyDerived (0x0x7fd42c02d3a8)
+        vptridx=40u vbaseoffset=-40
+  OtherVirtuallyDerived (0x0x7fd42c02d410) 8 nearly-empty
+      lost-primary
+      subvttidx=24u vptridx=48u vptr=((& VirtuallyDiamondDerived::_ZTV23VirtuallyDiamondDerived) + 104u)
+    Base (0x0x7fd42c035960) alternative-path
+
+Vtable for DoublyVirtuallyDiamondDerived
+DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived: 18u entries
+0     8u
+8     0u
+16    0u
+24    0u
+32    0u
+40    (int (*)(...))0
+48    (int (*)(...))(& _ZTI29DoublyVirtuallyDiamondDerived)
+56    (int (*)(...))DoublyVirtuallyDiamondDerived::~DoublyVirtuallyDiamondDerived
+64    (int (*)(...))DoublyVirtuallyDiamondDerived::~DoublyVirtuallyDiamondDerived
+72    (int (*)(...))DoublyVirtuallyDiamondDerived::f
+80    18446744073709551608u
+88    18446744073709551608u
+96    18446744073709551608u
+104   (int (*)(...))-8
+112   (int (*)(...))(& _ZTI29DoublyVirtuallyDiamondDerived)
+120   (int (*)(...))DoublyVirtuallyDiamondDerived::_ZTv0_n24_N29DoublyVirtuallyDiamondDerivedD1Ev
+128   (int (*)(...))DoublyVirtuallyDiamondDerived::_ZTv0_n24_N29DoublyVirtuallyDiamondDerivedD0Ev
+136   (int (*)(...))DoublyVirtuallyDiamondDerived::_ZTv0_n32_N29DoublyVirtuallyDiamondDerived1fEv
+
+Construction vtable for VirtuallyDerived in DoublyVirtuallyDiamondDerived
+DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived0_16VirtuallyDerived: 8u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI16VirtuallyDerived)
+40    0u
+48    0u
+56    (int (*)(...))VirtuallyDerived::f
+
+Construction vtable for OtherVirtuallyDerived in DoublyVirtuallyDiamondDerived
+DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived8_21OtherVirtuallyDerived: 15u entries
+0     18446744073709551608u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI21OtherVirtuallyDerived)
+40    0u
+48    0u
+56    (int (*)(...))OtherVirtuallyDerived::f
+64    8u
+72    8u
+80    (int (*)(...))8
+88    (int (*)(...))(& _ZTI21OtherVirtuallyDerived)
+96    0u
+104   0u
+112   (int (*)(...))OtherVirtuallyDerived::_ZTv0_n32_N21OtherVirtuallyDerived1fEv
+
+VTT for DoublyVirtuallyDiamondDerived
+DoublyVirtuallyDiamondDerived::_ZTT29DoublyVirtuallyDiamondDerived: 8u entries
+0     ((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 56u)
+8     ((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 56u)
+16    ((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 56u)
+24    ((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 120u)
+32    ((& DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+40    ((& DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+48    ((& DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived8_21OtherVirtuallyDerived) + 40u)
+56    ((& DoublyVirtuallyDiamondDerived::_ZTC29DoublyVirtuallyDiamondDerived8_21OtherVirtuallyDerived) + 96u)
+
+Class DoublyVirtuallyDiamondDerived
+   size=16 align=8
+   base size=8 base align=8
+DoublyVirtuallyDiamondDerived (0x0x7fd42c07ea10) 0 nearly-empty
+    vptridx=0u vptr=((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 56u)
+  VirtuallyDerived (0x0x7fd42c02d478) 0 nearly-empty virtual
+      primary-for DoublyVirtuallyDiamondDerived (0x0x7fd42c07ea10)
+      subvttidx=32u vptridx=8u vbaseoffset=-48
+    Base (0x0x7fd42c035a80) 0 nearly-empty virtual
+        primary-for VirtuallyDerived (0x0x7fd42c02d478)
+        vptridx=16u vbaseoffset=-40
+  OtherVirtuallyDerived (0x0x7fd42c02d4e0) 8 nearly-empty virtual
+      lost-primary
+      subvttidx=48u vptridx=24u vbaseoffset=-56 vptr=((& DoublyVirtuallyDiamondDerived::_ZTV29DoublyVirtuallyDiamondDerived) + 120u)
+    Base (0x0x7fd42c035a80) alternative-path
+
+Vtable for MixedVirtuallyDerived
+MixedVirtuallyDerived::_ZTV21MixedVirtuallyDerived: 13u entries
+0     8u
+8     (int (*)(...))0
+16    (int (*)(...))(& _ZTI21MixedVirtuallyDerived)
+24    0u
+32    0u
+40    (int (*)(...))OtherBase::g
+48    0u
+56    18446744073709551608u
+64    (int (*)(...))-8
+72    (int (*)(...))(& _ZTI21MixedVirtuallyDerived)
+80    0u
+88    0u
+96    (int (*)(...))__cxa_pure_virtual
+
+VTT for MixedVirtuallyDerived
+MixedVirtuallyDerived::_ZTT21MixedVirtuallyDerived: 2u entries
+0     ((& MixedVirtuallyDerived::_ZTV21MixedVirtuallyDerived) + 24u)
+8     ((& MixedVirtuallyDerived::_ZTV21MixedVirtuallyDerived) + 80u)
+
+Class MixedVirtuallyDerived
+   size=16 align=8
+   base size=8 base align=8
+MixedVirtuallyDerived (0x0x7fd42c07eee0) 0 nearly-empty
+    vptridx=0u vptr=((& MixedVirtuallyDerived::_ZTV21MixedVirtuallyDerived) + 24u)
+  Base (0x0x7fd42c035c60) 8 nearly-empty virtual
+      vptridx=8u vbaseoffset=-24 vptr=((& MixedVirtuallyDerived::_ZTV21MixedVirtuallyDerived) + 80u)
+  OtherBase (0x0x7fd42c035cc0) 0 nearly-empty
+      primary-for MixedVirtuallyDerived (0x0x7fd42c07eee0)
+
+Vtable for MixedVirtuallyDiamondDerived
+MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived: 15u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI28MixedVirtuallyDiamondDerived)
+40    (int (*)(...))MixedVirtuallyDiamondDerived::~MixedVirtuallyDiamondDerived
+48    (int (*)(...))MixedVirtuallyDiamondDerived::~MixedVirtuallyDiamondDerived
+56    (int (*)(...))MixedVirtuallyDiamondDerived::f
+64    (int (*)(...))MixedVirtuallyDiamondDerived::g
+72    18446744073709551608u
+80    (int (*)(...))-8
+88    (int (*)(...))(& _ZTI28MixedVirtuallyDiamondDerived)
+96    (int (*)(...))MixedVirtuallyDiamondDerived::_ZThn8_N28MixedVirtuallyDiamondDerivedD1Ev
+104   (int (*)(...))MixedVirtuallyDiamondDerived::_ZThn8_N28MixedVirtuallyDiamondDerivedD0Ev
+112   (int (*)(...))MixedVirtuallyDiamondDerived::_ZThn8_N28MixedVirtuallyDiamondDerived1gEv
+
+Construction vtable for VirtuallyDerived (0x0x7fd42c02d750 instance) in MixedVirtuallyDiamondDerived
+MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived0_16VirtuallyDerived: 8u entries
+0     0u
+8     0u
+16    0u
+24    (int (*)(...))0
+32    (int (*)(...))(& _ZTI16VirtuallyDerived)
+40    0u
+48    0u
+56    (int (*)(...))VirtuallyDerived::f
+
+Construction vtable for MixedVirtuallyDerived (0x0x7fd42c0b5380 instance) in MixedVirtuallyDiamondDerived
+MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived8_21MixedVirtuallyDerived: 13u entries
+0     18446744073709551608u
+8     (int (*)(...))0
+16    (int (*)(...))(& _ZTI21MixedVirtuallyDerived)
+24    0u
+32    0u
+40    (int (*)(...))OtherBase::g
+48    0u
+56    8u
+64    (int (*)(...))8
+72    (int (*)(...))(& _ZTI21MixedVirtuallyDerived)
+80    0u
+88    0u
+96    (int (*)(...))__cxa_pure_virtual
+
+VTT for MixedVirtuallyDiamondDerived
+MixedVirtuallyDiamondDerived::_ZTT28MixedVirtuallyDiamondDerived: 7u entries
+0     ((& MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived) + 40u)
+8     ((& MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+16    ((& MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived0_16VirtuallyDerived) + 40u)
+24    ((& MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived8_21MixedVirtuallyDerived) + 24u)
+32    ((& MixedVirtuallyDiamondDerived::_ZTC28MixedVirtuallyDiamondDerived8_21MixedVirtuallyDerived) + 80u)
+40    ((& MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived) + 40u)
+48    ((& MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived) + 96u)
+
+Class MixedVirtuallyDiamondDerived
+   size=16 align=8
+   base size=16 base align=8
+MixedVirtuallyDiamondDerived (0x0x7fd42c0b5310) 0
+    vptridx=0u vptr=((& MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived) + 40u)
+  VirtuallyDerived (0x0x7fd42c02d750) 0 nearly-empty
+      primary-for MixedVirtuallyDiamondDerived (0x0x7fd42c0b5310)
+      subvttidx=8u
+    Base (0x0x7fd42c035d20) 0 nearly-empty virtual
+        primary-for VirtuallyDerived (0x0x7fd42c02d750)
+        vptridx=40u vbaseoffset=-40
+  MixedVirtuallyDerived (0x0x7fd42c0b5380) 8 nearly-empty
+      subvttidx=24u vptridx=48u vptr=((& MixedVirtuallyDiamondDerived::_ZTV28MixedVirtuallyDiamondDerived) + 96u)
+    Base (0x0x7fd42c035d20) alternative-path
+    OtherBase (0x0x7fd42c035d80) 8 nearly-empty
+        primary-for MixedVirtuallyDerived (0x0x7fd42c0b5380)
+
+Vtable for VirtuallyMultiplyDerived
+VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived: 16u entries
+0     8u
+8     0u
+16    0u
+24    0u
+32    (int (*)(...))0
+40    (int (*)(...))(& _ZTI24VirtuallyMultiplyDerived)
+48    0u
+56    0u
+64    (int (*)(...))__cxa_pure_virtual
+72    0u
+80    18446744073709551608u
+88    (int (*)(...))-8
+96    (int (*)(...))(& _ZTI24VirtuallyMultiplyDerived)
+104   0u
+112   0u
+120   (int (*)(...))OtherBase::g
+
+VTT for VirtuallyMultiplyDerived
+VirtuallyMultiplyDerived::_ZTT24VirtuallyMultiplyDerived: 3u entries
+0     ((& VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived) + 48u)
+8     ((& VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived) + 48u)
+16    ((& VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived) + 104u)
+
+Class VirtuallyMultiplyDerived
+   size=16 align=8
+   base size=8 base align=8
+VirtuallyMultiplyDerived (0x0x7fd42c0b59a0) 0 nearly-empty
+    vptridx=0u vptr=((& VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived) + 48u)
+  Base (0x0x7fd42c035e40) 0 nearly-empty virtual
+      primary-for VirtuallyMultiplyDerived (0x0x7fd42c0b59a0)
+      vptridx=8u vbaseoffset=-40
+  OtherBase (0x0x7fd42c035ea0) 8 nearly-empty virtual
+      vptridx=16u vbaseoffset=-48 vptr=((& VirtuallyMultiplyDerived::_ZTV24VirtuallyMultiplyDerived) + 104u)
+
+Vtable for OtherVirtuallyMultiplyDerived
+OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived: 16u entries
+0     8u
+8     0u
+16    0u
+24    0u
+32    (int (*)(...))0
+40    (int (*)(...))(& _ZTI29OtherVirtuallyMultiplyDerived)
+48    0u
+56    0u
+64    (int (*)(...))__cxa_pure_virtual
+72    0u
+80    18446744073709551608u
+88    (int (*)(...))-8
+96    (int (*)(...))(& _ZTI29OtherVirtuallyMultiplyDerived)
+104   0u
+112   0u
+120   (int (*)(...))OtherBase::g
+
+VTT for OtherVirtuallyMultiplyDerived
+OtherVirtuallyMultiplyDerived::_ZTT29OtherVirtuallyMultiplyDerived: 3u entries
+0     ((& OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived) + 48u)
+8     ((& OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived) + 48u)
+16    ((& OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived) + 104u)
+
+Class OtherVirtuallyMultiplyDerived
+   size=16 align=8
+   base size=8 base align=8
+OtherVirtuallyMultiplyDerived (0x0x7fd42c0b5d90) 0 nearly-empty
+    vptridx=0u vptr=((& OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived) + 48u)
+  Base (0x0x7fd42c035f00) 0 nearly-empty virtual
+      primary-for OtherVirtuallyMultiplyDerived (0x0x7fd42c0b5d90)
+      vptridx=8u vbaseoffset=-40
+  OtherBase (0x0x7fd42c035f60) 8 nearly-empty virtual
+      vptridx=16u vbaseoffset=-48 vptr=((& OtherVirtuallyMultiplyDerived::_ZTV29OtherVirtuallyMultiplyDerived) + 104u)
+
+Vtable for MultiplyVirtuallyDiamondDerived
+MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived: 26u entries
+0     16u
+8     0u
+16    0u
+24    0u
+32    (int (*)(...))0
+40    (int (*)(...))(& _ZTI31MultiplyVirtuallyDiamondDerived)
+48    (int (*)(...))MultiplyVirtuallyDiamondDerived::~MultiplyVirtuallyDiamondDerived
+56    (int (*)(...))MultiplyVirtuallyDiamondDerived::~MultiplyVirtuallyDiamondDerived
+64    (int (*)(...))MultiplyVirtuallyDiamondDerived::f
+72    (int (*)(...))MultiplyVirtuallyDiamondDerived::g
+80    8u
+88    18446744073709551608u
+96    18446744073709551608u
+104   18446744073709551608u
+112   (int (*)(...))-8
+120   (int (*)(...))(& _ZTI31MultiplyVirtuallyDiamondDerived)
+128   (int (*)(...))MultiplyVirtuallyDiamondDerived::_ZThn8_N31MultiplyVirtuallyDiamondDerivedD1Ev
+136   (int (*)(...))MultiplyVirtuallyDiamondDerived::_ZThn8_N31MultiplyVirtuallyDiamondDerivedD0Ev
+144   0u
+152   18446744073709551600u
+160   18446744073709551600u
+168   (int (*)(...))-16
+176   (int (*)(...))(& _ZTI31MultiplyVirtuallyDiamondDerived)
+184   (int (*)(...))MultiplyVirtuallyDiamondDerived::_ZTv0_n24_N31MultiplyVirtuallyDiamondDerivedD1Ev
+192   (int (*)(...))MultiplyVirtuallyDiamondDerived::_ZTv0_n24_N31MultiplyVirtuallyDiamondDerivedD0Ev
+200   (int (*)(...))MultiplyVirtuallyDiamondDerived::_ZTv0_n32_N31MultiplyVirtuallyDiamondDerived1gEv
+
+Construction vtable for VirtuallyMultiplyDerived (0x0x7fd42bcdf230 instance) in MultiplyVirtuallyDiamondDerived
+MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived0_24VirtuallyMultiplyDerived: 16u entries
+0     16u
+8     0u
+16    0u
+24    0u
+32    (int (*)(...))0
+40    (int (*)(...))(& _ZTI24VirtuallyMultiplyDerived)
+48    0u
+56    0u
+64    (int (*)(...))__cxa_pure_virtual
+72    0u
+80    18446744073709551600u
+88    (int (*)(...))-16
+96    (int (*)(...))(& _ZTI24VirtuallyMultiplyDerived)
+104   0u
+112   0u
+120   (int (*)(...))OtherBase::g
+
+Construction vtable for OtherVirtuallyMultiplyDerived (0x0x7fd42bcdf2a0 instance) in MultiplyVirtuallyDiamondDerived
+MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived8_29OtherVirtuallyMultiplyDerived: 23u entries
+0     8u
+8     18446744073709551608u
+16    18446744073709551608u
+24    0u
+32    (int (*)(...))0
+40    (int (*)(...))(& _ZTI29OtherVirtuallyMultiplyDerived)
+48    0u
+56    0u
+64    (int (*)(...))__cxa_pure_virtual
+72    0u
+80    8u
+88    (int (*)(...))8
+96    (int (*)(...))(& _ZTI29OtherVirtuallyMultiplyDerived)
+104   0u
+112   0u
+120   (int (*)(...))__cxa_pure_virtual
+128   0u
+136   18446744073709551608u
+144   (int (*)(...))-8
+152   (int (*)(...))(& _ZTI29OtherVirtuallyMultiplyDerived)
+160   0u
+168   0u
+176   (int (*)(...))OtherBase::g
+
+VTT for MultiplyVirtuallyDiamondDerived
+MultiplyVirtuallyDiamondDerived::_ZTT31MultiplyVirtuallyDiamondDerived: 10u entries
+0     ((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 48u)
+8     ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived0_24VirtuallyMultiplyDerived) + 48u)
+16    ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived0_24VirtuallyMultiplyDerived) + 48u)
+24    ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived0_24VirtuallyMultiplyDerived) + 104u)
+32    ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived8_29OtherVirtuallyMultiplyDerived) + 48u)
+40    ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived8_29OtherVirtuallyMultiplyDerived) + 104u)
+48    ((& MultiplyVirtuallyDiamondDerived::_ZTC31MultiplyVirtuallyDiamondDerived8_29OtherVirtuallyMultiplyDerived) + 160u)
+56    ((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 48u)
+64    ((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 184u)
+72    ((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 128u)
+
+Class MultiplyVirtuallyDiamondDerived
+   size=24 align=8
+   base size=16 base align=8
+MultiplyVirtuallyDiamondDerived (0x0x7fd42bcdf1c0) 0
+    vptridx=0u vptr=((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 48u)
+  VirtuallyMultiplyDerived (0x0x7fd42bcdf230) 0 nearly-empty
+      primary-for MultiplyVirtuallyDiamondDerived (0x0x7fd42bcdf1c0)
+      subvttidx=8u
+    Base (0x0x7fd42bce2000) 0 nearly-empty virtual
+        primary-for VirtuallyMultiplyDerived (0x0x7fd42bcdf230)
+        vptridx=56u vbaseoffset=-40
+    OtherBase (0x0x7fd42bce2060) 16 nearly-empty virtual
+        vptridx=64u vbaseoffset=-48 vptr=((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 184u)
+  OtherVirtuallyMultiplyDerived (0x0x7fd42bcdf2a0) 8 nearly-empty
+      lost-primary
+      subvttidx=32u vptridx=72u vptr=((& MultiplyVirtuallyDiamondDerived::_ZTV31MultiplyVirtuallyDiamondDerived) + 128u)
+    Base (0x0x7fd42bce2000) alternative-path
+    OtherBase (0x0x7fd42bce2060) alternative-path
+
