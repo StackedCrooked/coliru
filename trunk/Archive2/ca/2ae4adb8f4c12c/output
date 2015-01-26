@@ -1,0 +1,24 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:16:18: error: no match for call to '(main()::<lambda(auto:1&)>) (std::reference_wrapper<int>)'
+     g(std::ref(x));
+                  ^
+main.cpp:11:15: note: candidates are:
+     auto g = [](auto& result) { result = 1; };
+               ^
+main.cpp:16:18: note: decltype (((main()::<lambda(auto:1&)>)0u).main()::<lambda(auto:1&)>(<anonymous>)) (*)(auto:1&) <conversion>
+     g(std::ref(x));
+                  ^
+main.cpp:16:18: note:   candidate expects 1 argument, 2 provided
+main.cpp:11:29: note: main()::<lambda(auto:1&)> [with auto:1 = std::reference_wrapper<int>]
+     auto g = [](auto& result) { result = 1; };
+                             ^
+main.cpp:11:29: note:   no known conversion for argument 1 from 'std::reference_wrapper<int>' to 'std::reference_wrapper<int>&'
++ clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:16:5: error: no matching function for call to object of type '(lambda at main.cpp:11:14)'
+    g(std::ref(x));
+    ^
+main.cpp:11:14: note: candidate function [with $auto-0-0 = std::__1::reference_wrapper<int>] not viable: expects an l-value for 1st argument
+    auto g = [](auto& result) { result = 1; };
+             ^
+1 error generated.
