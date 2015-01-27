@@ -1,0 +1,15 @@
+main.cpp: In constructor 'C::C(A)':
+main.cpp:11:17: error: 'is_convertible' is not a member of 'std'
+   static_assert(std::is_convertible<A, decltype(b)>, "Must be convertible.");
+                 ^
+main.cpp:11:38: error: expected primary-expression before ',' token
+   static_assert(std::is_convertible<A, decltype(b)>, "Must be convertible.");
+                                      ^
+main.cpp:11:40: error: expected string-literal before 'decltype'
+   static_assert(std::is_convertible<A, decltype(b)>, "Must be convertible.");
+                                        ^
+main.cpp:11:40: error: expected ')' before 'decltype'
+main.cpp: In constructor 'D::D(A)':
+main.cpp:18:20: error: 'implicit_cast' was not declared in this scope
+   b(implicit_cast(a))
+                    ^
