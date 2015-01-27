@@ -1,0 +1,36 @@
+main.cpp: In constructor '{anonymous}::Implicit::Implicit({anonymous}::B, {anonymous}::A)':
+main.cpp:46:24: error: no matching function for call to '{anonymous}::C::C({anonymous}::implicit_cast_t<{anonymous}::A&>)'
+   , c2(implicit_cast(a))
+                        ^
+main.cpp:46:24: note: candidates are:
+main.cpp:29:2: note: {anonymous}::C::C({anonymous}::B)
+  C(B) {}
+  ^
+main.cpp:29:2: note:   no known conversion for argument 1 from '{anonymous}::implicit_cast_t<{anonymous}::A&>' to '{anonymous}::B'
+main.cpp:28:11: note: {anonymous}::C::C({anonymous}::A)
+  explicit C(A) {}
+           ^
+main.cpp:28:11: note:   no known conversion for argument 1 from '{anonymous}::implicit_cast_t<{anonymous}::A&>' to '{anonymous}::A'
+main.cpp:27:2: note: constexpr {anonymous}::C::C()
+  C() = default;
+  ^
+main.cpp:27:2: note:   candidate expects 0 arguments, 1 provided
+main.cpp:26:8: note: constexpr {anonymous}::C::C(const {anonymous}::C&)
+ struct C {
+        ^
+main.cpp:26:8: note:   no known conversion for argument 1 from '{anonymous}::implicit_cast_t<{anonymous}::A&>' to 'const {anonymous}::C&'
+main.cpp:26:8: note: constexpr {anonymous}::C::C({anonymous}::C&&)
+main.cpp:26:8: note:   no known conversion for argument 1 from '{anonymous}::implicit_cast_t<{anonymous}::A&>' to '{anonymous}::C&&'
+main.cpp: In function 'int main()':
+main.cpp:75:30: error: no matching function for call to '{anonymous}::Movable::Movable({anonymous}::implicit_cast_t<{anonymous}::Movable&>)'
+  Movable m3(implicit_cast(m2));
+                              ^
+main.cpp:75:30: note: candidates are:
+main.cpp:58:2: note: constexpr {anonymous}::Movable::Movable({anonymous}::Movable&&)
+  Movable(Movable &&) = default;
+  ^
+main.cpp:58:2: note:   no known conversion for argument 1 from '{anonymous}::implicit_cast_t<{anonymous}::Movable&>' to '{anonymous}::Movable&&'
+main.cpp:57:2: note: constexpr {anonymous}::Movable::Movable()
+  Movable() = default;
+  ^
+main.cpp:57:2: note:   candidate expects 0 arguments, 1 provided
