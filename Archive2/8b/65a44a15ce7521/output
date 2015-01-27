@@ -1,0 +1,30 @@
+----------------------------------------
+Parsing '2015-Jan-26 00:00:00;id'
+Parsing success
+2015-Jan-26 00:00:00	id
+data1: --
+data2: --
+----------------------------------------
+Parsing '2015-Jan-26 14:59:24;id;key2="value"'
+Parsing success
+2015-Jan-26 14:59:24	id
+data1: --
+data2:  value
+----------------------------------------
+Parsing '2015-Jan-26 14:59:24;id;key2="value" key1=42'
+Parsing success
+2015-Jan-26 14:59:24	id
+data1:  42
+data2:  value
+----------------------------------------
+Parsing '2015-Jan-26 14:59:24;id;key2="value" key1=42 something=awful __=4.74e-10 blarg;{blo;bloop='whatever \'ignor\'ed' key2="new} \"value\""'
+Parsing success
+2015-Jan-26 14:59:24	id
+data1:  42
+data2:  new} "value"
+----------------------------------------
+Parsing '2015-Jan-26 14:59:24.123;id;key1=42 key2="value" '
+Parsing success
+2015-Jan-26 14:59:24.123000	id
+data1:  42
+data2:  value
