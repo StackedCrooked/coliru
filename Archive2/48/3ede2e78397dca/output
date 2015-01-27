@@ -1,0 +1,78 @@
+>>>only copy ctor & assign<<<
+ctor  - ThingNoMove1
+copy ctor  [ -> ThingNoMove1]
+ctor  - Temporary
+copy assign [Temporary -> ThingNoMove1]
+dtor - ThingNoMove1
+dtor - ThingNoMove1
+dtor - ThingNoMove1
+---------------------------------------
+>>>move operators and normal usage<<<
+ctor  - Thing - normal[11]
+copy ctor  [ -> Thing - normal][11]
+copy assign [Thing - normal -> Thing - normal] [11]
+>>>end of scope
+dtor - Thing - normal
+dtor - Thing - normal
+---------------------------------------
+>>>move operators and std::move<<<
+ctor  - Thing - move[11]
+move ctor  [ -> Thing - move] [11]
+a is moved and lost its identity: [killed: Thing - move]
+ctor  - Thing2[34]
+move assign [Thing2 -> Thing - move] [11]
+>>>end of scope
+dtor - Thing - move
+dtor - [killed: Thing - move]
+dtor - [killed: Thing - move]
+
+---------------------------------------
+>>>return object from function<<<
+--- return with copy - no move operations ---
+ctor  - return object_standard
+now without RVO:
+ctor  - temporary1
+ctor  - return object_standard
+copy assign [temporary1 -> return object_standard]
+dtor - return object_standard
+--- return with move - no move operations --- 
+ctor  - return object_move
+copy ctor  [ -> return object_move]
+dtor - return object_move
+now without RVO:
+ctor  - temporary2
+ctor  - return object_move
+copy ctor  [ -> return object_move]
+dtor - return object_move
+copy assign [temporary2 -> return object_move]
+dtor - return object_move
+>>>end of scope
+dtor - return object_move
+dtor - return object_move
+dtor - return object_standard
+dtor - return object_standard
+
+---------------------------------------
+--- return with move - has move operations ---
+ctor  - return object2_standard[7]
+ctor  - temporary1[2]
+ctor  - return object2_standard[7]
+move assign [temporary1 -> return object2_standard] [7]
+dtor - [killed: return object2_standard]
+move assign:
+ctor  - return object2_move[9]
+move ctor  [ -> return object2_move] [9]
+dtor - [killed: return object2_move]
+ctor  - temporary2[3]
+ctor  - return object2_move[9]
+move ctor  [ -> return object2_move] [9]
+dtor - [killed: return object2_move]
+move assign [temporary2 -> return object2_move] [9]
+dtor - [killed: return object2_move]
+>>>end of scope
+dtor - return object2_move
+dtor - return object2_move
+dtor - return object2_standard
+dtor - return object2_standard
+---------------------------------------
+>>>end of program<<<
