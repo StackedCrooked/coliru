@@ -1,0 +1,2 @@
+set -x; clang++ -O3 -std=gnu++1z -stdlib=libc++ -Weverything -pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-c++98-compat main.cpp -o a.out && ./a.out
+g++ -O3 -std=c++1y -Wall -Wextra -pedantic main.cpp -o a.out && ./a.out
