@@ -1,0 +1,16 @@
+main.cpp:10:16: error: no viable conversion from 'foo' to 'obj'
+int x = assign(foo());
+               ^~~~~
+main.cpp:1:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'foo' to 'const obj &' for 1st argument
+struct obj { };
+       ^
+main.cpp:1:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'foo' to 'obj &&' for 1st argument
+struct obj { };
+       ^
+main.cpp:7:5: note: candidate function
+    operator const obj();
+    ^
+main.cpp:3:17: note: passing argument to parameter here
+int assign(obj&&);        // compiles if you comment this line out
+                ^
+1 error generated.
