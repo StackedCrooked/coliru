@@ -1,0 +1,9 @@
+main.cpp: In instantiation of 'decltype(auto) construct(Us&&) [with Tp = char&; Us = char&]':
+main.cpp:9:30:   required from here
+main.cpp:4:33: error: invalid cast of an rvalue expression of type 'char' to type 'char&'
+   return Tp{std::forward<Us>(us)};
+                                 ^
+main.cpp: In function 'int main()':
+main.cpp:9:30: error: 'void c' has incomplete type
+   auto c = construct<char&>(a);
+                              ^
