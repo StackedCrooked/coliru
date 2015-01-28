@@ -1,0 +1,1 @@
+clang++ -DBOOST_TEST_MAIN -DBOOST_ALL_DYN_LINK  -lboost_unit_test_framework -std=c++14 -Wextra -pedantic -Wsign-compare -Wsign-conversion main.cpp && ./a.out
