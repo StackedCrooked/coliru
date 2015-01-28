@@ -1,0 +1,12 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
++ clang++ -std=c++1y -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:10:7: error: implicit instantiation of undefined template 'std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >'
+    f(std::string("hello").c_str()); // print arr, ok because `c_str()` is a pointer
+      ^
+/usr/include/c++/v1/iosfwd:188:33: note: template is declared here
+    class _LIBCPP_TYPE_VIS_ONLY basic_string;
+                                ^
+1 error generated.
