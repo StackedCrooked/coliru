@@ -1,0 +1,20 @@
+=== g++ ===
+main.cpp: In constructor 'MyArray<T>::MyArray(int)':
+main.cpp:14:9: error: 'n' was not declared in this scope
+         n = n_init;   
+         ^
+main.cpp:16:9: error: 'p' was not declared in this scope
+         p = contents.data();
+         ^
+
+=== clang ===
+main.cpp:14:9: error: use of undeclared identifier 'n'
+        n = n_init;   
+        ^
+main.cpp:15:25: error: use of undeclared identifier 'n'
+        contents.resize(n);
+                        ^
+main.cpp:16:9: error: use of undeclared identifier 'p'
+        p = contents.data();
+        ^
+3 errors generated.
