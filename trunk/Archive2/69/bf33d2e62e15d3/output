@@ -1,0 +1,7 @@
++ g++ -std=c++11 -O -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp: In function 'void thread_func()':
+main.cpp:14:5: error: 'notify_all_at_thread_exit' is not a member of 'std'
+     std::notify_all_at_thread_exit(cv, std::move(lk));
+     ^
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp
++ ./a.out
