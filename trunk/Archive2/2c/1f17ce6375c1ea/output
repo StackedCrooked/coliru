@@ -1,0 +1,52 @@
+	.text
+	.file	"main.cpp"
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+	subq	$16, %rsp
+.Ltmp1:
+	.cfi_def_cfa_offset 32
+.Ltmp2:
+	.cfi_offset %rbx, -16
+	xorl	%ebx, %ebx
+	leaq	12(%rsp), %rsi
+	movl	$.L.str, %edi
+	xorl	%eax, %eax
+	callq	scanf
+	movl	12(%rsp), %eax
+	testl	%eax, %eax
+	jle	.LBB0_2
+# BB#1:                                 # %.lr.ph.i
+	leal	-1(%rax), %ecx
+	leal	-2(%rax), %edx
+	imulq	%rcx, %rdx
+	shrq	%rdx
+	leal	-1(%rax,%rdx), %ebx
+.LBB0_2:                                # %_Z3sumIiET_S0_.exit
+	movl	$.L.str, %edi
+	xorl	%eax, %eax
+	movl	%ebx, %esi
+	callq	printf
+	xorl	%eax, %eax
+	addq	$16, %rsp
+	popq	%rbx
+	retq
+.Ltmp3:
+	.size	main, .Ltmp3-main
+	.cfi_endproc
+
+	.type	.L.str,@object          # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"%d"
+	.size	.L.str, 3
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
