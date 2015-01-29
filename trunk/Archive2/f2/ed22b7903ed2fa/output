@@ -1,0 +1,25 @@
+main.cpp: In function 'int main()':
+main.cpp:13:7: error: 'int A<T>::B<is_const>::foo(A<T>::B<Constness>) [with Constness = std::integral_constant<bool, true>; is_const = std::integral_constant<bool, true>; T = int]' is private
+   int foo(B<Constness> other) { return other.b; }
+       ^
+main.cpp:26:18: error: within this context
+  auto i = c.foo(c);
+                  ^
+main.cpp:13:7: error: 'int A<T>::B<is_const>::foo(A<T>::B<Constness>) [with Constness = std::integral_constant<bool, false>; is_const = std::integral_constant<bool, true>; T = int]' is private
+   int foo(B<Constness> other) { return other.b; }
+       ^
+main.cpp:27:20: error: within this context
+  auto i2 = c.foo(nc);
+                    ^
+main.cpp:13:7: error: 'int A<T>::B<is_const>::foo(A<T>::B<Constness>) [with Constness = std::integral_constant<bool, true>; is_const = std::integral_constant<bool, false>; T = int]' is private
+   int foo(B<Constness> other) { return other.b; }
+       ^
+main.cpp:28:20: error: within this context
+  auto i3 = nc.foo(c); 
+                    ^
+main.cpp:13:7: error: 'int A<T>::B<is_const>::foo(A<T>::B<Constness>) [with Constness = std::integral_constant<bool, false>; is_const = std::integral_constant<bool, false>; T = int]' is private
+   int foo(B<Constness> other) { return other.b; }
+       ^
+main.cpp:29:21: error: within this context
+  auto i4 = nc.foo(nc);
+                     ^
