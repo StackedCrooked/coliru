@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libc++ -g -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ && ./a.out
