@@ -1,0 +1,2 @@
+echo -e "llvm\n----" && clang++ -std=c++14 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out 
+echo -e "gnu\n---" && g++ -DUSING_BROKEN_GNU_LIBRARY -std=c++14 -O3 -Wall -Wextra -pedantic-errors main.cpp && ./a.out
