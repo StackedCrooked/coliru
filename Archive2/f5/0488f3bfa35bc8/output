@@ -1,0 +1,23 @@
+main.cpp:36:39: error: '#' is not followed by a macro parameter
+ #define DISPLAY_NEXT_VALID_ENUM(x, ...) \
+                                       ^
+# 1 "main.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "main.cpp"
+# 58 "main.cpp"
+ DISPLAY_NEXT_VALID_ENUM((ft_Close=1, "Close"),(ft_High, "High"), (ft_Low, "Low"),(ft_EDSP, "EDSP"),(ft_ARMVM, "ARMVM"))
+ DISPLAY_NEXT_VALID_ENUM((ft_Close=1, "Close"),(ft_High, "High"), (ft_Low, "Low"),(ft_EDSP, "EDSP"),(ft_ARMVM, "ARMVM"))
+
+
+
+
+
+
+enum FixingType{DISPLAY_NEXT_VALID_ENUM((ft_Close=1, "Close"), (ft_High, "High"), (ft_Low, "Low"), (ft_EDSP, "EDSP"), (ft_ARMVM, "ARMVM"), ft_first=ft_Close, ft_last=ft_ARMVM, ft_default=ft_Close) };
+# 75 "main.cpp"
+int main()
+{
+    FixingType f = ft_Close;
+    return f;
+}
