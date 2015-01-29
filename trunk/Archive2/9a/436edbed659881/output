@@ -1,0 +1,121 @@
+main.cpp: In function 'int main()':
+main.cpp:58:47: error: no match for call to '(std::_Bind<std::_Mem_fn<int Foo::*>(std::_Placeholder<1>)>) (std::shared_ptr<Foo>)'
+In file included from /usr/include/c++/4.7/memory:81:0,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional:1140:11: note: candidates are:
+/usr/include/c++/4.7/functional:1211:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1211:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1206:35: error: no match for call to '(std::_Mem_fn<int Foo::*>) (std::shared_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::shared_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'std::shared_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1225:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1225:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1219:35: error: no match for call to '(const std::_Mem_fn<int Foo::*>) (std::shared_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::shared_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'std::shared_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1239:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1239:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1233:35: error: no match for call to '(volatile std::_Mem_fn<int Foo::*>) (std::shared_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::shared_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'std::shared_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1253:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1253:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1247:35: error: no match for call to '(const volatile std::_Mem_fn<int Foo::*>) (std::shared_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::shared_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::shared_ptr<Foo>' to 'std::shared_ptr<Foo>&'
+main.cpp:59:55: error: no match for call to '(std::_Bind<std::_Mem_fn<int Foo::*>(std::_Placeholder<1>)>) (std::unique_ptr<Foo>)'
+In file included from /usr/include/c++/4.7/memory:81:0,
+                 from main.cpp:3:
+/usr/include/c++/4.7/functional:1140:11: note: candidates are:
+/usr/include/c++/4.7/functional:1211:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1211:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1206:35: error: no match for call to '(std::_Mem_fn<int Foo::*>) (std::unique_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::unique_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'std::unique_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1225:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1225:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1219:35: error: no match for call to '(const std::_Mem_fn<int Foo::*>) (std::unique_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::unique_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'std::unique_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1239:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1239:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1233:35: error: no match for call to '(volatile std::_Mem_fn<int Foo::*>) (std::unique_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::unique_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'std::unique_ptr<Foo>&'
+/usr/include/c++/4.7/functional:1253:2: note: template<class ... _Args, class _Result> _Result std::_Bind<_Functor(_Bound_args ...)>::operator()(_Args&& ...) const volatile [with _Args = {_Args ...}; _Result = _Result; _Functor = std::_Mem_fn<int Foo::*>; _Bound_args = {std::_Placeholder<1>}]
+/usr/include/c++/4.7/functional:1253:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.7/functional:1247:35: error: no match for call to '(const volatile std::_Mem_fn<int Foo::*>) (std::unique_ptr<Foo>)'
+/usr/include/c++/4.7/functional:722:11: note: candidates are:
+/usr/include/c++/4.7/functional:788:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:788:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo&'
+/usr/include/c++/4.7/functional:792:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class&) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:792:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo&'
+/usr/include/c++/4.7/functional:797:7: note: _Res& std::_Mem_fn<_Tp _Class::*>::operator()(_Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:797:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'Foo*'
+/usr/include/c++/4.7/functional:801:7: note: const _Res& std::_Mem_fn<_Tp _Class::*>::operator()(const _Class*) const [with _Res = int; _Class = Foo]
+/usr/include/c++/4.7/functional:801:7: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'const Foo*'
+/usr/include/c++/4.7/functional:807:2: note: typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type std::_Mem_fn<_Tp _Class::*>::operator()(_Tp&) const [with _Tp = std::unique_ptr<Foo>; _Res = int; _Class = Foo; typename std::_Mem_fn<_Tp _Class::*>::_Result_type<_Tp>::type = const int&]
+/usr/include/c++/4.7/functional:807:2: note:   no known conversion for argument 1 from 'std::unique_ptr<Foo>' to 'std::unique_ptr<Foo>&'
