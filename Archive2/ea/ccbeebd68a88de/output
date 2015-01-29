@@ -1,0 +1,36 @@
++ clang++ -O3 -std=c++1y -stdlib=libc++ -Wall -Wextra -pedantic main.cpp -o a.out
+In file included from main.cpp:1:
+In file included from /usr/local/include/boost/function.hpp:64:
+In file included from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:47:
+In file included from /usr/local/include/boost/function/detail/function_iterate.hpp:14:
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:13:
+/usr/local/include/boost/function/function_template.hpp:132:18: error: called object type 'nullptr_t' is not a function or function pointer
+          return (*f)(BOOST_FUNCTION_ARGS);
+                 ^~~~
+/usr/local/include/boost/function/function_template.hpp:934:53: note: in instantiation of member function 'boost::detail::function::function_obj_invoker0<nullptr_t, int>::invoke' requested here
+        { { &manager_type::manage }, &invoker_type::invoke };
+                                                    ^
+/usr/local/include/boost/function/function_template.hpp:722:13: note: in instantiation of function template specialization 'boost::function0<int>::assign_to<nullptr_t>' requested here
+      this->assign_to(f);
+            ^
+/usr/local/include/boost/function/function_template.hpp:1071:5: note: in instantiation of function template specialization 'boost::function0<int>::function0<nullptr_t>' requested here
+    base_type(f)
+    ^
+main.cpp:3:34: note: in instantiation of function template specialization 'boost::function<int ()>::function<nullptr_t>' requested here
+    boost::function<int()> foo = nullptr;
+                                 ^
+1 error generated.
++ g++ -O3 -std=c++1y -Wall -Wextra -pedantic main.cpp -o a.out
+In file included from /usr/local/include/boost/function/detail/maybe_include.hpp:13:0,
+                 from /usr/local/include/boost/function/detail/function_iterate.hpp:14,
+                 from /usr/local/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:47,
+                 from /usr/local/include/boost/function.hpp:64,
+                 from main.cpp:1:
+/usr/local/include/boost/function/function_template.hpp: In instantiation of 'static R boost::detail::function::function_obj_invoker0<FunctionObj, R>::invoke(boost::detail::function::function_buffer&) [with FunctionObj = std::nullptr_t; R = int]':
+/usr/local/include/boost/function/function_template.hpp:934:38:   required from 'void boost::function0<R>::assign_to(Functor) [with Functor = std::nullptr_t; R = int]'
+/usr/local/include/boost/function/function_template.hpp:722:7:   required from 'boost::function0<R>::function0(Functor, typename boost::enable_if_c<(boost::type_traits::ice_not<(boost::is_integral<Functor>::value)>::value), int>::type) [with Functor = std::nullptr_t; R = int; typename boost::enable_if_c<(boost::type_traits::ice_not<(boost::is_integral<Functor>::value)>::value), int>::type = int]'
+/usr/local/include/boost/function/function_template.hpp:1071:16:   required from 'boost::function<R()>::function(Functor, typename boost::enable_if_c<(boost::type_traits::ice_not<(boost::is_integral<Functor>::value)>::value), int>::type) [with Functor = std::nullptr_t; R = int; typename boost::enable_if_c<(boost::type_traits::ice_not<(boost::is_integral<Functor>::value)>::value), int>::type = int]'
+main.cpp:3:34:   required from here
+/usr/local/include/boost/function/function_template.hpp:132:42: error: expression cannot be used as a function
+           return (*f)(BOOST_FUNCTION_ARGS);
+                                          ^
