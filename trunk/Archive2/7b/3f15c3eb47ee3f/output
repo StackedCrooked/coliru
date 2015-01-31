@@ -1,0 +1,80 @@
+main.cpp: In member function 'void Log::pop()':
+main.cpp:77:76: warning: format '%d' expects argument of type 'int', but argument 3 has type '__time_t {aka long int}' [-Wformat=]
+         std::fprintf(this->fp,"%d.%06d %s\n",ts.tv_sec,ts.tv_usec,s.c_str());
+                                                                            ^
+main.cpp:77:76: warning: format '%d' expects argument of type 'int', but argument 4 has type '__suseconds_t {aka long int}' [-Wformat=]
+main.cpp:83:74: warning: format '%d' expects argument of type 'int', but argument 3 has type '__time_t {aka long int}' [-Wformat=]
+       std::fprintf(this->fp,"%d.%06d %s\n",ts.tv_sec,ts.tv_usec,s.c_str());
+                                                                          ^
+main.cpp:83:74: warning: format '%d' expects argument of type 'int', but argument 4 has type '__suseconds_t {aka long int}' [-Wformat=]
+main.cpp: In function 'int main()':
+main.cpp:153:100: warning: format '%d' expects argument of type 'int', but argument 3 has type '__time_t {aka long int}' [-Wformat=]
+   std::fprintf(stderr,"%d microsec\n",(ts_2.tv_sec-ts_1.tv_sec)*1000000+(ts_2.tv_usec-ts_1.tv_usec));
+                                                                                                    ^
+main.cpp: In instantiation of 'void Log::enqueue(T&, Args& ...) [with T = const char [6]; Args = {const char [7]}]':
+main.cpp:150:31:   required from here
+main.cpp:100:10: warning: variable 'f' set but not used [-Wunused-but-set-variable]
+     auto f = boost::bind(&Log::stringer<T &, Args & ...>,this,boost::ref(t),boost::forward<Args>(args)...);
+          ^
+/tmp/cceqGBPj.o: In function `setThreadAffinity(boost::thread*, int)':
+main.cpp:(.text+0x79): undefined reference to `boost::thread::native_handle()'
+/tmp/cceqGBPj.o: In function `boost::detail::thread_data<boost::_bi::bind_t<void, boost::_mfi::mf0<void, Log>, boost::_bi::list1<boost::_bi::value<Log*> > > >::~thread_data()':
+main.cpp:(.text._ZN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEED2Ev[_ZN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEED5Ev]+0x8): undefined reference to `boost::detail::thread_data_base::~thread_data_base()'
+/tmp/cceqGBPj.o: In function `boost::detail::thread_data<boost::_bi::bind_t<void, boost::_mfi::mf0<void, Log>, boost::_bi::list1<boost::_bi::value<Log*> > > >::~thread_data()':
+main.cpp:(.text._ZN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEED0Ev[_ZN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEED5Ev]+0xc): undefined reference to `boost::detail::thread_data_base::~thread_data_base()'
+/tmp/cceqGBPj.o: In function `boost::detail::thread_data<boost::_bi::bind_t<unsigned long, boost::_mfi::mf0<unsigned long, boost::asio::io_service>, boost::_bi::list1<boost::_bi::value<boost::asio::io_service*> > > >::~thread_data()':
+main.cpp:(.text._ZN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEED2Ev[_ZN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEED5Ev]+0x8): undefined reference to `boost::detail::thread_data_base::~thread_data_base()'
+/tmp/cceqGBPj.o: In function `boost::detail::thread_data<boost::_bi::bind_t<unsigned long, boost::_mfi::mf0<unsigned long, boost::asio::io_service>, boost::_bi::list1<boost::_bi::value<boost::asio::io_service*> > > >::~thread_data()':
+main.cpp:(.text._ZN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEED0Ev[_ZN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEED5Ev]+0xc): undefined reference to `boost::detail::thread_data_base::~thread_data_base()'
+/tmp/cceqGBPj.o: In function `boost::asio::detail::task_io_service::shutdown_service()':
+main.cpp:(.text._ZN5boost4asio6detail15task_io_service16shutdown_serviceEv[_ZN5boost4asio6detail15task_io_service16shutdown_serviceEv]+0x63): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::thread_exception::thread_exception(int, char const*)':
+main.cpp:(.text._ZN5boost16thread_exceptionC2EiPKc[_ZN5boost16thread_exceptionC5EiPKc]+0x14): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::thread_group::~thread_group()':
+main.cpp:(.text._ZN5boost12thread_groupD2Ev[_ZN5boost12thread_groupD5Ev]+0x3d): undefined reference to `boost::thread::detach()'
+/tmp/cceqGBPj.o: In function `boost::asio::detail::op_queue<boost::asio::detail::task_io_service_operation>::~op_queue()':
+main.cpp:(.text._ZN5boost4asio6detail8op_queueINS1_25task_io_service_operationEED2Ev[_ZN5boost4asio6detail8op_queueINS1_25task_io_service_operationEED5Ev]+0x2b): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::asio::detail::task_io_service::run(boost::system::error_code&)':
+main.cpp:(.text._ZN5boost4asio6detail15task_io_service3runERNS_6system10error_codeE[_ZN5boost4asio6detail15task_io_service3runERNS_6system10error_codeE]+0x1d): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::condition_variable::condition_variable()':
+main.cpp:(.text._ZN5boost18condition_variableC2Ev[_ZN5boost18condition_variableC5Ev]+0x3d): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::detail::thread_data_base::thread_data_base()':
+main.cpp:(.text._ZN5boost6detail16thread_data_baseC2Ev[_ZN5boost6detail16thread_data_baseC5Ev]+0x28): undefined reference to `vtable for boost::detail::thread_data_base'
+/tmp/cceqGBPj.o: In function `boost::asio::io_service::run()':
+main.cpp:(.text._ZN5boost4asio10io_service3runEv[_ZN5boost4asio10io_service3runEv]+0x10): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::asio::detail::service_registry::service_registry<boost::asio::detail::task_io_service, unsigned long>(boost::asio::io_service&, boost::asio::detail::task_io_service*, unsigned long)':
+main.cpp:(.text._ZN5boost4asio6detail16service_registryC2INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_[_ZN5boost4asio6detail16service_registryC5INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_]+0x28): undefined reference to `boost::system::system_category()'
+main.cpp:(.text._ZN5boost4asio6detail16service_registryC2INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_[_ZN5boost4asio6detail16service_registryC5INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_]+0x9c): undefined reference to `boost::system::system_category()'
+main.cpp:(.text._ZN5boost4asio6detail16service_registryC2INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_[_ZN5boost4asio6detail16service_registryC5INS1_15task_io_serviceEmEERNS0_10io_serviceEPT_T0_]+0xd1): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `boost::condition_variable::wait(boost::unique_lock<boost::mutex>&)':
+main.cpp:(.text._ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE[_ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE]+0x15): undefined reference to `boost::detail::get_current_thread_data()'
+main.cpp:(.text._ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE[_ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE]+0x7a): undefined reference to `boost::this_thread::interruption_point()'
+main.cpp:(.text._ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE[_ZN5boost18condition_variable4waitERNS_11unique_lockINS_5mutexEEE]+0x183): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o: In function `Log::~Log()':
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0x35): undefined reference to `boost::this_thread::disable_interruption::disable_interruption()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0x8e): undefined reference to `boost::this_thread::disable_interruption::~disable_interruption()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0xad): undefined reference to `boost::thread::joinable() const'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0xbd): undefined reference to `boost::thread::native_handle()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0xd6): undefined reference to `boost::thread::join_noexcept()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0xff): undefined reference to `boost::thread::native_handle()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0x118): undefined reference to `boost::thread::join_noexcept()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0x1de): undefined reference to `boost::thread::detach()'
+main.cpp:(.text._ZN3LogD2Ev[_ZN3LogD5Ev]+0x314): undefined reference to `boost::this_thread::disable_interruption::~disable_interruption()'
+/tmp/cceqGBPj.o: In function `void boost::checked_delete<boost::thread>(boost::thread*)':
+main.cpp:(.text._ZN5boost14checked_deleteINS_6threadEEEvPT_[_ZN5boost14checked_deleteINS_6threadEEEvPT_]+0xd): undefined reference to `boost::thread::detach()'
+/tmp/cceqGBPj.o: In function `std::auto_ptr<boost::thread>::~auto_ptr()':
+main.cpp:(.text._ZNSt8auto_ptrIN5boost6threadEED2Ev[_ZNSt8auto_ptrIN5boost6threadEED5Ev]+0x10): undefined reference to `boost::thread::detach()'
+/tmp/cceqGBPj.o: In function `Log::Log(std::string const&, int, int, std::vector<int, std::allocator<int> > const&)':
+main.cpp:(.text._ZN3LogC2ERKSsiiRKSt6vectorIiSaIiEE[_ZN3LogC5ERKSsiiRKSt6vectorIiSaIiEE]+0x1ee): undefined reference to `boost::thread::start_thread_noexcept()'
+main.cpp:(.text._ZN3LogC2ERKSsiiRKSt6vectorIiSaIiEE[_ZN3LogC5ERKSsiiRKSt6vectorIiSaIiEE]+0x341): undefined reference to `boost::this_thread::disable_interruption::disable_interruption()'
+main.cpp:(.text._ZN3LogC2ERKSsiiRKSt6vectorIiSaIiEE[_ZN3LogC5ERKSsiiRKSt6vectorIiSaIiEE]+0x399): undefined reference to `boost::this_thread::disable_interruption::~disable_interruption()'
+main.cpp:(.text._ZN3LogC2ERKSsiiRKSt6vectorIiSaIiEE[_ZN3LogC5ERKSsiiRKSt6vectorIiSaIiEE]+0x4c5): undefined reference to `boost::thread::start_thread_noexcept()'
+main.cpp:(.text._ZN3LogC2ERKSsiiRKSt6vectorIiSaIiEE[_ZN3LogC5ERKSsiiRKSt6vectorIiSaIiEE]+0x684): undefined reference to `boost::this_thread::disable_interruption::~disable_interruption()'
+/tmp/cceqGBPj.o: In function `_GLOBAL__sub_I__Z17setThreadAffinityPN5boost6threadEi':
+main.cpp:(.text.startup+0x1c5): undefined reference to `boost::system::generic_category()'
+main.cpp:(.text.startup+0x1d1): undefined reference to `boost::system::generic_category()'
+main.cpp:(.text.startup+0x1dd): undefined reference to `boost::system::system_category()'
+main.cpp:(.text.startup+0x207): undefined reference to `boost::system::system_category()'
+/tmp/cceqGBPj.o:(.rodata._ZTIN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEEE[_ZTIN5boost6detail11thread_dataINS_3_bi6bind_tIvNS_4_mfi3mf0Iv3LogEENS2_5list1INS2_5valueIPS6_EEEEEEEE]+0x10): undefined reference to `typeinfo for boost::detail::thread_data_base'
+/tmp/cceqGBPj.o:(.rodata._ZTIN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEEE[_ZTIN5boost6detail11thread_dataINS_3_bi6bind_tImNS_4_mfi3mf0ImNS_4asio10io_serviceEEENS2_5list1INS2_5valueIPS7_EEEEEEEE]+0x10): undefined reference to `typeinfo for boost::detail::thread_data_base'
+collect2: error: ld returned 1 exit status
