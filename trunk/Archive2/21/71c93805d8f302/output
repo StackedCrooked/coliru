@@ -1,0 +1,16 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:20:5: error: no matching function for call to 'swap'
+    swap(*this, rhs);
+    ^~~~
+/usr/include/c++/v1/utility:218:1: note: candidate template ignored: could not match '_Tp [_Np]' against 'test'
+swap(_Tp (&__a)[_Np], _Tp (&__b)[_Np]) _NOEXCEPT_(__is_nothrow_swappable<_Tp>::value)
+^
+/usr/include/c++/v1/utility:456:1: note: candidate template ignored: could not match 'pair<type-parameter-0-0, type-parameter-0-1>' against 'test'
+swap(pair<_T1, _T2>& __x, pair<_T1, _T2>& __y)
+^
+/usr/include/c++/v1/type_traits:3302:5: note: candidate template ignored: disabled by 'enable_if' [with _Tp = test]
+    is_move_constructible<_Tp>::value &&
+    ^
+1 error generated.
