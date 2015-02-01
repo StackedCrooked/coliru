@@ -1,0 +1,29 @@
+main.cpp: In function 'void push(node*&, int)':
+main.cpp:17:12: error: 'cur' was not declared in this scope
+     while (cur[0]->next)
+            ^
+main.cpp:19:5: error: 'cur' was not declared in this scope
+     cur->next = new node(value);
+     ^
+main.cpp:16:12: warning: unused variable 'curr' [-Wunused-variable]
+     node** curr = &head;
+            ^
+main.cpp: In function 'void insertSorted(node*&, int)':
+main.cpp:41:30: error: 'struct node' has no member named 'value'
+     while (cur[0] && cur[0]->value < value)
+                              ^
+main.cpp:46:46: error: expected ')' before ';' token
+         cur[0] = new node(value, cur[0]->next;
+                                              ^
+main.cpp:46:46: error: no matching function for call to 'node::node()'
+main.cpp:46:46: note: candidates are:
+main.cpp:6:5: note: node::node(int, node*)
+     node(int data, node* next = nullptr)
+     ^
+main.cpp:6:5: note:   candidate expects 2 arguments, 0 provided
+main.cpp:4:8: note: constexpr node::node(const node&)
+ struct node
+        ^
+main.cpp:4:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:4:8: note: constexpr node::node(node&&)
+main.cpp:4:8: note:   candidate expects 1 argument, 0 provided
