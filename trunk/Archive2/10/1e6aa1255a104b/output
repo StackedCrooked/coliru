@@ -1,0 +1,13 @@
+main.cpp:13:32: error: no viable conversion from 'typename __normal_iterator<int *, vector<int, allocator<int> > >::difference_type' (aka 'long') to 'vector<int>::iterator' (aka '__normal_iterator<pointer, std::vector<int, std::allocator<int> > >')
+        vector <int>::iterator end = ar.end() - it;
+                               ^     ~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'typename __normal_iterator<int *, vector<int, allocator<int> > >::difference_type' (aka 'long') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:709:11: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'typename __normal_iterator<int *, vector<int, allocator<int> > >::difference_type' (aka 'long') to '__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > &&' for 1st argument
+    class __normal_iterator
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:733:9: note: candidate template ignored: could not match '__normal_iterator<type-parameter-0-0, typename __enable_if<(std::__are_same<_Iter, typename vector<int, allocator<int> >::pointer>::__value), vector<int, allocator<int> > >::__type>' against 'long'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+1 error generated.
