@@ -1,0 +1,1 @@
+clang++ -std=c++14 -O2  -Wall -Wno-unused-comparison -pedantic -pthread main.cpp && ./a.out
