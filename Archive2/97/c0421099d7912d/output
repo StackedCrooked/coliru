@@ -1,0 +1,19 @@
++ clang++ -O3 -std=c++1y -stdlib=libc++ -Wall -Wextra -pedantic main.cpp -o a.out
++ ./a.out
+true
++ g++ -O3 -std=c++1y -Wall -Wextra -pedantic main.cpp -o a.out
+main.cpp: In function 'int main()':
+main.cpp:28:64: error: no matching function for call to 'std::set<sw, Comparator>::find(std::string)'
+     std::cout << std::boolalpha << (swSet.find(std::string("A")) != swSet.end()) << std::endl;
+                                                                ^
+main.cpp:28:64: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/set:61:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_set.h:701:7: note: std::set<_Key, _Compare, _Alloc>::iterator std::set<_Key, _Compare, _Alloc>::find(const key_type&) [with _Key = sw; _Compare = Comparator; _Alloc = std::allocator<sw>; std::set<_Key, _Compare, _Alloc>::iterator = std::_Rb_tree_const_iterator<sw>; std::set<_Key, _Compare, _Alloc>::key_type = sw]
+       find(const key_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_set.h:701:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const key_type& {aka const sw&}'
+/usr/local/include/c++/4.9.2/bits/stl_set.h:705:7: note: std::set<_Key, _Compare, _Alloc>::const_iterator std::set<_Key, _Compare, _Alloc>::find(const key_type&) const [with _Key = sw; _Compare = Comparator; _Alloc = std::allocator<sw>; std::set<_Key, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<sw>; std::set<_Key, _Compare, _Alloc>::key_type = sw]
+       find(const key_type& __x) const
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_set.h:705:7: note:   no known conversion for argument 1 from 'std::string {aka std::basic_string<char>}' to 'const key_type& {aka const sw&}'
