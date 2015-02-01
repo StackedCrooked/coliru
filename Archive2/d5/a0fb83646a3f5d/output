@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:33:51: error: no matching function for call to 'Aggr<A>::Aggr(<brace-enclosed initializer list>)'
+     Aggr  <           A > obj4{ {{"[0]"},{"[1]"}} }; // main.cpp:23:46: error: use of deleted function 'A::A(A&&)'
+                                                   ^
+main.cpp:33:51: note: candidate is:
+main.cpp:18:29: note: Aggr<T>::Aggr(A&& ...) [with A = {}; T = A]
+     template<typename ...A> Aggr(A&&...t):arr{ std::forward<A>(t)... } {}
+                             ^
+main.cpp:18:29: note:   candidate expects 0 arguments, 1 provided
