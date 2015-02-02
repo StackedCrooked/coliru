@@ -1,0 +1,301 @@
++ clang++ -O3 -std=c++1y -stdlib=libc++ -Wall -Wextra -pedantic main.cpp -o a.out
+main.cpp:6:24: error: invalid operands to binary expression ('std::__1::basic_ostream<char, std::__1::char_traits<char> >' and '(lambda at main.cpp:6:27)')
+  cout<<std::boolalpha << [i](){ return 0;};
+  ~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/ostream:179:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'std::__1::basic_ostream<char, std::__1::char_traits<char> > &(*)(std::__1::basic_ostream<char, std::__1::char_traits<char> > &)' for 1st argument
+    basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&));
+                   ^
+/usr/include/c++/v1/ostream:180:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'basic_ios<char_type, traits_type> &(*)(basic_ios<char_type, traits_type> &)' for 1st argument
+    basic_ostream& operator<<(basic_ios<char_type, traits_type>&
+                   ^
+/usr/include/c++/v1/ostream:182:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'std::__1::ios_base &(*)(std::__1::ios_base &)' for 1st argument
+    basic_ostream& operator<<(ios_base& (*__pf)(ios_base&));
+                   ^
+/usr/include/c++/v1/ostream:183:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'bool' for 1st argument
+    basic_ostream& operator<<(bool __n);
+                   ^
+/usr/include/c++/v1/ostream:184:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'short' for 1st argument
+    basic_ostream& operator<<(short __n);
+                   ^
+/usr/include/c++/v1/ostream:185:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'unsigned short' for 1st argument
+    basic_ostream& operator<<(unsigned short __n);
+                   ^
+/usr/include/c++/v1/ostream:186:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'int' for 1st argument
+    basic_ostream& operator<<(int __n);
+                   ^
+/usr/include/c++/v1/ostream:187:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'unsigned int' for 1st argument
+    basic_ostream& operator<<(unsigned int __n);
+                   ^
+/usr/include/c++/v1/ostream:188:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'long' for 1st argument
+    basic_ostream& operator<<(long __n);
+                   ^
+/usr/include/c++/v1/ostream:189:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'unsigned long' for 1st argument
+    basic_ostream& operator<<(unsigned long __n);
+                   ^
+/usr/include/c++/v1/ostream:190:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'long long' for 1st argument
+    basic_ostream& operator<<(long long __n);
+                   ^
+/usr/include/c++/v1/ostream:191:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'unsigned long long' for 1st argument
+    basic_ostream& operator<<(unsigned long long __n);
+                   ^
+/usr/include/c++/v1/ostream:192:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'float' for 1st argument
+    basic_ostream& operator<<(float __f);
+                   ^
+/usr/include/c++/v1/ostream:193:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'double' for 1st argument
+    basic_ostream& operator<<(double __f);
+                   ^
+/usr/include/c++/v1/ostream:194:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'long double' for 1st argument
+    basic_ostream& operator<<(long double __f);
+                   ^
+/usr/include/c++/v1/ostream:195:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const void *' for 1st argument
+    basic_ostream& operator<<(const void* __p);
+                   ^
+/usr/include/c++/v1/ostream:196:20: note: candidate function not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'basic_streambuf<char_type, traits_type> *' for 1st argument
+    basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+                   ^
+/usr/include/c++/v1/ostream:773:1: note: candidate function [with _CharT = char, _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'char' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn)
+^
+/usr/include/c++/v1/ostream:806:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, char __c)
+^
+/usr/include/c++/v1/ostream:813:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'signed char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, signed char __c)
+^
+/usr/include/c++/v1/ostream:820:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'unsigned char' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c)
+^
+/usr/include/c++/v1/ostream:834:1: note: candidate function [with _CharT = char, _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const char *' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn)
+^
+/usr/include/c++/v1/ostream:880:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const char* __str)
+^
+/usr/include/c++/v1/ostream:887:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const signed char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str)
+^
+/usr/include/c++/v1/ostream:895:1: note: candidate function [with _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const unsigned char *' for 2nd argument
+operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str)
+^
+/usr/include/c++/v1/ostream:1074:1: note: candidate function [with _CharT = char, _Traits = std::__1::char_traits<char>] not viable: no known conversion from '(lambda at main.cpp:6:27)' to 'const std::__1::error_code' for 2nd argument
+operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec)
+^
+/usr/include/c++/v1/ostream:766:1: note: candidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. '(lambda at main.cpp:6:27)')
+operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c)
+^
+/usr/include/c++/v1/ostream:1051:5: note: candidate template ignored: disabled by 'enable_if' [with _Stream = std::__1::basic_ostream<char, std::__1::char_traits<char> > &, _Tp = (lambda at main.cpp:6:27)]
+    !is_lvalue_reference<_Stream>::value &&
+    ^
+/usr/include/c++/v1/ostream:827:1: note: candidate template ignored: could not match 'const _CharT *' against '(lambda at main.cpp:6:27)'
+operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str)
+^
+/usr/include/c++/v1/ostream:1065:1: note: candidate template ignored: could not match 'basic_string<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2>' against '(lambda at main.cpp:6:27)'
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+^
+/usr/include/c++/v1/ostream:1082:1: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-2>' against '(lambda at main.cpp:6:27)'
+operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p)
+^
+/usr/include/c++/v1/ostream:1089:1: note: candidate template ignored: could not match 'bitset<_Size>' against '(lambda at main.cpp:6:27)'
+operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x)
+^
+1 error generated.
++ g++ -O3 -std=c++1y -Wall -Wextra -pedantic main.cpp -o a.out
+main.cpp: In function 'int main()':
+main.cpp:6:24: error: no match for 'operator<<' (operand types are 'std::basic_ostream<char>::__ostream_type {aka std::basic_ostream<char>}' and 'main()::<lambda()>')
+   cout<<std::boolalpha << [i](){ return 0;};
+                        ^
+main.cpp:6:24: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/local/include/c++/4.9.2/ostream:108:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/local/include/c++/4.9.2/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/local/include/c++/4.9.2/ostream:117:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/local/include/c++/4.9.2/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/local/include/c++/4.9.2/ostream:127:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/local/include/c++/4.9.2/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:166:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'long int'
+/usr/local/include/c++/4.9.2/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:170:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'long unsigned int'
+/usr/local/include/c++/4.9.2/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:174:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'bool'
+In file included from /usr/local/include/c++/4.9.2/ostream:609:0,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'short int'
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:181:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'short unsigned int'
+In file included from /usr/local/include/c++/4.9.2/ostream:609:0,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'int'
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:192:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'unsigned int'
+/usr/local/include/c++/4.9.2/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:201:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'long long int'
+/usr/local/include/c++/4.9.2/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/local/include/c++/4.9.2/ostream:205:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'long long unsigned int'
+/usr/local/include/c++/4.9.2/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/local/include/c++/4.9.2/ostream:220:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'double'
+/usr/local/include/c++/4.9.2/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/local/include/c++/4.9.2/ostream:224:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'float'
+/usr/local/include/c++/4.9.2/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/local/include/c++/4.9.2/ostream:232:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'long double'
+/usr/local/include/c++/4.9.2/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/local/include/c++/4.9.2/ostream:245:7: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'const void*'
+In file included from /usr/local/include/c++/4.9.2/ostream:609:0,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'main()::<lambda()>' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2772:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2772:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   'main()::<lambda()>' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/local/include/c++/4.9.2/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   deduced conflicting types for parameter '_CharT' ('char' and 'main()::<lambda()>')
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.2/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'char'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/local/include/c++/4.9.2/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'char'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/local/include/c++/4.9.2/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'signed char'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/local/include/c++/4.9.2/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'unsigned char'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/local/include/c++/4.9.2/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   mismatched types 'const _CharT*' and 'main()::<lambda()>'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/ostream:609:0,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.2/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'const char*'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/local/include/c++/4.9.2/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'const char*'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/local/include/c++/4.9.2/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'const signed char*'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/local/include/c++/4.9.2/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:6:43: note:   cannot convert '<lambda closure object>main()::<lambda()>{i}' (type 'main()::<lambda()>') to type 'const unsigned char*'
+   cout<<std::boolalpha << [i](){ return 0;};
+                                           ^
+In file included from /usr/local/include/c++/4.9.2/iostream:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ostream:602:5: note: std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = main()::<lambda()>] <near match>
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+/usr/local/include/c++/4.9.2/ostream:602:5: note:   no known conversion for argument 1 from 'std::basic_ostream<char>::__ostream_type {aka std::basic_ostream<char>}' to 'std::basic_ostream<char>&&'
