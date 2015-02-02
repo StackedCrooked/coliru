@@ -1,0 +1,14 @@
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In substitution of 'template<class Functor, class ... Args> using FunctorReturn = decltype (declval<Functor>()((declval<Args>)()...)) [with Functor = F; Args = {int, float, int}]':
+main.cpp:18:8:   required from 'struct FunctorCheck<F, int(int, float, int)>'
+main.cpp:29:55:   required from here
+main.cpp:11:54: error: no match for call to '(F) (int, float, int)'
+ using FunctorReturn = decltype(std::declval<Functor>()(std::declval<Args>()...));
+                                                      ^
+main.cpp: In function 'int main()':
+main.cpp:29:18: error: 'value' is not a member of 'FunctorCheck<F, int(int, float, int)>'
+     std::cout << FunctorCheck<F, int(int, float, int)>::value << std::endl;
+                  ^
++ clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+0
