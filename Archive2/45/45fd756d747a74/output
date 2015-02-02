@@ -1,0 +1,14 @@
+main.cpp:3:7: warning: 'class Shape' has virtual functions and accessible non-virtual destructor [-Wnon-virtual-dtor]
+ class Shape {
+       ^
+main.cpp:9:7: warning: base class 'class Shape' has accessible non-virtual destructor [-Wnon-virtual-dtor]
+ class Rect: public Shape {
+       ^
+main.cpp:9:7: warning: 'class Rect' has virtual functions and accessible non-virtual destructor [-Wnon-virtual-dtor]
+main.cpp: In function 'int main()':
+main.cpp:14:17: error: 'virtual int Rect::area() const' is private
+     virtual int area() const { // it should have an `override` specifier, since it's C++11 anyways
+                 ^
+main.cpp:28:25: error: within this context
+     std::cout << r.area() << std::endl;
+                         ^
