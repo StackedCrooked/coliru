@@ -1,0 +1,25 @@
++ mv main.cpp main.c
++ gcc -std=c89 -O0 -Wall -Wextra -pedantic -pthread main.c
+main.c: In function 'main':
+main.c:7:2: warning: format '%d' expects argument of type 'int', but argument 2 has type 'size_t' [-Wformat=]
+  printf("The string length is %d!\n",strlen(myString));
+  ^
+main.c:10:2: warning: format '%d' expects argument of type 'int', but argument 3 has type 'size_t' [-Wformat=]
+  printf("The second string is %s\tand its length is %d.\n",myOtherString,strlen(myOtherString));
+  ^
++ ./a.out
+The string length is 6!
+The second string is zlatan ibraimovich	and its length is 18.
++ clang -std=c89 -O0 -Wall -Wextra -pedantic -pthread main.c
+main.c:7:38: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+        printf("The string length is %d!\n",strlen(myString));
+                                     ~~     ^~~~~~~~~~~~~~~~
+                                     %lu
+main.c:10:74: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+        printf("The second string is %s\tand its length is %d.\n",myOtherString,strlen(myOtherString));
+                                                           ~~                   ^~~~~~~~~~~~~~~~~~~~~
+                                                           %lu
+2 warnings generated.
++ ./a.out
+The string length is 6!
+The second string is zlatan ibraimovich	and its length is 18.
