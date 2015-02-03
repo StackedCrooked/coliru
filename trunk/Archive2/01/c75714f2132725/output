@@ -1,0 +1,13 @@
++ g++-4.9 -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion main.cpp
+main.cpp: In function 'int main()':
+main.cpp:15:26: error: aggregate 'dump<CRoom> d' has incomplete type and cannot be defined
+     dump<decltype(room)> d;
+                          ^
++ clang++ -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
+main.cpp:15:26: error: implicit instantiation of undefined template 'dump<CRoom>'
+    dump<decltype(room)> d;
+                         ^
+main.cpp:11:8: note: template is declared here
+struct dump;
+       ^
+1 error generated.
