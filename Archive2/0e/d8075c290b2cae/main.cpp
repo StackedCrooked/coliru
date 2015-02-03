@@ -1,0 +1,1 @@
+template<typename T>class Arithmetic{public:    Arithmetic(const T& left, const T& right): left_(left), right_(right) {}    T sum() { return left_ + right_; }    T multiply() { return left_ * right_; }    T subtract() { return left_ - right_; }private:    T left_, right_;};int main(){}
