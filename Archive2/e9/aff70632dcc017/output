@@ -1,0 +1,62 @@
+; ModuleID = 'main.cpp'
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"struct.agluj::Lazy" = type { i8*, i8*, %"struct.agluj::Closure" }
+%"struct.agluj::Closure" = type { i8*, i8**, i64, i8* (%"struct.agluj::Closure"*, i8*)* }
+%"struct.agluj::Ref" = type { i8*, i8* }
+
+; Function Attrs: uwtable
+define i8* @_ZN5agluj5forceEPNS_4LazyEPv(%"struct.agluj::Lazy"* %lazy, i8* %unit) #0 {
+  %1 = getelementptr inbounds %"struct.agluj::Lazy"* %lazy, i64 0, i32 1
+  %2 = bitcast i8** %1 to i64*
+  %3 = atomicrmw add i64* %2, i64 0 seq_cst
+  %4 = inttoptr i64 %3 to i8*
+  %5 = icmp eq i64 %3, 0
+  br i1 %5, label %6, label %13
+
+; <label>:6                                       ; preds = %0
+  %7 = getelementptr inbounds %"struct.agluj::Lazy"* %lazy, i64 0, i32 2
+  %8 = getelementptr inbounds %"struct.agluj::Lazy"* %lazy, i64 0, i32 2, i32 3
+  %9 = load i8* (%"struct.agluj::Closure"*, i8*)** %8, align 8, !tbaa !1
+  %10 = tail call i8* %9(%"struct.agluj::Closure"* %7, i8* %unit)
+  %11 = ptrtoint i8* %10 to i64
+  %12 = atomicrmw xchg i64* %2, i64 %11 seq_cst
+  br label %13
+
+; <label>:13                                      ; preds = %6, %0
+  %value.0 = phi i8* [ %10, %6 ], [ %4, %0 ]
+  ret i8* %value.0
+}
+
+; Function Attrs: nounwind uwtable
+define i8* @_ZN5agluj3getEPNS_3RefE(%"struct.agluj::Ref"* %ref) #1 {
+  %1 = getelementptr inbounds %"struct.agluj::Ref"* %ref, i64 0, i32 1
+  %2 = bitcast i8** %1 to i64*
+  %3 = atomicrmw add i64* %2, i64 0 seq_cst
+  %4 = inttoptr i64 %3 to i8*
+  ret i8* %4
+}
+
+; Function Attrs: nounwind uwtable
+define i8* @_ZN5agluj3setEPNS_3RefEPv(%"struct.agluj::Ref"* %ref, i8* %value) #1 {
+  %1 = getelementptr inbounds %"struct.agluj::Ref"* %ref, i64 0, i32 1
+  %2 = bitcast i8** %1 to i64*
+  %3 = ptrtoint i8* %value to i64
+  %4 = atomicrmw xchg i64* %2, i64 %3 seq_cst
+  %5 = inttoptr i64 %4 to i8*
+  ret i8* %5
+}
+
+attributes #0 = { uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #1 = { nounwind uwtable "less-precise-fpmad"="false" "no-frame-pointer-elim"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "stack-protector-buffer-size"="8" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.ident = !{!0}
+
+!0 = metadata !{metadata !"clang version 3.5.0 (tags/RELEASE_350/final 217394)"}
+!1 = metadata !{metadata !2, metadata !3, i64 24}
+!2 = metadata !{metadata !"_ZTSN5agluj7ClosureE", metadata !3, i64 0, metadata !3, i64 8, metadata !6, i64 16, metadata !3, i64 24}
+!3 = metadata !{metadata !"any pointer", metadata !4, i64 0}
+!4 = metadata !{metadata !"omnipotent char", metadata !5, i64 0}
+!5 = metadata !{metadata !"Simple C/C++ TBAA"}
+!6 = metadata !{metadata !"long", metadata !4, i64 0}
