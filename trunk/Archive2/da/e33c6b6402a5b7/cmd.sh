@@ -1,0 +1,2 @@
+set -x; clang++ -O3 -std=c++1y -stdlib=libc++ -Wall -Wextra -pedantic main.cpp  -lcxxrt -ldl -o a.out && ./a.out
+g++ -O3 -std=c++1y -Wall -Wextra -pedantic main.cpp -o a.out && ./a.out
