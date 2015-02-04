@@ -1,0 +1,63 @@
+	.text
+	.file	"main.cpp"
+	.globl	_ZN5agluj5forceEPNS_4LazyEPv
+	.align	16, 0x90
+	.type	_ZN5agluj5forceEPNS_4LazyEPv,@function
+_ZN5agluj5forceEPNS_4LazyEPv:           # @_ZN5agluj5forceEPNS_4LazyEPv
+	.cfi_startproc
+# BB#0:
+	pushq	%rbx
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+.Ltmp1:
+	.cfi_offset %rbx, -16
+	movq	%rdi, %rbx
+	xorl	%eax, %eax
+	lock
+	xaddq	%rax, 8(%rbx)
+	testq	%rax, %rax
+	je	.LBB0_1
+.LBB0_2:
+	popq	%rbx
+	retq
+.LBB0_1:
+	leaq	16(%rbx), %rdi
+	callq	*40(%rbx)
+	leaq	8(%rbx), %rcx
+	movq	%rax, %rdx
+	xchgq	%rdx, (%rcx)
+	jmp	.LBB0_2
+.Ltmp2:
+	.size	_ZN5agluj5forceEPNS_4LazyEPv, .Ltmp2-_ZN5agluj5forceEPNS_4LazyEPv
+	.cfi_endproc
+
+	.globl	_ZN5agluj3getEPNS_3RefE
+	.align	16, 0x90
+	.type	_ZN5agluj3getEPNS_3RefE,@function
+_ZN5agluj3getEPNS_3RefE:                # @_ZN5agluj3getEPNS_3RefE
+	.cfi_startproc
+# BB#0:
+	xorl	%eax, %eax
+	lock
+	xaddq	%rax, 8(%rdi)
+	retq
+.Ltmp3:
+	.size	_ZN5agluj3getEPNS_3RefE, .Ltmp3-_ZN5agluj3getEPNS_3RefE
+	.cfi_endproc
+
+	.globl	_ZN5agluj3setEPNS_3RefEPv
+	.align	16, 0x90
+	.type	_ZN5agluj3setEPNS_3RefEPv,@function
+_ZN5agluj3setEPNS_3RefEPv:              # @_ZN5agluj3setEPNS_3RefEPv
+	.cfi_startproc
+# BB#0:
+	xchgq	%rsi, 8(%rdi)
+	movq	%rsi, %rax
+	retq
+.Ltmp4:
+	.size	_ZN5agluj3setEPNS_3RefEPv, .Ltmp4-_ZN5agluj3setEPNS_3RefEPv
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
