@@ -1,0 +1,1 @@
+gcc -x c -std=gnu89 -O2 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
