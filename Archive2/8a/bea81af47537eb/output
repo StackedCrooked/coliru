@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:9:23: error: decltype cannot resolve address of overloaded function
+     say<decltype(hello)>();
+                       ^
+main.cpp:9:26: error: no matching function for call to 'say()'
+     say<decltype(hello)>();
+                          ^
+main.cpp:9:26: note: candidate is:
+main.cpp:5:8: note: template<template<class> class G> G<int> say()
+ G<int> say();
+        ^
+main.cpp:5:8: note:   template argument deduction/substitution failed:
+main.cpp:9:26: error: template argument 1 is invalid
+     say<decltype(hello)>();
+                          ^
