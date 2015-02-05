@@ -1,0 +1,13 @@
+main.cpp:1:18: error: expected constructor, destructor, or type conversion before '(' token
+ #define f(a)    f(2 * (a))
+                  ^
+main.cpp:3:17: note: in definition of macro 't'
+ #define t(a)    a
+                 ^
+main.cpp:3:17: note: in expansion of macro 'f'
+main.cpp:5:3: note: in expansion of macro 't'
+ t(t(g)(0) + t)(1);  // results in f(2 * (0)) + t(1);
+   ^
+main.cpp:5:5: note: in expansion of macro 'g'
+ t(t(g)(0) + t)(1);  // results in f(2 * (0)) + t(1);
+     ^
