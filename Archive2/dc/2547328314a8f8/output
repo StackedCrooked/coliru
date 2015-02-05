@@ -1,0 +1,37 @@
+main.cpp:24:34: error: use of undeclared identifier 'M_PI'
+        return (radius*radius) * M_PI;
+                                 ^
+main.cpp:41:16: error: call to 'abs' is ambiguous
+        return std::abs(bottomright.x - topleft.x) * 
+               ^~~~~~~~
+/usr/include/stdlib.h:771:12: note: candidate function
+extern int abs (int __x) __THROW __attribute__ ((__const__)) __wur;
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/cstdlib:166:3: note: candidate function
+  abs(long __i) { return __builtin_labs(__i); }
+  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/cstdlib:174:3: note: candidate function
+  abs(long long __x) { return __builtin_llabs (__x); }
+  ^
+main.cpp:42:16: error: call to 'abs' is ambiguous
+               std::abs(bottomright.y - topleft.y);
+               ^~~~~~~~
+/usr/include/stdlib.h:771:12: note: candidate function
+extern int abs (int __x) __THROW __attribute__ ((__const__)) __wur;
+           ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/cstdlib:166:3: note: candidate function
+  abs(long __i) { return __builtin_labs(__i); }
+  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/cstdlib:174:3: note: candidate function
+  abs(long long __x) { return __builtin_llabs (__x); }
+  ^
+main.cpp:53:17: error: use of undeclared identifier 'boost'
+struct area_f : boost::static_visitor<double> {
+                ^
+main.cpp:53:24: error: unknown template name 'static_visitor'
+struct area_f : boost::static_visitor<double> {
+                       ^
+main.cpp:55:38: error: use of undeclared identifier 'M_PI'
+        return (r.radius*r.radius) * M_PI;
+                                     ^
+6 errors generated.
