@@ -1,0 +1,37 @@
+main.cpp:24:16: error: no matching function for call to 'Select'
+  EXPECT_EQ(2, Select(true, 2, true, 0, 0));
+               ^~~~~~
+main.cpp:18:63: note: expanded from macro 'EXPECT_EQ'
+#define EXPECT_EQ(a, b) std::cout << "a: " << a << ", b: " << b << std::endl;
+                                                              ^
+main.cpp:5:32: note: candidate function template not viable: requires single argument 'default_value', but 5 arguments were provided
+static constexpr inline TRight Select(TRight default_value) {
+                               ^
+main.cpp:10:32: note: candidate function not viable: requires 3 arguments, but 5 were provided
+static constexpr inline TRight Select(TLeft condition,
+                               ^
+main.cpp:25:16: error: no matching function for call to 'Select'
+  EXPECT_EQ(2, Select(false, 3, true, 2, true, 1, 0));
+               ^~~~~~
+main.cpp:18:63: note: expanded from macro 'EXPECT_EQ'
+#define EXPECT_EQ(a, b) std::cout << "a: " << a << ", b: " << b << std::endl;
+                                                              ^
+main.cpp:5:32: note: candidate function template not viable: requires single argument 'default_value', but 7 arguments were provided
+static constexpr inline TRight Select(TRight default_value) {
+                               ^
+main.cpp:10:32: note: candidate function not viable: requires 3 arguments, but 7 were provided
+static constexpr inline TRight Select(TLeft condition,
+                               ^
+main.cpp:26:16: error: no matching function for call to 'Select'
+  EXPECT_EQ(0, Select(false, 3, false, 2, false, 1, 0));
+               ^~~~~~
+main.cpp:18:63: note: expanded from macro 'EXPECT_EQ'
+#define EXPECT_EQ(a, b) std::cout << "a: " << a << ", b: " << b << std::endl;
+                                                              ^
+main.cpp:5:32: note: candidate function template not viable: requires single argument 'default_value', but 7 arguments were provided
+static constexpr inline TRight Select(TRight default_value) {
+                               ^
+main.cpp:10:32: note: candidate function not viable: requires 3 arguments, but 7 were provided
+static constexpr inline TRight Select(TLeft condition,
+                               ^
+3 errors generated.
