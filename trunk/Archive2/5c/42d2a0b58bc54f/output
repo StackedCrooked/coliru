@@ -1,0 +1,20 @@
+main.cpp:61:55: error: 'std::ostream& Racional::operator<<(std::ostream&, const Racional&)' must take exactly one argument
+  ostream& operator<< (ostream &os, const Racional &obj);
+                                                       ^
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, const Racional&)':
+main.cpp:145:25: error: no matching function for call to 'Racional::getNumerador() const'
+  os << obj.getNumerador() << "/" << obj.getDenominador();
+                         ^
+main.cpp:145:25: note: candidate is:
+main.cpp:119:5: note: int Racional::getNumerador() <near match>
+ int Racional::getNumerador () {
+     ^
+main.cpp:119:5: note:   no known conversion for implicit 'this' parameter from 'const Racional*' to 'Racional*'
+main.cpp:145:56: error: no matching function for call to 'Racional::getDenominador() const'
+  os << obj.getNumerador() << "/" << obj.getDenominador();
+                                                        ^
+main.cpp:145:56: note: candidate is:
+main.cpp:123:5: note: int Racional::getDenominador() <near match>
+ int Racional::getDenominador() {
+     ^
+main.cpp:123:5: note:   no known conversion for implicit 'this' parameter from 'const Racional*' to 'Racional*'
