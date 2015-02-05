@@ -1,0 +1,10 @@
+main.cpp:2:16: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+constexpr void foo() { std::cout << "Hello"; return; }
+               ^
+main.cpp:2:24: note: non-constexpr function 'operator<<<std::char_traits<char> >' cannot be used in a constant expression
+constexpr void foo() { std::cout << "Hello"; return; }
+                       ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ostream:530:5: note: declared here
+    operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+    ^
+1 error generated.
