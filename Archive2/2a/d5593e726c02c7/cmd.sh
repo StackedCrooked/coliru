@@ -1,0 +1,1 @@
+set -x; gcc -std=c99 -O3 -Wall -Wextra -pedantic -pthread -x c main.cpp && ./a.out
