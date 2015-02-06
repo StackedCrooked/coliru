@@ -1,0 +1,1 @@
+set -x; g++ -std=c++14 -O3 -Wall -pedantic main.cpp -lboost_filesystem -lboost_system; ./a.out ..
