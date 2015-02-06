@@ -1,0 +1,2 @@
+grep -hRv ';' /Archive2/e2/*/main.cpp | sort -R | xargs -d\\n -n 3 | while read a b c; do echo "$a $b;$RANDOM;$c"; done > input.txt
+clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_system -lboost_iostreams && ./a.out
