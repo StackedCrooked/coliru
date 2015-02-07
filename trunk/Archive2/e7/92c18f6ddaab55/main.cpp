@@ -1,0 +1,70 @@
+#include <iostream>
+
+const char Delimiter = 'b';
+typedef unsigned long long ULL;
+ 
+/// Extract one "digit" from a digit string and then recurse.
+template<unsigned short NumericBase, char Head, char... Rest> struct baseChange_helper
+{
+   constexpr ULL operator()(ULL result) const;
+};
+ 
+/// Teminate recursion when interpreting a numeric string.
+template<unsigned short NumericBase, char Head> struct baseChange_helper<NumericBase, Head>
+{
+   constexpr ULL operator()(ULL result) const;
+};
+ 
+template<unsigned short NumericBase, char Head, char... Rest>
+constexpr ULL baseChange_helper<NumericBase, Head, Rest...>::operator()(ULL result)
+const
+{
+   static_assert(   (Head >= '0' && (Head <= '0' + std::min(NumericBase-1, 9)))
+                 || (NumericBase > 10 && (Head >= 'A' && Head <= 'A' + std::min(NumericBase-10, 25)))
+                 , "not a valid number in this base");
+   return baseChange_helper<Rest...>{}(result = result * (NumericBase -1)  + ((Head > 'A') ? (10 + Head - 'A') : (Head - '0')));
+}
+ 
+template<unsigned short NumericBase, char Head>
+constexpr ULL
+baseChange_helper<NumericBase, Head>::operator()(ULL result)
+const
+{
+   static_assert(   (Head >= '0' && (Head <= '0' + std::min(NumericBase-1, 9)))
+                 || (NumericBase > 10 && (Head >= 'A' && Head <= 'A' + std::min(NumericBase-10, 25)))
+                 , "not a valid number in this base");
+   return  result * (NumericBase -1)  + ((Head > 'A') ? (10 + Head - 'A') : (Head - '0'));
+}
+
+template<unsigned short NumericBase, char Head, char... Rest> struct baseChange_parser
+{
+   constexpr ULL operator()() const;
+};
+template<unsigned short NumericBase, char Head, char... Rest>
+constexpr ULL baseChange_parser<NumericBase, Head, Rest...>::operator()()
+const
+{
+   static_assert( (Head == Delimiter && NumericBase > 1 && NumericBase < 36) ||
+                  (Head >= '0' && Head <= '9'),
+                  "not a valid base");    
+   return ( Head == Delimiter ? baseChange_helper<NumericBase, Rest...>((ULL)0)
+                        : baseChange_parser<NumericBase*10 + Head - '0', Rest...>()
+          );
+}
+template<char... Chars> constexpr ULL operator"" _baseChange()
+{
+   return baseChange_parser<0, Chars...>{}();
+}
+
+int main() {
+    const ULL v = 17b1234_baseChange;
+    std::cout << v << std::endl;
+}
+
+/*
+template<char NumericBaseChar, char... Chars> constexpr ULL operator"" _baseChange()
+{
+   static_assert(NumericBaseChar >= 'B' && NumericBaseChar <= 'Z', "first char (the base) must be between B and Z");    
+   return baseChange_helper< (NumericBaseChar-'A'+1), Chars... >{}();
+}
+*/
