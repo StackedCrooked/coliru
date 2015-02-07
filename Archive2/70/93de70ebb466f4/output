@@ -1,0 +1,24 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:11: error: 'auto' not allowed in function prototype
+auto incr(auto x) { return x++; }
+          ^~~~
+main.cpp:15:7: error: no matching function for call to 'incr'
+      incr(X());
+      ^~~~
+main.cpp:8:6: note: candidate function not viable: no known conversion from 'X' to 'int' for 1st argument
+auto incr(auto x) { return x++; }
+     ^
+2 errors generated.
++ g++-4.9 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:8:10: warning: ISO C++ forbids use of 'auto' in parameter declaration [-Wpedantic]
+ auto incr(auto x) { return x++; }
+          ^
+main.cpp: In instantiation of 'auto incr(auto:1) [with auto:1 = X]':
+main.cpp:15:15:   required from here
+main.cpp:8:29: error: could not convert 'x.X::operator++(0)' from 'int' to 'X'
+ auto incr(auto x) { return x++; }
+                             ^
+main.cpp: In function 'auto incr(auto:1) [with auto:1 = X]':
+main.cpp:8:33: warning: control reaches end of non-void function [-Wreturn-type]
+ auto incr(auto x) { return x++; }
+                                 ^
