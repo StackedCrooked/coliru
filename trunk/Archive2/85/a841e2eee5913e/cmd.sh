@@ -1,0 +1,1 @@
+g++ -O2 -x c -std=c99 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
