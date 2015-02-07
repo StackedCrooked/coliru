@@ -1,0 +1,25 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:13: error: scoped enumeration requires a name
+ enum class : char {a} Enum; // scoped anonymous declaration of Enum
+            ^
+main.cpp:15:21: error: redefinition of enumerator 'a'
+ enum class : char {a} Enum; // scoped anonymous declaration of Enum
+                    ^
+main.cpp:5:15: note: previous definition is here
+ enum : int  {a} t; // unscoped anonymous declaration of t (:int not required)
+              ^
+main.cpp:23:11: error: no member named 'a' in '(anonymous enum at main.cpp:15:2)'; did you mean simply 'a'?
+   Enum = decltype(Enum)::a;  // allowed (??)
+          ^~~~~~~~~~~~~~~~~
+          a
+main.cpp:5:15: note: 'a' declared here
+ enum : int  {a} t; // unscoped anonymous declaration of t (:int not required)
+              ^
+main.cpp:23:9: error: assigning to 'enum (anonymous enum at main.cpp:15:2)' from incompatible type '(anonymous enum at main.cpp:5:2)'
+   Enum = decltype(Enum)::a;  // allowed (??)
+        ^ ~~~~~~~~~~~~~~~~~
+4 errors generated.
++ g++-4.9 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:13: error: anonymous scoped enum is not allowed
+  enum class : char {a} Enum; // scoped anonymous declaration of Enum
+             ^
