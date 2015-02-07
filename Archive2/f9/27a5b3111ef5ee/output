@@ -1,0 +1,9 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:13: error: scoped enumeration requires a name
+ enum class : char {d} Enum; // scoped anonymous declaration of Enum
+            ^
+1 error generated.
++ g++-4.9 -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:15:13: error: anonymous scoped enum is not allowed
+  enum class : char {d} Enum; // scoped anonymous declaration of Enum
+             ^
