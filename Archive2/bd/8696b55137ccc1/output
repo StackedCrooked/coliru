@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:24:33: error: no matching function for call to 'hasValue(record)'
+     hasValue(record{"duder", 20});
+                                 ^
+main.cpp:24:33: note: candidate is:
+main.cpp:6:6: note: template<class E, class Comp> bool hasValue(E, Comp)
+ bool hasValue(E value, Comp fn = std::equal_to<E>()){
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp:24:33: note:   couldn't deduce template parameter 'Comp'
+     hasValue(record{"duder", 20});
+                                 ^
