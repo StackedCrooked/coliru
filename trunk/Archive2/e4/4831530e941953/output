@@ -1,0 +1,18 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:18:15: error: explicit specialization of 'table::indices<table::id_tag>' after instantiation
+struct table::indices<table::id_tag> {};
+              ^~~~~~~~~~~~~~~~~~~~~~
+main.cpp:11:25: note: implicit instantiation first required here
+        indices<id_tag> i;
+                        ^
+1 error generated.
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+main.cpp:18:15: error: specialization of 'table::indices<table::id_tag>' after instantiation
+ struct table::indices<table::id_tag> {};
+               ^
