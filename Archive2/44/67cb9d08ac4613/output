@@ -1,0 +1,52 @@
+0  clang           0x0000000002225045 llvm::sys::PrintStackTrace(_IO_FILE*) + 37
+1  clang           0x0000000002225783
+2  libpthread.so.0 0x00007f1142a63cb0
+3  clang           0x0000000000c571af clang::Sema::CheckPlaceholderExpr(clang::Expr*) + 31
+4  clang           0x0000000000e8b88d clang::Sema::BuildDecltypeType(clang::Expr*, clang::SourceLocation) + 13
+5  clang           0x0000000000cc2106 clang::Sema::getDestructorType(clang::DeclSpec const&, clang::OpaquePtr<clang::QualType>) + 70
+6  clang           0x0000000000a801b4 clang::Parser::ParseUnqualifiedId(clang::CXXScopeSpec&, bool, bool, bool, clang::OpaquePtr<clang::QualType>, clang::SourceLocation&, clang::UnqualifiedId&) + 1716
+7  clang           0x0000000000a72700 clang::Parser::ParsePostfixExpressionSuffix(clang::ActionResult<clang::Expr*, true>) + 528
+8  clang           0x0000000000a75917 clang::Parser::ParseCastExpression(bool, bool, bool&, clang::Parser::TypeCastState) + 8215
+9  clang           0x0000000000a7110d clang::Parser::ParseAssignmentExpression(clang::Parser::TypeCastState) + 125
+10 clang           0x0000000000a71079 clang::Parser::ParseExpression(clang::Parser::TypeCastState) + 9
+11 clang           0x0000000000aa4419 clang::Parser::ParseExprStatement() + 41
+12 clang           0x0000000000aa3dfe clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, bool, clang::SourceLocation*, clang::Parser::ParsedAttributesWithRange&) + 3134
+13 clang           0x0000000000aa314f clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, bool, clang::SourceLocation*) + 143
+14 clang           0x0000000000aa92ef clang::Parser::ParseCompoundStatementBody(bool) + 1455
+15 clang           0x0000000000aaa210 clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) + 176
+16 clang           0x0000000000a40a2e clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) + 2350
+17 clang           0x0000000000a50ed1 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, unsigned int, bool, clang::SourceLocation*, clang::Parser::ForRangeInit*) + 1281
+18 clang           0x0000000000a3fe3e clang::Parser::ParseDeclOrFunctionDefInternal(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec&, clang::AccessSpecifier) + 766
+19 clang           0x0000000000a3f947 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec*, clang::AccessSpecifier) + 375
+20 clang           0x0000000000a3ee29 clang::Parser::ParseExternalDeclaration(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec*) + 3913
+21 clang           0x0000000000a3de60 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&) + 384
+22 clang           0x0000000000a39b96 clang::ParseAST(clang::Sema&, bool, bool) + 406
+23 clang           0x00000000008ac92c clang::CodeGenAction::ExecuteAction() + 76
+24 clang           0x0000000000700229 clang::FrontendAction::Execute() + 57
+25 clang           0x00000000006d7073 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 787
+26 clang           0x00000000006be473 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 3155
+27 clang           0x00000000006b60bb cc1_main(char const**, char const**, char const*, void*) + 651
+28 clang           0x00000000006bc636 main + 8454
+29 libc.so.6       0x00007f1141a8d76d __libc_start_main + 237
+30 clang           0x00000000006b5d3d
+Stack dump:
+0.	Program arguments: /usr/local/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -dwarf-column-info -resource-dir /usr/local/bin/../lib/clang/3.5.0 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/x86_64-unknown-linux-gnu -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/backward -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.5.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -Wall -std=c++14 -fdeprecated-macro -fdebug-compilation-dir /tmp/1423410593.69265 -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -o /tmp/main-37cbd6.o -x c++ main.cpp 
+1.	main.cpp:13:19: current parser token '('
+2.	main.cpp:11:1: parsing function body 'main'
+3.	main.cpp:11:1: in compound statement ('{}')
+clang: error: unable to execute command: Segmentation fault (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+clang: note: diagnostic msg: PLEASE submit a bug report to http://llvm.org/bugs/ and include the crash backtrace, preprocessed source, and associated run script.
+clang: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang: note: diagnostic msg: /tmp/main-767f36.cpp
+clang: note: diagnostic msg: /tmp/main-767f36.sh
+clang: note: diagnostic msg: 
+
+********************
