@@ -1,0 +1,24 @@
+main.cpp: In function 'int main()':
+main.cpp:52:20: error: no matching function for call to 'do_shit(three)'
+     do_shit(three{});
+                    ^
+main.cpp:52:20: note: candidate is:
+main.cpp:21:13: note: template<class T> decltype (detail::do_shit(t)) do_shit(const T&)
+ inline auto do_shit(const T& t) -> decltype(detail::do_shit(t)) {
+             ^
+main.cpp:21:13: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> decltype (detail::do_shit(t)) do_shit(const T&) [with T = three]':
+main.cpp:52:20:   required from here
+main.cpp:21:62: error: call of overloaded 'do_shit(const three&)' is ambiguous
+ inline auto do_shit(const T& t) -> decltype(detail::do_shit(t)) {
+                                                              ^
+main.cpp:21:62: note: candidates are:
+main.cpp:6:13: note: decltype ((t.test(), void())) detail::do_shit(const T&) [with T = three; decltype ((t.test(), void())) = void]
+ inline auto do_shit(const T& t) -> decltype(t.test(), void()) {
+             ^
+main.cpp:11:13: note: decltype ((t.other(), void())) detail::do_shit(const T&) [with T = three; decltype ((t.other(), void())) = void]
+ inline auto do_shit(const T& t) -> decltype(t.other(), void()) {
+             ^
+main.cpp:15:13: note: void detail::do_shit(...)
+ inline void do_shit(...) {
+             ^
