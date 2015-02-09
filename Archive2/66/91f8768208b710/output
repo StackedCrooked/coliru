@@ -1,0 +1,30 @@
+clang c11
+main.cpp:5:16: warning: excess elements in scalar initializer
+    int q = {1,2};
+               ^
+main.cpp:6:19: warning: excess elements in scalar initializer
+    char c = {'s','t','\0'};  /* c is 's' */
+                  ^~~
+2 warnings generated.
+1
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
+gcc c11
+main.cpp: In function 'main':
+main.cpp:5:5: warning: excess elements in scalar initializer
+     int q = {1,2};
+     ^
+main.cpp:5:5: warning: (near initialization for 'q')
+main.cpp:6:5: warning: excess elements in scalar initializer
+     char c = {'s','t','\0'};  /* c is 's' */
+     ^
+main.cpp:6:5: warning: (near initialization for 'c')
+main.cpp:6:5: warning: excess elements in scalar initializer
+main.cpp:6:5: warning: (near initialization for 'c')
+1
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
