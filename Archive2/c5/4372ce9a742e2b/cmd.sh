@@ -1,0 +1,1 @@
+clang++ -std=c++03 -stdlib=libc++ -Wall -Wpedantic main.cpp && ./a.out
