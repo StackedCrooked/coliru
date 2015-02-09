@@ -1,0 +1,50 @@
+In file included from main.cpp:6:
+In file included from /usr/local/include/boost/spirit/include/phoenix.hpp:11:
+In file included from /usr/local/include/boost/phoenix.hpp:11:
+In file included from /usr/local/include/boost/phoenix/phoenix.hpp:17:
+In file included from /usr/local/include/boost/phoenix/bind.hpp:14:
+In file included from /usr/local/include/boost/phoenix/bind/bind_member_variable.hpp:13:
+/usr/local/include/boost/phoenix/bind/detail/member_variable.hpp:50:15: error: reference to function type 'std::basic_string<char> () const' cannot have 'const' qualifier
+            RT& operator()(Class& obj) const
+              ^
+/usr/local/include/boost/proto/domain.hpp:145:40: note: in instantiation of template class 'boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>' requested here
+            struct as_expr<T, typename T::proto_is_expr_, proto::callable>
+                                       ^
+/usr/local/include/boost/proto/make_expr.hpp:78:13: note: during template argument deduction for class template partial specialization 'as_expr<type-parameter-0-0, typename type-parameter-0-0::proto_is_expr_, boost::proto::callable>' [with T = boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>]
+          : Domain::template as_expr<T>
+            ^
+/usr/local/include/boost/proto/detail/preprocessed/make_expr_.hpp:68:48: note: in instantiation of template class 'boost::proto::detail::protoify<boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::proto::domainns_::basic_default_domain>' requested here
+                typename boost::proto::detail::protoify< A0 , Domain >::result_type , typename boost::proto::detail::protoify< A1 , Domain >::result_type
+                                               ^
+/usr/local/include/boost/proto/make_expr.hpp:180:34: note: in instantiation of template class 'boost::proto::detail::make_expr_<boost::phoenix::detail::tag::function_eval, boost::proto::domainns_::basic_default_domain, boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::phoenix::actor<boost::spirit::attribute<0> >, void, void, void, void, void, void, void, void, void>' requested here
+                typename detail::make_expr_<
+                                 ^
+/usr/local/include/boost/phoenix/core/preprocessed/expression_10.hpp:80:40: note: in instantiation of template class 'boost::proto::result_of::make_expr<boost::phoenix::detail::tag::function_eval, boost::proto::domainns_::basic_default_domain, boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::phoenix::actor<boost::spirit::attribute<0> >, void, void, void, void, void, void, void, void, void>' requested here
+            typename proto::result_of::make_expr<
+                                       ^
+/usr/local/include/boost/phoenix/core/preprocessed/expression_10.hpp:24:19: note: in instantiation of template class 'boost::phoenix::expr_ext<actor, boost::phoenix::detail::tag::function_eval, boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::phoenix::actor<boost::spirit::attribute<0> >, void, void, void, void, void, void, void, void, void>' requested here
+    struct expr : expr_ext<actor, Tag, A0 , A1 , A2 , A3 , A4 , A5 , A6 , A7 , A8 , A9> {};
+                  ^
+/usr/local/include/boost/phoenix/core/detail/preprocessed/function_eval_10.hpp:7:588: note: in instantiation of template class 'boost::phoenix::expr<boost::phoenix::detail::tag::function_eval, boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::phoenix::actor<boost::spirit::attribute<0> >, void, void, void, void, void, void, void, void, void>' requested here
+/usr/local/include/boost/phoenix/bind/bind_member_variable.hpp:20:29: note: in instantiation of template class 'boost::phoenix::detail::expression::function_eval<boost::phoenix::detail::member_variable<std::basic_string<char> () const, std::basic_string<char> (foo::*)() const>, boost::phoenix::actor<boost::spirit::attribute<0> >, void, void, void, void, void, void, void, void, void>' requested here
+        detail::expression::function_eval<
+                            ^
+main.cpp:36:78: note: while substituting deduced template arguments into function template 'bind' [with RT = std::basic_string<char> () const, ClassT = foo, ClassA = boost::phoenix::actor<boost::spirit::attribute<0> >]
+        karma::rule<iterator, foo&()> foo_rule = karma::string [ karma::_1 = phx::bind(&foo::f, karma::_val) ];
+                                                                             ^
+In file included from main.cpp:6:
+In file included from /usr/local/include/boost/spirit/include/phoenix.hpp:11:
+In file included from /usr/local/include/boost/phoenix.hpp:11:
+In file included from /usr/local/include/boost/phoenix/phoenix.hpp:17:
+In file included from /usr/local/include/boost/phoenix/bind.hpp:14:
+In file included from /usr/local/include/boost/phoenix/bind/bind_member_variable.hpp:13:
+/usr/local/include/boost/phoenix/bind/detail/member_variable.hpp:59:15: error: reference to function type 'std::basic_string<char> () const' cannot have 'const' qualifier
+            RT& operator()(Class* obj) const
+              ^
+/usr/local/include/boost/phoenix/bind/detail/member_variable.hpp:65:21: error: reference to function type 'std::basic_string<char> () const' cannot have 'const' qualifier
+            RT const& operator()(Class const& obj) const
+                    ^
+/usr/local/include/boost/phoenix/bind/detail/member_variable.hpp:74:21: error: reference to function type 'std::basic_string<char> () const' cannot have 'const' qualifier
+            RT const& operator()(Class const* obj) const
+                    ^
+4 errors generated.
