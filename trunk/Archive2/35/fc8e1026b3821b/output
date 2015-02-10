@@ -1,0 +1,20 @@
+main.cpp:35:8: warning: inequality comparison result unused [-Wunused-comparison]
+    d1 != d2;
+    ~~~^~~~~
+main.cpp:35:8: note: use '|=' to turn this inequality comparison into an or-assignment
+    d1 != d2;
+       ^~
+       |=
+main.cpp:28:20: error: use of overloaded operator '==' is ambiguous (with operand types 'const D<2>' and 'const D<2>')
+        return !(L == R);
+                 ~ ^  ~
+main.cpp:35:8: note: in instantiation of function template specialization 'Y::operator!=<2>' requested here
+    d1 != d2;
+       ^
+main.cpp:10:31: note: candidate function [with N = 2]
+        template <int N> bool operator==(B<N, false> const &, B<N, false> const &) {
+                              ^
+main.cpp:17:31: note: candidate function [with N = 2]
+        template <int N> bool operator==(B<N, true> const &, B<N, true> const &) {
+                              ^
+1 warning and 1 error generated.
