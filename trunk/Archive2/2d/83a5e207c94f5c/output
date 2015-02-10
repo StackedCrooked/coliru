@@ -1,0 +1,48 @@
++ clang++ -std=c++14 -O2 -pedantic -pthread main.cpp
++ ./a.out
+It runs!+ g++ -std=c++14 -O2 -pedantic -pthread main.cpp
+main.cpp: In instantiation of 'EnemyRhombus::move()::<lambda(auto:1, auto:2)> [with auto:1 = Point; auto:2 = Point]':
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:121:46:   required from 'bool __gnu_cxx::__ops::_Iter_comp_iter<_Compare>::operator()(_Iterator1, _Iterator2) [with _Iterator1 = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Iterator2 = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1846:27:   required from 'void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1884:70:   required from 'void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1970:55:   required from 'void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4716:78:   required from 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]'
+main.cpp:37:22:   required from here
+main.cpp:37:21: error: cannot call member function 'bool EnemyRhombus::points_cmp(Point, Point)' without object
+                     });
+                     ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:71:0,
+                 from /usr/local/include/c++/4.9.2/vector:60,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h: In instantiation of 'bool __gnu_cxx::__ops::_Iter_comp_iter<_Compare>::operator()(_Iterator1, _Iterator2) [with _Iterator1 = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Iterator2 = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]':
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1846:27:   required from 'void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1884:70:   required from 'void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1970:55:   required from 'void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4716:78:   required from 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]'
+main.cpp:37:22:   required from here
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:121:46: error: void value not ignored as it ought to be
+         { return bool(_M_comp(*__it1, *__it2)); }
+                                              ^
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h: In instantiation of 'bool __gnu_cxx::__ops::_Val_comp_iter<_Compare>::operator()(_Value&, _Iterator) [with _Value = Point; _Iterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]':
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1827:34:   required from 'void std::__unguarded_linear_insert(_RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Val_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1855:46:   required from 'void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1884:70:   required from 'void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1970:55:   required from 'void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4716:78:   required from 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]'
+main.cpp:37:22:   required from here
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:166:37: error: void value not ignored as it ought to be
+  { return bool(_M_comp(__val, *__it)); }
+                                     ^
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h: In instantiation of 'bool __gnu_cxx::__ops::_Iter_comp_val<_Compare>::operator()(_Iterator, _Value&) [with _Iterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Value = Point; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]':
+/usr/local/include/c++/4.9.2/bits/stl_heap.h:129:76:   required from 'void std::__push_heap(_RandomAccessIterator, _Distance, _Distance, _Tp, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Distance = long int; _Tp = Point; _Compare = __gnu_cxx::__ops::_Iter_comp_val<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_heap.h:230:51:   required from 'void std::__adjust_heap(_RandomAccessIterator, _Distance, _Distance, _Tp, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Distance = long int; _Tp = Point; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_heap.h:334:15:   required from 'void std::__make_heap(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1673:49:   required from 'void std::__heap_select(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1932:59:   required from 'void std::__partial_sort(_RandomAccessIterator, _RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1947:59:   required from 'void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Size = long int; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1969:11:   required from 'void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<EnemyRhombus::move()::<lambda(auto:1, auto:2)> >]'
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4716:78:   required from 'void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<Point*, std::vector<Point> >; _Compare = EnemyRhombus::move()::<lambda(auto:1, auto:2)>]'
+main.cpp:37:22:   required from here
+/usr/local/include/c++/4.9.2/bits/predefined_ops.h:141:37: error: void value not ignored as it ought to be
+  { return bool(_M_comp(*__it, __val)); }
+                                     ^
