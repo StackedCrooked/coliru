@@ -1,0 +1,1 @@
+mkdir somefolder && g++ main.cpp && ./a.out
