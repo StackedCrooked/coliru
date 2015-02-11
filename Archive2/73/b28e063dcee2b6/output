@@ -1,0 +1,12 @@
++ g++ -std=c++14 -O2 -Wall -pedantic main.cpp
++ ./a.out
+Is function sender_test: 1
+Is function sender: 0
+ callback succeeded: void sender_test::book_complete() called 
+ callback ignored: void optional_mem_call_with_param(C&, Args&& ...) [with C = sender_test; Args = {int}; typename std::enable_if<(! has_member_with_param<T>::value), int>::type <anonymous> = 0] called 
+ callback ignored: void optional_mem_call_partial_book(C&, Args&& ...) [with C = sender_test; Args = {book*}; typename std::enable_if<(! has_type_partial_book<T>::value), int>::type <anonymous> = 0] called 
+ callback succeeded: void sender_test::partial(value*) called with value*
+ callback ignored: void optional_mem_call_book_complete(C&, Args&& ...) [with C = sender; Args = {}; typename std::enable_if<(! has_member_book_complete<T>::value), int>::type <anonymous> = 0] called 
+ callback succeeded: void sender::with_param(int) called with 3
+ callback succeeded: void sender::partial(book*) called with book*
+ callback ignored: void optional_mem_call_partial_value(C&, Args&& ...) [with C = sender; Args = {value*}; typename std::enable_if<(! has_type_partial_value<T>::value), int>::type <anonymous> = 0] called 
