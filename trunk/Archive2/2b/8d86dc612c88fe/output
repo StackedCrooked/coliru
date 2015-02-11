@@ -1,0 +1,30 @@
+	.text
+	.file	"main.ll"
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	pushq	%rbp
+.Ltmp0:
+	.cfi_def_cfa_offset 16
+.Ltmp1:
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+.Ltmp2:
+	.cfi_def_cfa_register %rbp
+	movq	%rsp, %rax
+	movl	%edi, %ecx
+	leaq	15(,%rcx,4), %rcx
+	andq	$-16, %rcx
+	subq	%rcx, %rax
+	movq	%rax, %rsp
+	movq	%rax, %rdi
+	callq	*%rsi
+.Ltmp3:
+	.size	main, .Ltmp3-main
+	.cfi_endproc
+
+
+	.section	".note.GNU-stack","",@progbits
