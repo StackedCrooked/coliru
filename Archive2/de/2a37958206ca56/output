@@ -1,0 +1,68 @@
+main.cpp:31:25: error: 'value' function uses 'auto' type specifier without trailing return type
+             auto& value(){
+                         ^
+main.cpp:31:25: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:86:58: error: 'operator()' function uses 'auto' type specifier without trailing return type
+                     auto operator()(T value, storage* ptr) // N3386 Return type deduction
+                                                          ^
+main.cpp:86:58: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:116:40: error: 'operator()' function uses 'auto' type specifier without trailing return type
+                 auto operator()(T value){
+                                        ^
+main.cpp:116:40: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:162:50: error: 'operator=' function uses 'auto' type specifier without trailing return type
+             auto operator=(const ValueType& other)
+                                                  ^
+main.cpp:162:50: note: deduced return type only available with -std=c++1y or -std=gnu++1y
+main.cpp:178:18: error: 'shared_ptr' in namespace 'std' does not name a template type
+             std::shared_ptr<placeholder> content;
+                  ^
+main.cpp: In lambda function:
+main.cpp:91:33: error: 'shared_ptr' is not a member of 'std'
+                                 std::shared_ptr<T> param(new T(value));
+                                 ^
+main.cpp:91:50: error: expected primary-expression before '>' token
+                                 std::shared_ptr<T> param(new T(value));
+                                                  ^
+main.cpp:93:37: error: 'param' was not declared in this scope
+                             return [param](){
+                                     ^
+main.cpp: In lambda function:
+main.cpp:95:41: error: 'param' is not captured
+                                 return *param;
+                                         ^
+main.cpp: In constructor 'var::var()':
+main.cpp:126:21: error: class 'var' does not have any field named 'content'
+             var() : content(0) {}
+                     ^
+main.cpp: In constructor 'var::var(ValueType)':
+main.cpp:129:36: error: class 'var' does not have any field named 'content'
+             var(ValueType value) : content(new holder<ValueType>(value)) {
+                                    ^
+main.cpp: In member function 'var& var::operator=(const var&)':
+main.cpp:144:28: error: 'class var' has no member named 'content'
+                     this-> content = other.content;
+                            ^
+main.cpp:144:44: error: 'const class var' has no member named 'content'
+                     this-> content = other.content;
+                                            ^
+main.cpp: In member function 'auto var::operator=(const ValueType&)':
+main.cpp:164:23: error: 'class var' has no member named 'content'
+                 this->content = std::shared_ptr<placeholder>(new holder<ValueType>(other));
+                       ^
+main.cpp:164:33: error: 'shared_ptr' is not a member of 'std'
+                 this->content = std::shared_ptr<placeholder>(new holder<ValueType>(other));
+                                 ^
+main.cpp:164:60: error: expected primary-expression before '>' token
+                 this->content = std::shared_ptr<placeholder>(new holder<ValueType>(other));
+                                                            ^
+main.cpp: In member function 'ValueType var::get()':
+main.cpp:170:24: error: 'dynamic_pointer_cast' is not a member of 'std'
+                 return std::dynamic_pointer_cast<holder<ValueType> >(content)->get<ValueType>();
+                        ^
+main.cpp:170:68: error: expected primary-expression before '>' token
+                 return std::dynamic_pointer_cast<holder<ValueType> >(content)->get<ValueType>();
+                                                                    ^
+main.cpp:170:70: error: 'content' was not declared in this scope
+                 return std::dynamic_pointer_cast<holder<ValueType> >(content)->get<ValueType>();
+                                                                      ^
