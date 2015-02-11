@@ -1,0 +1,10 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic-errors -pthread main.cpp
+main.cpp:22:13: error: compound literals are a C99-specific feature [-Werror,-Wc99-extensions]
+    a = b + (complex){1, 2};
+            ^
+1 error generated.
++ g++ -std=c++1y -O3 -Wall -pedantic-errors -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:22:27: error: ISO C++ forbids compound-literals [-Wpedantic]
+     a = b + (complex){1, 2};
+                           ^
