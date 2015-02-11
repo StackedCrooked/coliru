@@ -1,0 +1,1 @@
+mv main.cpp main.ll && llc main.ll && cat main.s
