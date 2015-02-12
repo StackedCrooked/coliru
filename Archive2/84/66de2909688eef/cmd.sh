@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out WGS84 581907906 135880127
