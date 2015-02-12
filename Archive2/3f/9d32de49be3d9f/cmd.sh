@@ -1,0 +1,1 @@
+gcc main.cpp && ./a.out > first.ppm && echo yo
