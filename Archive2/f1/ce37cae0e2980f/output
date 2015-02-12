@@ -1,0 +1,18 @@
+main.cpp: In function 'new':
+main.cpp:15:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+             ptr[x] = (int*)d[x];
+                      ^
+main.cpp:16:13: warning: format '%p' expects argument of type 'void *', but argument 4 has type 'int *' [-Wformat=]
+             printf("ORIGINAL-->index: %i, data: %i, addr: %p\n", x, d[x], &d[x]);
+             ^
+main.cpp:24:13: error: cannot convert to a pointer type
+             ptr[x] = (double*)d[x];
+             ^
+main.cpp:25:13: warning: format '%p' expects argument of type 'void *', but argument 4 has type 'float *' [-Wformat=]
+             printf("ORIGINAL-->index: %i, data: %f, addr: %p\n", x, d[x], &d[x]);
+             ^
+main.cpp: In function 'main':
+main.cpp:40:9: warning: format '%i' expects argument of type 'int', but argument 3 has type 'Obj' [-Wformat=]
+         printf("NEW-->index: %i, data: %i, addr: %p\n", x, xb->data[x], &xb->data[x]);
+         ^
+main.cpp:40:9: warning: format '%p' expects argument of type 'void *', but argument 4 has type 'struct Obj *' [-Wformat=]
