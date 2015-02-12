@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O3 -Wall -pedantic main.cpp -lboost_python -lpython2.7 -shared -fPIC -o pythonIterator.so
