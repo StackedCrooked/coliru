@@ -1,0 +1,179 @@
+main.cpp: In function 'int main()':
+main.cpp:126:100: error: no matching function for call to 'has_handle_event()'
+   std::cout << "Graphcis handles BroEvent " << has_handle_event<System<GraphicsTag>, CoolBroEvent>() << std::endl;
+                                                                                                    ^
+main.cpp:126:100: note: candidate is:
+main.cpp:60:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event()
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                ^
+main.cpp:60:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = CoolBroEvent]':
+main.cpp:126:100:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                                                                                        ^
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = CoolBroEvent]':
+main.cpp:126:100:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+main.cpp:127:102: error: no matching function for call to 'has_handle_event()'
+   std::cout << "Framwerkz handles BroEvent " << has_handle_event<System<FrameworkTag>, CoolBroEvent>() << std::endl;
+                                                                                                      ^
+main.cpp:127:102: note: candidate is:
+main.cpp:60:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event()
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                ^
+main.cpp:60:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<FrameworkTag>; E = CoolBroEvent]':
+main.cpp:127:102:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                                                                                        ^
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<FrameworkTag>; E = CoolBroEvent]':
+main.cpp:127:102:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+main.cpp:128:101: error: no matching function for call to 'has_handle_event()'
+   std::cout << "Framwerkz handles BasicEvent " << has_handle_event<System<GraphicsTag>, BasicEvent>() << std::endl;
+                                                                                                     ^
+main.cpp:128:101: note: candidate is:
+main.cpp:60:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event()
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                ^
+main.cpp:60:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = BasicEvent]':
+main.cpp:128:101:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                                                                                        ^
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = BasicEvent]':
+main.cpp:128:101:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+main.cpp: In instantiation of 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]':
+main.cpp:111:47:   required from here
+main.cpp:79:24: error: no matching function for call to 'EventDispatcher<GraphicsTag, FrameworkTag>::DispatchDirect_Impl(CoolBroEvent)'
+     DispatchDirect_Impl<Event, Systems ... >( std::forward<Event>( e ) );
+                        ^
+main.cpp:79:24: note: candidates are:
+main.cpp:84:3: note: template<class Event> void EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && ) {
+   ^
+main.cpp:84:3: note:   template argument deduction/substitution failed:
+main.cpp:79:24: error: wrong number of template arguments (3, should be 1)
+     DispatchDirect_Impl<Event, Systems ... >( std::forward<Event>( e ) );
+                        ^
+main.cpp:90:3: note: template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; S = S; Syss = {Syss ...}; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp:90:3: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = CoolBroEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:111:47:   required from here
+main.cpp:89:63: error: no matching function for call to 'has_handle_event()'
+   typename std::enable_if< has_handle_event<System<S>, Event>(), void >::type
+                                                               ^
+main.cpp:89:63: note: candidate is:
+main.cpp:60:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event()
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                ^
+main.cpp:60:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = CoolBroEvent]':
+main.cpp:89:63:   required by substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = CoolBroEvent; S = GraphicsTag; Syss = {FrameworkTag}]'
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:111:47:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                                                                                        ^
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = CoolBroEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:111:47:   required from here
+main.cpp:90:3: error: could not convert template argument 'has_handle_event<System<GraphicsTag>, CoolBroEvent>()' to 'bool'
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp: In instantiation of 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]':
+main.cpp:111:47:   required from here
+main.cpp:97:3: note: template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; S = S; Syss = {Syss ...}; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp:97:3: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = CoolBroEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:111:47:   required from here
+main.cpp:96:72: error: no matching function for call to 'does_not_has_handle_event()'
+   typename std::enable_if< does_not_has_handle_event<System<S>, Event>(), void >::type
+                                                                        ^
+main.cpp:96:72: note: candidate is:
+main.cpp:63:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) does_not_has_handle_event()
+ auto constexpr does_not_has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return false; }
+                ^
+main.cpp:63:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) does_not_has_handle_event() [with T = System<GraphicsTag>; E = CoolBroEvent]':
+main.cpp:96:72:   required by substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = CoolBroEvent; S = GraphicsTag; Syss = {FrameworkTag}]'
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = CoolBroEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:111:47:   required from here
+main.cpp:63:97: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr does_not_has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return false; }
+                                                                                                 ^
+main.cpp: In instantiation of 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]':
+main.cpp:125:43:   required from here
+main.cpp:79:24: error: no matching function for call to 'EventDispatcher<GraphicsTag, FrameworkTag>::DispatchDirect_Impl(BasicEvent)'
+     DispatchDirect_Impl<Event, Systems ... >( std::forward<Event>( e ) );
+                        ^
+main.cpp:79:24: note: candidates are:
+main.cpp:84:3: note: template<class Event> void EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && ) {
+   ^
+main.cpp:84:3: note:   template argument deduction/substitution failed:
+main.cpp:79:24: error: wrong number of template arguments (3, should be 1)
+     DispatchDirect_Impl<Event, Systems ... >( std::forward<Event>( e ) );
+                        ^
+main.cpp:90:3: note: template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; S = S; Syss = {Syss ...}; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp:90:3: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = BasicEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:125:43:   required from here
+main.cpp:89:63: error: no matching function for call to 'has_handle_event()'
+   typename std::enable_if< has_handle_event<System<S>, Event>(), void >::type
+                                                               ^
+main.cpp:89:63: note: candidate is:
+main.cpp:60:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event()
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                ^
+main.cpp:60:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) has_handle_event() [with T = System<GraphicsTag>; E = BasicEvent]':
+main.cpp:89:63:   required by substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = BasicEvent; S = GraphicsTag; Syss = {FrameworkTag}]'
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:125:43:   required from here
+main.cpp:60:88: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return true; }
+                                                                                        ^
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = BasicEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:125:43:   required from here
+main.cpp:90:3: error: could not convert template argument 'has_handle_event<System<GraphicsTag>, BasicEvent>()' to 'bool'
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp: In instantiation of 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]':
+main.cpp:125:43:   required from here
+main.cpp:97:3: note: template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = Event; S = S; Syss = {Syss ...}; Systems = {GraphicsTag, FrameworkTag}]
+   DispatchDirect_Impl( Event && e ) {
+   ^
+main.cpp:97:3: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = BasicEvent; S = GraphicsTag; Syss = {FrameworkTag}]':
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:125:43:   required from here
+main.cpp:96:72: error: no matching function for call to 'does_not_has_handle_event()'
+   typename std::enable_if< does_not_has_handle_event<System<S>, Event>(), void >::type
+                                                                        ^
+main.cpp:96:72: note: candidate is:
+main.cpp:63:16: note: template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) does_not_has_handle_event()
+ auto constexpr does_not_has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return false; }
+                ^
+main.cpp:63:16: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T, class E> constexpr decltype ((declval<T>().HandleEvent<E>, bool{})) does_not_has_handle_event() [with T = System<GraphicsTag>; E = BasicEvent]':
+main.cpp:96:72:   required by substitution of 'template<class Event, class S, class ... Syss> typename std::enable_if<does_not_has_handle_event<System<S>, Event>(), void>::type EventDispatcher<Systems>::DispatchDirect_Impl(Event&&) [with Event = BasicEvent; S = GraphicsTag; Syss = {FrameworkTag}]'
+main.cpp:79:24:   required from 'void EventDispatcher<Systems>::DispatchDirect(Event&&) [with Event = BasicEvent; Systems = {GraphicsTag, FrameworkTag}]'
+main.cpp:125:43:   required from here
+main.cpp:63:97: error: left operand of comma operator cannot resolve address of overloaded function
+ auto constexpr does_not_has_handle_event() -> decltype(std::declval<T>().template HandleEvent<E>, bool{}) { return false; }
+                                                                                                 ^
