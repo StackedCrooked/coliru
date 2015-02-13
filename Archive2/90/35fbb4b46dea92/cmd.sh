@@ -1,0 +1,1 @@
+g++ -std=c++11 -Os -Wall -pedantic main.cpp -lboost_system && ./a.out& for a in {0..3}; do ls | nc 127.0.0.1 2001; done
