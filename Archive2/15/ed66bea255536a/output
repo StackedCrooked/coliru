@@ -1,0 +1,16 @@
+main.cpp:31:4: error: 'test' is a private member of 'Container'
+        b.test();
+          ^
+main.cpp:23:34: note: constrained by private inheritance here
+struct Button : virtual Control, private Container {
+                                 ^~~~~~~~~~~~~~~~~
+main.cpp:18:15: note: member is declared here
+        virtual void test() override {
+                     ^
+main.cpp:31:2: error: cannot cast 'Button' to its private base class 'Container'
+        b.test();
+        ^
+main.cpp:23:34: note: declared private here
+struct Button : virtual Control, private Container {
+                                 ^~~~~~~~~~~~~~~~~
+2 errors generated.
