@@ -1,0 +1,1 @@
+clang++ main.cpp -std=c++1y -Wall -Wextra -Werror -pedantic -Wno-unused-variable -Wno-unneeded-internal-declaration && ./a.out
