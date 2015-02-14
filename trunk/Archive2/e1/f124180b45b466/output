@@ -1,0 +1,17 @@
+main.cpp:1:55: error: invalid operands to binary expression ('double' and 'double')
+template < typename T > int foo( T arg ) { return arg % 10 ; }
+                                                  ~~~ ^ ~~
+main.cpp:7:10: note: in instantiation of function template specialization 'foo<double>' requested here
+    else foo(2.5) ; // *** compile-time error instantiating int foo(double) 
+         ^
+1 error generated.
+---------
+main.cpp: In instantiation of 'int foo(T) [with T = double]':
+main.cpp:7:17:   required from here
+main.cpp:1:55: error: invalid operands of types 'double' and 'int' to binary 'operator%'
+ template < typename T > int foo( T arg ) { return arg % 10 ; }
+                                                       ^
+main.cpp: In function 'int foo(T) [with T = double]':
+main.cpp:1:62: warning: control reaches end of non-void function [-Wreturn-type]
+ template < typename T > int foo( T arg ) { return arg % 10 ; }
+                                                              ^
