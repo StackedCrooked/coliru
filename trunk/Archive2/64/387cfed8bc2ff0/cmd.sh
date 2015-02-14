@@ -1,0 +1,1 @@
+for CC in g++ clang++; do echo -en "\n$CC -> " && $CC -Wall -pedantic -std=c++11 main.cpp && ./a.out && echo $?; done
