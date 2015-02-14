@@ -1,0 +1,1 @@
+g++ -std=c++14 -O2 -Wall -pedantic -pthread -lboost_coroutine -lboost_thread -lboost_context -lboost_chrono -lboost_system main.cpp && ./a.out <<< 2000000
