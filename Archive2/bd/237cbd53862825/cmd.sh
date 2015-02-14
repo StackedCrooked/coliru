@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -Wno-unused-but-set-variable -fno-elide-constructors -pedantic -pthread main.cpp && ./a.out
