@@ -1,0 +1,17 @@
+main.cpp:6:60: error: invalid operands to binary expression ('double' and 'double')
+    template < int N, typename U > U baz( U a ) { return a % N ; }
+                                                         ~ ^ ~
+main.cpp:21:27: note: in instantiation of function template specialization 'foo<int>::baz<22, double>' requested here
+template double foo<int>::baz<22>(double) ; // **** error: invalid type double in a % 22
+                          ^
+1 error generated.
+---------
+main.cpp: In instantiation of 'U foo<T>::baz(U) [with int N = 22; U = double; T = int]':
+main.cpp:21:41:   required from here
+main.cpp:6:60: error: invalid operands of types 'double' and 'int' to binary 'operator%'
+     template < int N, typename U > U baz( U a ) { return a % N ; }
+                                                            ^
+main.cpp: In member function 'U foo<T>::baz(U) [with int N = 22; U = double; T = int]':
+main.cpp:6:66: warning: control reaches end of non-void function [-Wreturn-type]
+     template < int N, typename U > U baz( U a ) { return a % N ; }
+                                                                  ^
