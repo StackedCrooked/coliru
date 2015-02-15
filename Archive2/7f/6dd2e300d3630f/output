@@ -1,0 +1,50 @@
++ clang++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+*** glibc detected *** ./a.out: free(): invalid pointer: 0x0000000001747058 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f8b9ff75846]
+./a.out[0x400aab]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f8b9ff1876d]
+./a.out[0x400909]
+======= Memory map: ========
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+bash: line 7:  7179 Aborted                 (core dumped) ./a.out
++ g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
++ ./a.out
+*** glibc detected *** ./a.out: free(): invalid pointer: 0x0000000001dec058 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7fc6ef7eb846]
+./a.out[0x4009da]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7fc6ef78e76d]
+./a.out[0x400a71]
+======= Memory map: ========
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+bash: line 8:  7194 Aborted                 (core dumped) ./a.out
