@@ -1,0 +1,28 @@
+main.cpp: In function 'OrderedList<mytype> operator+(const OrderedList<mytype>&, const OrderedList<mytype>&)':
+main.cpp:200:36: error: 'list' was not declared in this scope
+                  newList.list[k] = list[j];
+                                    ^
+main.cpp:214:33: error: 'count' was not declared in this scope
+             for (int p = j; p < count; p++) 
+                                 ^
+main.cpp:216:37: error: 'list' was not declared in this scope
+                   newList.list[k] = list[p];
+                                     ^
+main.cpp: In instantiation of 'OrderedList<mytype> operator+(const OrderedList<mytype>&, const OrderedList<mytype>&) [with mytype = double]':
+main.cpp:250:33:   required from here
+main.cpp:194:26: error: no matching function for call to 'OrderedList<double>::get(int&) const'
+             if (a.get(i) <= b.get(j)) 
+                          ^
+main.cpp:194:26: note: candidate is:
+main.cpp:168:8: note: mytype OrderedList<mytype>::get(int) [with mytype = double] <near match>
+ mytype OrderedList<mytype>::get(int pos)
+        ^
+main.cpp:168:8: note:   no known conversion for implicit 'this' parameter from 'const OrderedList<double>*' to 'OrderedList<double>*'
+main.cpp:194:26: error: no matching function for call to 'OrderedList<double>::get(int&) const'
+             if (a.get(i) <= b.get(j)) 
+                          ^
+main.cpp:194:26: note: candidate is:
+main.cpp:168:8: note: mytype OrderedList<mytype>::get(int) [with mytype = double] <near match>
+ mytype OrderedList<mytype>::get(int pos)
+        ^
+main.cpp:168:8: note:   no known conversion for implicit 'this' parameter from 'const OrderedList<double>*' to 'OrderedList<double>*'
