@@ -1,0 +1,19 @@
++ clang++ -O2 -stdlib=libc++ -std=c++1y -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:32:63: warning: unused parameter 'f' [-Wunused-parameter]
+void print_function_arg_custom_size(std::function<void(T...)> f)
+                                                              ^
+main.cpp:41:18: warning: unused parameter 'a' [-Wunused-parameter]
+void foo(uint8_t a, uint16_t b, uint32_t c, double d)
+                 ^
+main.cpp:41:30: warning: unused parameter 'b' [-Wunused-parameter]
+void foo(uint8_t a, uint16_t b, uint32_t c, double d)
+                             ^
+main.cpp:41:42: warning: unused parameter 'c' [-Wunused-parameter]
+void foo(uint8_t a, uint16_t b, uint32_t c, double d)
+                                         ^
+main.cpp:41:52: warning: unused parameter 'd' [-Wunused-parameter]
+void foo(uint8_t a, uint16_t b, uint32_t c, double d)
+                                                   ^
+5 warnings generated.
++ ./a.out
+totalSize: 107
