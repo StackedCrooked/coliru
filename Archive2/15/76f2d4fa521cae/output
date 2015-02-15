@@ -1,0 +1,60 @@
+main.cpp:6:1: error: 'OrderedList' does not name a type
+ OrderedList<mytype>::OrderedList(int cap)
+ ^
+main.cpp:13:1: error: 'OrderedList' does not name a type
+ OrderedList<mytype>::OrderedList(const OrderedList& li)
+ ^
+main.cpp:18:1: error: 'OrderedList' does not name a type
+ OrderedList<mytype>::~OrderedList()
+ ^
+main.cpp:23:17: error: expected initializer before '<' token
+ void OrderedList<mytype>::operator=(const OrderedList& li)
+                 ^
+main.cpp:40:17: error: expected initializer before '<' token
+ void OrderedList<mytype>::insert(mytype item) 
+                 ^
+main.cpp:53:17: error: expected initializer before '<' token
+ void OrderedList<mytype>::enlarge()
+                 ^
+main.cpp:63:51: error: 'OrderedList' does not name a type
+ std::ostream& operator<<(std::ostream& out, const OrderedList<mytype>& li)
+                                                   ^
+main.cpp:63:62: error: expected ',' or '...' before '<' token
+ std::ostream& operator<<(std::ostream& out, const OrderedList<mytype>& li)
+                                                              ^
+main.cpp: In function 'std::ostream& operator<<(std::ostream&, int)':
+main.cpp:66:19: error: 'li' was not declared in this scope
+     for(int i=0;i<li.count-1;i++)
+                   ^
+main.cpp:68:12: error: 'li' was not declared in this scope
+     out << li.list[li.count-1] <<"]";
+            ^
+main.cpp: At global scope:
+main.cpp:73:17: error: expected initializer before '<' token
+ void OrderedList<mytype>::order()
+                 ^
+main.cpp:90:17: error: expected initializer before '<' token
+ void OrderedList<mytype>::remove(mytype item)
+                 ^
+main.cpp:105:19: error: expected initializer before '<' token
+ mytype OrderedList<mytype>::get(int pos)
+                   ^
+main.cpp:111:2: error: 'OrderedList' does not name a type
+  OrderedList<mytype>* OrderedList<mytype>::kLargest(int num)
+  ^
+main.cpp:123:1: error: 'OrderedList' does not name a type
+ OrderedList<mytype> operator+ (const OrderedList<mytype>& a,const OrderedList<mytype>& b)
+ ^
+main.cpp:219:102: warning: friend declaration 'OrderedList<mytype> operator+(const OrderedList<mytype>&, const OrderedList<mytype>&)' declares a non-template function [-Wnon-template-friend]
+     friend OrderedList<mytype> operator+  (const OrderedList<mytype>& a, const OrderedList<mytype>& b);
+                                                                                                      ^
+main.cpp:219:102: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+main.cpp: In function 'int main()':
+main.cpp:249:4: error: 'cout' was not declared in this scope
+    cout << li3;
+    ^
+main.cpp:249:4: note: suggested alternative:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.2/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
