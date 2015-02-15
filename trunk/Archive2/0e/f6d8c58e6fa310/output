@@ -1,0 +1,54 @@
++ clang++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:36:8: warning: unused variable 'd' [-Wunused-variable]
+    D* d = new D{3,3}; //ok
+       ^
+main.cpp:37:8: warning: unused variable 'b' [-Wunused-variable]
+    B* b = new D{3,3}; //ok
+       ^
+main.cpp:38:8: warning: unused variable 'c' [-Wunused-variable]
+    C* c = new D{3,3}; //undefined
+       ^
+3 warnings generated.
++ ./a.out
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
++ g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:36:8: warning: unused variable 'd' [-Wunused-variable]
+     D* d = new D{3,3}; //ok
+        ^
+main.cpp:37:8: warning: unused variable 'b' [-Wunused-variable]
+     B* b = new D{3,3}; //ok
+        ^
+main.cpp:38:8: warning: unused variable 'c' [-Wunused-variable]
+     C* c = new D{3,3}; //undefined
+        ^
++ ./a.out
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
+initialized v
+initialized a
+initialized b
+initialized c
+initialized d
