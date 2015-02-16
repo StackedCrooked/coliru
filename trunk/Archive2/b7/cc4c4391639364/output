@@ -1,0 +1,14 @@
+main.cpp:7:23: error: expected ';' at end of declaration
+    std::vector<int> v{1,2,3};
+                      ^
+                      ;
+main.cpp:13:5: error: template argument uses local type 'Local' [-Werror,-Wlocal-type-template-args]
+    std::sort(v.begin(), v.end(), Local()); // since C++11
+    ^~~
+main.cpp:14:14: error: range-based for loop is a C++11 extension [-Werror,-Wc++11-extensions]
+    for(int n: v) std::cout << n << ' ';
+             ^
+main.cpp:15:2: error: no newline at end of file [-Werror,-Wnewline-eof]
+}
+ ^
+4 errors generated.
