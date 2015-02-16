@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:30:51: error: no matching function for call to 'mem_fn(<unresolved overloaded function type>)'
+     auto cmfn = std::mem_fn<int& () const>(&X::get); //error
+                                                   ^
+main.cpp:30:51: note: candidate is:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional:929:5: note: template<class _Tp, class _Class> std::_Mem_fn<_Tp _Class::*> std::mem_fn(_Tp _Class::*)
+     mem_fn(_Tp _Class::* __pm) noexcept
+     ^
+/usr/local/include/c++/4.9.2/functional:929:5: note:   template argument deduction/substitution failed:
+main.cpp:30:51: note:   types 'int' and 'const int' have incompatible cv-qualifiers
+     auto cmfn = std::mem_fn<int& () const>(&X::get); //error
+                                                   ^
+main.cpp:30:51: note:   types 'int& (_Class::)() const' and 'int& (X::)()' have incompatible cv-qualifiers
+main.cpp:30:51: note:   could not resolve address from overloaded function '& X::get'
