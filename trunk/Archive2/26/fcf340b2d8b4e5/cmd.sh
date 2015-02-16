@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Os -Wall -pedantic main.cpp -lboost_system -lboost_filesystem && ./a.out; cp -l main.cpp test.cpp
