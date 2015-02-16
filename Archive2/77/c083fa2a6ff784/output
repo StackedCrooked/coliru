@@ -1,0 +1,16 @@
+main.cpp:95:16: error: 'auto' not allowed in lambda parameter
+            [](auto const& dupe, auto const& orig) {
+               ^~~~
+main.cpp:95:34: error: 'auto' not allowed in lambda parameter
+            [](auto const& dupe, auto const& orig) {
+                                 ^~~~
+main.cpp:57:25: error: no matching function for call to object of type 'const (lambda at main.cpp:95:13)'
+                        handler(*insertion.first, safe_key(f));
+                        ^~~~~~~
+main.cpp:92:5: note: in instantiation of function template specialization 'files<(lambda at main.cpp:94:13), boost::iterators::function_output_iterator<(lambda at main.cpp:91:57)>, (lambda at main.cpp:95:13), boost::filesystem::path, unsigned long, std::pair<const boost::optional<unsigned long>, boost::filesystem::path> >' requested here
+    files(".", 
+    ^
+main.cpp:95:13: note: candidate template ignored: couldn't infer template argument '$auto-0-0'
+            [](auto const& dupe, auto const& orig) {
+            ^
+3 errors generated.
