@@ -1,0 +1,39 @@
++ g++ -std=c++11 -O3 -Wall -pedantic main.cpp
+main.cpp: In member function 'void Derived::mumble()':
+main.cpp:8:7: error: 'void Base::baz()' is private
+  void baz () { }
+       ^
+main.cpp:17:7: error: within this context
+       baz();               //3
+       ^
+main.cpp:8:7: error: 'void Base::baz()' is private
+  void baz () { }
+       ^
+main.cpp:17:11: error: within this context
+       baz();               //3
+           ^
+main.cpp: In function 'int main()':
+main.cpp:6:7: error: 'void Base::bar()' is protected
+  void bar () { }
+       ^
+main.cpp:29:8: error: within this context
+  b.bar();                 //8
+        ^
+main.cpp:6:7: error: 'void Base::bar()' is protected
+  void bar () { }
+       ^
+main.cpp:30:8: error: within this context
+  d.bar();                 //9
+        ^
+main.cpp:8:7: error: 'void Base::baz()' is private
+  void baz () { }
+       ^
+main.cpp:32:8: error: within this context
+  b.baz();                 //10
+        ^
+main.cpp:8:7: error: 'void Base::baz()' is private
+  void baz () { }
+       ^
+main.cpp:33:8: error: within this context
+  d.baz();                 //11
+        ^
