@@ -1,0 +1,1 @@
+cp -l main.cpp dupe.cpp; clang++ -std=c++1y -Os -Wall -pedantic main.cpp -lboost_system -lboost_filesystem && ./a.out;
