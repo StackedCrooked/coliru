@@ -1,0 +1,27 @@
+main.cpp: In function 'int main()':
+main.cpp:8:7: warning: unused variable 'c_arr' [-Wunused-variable]
+     S c_arr[] = {{1, 2}, {3, 4}};  // OK
+       ^
+main.cpp:9:22: warning: unused variable 'std_arr' [-Wunused-variable]
+     std::array<S, 2> std_arr {1, 2, 3, 4};  // Error: too many initializers
+                      ^
+________________________________________
+main.cpp:9:31: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    std::array<S, 2> std_arr {1, 2, 3, 4};  // Error: too many initializers
+                              ^~~~
+                              {   }
+main.cpp:9:37: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    std::array<S, 2> std_arr {1, 2, 3, 4};  // Error: too many initializers
+                                    ^~~~
+                                    {   }
+main.cpp:9:31: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+    std::array<S, 2> std_arr {1, 2, 3, 4};  // Error: too many initializers
+                              ^~~~~~~~~~
+                              {         }
+main.cpp:8:7: warning: unused variable 'c_arr' [-Wunused-variable]
+    S c_arr[] = {{1, 2}, {3, 4}};  // OK
+      ^
+main.cpp:9:22: warning: unused variable 'std_arr' [-Wunused-variable]
+    std::array<S, 2> std_arr {1, 2, 3, 4};  // Error: too many initializers
+                     ^
+5 warnings generated.
