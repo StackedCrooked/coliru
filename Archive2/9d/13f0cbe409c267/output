@@ -1,0 +1,29 @@
+main.cpp: In constructor 'CSerSession::CSerSession(boost::asio::io_service&, CSerSessionsManager&)':
+main.cpp:98:23: warning: 'CSerSession::manager_' will be initialized after [-Wreorder]
+  CSerSessionsManager& manager_;
+                       ^
+main.cpp:97:22: warning:   'boost::asio::ip::tcp::socket CSerSession::socket_' [-Wreorder]
+  mutable tcp::socket socket_;   // client connection
+                      ^
+main.cpp:106:2: warning:   when initialized here [-Wreorder]
+  CSerSession(asio::io_service& io_service, CSerSessionsManager& mng) :
+  ^
+main.cpp: In constructor 'CServer::CServer(boost::asio::io_service&, std::string, std::string)':
+main.cpp:229:20: warning: 'CServer::io_' will be initialized after [-Wreorder]
+  asio::io_service& io_;
+                    ^
+main.cpp:228:24: warning:   'boost::asio::ip::tcp::acceptor CServer::acceptor_' [-Wreorder]
+  mutable tcp::acceptor acceptor_; // only in the listener
+                        ^
+main.cpp:237:2: warning:   when initialized here [-Wreorder]
+  CServer(asio::io_service& io_service, const std::string IP, const std::string port) : io_(io_service), acceptor_(io_service)
+  ^
+CSerSessionsManager                                                        :  184  :    Construction
+CServer                                                                    :  240  :    Listener Created
+initProtocol                                                               :  251  :     Protocol Initiated
+listen                                                                     :  289  :    !==============================================================!
+CSerSession                                                                :  109  :    Server Session Created
+listen                                                                     :  310  :    Listen Activated
+~CServer                                                                   :  245  :    Listener Destroyed
+~CSerSessionsManager                                                       :  189  :    Destruction
+~CSerSession                                                               :  114  :    Server Session Destroyed
