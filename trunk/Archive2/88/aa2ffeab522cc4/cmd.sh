@@ -1,0 +1,1 @@
+clang++ main.cpp -std=c++14 -Wall -Wextra -Werror -Wno-vla-extension -pedantic -O2 -S -emit-llvm && cat main.ll
