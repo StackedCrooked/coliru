@@ -1,0 +1,79 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/sstream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ios:40:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/char_traits.h:39:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algobase.h:64:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:113:9: error: call to implicitly-deleted copy constructor of 'std::basic_stringstream<char>'
+      : first(__a), second(__b) { }
+        ^     ~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:281:14: note: in instantiation of member function 'std::pair<std::basic_stringstream<char>, const char *>::pair' requested here
+      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
+             ^
+main.cpp:5:15: note: in instantiation of function template specialization 'std::make_pair<std::basic_stringstream<char>, char const (&)[13]>' requested here
+auto p = std::make_pair(std::stringstream{}, "Hello World!");
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/sstream:502:32: note: copy constructor of 'basic_stringstream<char, std::char_traits<char>, std::allocator<char> >' is implicitly deleted because base class 'basic_iostream<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_stringstream : public basic_iostream<_CharT, _Traits>
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:796:7: note: copy constructor of 'basic_iostream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_istream<char, std::char_traits<char> >' has a deleted copy constructor
+    : public basic_istream<_CharT, _Traits>,
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:58:27: note: copy constructor of 'basic_istream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ios<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_istream : virtual public basic_ios<_CharT, _Traits>
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_ios.h:66:23: note: copy constructor of 'basic_ios<char, std::char_traits<char> >' is implicitly deleted because base class 'std::ios_base' has an inaccessible copy constructor
+    class basic_ios : public ios_base
+                      ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/sstream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:38:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ios:40:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/char_traits.h:39:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algobase.h:64:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:281:14: error: call to implicitly-deleted copy constructor of 'pair<typename __decay_and_strip<basic_stringstream<char> >::__type, typename __decay_and_strip<char const (&)[13]>::__type>'
+      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:5:15: note: in instantiation of function template specialization 'std::make_pair<std::basic_stringstream<char>, char const (&)[13]>' requested here
+auto p = std::make_pair(std::stringstream{}, "Hello World!");
+              ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:127:17: note: explicitly defaulted function was implicitly deleted here
+      constexpr pair(const pair&) = default;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:101:11: note: copy constructor of 'pair<std::basic_stringstream<char>, const char *>' is implicitly deleted because field 'first' has a deleted copy constructor
+      _T1 first;                 /// @c first is a copy of the first object
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/sstream:502:32: note: copy constructor of 'basic_stringstream<char, std::char_traits<char>, std::allocator<char> >' is implicitly deleted because base class 'basic_iostream<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_stringstream : public basic_iostream<_CharT, _Traits>
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:796:7: note: copy constructor of 'basic_iostream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_istream<char, std::char_traits<char> >' has a deleted copy constructor
+    : public basic_istream<_CharT, _Traits>,
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:58:27: note: copy constructor of 'basic_istream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ios<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_istream : virtual public basic_ios<_CharT, _Traits>
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_ios.h:66:23: note: copy constructor of 'basic_ios<char, std::char_traits<char> >' is implicitly deleted because base class 'std::ios_base' has an inaccessible copy constructor
+    class basic_ios : public ios_base
+                      ^
+main.cpp:5:6: error: call to implicitly-deleted copy constructor of 'std::pair<std::basic_stringstream<char>, const char *>'
+auto p = std::make_pair(std::stringstream{}, "Hello World!");
+     ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:127:17: note: explicitly defaulted function was implicitly deleted here
+      constexpr pair(const pair&) = default;
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:101:11: note: copy constructor of 'pair<std::basic_stringstream<char>, const char *>' is implicitly deleted because field 'first' has a deleted copy constructor
+      _T1 first;                 /// @c first is a copy of the first object
+          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/sstream:502:32: note: copy constructor of 'basic_stringstream<char, std::char_traits<char>, std::allocator<char> >' is implicitly deleted because base class 'basic_iostream<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_stringstream : public basic_iostream<_CharT, _Traits>
+                               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:796:7: note: copy constructor of 'basic_iostream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_istream<char, std::char_traits<char> >' has a deleted copy constructor
+    : public basic_istream<_CharT, _Traits>,
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/istream:58:27: note: copy constructor of 'basic_istream<char, std::char_traits<char> >' is implicitly deleted because base class 'basic_ios<char, std::char_traits<char> >' has a deleted copy constructor
+    class basic_istream : virtual public basic_ios<_CharT, _Traits>
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_ios.h:66:23: note: copy constructor of 'basic_ios<char, std::char_traits<char> >' is implicitly deleted because base class 'std::ios_base' has an inaccessible copy constructor
+    class basic_ios : public ios_base
+                      ^
+3 errors generated.
