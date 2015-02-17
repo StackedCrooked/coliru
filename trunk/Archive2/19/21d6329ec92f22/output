@@ -1,0 +1,20 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z1fPfS_S_
+	.align	16, 0x90
+	.type	_Z1fPfS_S_,@function
+_Z1fPfS_S_:                             # @_Z1fPfS_S_
+	.cfi_startproc
+# BB#0:
+	movups	(%rdi), %xmm0
+	movups	(%rsi), %xmm1
+	mulps	%xmm0, %xmm1
+	movups	%xmm1, (%rdx)
+	retq
+.Ltmp0:
+	.size	_Z1fPfS_S_, .Ltmp0-_Z1fPfS_S_
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
