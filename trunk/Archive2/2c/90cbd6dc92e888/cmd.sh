@@ -1,0 +1,1 @@
+g++ -std=c++11 -O3 -Wall -march=native -pedantic -lboost_system main.cpp && ./a.out
