@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:40:89: error: no matching function for call to 'median_on_sorted(std::vector<int>&, main()::<lambda(int)>)'
+     std::cout << "Median with int lambda: " << median_on_sorted(xi, [](int x){return x;}) << std::endl;
+                                                                                         ^
+main.cpp:40:89: note: candidate is:
+main.cpp:7:6: note: template<class C, class T> decltype (accessor(vec[0])) median_on_sorted(const C&, const std::function<T>&)
+ auto median_on_sorted(
+      ^
+main.cpp:7:6: note:   template argument deduction/substitution failed:
+main.cpp:40:89: note:   'main()::<lambda(int)>' is not derived from 'const std::function<T>'
+     std::cout << "Median with int lambda: " << median_on_sorted(xi, [](int x){return x;}) << std::endl;
+                                                                                         ^
+main.cpp:45:89: error: no matching function for call to 'median_on_sorted(std::vector<double>&, main()::<lambda(int)>)'
+     std::cout << "Median with int lambda: " << median_on_sorted(xd, [](int x){return x;}) << std::endl;
+                                                                                         ^
+main.cpp:45:89: note: candidate is:
+main.cpp:7:6: note: template<class C, class T> decltype (accessor(vec[0])) median_on_sorted(const C&, const std::function<T>&)
+ auto median_on_sorted(
+      ^
+main.cpp:7:6: note:   template argument deduction/substitution failed:
+main.cpp:45:89: note:   'main()::<lambda(int)>' is not derived from 'const std::function<T>'
+     std::cout << "Median with int lambda: " << median_on_sorted(xd, [](int x){return x;}) << std::endl;
+                                                                                         ^
