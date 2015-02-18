@@ -1,0 +1,1 @@
+g++ -std=c++1y -O3 -ftemplate-depth=20480 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
