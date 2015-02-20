@@ -1,0 +1,44 @@
++ clang++ -std=c++11 -O3 -Wall -Wextra -pedantic -pthread main.cpp -S -o -
+	.text
+	.file	"main.cpp"
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:
+	movl	$1078523331, %eax       # imm = 0x4048F5C3
+	retq
+.Ltmp0:
+	.size	main, .Ltmp0-main
+	.cfi_endproc
+
+	.section	.text.startup,"ax",@progbits
+	.align	16, 0x90
+	.type	_GLOBAL__sub_I_main.cpp,@function
+_GLOBAL__sub_I_main.cpp:                # @_GLOBAL__sub_I_main.cpp
+	.cfi_startproc
+# BB#0:
+	pushq	%rax
+.Ltmp1:
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	movl	$_ZStL8__ioinit, %esi
+	movl	$__dso_handle, %edx
+	popq	%rax
+	jmp	__cxa_atexit            # TAILCALL
+.Ltmp2:
+	.size	_GLOBAL__sub_I_main.cpp, .Ltmp2-_GLOBAL__sub_I_main.cpp
+	.cfi_endproc
+
+	.type	_ZStL8__ioinit,@object  # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.init_array,"aw",@init_array
+	.align	8
+	.quad	_GLOBAL__sub_I_main.cpp
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
