@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:11:9: error: no matching function for call to 'foo::foo(volatile bool&)'
+  foo f(b);
+         ^
+main.cpp:11:9: note: candidates are:
+main.cpp:4:5: note: foo::foo(bool&)
+     foo(bool& b) : bar(b) {}
+     ^
+main.cpp:4:5: note:   no known conversion for argument 1 from 'volatile bool' to 'bool&'
+main.cpp:2:8: note: constexpr foo::foo(const foo&)
+ struct foo
+        ^
+main.cpp:2:8: note:   no known conversion for argument 1 from 'volatile bool' to 'const foo&'
+main.cpp:2:8: note: constexpr foo::foo(foo&&)
+main.cpp:2:8: note:   no known conversion for argument 1 from 'volatile bool' to 'foo&&'
