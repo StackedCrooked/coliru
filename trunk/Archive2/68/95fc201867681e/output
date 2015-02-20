@@ -1,0 +1,21 @@
+main.cpp: In function 'int main()':
+main.cpp:17:26: warning: variable length array 'buffer' is used [-Wvla]
+     char buffer[ size +1 ]; // +1 for NUL termination byte 
+                          ^
+
+Calling snprintf(0,0,...)
+size=62
+
+Calling std::snprintf(0,0,...)
+size=62
+
+Calling std::snprintf(buffer,size,...)
+size=62
+buffer=This is the string [blablabla] and this is the integer [12345]
+
+Calling std::sprintf(buffer,...)
+size=62
+buffer=This is the string [blablabla] and this is the integer [12345]
+
+Calling std::sprintf(0,...)
+bash: line 7: 28976 Segmentation fault      (core dumped) ./a.out
