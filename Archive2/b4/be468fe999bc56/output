@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'void CircularVector<T>::emplace(const Args& ...) [with Args = {int, int, int, int, int, int, std::vector<int, std::allocator<int> >, int}; T = Item]':
+main.cpp:105:50:   required from here
+main.cpp:25:3: error: no matching function for call to 'std::vector<Item, std::allocator<Item> >::emplace(int&, const int&, const int&, const int&, const int&, const int&, const int&, const std::vector<int>&, const int&)'
+   _v.emplace(_indexWrite, args...);
+   ^
+main.cpp:25:3: note: candidate is:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:970:9: note: template<class ... _Args> std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::emplace(std::vector<_Tp, _Alloc>::const_iterator, _Args&& ...) [with _Args = {_Args ...}; _Tp = Item; _Alloc = std::allocator<Item>]
+         emplace(const_iterator __position, _Args&&... __args);
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:970:9: note:   template argument deduction/substitution failed:
+main.cpp:25:3: note:   cannot convert '((CircularVector<Item>*)this)->CircularVector<Item>::_indexWrite' (type 'int') to type 'std::vector<Item, std::allocator<Item> >::const_iterator {aka __gnu_cxx::__normal_iterator<const Item*, std::vector<Item, std::allocator<Item> > >}'
+   _v.emplace(_indexWrite, args...);
+   ^
