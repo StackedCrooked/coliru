@@ -1,0 +1,17 @@
+main.cpp:15:48: error: implicit instantiation of undefined template 'TD<Object::ObjectBuilder *>'
+void sampleFunction(){this; TD<decltype(this)> d; } // here this still means ::Object. I wanted 'this' to refer to 'Object::ObjectBuilder' instance
+                                               ^
+main.cpp:10:23: note: template is declared here
+template<class> class TD;
+                      ^
+main.cpp:15:23: warning: expression result unused [-Wunused-value]
+void sampleFunction(){this; TD<decltype(this)> d; } // here this still means ::Object. I wanted 'this' to refer to 'Object::ObjectBuilder' instance
+                      ^~~~
+1 warning and 1 error generated.
+main.cpp: In member function 'void Object::ObjectBuilder::sampleFunction()':
+main.cpp:15:27: warning: statement has no effect [-Wunused-value]
+ void sampleFunction(){this; TD<decltype(this)> d; } // here this still means ::Object. I wanted 'this' to refer to 'Object::ObjectBuilder' instance
+                           ^
+main.cpp:15:48: error: aggregate 'TD<Object::ObjectBuilder*> d' has incomplete type and cannot be defined
+ void sampleFunction(){this; TD<decltype(this)> d; } // here this still means ::Object. I wanted 'this' to refer to 'Object::ObjectBuilder' instance
+                                                ^
