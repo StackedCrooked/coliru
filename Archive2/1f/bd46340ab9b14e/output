@@ -1,0 +1,21 @@
++ clang++ -stdlib=libc++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp
++ ./a.out
+void print_type() [T = std::__1::complex<double>]
+void print_type() [T = std::__1::complex<double>]
+true
++ g++ -std=c++14 -O3 -Wall -pedantic -pthread main.cpp
++ ./a.out
+void print_type() [with T = std::complex<double>]
+void print_type() [with T = std::complex<double>]
+true
++ g++ -std=gnu++11 -O3 -Wall -pedantic -pthread main.cpp
+main.cpp:13:25: warning: imaginary constants are a GCC extension
+     print_type<decltype(1.0i)>();
+                         ^
+main.cpp:15:57: warning: imaginary constants are a GCC extension
+     cout << (typeid(complex<double>(0.0,1.0)) == typeid(1.0i)) << "\n";
+                                                         ^
++ ./a.out
+void print_type() [with T = std::complex<double>]
+void print_type() [with T = __complex__ double]
+false
