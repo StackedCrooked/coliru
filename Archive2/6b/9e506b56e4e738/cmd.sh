@@ -1,0 +1,2 @@
+clang++ -std=c++1z -stdlib=libc++ -Wall -Wextra -pedantic -O3 -pthread main.cpp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 && ./a.out
+#g++ -std=c++1y -Wall -Wextra -pedantic -O3 -pthread main.cpp && ./a.out
