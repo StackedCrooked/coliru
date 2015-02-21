@@ -1,0 +1,15 @@
+main.cpp:14:17: error: template-id 'foo<>' for 'void foo(int)' does not match any template declaration
+ template<> void foo(int x)
+                 ^
+main.cpp: In function 'int main()':
+main.cpp:22:10: error: no matching function for call to 'foo(int)'
+     foo(1);
+          ^
+main.cpp:22:10: note: candidate is:
+main.cpp:4:6: note: template<class ... Ts> void foo()
+ void foo() 
+      ^
+main.cpp:4:6: note:   template argument deduction/substitution failed:
+main.cpp:22:10: note:   candidate expects 0 arguments, 1 provided
+     foo(1);
+          ^
