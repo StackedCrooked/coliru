@@ -1,0 +1,13 @@
+main.cpp:14:17: error: no function template matches function template specialization 'foo'
+template<> void foo<int>(int x)
+                ^
+main.cpp:4:6: note: candidate template ignored: could not match 'void ()' against 'void (int)'
+void foo() 
+     ^
+main.cpp:22:5: error: no matching function for call to 'foo'
+    foo(1);
+    ^~~
+main.cpp:4:6: note: candidate function template not viable: requires 0 arguments, but 1 was provided
+void foo() 
+     ^
+2 errors generated.
