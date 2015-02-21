@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Wall -Wextra -pedantic -O0 -o main main.cpp && ./main
