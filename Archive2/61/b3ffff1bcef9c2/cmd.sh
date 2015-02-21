@@ -1,0 +1,1 @@
+g++ -std=c++11 -O4 -Wall -pedantic -pthread main.cpp && ./a.out --myArg 1234
