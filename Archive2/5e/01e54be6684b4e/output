@@ -1,0 +1,51 @@
+main.cpp:1539:25: error: 'edgesForNode' was not declared in this scope
+             meta::quote<edgesForNode>
+                         ^
+main.cpp:1539:37: error: template argument 1 is invalid
+             meta::quote<edgesForNode>
+                                     ^
+main.cpp:1540:9: error: template argument 2 is invalid
+         >;
+         ^
+main.cpp:1606:7: error: redeclared with 3 template parameters
+ class Edge{
+       ^
+main.cpp:1599:7: note: previous declaration 'template<class TEdgeData, class TTraits> class Edge' used 2 template parameters
+ class Edge;
+       ^
+main.cpp:1646:37: error: 'EdgeDataTypes' was not declared in this scope
+                                     EdgeDataTypes,
+                                     ^
+main.cpp:1652:37: error: template argument 4 is invalid
+                                     >
+                                     ^
+main.cpp:1653:33: error: template argument 1 is invalid
+                                 >;
+                                 ^
+main.cpp:1653:33: error: template argument 2 is invalid
+main.cpp:1655:34: error: 'makeTupleVectorPtr' does not name a type
+     using OutEdgeStoragesTypes = makeTupleVectorPtr< OutEdgeDataTypes, meta::bind_back<meta::quote<Edge>,Traits, meta::bool_<false> > >;
+                                  ^
+main.cpp:1659:33: error: 'makeTupleVectorPtr' does not name a type
+     using InEdgeStoragesTypes = makeTupleVectorPtr< OutEdgeDataTypes, 
+                                 ^
+main.cpp:1662:5: error: 'EdgeStorageType' does not name a type
+     EdgeStorageType m_edges;
+     ^
+main.cpp: In member function 'void Node<TEdgeData, TTraits>::addEdge(T*)':
+main.cpp:1666:76: error: 'EdgeDataTypes' was not declared in this scope
+         using Idx = typename Traits::template getIdx<typename T::EdgeData, EdgeDataTypes>;
+                                                                            ^
+main.cpp:1667:38: error: 'm_edges' was not declared in this scope
+         std::get< Idx::type::value >(m_edges).push_back(e);          
+                                      ^
+main.cpp: In function 'int main()':
+main.cpp:1687:25: error: aggregate 'Edge<EdgeDataAB, CGTraits<meta::list<NodeDataA, NodeDataB, NodeDataC>, meta::list<EdgeDataAA, EdgeDataAB, EdgeDataAC, EdgeDataBB, EdgeDataBC, EdgeDataCC> > > e_ab' has incomplete type and cannot be defined
+     Edge<EdgeDataAB,cg> e_ab;
+                         ^
+main.cpp:1692:25: error: aggregate 'Edge<EdgeDataBC, CGTraits<meta::list<NodeDataA, NodeDataB, NodeDataC>, meta::list<EdgeDataAA, EdgeDataAB, EdgeDataAC, EdgeDataBB, EdgeDataBC, EdgeDataCC> > > e_bc' has incomplete type and cannot be defined
+     Edge<EdgeDataBC,cg> e_bc;
+                         ^
+main.cpp:1702:25: error: aggregate 'Edge<EdgeDataAC, CGTraits<meta::list<NodeDataA, NodeDataB, NodeDataC>, meta::list<EdgeDataAA, EdgeDataAB, EdgeDataAC, EdgeDataBB, EdgeDataBC, EdgeDataCC> > > e_ca' has incomplete type and cannot be defined
+     Edge<EdgeDataAC,cg> e_ca;
+                         ^
