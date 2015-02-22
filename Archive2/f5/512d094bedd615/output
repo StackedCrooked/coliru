@@ -1,0 +1,22 @@
++ clang++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:4:18: warning: ISO C++ does not allow 'main' to be used by a program [-Wmain]
+    std::cout << main << std::endl;
+                 ^
+main.cpp:4:18: warning: address of function 'main' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    std::cout << main << std::endl;
+    ~~~          ^~~~
+main.cpp:4:18: note: prefix with the address-of operator to silence this warning
+    std::cout << main << std::endl;
+                 ^
+                 &
+2 warnings generated.
++ ./a.out
+1
++ g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:4:18: warning: ISO C++ forbids taking address of function '::main' [-Wpedantic]
+     std::cout << main << std::endl;
+                  ^
+main.cpp:4:18: warning: the address of 'int main()' will always evaluate as 'true' [-Waddress]
++ ./a.out
+1
