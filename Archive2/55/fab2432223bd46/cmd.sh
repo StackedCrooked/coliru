@@ -1,0 +1,1 @@
+seq 100 | awk -f main.cpp
