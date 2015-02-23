@@ -1,0 +1,21 @@
+main.cpp: In instantiation of 'struct overload<main()::<lambda(int)>, main()::<lambda(const char*)> >':
+main.cpp:18:84:   required from here
+main.cpp:8:10: error: request for member 'operator()' is ambiguous
+     auto operator()(Args&&... args)
+          ^
+main.cpp:18:69: note: candidates are: main()::<lambda(const char*)>
+     auto f = make_overload([](int i) { return i; }, [](const char* p) { return p; });
+                                                                     ^
+main.cpp:18:36: note:                 main()::<lambda(int)>
+     auto f = make_overload([](int i) { return i; }, [](const char* p) { return p; });
+                                    ^
+main.cpp: In function 'int main()':
+main.cpp:19:8: error: request for member 'operator()' is ambiguous
+     f(1);
+        ^
+main.cpp:18:69: note: candidates are: main()::<lambda(const char*)>
+     auto f = make_overload([](int i) { return i; }, [](const char* p) { return p; });
+                                                                     ^
+main.cpp:18:36: note:                 main()::<lambda(int)>
+     auto f = make_overload([](int i) { return i; }, [](const char* p) { return p; });
+                                    ^
