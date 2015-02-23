@@ -1,0 +1,47 @@
+main.cpp: In function 'int main()':
+main.cpp:5:45: error: no matching function for call to 'std::vector<std::vector<int> >::vector(int, int)'
+     std::vector<std::vector<int>> array(2, 3);
+                                             ^
+main.cpp:5:45: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:401:9: note: template<class _InputIterator, class> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:401:9: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:373:7: note: std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(initializer_list<value_type> __l,
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:373:7: note:   no known conversion for argument 1 from 'int' to 'std::initializer_list<std::vector<int> >'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:348:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>&&, const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(vector&& __rv, const allocator_type& __m)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:348:7: note:   no known conversion for argument 1 from 'int' to 'std::vector<std::vector<int> >&&'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:339:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&, const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(const vector& __x, const allocator_type& __a)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:339:7: note:   no known conversion for argument 1 from 'int' to 'const std::vector<std::vector<int> >&'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:335:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>&&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >]
+       vector(vector&& __x) noexcept
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:335:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:318:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >]
+       vector(const vector& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:318:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:289:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = std::vector<int>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(size_type __n, const value_type& __value,
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:289:7: note:   no known conversion for argument 2 from 'int' to 'const value_type& {aka const std::vector<int>&}'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:277:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(size_type __n, const allocator_type& __a = allocator_type())
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:277:7: note:   no known conversion for argument 2 from 'int' to 'const allocator_type& {aka const std::allocator<std::vector<int> >&}'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:264:7: note: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<std::vector<int> >]
+       vector(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:264:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:253:7: note: std::vector<_Tp, _Alloc>::vector() [with _Tp = std::vector<int>; _Alloc = std::allocator<std::vector<int> >]
+       vector()
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:253:7: note:   candidate expects 0 arguments, 2 provided
