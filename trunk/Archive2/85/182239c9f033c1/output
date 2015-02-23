@@ -1,0 +1,108 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+0 clang++ c++98
+main.cpp:14:7: error: union member 'a' has a non-trivial copy constructor
+    A a;
+      ^
+main.cpp:4:3: note: because type 'A' has a virtual member function
+  virtual void p() { std::cout<<"A!\n"; }
+  ^
+main.cpp:15:7: error: union member 'b' has a non-trivial copy constructor
+    B b;
+      ^
+main.cpp:7:12: note: because the function selected to copy base class of type 'A' is not trivial
+struct B : A {
+           ^
+main.cpp:4:3: note: because type 'A' has a virtual member function
+  virtual void p() { std::cout<<"A!\n"; }
+  ^
+main.cpp:22:16: error: member initializer 'a' does not name a non-static data member or base class
+    : tag(AA), a(p) {}
+               ^~~~
+main.cpp:25:33: error: use of undeclared identifier 'a'
+  A &get() { return tag == AA ? a : b; }
+                                ^
+main.cpp:25:37: error: use of undeclared identifier 'b'
+  A &get() { return tag == AA ? a : b; }
+                                    ^
+5 errors generated.
+
+1 clang++ c++98
+main.cpp:14:7: error: union member 'a' has a non-trivial copy constructor
+    A a;
+      ^
+main.cpp:4:3: note: because type 'A' has a virtual member function
+  virtual void p() { std::cout<<"A!\n"; }
+  ^
+main.cpp:15:7: error: union member 'b' has a non-trivial copy constructor
+    B b;
+      ^
+main.cpp:7:12: note: because the function selected to copy base class of type 'A' is not trivial
+struct B : A {
+           ^
+main.cpp:4:3: note: because type 'A' has a virtual member function
+  virtual void p() { std::cout<<"A!\n"; }
+  ^
+main.cpp:20:16: error: use of undeclared identifier 'a'
+    : tag(AA) {a=p;}
+               ^
+main.cpp:25:33: error: use of undeclared identifier 'a'
+  A &get() { return tag == AA ? a : b; }
+                                ^
+main.cpp:25:37: error: use of undeclared identifier 'b'
+  A &get() { return tag == AA ? a : b; }
+                                    ^
+5 errors generated.
+
+0 clang++ c++11
+A!
+A!
+1 clang++ c++11
+bash: line 7: 29006 Illegal instruction     (core dumped) ./a.out
+
+0 clang++ c++14
+A!
+A!
+1 clang++ c++14
+bash: line 7: 29017 Illegal instruction     (core dumped) ./a.out
+
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+0 g++ c++98
+main.cpp:14:7: error: member 'A Param::<anonymous union>::a' with constructor not allowed in union
+     A a;
+       ^
+main.cpp:14:7: error: member 'A Param::<anonymous union>::a' with copy assignment operator not allowed in union
+main.cpp:14:7: note: unrestricted unions only available with -std=c++11 or -std=gnu++11
+main.cpp:15:7: error: member 'B Param::<anonymous union>::b' with constructor not allowed in union
+     B b;
+       ^
+main.cpp:15:7: error: member 'B Param::<anonymous union>::b' with copy assignment operator not allowed in union
+
+1 g++ c++98
+main.cpp:14:7: error: member 'A Param::<anonymous union>::a' with constructor not allowed in union
+     A a;
+       ^
+main.cpp:14:7: error: member 'A Param::<anonymous union>::a' with copy assignment operator not allowed in union
+main.cpp:14:7: note: unrestricted unions only available with -std=c++11 or -std=gnu++11
+main.cpp:15:7: error: member 'B Param::<anonymous union>::b' with constructor not allowed in union
+     B b;
+       ^
+main.cpp:15:7: error: member 'B Param::<anonymous union>::b' with copy assignment operator not allowed in union
+
+0 g++ c++11
+A!
+A!
+1 g++ c++11
+bash: line 7: 29047 Segmentation fault      (core dumped) ./a.out
+
+0 g++ c++14
+A!
+A!
+1 g++ c++14
+bash: line 7: 29072 Segmentation fault      (core dumped) ./a.out
+
