@@ -1,0 +1,1 @@
+for CC in clang++ g++; do $CC --version; for std in c++98 c++11 c++14; do for test in 0 1; do echo $test $CC $std && $CC -O3 -Dtest=$test -x c++ -std=$std -Wall -Wextra -pedantic -Wno-unused-variable main.cpp && ./a.out || echo; done; done; done
