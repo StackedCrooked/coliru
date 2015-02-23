@@ -1,0 +1,1 @@
+g++ -std=c++03 -O2 -Wall -pedantic -pthread -lboost_regex main.cpp && ./a.out
