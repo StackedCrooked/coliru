@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:34:9: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+     o(2l);
+         ^
+main.cpp:30:40: note: candidate 1: main()::<lambda(int)>
+     auto o = make_overload_set([](int i) { std::cout << "int" << std::endl; },
+                                        ^
+main.cpp:34:9: note: candidate 2: void (*)(long int) <conversion>
+     o(2l);
+         ^
+main.cpp:34:9: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+main.cpp:30:40: note: candidate 1: main()::<lambda(int)>
+     auto o = make_overload_set([](int i) { std::cout << "int" << std::endl; },
+                                        ^
+main.cpp:34:9: note: candidate 2: void (*)(long int) <conversion>
+     o(2l);
+         ^
+int
+int
