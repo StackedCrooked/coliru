@@ -1,0 +1,1 @@
+g++ -std=c++1y -Os -Wall -pedantic -pthread main.cpp && cat /Archive2/fe/*/main.cpp | ./a.out
