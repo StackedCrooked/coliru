@@ -1,0 +1,239 @@
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.type	_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii, @function
+_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii:
+.LFB1461:
+	.cfi_startproc
+	leal	(%rsi,%rdx), %eax
+	ret
+	.cfi_endproc
+.LFE1461:
+	.size	_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii, .-_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+.LCOLDB1:
+	.text
+.LHOTB1:
+	.p2align 4,,15
+	.type	_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, @function
+_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation:
+.LFB1462:
+	.cfi_startproc
+	cmpl	$1, %edx
+	je	.L4
+	jle	.L12
+	cmpl	$2, %edx
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	je	.L7
+	cmpl	$3, %edx
+	jne	.L3
+	movq	(%rdi), %rdi
+	call	_ZdlPv
+.L3:
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_restore 3
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	.cfi_restore_state
+	movl	$1, %edi
+	call	_Znwm
+	movq	%rax, (%rbx)
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L12:
+	testl	%edx, %edx
+	jne	.L10
+	movq	$_ZTIZ8test_foovEUliiE_, (%rdi)
+.L10:
+	xorl	%eax, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movq	(%rsi), %rax
+	movq	%rax, (%rdi)
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE1462:
+	.size	_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, .-_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation
+	.section	.text.unlikely
+.LCOLDE1:
+	.text
+.LHOTE1:
+	.section	.text.unlikely
+.LCOLDB2:
+	.text
+.LHOTB2:
+	.p2align 4,,15
+	.globl	_Z3fooSt8functionIFiiiEE
+	.type	_Z3fooSt8functionIFiiiEE, @function
+_Z3fooSt8functionIFiiiEE:
+.LFB1244:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	cmpq	$0, 16(%rdi)
+	movq	%rdi, %rax
+	je	.L16
+	movl	$222, %edx
+	movl	$111, %esi
+	call	*24(%rax)
+	addl	$555, %eax
+	movl	%eax, 12(%rsp)
+	movl	12(%rsp), %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L16:
+	.cfi_restore_state
+	call	_ZSt25__throw_bad_function_callv
+	.cfi_endproc
+.LFE1244:
+	.size	_Z3fooSt8functionIFiiiEE, .-_Z3fooSt8functionIFiiiEE
+	.section	.text.unlikely
+.LCOLDE2:
+	.text
+.LHOTE2:
+	.section	.text.unlikely
+.LCOLDB3:
+	.text
+.LHOTB3:
+	.p2align 4,,15
+	.globl	_Z8test_foov
+	.type	_Z8test_foov, @function
+_Z8test_foov:
+.LFB1245:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1245
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	$1, %edi
+	subq	$48, %rsp
+	.cfi_def_cfa_offset 64
+	movq	$0, 32(%rsp)
+.LEHB0:
+	call	_Znwm
+.LEHE0:
+	leaq	16(%rsp), %rdi
+	movl	$222, %edx
+	movl	$111, %esi
+	movq	%rax, 16(%rsp)
+	movq	$_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii, 40(%rsp)
+	movq	$_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, 32(%rsp)
+	call	_ZNSt17_Function_handlerIFiiiEZ8test_foovEUliiE_E9_M_invokeERKSt9_Any_dataii
+	leaq	16(%rsp), %rsi
+	addl	$555, %eax
+	movl	$3, %edx
+	movl	%eax, 12(%rsp)
+	movl	12(%rsp), %eax
+	movq	%rsi, %rdi
+	call	_ZNSt14_Function_base13_Base_managerIZ8test_foovEUliiE_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+.L20:
+	.cfi_restore_state
+	movq	32(%rsp), %rcx
+	movq	%rax, %rbx
+	testq	%rcx, %rcx
+	je	.L19
+	leaq	16(%rsp), %rsi
+	movl	$3, %edx
+	movq	%rsi, %rdi
+	call	*%rcx
+.L19:
+	movq	%rbx, %rdi
+.LEHB1:
+	call	_Unwind_Resume
+.LEHE1:
+	.cfi_endproc
+.LFE1245:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA1245:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1245-.LLSDACSB1245
+.LLSDACSB1245:
+	.uleb128 .LEHB0-.LFB1245
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 .L20-.LFB1245
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB1245
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1245:
+	.text
+	.size	_Z8test_foov, .-_Z8test_foov
+	.section	.text.unlikely
+.LCOLDE3:
+	.text
+.LHOTE3:
+	.section	.text.unlikely
+.LCOLDB4:
+	.text
+.LHOTB4:
+	.p2align 4,,15
+	.globl	_Z8test_barv
+	.type	_Z8test_barv, @function
+_Z8test_barv:
+.LFB1253:
+	.cfi_startproc
+	movl	$888, -4(%rsp)
+	movl	-4(%rsp), %eax
+	ret
+	.cfi_endproc
+.LFE1253:
+	.size	_Z8test_barv, .-_Z8test_barv
+	.section	.text.unlikely
+.LCOLDE4:
+	.text
+.LHOTE4:
+	.section	.rodata
+	.align 16
+	.type	_ZTSZ8test_foovEUliiE_, @object
+	.size	_ZTSZ8test_foovEUliiE_, 20
+_ZTSZ8test_foovEUliiE_:
+	.string	"*Z8test_foovEUliiE_"
+	.align 16
+	.type	_ZTIZ8test_foovEUliiE_, @object
+	.size	_ZTIZ8test_foovEUliiE_, 16
+_ZTIZ8test_foovEUliiE_:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSZ8test_foovEUliiE_
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
