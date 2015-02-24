@@ -1,0 +1,16 @@
+main.cpp:25:59: warning: control reaches end of non-void function [-Wreturn-type]
+    Variant& operator= (const Value& node) { parse(node); };
+                                                          ^
+main.cpp:44:13: error: no viable conversion from 'const char [6]' to 'Variant'
+    Variant v1 = "Hello";
+            ^    ~~~~~~~
+main.cpp:11:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const char [6]' to 'const Variant &' for 1st argument
+class Variant : ObjectBase {
+      ^
+main.cpp:11:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'const char [6]' to 'Variant &&' for 1st argument
+class Variant : ObjectBase {
+      ^
+main.cpp:14:5: note: candidate constructor not viable: no known conversion from 'const char [6]' to 'const Value &' for 1st argument
+    Variant(const Value& node) { parse(node); };
+    ^
+1 warning and 1 error generated.
