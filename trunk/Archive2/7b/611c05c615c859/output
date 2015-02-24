@@ -1,0 +1,20 @@
+main.cpp: In function 'constexpr int detail::constexpr_check(Ts ...)':
+main.cpp:2:64: warning: no return statement in function returning non-void [-Wreturn-type]
+   template<class... Ts> constexpr int constexpr_check (Ts...) {}
+                                                                ^
+main.cpp: In instantiation of 'constexpr int detail::constexpr_check(Ts ...) [with Ts = {int, int}]':
+main.cpp:25:23:   required from here
+main.cpp:2:64: error: body of constexpr function 'constexpr int detail::constexpr_check(Ts ...) [with Ts = {int, int}]' not a return-statement
+main.cpp: In function 'int main()':
+main.cpp:5:69: error: call to non-constexpr function 'constexpr int pow(int, int) [with bool B = false]'
+   (FUNC <noexcept(detail::constexpr_check(__VA_ARGS__))>(__VA_ARGS__))
+                                                                     ^
+main.cpp:25:23: note: in expansion of macro 'CONDITIONALLY_INVOKE_CONSTEXPR'
+     constexpr int r = CONDITIONALLY_INVOKE_CONSTEXPR (pow, 2, e);
+                       ^
+main.cpp:5:69: error: call to non-constexpr function 'constexpr int pow(int, int) [with bool B = false]'
+   (FUNC <noexcept(detail::constexpr_check(__VA_ARGS__))>(__VA_ARGS__))
+                                                                     ^
+main.cpp:29:23: note: in expansion of macro 'CONDITIONALLY_INVOKE_CONSTEXPR'
+     constexpr int r = CONDITIONALLY_INVOKE_CONSTEXPR (pow, 2, 8);
+                       ^
