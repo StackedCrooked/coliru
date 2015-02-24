@@ -1,0 +1,105 @@
+IndexedFileInfo inserting entries
+=================================
+[ S  P  C  D]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+[03,08,12,23] (004.txt<->004.txt) - duplicate, not inserted
+[03,08,12,23] (005.txt<->005.txt) - duplicate, not inserted
+[03,08,12,23] (006.txt<->006.txt) - duplicate, not inserted
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+IndexedFileInfo identity order
+==============================
+[ S  P  C  D]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+IndexedFileInfo by DIR_FILTER
+=============================
+[ S  P  C  D]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+ModuleLoadList - composite key order
+====================================
+[ S  P  C  D]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+ModuleLoadList (DIR_FILTER >= 22)
+=================================
+[ S  P  C  D]
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+ModuleLoadList (lb22<->ub23)
+============================
+[ S  P  C  D]
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+ModuleLoadList (DIR_FILTER == 21)
+=================================
+[ S  P  C  D]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+ModuleLoadList Sequencing
+=========================
+[ S  P  C  D]
+run->nSetupCmd[1]
+[01,05,10,21] (xxx.txt<->xxx.txt)
+[01,05,10,21] (yyy.txt<->yyy.txt)
+run->nCleanupCmd[10]
+run->nSetupCmd[2]
+[02,05,11,22] (abc.txt<->abc.txt)
+[02,05,11,22] (def.txt<->def.txt)
+run->nCleanupCmd[11]
+run->nSetupCmd[3]
+[03,06,12,23] (ghi.txt<->ghi.txt)
+[03,06,12,23] (jkl.txt<->jkl.txt)
+run->nCleanupCmd[12]
+run->nSetupCmd[3]
+[03,08,12,23] (004.txt<->004.txt)
+[03,08,12,23] (005.txt<->005.txt)
+[03,08,12,23] (006.txt<->006.txt)
+run->nCleanupCmd[12]
