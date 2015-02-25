@@ -1,0 +1,583 @@
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	.file	"main.cpp"
+	.section	.text.unlikely._ZN7Counter4callEl,"axG",@progbits,_ZN7Counter4callEl,comdat
+	.align 2
+.LCOLDB0:
+	.section	.text._ZN7Counter4callEl,"axG",@progbits,_ZN7Counter4callEl,comdat
+.LHOTB0:
+	.align 2
+	.p2align 4,,15
+	.weak	_ZN7Counter4callEl
+	.type	_ZN7Counter4callEl, @function
+_ZN7Counter4callEl:
+.LFB1847:
+	.cfi_startproc
+	addq	%rsi, 8(%rdi)
+	ret
+	.cfi_endproc
+.LFE1847:
+	.size	_ZN7Counter4callEl, .-_ZN7Counter4callEl
+	.section	.text.unlikely._ZN7Counter4callEl,"axG",@progbits,_ZN7Counter4callEl,comdat
+.LCOLDE0:
+	.section	.text._ZN7Counter4callEl,"axG",@progbits,_ZN7Counter4callEl,comdat
+.LHOTE0:
+	.section	.text.unlikely._ZN7CounterD2Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+	.align 2
+.LCOLDB1:
+	.section	.text._ZN7CounterD2Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LHOTB1:
+	.align 2
+	.p2align 4,,15
+	.weak	_ZN7CounterD2Ev
+	.type	_ZN7CounterD2Ev, @function
+_ZN7CounterD2Ev:
+.LFB2255:
+	.cfi_startproc
+	rep; ret
+	.cfi_endproc
+.LFE2255:
+	.size	_ZN7CounterD2Ev, .-_ZN7CounterD2Ev
+	.section	.text.unlikely._ZN7CounterD2Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LCOLDE1:
+	.section	.text._ZN7CounterD2Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LHOTE1:
+	.weak	_ZN7CounterD1Ev
+	.set	_ZN7CounterD1Ev,_ZN7CounterD2Ev
+	.section	.text.unlikely._ZN7CounterD0Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+	.align 2
+.LCOLDB2:
+	.section	.text._ZN7CounterD0Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LHOTB2:
+	.align 2
+	.p2align 4,,15
+	.weak	_ZN7CounterD0Ev
+	.type	_ZN7CounterD0Ev, @function
+_ZN7CounterD0Ev:
+.LFB2257:
+	.cfi_startproc
+	jmp	_ZdlPv
+	.cfi_endproc
+.LFE2257:
+	.size	_ZN7CounterD0Ev, .-_ZN7CounterD0Ev
+	.section	.text.unlikely._ZN7CounterD0Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LCOLDE2:
+	.section	.text._ZN7CounterD0Ev,"axG",@progbits,_ZN7CounterD5Ev,comdat
+.LHOTE2:
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC3:
+	.string	"vector::_M_range_check: __n (which is %zu) >= this->size() (which is %zu)"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB4:
+	.text
+.LHOTB4:
+	.p2align 4,,15
+	.globl	_Z15generate_vectorv
+	.type	_Z15generate_vectorv, @function
+_Z15generate_vectorv:
+.LFB1848:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1848
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	%rdi, %rbx
+	movq	$0, (%rdi)
+	movq	$0, 8(%rdi)
+	movq	$0, 16(%rdi)
+	movl	$8008, %edi
+.LEHB0:
+	call	_Znwm
+	movq	8(%rbx), %rdx
+	movq	(%rbx), %rsi
+	movq	%rax, %rbp
+	cmpq	%rsi, %rdx
+	je	.L5
+	movq	%rsi, %rax
+	movq	%rbp, %rcx
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	testq	%rcx, %rcx
+	movq	(%rax), %rdi
+	je	.L6
+	movq	%rdi, (%rcx)
+.L6:
+	addq	$8, %rax
+	addq	$8, %rcx
+	cmpq	%rax, %rdx
+	jne	.L7
+	leaq	8(%rsi), %rax
+	subq	%rax, %rdx
+	shrq	$3, %rdx
+	leaq	8(%rbp,%rdx,8), %rax
+.L5:
+	leaq	8(%rax), %rdi
+	movq	$0, (%rax)
+	movq	$0, 8000(%rax)
+	leaq	8008(%rax), %r12
+	andq	$-8, %rdi
+	subq	%rdi, %rax
+	leal	8008(%rax), %ecx
+	xorl	%eax, %eax
+	shrl	$3, %ecx
+	testq	%rsi, %rsi
+	rep; stosq
+	je	.L8
+	movq	%rsi, %rdi
+	call	_ZdlPv
+.L8:
+	movq	%r12, 8(%rbx)
+	subq	%rbp, %r12
+	leaq	8008(%rbp), %rax
+	movq	%r12, %rdx
+	movq	%rbp, (%rbx)
+	sarq	$3, %rdx
+	movq	%rax, 16(%rbx)
+	cmpq	$1000, %rdx
+	jbe	.L27
+	movq	$1, 8000(%rbp)
+	movq	%rbx, %rax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+.L27:
+	.cfi_restore_state
+	movl	$1000, %esi
+	movl	$.LC3, %edi
+	xorl	%eax, %eax
+	call	_ZSt24__throw_out_of_range_fmtPKcz
+.LEHE0:
+.L13:
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+	testq	%rdi, %rdi
+	je	.L11
+	call	_ZdlPv
+.L11:
+	movq	%rbp, %rdi
+.LEHB1:
+	call	_Unwind_Resume
+.LEHE1:
+	.cfi_endproc
+.LFE1848:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA1848:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1848-.LLSDACSB1848
+.LLSDACSB1848:
+	.uleb128 .LEHB0-.LFB1848
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 .L13-.LFB1848
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB1848
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1848:
+	.text
+	.size	_Z15generate_vectorv, .-_Z15generate_vectorv
+	.section	.text.unlikely
+.LCOLDE4:
+	.text
+.LHOTE4:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC6:
+	.string	"Templated count - "
+.LC7:
+	.string	"s, val - "
+.LC8:
+	.string	"Virtual count - "
+	.section	.text.unlikely
+.LCOLDB9:
+	.section	.text.startup,"ax",@progbits
+.LHOTB9:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1851:
+	.cfi_startproc
+	.cfi_personality 0x3,__gxx_personality_v0
+	.cfi_lsda 0x3,.LLSDA1851
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 112
+	leaq	16(%rsp), %rdi
+.LEHB2:
+	call	_Z15generate_vectorv
+.LEHE2:
+	call	clock
+	call	clock
+	movq	16(%rsp), %rdx
+	movq	24(%rsp), %r12
+	movq	%rax, %rbp
+	movl	$100000, %r9d
+	leaq	8(%rdx), %r15
+	movq	%r12, %r13
+	movq	%rdx, %r14
+	salq	$60, %r14
+	subq	%r15, %r13
+	shrq	$63, %r14
+	shrq	$3, %r13
+	leaq	1(%r13), %r8
+	cmpq	%r8, %r14
+	cmova	%r8, %r14
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L37:
+	cmpq	%r12, %rdx
+	je	.L29
+	cmpq	$7, %r8
+	movq	%r8, %rcx
+	ja	.L93
+.L50:
+	addq	(%rdx), %rbx
+	cmpq	$1, %rcx
+	je	.L53
+	addq	8(%rdx), %rbx
+	cmpq	$2, %rcx
+	leaq	16(%rdx), %rax
+	je	.L32
+	addq	16(%rdx), %rbx
+	cmpq	$3, %rcx
+	leaq	24(%rdx), %rax
+	je	.L32
+	addq	24(%rdx), %rbx
+	cmpq	$4, %rcx
+	leaq	32(%rdx), %rax
+	je	.L32
+	addq	32(%rdx), %rbx
+	cmpq	$5, %rcx
+	leaq	40(%rdx), %rax
+	je	.L32
+	addq	40(%rdx), %rbx
+	cmpq	$7, %rcx
+	leaq	48(%rdx), %rax
+	jne	.L32
+	addq	48(%rdx), %rbx
+	leaq	56(%rdx), %rax
+.L32:
+	cmpq	%rcx, %r8
+	je	.L29
+.L31:
+	movq	%r8, %r10
+	subq	%rcx, %r10
+	leaq	-2(%r10), %rdi
+	shrq	%rdi
+	addq	$1, %rdi
+	cmpq	%rcx, %r13
+	leaq	(%rdi,%rdi), %r11
+	je	.L34
+	pxor	%xmm0, %xmm0
+	leaq	(%rdx,%rcx,8), %rsi
+	xorl	%ecx, %ecx
+.L35:
+	addq	$1, %rcx
+	paddq	(%rsi), %xmm0
+	addq	$16, %rsi
+	cmpq	%rdi, %rcx
+	jb	.L35
+	movdqa	%xmm0, %xmm1
+	leaq	(%rax,%r11,8), %rax
+	psrldq	$8, %xmm1
+	paddq	%xmm1, %xmm0
+	movq	%xmm0, %rcx
+	addq	%rcx, %rbx
+	cmpq	%r11, %r10
+	je	.L29
+.L34:
+	addq	(%rax), %rbx
+.L29:
+	subl	$1, %r9d
+	jne	.L37
+	call	clock
+	pxor	%xmm0, %xmm0
+	subq	%rbp, %rax
+	movl	$.LC6, %esi
+	movl	$_ZSt4cout, %edi
+	cvtsi2sdq	%rax, %xmm0
+	divsd	.LC5(%rip), %xmm0
+	movsd	%xmm0, 8(%rsp)
+.LEHB3:
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movsd	8(%rsp), %xmm0
+	movq	%rax, %rdi
+	call	_ZNSo9_M_insertIdEERSoT_
+	movl	$.LC7, %esi
+	movq	%rax, %rdi
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movq	%rbx, %rsi
+	movq	%rax, %rdi
+	call	_ZNSo9_M_insertIlEERSoT_
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	call	clock
+	movq	16(%rsp), %rdx
+	movq	24(%rsp), %r12
+	movq	%rax, %rbp
+	movl	$100000, %r9d
+	leaq	8(%rdx), %r15
+	movq	%r12, %r13
+	movq	%rdx, %r14
+	salq	$60, %r14
+	subq	%r15, %r13
+	shrq	$63, %r14
+	shrq	$3, %r13
+	leaq	1(%r13), %r8
+	cmpq	%r8, %r14
+	cmova	%r8, %r14
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L46:
+	cmpq	%r12, %rdx
+	je	.L38
+	cmpq	$7, %r8
+	movq	%r8, %rcx
+	ja	.L94
+.L51:
+	addq	(%rdx), %rbx
+	cmpq	$1, %rcx
+	je	.L55
+	addq	8(%rdx), %rbx
+	cmpq	$2, %rcx
+	leaq	16(%rdx), %rax
+	je	.L41
+	addq	16(%rdx), %rbx
+	cmpq	$3, %rcx
+	leaq	24(%rdx), %rax
+	je	.L41
+	addq	24(%rdx), %rbx
+	cmpq	$4, %rcx
+	leaq	32(%rdx), %rax
+	je	.L41
+	addq	32(%rdx), %rbx
+	cmpq	$5, %rcx
+	leaq	40(%rdx), %rax
+	je	.L41
+	addq	40(%rdx), %rbx
+	cmpq	$7, %rcx
+	leaq	48(%rdx), %rax
+	jne	.L41
+	addq	48(%rdx), %rbx
+	leaq	56(%rdx), %rax
+.L41:
+	cmpq	%rcx, %r8
+	je	.L38
+.L40:
+	movq	%r8, %r10
+	subq	%rcx, %r10
+	leaq	-2(%r10), %rdi
+	shrq	%rdi
+	addq	$1, %rdi
+	cmpq	%rcx, %r13
+	leaq	(%rdi,%rdi), %r11
+	je	.L43
+	pxor	%xmm0, %xmm0
+	leaq	(%rdx,%rcx,8), %rsi
+	xorl	%ecx, %ecx
+.L44:
+	addq	$1, %rcx
+	paddq	(%rsi), %xmm0
+	addq	$16, %rsi
+	cmpq	%rcx, %rdi
+	ja	.L44
+	movdqa	%xmm0, %xmm1
+	leaq	(%rax,%r11,8), %rax
+	psrldq	$8, %xmm1
+	paddq	%xmm1, %xmm0
+	movq	%xmm0, %rcx
+	addq	%rcx, %rbx
+	cmpq	%r11, %r10
+	je	.L38
+.L43:
+	addq	(%rax), %rbx
+.L38:
+	subl	$1, %r9d
+	jne	.L46
+	call	clock
+	pxor	%xmm0, %xmm0
+	subq	%rbp, %rax
+	movl	$.LC8, %esi
+	movl	$_ZSt4cout, %edi
+	cvtsi2sdq	%rax, %xmm0
+	divsd	.LC5(%rip), %xmm0
+	movsd	%xmm0, 8(%rsp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movsd	8(%rsp), %xmm0
+	movq	%rax, %rdi
+	call	_ZNSo9_M_insertIdEERSoT_
+	movl	$.LC7, %esi
+	movq	%rax, %rdi
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movq	%rbx, %rsi
+	movq	%rax, %rdi
+	call	_ZNSo9_M_insertIlEERSoT_
+	movq	%rax, %rdi
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+.LEHE3:
+	movq	16(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L67
+	call	_ZdlPv
+.L67:
+	addq	$56, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L94:
+	.cfi_restore_state
+	testq	%r14, %r14
+	movq	%r14, %rcx
+	jne	.L51
+	movq	%rdx, %rax
+	jmp	.L40
+	.p2align 4,,10
+	.p2align 3
+.L93:
+	testq	%r14, %r14
+	movq	%r14, %rcx
+	jne	.L50
+	movq	%rdx, %rax
+	jmp	.L31
+	.p2align 4,,10
+	.p2align 3
+.L55:
+	movq	%r15, %rax
+	jmp	.L41
+	.p2align 4,,10
+	.p2align 3
+.L53:
+	movq	%r15, %rax
+	jmp	.L32
+.L56:
+	movq	16(%rsp), %rdi
+	movq	%rax, %rbx
+	testq	%rdi, %rdi
+	je	.L49
+	call	_ZdlPv
+.L49:
+	movq	%rbx, %rdi
+.LEHB4:
+	call	_Unwind_Resume
+.LEHE4:
+	.cfi_endproc
+.LFE1851:
+	.section	.gcc_except_table
+.LLSDA1851:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE1851-.LLSDACSB1851
+.LLSDACSB1851:
+	.uleb128 .LEHB2-.LFB1851
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB1851
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L56-.LFB1851
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB1851
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE1851:
+	.section	.text.startup
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE9:
+	.section	.text.startup
+.LHOTE9:
+	.section	.text.unlikely
+.LCOLDB10:
+	.section	.text.startup
+.LHOTB10:
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I__Z15generate_vectorv, @function
+_GLOBAL__sub_I__Z15generate_vectorv:
+.LFB2259:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$_ZStL8__ioinit, %edi
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, %edx
+	movl	$_ZStL8__ioinit, %esi
+	movl	$_ZNSt8ios_base4InitD1Ev, %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE2259:
+	.size	_GLOBAL__sub_I__Z15generate_vectorv, .-_GLOBAL__sub_I__Z15generate_vectorv
+	.section	.text.unlikely
+.LCOLDE10:
+	.section	.text.startup
+.LHOTE10:
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I__Z15generate_vectorv
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC5:
+	.long	0
+	.long	1093567616
+	.hidden	__dso_handle
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
