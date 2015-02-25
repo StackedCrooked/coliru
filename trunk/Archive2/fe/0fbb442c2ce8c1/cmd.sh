@@ -1,0 +1,2 @@
+cat >test.xml<<<'<root><child nodetype="element" with="attributes">monkey show</child><child nodetype="element">monkey do</child></root>
+';g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out
