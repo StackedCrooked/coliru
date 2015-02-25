@@ -1,0 +1,100 @@
+main.cpp:16:21: error: 'CommInterface' has not been declared
+         void sendTo(CommInterface* commInterface) = 0;
+                     ^
+main.cpp:19:9: error: 'Model' does not name a type
+         Model* model_;
+         ^
+main.cpp:15:14: error: initializer specified for non-virtual method 'void AbstractAction::run()'
+         void run() = 0;
+              ^
+main.cpp:16:14: error: initializer specified for non-virtual method 'void AbstractAction::sendTo(int*)'
+         void sendTo(CommInterface* commInterface) = 0;
+              ^
+main.cpp:31:21: error: 'CommInterface' has not been declared
+         void sendTo(CommInterface* commInterface) override
+                     ^
+main.cpp:37:9: error: 'Structure' does not name a type
+         Structure type_;
+         ^
+main.cpp:38:9: error: 'sf' does not name a type
+         sf::Vector2u position_;
+         ^
+main.cpp:26:14: error: 'void BuildingBuilder::run()' marked override, but does not override
+         void run() override
+              ^
+main.cpp:31:14: error: 'void BuildingBuilder::sendTo(int*)' marked override, but does not override
+         void sendTo(CommInterface* commInterface) override
+              ^
+main.cpp: In member function 'void BuildingBuilder::run()':
+main.cpp:28:13: error: 'model' was not declared in this scope
+             model->buildBuilding(type_, position_);
+             ^
+main.cpp:28:34: error: 'type_' was not declared in this scope
+             model->buildBuilding(type_, position_);
+                                  ^
+main.cpp:28:41: error: 'position_' was not declared in this scope
+             model->buildBuilding(type_, position_);
+                                         ^
+main.cpp: In member function 'void BuildingBuilder::sendTo(int*)':
+main.cpp:33:28: error: request for member 'sendBuildingBuilder' in '* commInterface', which is of non-class type 'int'
+             commInterface->sendBuildingBuilder(type_, position_);
+                            ^
+main.cpp:33:48: error: 'type_' was not declared in this scope
+             commInterface->sendBuildingBuilder(type_, position_);
+                                                ^
+main.cpp:33:55: error: 'position_' was not declared in this scope
+             commInterface->sendBuildingBuilder(type_, position_);
+                                                       ^
+main.cpp: At global scope:
+main.cpp:49:21: error: 'CommInterface' has not been declared
+         void sendTo(CommInterface* commInterface) override
+                     ^
+main.cpp:55:9: error: 'sf' does not name a type
+         sf::Vector2u position_;
+         ^
+main.cpp:44:14: error: 'void InfoGetter::run()' marked override, but does not override
+         void run() override
+              ^
+main.cpp:49:14: error: 'void InfoGetter::sendTo(int*)' marked override, but does not override
+         void sendTo(CommInterface* commInterface) override
+              ^
+main.cpp: In member function 'void InfoGetter::run()':
+main.cpp:46:23: error: 'model' was not declared in this scope
+             result_ = model->getInfo(position_);
+                       ^
+main.cpp:46:38: error: 'position_' was not declared in this scope
+             result_ = model->getInfo(position_);
+                                      ^
+main.cpp: In member function 'void InfoGetter::sendTo(int*)':
+main.cpp:51:28: error: request for member 'sendInfo' in '* commInterface', which is of non-class type 'int'
+             commInterface->sendInfo(result_);
+                            ^
+main.cpp: In member function 'void Model::doAction()':
+main.cpp:64:38: error: 'queue' was not declared in this scope
+             AbstractAction* action = queue.pop();
+                                      ^
+main.cpp:64:38: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/queue:64:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_queue.h:96:11: note:   'std::queue'
+     class queue
+           ^
+main.cpp:68:17: error: 'commInterface' was not declared in this scope
+                 commInterface->sendNotification(action->getOwner(), "success");
+                 ^
+main.cpp:73:17: error: 'commInterface' was not declared in this scope
+                 commInterface->sendNotification(action->getOwner(), e.what());
+                 ^
+main.cpp: In function 'int main()':
+main.cpp:81:11: error: 'class Model' has no member named 'addAction'
+     model.addAction("Bob", Action::BuildingBuilder, Structure::Bar, (0, 0));
+           ^
+main.cpp:81:28: error: 'Action' has not been declared
+     model.addAction("Bob", Action::BuildingBuilder, Structure::Bar, (0, 0));
+                            ^
+main.cpp:81:53: error: 'Structure' has not been declared
+     model.addAction("Bob", Action::BuildingBuilder, Structure::Bar, (0, 0));
+                                                     ^
+main.cpp:81:73: warning: left operand of comma operator has no effect [-Wunused-value]
+     model.addAction("Bob", Action::BuildingBuilder, Structure::Bar, (0, 0));
+                                                                         ^
