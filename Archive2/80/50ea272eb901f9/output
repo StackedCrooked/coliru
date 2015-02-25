@@ -1,0 +1,41 @@
+main.cpp:11:26: error: implicit instantiation of template 'B<1>' within its own definition
+    static const int a = B<1>::a; //Error, implicit instantiation of template 'B<1>' within its own definition
+                         ^
+main.cpp:5:26: fatal error: recursive template instantiation exceeded maximum depth of 256
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<-241>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<-240>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<-239>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<-238>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<-237>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: (skipping 247 contexts in backtrace; use -ftemplate-backtrace-limit=0 to see all)
+main.cpp:5:26: note: in instantiation of template class 'A<11>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<12>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<13>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:5:26: note: in instantiation of template class 'A<14>' requested here
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+main.cpp:15:26: note: in instantiation of template class 'A<15>' requested here
+int main(){ std::cout << A<15>::a << std::endl; }
+                         ^
+main.cpp:5:26: note: use -ftemplate-depth=N to increase recursive template instantiation depth
+    static const int a = A<N-1>::a; //OK, doesn't require implicit intantiation
+                         ^
+2 errors generated.
