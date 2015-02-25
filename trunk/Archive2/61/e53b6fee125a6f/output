@@ -1,0 +1,131 @@
+main.cpp:3:14: error: 'function' in namespace 'std' does not name a template type
+ typedef std::function<void(int)> runnable_obj;
+              ^
+main.cpp:22:29: error: 'runnable_obj' has not been declared
+     void appendRunnableTask(runnable_obj run)
+                             ^
+main.cpp:29:5: error: 'size_t' does not name a type
+     size_t getTaskCount()
+     ^
+main.cpp:54:10: error: 'condition_variable' in namespace 'std' does not name a type
+     std::condition_variable m_ConditionVariable;
+          ^
+main.cpp:55:10: error: 'queue' in namespace 'std' does not name a template type
+     std::queue<runnable_obj>    m_TaskArray;
+          ^
+main.cpp:56:5: error: 'runnable_obj' does not name a type
+     runnable_obj                m_Run;
+     ^
+main.cpp:60:10: error: 'mutex' in namespace 'std' does not name a type
+     std::mutex                  m_ThreadMutex;
+          ^
+main.cpp:61:10: error: 'thread' in namespace 'std' does not name a type
+     std::thread                 m_Thread;
+          ^
+main.cpp: In constructor 'CWSSThread::CWSSThread()':
+main.cpp:10:30: error: class 'CWSSThread' does not have any field named 'm_TaskArray'
+         :m_bThreadSign(true),m_TaskArray()
+                              ^
+main.cpp:11:10: error: class 'CWSSThread' does not have any field named 'm_Thread'
+         ,m_Thread(&CWSSThread::threadMainFunction, this)
+          ^
+main.cpp:12:10: error: class 'CWSSThread' does not have any field named 'm_Run'
+         ,m_Run(NULL)
+          ^
+main.cpp:12:16: error: 'NULL' was not declared in this scope
+         ,m_Run(NULL)
+                ^
+main.cpp: In destructor 'CWSSThread::~CWSSThread()':
+main.cpp:18:9: error: 'm_ConditionVariable' was not declared in this scope
+         m_ConditionVariable.notify_one();
+         ^
+main.cpp:19:9: error: 'm_Thread' was not declared in this scope
+         m_Thread.join();
+         ^
+main.cpp: In member function 'void CWSSThread::appendRunnableTask(int)':
+main.cpp:24:9: error: 'unique_lock' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+         ^
+main.cpp:24:26: error: 'mutex' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                          ^
+main.cpp:24:45: error: 'm_ThreadMutex' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                             ^
+main.cpp:24:58: error: 'locker' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                                          ^
+main.cpp:25:9: error: 'm_TaskArray' was not declared in this scope
+         m_TaskArray.push(run);
+         ^
+main.cpp:26:9: error: 'm_ConditionVariable' was not declared in this scope
+         m_ConditionVariable.notify_one();
+         ^
+main.cpp: In member function 'bool CWSSThread::isEmpty()':
+main.cpp:37:9: error: 'unique_lock' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+         ^
+main.cpp:37:26: error: 'mutex' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                          ^
+main.cpp:37:45: error: 'm_ThreadMutex' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                             ^
+main.cpp:37:58: error: 'locker' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                                          ^
+main.cpp:38:16: error: 'm_TaskArray' was not declared in this scope
+         return m_TaskArray.empty();
+                ^
+main.cpp: In member function 'void CWSSThread::Wait()':
+main.cpp:43:9: error: 'm_Thread' was not declared in this scope
+         m_Thread.join();
+         ^
+main.cpp: In member function 'void CWSSThread::Stop()':
+main.cpp:49:30: error: 'm_Run' was not declared in this scope
+        m_Run(eRUN_MODES::STOP);//StopRunnable
+                              ^
+main.cpp: In member function 'void CWSSThread::threadMainFunction()':
+main.cpp:73:9: error: 'unique_lock' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+         ^
+main.cpp:73:26: error: 'mutex' is not a member of 'std'
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                          ^
+main.cpp:73:45: error: 'm_ThreadMutex' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                             ^
+main.cpp:73:58: error: 'locker' was not declared in this scope
+         std::unique_lock<std::mutex> locker(m_ThreadMutex);
+                                                          ^
+main.cpp:76:9: error: 'm_ConditionVariable' was not declared in this scope
+         m_ConditionVariable.wait(locker, [&](){ return !m_TaskArray.empty() || !m_bThreadSign; });
+         ^
+main.cpp: In lambda function:
+main.cpp:76:57: error: 'm_TaskArray' was not declared in this scope
+         m_ConditionVariable.wait(locker, [&](){ return !m_TaskArray.empty() || !m_bThreadSign; });
+                                                         ^
+main.cpp: In member function 'void CWSSThread::threadMainFunction()':
+main.cpp:77:16: error: 'm_TaskArray' was not declared in this scope
+         while(!m_TaskArray.empty())
+                ^
+main.cpp:83:21: error: 'runnable_obj' was not declared in this scope
+                     runnable_obj run = m_TaskArray.front();//get task from array
+                     ^
+main.cpp:85:41: error: 'run' was not declared in this scope
+                     run(eRUN_MODES::STOP);
+                                         ^
+main.cpp:90:13: error: 'm_Run' was not declared in this scope
+             m_Run = m_TaskArray.front();//get task from array
+             ^
+main.cpp: At global scope:
+main.cpp:100:14: error: 'shared_ptr' in namespace 'std' does not name a template type
+ typedef std::shared_ptr<CWSSThread> wss_thread_ptr;
+              ^
+main.cpp:116:27: error: expected ')' before 'a_iThreadsCount'
+     CWSSThreadPool(size_t a_iThreadsCount = 1)
+                           ^
+main.cpp:287:1: error: expected '}' at end of input
+ }
+ ^
+main.cpp:287:1: error: expected unqualified-id at end of input
