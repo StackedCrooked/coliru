@@ -1,0 +1,33 @@
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	_Z3foov
+	.type	_Z3foov, @function
+_Z3foov:
+.LFB0:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	$1, %edi
+	call	_Znwm
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	movq	%rax, %rdi
+	jmp	_ZdlPv
+	.cfi_endproc
+.LFE0:
+	.size	_Z3foov, .-_Z3foov
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
