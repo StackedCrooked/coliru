@@ -1,0 +1,10 @@
+main.cpp:3:3: error: static_assert failed "Equality check failed!"
+  static_assert(Expected == Actual, "Equality check failed!");
+  ^             ~~~~~~~~~~~~~~~~~~
+main.cpp:10:3: note: in instantiation of function template specialization 'check_eq<unsigned long, 4, int, 6>' requested here
+  COMPILE_CHECK_EQ(sizeof(int), 6);
+  ^
+main.cpp:7:3: note: expanded from macro 'COMPILE_CHECK_EQ'
+  check_eq<decltype(a), a, decltype(b), b>()
+  ^
+1 error generated.
