@@ -1,0 +1,15 @@
+main.cpp: In instantiation of 'void TupleVisit::visit(Visitor&&, std::tuple<_Tail ...>&) [with long unsigned int Idx = 1ul; Visitor = vis; T = {int, int}; typename std::enable_if<(Idx < sizeof... (T)), void*>::type <anonymous> = 0u]':
+main.cpp:18:80:   required from 'void TupleVisit::visit(Visitor&&, std::tuple<_Tail ...>&) [with long unsigned int Idx = 0ul; Visitor = vis; T = {int, int}; typename std::enable_if<(Idx < sizeof... (T)), void*>::type <anonymous> = 0u]'
+main.cpp:45:30:   required from here
+main.cpp:18:80: error: no matching function for call to 'visit(vis, std::tuple<int, int>&)'
+             TupleVisit::visit<Idx+1, Visitor, T... >(std::forward<Visitor>(v),t);
+                                                                                ^
+main.cpp:18:80: note: candidate is:
+main.cpp:16:14: note: template<long unsigned int Idx, class Visitor, class ... T, typename std::enable_if<(Idx < sizeof... (T)), void*>::type <anonymous> > void TupleVisit::visit(Visitor&&, std::tuple<_Tail ...>&)
+         void visit(Visitor && v, std::tuple<T...>  & t){
+              ^
+main.cpp:16:14: note:   template argument deduction/substitution failed:
+main.cpp:13:80: error: no type named 'type' in 'struct std::enable_if<false, void*>'
+                  typename std::enable_if< Idx < sizeof...(T) , void *>::type = nullptr
+                                                                                ^
+main.cpp:13:80: note: invalid template non-type parameter
