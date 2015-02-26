@@ -1,0 +1,57 @@
+g++ (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	_Z3baz19function_non_owningIFiiiEE
+	.type	_Z3baz19function_non_owningIFiiiEE, @function
+_Z3baz19function_non_owningIFiiiEE:
+.LFB3:
+	.cfi_startproc
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsi, %rax
+	movl	$222, %edx
+	movl	$111, %esi
+	call	*%rax
+	addl	$555, %eax
+	movl	%eax, 12(%rsp)
+	movl	12(%rsp), %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE3:
+	.size	_Z3baz19function_non_owningIFiiiEE, .-_Z3baz19function_non_owningIFiiiEE
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+.LCOLDB1:
+	.text
+.LHOTB1:
+	.p2align 4,,15
+	.globl	_Z8test_bazv
+	.type	_Z8test_bazv, @function
+_Z8test_bazv:
+.LFB4:
+	.cfi_startproc
+	movl	$888, -4(%rsp)
+	movl	-4(%rsp), %eax
+	ret
+	.cfi_endproc
+.LFE4:
+	.size	_Z8test_bazv, .-_Z8test_bazv
+	.section	.text.unlikely
+.LCOLDE1:
+	.text
+.LHOTE1:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
