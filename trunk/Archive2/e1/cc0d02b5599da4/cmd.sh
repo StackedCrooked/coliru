@@ -1,0 +1,1 @@
+clang++ -std=c++11 -g -D_DEBUG -O0 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
