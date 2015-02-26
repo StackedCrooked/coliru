@@ -1,0 +1,13 @@
+main.cpp: In member function 'void Foo::foo() const':
+main.cpp:10:16: error: assignment of read-only location '((const Foo*)this)->Foo::str.std::basic_string<_CharT, _Traits, _Alloc>::operator[]<char, std::char_traits<char>, std::allocator<char> >(5ul)'
+         str[5] = 'x';
+                ^
+main.cpp:11:11: error: no match for 'operator=' (operand types are 'const std::reference_wrapper<int>' and 'int')
+         x = 4;
+           ^
+main.cpp:11:11: note: candidate is:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional:418:7: note: std::reference_wrapper<_Tp>& std::reference_wrapper<_Tp>::operator=(const std::reference_wrapper<_Tp>&) [with _Tp = int] <near match>
+       operator=(const reference_wrapper<_Tp>& __inref) noexcept
+       ^
+/usr/local/include/c++/4.9.2/functional:418:7: note:   no known conversion for implicit 'this' parameter from 'const std::reference_wrapper<int>*' to 'std::reference_wrapper<int>*'
