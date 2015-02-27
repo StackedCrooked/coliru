@@ -1,0 +1,1 @@
+gcc -x c -std=c11 -g -D_DEBUG -O0 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out
