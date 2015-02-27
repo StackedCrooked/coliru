@@ -1,0 +1,55 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:52:42: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  helo=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                          ^
+main.cpp:59:44: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  target=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                            ^
+main.cpp:60:47: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  mail_from=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                               ^
+main.cpp:61:45: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  mail_to=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                             ^
+main.cpp:62:45: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  subject=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                             ^
+main.cpp:63:44: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  buffer=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                            ^
+main.cpp:112:29: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  send_packet(sock,"DATA\n\0");
+                             ^
+main.cpp:118:36: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  send_packet(sock,"Message-ID:\n\0");
+                                    ^
+main.cpp:154:46: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  message=read_input(MAX_MESSAGE_LENGTH,"\n\n");
+                                              ^
+main.cpp:165:73: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   send_packet(sock,"Content-Type: text/plain;charset=\"iso-8859-1\"\n\0");
+                                                                         ^
+main.cpp:166:69: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   send_packet(sock,"Content-Transfer-Encoding: quoted-printable\n\0");
+                                                                     ^
+main.cpp:174:26: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  send_packet(sock,".\n\0");
+                          ^
+main.cpp:179:29: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  send_packet(sock,"QUIT\n\0");
+                             ^
+main.cpp:180:12: error: 'close' was not declared in this scope
+  close(sock);
+            ^
+main.cpp: In function 'char* convert_to_mime(char*, int)':
+main.cpp:209:49: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  buffer=malloc(sizeof(char)*(strlen(string)*3)+1);
+                                                 ^
+main.cpp: In function 'char* read_input(int, char*)':
+main.cpp:237:38: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  buffer=malloc(sizeof(char)*maxlength);
+                                      ^
+main.cpp: In function 'char* recv_packet(int)':
+main.cpp:271:44: error: invalid conversion from 'void*' to 'char*' [-fpermissive]
+  buffer=malloc(sizeof(char)*MAX_CHAR_LENGTH);
+                                            ^
