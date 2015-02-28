@@ -1,0 +1,1 @@
+g++ -O2 -Wall -Wextra -Werror -pedantic main.cpp && ./a.out
