@@ -1,0 +1,19 @@
+main.cpp: In function 'int PushTask(std::function<std::basic_string<char>()>)':
+main.cpp:35:29: error: no matching function for call to 'std::vector<std::shared_ptr<std::thread> >::push_back(std::thread)'
+     pool.push_back(thread(f));
+                             ^
+main.cpp:35:29: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::shared_ptr<std::thread>; _Alloc = std::allocator<std::shared_ptr<std::thread> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<std::thread>]
+       push_back(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note:   no known conversion for argument 1 from 'std::thread' to 'const value_type& {aka const std::shared_ptr<std::thread>&}'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::shared_ptr<std::thread>; _Alloc = std::allocator<std::shared_ptr<std::thread> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<std::thread>]
+       push_back(value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note:   no known conversion for argument 1 from 'std::thread' to 'std::vector<std::shared_ptr<std::thread> >::value_type&& {aka std::shared_ptr<std::thread>&&}'
+main.cpp: In function 'void ClearTasksPool()':
+main.cpp:48:11: error: 'class std::shared_ptr<std::thread>' has no member named 'join'
+         t.join();
+           ^
