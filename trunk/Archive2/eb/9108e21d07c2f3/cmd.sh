@@ -1,0 +1,1 @@
+gcc -x c -c -O2 -Wall -pedantic -pthread main.cpp
