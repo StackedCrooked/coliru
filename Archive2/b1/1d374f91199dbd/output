@@ -1,0 +1,43 @@
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'struct std::_Tuple_impl<1ul, die>':
+/usr/local/include/c++/4.9.2/tuple:229:12:   required from 'struct std::_Tuple_impl<0ul, int*, die>'
+/usr/local/include/c++/4.9.2/tuple:521:11:   required from 'class std::tuple<int*, die>'
+/usr/local/include/c++/4.9.2/bits/unique_ptr.h:147:57:   required from 'class std::unique_ptr<int, die>'
+main.cpp:9:25:   required from here
+/usr/local/include/c++/4.9.2/tuple:229:12: error: invalid use of incomplete type 'struct die'
+     struct _Tuple_impl<_Idx, _Head, _Tail...>
+            ^
+main.cpp:5:8: error: forward declaration of 'struct die'
+ struct die;
+        ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/tuple:236:72: error: invalid use of incomplete type 'struct die'
+       typedef _Head_base<_Idx, _Head, __empty_not_final<_Head>::value> _Base;
+                                                                        ^
+main.cpp:5:8: error: forward declaration of 'struct die'
+ struct die;
+        ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/memory:79,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = die; _UTail = {}; <template-parameter-2-3> = void; long unsigned int _Idx = 1ul; _Head = die; _Tail = {}]':
+/usr/local/include/c++/4.9.2/tuple:262:38:   required from 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(_UHead&&, _UTail&& ...) [with _UHead = int*&; _UTail = {die}; <template-parameter-2-3> = void; long unsigned int _Idx = 0ul; _Head = int*; _Tail = {die}]'
+/usr/local/include/c++/4.9.2/tuple:538:63:   required from 'constexpr std::tuple<_T1, _T2>::tuple(_U1&&, _U2&&) [with _U1 = int*&; _U2 = die; <template-parameter-2-3> = void; _T1 = int*; _T2 = die]'
+/usr/local/include/c++/4.9.2/bits/unique_ptr.h:170:33:   required from 'std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Tp = int; _Dp = die; std::unique_ptr<_Tp, _Dp>::pointer = int*]'
+main.cpp:21:33:   required from here
+/usr/local/include/c++/4.9.2/tuple:262:38: error: type 'std::_Head_base<1ul, die, true>' is not a direct base of 'std::_Tuple_impl<1ul, die>'
+    _Base(std::forward<_UHead>(__head)) { }
+                                      ^
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'static constexpr _Head& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_head(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 1ul; _Head = die; _Tail = {}]':
+/usr/local/include/c++/4.9.2/tuple:744:60:   required from 'constexpr typename std::__add_ref<_Head>::type std::__get_helper(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int __i = 1ul; _Head = die; _Tail = {}; typename std::__add_ref<_Head>::type = die&]'
+/usr/local/include/c++/4.9.2/tuple:757:40:   required from 'constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int*, die}; typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type = die&]'
+/usr/local/include/c++/4.9.2/bits/unique_ptr.h:310:32:   required from 'std::unique_ptr<_Tp, _Dp>::deleter_type& std::unique_ptr<_Tp, _Dp>::get_deleter() [with _Tp = int; _Dp = die; std::unique_ptr<_Tp, _Dp>::deleter_type = die]'
+/usr/local/include/c++/4.9.2/bits/unique_ptr.h:236:16:   required from 'std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = int; _Dp = die]'
+main.cpp:21:33:   required from here
+/usr/local/include/c++/4.9.2/tuple:239:72: error: body of constexpr function 'static constexpr _Head& std::_Tuple_impl<_Idx, _Head, _Tail ...>::_M_head(std::_Tuple_impl<_Idx, _Head, _Tail ...>&) [with long unsigned int _Idx = 1ul; _Head = die; _Tail = {}]' not a return-statement
+       _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
+                                                                        ^
