@@ -1,0 +1,44 @@
+main.cpp: In function 'int main()':
+main.cpp:21:22: error: no matching function for call to 'std::map<int, foo>::insert(int, foo&)'
+     leMap.insert(1, f);
+                      ^
+main.cpp:21:22: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/map:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.2/bits/stl_map.h:629:7: note: std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(const value_type&) [with _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >; typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<std::pair<const _Key, _Tp> >::other>::iterator = std::_Rb_tree_iterator<std::pair<const int, foo> >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, foo>]
+       insert(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:629:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_map.h:637:9: note: template<class _Pair, class> std::pair<typename std::_Rb_tree<_Key, std::pair<const _Key, _Tp>, std::_Select1st<std::pair<const _Key, _Tp> >, _Compare, typename __gnu_cxx::__alloc_traits<_Allocator>::rebind<std::pair<const _Key, _Tp> >::other>::iterator, bool> std::map<_Key, _Tp, _Compare, _Alloc>::insert(_Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >]
+         insert(_Pair&& __x)
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:637:9: note:   template argument deduction/substitution failed:
+main.cpp:21:22: note:   candidate expects 1 argument, 2 provided
+     leMap.insert(1, f);
+                      ^
+In file included from /usr/local/include/c++/4.9.2/map:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.2/bits/stl_map.h:650:7: note: void std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::initializer_list<std::pair<const _Key, _Tp> >) [with _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >]
+       insert(std::initializer_list<value_type> __list)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:650:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_map.h:679:7: note: std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, const value_type&) [with _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >; std::map<_Key, _Tp, _Compare, _Alloc>::iterator = std::_Rb_tree_iterator<std::pair<const int, foo> >; std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator = std::_Rb_tree_const_iterator<std::pair<const int, foo> >; std::map<_Key, _Tp, _Compare, _Alloc>::value_type = std::pair<const int, foo>]
+       insert(const_iterator __position, const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:679:7: note:   no known conversion for argument 1 from 'int' to 'std::map<int, foo>::const_iterator {aka std::_Rb_tree_const_iterator<std::pair<const int, foo> >}'
+/usr/local/include/c++/4.9.2/bits/stl_map.h:690:9: note: template<class _Pair, class> std::map<_Key, _Tp, _Compare, _Alloc>::iterator std::map<_Key, _Tp, _Compare, _Alloc>::insert(std::map<_Key, _Tp, _Compare, _Alloc>::const_iterator, _Pair&&) [with _Pair = _Pair; <template-parameter-2-2> = <template-parameter-1-2>; _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >]
+         insert(const_iterator __position, _Pair&& __x)
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:690:9: note:   template argument deduction/substitution failed:
+main.cpp:21:22: note:   cannot convert '1' (type 'int') to type 'std::map<int, foo>::const_iterator {aka std::_Rb_tree_const_iterator<std::pair<const int, foo> >}'
+     leMap.insert(1, f);
+                      ^
+In file included from /usr/local/include/c++/4.9.2/map:61:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.2/bits/stl_map.h:705:9: note: template<class _InputIterator> void std::map<_Key, _Tp, _Compare, _Alloc>::insert(_InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _Key = int; _Tp = foo; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, foo> >]
+         insert(_InputIterator __first, _InputIterator __last)
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_map.h:705:9: note:   template argument deduction/substitution failed:
+main.cpp:21:22: note:   deduced conflicting types for parameter '_InputIterator' ('int' and 'foo')
+     leMap.insert(1, f);
+                      ^
