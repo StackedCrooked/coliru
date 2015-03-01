@@ -1,0 +1,31 @@
++ clang++ -stdlib=libc++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:14:10: warning: unused variable 'x' [-Wunused-variable]
+    auto x = p.first();
+         ^
+In file included from main.cpp:2:
+In file included from /usr/local/include/boost/compressed_pair.hpp:18:
+/usr/local/include/boost/detail/compressed_pair.hpp:248:51: error: ambiguous conversion from derived class 'boost::details::compressed_pair_imp<a, b, 3>' to base class 'a':
+    class boost::details::compressed_pair_imp<struct a, struct b, 3> -> typename ::boost::remove_cv<struct a>::type
+    class boost::details::compressed_pair_imp<struct a, struct b, 3> -> typename ::boost::remove_cv<struct b>::type -> struct a
+      first_reference       first()       {return *this;}
+                                                  ^~~~~
+/usr/local/include/boost/detail/compressed_pair.hpp:372:54: note: in instantiation of member function 'boost::details::compressed_pair_imp<a, b, 3>::first' requested here
+   first_reference       first()       {return base::first();}
+                                                     ^
+main.cpp:14:16: note: in instantiation of member function 'boost::compressed_pair<a, b>::first' requested here
+    auto x = p.first();
+               ^
+1 warning and 1 error generated.
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:14:10: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+     auto x = p.first();
+          ^
+In file included from /usr/local/include/boost/compressed_pair.hpp:18:0,
+                 from main.cpp:2:
+/usr/local/include/boost/detail/compressed_pair.hpp: In instantiation of 'boost::details::compressed_pair_imp<T1, T2, 3>::first_reference boost::details::compressed_pair_imp<T1, T2, 3>::first() [with T1 = a; T2 = b; boost::details::compressed_pair_imp<T1, T2, 3>::first_reference = a&]':
+/usr/local/include/boost/detail/compressed_pair.hpp:372:60:   required from 'boost::compressed_pair<T1, T2>::first_reference boost::compressed_pair<T1, T2>::first() [with T1 = a; T2 = b; boost::compressed_pair<T1, T2>::first_reference = a&]'
+main.cpp:14:22:   required from here
+/usr/local/include/boost/detail/compressed_pair.hpp:248:52: error: 'a' is an ambiguous base of 'boost::details::compressed_pair_imp<a, b, 3>'
+       first_reference       first()       {return *this;}
+                                                    ^
