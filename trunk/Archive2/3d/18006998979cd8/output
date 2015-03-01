@@ -1,0 +1,41 @@
+main.cpp: In function 'int main()':
+main.cpp:10:44: error: no matching function for call to 'bind(<unresolved overloaded function type>, Foo*, int)'
+     auto f1 = std::bind(&Foo::bar, &foo, 42);
+                                            ^
+main.cpp:10:44: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.2/functional:1623:5: note: template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__or_<std::is_integral<typename std::decay<_Tp>::type>, std::is_enum<typename std::decay<_Tp>::type> >::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1623:5: note:   template argument deduction/substitution failed:
+main.cpp:10:44: note:   couldn't deduce template parameter '_Func'
+     auto f1 = std::bind(&Foo::bar, &foo, 42);
+                                            ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.2/functional:1650:5: note: template<class _Result, class _Func, class ... _BoundArgs> typename std::_Bindres_helper<_Result, _Func, _BoundArgs>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1650:5: note:   template argument deduction/substitution failed:
+main.cpp:10:44: note:   couldn't deduce template parameter '_Result'
+     auto f1 = std::bind(&Foo::bar, &foo, 42);
+                                            ^
+main.cpp:11:40: error: no matching function for call to 'bind(<unresolved overloaded function type>, Foo*)'
+     auto f2 = std::bind(&Foo::bar, &foo);
+                                        ^
+main.cpp:11:40: note: candidates are:
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.2/functional:1623:5: note: template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__or_<std::is_integral<typename std::decay<_Tp>::type>, std::is_enum<typename std::decay<_Tp>::type> >::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1623:5: note:   template argument deduction/substitution failed:
+main.cpp:11:40: note:   couldn't deduce template parameter '_Func'
+     auto f2 = std::bind(&Foo::bar, &foo);
+                                        ^
+In file included from main.cpp:1:0:
+/usr/local/include/c++/4.9.2/functional:1650:5: note: template<class _Result, class _Func, class ... _BoundArgs> typename std::_Bindres_helper<_Result, _Func, _BoundArgs>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1650:5: note:   template argument deduction/substitution failed:
+main.cpp:11:40: note:   couldn't deduce template parameter '_Result'
+     auto f2 = std::bind(&Foo::bar, &foo);
+                                        ^
