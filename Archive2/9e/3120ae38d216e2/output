@@ -1,0 +1,13 @@
+main.cpp:14:25: error: non-aggregate type 'std::vector<Player>' cannot be initialized with an initializer list
+    std::vector<Player> players = { { 0, "Foo" }, { 1, "Bar" }, { 2, "Baz" } };
+                        ^         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:17:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto it = std::find_if(players.begin(), players.end(), [&](const Player& p) { return p.name == name; });
+    ^
+main.cpp:17:60: error: expected expression
+    auto it = std::find_if(players.begin(), players.end(), [&](const Player& p) { return p.name == name; });
+                                                           ^
+main.cpp:25:2: warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+2 warnings and 2 errors generated.
