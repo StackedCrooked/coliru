@@ -1,0 +1,69 @@
+main.cpp: In function 'int main()':
+main.cpp:7:33: error: no matching function for call to 'bind(<unresolved overloaded function type>, int)'
+     auto f1 = std::bind(&bar, 42);
+                                 ^
+main.cpp:7:33: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from /usr/local/include/boost/config/no_tr1/memory.hpp:21,
+                 from /usr/local/include/boost/get_pointer.hpp:14,
+                 from /usr/local/include/boost/bind/mem_fn.hpp:25,
+                 from /usr/local/include/boost/mem_fn.hpp:22,
+                 from /usr/local/include/boost/bind/bind.hpp:26,
+                 from /usr/local/include/boost/bind.hpp:22,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1623:5: note: template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__or_<std::is_integral<typename std::decay<_Tp>::type>, std::is_enum<typename std::decay<_Tp>::type> >::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1623:5: note:   template argument deduction/substitution failed:
+main.cpp:7:33: note:   couldn't deduce template parameter '_Func'
+     auto f1 = std::bind(&bar, 42);
+                                 ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from /usr/local/include/boost/config/no_tr1/memory.hpp:21,
+                 from /usr/local/include/boost/get_pointer.hpp:14,
+                 from /usr/local/include/boost/bind/mem_fn.hpp:25,
+                 from /usr/local/include/boost/mem_fn.hpp:22,
+                 from /usr/local/include/boost/bind/bind.hpp:26,
+                 from /usr/local/include/boost/bind.hpp:22,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1650:5: note: template<class _Result, class _Func, class ... _BoundArgs> typename std::_Bindres_helper<_Result, _Func, _BoundArgs>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1650:5: note:   template argument deduction/substitution failed:
+main.cpp:7:33: note:   couldn't deduce template parameter '_Result'
+     auto f1 = std::bind(&bar, 42);
+                                 ^
+main.cpp:8:29: error: no matching function for call to 'bind(<unresolved overloaded function type>)'
+     auto f2 = std::bind(&bar);
+                             ^
+main.cpp:8:29: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from /usr/local/include/boost/config/no_tr1/memory.hpp:21,
+                 from /usr/local/include/boost/get_pointer.hpp:14,
+                 from /usr/local/include/boost/bind/mem_fn.hpp:25,
+                 from /usr/local/include/boost/mem_fn.hpp:22,
+                 from /usr/local/include/boost/bind/bind.hpp:26,
+                 from /usr/local/include/boost/bind.hpp:22,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1623:5: note: template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__or_<std::is_integral<typename std::decay<_Tp>::type>, std::is_enum<typename std::decay<_Tp>::type> >::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1623:5: note:   template argument deduction/substitution failed:
+main.cpp:8:29: note:   couldn't deduce template parameter '_Func'
+     auto f2 = std::bind(&bar);
+                             ^
+In file included from /usr/local/include/c++/4.9.2/memory:79:0,
+                 from /usr/local/include/boost/config/no_tr1/memory.hpp:21,
+                 from /usr/local/include/boost/get_pointer.hpp:14,
+                 from /usr/local/include/boost/bind/mem_fn.hpp:25,
+                 from /usr/local/include/boost/mem_fn.hpp:22,
+                 from /usr/local/include/boost/bind/bind.hpp:26,
+                 from /usr/local/include/boost/bind.hpp:22,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/functional:1650:5: note: template<class _Result, class _Func, class ... _BoundArgs> typename std::_Bindres_helper<_Result, _Func, _BoundArgs>::type std::bind(_Func&&, _BoundArgs&& ...)
+     bind(_Func&& __f, _BoundArgs&&... __args)
+     ^
+/usr/local/include/c++/4.9.2/functional:1650:5: note:   template argument deduction/substitution failed:
+main.cpp:8:29: note:   couldn't deduce template parameter '_Result'
+     auto f2 = std::bind(&bar);
+                             ^
