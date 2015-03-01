@@ -1,0 +1,16 @@
+main.cpp:47:16: error: wrong number of template arguments (0, should be 2 or more)
+ struct Vertex <>
+                ^
+main.cpp:10:8: error: provided for 'template<int attribute_index, class Tn, class ... P> struct Vertex'
+ struct Vertex
+        ^
+main.cpp: In instantiation of 'struct Vertex<2, double [4]>':
+main.cpp:18:9:   recursively required from 'struct Vertex<1, int [2], double [4]>'
+main.cpp:18:9:   required from 'struct Vertex<0, float [3], int [2], double [4]>'
+main.cpp:55:21:   required from here
+main.cpp:13:55: error: wrong number of template arguments (1, should be 2 or more)
+     using Rem  = Vertex< attribute_index+1,     P... >;
+                                                       ^
+main.cpp:10:8: error: provided for 'template<int attribute_index, class Tn, class ... P> struct Vertex'
+ struct Vertex
+        ^
