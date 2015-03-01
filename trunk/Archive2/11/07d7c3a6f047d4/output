@@ -1,0 +1,44 @@
+main.cpp:69:24: error: expected nested-name-specifier
+     using A = typename AttributeRecursor< k, 0, P... >;
+                        ^
+main.cpp:72:51: error: 'A' was not declared in this scope
+     static constexpr  unsigned int  total_bytes = A<N>::offset;
+                                                   ^
+main.cpp:72:55: error: '::offset' has not been declared
+     static constexpr  unsigned int  total_bytes = A<N>::offset;
+                                                       ^
+main.cpp:74:37: error: size of array 'data' is not an integral constant-expression
+     unsigned char data[ total_bytes ];
+                                     ^
+main.cpp:78:5: error: 'A' does not name a type
+     A<k>::Type get() {
+     ^
+main.cpp:90:15: error: 'A' has not been declared
+     void set( A<k>::Type& ref ) {
+               ^
+main.cpp:90:16: error: expected ',' or '...' before '<' token
+     void set( A<k>::Type& ref ) {
+                ^
+main.cpp: In member function 'void AttributeHandler<P>::set(int)':
+main.cpp:92:9: error: 'A' was not declared in this scope
+         A<k>::Type ret;
+         ^
+main.cpp:92:13: error: '::Type' has not been declared
+         A<k>::Type ret;
+             ^
+main.cpp:93:9: error: 'memcpy' is not a member of 'std'
+         std::memcpy(
+         ^
+main.cpp:94:32: error: '::offset' has not been declared
+                     data + A<k>::offset,
+                                ^
+main.cpp:95:22: error: 'ret' was not declared in this scope
+                     &ret,
+                      ^
+main.cpp:96:25: error: '::size_bytes' has not been declared
+                     A<k>::size_bytes
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:107:5: error: 'setup' is not a member of 'V {aka AttributeHandler<float [3], int [2], double [4]>}'
+     V::setup();
+     ^
