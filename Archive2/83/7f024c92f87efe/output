@@ -1,0 +1,10 @@
+main.cpp:18:13: error: redefinition of 'template<class E> enable_if_t<(! enable_bitmask_operators_t<E>::value), E> operator|(E, E)'
+ inline auto operator |(E, E) -> 
+             ^
+main.cpp:11:13: note: 'template<class E> enable_if_t<(! enable_bitmask_operators_t<E>::value), E> operator|(E, E)' previously declared here
+ inline auto operator |(E lhs, E rhs) -> 
+             ^
+main.cpp: In function 'int main()':
+main.cpp:35:76: error: no match for 'operator|' (operand types are 'Test' and 'Test')
+     std::cout << static_cast<std::underlying_type<Test>::type>(Test::first | Test::second) << std::endl;
+                                                                            ^
