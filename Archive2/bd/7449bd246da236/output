@@ -1,0 +1,16 @@
+main.cpp:70:25: error: type/value mismatch at argument 3 in template parameter list for 'template<bool <anonymous>, class, class> struct std::conditional'
+                         >;
+                         ^
+main.cpp:70:25: error:   expected a type, got 'AttributeRecursor<k, bytecount_in, Tn, P ...>::Next:: TheStruct'
+main.cpp: In substitution of 'template<class ... P> template<int k> using A = typename AttributeRecursor<k, 0, P ...>::type [with int k = 2u; P = {float [3], int [2], double [4]}]':
+main.cpp:95:37:   required from 'constexpr const unsigned int AttributeHandler<float [3], int [2], double [4]>::total_bytes'
+main.cpp:97:37:   required from 'struct AttributeHandler<float [3], int [2], double [4]>'
+main.cpp:133:5:   required from here
+main.cpp:92:61: error: no type named 'type' in 'struct AttributeRecursor<2, 0, float [3], int [2], double [4]>'
+     using A = typename AttributeRecursor< k, 0, P... >::type;
+                                                             ^
+main.cpp: In instantiation of 'struct AttributeHandler<float [3], int [2], double [4]>':
+main.cpp:133:5:   required from here
+main.cpp:97:37: error: size of array is not an integral constant-expression
+     unsigned char data[ total_bytes ];
+                                     ^
