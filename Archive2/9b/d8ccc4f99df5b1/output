@@ -1,0 +1,13 @@
+main.cpp:22:5: error: no matching function for call to 'f'
+    f(1.0);
+    ^
+main.cpp:16:6: note: candidate template ignored: substitution failure [with T = double]: no type named 'type' in 'my_enable_if<false, int>'
+void f(const T&) {}
+     ^
+main.cpp:23:5: error: no matching function for call to 'g'
+    g(1.0);
+    ^
+main.cpp:13:43: note: candidate template ignored: disabled by 'enable_if' [with T = double]
+using enable_if = typename std::enable_if<T::value, int>::type;
+                                          ^
+2 errors generated.
