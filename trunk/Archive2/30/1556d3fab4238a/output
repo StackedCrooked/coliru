@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:176:13: error: no matching function for call to 'Attribute<int [2]>::Attribute(<brace-enclosed initializer list>)'
+     V v2{1,2};
+             ^
+main.cpp:176:13: note: candidates are:
+main.cpp:152:5: note: Attribute<P>::Attribute(P ...) [with P = {int [2]}]
+     Attribute( P... params ) {
+     ^
+main.cpp:152:5: note:   candidate expects 1 argument, 2 provided
+main.cpp:150:5: note: Attribute<P>::Attribute() [with P = {int [2]}]
+     Attribute() {}
+     ^
+main.cpp:150:5: note:   candidate expects 0 arguments, 2 provided
+main.cpp:83:8: note: constexpr Attribute<int [2]>::Attribute(const Attribute<int [2]>&)
+ struct Attribute
+        ^
+main.cpp:83:8: note:   candidate expects 1 argument, 2 provided
+main.cpp:83:8: note: constexpr Attribute<int [2]>::Attribute(Attribute<int [2]>&&)
+main.cpp:83:8: note:   candidate expects 1 argument, 2 provided
