@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall main.cpp && ./a.out; echo $?
