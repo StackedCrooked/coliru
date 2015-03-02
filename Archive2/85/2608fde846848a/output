@@ -1,0 +1,13 @@
+main.cpp: In instantiation of 'struct AttributeRecursor<0, 0, float [1]>':
+main.cpp:94:61:   required by substitution of 'template<class ... P> template<int k> using A = typename AttributeRecursor<k, 0, P ...>::type [with int k = 0u; P = {float [1]}]'
+main.cpp:97:37:   required from 'constexpr const unsigned int AttributeHandler<float [1]>::total_bytes'
+main.cpp:99:37:   required from 'struct AttributeHandler<float [1]>'
+main.cpp:136:5:   required from here
+main.cpp:72:26: error: no type named 'TheStruct' in 'struct std::conditional<true, void, AttributeRecursor<-1, 4> >'
+                         >;
+                          ^
+main.cpp: In instantiation of 'struct AttributeHandler<float [1]>':
+main.cpp:136:5:   required from here
+main.cpp:99:37: error: size of array is not an integral constant-expression
+     unsigned char data[ total_bytes ];
+                                     ^
