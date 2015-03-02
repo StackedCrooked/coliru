@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:174:21: error: no matching function for call to 'Attribute<int [2]>::set(<brace-enclosed initializer list>)'
+     v.set<0>( {3,4} );
+                     ^
+main.cpp:174:21: note: candidates are:
+main.cpp:119:10: note: template<int k> void Attribute<P>::set(Attribute<P>::Tn<k>&) [with int k = k; P = {int [2]}]
+     void set( Tn<k>& ref ) {
+          ^
+main.cpp:119:10: note:   template argument deduction/substitution failed:
+main.cpp:174:21: note:   cannot convert '{3, 4}' (type '<brace-enclosed initializer list>') to type 'int (&)[2]'
+     v.set<0>( {3,4} );
+                     ^
+main.cpp:133:10: note: template<int k, int e> void Attribute<P>::set(Attribute<P>::EltType<k>&) [with int k = k; int e = e; P = {int [2]}]
+     void set( EltType<k>& ref ) {
+          ^
+main.cpp:133:10: note:   template argument deduction/substitution failed:
+main.cpp:174:21: note:   cannot convert '{3, 4}' (type '<brace-enclosed initializer list>') to type 'Attribute<int [2]>::EltType<0>& {aka int&}'
+     v.set<0>( {3,4} );
+                     ^
