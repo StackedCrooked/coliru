@@ -1,0 +1,55 @@
+main.cpp:91:25: error: expected nested-name-specifier
+     using AR = typename AttributeRecursor< k, 0, P... >;
+                         ^
+main.cpp:96:24: error: expected nested-name-specifier before 'AR'
+     using D = typename AR<k>::destination;
+                        ^
+main.cpp:100:51: error: 'AR' was not declared in this scope
+     static constexpr  unsigned int  total_bytes = AR<0>::remaining_bytes;
+                                                   ^
+main.cpp:100:56: error: '::remaining_bytes' has not been declared
+     static constexpr  unsigned int  total_bytes = AR<0>::remaining_bytes;
+                                                        ^
+main.cpp:102:37: error: size of array 'data' is not an integral constant-expression
+     unsigned char data[ total_bytes ];
+                                     ^
+main.cpp:106:14: error: expected nested-name-specifier before 'D'
+     typename D<k>::Type get() {
+              ^
+main.cpp:106:15: error: expected initializer before '<' token
+     typename D<k>::Type get() {
+               ^
+main.cpp:118:24: error: expected nested-name-specifier before 'R'
+     void set( typename R<k>::Type& ref ) {
+                        ^
+main.cpp:118:25: error: expected ',' or '...' before '<' token
+     void set( typename R<k>::Type& ref ) {
+                         ^
+main.cpp: In member function 'void AttributeHandler<P>::set(int)':
+main.cpp:120:18: error: expected nested-name-specifier before 'D'
+         typename D<k>::Type ret;
+                  ^
+main.cpp:120:18: error: expected '(' before 'D'
+main.cpp:122:28: error: 'D' was not declared in this scope
+                     data + D<k>::offset,
+                            ^
+main.cpp:122:32: error: '::offset' has not been declared
+                     data + D<k>::offset,
+                                ^
+main.cpp:123:22: error: 'ret' was not declared in this scope
+                     &ret,
+                      ^
+main.cpp:124:25: error: '::size_bytes' has not been declared
+                     D<k>::size_bytes
+                         ^
+main.cpp:125:21: error: there are no arguments to 'memcpy' that depend on a template parameter, so a declaration of 'memcpy' must be available [-fpermissive]
+                     );
+                     ^
+main.cpp:125:21: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp: In static member function 'static void AttributeHandler<P>::setup()':
+main.cpp:130:9: error: 'AR' was not declared in this scope
+         AR<N-1>::setup();
+         ^
+main.cpp:130:16: error: '::setup' has not been declared
+         AR<N-1>::setup();
+                ^
