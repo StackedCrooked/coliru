@@ -1,0 +1,28 @@
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /tmp/1425395678.31091/a.out...done.
+Starting program: /tmp/1425395678.31091/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+operator<< <char, std::char_traits<char>, std::allocator<char> > (__str=
+    <error reading variable: Cannot access memory at address 0xffffffffffffffe8>, __os=...) at /usr/include/c++/4.7/bits/basic_string.h:2755
+2755	      return __ostream_insert(__os, __str.data(), __str.size());
+#0  operator<< <char, std::char_traits<char>, std::allocator<char> > (__str=
+    <error reading variable: Cannot access memory at address 0xffffffffffffffe8>, __os=...) at /usr/include/c++/4.7/bits/basic_string.h:2755
+#1  f (m=std::map with 0 elements) at main.cpp:9
+#2  0x0000000000400bfc in main () at main.cpp:15
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 17361] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
