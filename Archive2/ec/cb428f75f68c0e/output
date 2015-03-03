@@ -1,0 +1,23 @@
+main.cpp: In substitution of 'template<class T, class ... Args> using call_metafunction_class = typename call<typename T::apply<Args ...> >::type [with T = MetafunctionClass1<X, X>; Args = {int, int, int}]':
+main.cpp:45:76:   required from here
+main.cpp:41:75: error: invalid use of incomplete type 'struct call<MetafunctionClass1<X, X>::apply<int, int, int>, void>'
+ using call_metafunction_class = typename call<get_apply<T, Args...>>::type;
+                                                                           ^
+main.cpp:26:8: error: declaration of 'struct call<MetafunctionClass1<X, X>::apply<int, int, int>, void>'
+ struct call;
+        ^
+main.cpp: In substitution of 'template<class T, class ... Args> using call_metafunction_class = typename call<typename T::apply<Args ...> >::type [with T = MetafunctionClass2<X, X>; Args = {int, int, int}]':
+main.cpp:46:76:   required from here
+main.cpp:41:75: error: invalid use of incomplete type 'struct call<MetafunctionClass2<X, X>::apply<int, int, int>, void>'
+ using call_metafunction_class = typename call<get_apply<T, Args...>>::type;
+                                                                           ^
+main.cpp:26:8: error: declaration of 'struct call<MetafunctionClass2<X, X>::apply<int, int, int>, void>'
+ struct call;
+        ^
+main.cpp: In function 'int main()':
+main.cpp:50:5: error: 'result1' was not declared in this scope
+     result1 a = 0;
+     ^
+main.cpp:51:5: error: 'result2' was not declared in this scope
+     result2 b = 0;
+     ^
