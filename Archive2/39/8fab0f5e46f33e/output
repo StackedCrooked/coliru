@@ -1,0 +1,85 @@
+main.cpp:141:40: error: declaration of 'class ... P'
+     template< int index, typename P0,  typename... P >
+                                        ^
+main.cpp:81:11: error:  shadows template parm 'class ... P'
+ template< typename... P > 
+           ^
+main.cpp:142:17: error: expected initializer before '<' token
+     void set_all< index,  P0, P... > ( P0 p0,  P... p )
+                 ^
+main.cpp:149:17: error: expected initializer before '<' token
+     void set_all<N>()
+                 ^
+main.cpp: In constructor 'Attribute<P>::Attribute(P ...)':
+main.cpp:154:9: error: 'set_all' was not declared in this scope
+         set_all<0>( params... );
+         ^
+main.cpp:154:27: error: expected ')' before '...' token
+         set_all<0>( params... );
+                           ^
+main.cpp:154:32: error: parameter packs not expanded with '...':
+         set_all<0>( params... );
+                                ^
+main.cpp:154:32: note:         'params'
+main.cpp: In function 'int main()':
+main.cpp:169:44: error: no matching function for call to 'Attribute<float [3], int [1], double [4]>::Attribute(<brace-enclosed initializer list>, <brace-enclosed initializer list>, <brace-enclosed initializer list>)'
+     V v( {1.f,2.f,3.f}, {4}, {5.,6.,7.,8.} );
+                                            ^
+main.cpp:169:44: note: candidates are:
+main.cpp:153:5: note: Attribute<P>::Attribute(P ...) [with P = {float [3], int [1], double [4]}]
+     Attribute( P... params ) {
+     ^
+main.cpp:153:5: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'float*'
+main.cpp:82:8: note: constexpr Attribute<float [3], int [1], double [4]>::Attribute(const Attribute<float [3], int [1], double [4]>&)
+ struct Attribute
+        ^
+main.cpp:82:8: note:   candidate expects 1 argument, 3 provided
+main.cpp:82:8: note: constexpr Attribute<float [3], int [1], double [4]>::Attribute(Attribute<float [3], int [1], double [4]>&&)
+main.cpp:82:8: note:   candidate expects 1 argument, 3 provided
+main.cpp:171:28: error: no matching function for call to 'Attribute<float [3], int [1], double [4]>::set(<brace-enclosed initializer list>)'
+     v.set<2>( { 50., 60. } );
+                            ^
+main.cpp:171:28: note: candidates are:
+main.cpp:118:10: note: template<int k> void Attribute<P>::set(Attribute<P>::Tn<k>&) [with int k = k; P = {float [3], int [1], double [4]}]
+     void set( Tn<k>& ref ) {
+          ^
+main.cpp:118:10: note:   template argument deduction/substitution failed:
+main.cpp:171:28: note:   cannot convert '{5.0e+1, 6.0e+1}' (type '<brace-enclosed initializer list>') to type 'int (&)[1]'
+     v.set<2>( { 50., 60. } );
+                            ^
+main.cpp:132:10: note: template<int k, int e> void Attribute<P>::set(Attribute<P>::EltType<k>&) [with int k = k; int e = e; P = {float [3], int [1], double [4]}]
+     void set( EltType<k>& ref ) {
+          ^
+main.cpp:132:10: note:   template argument deduction/substitution failed:
+main.cpp:171:28: note:   cannot convert '{5.0e+1, 6.0e+1}' (type '<brace-enclosed initializer list>') to type 'Attribute<float [3], int [1], double [4]>::EltType<2>& {aka int&}'
+     v.set<2>( { 50., 60. } );
+                            ^
+main.cpp:173:20: error: no matching function for call to 'Attribute<float [3], int [1], double [4]>::get()'
+     COUT( v.get<2>() );
+                    ^
+main.cpp:7:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
+main.cpp:173:20: note: candidates are:
+     COUT( v.get<2>() );
+                    ^
+main.cpp:7:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
+main.cpp:110:11: note: template<int k> Attribute<P>::Tn<k> Attribute<P>::get() [with int k = k; P = {float [3], int [1], double [4]}]
+     Tn<k> get() {
+           ^
+main.cpp:110:11: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<int k> Attribute<P>::Tn<k> Attribute<P>::get() [with int k = 2]':
+main.cpp:173:5:   required from here
+main.cpp:110:11: error: function returning an array
+main.cpp:124:16: note: template<int k, int e> Attribute<P>::EltType<k> Attribute<P>::get() [with int k = k; int e = e; P = {float [3], int [1], double [4]}]
+     EltType<k> get() {
+                ^
+main.cpp:124:16: note:   template argument deduction/substitution failed:
+main.cpp:173:20: note:   couldn't deduce template parameter 'e'
+     COUT( v.get<2>() );
+                    ^
+main.cpp:7:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
