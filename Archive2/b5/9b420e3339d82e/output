@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:177:27: error: no matching function for call to 'Attribute<int [2]>::get()'
+     auto v2_0 = v2.get<0>();
+                           ^
+main.cpp:177:27: note: candidates are:
+main.cpp:111:18: note: template<int k> Attribute<P>::Tn<k> Attribute<P>::get() [with int k = k; P = {int [2]}]
+     Tn<k> const  get() {
+                  ^
+main.cpp:111:18: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<int k> Attribute<P>::Tn<k> Attribute<P>::get() [with int k = 0]':
+main.cpp:177:27:   required from here
+main.cpp:111:18: error: function returning an array
+main.cpp:125:23: note: template<int k, int e> Attribute<P>::EltType<k> Attribute<P>::get() [with int k = k; int e = e; P = {int [2]}]
+     EltType<k> const  get() {
+                       ^
+main.cpp:125:23: note:   template argument deduction/substitution failed:
+main.cpp:177:27: note:   couldn't deduce template parameter 'e'
+     auto v2_0 = v2.get<0>();
+                           ^
