@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'void BaseForwarder::process(const T&) [with T = std::vector<std::shared_ptr<Derived> >; SharedPtr = std::shared_ptr<Derived>; Element = Derived; IsDerived = void*]':
+main.cpp:50:22:   required from here
+main.cpp:36:9: error: no matching function for call to 'BaseHandler::process(const std::vector<std::shared_ptr<Derived> >&)'
+         bh.process(t);
+         ^
+main.cpp:36:9: note: candidate is:
+main.cpp:21:10: note: void BaseHandler::process(BaseList)
+     void process( BaseList list ) {
+          ^
+main.cpp:21:10: note:   no known conversion for argument 1 from 'const std::vector<std::shared_ptr<Derived> >' to 'BaseList {aka std::vector<std::shared_ptr<Base> >}'
