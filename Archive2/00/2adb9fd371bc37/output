@@ -1,0 +1,13 @@
+main.cpp: In instantiation of 'struct call<MetafunctionClass2<X, X>::apply<int, int, int>, void>':
+main.cpp:41:75:   required by substitution of 'template<class T, class ... Args> using call_metafunction_class = typename call<typename T::apply<Args ...> >::type [with T = MetafunctionClass2<X, X>; Args = {int, int, int}]'
+main.cpp:46:76:   required from here
+main.cpp:37:34: error: no type named 'type' in 'struct MetafunctionClass2<X, X>::apply<int, int, int>'
+     using type = typename T::type;  
+                                  ^
+main.cpp: In function 'int main()':
+main.cpp:51:5: error: 'result2' was not declared in this scope
+     result2 b = 0;
+     ^
+main.cpp:50:13: warning: unused variable 'a' [-Wunused-variable]
+     result1 a = 0;
+             ^
