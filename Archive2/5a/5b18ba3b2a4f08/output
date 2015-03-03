@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:26:22: error: no matching function for call to 'BaseHandler::process(DerivedList&)'
+     bh.process( list );
+                      ^
+main.cpp:26:22: note: candidate is:
+main.cpp:17:10: note: void BaseHandler::process(BaseList)
+     void process( BaseList list ) {
+          ^
+main.cpp:17:10: note:   no known conversion for argument 1 from 'DerivedList {aka std::vector<std::shared_ptr<Derived> >}' to 'BaseList {aka std::vector<std::shared_ptr<Base> >}'
