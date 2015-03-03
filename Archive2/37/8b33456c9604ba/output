@@ -1,0 +1,29 @@
++ clang++ -stdlib=libc++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:29:1: error: call to 'f' is ambiguous
+f("hello");
+^
+main.cpp:15:6: note: candidate function [with Args = <>]
+void f(const char* t, Args... args) {
+     ^
+main.cpp:21:6: note: candidate function [with N = '\x06', Args = <>]
+void f(const char (&s)[N], Args... args) {
+     ^
+main.cpp:9:6: note: candidate function [with T = const char *, Args = <>]
+void f(T t, Args... args) {
+     ^
+1 error generated.
++ g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:29:10: error: call of overloaded 'f(const char [6])' is ambiguous
+ f("hello");
+          ^
+main.cpp:29:10: note: candidates are:
+main.cpp:9:6: note: void f(T, Args ...) [with T = const char*; Args = {}]
+ void f(T t, Args... args) {
+      ^
+main.cpp:15:6: note: void f(const char*, Args ...) [with Args = {}]
+ void f(const char* t, Args... args) {
+      ^
+main.cpp:21:6: note: void f(const char (&)[N], Args ...) [with unsigned char N = 6u; Args = {}]
+ void f(const char (&s)[N], Args... args) {
+      ^
