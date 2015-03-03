@@ -1,0 +1,1 @@
+g++-4.7 -std=c++11 -O0 -Wall -pedantic -pthread main.cpp -save-temps -fverbose-asm -g3 -ggdb && gdb -ex 'r' -ex 'bt' ./a.out
