@@ -1,0 +1,10 @@
+main.cpp:7:21: error: could not convert 'A{0}' from 'A' to 'A&'
+ void f( A & a = A() ){ /*a.a = 42;*/ std::cout << "it works" << std::endl; }
+                     ^
+main.cpp: In function 'int main()':
+main.cpp:11:5: error: invalid initialization of non-const reference of type 'A&' from an rvalue of type 'A'
+   f();
+     ^
+main.cpp:7:6: note: in passing argument 1 of 'void f(A&)'
+ void f( A & a = A() ){ /*a.a = 42;*/ std::cout << "it works" << std::endl; }
+      ^
