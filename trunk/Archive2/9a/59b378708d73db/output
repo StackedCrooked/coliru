@@ -1,0 +1,28 @@
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /tmp/1425395760.9115/a.out...done.
+Starting program: /tmp/1425395760.9115/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007f7c32b47c23 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+   from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007f7c32b47c23 in std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+   from /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000000000400c22 in f (m=std::map with 0 elements) at main.cpp:9
+#2  0x0000000000400ccc in main () at main.cpp:15
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 18097] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
