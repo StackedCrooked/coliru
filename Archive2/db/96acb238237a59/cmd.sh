@@ -1,0 +1,1 @@
+clang++ -std=c++1y -Wall -Wextra -pedantic -stdlib=libc++ -O0 -o main main.cpp && ./main
