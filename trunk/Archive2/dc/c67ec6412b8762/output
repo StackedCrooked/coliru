@@ -1,0 +1,123 @@
+main.cpp: In instantiation of 'struct Recursor<0, 0, int [2], int [3], int [4], int [5]>':
+main.cpp:242:41:   required by substitution of 'template<class ... P> template<int k> using A = typename Attribute<P>::R<k>::destination [with int k = 0; P = {int [2], int [3], int [4], int [5]}]'
+main.cpp:350:9:   required from here
+main.cpp:183:95: error: ambiguous class template instantiation for 'struct Recursor<-1, 8, int [3], int [4], int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:160:8: error: candidates are: struct Recursor<k, offset_, Tn_, P ...>
+ struct Recursor<k, offset_, Tn_, P...> 
+        ^
+main.cpp:214:8: error:                 struct Recursor<-1, offset_, P ...>
+ struct Recursor<-1, offset_, P...> 
+        ^
+main.cpp:183:95: error: invalid use of incomplete type 'struct Recursor<-1, 8, int [3], int [4], int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:157:8: error: declaration of 'struct Recursor<-1, 8, int [3], int [4], int [5]>'
+ struct Recursor;
+        ^
+main.cpp: In instantiation of 'struct Recursor<0, 8, int [3], int [4], int [5]>':
+main.cpp:183:95:   required from 'struct Recursor<1, 0, int [2], int [3], int [4], int [5]>'
+main.cpp:242:41:   required by substitution of 'template<class ... P> template<int k> using A = typename Attribute<P>::R<k>::destination [with int k = 1; P = {int [2], int [3], int [4], int [5]}]'
+main.cpp:351:9:   required from here
+main.cpp:183:95: error: ambiguous class template instantiation for 'struct Recursor<-1, 20, int [4], int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:160:8: error: candidates are: struct Recursor<k, offset_, Tn_, P ...>
+ struct Recursor<k, offset_, Tn_, P...> 
+        ^
+main.cpp:214:8: error:                 struct Recursor<-1, offset_, P ...>
+ struct Recursor<-1, offset_, P...> 
+        ^
+main.cpp:183:95: error: invalid use of incomplete type 'struct Recursor<-1, 20, int [4], int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:157:8: error: declaration of 'struct Recursor<-1, 20, int [4], int [5]>'
+ struct Recursor;
+        ^
+main.cpp: In instantiation of 'struct Recursor<0, 20, int [4], int [5]>':
+main.cpp:183:95:   recursively required from 'struct Recursor<1, 8, int [3], int [4], int [5]>'
+main.cpp:183:95:   required from 'struct Recursor<2, 0, int [2], int [3], int [4], int [5]>'
+main.cpp:242:41:   required by substitution of 'template<class ... P> template<int k> using A = typename Attribute<P>::R<k>::destination [with int k = 2; P = {int [2], int [3], int [4], int [5]}]'
+main.cpp:352:9:   required from here
+main.cpp:183:95: error: ambiguous class template instantiation for 'struct Recursor<-1, 36, int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:160:8: error: candidates are: struct Recursor<k, offset_, Tn_, P ...>
+ struct Recursor<k, offset_, Tn_, P...> 
+        ^
+main.cpp:214:8: error:                 struct Recursor<-1, offset_, P ...>
+ struct Recursor<-1, offset_, P...> 
+        ^
+main.cpp:183:95: error: invalid use of incomplete type 'struct Recursor<-1, 36, int [5]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:157:8: error: declaration of 'struct Recursor<-1, 36, int [5]>'
+ struct Recursor;
+        ^
+main.cpp: In instantiation of 'struct Recursor<0, 0, float [3], int [1], double [4]>':
+main.cpp:242:41:   required by substitution of 'template<class ... P> template<int k> using A = typename Attribute<P>::R<k>::destination [with int k = 0; P = {float [3], int [1], double [4]}]'
+main.cpp:245:62:   required by substitution of 'template<class ... P> template<int k> using EltType = typename Attribute<P>::R<k>::destination::EltType [with int k = 0; P = {float [3], int [1], double [4]}]'
+main.cpp:283:23:   required by substitution of 'template<int k, int e> Attribute<P>::EltType<k> Attribute<P>::get() [with int k = 0; int e = 2]'
+main.cpp:360:9:   required from here
+main.cpp:183:95: error: ambiguous class template instantiation for 'struct Recursor<-1, 12, int [1], double [4]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:160:8: error: candidates are: struct Recursor<k, offset_, Tn_, P ...>
+ struct Recursor<k, offset_, Tn_, P...> 
+        ^
+main.cpp:214:8: error:                 struct Recursor<-1, offset_, P ...>
+ struct Recursor<-1, offset_, P...> 
+        ^
+main.cpp:183:95: error: invalid use of incomplete type 'struct Recursor<-1, 12, int [1], double [4]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:157:8: error: declaration of 'struct Recursor<-1, 12, int [1], double [4]>'
+ struct Recursor;
+        ^
+main.cpp: In function 'int main()':
+main.cpp:360:27: error: no matching function for call to 'Attribute<float [3], int [1], double [4]>::get()'
+         COUT(( v.get<0,2>() ));
+                           ^
+main.cpp:9:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
+main.cpp:360:27: note: candidates are:
+         COUT(( v.get<0,2>() ));
+                           ^
+main.cpp:9:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
+main.cpp:253:10: note: template<int k> Attribute<P>::V<k> Attribute<P>::get() [with int k = k; P = {float [3], int [1], double [4]}]
+     V<k> get() {
+          ^
+main.cpp:253:10: note:   template argument deduction/substitution failed:
+main.cpp:360:27: error: wrong number of template arguments (2, should be 1)
+         COUT(( v.get<0,2>() ));
+                           ^
+main.cpp:9:38: note: in definition of macro 'COUT'
+ #define COUT(x) cout << #x << ":" << x << endl
+                                      ^
+main.cpp:283:23: note: template<int k, int e> Attribute<P>::EltType<k> Attribute<P>::get() [with int k = k; int e = e; P = {float [3], int [1], double [4]}]
+     EltType<k> const  get() {
+                       ^
+main.cpp:283:23: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp: In instantiation of 'struct Recursor<0, 12, int [1], double [4]>':
+main.cpp:183:95:   required from 'struct Recursor<1, 0, float [3], int [1], double [4]>'
+main.cpp:242:41:   required by substitution of 'template<class ... P> template<int k> using A = typename Attribute<P>::R<k>::destination [with int k = 1; P = {float [3], int [1], double [4]}]'
+main.cpp:363:9:   required from here
+main.cpp:183:95: error: ambiguous class template instantiation for 'struct Recursor<-1, 16, double [4]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:160:8: error: candidates are: struct Recursor<k, offset_, Tn_, P ...>
+ struct Recursor<k, offset_, Tn_, P...> 
+        ^
+main.cpp:214:8: error:                 struct Recursor<-1, offset_, P ...>
+ struct Recursor<-1, offset_, P...> 
+        ^
+main.cpp:183:95: error: invalid use of incomplete type 'struct Recursor<-1, 16, double [4]>'
+     using destination = typename conditional< k == 0, This, typename Next::destination >::type;
+                                                                                               ^
+main.cpp:157:8: error: declaration of 'struct Recursor<-1, 16, double [4]>'
+ struct Recursor;
+        ^
