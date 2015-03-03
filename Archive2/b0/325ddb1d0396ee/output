@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:52:33: error: no matching function for call to 'thread::get_list()'
+     t.get_list<class some_type>(); // doesn't compile
+                                 ^
+main.cpp:52:33: note: candidate is:
+main.cpp:33:29: note: template<class Tag, typename std::enable_if<any_of<std::is_same<Tag, all>::value, std::is_same<Tag, same_state>::value>::value, int>::type <anonymous> > list_mixin<Type, Tag>& list_mixins<Type, Tags>::get_list() [with Tag = Tag; typename std::enable_if<any_of<std::is_same<Tag, Tags>::value ...>::value, int>::type <anonymous> = <enumerator>; Type = thread; Tags = {all, same_state}]
+     list_mixin<Type, Tag> & get_list()
+                             ^
+main.cpp:33:29: note:   template argument deduction/substitution failed:
+main.cpp:32:115: error: no type named 'type' in 'struct std::enable_if<false, int>'
+     template<typename Tag, typename std::enable_if<any_of<std::is_same<Tag, Tags>::value...>::value, int>::type = 0>
+                                                                                                                   ^
+main.cpp:32:115: note: invalid template non-type parameter
