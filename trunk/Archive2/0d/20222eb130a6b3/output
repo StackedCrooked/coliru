@@ -1,0 +1,133 @@
+main.cpp:72:59: warning: backslash and newline separated by space
+     process_vertex_attribute< VertexStruct::attr_type > ( \ 
+ ^
+main.cpp:7:43: error: variable or field 'generic_glVertexAttribPointer' declared void
+ inline void generic_glVertexAttribPointer(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                           ^
+main.cpp:7:43: error: 'GLuint' was not declared in this scope
+main.cpp:7:57: error: 'GLint' was not declared in this scope
+ inline void generic_glVertexAttribPointer(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                                         ^
+main.cpp:7:69: error: 'GLsizei' was not declared in this scope
+ inline void generic_glVertexAttribPointer(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                                                     ^
+main.cpp:7:85: error: expected primary-expression before 'const'
+ inline void generic_glVertexAttribPointer(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                                                                     ^
+main.cpp:13:42: error: expected initializer before '<' token
+ inline void generic_glVertexAttribPointer<float>(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                          ^
+main.cpp:18:42: error: expected initializer before '<' token
+ inline void generic_glVertexAttribPointer<double>(GLuint index, GLint size, GLsizei stride, const GLvoid *pointer) {
+                                          ^
+main.cpp:25:20: error: 'is_same' is not a member of 'std'
+     static_assert( std::is_same<T, void>::value,  "Invalid type!" );
+                    ^
+main.cpp:25:34: error: expected primary-expression before ',' token
+     static_assert( std::is_same<T, void>::value,  "Invalid type!" );
+                                  ^
+main.cpp:25:36: error: expected string-literal before 'void'
+     static_assert( std::is_same<T, void>::value,  "Invalid type!" );
+                                    ^
+main.cpp:25:36: error: expected ')' before 'void'
+main.cpp:26:22: error: 'GLenum' does not name a type
+     static constexpr GLenum value = 0;
+                      ^
+main.cpp:29:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<unsigned char>  {static constexpr GLenum value = GL_UNSIGNED_BYTE;};
+                                                                   ^
+main.cpp:30:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<signed char>    {static constexpr GLenum value = GL_BYTE;};
+                                                                   ^
+main.cpp:32:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<unsigned short> {static constexpr GLenum value = GL_UNSIGNED_SHORT;};
+                                                                   ^
+main.cpp:33:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<signed short>   {static constexpr GLenum value = GL_SHORT;};
+                                                                   ^
+main.cpp:34:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<unsigned int>   {static constexpr GLenum value = GL_UNSIGNED_INT;};
+                                                                   ^
+main.cpp:35:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<signed int>     {static constexpr GLenum value = GL_INT;};
+                                                                   ^
+main.cpp:36:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<float>          {static constexpr GLenum value = GL_FLOAT;};
+                                                                   ^
+main.cpp:37:67: error: 'GLenum' does not name a type
+ template <> struct glconst4type<double>         {static constexpr GLenum value = GL_DOUBLE;};
+                                                                   ^
+main.cpp:42:5: error: variable or field 'process_vertex_attribute' declared void
+     OpenGLContext&          openGLContext, 
+     ^
+main.cpp:42:5: error: 'OpenGLContext' was not declared in this scope
+main.cpp:42:29: error: 'openGLContext' was not declared in this scope
+     OpenGLContext&          openGLContext, 
+                             ^
+main.cpp:43:5: error: 'OpenGLShaderProgram' was not declared in this scope
+     OpenGLShaderProgram&    shader, 
+     ^
+main.cpp:43:29: error: 'shader' was not declared in this scope
+     OpenGLShaderProgram&    shader, 
+                             ^
+main.cpp:44:5: error: 'string' is not a member of 'std'
+     std::string             name, 
+     ^
+main.cpp:45:29: error: expected primary-expression before 'stride_bytes'
+     size_t                  stride_bytes, 
+                             ^
+main.cpp:46:29: error: expected primary-expression before 'offset_bytes'
+     size_t                  offset_bytes
+                             ^
+main.cpp: In function 'void foo()':
+main.cpp:72:5: error: 'process_vertex_attribute' was not declared in this scope
+     process_vertex_attribute< VertexStruct::attr_type > ( \ 
+     ^
+main.cpp:83:5: note: in expansion of macro 'PROCESS_VERTEX_ATTRIBUTE'
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, pos,   "position"  );
+     ^
+main.cpp:81:28: error: invalid use of non-static data member 'foo()::V::pos'
+     struct V {  float pos[3];  int uv[2];  double color[4]; };
+                            ^
+main.cpp:83:57: error: from this location
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, pos,   "position"  );
+                                                         ^
+main.cpp:72:45: note: in definition of macro 'PROCESS_VERTEX_ATTRIBUTE'
+     process_vertex_attribute< VertexStruct::attr_type > ( \ 
+                                             ^
+main.cpp:83:31: error: 'openGLContext' was not declared in this scope
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, pos,   "position"  );
+                               ^
+main.cpp:73:41: note: in definition of macro 'PROCESS_VERTEX_ATTRIBUTE'
+                                         openGLContext, \
+                                         ^
+main.cpp:83:46: error: 'shader' was not declared in this scope
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, pos,   "position"  );
+                                              ^
+main.cpp:74:41: note: in definition of macro 'PROCESS_VERTEX_ATTRIBUTE'
+                                         shader, \
+                                         ^
+main.cpp:75:41: error: 'name' was not declared in this scope
+                                         name, \
+                                         ^
+main.cpp:83:5: note: in expansion of macro 'PROCESS_VERTEX_ATTRIBUTE'
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, pos,   "position"  );
+     ^
+main.cpp:81:40: error: invalid use of non-static data member 'foo()::V::uv'
+     struct V {  float pos[3];  int uv[2];  double color[4]; };
+                                        ^
+main.cpp:84:57: error: from this location
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, uv,    "uv"        );
+                                                         ^
+main.cpp:72:45: note: in definition of macro 'PROCESS_VERTEX_ATTRIBUTE'
+     process_vertex_attribute< VertexStruct::attr_type > ( \ 
+                                             ^
+main.cpp:81:58: error: invalid use of non-static data member 'foo()::V::color'
+     struct V {  float pos[3];  int uv[2];  double color[4]; };
+                                                          ^
+main.cpp:85:57: error: from this location
+     PROCESS_VERTEX_ATTRIBUTE( openGLContext, shader, V, color, "color"     );
+                                                         ^
+main.cpp:72:45: note: in definition of macro 'PROCESS_VERTEX_ATTRIBUTE'
+     process_vertex_attribute< VertexStruct::attr_type > ( \ 
+                                             ^
