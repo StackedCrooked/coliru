@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:27:20: warning: variable 'min' set but not used [-Wunused-but-set-variable]
+     Point<float,3> min = std::accumulate(array, array+100, array[0], Point<float,3>::min);
+                    ^
+main.cpp: In instantiation of 'Point<T, N>::Point(Args&& ...) [with Args = {Point<float, 3ul>}; T = float; long unsigned int N = 3ul]':
+main.cpp:27:89:   required from here
+main.cpp:11:54: error: cannot convert 'Point<float, 3ul>' to 'float' in initialization
+     Point(Args&&... args) : std::array<T,N>{{args...}} {}
+                                                      ^
