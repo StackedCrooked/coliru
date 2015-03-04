@@ -1,0 +1,17 @@
++ clang++ -std=c++14 -O2 -Wall -pedantic main.cpp -stdlib=libc++
+main.cpp:3:37: error: missing 'typename' prior to dependent type name 'T1::value_type'
+template<typename T1, typename T2 = T1::value_type>
+                                    ^~~~~~~~~~~~~~
+                                    typename 
+main.cpp:6:25: error: missing 'typename' prior to dependent type name 'T1::const_iterator'
+                typedef T1::const_iterator const_iterator;
+                        ^~~~~~~~~~~~~~~~~~
+                        typename 
+main.cpp:7:17: error: no template named 'vector'; did you mean 'std::vector'?
+                vector<const_iterator> it;
+                ^~~~~~
+                std::vector
+/usr/include/c++/v1/vector:481:29: note: 'std::vector' declared here
+class _LIBCPP_TYPE_VIS_ONLY vector
+                            ^
+3 errors generated.
