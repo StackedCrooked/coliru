@@ -1,0 +1,27 @@
++ g++ -std=c++14 -O2 -Wall -pedantic main.cpp
+main.cpp:3:37: error: need 'typename' before 'T1::value_type' because 'T1' is a dependent scope
+ template<typename T1, typename T2 = T1::value_type>
+                                     ^
+main.cpp: In function 'auto find_all(const T1&, T2)':
+main.cpp:6:25: error: need 'typename' before 'T1::const_iterator' because 'T1' is a dependent scope
+                 typedef T1::const_iterator const_iterator;
+                         ^
+main.cpp:7:17: error: 'vector' was not declared in this scope
+                 vector<const_iterator> it;
+                 ^
+main.cpp:7:17: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:214:11: note:   'std::vector'
+     class vector : protected _Vector_base<_Tp, _Alloc>
+           ^
+main.cpp:7:24: error: 'const_iterator' was not declared in this scope
+                 vector<const_iterator> it;
+                        ^
+main.cpp:7:40: error: 'it' was not declared in this scope
+                 vector<const_iterator> it;
+                                        ^
+main.cpp: In function 'int main()':
+main.cpp:18:27: error: 'void r' has incomplete type
+     auto r = find_all(v, 1);
+                           ^
