@@ -1,0 +1,1 @@
+gcc -Wformat -pedantic main.cpp
