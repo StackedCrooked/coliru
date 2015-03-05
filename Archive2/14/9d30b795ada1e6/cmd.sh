@@ -1,0 +1,1 @@
+clang -pedantic-errors -x c main.cpp
