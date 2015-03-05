@@ -1,0 +1,28 @@
+===== clang++ with -Wall -Wextra ======
+main.cpp:7:27: warning: multiple unsequenced modifications to 'i' [-Wunsequenced]
+    std::cout << '\n' <<  ++i + i++ << "\n\n" ; 
+                          ^      ~~
+1 warning generated.
+
+202
+
+===== g++ with -Wall -Wextra ======
+main.cpp: In function 'int main()':
+main.cpp:7:47: warning: operation on 'i' may be undefined [-Wsequence-point]
+     std::cout << '\n' <<  ++i + i++ << "\n\n" ; 
+                                               ^
+
+203
+
+===== clang++ without -Wall -Wextra ======
+main.cpp:7:27: warning: multiple unsequenced modifications to 'i' [-Wunsequenced]
+    std::cout << '\n' <<  ++i + i++ << "\n\n" ; 
+                          ^      ~~
+1 warning generated.
+
+202
+
+===== g++ without -Wall -Wextra ======
+
+203
+
