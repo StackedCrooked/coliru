@@ -1,0 +1,1 @@
+gcc -pedantic-errors -x c main.cpp && ./a.out
