@@ -1,0 +1,18 @@
+  Base::Base()
+  Derived::Derived()
+Created a shared Derived (as a pointer to Base)
+  p.get() = 0x1728020, p.use_count() = 1
+Shared ownership between 3 threads and released
+ownership from main:
+  p.get() = 0, p.use_count() = 0
+local pointer in a thread:
+  lp.get() = 0x1728020, lp.use_count() = 5
+local pointer in a thread:
+  lp.get() = 0x1728020, lp.use_count() = 3
+local pointer in a thread:
+  lp.get() = 0x1728020, lp.use_count() = 2
+  Derived::~Derived()
+  Base::~Base()
+xxxxxxxx
+  p.get() = 0, p.use_count() = 0
+All threads completed, the last one deleted Derived
