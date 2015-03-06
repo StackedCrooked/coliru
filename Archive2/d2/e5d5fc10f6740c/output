@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:25:7: error: ambiguous overload for 'operator&' (operand types are 'S' and 'int [1]')
+     s & ar;
+       ^
+main.cpp:25:7: note: candidates are:
+main.cpp:7:10: note: void S::operator&(T (&)[N]) [with T = int; long unsigned int N = 1ul]
+     void operator &(T (&ar)[N])
+          ^
+main.cpp:13:10: note: void S::operator&(T*) [with T = int]
+     void operator &(T*)
+          ^
