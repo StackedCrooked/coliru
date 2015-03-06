@@ -1,0 +1,68 @@
+first pass
+#1:#include <fstream>
+#2:#include <iostream>
+#3:#include <string>
+#4:
+#5:int main(int argc, char**argv)
+#6:{
+#7:  std::string path = argc>1?std::string{argv[1]}:std::string(__FILE__);
+#8:  std::ifstream inp{path};
+#9:  int num=0;
+#10:  std::cout << "first pass" << std::endl;
+#11:  do {
+#12:    std::string lin;
+#13:    std::getline(inp,lin);
+#14:    if (inp.eof())
+#15:      break;
+#16:    num++;
+#17:    std::cout << "#" << num << ":" << lin << std::endl;
+#18:  } while (!inp.eof());
+#19:  inp.seekg(0, inp.beg);
+#20:  inp.sync();
+#21:  inp.clear();
+#22:  std::cout << "second pass" << std::endl;
+#23:  num=0;
+#24:  do {
+#25:    std::string lin;
+#26:    std::getline(inp,lin);
+#27:    if (inp.eof())
+#28:      break;
+#29:    num++;
+#30:    std::cout << "##" << num << ":" << lin << std::endl;
+#31:  } while (!inp.eof());
+#32:  inp.close();
+#33:  return 0;
+second pass
+##1:#include <fstream>
+##2:#include <iostream>
+##3:#include <string>
+##4:
+##5:int main(int argc, char**argv)
+##6:{
+##7:  std::string path = argc>1?std::string{argv[1]}:std::string(__FILE__);
+##8:  std::ifstream inp{path};
+##9:  int num=0;
+##10:  std::cout << "first pass" << std::endl;
+##11:  do {
+##12:    std::string lin;
+##13:    std::getline(inp,lin);
+##14:    if (inp.eof())
+##15:      break;
+##16:    num++;
+##17:    std::cout << "#" << num << ":" << lin << std::endl;
+##18:  } while (!inp.eof());
+##19:  inp.seekg(0, inp.beg);
+##20:  inp.sync();
+##21:  inp.clear();
+##22:  std::cout << "second pass" << std::endl;
+##23:  num=0;
+##24:  do {
+##25:    std::string lin;
+##26:    std::getline(inp,lin);
+##27:    if (inp.eof())
+##28:      break;
+##29:    num++;
+##30:    std::cout << "##" << num << ":" << lin << std::endl;
+##31:  } while (!inp.eof());
+##32:  inp.close();
+##33:  return 0;
