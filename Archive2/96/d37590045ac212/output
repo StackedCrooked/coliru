@@ -1,0 +1,23 @@
++ clang++ -stdlib=libc++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:625:
+/usr/include/c++/v1/type_traits:948:38: error: implicit instantiation of undefined template 'std::__1::hash<std::__1::vector<double, std::__1::allocator<double> > >'
+    : public integral_constant<bool, __is_empty(_Tp)> {};
+                                     ^
+/usr/include/c++/v1/unordered_map:360:54: note: in instantiation of template class 'std::__1::is_empty<std::__1::hash<std::__1::vector<double, std::__1::allocator<double> > > >' requested here
+template <class _Key, class _Cp, class _Hash, bool = is_empty<_Hash>::value
+                                                     ^
+/usr/include/c++/v1/unordered_map:729:13: note: in instantiation of default argument for '__unordered_map_hasher<std::__1::vector<double, std::__1::allocator<double> >, std::__1::__hash_value_type<std::__1::vector<double, std::__1::allocator<double> >, double>, std::__1::hash<std::__1::vector<double, std::__1::allocator<double> > > >' required here
+    typedef __unordered_map_hasher<key_type, __value_type, hasher>   __hasher;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:21:53: note: in instantiation of template class 'std::__1::unordered_map<std::__1::vector<double, std::__1::allocator<double> >, double, std::__1::hash<std::__1::vector<double, std::__1::allocator<double> > >, std::__1::equal_to<std::__1::vector<double, std::__1::allocator<double> > >, std::__1::allocator<std::__1::pair<const std::__1::vector<double, std::__1::allocator<double> >, double> > >' requested here
+    std::unordered_map<std::vector<double>, double> test;
+                                                    ^
+/usr/include/c++/v1/memory:3065:29: note: template is declared here
+template <class _Tp> struct hash;
+                            ^
+1 error generated.
