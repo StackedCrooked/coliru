@@ -1,0 +1,61 @@
+first pass
+#1:#include <fstream>
+#2:#include <iostream>
+#3:#include <string>
+#4:
+#5:namespace {
+#6:void one_pass(std::istream& is) {
+#7:  int num = 0;
+#8:  std::string lin;
+#9:
+#10:  while (std::getline(is, lin)) {
+#11:    ++num;
+#12:    std::cout << '#' << num << ':' << lin << '\n';
+#13:  }
+#14:}
+#15:} // unnamed namespace
+#16:
+#17:int main(int argc, char**argv)
+#18:{
+#19:  std::ifstream inp{argc > 1 ? argv[1] : __FILE__};
+#20:
+#21:  std::cout << "first pass\n";
+#22:  one_pass(inp);
+#23:
+#24:  inp.clear();
+#25:  inp.seekg(0);
+#26:
+#27:  std::cout << "\nsecond pass\n";
+#28:  one_pass(inp);
+#29:}
+
+second pass
+#1:#include <fstream>
+#2:#include <iostream>
+#3:#include <string>
+#4:
+#5:namespace {
+#6:void one_pass(std::istream& is) {
+#7:  int num = 0;
+#8:  std::string lin;
+#9:
+#10:  while (std::getline(is, lin)) {
+#11:    ++num;
+#12:    std::cout << '#' << num << ':' << lin << '\n';
+#13:  }
+#14:}
+#15:} // unnamed namespace
+#16:
+#17:int main(int argc, char**argv)
+#18:{
+#19:  std::ifstream inp{argc > 1 ? argv[1] : __FILE__};
+#20:
+#21:  std::cout << "first pass\n";
+#22:  one_pass(inp);
+#23:
+#24:  inp.clear();
+#25:  inp.seekg(0);
+#26:
+#27:  std::cout << "\nsecond pass\n";
+#28:  one_pass(inp);
+#29:}
