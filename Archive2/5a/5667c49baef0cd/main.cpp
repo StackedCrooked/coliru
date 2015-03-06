@@ -1,0 +1,3 @@
+void and() {}
+
+int main() {}
