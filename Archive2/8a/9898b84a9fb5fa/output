@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:16:7: error: no match for 'operator=' (operand types are 'foo<<lambda()> >' and 'foo<main()::<lambda()> >')
+     f = make_foo([] { return 42; });
+       ^
+main.cpp:16:7: note: candidates are:
+main.cpp:4:8: note: foo<<lambda()> >& foo<<lambda()> >::operator=(const foo<<lambda()> >&) <deleted>
+ struct foo {
+        ^
+main.cpp:4:8: note:   no known conversion for argument 1 from 'foo<main()::<lambda()> >' to 'const foo<<lambda()> >&'
+main.cpp:4:8: note: foo<<lambda()> >& foo<<lambda()> >::operator=(foo<<lambda()> >&&) <deleted>
+main.cpp:4:8: note:   no known conversion for argument 1 from 'foo<main()::<lambda()> >' to 'foo<<lambda()> >&&'
+main.cpp:17:19: error: void value not ignored as it ought to be
+     return f.func();
+                   ^
+1
