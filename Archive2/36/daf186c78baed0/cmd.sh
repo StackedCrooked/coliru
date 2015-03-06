@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -Wno-multichar main.cpp && ./a.out
