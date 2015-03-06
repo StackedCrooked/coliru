@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Wall -Wextra -fextended-identifiers -pthread main.cpp && ./a.out
