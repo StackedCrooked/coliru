@@ -1,0 +1,1 @@
+echo __clang_major__.__clang_minor__.__clang_patchlevel__ | clang -E -P -xc++ - | tr -d '[[:space:]]'
