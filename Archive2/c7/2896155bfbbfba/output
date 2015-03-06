@@ -1,0 +1,36 @@
+main.cpp:26:9: error: 'Func' does not name a type
+         Func a;
+         ^
+main.cpp:27:3: error: 'Func2' does not name a type
+   Func2 b;
+   ^
+main.cpp:28:3: error: 'Func3' does not name a type
+   Func3 c;
+   ^
+main.cpp: In member function 'void Something::setThing(Func, Func2, Func3)':
+main.cpp:15:15: error: 'struct Something' has no member named 'a'
+         this->a = a;
+               ^
+main.cpp:16:15: error: 'struct Something' has no member named 'b'
+         this->b = b;
+               ^
+main.cpp:17:15: error: 'struct Something' has no member named 'c'
+         this->c = c;
+               ^
+main.cpp: In member function 'void Something::run()':
+main.cpp:22:22: error: 'struct Something' has no member named 'a'
+         return this->a() + this->b() + this->c();   
+                      ^
+main.cpp:22:34: error: 'struct Something' has no member named 'b'
+         return this->a() + this->b() + this->c();   
+                                  ^
+main.cpp:22:46: error: 'struct Something' has no member named 'c'
+         return this->a() + this->b() + this->c();   
+                                              ^
+main.cpp:22:48: error: return-statement with a value, in function returning 'void' [-fpermissive]
+         return this->a() + this->b() + this->c();   
+                                                ^
+main.cpp: In function 'int main()':
+main.cpp:36:12: error: request for member 'run' in 'myThing', which is of non-class type 'Something()'
+    myThing.run(
+            ^
