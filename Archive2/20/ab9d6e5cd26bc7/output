@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:18:14: error: no matching function for call to 'foo(std::array<int, 3ul>&)'
+     foo(test1);
+              ^
+main.cpp:18:14: note: candidate is:
+main.cpp:10:6: note: template<class T, class ... Args, template<class ...> class C> void foo(const C<T, Args ...>&)
+ void foo(C<T, Args...> const& container) {
+      ^
+main.cpp:10:6: note:   template argument deduction/substitution failed:
+main.cpp:18:14: error: type/value mismatch at argument 1 in template parameter list for 'template<class ...> class C'
+     foo(test1);
+              ^
+main.cpp:18:14: error:   expected a type, got '3ul'
