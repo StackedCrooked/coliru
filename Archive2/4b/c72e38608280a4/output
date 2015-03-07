@@ -1,0 +1,33 @@
+In file included from /usr/local/include/c++/4.9.2/thread:39:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'struct std::_Bind_simple<void (*(std::vector<State>, int, bool))(std::vector<State>&, int, bool)>':
+/usr/local/include/c++/4.9.2/future:1581:70:   required from 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> std::async(std::launch, _Fn&&, _Args&& ...) [with _Fn = void (&)(std::vector<State>&, int, bool); _Args = {std::vector<State, std::allocator<State> >&, int&, bool&}; typename std::result_of<_Functor(_ArgTypes ...)>::type = void]'
+/usr/local/include/c++/4.9.2/future:1597:36:   required from 'std::future<typename std::result_of<_Functor(_ArgTypes ...)>::type> std::async(_Fn&&, _Args&& ...) [with _Fn = void (&)(std::vector<State>&, int, bool); _Args = {std::vector<State, std::allocator<State> >&, int&, bool&}; typename std::result_of<_Functor(_ArgTypes ...)>::type = void]'
+main.cpp:75:48:   required from here
+/usr/local/include/c++/4.9.2/functional:1665:61: error: no type named 'type' in 'class std::result_of<void (*(std::vector<State>, int, bool))(std::vector<State>&, int, bool)>'
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/local/include/c++/4.9.2/functional:1695:9: error: no type named 'type' in 'class std::result_of<void (*(std::vector<State>, int, bool))(std::vector<State>&, int, bool)>'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/string:41,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = std::future<void>; _Args = {const std::future<void>&}; _Tp = std::future<void>]':
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:253:4:   required from 'static std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> std::allocator_traits<_Alloc>::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::future<void>; _Args = {const std::future<void>&}; _Alloc = std::allocator<std::future<void> >; std::_Require<typename std::allocator_traits<_Alloc>::__construct_helper<_Tp, _Args>::type> = void]'
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:399:57:   required from 'static decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) std::allocator_traits<_Alloc>::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = std::future<void>; _Args = {const std::future<void>&}; _Alloc = std::allocator<std::future<void> >; decltype (_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits::construct::__args)...)) = <type error>]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:918:34:   required from 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::future<void>; _Alloc = std::allocator<std::future<void> >; std::vector<_Tp, _Alloc>::value_type = std::future<void>]'
+main.cpp:76:30:   required from here
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:120:4: error: use of deleted function 'std::future<void>::future(const std::future<void>&)'
+  { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+    ^
+In file included from main.cpp:5:0:
+/usr/local/include/c++/4.9.2/future:772:7: note: declared here
+       future(const future&) = delete;
+       ^
