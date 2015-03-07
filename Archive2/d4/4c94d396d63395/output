@@ -1,0 +1,10 @@
+main.cpp: In instantiation of 'Cow<T>::Cow(const T&) [with T = int]':
+main.cpp:49:19:   required from here
+main.cpp:8:49: error: no matching function for call to 'Cow<int>::Impl::Impl(const int&)'
+     explicit Cow(const T& t) : mImpl(new Impl(t)) {}
+                                                 ^
+main.cpp:8:49: note: candidate is:
+main.cpp:37:12: note: Cow<int>::Impl::Impl()
+     struct Impl
+            ^
+main.cpp:37:12: note:   candidate expects 0 arguments, 1 provided
