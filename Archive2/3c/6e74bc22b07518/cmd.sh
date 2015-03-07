@@ -1,0 +1,1 @@
+runghc main.cpp -Wall -Werror
