@@ -1,0 +1,30 @@
+main.cpp: In function 'int main()':
+main.cpp:8:26: error: 'literals' is not a namespace-name
+     using namespace std::literals;
+                          ^
+main.cpp:8:34: error: expected namespace-name before ';' token
+     using namespace std::literals;
+                                  ^
+main.cpp:11:31: error: unable to find numeric literal operator 'operator""i'
+     std::complex<double> z1 = 1i * 1i;     // imaginary unit squared
+                               ^
+main.cpp:11:31: note: use -std=gnu++11 or -fext-numeric-literals to enable more built-in suffixes
+main.cpp:11:36: error: unable to find numeric literal operator 'operator""i'
+     std::complex<double> z1 = 1i * 1i;     // imaginary unit squared
+                                    ^
+main.cpp:11:36: note: use -std=gnu++11 or -fext-numeric-literals to enable more built-in suffixes
+main.cpp:14:40: error: unable to find numeric literal operator 'operator""i'
+     std::complex<double> z2 = std::pow(1i, 2); // imaginary unit squared
+                                        ^
+main.cpp:14:40: note: use -std=gnu++11 or -fext-numeric-literals to enable more built-in suffixes
+main.cpp:18:40: error: unable to find numeric literal operator 'operator""i'
+     std::complex<double> z3 = std::exp(1i * PI); // Euler's formula
+                                        ^
+main.cpp:18:40: note: use -std=gnu++11 or -fext-numeric-literals to enable more built-in suffixes
+main.cpp:21:36: error: unable to find numeric literal operator 'operator""i'
+     std::complex<double> z4 = 1. + 2i, z5 = 1. - 2i; // conjugates
+                                    ^
+main.cpp:21:36: note: use -std=gnu++11 or -fext-numeric-literals to enable more built-in suffixes
+main.cpp:22:43: error: 'z5' was not declared in this scope
+     std::cout << "(1+2i)*(1-2i) = " << z4*z5 << '\n';
+                                           ^
