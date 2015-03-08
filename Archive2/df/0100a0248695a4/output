@@ -1,0 +1,13 @@
++ clang++ -stdlib=libc++ -std=c++1y -O0 -Wall -pedantic -pthread main.cpp -fsanitize=undefined -lcxxrt -ldl
++ ./a.out
+main.cpp:18:10: runtime error: downcast of address 0x7fffa37b2490 which does not point to an object of type 'D'
+0x7fffa37b2490: note: object is of type 'B'
+ ff 7f 00 00  80 8f 45 00 00 00 00 00  00 00 00 00 00 00 00 00  74 61 df 03 00 00 00 00  10 b0 09 03
+              ^~~~~~~~~~~~~~~~~~~~~~~
+              vptr for 'B'
+main.cpp:20:19: runtime error: member access within address 0x7fffa37b2490 which does not point to an object of type 'D'
+0x7fffa37b2490: note: object is of type 'B'
+ ff 7f 00 00  80 8f 45 00 00 00 00 00  00 00 00 00 00 00 00 00  74 61 df 03 00 00 00 00  10 b0 09 03
+              ^~~~~~~~~~~~~~~~~~~~~~~
+              vptr for 'B'
+0
