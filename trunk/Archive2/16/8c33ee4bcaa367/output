@@ -1,0 +1,99 @@
+main.cpp:4:37: error: 'remove_extent' in namespace 'std' does not name a template type
+     using AttrType = typename  std::remove_extent<Tn>::type;
+                                     ^
+main.cpp:6:51: error: 'extent' is not a member of 'std'
+     static constexpr unsigned int dim           = std::extent<Tn>::value;
+                                                   ^
+main.cpp:6:63: error: 'Tn' was not declared in this scope
+     static constexpr unsigned int dim           = std::extent<Tn>::value;
+                                                               ^
+main.cpp:6:66: error: '::value' has not been declared
+     static constexpr unsigned int dim           = std::extent<Tn>::value;
+                                                                  ^
+main.cpp:8:64: error: expected primary-expression before ',' token
+     static constexpr unsigned int offset_bytes  = offsetof(Vert, Tn);
+                                                                ^
+main.cpp:8:66: error: 'Tn' was not declared in this scope
+     static constexpr unsigned int offset_bytes  = offsetof(Vert, Tn);
+                                                                  ^
+main.cpp:8:68: error: there are no arguments to 'offsetof' that depend on a template parameter, so a declaration of 'offsetof' must be available [-fpermissive]
+     static constexpr unsigned int offset_bytes  = offsetof(Vert, Tn);
+                                                                    ^
+main.cpp:8:68: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+main.cpp:11:17: error: 'OpenGLShaderProgram' has not been declared
+     connect_to( OpenGLShaderProgram::Attribute* gl_attribute )
+                 ^
+main.cpp:11:47: error: expected ',' or '...' before '*' token
+     connect_to( OpenGLShaderProgram::Attribute* gl_attribute )
+                                               ^
+main.cpp:28:1: error: expected ';' after struct definition
+ }
+ ^
+main.cpp: In static member function 'static bool VAHelper<Vert, <anonymous> >::connect_to(int)':
+main.cpp:13:13: error: 'gl_attribute' was not declared in this scope
+         if( gl_attribute == nullptr )
+             ^
+main.cpp:17:9: error: 'generic_glVertexAttribPointer' was not declared in this scope
+         generic_glVertexAttribPointer<AttrType>(
+         ^
+main.cpp:17:39: error: 'AttrType' was not declared in this scope
+         generic_glVertexAttribPointer<AttrType>(
+                                       ^
+main.cpp:18:13: error: 'gl_attribute' was not declared in this scope
+             gl_attribute->attributeID,
+             ^
+main.cpp:24:62: error: there are no arguments to 'glEnableVertexAttribArray' that depend on a template parameter, so a declaration of 'glEnableVertexAttribArray' must be available [-fpermissive]
+         glEnableVertexAttribArray( gl_attribute->attributeID );
+                                                              ^
+main.cpp: At global scope:
+main.cpp:35:1: error: expected class-name before '{' token
+ {
+ ^
+main.cpp:37:1: error: expected primary-expression before 'private'
+ private:
+ ^
+main.cpp:37:1: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+main.cpp:36:4: error: expected ';' at end of member declaration
+    :
+    ^
+main.cpp:51:34: error: expected ')' before '&' token
+         Attributes (OpenGLContext& openGLContext, OpenGLShaderProgram& shader)
+                                  ^
+main.cpp:59:22: error: 'OpenGLContext' has not been declared
+         void enable (OpenGLContext& openGLContext)
+                      ^
+main.cpp:63:1: error: expected '}' at end of input
+ :
+ ^
+main.cpp:63:1: error: expected unqualified-id at end of input
+main.cpp:63:1: error: expected '}' at end of input
+main.cpp: In member function 'void MainContentComponent::Attributes::enable(int&)':
+main.cpp:41:26: error: invalid use of non-static data member 'MainContentComponent::Vertex::_position'
+         float _position[3];
+                          ^
+main.cpp:61:30: error: from this location
+             VAHelper<Vertex::_position>::connect_to( position );
+                              ^
+main.cpp:61:39: error: wrong number of template arguments (1, should be 2)
+             VAHelper<Vertex::_position>::connect_to( position );
+                                       ^
+main.cpp:2:8: error: provided for 'template<class Vert, typename Vert::Tn <anonymous> > struct VAHelper'
+ struct VAHelper
+        ^
+main.cpp:61:52: error: invalid type in declaration before '(' token
+             VAHelper<Vertex::_position>::connect_to( position );
+                                                    ^
+main.cpp:61:54: error: 'position' was not declared in this scope
+             VAHelper<Vertex::_position>::connect_to( position );
+                                                      ^
+main.cpp:62:1: error: expected primary-expression before ':' token
+ :
+ ^
+main.cpp:61:42: warning: unused variable 'connect_to' [-Wunused-variable]
+             VAHelper<Vertex::_position>::connect_to( position );
+                                          ^
+main.cpp:63:1: error: expected '}' at end of input
+ :
+ ^
+main.cpp: At global scope:
+main.cpp:63:1: error: expected unqualified-id at end of input
