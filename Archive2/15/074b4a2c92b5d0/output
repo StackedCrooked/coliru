@@ -1,0 +1,25 @@
+main.cpp:28:19: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    foo<char> Foo("ABC", 4);
+                  ^
+main.cpp:30:10: warning: unused variable 'A' [-Wunused-variable]
+    auto A = Foo[0];    // (char) 0x41 'A'
+         ^
+main.cpp:31:9: warning: unused variable 'B' [-Wunused-variable]
+    int B = *Foo;       // 0x00000041
+        ^
+main.cpp:32:9: warning: unused variable 'C' [-Wunused-variable]
+    int C = Foo[0];     // 0x00000041
+        ^
+main.cpp:33:10: warning: unused variable 'D' [-Wunused-variable]
+    int* D = Foo;       // &"ABC"
+         ^
+main.cpp:34:11: warning: unused variable 'E' [-Wunused-variable]
+    char* E = &Foo[1];  // &"BC"
+          ^
+main.cpp:35:11: warning: unused variable 'F' [-Wunused-variable]
+    char* F = &Foo[4];  // &""
+          ^
+main.cpp:36:12: warning: unused variable 'G' [-Wunused-variable]
+    short* G = (short*)&Foo[1]; // &0x4342
+           ^
+8 warnings generated.
