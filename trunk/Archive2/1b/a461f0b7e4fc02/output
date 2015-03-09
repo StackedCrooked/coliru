@@ -1,0 +1,13 @@
+main.cpp:5:17: error: type 'int' cannot be used prior to '::' because it has no members
+  static_assert(Class::IsClassData, "Isn't a ClassData, and that's bad");
+                ^
+main.cpp:21:17: note: in instantiation of template class 'RBObject<int>' requested here
+  RBObject<int> ShouldNotCompile;
+                ^
+main.cpp:5:24: error: no member named 'IsClassData' in 'Foo'
+  static_assert(Class::IsClassData, "Isn't a ClassData, and that's bad");
+                ~~~~~~~^
+main.cpp:22:17: note: in instantiation of template class 'RBObject<Foo>' requested here
+  RBObject<Foo> AlsoShouldNotCompile;
+                ^
+2 errors generated.
