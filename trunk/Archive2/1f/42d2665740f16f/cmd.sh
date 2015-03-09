@@ -1,0 +1,1 @@
+gcc -x c -std=c99 -O2 -fstack-protector-all -pthread main.cpp && ./a.out
