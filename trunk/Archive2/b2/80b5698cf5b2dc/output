@@ -1,0 +1,29 @@
+In file included from /usr/local/include/c++/4.9.2/thread:39:0,
+                 from main.cpp:11:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'struct std::_Bind_simple<void (*(std::promise<std::basic_string<char> >))(std::promise<std::basic_string<char> >&)>':
+/usr/local/include/c++/4.9.2/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(std::promise<std::basic_string<char> >&); _Args = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&}]'
+main.cpp:46:50:   required from here
+/usr/local/include/c++/4.9.2/functional:1665:61: error: no type named 'type' in 'class std::result_of<void (*(std::promise<std::basic_string<char> >))(std::promise<std::basic_string<char> >&)>'
+       typedef typename result_of<_Callable(_Args...)>::type result_type;
+                                                             ^
+/usr/local/include/c++/4.9.2/functional:1695:9: error: no type named 'type' in 'class std::result_of<void (*(std::promise<std::basic_string<char> >))(std::promise<std::basic_string<char> >&)>'
+         _M_invoke(_Index_tuple<_Indices...>)
+         ^
+In file included from /usr/local/include/c++/4.9.2/functional:55:0,
+                 from /usr/local/include/c++/4.9.2/thread:39,
+                 from main.cpp:11:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(const _Head&) [with long unsigned int _Idx = 1ul; _Head = std::promise<std::basic_string<char> >]':
+/usr/local/include/c++/4.9.2/tuple:255:44:   recursively required from 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 1ul; _Head = std::promise<std::basic_string<char> >; _Tail = {}]'
+/usr/local/include/c++/4.9.2/tuple:255:44:   required from 'constexpr std::_Tuple_impl<_Idx, _Head, _Tail ...>::_Tuple_impl(const _Head&, const _Tail& ...) [with long unsigned int _Idx = 0ul; _Head = void (*)(std::promise<std::basic_string<char> >&); _Tail = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >}]'
+/usr/local/include/c++/4.9.2/tuple:531:30:   required from 'constexpr std::tuple<_T1, _T2>::tuple(const _T1&, const _T2&) [with _T1 = void (*)(std::promise<std::basic_string<char> >&); _T2 = std::promise<std::basic_string<char> >]'
+/usr/local/include/c++/4.9.2/functional:1678:74:   required from 'std::_Bind_simple<_Callable(_Args ...)>::_Bind_simple(_Callable&&, _Args2&& ...) [with _Args2 = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&}; <template-parameter-2-2> = void; _Callable = void (*)(std::promise<std::basic_string<char> >&); _Args = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >}]'
+/usr/local/include/c++/4.9.2/functional:1727:41:   required from 'typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type std::__bind_simple(_Callable&&, _Args&& ...) [with _Callable = void (&)(std::promise<std::basic_string<char> >&); _Args = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&}; typename std::_Bind_simple_helper<_Func, _BoundArgs>::__type = std::_Bind_simple<void (*(std::promise<std::basic_string<char> >))(std::promise<std::basic_string<char> >&)>]'
+/usr/local/include/c++/4.9.2/thread:137:47:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(std::promise<std::basic_string<char> >&); _Args = {std::promise<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >&}]'
+main.cpp:46:50:   required from here
+/usr/local/include/c++/4.9.2/tuple:134:25: error: use of deleted function 'std::promise<_Res>::promise(const std::promise<_Res>&) [with _Res = std::basic_string<char>]'
+       : _M_head_impl(__h) { }
+                         ^
+In file included from main.cpp:12:0:
+/usr/local/include/c++/4.9.2/future:978:7: note: declared here
+       promise(const promise&) = delete;
+       ^
