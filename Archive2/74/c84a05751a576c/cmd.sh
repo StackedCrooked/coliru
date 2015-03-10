@@ -1,0 +1,1 @@
+g++ -std=c++14 -O1 -Wall -Wunused-variable -pedantic -pthread main.cpp && ./a.out
