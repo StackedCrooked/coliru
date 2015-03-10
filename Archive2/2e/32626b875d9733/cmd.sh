@@ -1,0 +1,1 @@
+g++-4.6 -std=c++0x  -O2 -Wall -Wextra -pedantic -pthread -pedantic-errors main.cpp -lm  && ./a.out
