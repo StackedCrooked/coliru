@@ -1,0 +1,46 @@
+main.cpp: In function 'int main()':
+main.cpp:10:5: error: 'v' is not a member of 'std'
+     std::v<int> v(10, 2);
+     ^
+main.cpp:10:12: error: expected primary-expression before 'int'
+     std::v<int> v(10, 2);
+            ^
+main.cpp:21:16: error: 'v' was not declared in this scope
+     if (all_of(v.cbegin(), v.cend(), [](int i){ return i % 2 == 0; })) {
+                ^
+main.cpp:21:69: error: 'all_of' was not declared in this scope
+     if (all_of(v.cbegin(), v.cend(), [](int i){ return i % 2 == 0; })) {
+                                                                     ^
+main.cpp:21:69: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/algorithm:62:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:508:5: note:   'std::all_of'
+     all_of(_InputIterator __first, _InputIterator __last, _Predicate __pred)
+     ^
+main.cpp:22:5: error: 'cout' was not declared in this scope
+     cout << "Todos los numeros son pares" << endl;
+     ^
+main.cpp:22:5: note: suggested alternative:
+In file included from main.cpp:5:0:
+/usr/local/include/c++/4.9.2/iostream:61:18: note:   'std::cout'
+   extern ostream cout;  /// Linked to standard output
+                  ^
+main.cpp:22:46: error: 'endl' was not declared in this scope
+     cout << "Todos los numeros son pares" << endl;
+                                              ^
+main.cpp:22:46: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/iterator:64:0,
+                 from main.cpp:4:
+/usr/local/include/c++/4.9.2/ostream:564:5: note:   'std::endl'
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^
+main.cpp:25:77: warning: left operand of comma operator has no effect [-Wunused-value]
+                                                      std::placeholders::_1, 2))) {
+                                                                             ^
+main.cpp:25:78: error: expected ';' before ')' token
+                                                      std::placeholders::_1, 2))) {
+                                                                              ^
+main.cpp:38:1: warning: right operand of comma operator has no effect [-Wunused-value]
+ }
+ ^
+main.cpp:38:1: error: expected '}' at end of input
