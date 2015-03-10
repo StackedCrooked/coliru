@@ -1,0 +1,21 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp: In function 'int main()':
+main.cpp:38:52: error: no matching function for call to 'makeSafe(std::shared_ptr<bool>&, main()::<lambda(int)>)'
+  makeSafe(guard, [] (int value) { /* Do sthing */ });
+                                                    ^
+main.cpp:38:52: note: candidate is:
+main.cpp:30:1: note: template<class T> SafeCallback<decltype (T:: operator())> makeSafe(std::shared_ptr<bool>, T)
+ makeSafe(std::shared_ptr<bool> is_valid, T callback)
+ ^
+main.cpp:30:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> SafeCallback<decltype (T:: operator())> makeSafe(std::shared_ptr<bool>, T) [with T = main()::<lambda(int)>]':
+main.cpp:38:52:   required from here
+main.cpp:30:1: error: invalid use of non-static member function 'main()::<lambda(int)>'
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:38:2: error: no matching function for call to 'makeSafe'
+        makeSafe(guard, [] (int value) { /* Do sthing */ });
+        ^~~~~~~~
+main.cpp:30:1: note: candidate template ignored: substitution failure [with T = (lambda at main.cpp:38:18)]: call to non-static member function without an object argument
+makeSafe(std::shared_ptr<bool> is_valid, T callback)
+^
+1 error generated.
