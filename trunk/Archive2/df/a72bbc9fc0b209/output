@@ -1,0 +1,13 @@
++ clang++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp:10:19: warning: unused variable 'b' [-Wunused-variable]
+    Foo_t<T>::Bar b;
+                  ^
+1 warning generated.
++ ./a.out
++ g++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp -o a.out
+main.cpp: In instantiation of 'void f() [with T = int]':
+main.cpp:14:12:   required from here
+main.cpp:10:19: warning: unused variable 'b' [-Wunused-variable]
+     Foo_t<T>::Bar b;
+                   ^
++ ./a.out
