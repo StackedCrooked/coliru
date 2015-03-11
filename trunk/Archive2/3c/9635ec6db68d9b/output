@@ -1,0 +1,22 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:30:5: error: cannot declare variable 'b' to be of abstract type 'B'
+   B b;
+     ^
+main.cpp:20:7: note:   because the following virtual functions are pure within 'B':
+ class B :  public IB, public A
+       ^
+main.cpp:5:16: note: 	virtual void IA::f1()
+   virtual void f1() = 0;
+                ^
+main.cpp:31:5: error: request for member 'f1' is ambiguous
+   b.f1();
+     ^
+main.cpp:5:16: note: candidates are: virtual void IA::f1()
+   virtual void f1() = 0;
+                ^
+main.cpp:15:8: note:                 virtual void A::f1()
+   void f1() {
+        ^
+main.cpp:5:16: note:                 virtual void IA::f1()
+   virtual void f1() = 0;
+                ^
