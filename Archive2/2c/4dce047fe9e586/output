@@ -1,0 +1,87 @@
+
+-----------------------------------
+Parsing 'width: 10;      height: _child;'
+<start>
+  <try>width: 10;      heig</try>
+  <width_>
+    <try>width: 10;      heig</try>
+    <value_>
+      <try> 10;      height: _c</try>
+      <success>;      height: _chil</success>
+      <attributes>[[2, 10]]</attributes>
+    </value_>
+    <success>      height: _child</success>
+    <attributes>[[2, 10]]</attributes>
+  </width_>
+  <height_>
+    <try>      height: _child</try>
+    <value_>
+      <try> _child;</try>
+      <success>;</success>
+      <attributes>[[1, 0]]</attributes>
+    </value_>
+    <success></success>
+    <attributes>[[1, 0]]</attributes>
+  </height_>
+  <success></success>
+  <attributes>[[[2, 10], [1, 0]]]</attributes>
+</start>
+Parsed: ([PIXEL:10]x[CHILD:0])
+
+-----------------------------------
+Parsing 'width: _parent; height: 10;'
+<start>
+  <try>width: _parent; heig</try>
+  <width_>
+    <try>width: _parent; heig</try>
+    <value_>
+      <try> _parent; height: 10</try>
+      <success>; height: 10;</success>
+      <attributes>[[0, 0]]</attributes>
+    </value_>
+    <success> height: 10;</success>
+    <attributes>[[0, 0]]</attributes>
+  </width_>
+  <height_>
+    <try> height: 10;</try>
+    <value_>
+      <try> 10;</try>
+      <success>;</success>
+      <attributes>[[2, 10]]</attributes>
+    </value_>
+    <success></success>
+    <attributes>[[2, 10]]</attributes>
+  </height_>
+  <success></success>
+  <attributes>[[[0, 0], [2, 10]]]</attributes>
+</start>
+Parsed: ([PARENT:0]x[PIXEL:10])
+
+-----------------------------------
+Parsing 'width: _child;  height: 10;'
+<start>
+  <try>width: _child;  heig</try>
+  <width_>
+    <try>width: _child;  heig</try>
+    <value_>
+      <try> _child;  height: 10</try>
+      <success>;  height: 10;</success>
+      <attributes>[[1, 0]]</attributes>
+    </value_>
+    <success>  height: 10;</success>
+    <attributes>[[1, 0]]</attributes>
+  </width_>
+  <height_>
+    <try>  height: 10;</try>
+    <value_>
+      <try> 10;</try>
+      <success>;</success>
+      <attributes>[[2, 10]]</attributes>
+    </value_>
+    <success></success>
+    <attributes>[[2, 10]]</attributes>
+  </height_>
+  <success></success>
+  <attributes>[[[1, 0], [2, 10]]]</attributes>
+</start>
+Parsed: ([CHILD:0]x[PIXEL:10])
