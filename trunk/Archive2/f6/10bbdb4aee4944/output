@@ -1,0 +1,35 @@
+main.cpp:1:22: error: 'enable_if_t' has not been declared
+   template <class U, enable_if_t<!is_convertible<U&&, T>::value &&
+                      ^
+main.cpp:1:33: error: expected '>' before '<' token
+   template <class U, enable_if_t<!is_convertible<U&&, T>::value &&
+                                 ^
+main.cpp:3:38: error: ISO C++ forbids declaration of 'propagate_const' with no type [-fpermissive]
+   explicit constexpr propagate_const(propagate_const<U>&& pu) 
+                                      ^
+main.cpp:3:38: error: only declarations of constructors can be 'explicit'
+main.cpp:3:38: error: template declaration of 'constexpr const int propagate_const'
+main.cpp:3:55: error: expected primary-expression before '>' token
+   explicit constexpr propagate_const(propagate_const<U>&& pu) 
+                                                       ^
+main.cpp:3:59: warning: taking the address of a label is non-standard [-Wpedantic]
+   explicit constexpr propagate_const(propagate_const<U>&& pu) 
+                                                           ^
+main.cpp:3:59: error: label 'pu' referenced outside of any function
+main.cpp:8:22: error: 'enable_if_t' has not been declared
+   template <class U, enable_if_t<is_convertible<U&&, T>::value &&
+                      ^
+main.cpp:8:33: error: expected '>' before '<' token
+   template <class U, enable_if_t<is_convertible<U&&, T>::value &&
+                                 ^
+main.cpp:10:29: error: ISO C++ forbids declaration of 'propagate_const' with no type [-fpermissive]
+   constexpr propagate_const(propagate_const<U>&& pu) 
+                             ^
+main.cpp:10:29: error: template declaration of 'constexpr const int propagate_const'
+main.cpp:10:46: error: expected primary-expression before '>' token
+   constexpr propagate_const(propagate_const<U>&& pu) 
+                                              ^
+main.cpp:10:50: warning: taking the address of a label is non-standard [-Wpedantic]
+   constexpr propagate_const(propagate_const<U>&& pu) 
+                                                  ^
+main.cpp:10:50: error: label 'pu' referenced outside of any function
