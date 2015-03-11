@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -pedantic main.cpp && ./a.out <<< MDCCXXVII
