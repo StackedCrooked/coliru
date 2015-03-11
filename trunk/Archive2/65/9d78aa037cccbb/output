@@ -1,0 +1,39 @@
+main.cpp:2:23: error: 'enable_if_t' does not name a type
+             class V = enable_if_t<!is_convertible<U&&, T>::value &&
+                       ^
+main.cpp:2:34: error: expected '>' before '<' token
+             class V = enable_if_t<!is_convertible<U&&, T>::value &&
+                                  ^
+main.cpp:5:43: error: ISO C++ forbids declaration of 'propagate_const' with no type [-fpermissive]
+   explicit constexpr propagate_const(U&& u)
+                                           ^
+main.cpp:5:43: error: only declarations of constructors can be 'explicit'
+main.cpp: In function 'constexpr int propagate_const(U&&)':
+main.cpp:6:9: error: only constructors take member initializers
+       : t_(std::forward<U>(u))
+         ^
+main.cpp:6:12: error: 'forward' is not a member of 'std'
+       : t_(std::forward<U>(u))
+            ^
+main.cpp:6:26: error: expected primary-expression before '>' token
+       : t_(std::forward<U>(u))
+                          ^
+main.cpp:8:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+main.cpp: At global scope:
+main.cpp:11:23: error: 'enable_if_t' does not name a type
+             class V = enable_if_t<is_convertible<U&&, T>::value &&
+                       ^
+main.cpp:11:34: error: expected '>' before '<' token
+             class V = enable_if_t<is_convertible<U&&, T>::value &&
+                                  ^
+main.cpp:14:34: error: ISO C++ forbids declaration of 'propagate_const' with no type [-fpermissive]
+   constexpr propagate_const(U&& u)
+                                  ^
+main.cpp:14:13: error: redefinition of 'template<class U, class V> constexpr int propagate_const(U&&)'
+   constexpr propagate_const(U&& u)
+             ^
+main.cpp:5:22: note: 'template<class U, class V> constexpr int propagate_const(U&&)' previously declared here
+   explicit constexpr propagate_const(U&& u)
+                      ^
