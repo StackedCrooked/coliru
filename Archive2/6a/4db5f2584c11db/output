@@ -1,0 +1,16 @@
+clang++ -std=c++11 -Wall -pedantic -Wextra -Wfatal-errors main.cpp && ./a.out
+is_addable
+ long:   true
+ string: true
+ void:   false
+is_multiplicable
+ long:   true
+ string: false
+ void:   false
+g++ -std=c++11 -Wall -pedantic -Wextra -Wfatal-errors main.cpp && ./a.out
+main.cpp: In instantiation of 'struct is_addable<void>':
+main.cpp:38:63:   required from here
+main.cpp:19:30: error: no matching function for call to 'is_addable<void>::check(int)'
+   using type = decltype(check<T>(0));
+                              ^
+compilation terminated due to -Wfatal-errors.
