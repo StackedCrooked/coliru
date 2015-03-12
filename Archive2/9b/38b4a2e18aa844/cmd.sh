@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out 11 12 45.3 5.5 4 25 23 21 20 10 12 26
