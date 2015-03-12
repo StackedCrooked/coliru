@@ -1,0 +1,1 @@
+set -x; clang++ -x c -c -o test.o -ffreestanding -std=c11 -O3 -pedantic-errors main.cpp && ld -s -o test -static -e szstart test.o -lc && ./test
