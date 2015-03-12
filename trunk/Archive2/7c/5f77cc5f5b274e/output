@@ -1,0 +1,57 @@
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/string:41,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h: In instantiation of 'struct __gnu_cxx::new_allocator<const std::unique_ptr<Base> >':
+/usr/local/include/c++/4.9.2/bits/allocator.h:92:11:   required from 'class std::allocator<const std::unique_ptr<Base> >'
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:85:43:   required from 'struct std::allocator_traits<std::allocator<const std::unique_ptr<Base> > >'
+/usr/local/include/c++/4.9.2/ext/alloc_traits.h:95:10:   required from 'struct __gnu_cxx::__alloc_traits<std::allocator<const std::unique_ptr<Base> > >'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:75:28:   required from 'struct std::_Vector_base<const std::unique_ptr<Base>, std::allocator<const std::unique_ptr<Base> > >'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:214:11:   required from 'class std::vector<const std::unique_ptr<Base> >'
+main.cpp:38:50:   required from here
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:93:7: error: 'const _Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::const_reference) const [with _Tp = const std::unique_ptr<Base>; __gnu_cxx::new_allocator<_Tp>::const_pointer = const std::unique_ptr<Base>*; __gnu_cxx::new_allocator<_Tp>::const_reference = const std::unique_ptr<Base>&]' cannot be overloaded
+       address(const_reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:89:7: error: with '_Tp* __gnu_cxx::new_allocator<_Tp>::address(__gnu_cxx::new_allocator<_Tp>::reference) const [with _Tp = const std::unique_ptr<Base>; __gnu_cxx::new_allocator<_Tp>::pointer = const std::unique_ptr<Base>*; __gnu_cxx::new_allocator<_Tp>::reference = const std::unique_ptr<Base>&]'
+       address(reference __x) const _GLIBCXX_NOEXCEPT
+       ^
+main.cpp: In function 'int main()':
+main.cpp:38:79: error: conversion from 'const std::vector<std::unique_ptr<Base> >' to non-scalar type 'const std::vector<const std::unique_ptr<Base> >' requested
+   const std::vector<const std::unique_ptr<Base>> the_list = CreateListOfStuff();
+                                                                               ^
+In file included from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/string:41,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = const std::unique_ptr<Base>; __gnu_cxx::new_allocator<_Tp>::pointer = const std::unique_ptr<Base>*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = std::allocator<const std::unique_ptr<Base> >; std::allocator_traits<_Alloc>::pointer = const std::unique_ptr<Base>*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:178:37:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = const std::unique_ptr<Base>; _Alloc = std::allocator<const std::unique_ptr<Base> >; std::_Vector_base<_Tp, _Alloc>::pointer = const std::unique_ptr<Base>*; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:161:33:   required from 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = const std::unique_ptr<Base>; _Alloc = std::allocator<const std::unique_ptr<Base> >]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:425:33:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = const std::unique_ptr<Base>; _Alloc = std::allocator<const std::unique_ptr<Base> >]'
+main.cpp:38:79:   required from here
+/usr/local/include/c++/4.9.2/ext/new_allocator.h:110:30: error: invalid conversion from 'const void*' to 'void*' [-fpermissive]
+       { ::operator delete(__p); }
+                              ^
+In file included from /usr/local/include/c++/4.9.2/ext/new_allocator.h:33:0,
+                 from /usr/local/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33,
+                 from /usr/local/include/c++/4.9.2/bits/allocator.h:46,
+                 from /usr/local/include/c++/4.9.2/string:41,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/new:132:6: note: initializing argument 1 of 'void operator delete(void*)'
+ void operator delete(void*) _GLIBCXX_USE_NOEXCEPT
+      ^
