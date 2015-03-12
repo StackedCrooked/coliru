@@ -1,0 +1,42 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic main.cpp
+In file included from main.cpp:2:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:18:
+In file included from /usr/include/c++/v1/mutex:177:
+/usr/include/c++/v1/functional:496:29: error: cannot form a reference to 'void'
+    _Tp operator()(const _Tp& __x, const _Tp& __y) const
+                            ^
+main.cpp:13:12: note: in instantiation of template class 'std::__1::plus<void>' requested here
+  decltype(std::declval<BinOp>()(
+           ^
+main.cpp:18:1: note: during template argument deduction for class template partial specialization 'is_binop_able_<type-parameter-0-0, type-parameter-0-1, typename voider<decltype(std::declval<BinOp>()(std::declval<T>(), std::declval<T>()))>::type>' [with T = void, BinOp = std::__1::plus<void>]
+using is_binop_able = typename is_binop_able_<T,BinOp>::type;
+^
+main.cpp:21:1: note: in instantiation of template type alias 'is_binop_able' requested here
+using is_addable = is_binop_able<T, std::plus<T>>;
+^
+main.cpp:31:29: note: in instantiation of template type alias 'is_addable' requested here
+  std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                            ^
+In file included from main.cpp:2:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:18:
+In file included from /usr/include/c++/v1/mutex:177:
+/usr/include/c++/v1/functional:546:29: error: cannot form a reference to 'void'
+    _Tp operator()(const _Tp& __x, const _Tp& __y) const
+                            ^
+main.cpp:13:12: note: in instantiation of template class 'std::__1::multiplies<void>' requested here
+  decltype(std::declval<BinOp>()(
+           ^
+main.cpp:18:1: note: during template argument deduction for class template partial specialization 'is_binop_able_<type-parameter-0-0, type-parameter-0-1, typename voider<decltype(std::declval<BinOp>()(std::declval<T>(), std::declval<T>()))>::type>' [with T = void, BinOp = std::__1::multiplies<void>]
+using is_binop_able = typename is_binop_able_<T,BinOp>::type;
+^
+main.cpp:24:1: note: in instantiation of template type alias 'is_binop_able' requested here
+using is_multiplicable = is_binop_able<T, std::multiplies<T>>;
+^
+main.cpp:36:29: note: in instantiation of template type alias 'is_multiplicable' requested here
+  std::cout <<" void:   "<< is_multiplicable<void>::value        <<'\n';
+                            ^
+2 errors generated.
