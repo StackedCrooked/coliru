@@ -1,0 +1,1 @@
+cp /usr/local/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/regex regex_in.h && sed 32d regex_in.h > regex.h && rm regex_in.h && g++ -x c++-header -O2 -std=c++11 regex.h && time g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
