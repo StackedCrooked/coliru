@@ -1,0 +1,38 @@
+main.cpp: In constructor 'C::C(int)':
+main.cpp:13:19: error: no matching function for call to 'A::A()'
+     C(int x) : B(x) { }
+                   ^
+main.cpp:13:19: note: candidates are:
+main.cpp:4:5: note: A::A(int)
+     A(int x) : x(x) { }
+     ^
+main.cpp:4:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: A::A(const A&)
+ struct A {
+        ^
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
+main.cpp: In constructor 'D::D(int)':
+main.cpp:17:19: error: no matching function for call to 'A::A()'
+     D(int x) : C(x) { }
+                   ^
+main.cpp:17:19: note: candidates are:
+main.cpp:4:5: note: A::A(int)
+     A(int x) : x(x) { }
+     ^
+main.cpp:4:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: A::A(const A&)
+ struct A {
+        ^
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:17:19: error: no matching function for call to 'B::B()'
+     D(int x) : C(x) { }
+                   ^
+main.cpp:17:19: note: candidates are:
+main.cpp:9:5: note: B::B(int)
+     B(int x) : A(x) { }
+     ^
+main.cpp:9:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:8:8: note: B::B(const B&)
+ struct B : public virtual A {
+        ^
+main.cpp:8:8: note:   candidate expects 1 argument, 0 provided
