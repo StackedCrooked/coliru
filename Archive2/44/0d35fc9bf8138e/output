@@ -1,0 +1,133 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic main.cpp
+main.cpp:27:45: error: too few template arguments for class template 'plus'
+using is_addable = is_binop_able<T, U, std::plus<>>;
+                                            ^
+/usr/include/c++/v1/functional:493:30: note: template is declared here
+struct _LIBCPP_TYPE_VIS_ONLY plus : binary_function<_Tp, _Tp, _Tp>
+                             ^
+main.cpp:30:51: error: too few template arguments for class template 'multiplies'
+using is_multiplicable = is_binop_able<T, U, std::multiplies<>>;
+                                                  ^
+/usr/include/c++/v1/functional:543:30: note: template is declared here
+struct _LIBCPP_TYPE_VIS_ONLY multiplies : binary_function<_Tp, _Tp, _Tp>
+                             ^
+main.cpp:37:29: error: use of undeclared identifier 'is_addable'
+  std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                            ^
+main.cpp:37:44: error: expected '(' for function-style cast or type construction
+  std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                                       ~~~~^
+main.cpp:37:47: error: no member named 'value' in the global namespace
+  std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                                            ~~^
+main.cpp:38:29: error: use of undeclared identifier 'is_addable'
+  std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                            ^
+main.cpp:38:51: error: expected '(' for function-style cast or type construction
+  std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                       ~~~~~~~~~~~^
+main.cpp:38:54: error: no member named 'value' in the global namespace
+  std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                                   ~~^
+main.cpp:39:29: error: use of undeclared identifier 'is_addable'
+  std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                            ^
+main.cpp:39:44: error: expected '(' for function-style cast or type construction
+  std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                                       ~~~~^
+main.cpp:39:47: error: no member named 'value' in the global namespace
+  std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                                            ~~^
+main.cpp:40:32: error: use of undeclared identifier 'is_addable'
+  std::cout <<" int*, int: "<< is_addable<int*, int>::value        <<'\n';
+                               ^
+main.cpp:40:46: error: expected '(' for function-style cast or type construction
+  std::cout <<" int*, int: "<< is_addable<int*, int>::value        <<'\n';
+                                          ~~~^
+main.cpp:40:47: error: expected expression
+  std::cout <<" int*, int: "<< is_addable<int*, int>::value        <<'\n';
+                                              ^
+main.cpp:43:29: error: use of undeclared identifier 'is_multiplicable'
+  std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                            ^
+main.cpp:43:50: error: expected '(' for function-style cast or type construction
+  std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                                             ~~~~^
+main.cpp:43:53: error: no member named 'value' in the global namespace
+  std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                                                  ~~^
+main.cpp:44:29: error: use of undeclared identifier 'is_multiplicable'
+  std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                            ^
+main.cpp:44:57: error: expected '(' for function-style cast or type construction
+  std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                                             ~~~~~~~~~~~^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
++ g++ -std=c++11 -O -Wall -Wextra -pedantic main.cpp
+main.cpp:27:49: error: wrong number of template arguments (0, should be 1)
+ using is_addable = is_binop_able<T, U, std::plus<>>;
+                                                 ^
+In file included from /usr/local/include/c++/4.9.2/string:48:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/stl_function.h:167:12: error: provided for 'template<class _Tp> struct std::plus'
+     struct plus : public binary_function<_Tp, _Tp, _Tp>
+            ^
+main.cpp:27:50: error: template argument 3 is invalid
+ using is_addable = is_binop_able<T, U, std::plus<>>;
+                                                  ^
+main.cpp:30:61: error: wrong number of template arguments (0, should be 1)
+ using is_multiplicable = is_binop_able<T, U, std::multiplies<>>;
+                                                             ^
+In file included from /usr/local/include/c++/4.9.2/string:48:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/stl_function.h:185:12: error: provided for 'template<class _Tp> struct std::multiplies'
+     struct multiplies : public binary_function<_Tp, _Tp, _Tp>
+            ^
+main.cpp:30:62: error: template argument 3 is invalid
+ using is_multiplicable = is_binop_able<T, U, std::multiplies<>>;
+                                                              ^
+main.cpp: In function 'int main()':
+main.cpp:37:29: error: 'is_addable' was not declared in this scope
+   std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                             ^
+main.cpp:37:40: error: expected primary-expression before 'long'
+   std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                                        ^
+main.cpp:38:51: error: expected primary-expression before '>' token
+   std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                                   ^
+main.cpp:38:52: error: '::value' has not been declared
+   std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                                    ^
+main.cpp:39:40: error: expected primary-expression before 'void'
+   std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                                        ^
+main.cpp:40:43: error: expected primary-expression before 'int'
+   std::cout <<" int*, int: "<< is_addable<int*, int>::value        <<'\n';
+                                           ^
+main.cpp:43:29: error: 'is_multiplicable' was not declared in this scope
+   std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                             ^
+main.cpp:43:46: error: expected primary-expression before 'long'
+   std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                                              ^
+main.cpp:44:57: error: expected primary-expression before '>' token
+   std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                                                         ^
+main.cpp:44:58: error: '::value' has not been declared
+   std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                                                          ^
+main.cpp:45:46: error: expected primary-expression before 'void'
+   std::cout <<" void:   "<< is_multiplicable<void>::value        <<'\n';
+                                              ^
