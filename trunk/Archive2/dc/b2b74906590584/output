@@ -1,0 +1,69 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic main.cpp
++ ./a.out
+is_addable
+ long:   1
+ string: 1
+ void:   0
+is_multiplicable
+ long:   1
+ string: 0
+ void:   0
++ g++ -std=c++11 -O -Wall -Wextra -pedantic main.cpp
+main.cpp: In instantiation of 'struct is_addable<void>':
+main.cpp:37:45:   required from here
+main.cpp:18:32: error: no matching function for call to 'is_addable<void>::check(int)'
+   using type = decltype(check(0));
+                                ^
+main.cpp:18:32: note: candidate is:
+main.cpp:15:40: note: template<class U> static decltype (((declval<U>() + declval<U>()), std::true_type{})) is_addable<T>::check(int) [with U = U; T = void]
+   template<typename U = T> static auto check(int) 
+                                        ^
+main.cpp:15:40: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class U> static decltype (((declval<U>() + declval<U>()), std::true_type{})) is_addable<T>::check(int) [with U = void]':
+main.cpp:18:32:   required from 'struct is_addable<void>'
+main.cpp:37:45:   required from here
+main.cpp:16:38: error: invalid operands of types 'std::__add_rvalue_reference_helper<void, false>::type {aka void}' and 'std::__add_rvalue_reference_helper<void, false>::type {aka void}' to binary 'operator+'
+        -> decltype(std::declval<U>() + std::declval<U>(), std::true_type{});
+                                      ^
+main.cpp: In function 'int main()':
+main.cpp:37:47: error: 'is_addable<void>::type' is not a class, namespace, or enumeration
+   std::cout <<" void:   "<< is_addable<void>::type::value        <<'\n';
+                                               ^
+main.cpp: In instantiation of 'struct is_multiplicable<std::basic_string<char> >':
+main.cpp:41:58:   required from here
+main.cpp:29:32: error: no matching function for call to 'is_multiplicable<std::basic_string<char> >::check(int)'
+   using type = decltype(check(0));
+                                ^
+main.cpp:29:32: note: candidate is:
+main.cpp:26:40: note: template<class U> static decltype (((declval<U>() * declval<U>()), std::true_type{})) is_multiplicable<T>::check(int) [with U = U; T = std::basic_string<char>]
+   template<typename U = T> static auto check(int) 
+                                        ^
+main.cpp:26:40: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class U> static decltype (((declval<U>() * declval<U>()), std::true_type{})) is_multiplicable<T>::check(int) [with U = std::basic_string<char>]':
+main.cpp:29:32:   required from 'struct is_multiplicable<std::basic_string<char> >'
+main.cpp:41:58:   required from here
+main.cpp:27:38: error: no match for 'operator*' (operand types are 'std::basic_string<char>' and 'std::basic_string<char>')
+        -> decltype(std::declval<U>() * std::declval<U>(), std::true_type{});
+                                      ^
+main.cpp:41:60: error: 'is_multiplicable<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >::type' is not a class, namespace, or enumeration
+   std::cout <<" string: "<< is_multiplicable<std::string>::type::value <<'\n';
+                                                            ^
+main.cpp: In instantiation of 'struct is_multiplicable<void>':
+main.cpp:42:51:   required from here
+main.cpp:29:32: error: no matching function for call to 'is_multiplicable<void>::check(int)'
+   using type = decltype(check(0));
+                                ^
+main.cpp:29:32: note: candidate is:
+main.cpp:26:40: note: template<class U> static decltype (((declval<U>() * declval<U>()), std::true_type{})) is_multiplicable<T>::check(int) [with U = U; T = void]
+   template<typename U = T> static auto check(int) 
+                                        ^
+main.cpp:26:40: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class U> static decltype (((declval<U>() * declval<U>()), std::true_type{})) is_multiplicable<T>::check(int) [with U = void]':
+main.cpp:29:32:   required from 'struct is_multiplicable<void>'
+main.cpp:42:51:   required from here
+main.cpp:27:38: error: invalid operands of types 'std::__add_rvalue_reference_helper<void, false>::type {aka void}' and 'std::__add_rvalue_reference_helper<void, false>::type {aka void}' to binary 'operator*'
+        -> decltype(std::declval<U>() * std::declval<U>(), std::true_type{});
+                                      ^
+main.cpp:42:53: error: 'is_multiplicable<void>::type' is not a class, namespace, or enumeration
+   std::cout <<" void:   "<< is_multiplicable<void>::type::value        <<'\n';
+                                                     ^
