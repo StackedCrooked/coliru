@@ -1,0 +1,72 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic main.cpp
+main.cpp:18:32: error: 'is_binop_able_' is not a class, namespace, or scoped enumeration
+using is_binop_able = typename is_binop_able_::type;
+                               ^
+main.cpp:10:8: note: 'is_binop_able_' declared here
+struct is_binop_able_ : std::false_type {};
+       ^
+main.cpp:18:48: error: expected a qualified name after 'typename'
+using is_binop_able = typename is_binop_able_::type;
+                                               ^
+main.cpp:18:48: error: type-id cannot have a name
+using is_binop_able = typename is_binop_able_::type;
+                                               ^~~~
+main.cpp:31:20: error: no template named 'is_binop_able'; did you mean 'is_binop_able_'?
+using is_addable = is_binop_able<T, U, plus>;
+                   ^~~~~~~~~~~~~
+                   is_binop_able_
+main.cpp:10:8: note: 'is_binop_able_' declared here
+struct is_binop_able_ : std::false_type {};
+       ^
+main.cpp:38:26: error: no template named 'is_binop_able'; did you mean 'is_binop_able_'?
+using is_multiplicable = is_binop_able<T, U, multiplies>;
+                         ^~~~~~~~~~~~~
+                         is_binop_able_
+main.cpp:10:8: note: 'is_binop_able_' declared here
+struct is_binop_able_ : std::false_type {};
+       ^
+5 errors generated.
++ g++ -std=c++11 -O -Wall -Wextra -pedantic main.cpp
+main.cpp:18:32: error: 'template<class T, class U, class BinaryOperation, class Enable> struct is_binop_able_' used without template parameters
+ using is_binop_able = typename is_binop_able_::type;
+                                ^
+main.cpp:31:20: error: 'is_binop_able' does not name a type
+ using is_addable = is_binop_able<T, U, plus>;
+                    ^
+main.cpp:38:26: error: 'is_binop_able' does not name a type
+ using is_multiplicable = is_binop_able<T, U, multiplies>;
+                          ^
+main.cpp: In function 'int main()':
+main.cpp:45:29: error: 'is_addable' was not declared in this scope
+   std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                             ^
+main.cpp:45:40: error: expected primary-expression before 'long'
+   std::cout <<" long:   "<< is_addable<long>::value        <<'\n';
+                                        ^
+main.cpp:46:51: error: expected primary-expression before '>' token
+   std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                                   ^
+main.cpp:46:52: error: '::value' has not been declared
+   std::cout <<" string: "<< is_addable<std::string>::value <<'\n';
+                                                    ^
+main.cpp:47:40: error: expected primary-expression before 'void'
+   std::cout <<" void:   "<< is_addable<void>::value        <<'\n';
+                                        ^
+main.cpp:48:43: error: expected primary-expression before 'int'
+   std::cout <<" int*, int: "<< is_addable<int*, int>::value        <<'\n';
+                                           ^
+main.cpp:51:29: error: 'is_multiplicable' was not declared in this scope
+   std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                             ^
+main.cpp:51:46: error: expected primary-expression before 'long'
+   std::cout <<" long:   "<< is_multiplicable<long>::value        <<'\n';
+                                              ^
+main.cpp:52:57: error: expected primary-expression before '>' token
+   std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                                                         ^
+main.cpp:52:58: error: '::value' has not been declared
+   std::cout <<" string: "<< is_multiplicable<std::string>::value <<'\n';
+                                                          ^
+main.cpp:53:46: error: expected primary-expression before 'void'
+   std::cout <<" void:   "<< is_multiplicable<void>::value        <<'\n';
+                                              ^
