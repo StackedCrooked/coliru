@@ -1,0 +1,29 @@
+main.cpp:4:8: error: 'unique_ptr' in namespace 'std' does not name a template type
+   std::unique_ptr<Implementation> u_impl_;
+        ^
+main.cpp: In constructor 'ICallback<Implementation>::ICallback()':
+main.cpp:7:6: error: class 'ICallback<Implementation>' does not have any field named 'u_impl_'
+    : u_impl_(static_cast<Implementation*>(this))
+      ^
+main.cpp: In member function 'bool ICallback<Implementation>::Call()':
+main.cpp:12:11: error: 'u_impl_' was not declared in this scope
+    return u_impl_->Call();
+           ^
+main.cpp: At global scope:
+main.cpp:19:8: error: 'weak_ptr' in namespace 'std' does not name a template type
+   std::weak_ptr<Type> w_ptr_;
+        ^
+main.cpp:20:8: error: 'function' in namespace 'std' does not name a template type
+   std::function<void()> func_;
+        ^
+main.cpp:22:25: error: expected ')' before '<' token
+   Callback(std::weak_ptr<Type> w_ptr, std::function<void()> func){
+                         ^
+main.cpp: In member function 'bool Callback<Type>::Call()':
+main.cpp:27:8: error: 'w_ptr_' was not declared in this scope
+    if (w_ptr_.expired()) return false;
+        ^
+main.cpp:28:15: error: there are no arguments to 'func_' that depend on a template parameter, so a declaration of 'func_' must be available [-fpermissive]
+    else func_();
+               ^
+main.cpp:28:15: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
