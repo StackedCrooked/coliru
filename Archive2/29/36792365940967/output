@@ -1,0 +1,40 @@
+
+main.cpp:11:41:
+    No instance for (IsChar [Char])
+      arising from a use of `printf'
+    Possible fix: add an instance declaration for (IsChar [Char])
+    In the expression:
+      printf
+        "%s %s %d\
+        \ %s"
+        title
+        cast
+        year
+        fan
+    In an equation for `filmToString':
+        filmToString (title, cast, year, fan)
+          = printf
+              "%s %s %d\
+              \ %s"
+              title
+              cast
+              year
+              fan
+
+main.cpp:14:38:
+    No instance for (Num Cast)
+      arising from the literal `1992'
+    Possible fix: add an instance declaration for (Num Cast)
+    In the expression: 1992
+    In the first argument of `filmToString', namely
+      `("A", 1992, [], [])'
+    In the second argument of `($)', namely
+      `filmToString ("A", 1992, [], [])'
+
+main.cpp:14:44:
+    Couldn't match expected type `Year' with actual type `[a0]'
+    In the expression: []
+    In the first argument of `filmToString', namely
+      `("A", 1992, [], [])'
+    In the second argument of `($)', namely
+      `filmToString ("A", 1992, [], [])'
