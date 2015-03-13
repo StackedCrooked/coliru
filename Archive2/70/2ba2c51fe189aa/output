@@ -1,0 +1,41 @@
+main.cpp:3:8: error: 'function' in namespace 'std' does not name a template type
+   std::function<bool()> func_;
+        ^
+main.cpp:5:25: error: expected ')' before '<' token
+   Callback(std::function<bool()> func){
+                         ^
+main.cpp:10:40: error: 'std::shared_ptr' has not been declared
+   static Callback* Create(Func f, std::shared_ptr<Type> s_ptr, Args&&... args){
+                                        ^
+main.cpp:10:50: error: expected ',' or '...' before '<' token
+   static Callback* Create(Func f, std::shared_ptr<Type> s_ptr, Args&&... args){
+                                                  ^
+main.cpp: In static member function 'static Callback* Callback::Create(Func, int)':
+main.cpp:11:4: error: 'weak_ptr' is not a member of 'std'
+    std::weak_ptr<Type> w_ptr = s_ptr;
+    ^
+main.cpp:11:22: error: expected primary-expression before '>' token
+    std::weak_ptr<Type> w_ptr = s_ptr;
+                      ^
+main.cpp:11:24: error: 'w_ptr' was not declared in this scope
+    std::weak_ptr<Type> w_ptr = s_ptr;
+                        ^
+main.cpp:11:32: error: 's_ptr' was not declared in this scope
+    std::weak_ptr<Type> w_ptr = s_ptr;
+                                ^
+main.cpp:12:17: error: 'bind' is not a member of 'std'
+    auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                 ^
+main.cpp:12:43: error: 'forward' is not a member of 'std'
+    auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                           ^
+main.cpp:12:60: error: expected primary-expression before '>' token
+    auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                                            ^
+main.cpp:12:62: error: 'args' was not declared in this scope
+    auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                                              ^
+main.cpp: In member function 'bool Callback::Call()':
+main.cpp:24:17: error: 'func_' was not declared in this scope
+    return func_();
+                 ^
