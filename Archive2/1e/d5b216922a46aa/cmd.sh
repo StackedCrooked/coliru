@@ -1,0 +1,1 @@
+clang++  -std=c++98 -O2 -Wall -pthread main.cpp && ./a.out
