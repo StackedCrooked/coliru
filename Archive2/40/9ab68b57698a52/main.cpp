@@ -1,0 +1,15 @@
+#include <iostream>
+#include <memory>
+
+unsigned char colors[5][3] = { 
+    {0x00, 0x01, 0x02},
+    {0x03, 0x04, 0x05}, 
+    {0x06, 0x07, 0x08},
+    {0x09, 0x10, 0x11},
+    {0x12, 0x13, 0x14}
+};
+
+int main(int argc, char** argv) {
+    std::cout << colors[3][1] << "\n";
+    return 0;
+}
