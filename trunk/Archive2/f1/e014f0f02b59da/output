@@ -1,0 +1,15 @@
+main.cpp: In constructor 'C::C(int)':
+main.cpp:15:19: error: no matching function for call to 'A::A()'
+     C(int i) : B(i) { }
+                   ^
+main.cpp:15:19: note: candidates are:
+main.cpp:6:5: note: A::A(int)
+     A(int i) : i(i) { }
+     ^
+main.cpp:6:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr A::A(const A&)
+ struct A {
+        ^
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr A::A(A&&)
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
