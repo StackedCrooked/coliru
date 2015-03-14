@@ -1,0 +1,52 @@
++ g++ -std=c++11 -O0 -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ1=22656
++ g++ -std=c++11 -O0 -DSECOND -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ2=29410
++ expr 29410 - 22656
+6754
++ g++ -std=c++11 -O3 -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ1=12659
++ g++ -std=c++11 -O3 -DSECOND -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ2=13646
++ expr 13646 - 12659
+987
++ g++ -std=c++11 -O0 -DUSE_PTR -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ1=15395
++ g++ -std=c++11 -O0 -DUSE_PTR -DSECOND -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ2=17277
++ expr 17277 - 15395
+1882
++ g++ -std=c++11 -O3 -DUSE_PTR -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ1=10661
++ g++ -std=c++11 -O3 -DUSE_PTR -DSECOND -Wall -pedantic -Wextra main.cpp
++ ./a.out
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+1; 2; 3; 4; 5; 6; 7; 8; 9.12346; 10.1235
+++ stat -c %s ./a.out
++ SZ2=10725
++ expr 10725 - 10661
+64
