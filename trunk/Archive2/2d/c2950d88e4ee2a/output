@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:12:25: error: call of overloaded 'foo(int&, int&)' is ambiguous
+     std::cout << foo(q,q) << std::endl;
+                         ^
+main.cpp:12:25: note: candidates are:
+main.cpp:3:5: note: int foo(double, double)
+ int foo(double a, double b){ return a+b;}
+     ^
+main.cpp:4:5: note: int foo(int, double)
+ int foo(int a, double b){return a+b;}
+     ^
+main.cpp:5:5: note: int foo(double, int)
+ int foo(double a, int b){return a+b;}
+     ^
