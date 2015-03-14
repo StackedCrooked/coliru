@@ -1,0 +1,1 @@
+g++ -std=c++11  -O1 -Wall -Wextra -pedantic -pthread main.cpp  && ./a.out <<<"AKAir 101 AK 100 Verizon 404 Internet 150 Southwest 69 'Murica 275 Otherline 987654321 Everywhere 49 50"
