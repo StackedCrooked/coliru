@@ -1,0 +1,1 @@
+set -x; g++ -std=c++11 -Os -march=native -Wall -pedantic -Wextra main.cpp -S -o -
