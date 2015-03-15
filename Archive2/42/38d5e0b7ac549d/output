@@ -1,0 +1,9 @@
++ clang++ -std=c++1y -O2 -Wall -pedantic main.cpp
+main.cpp:2:96: warning: reference to stack memory associated with local variable 'lhs' returned [-Wreturn-stack-address]
+auto findGreater(LHT lhs, RHT rhs) -> decltype((lhs > rhs) ? lhs : rhs) { return (lhs > rhs) ? lhs : rhs; }
+                                                                                               ^~~
+main.cpp:5:5: note: in instantiation of function template specialization 'findGreater<int, int>' requested here
+    findGreater(1,2);
+    ^
+1 warning generated.
++ ./a.out
