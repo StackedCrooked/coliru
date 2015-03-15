@@ -1,0 +1,10 @@
+main.cpp:11:89: error: member access into incomplete type 'outit_vt<std::__1::back_insert_iterator<std::__1::vector<int, std::__1::allocator<int> > > >'
+    using value_type = typename std::remove_pointer_t<decltype(std::declval<self_type>().container)>::value_type;
+                                                                                        ^
+main.cpp:18:32: note: in instantiation of template class 'outit_vt<std::__1::back_insert_iterator<std::__1::vector<int, std::__1::allocator<int> > > >' requested here
+    static_assert(std::is_same<outit_vt<decltype(it)>::value_type, int>::value, "");
+                               ^
+main.cpp:6:8: note: definition of 'outit_vt<std::__1::back_insert_iterator<std::__1::vector<int, std::__1::allocator<int> > > >' is not complete until the closing '}'
+struct outit_vt
+       ^
+1 error generated.
