@@ -1,0 +1,37 @@
+main.cpp: In instantiation of 'struct Base<int, Start<int> >':
+main.cpp:30:12:   required from 'struct Start<int>'
+main.cpp:61:16:   required from here
+main.cpp:20:54: error: no type named 'ValueType' in 'struct Start<int>'
+         using ValueType = typename Derived::ValueType;
+                                                      ^
+main.cpp: In function 'int main()':
+main.cpp:61:16: error: cannot declare variable 'start' to be of abstract type 'Start<int>'
+     Start<int> start;
+                ^
+main.cpp:30:12: note:   because the following virtual functions are pure within 'Start<int>':
+     struct Start : public Base<T, Start<T> >
+            ^
+main.cpp:14:27: note: 	Base<T>::ValueType Base<T>::operator()() const [with T = int; Base<T>::ValueType = int]
+         virtual ValueType operator()() const = 0;
+                           ^
+main.cpp: In instantiation of 'struct Base<double, FirstTransformation<Start<int> > >':
+main.cpp:41:12:   required from 'struct FirstTransformation<Start<int> >'
+main.cpp:54:52:   required from 'auto applyFirstTransformation(const Derived&) [with Derived = Start<int>]'
+main.cpp:64:46:   required from here
+main.cpp:20:54: error: no type named 'ValueType' in 'struct FirstTransformation<Start<int> >'
+         using ValueType = typename Derived::ValueType;
+                                                      ^
+main.cpp: In instantiation of 'auto applyFirstTransformation(const Derived&) [with Derived = Start<int>]':
+main.cpp:64:46:   required from here
+main.cpp:54:52: error: invalid cast to abstract class type 'FirstTransformation<Start<int> >'
+         return FirstTransformation<Derived>(derived);
+                                                    ^
+main.cpp:41:12: note:   because the following virtual functions are pure within 'FirstTransformation<Start<int> >':
+     struct FirstTransformation : public Base<double, FirstTransformation<Derived> >
+            ^
+main.cpp:14:27: note: 	Base<T>::ValueType Base<T>::operator()() const [with T = double; Base<T>::ValueType = double]
+         virtual ValueType operator()() const = 0;
+                           ^
+main.cpp:64:46: error: void value not ignored as it ought to be
+     std::cout<<applyFirstTransformation(start)()<<std::endl;
+                                              ^
