@@ -1,0 +1,95 @@
+main.cpp:6:7: error: 'function' in namespace 'std' does not name a template type
+  std::function<bool()> func_;
+       ^
+main.cpp:8:24: error: expected ')' before '<' token
+  Callback(std::function<bool()> func){
+                        ^
+main.cpp:13:39: error: 'std::shared_ptr' has not been declared
+  static Callback* Create(Func f, std::shared_ptr<Type> s_ptr, Args&&... args){
+                                       ^
+main.cpp:13:49: error: expected ',' or '...' before '<' token
+  static Callback* Create(Func f, std::shared_ptr<Type> s_ptr, Args&&... args){
+                                                 ^
+main.cpp: In static member function 'static Callback* Callback::Create(Func, int)':
+main.cpp:14:3: error: 'weak_ptr' is not a member of 'std'
+   std::weak_ptr<Type> w_ptr = s_ptr;
+   ^
+main.cpp:14:21: error: expected primary-expression before '>' token
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                     ^
+main.cpp:14:23: error: 'w_ptr' was not declared in this scope
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                       ^
+main.cpp:14:31: error: 's_ptr' was not declared in this scope
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                               ^
+main.cpp:15:16: error: 'bind' is not a member of 'std'
+   auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                ^
+main.cpp:15:42: error: 'forward' is not a member of 'std'
+   auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                          ^
+main.cpp:15:59: error: expected primary-expression before '>' token
+   auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                                           ^
+main.cpp:15:61: error: 'args' was not declared in this scope
+   auto bound = std::bind(f, s_ptr.get(), std::forward<Args>(args)...);
+                                                             ^
+main.cpp:23:24: error: 'func' was not declared in this scope
+   return new Callback{ func };
+                        ^
+main.cpp:23:29: error: could not convert '{<expression error>}' from '<brace-enclosed initializer list>' to 'Callback'
+   return new Callback{ func };
+                             ^
+main.cpp: In member function 'bool Callback::Call()':
+main.cpp:26:16: error: 'func_' was not declared in this scope
+   return func_();
+                ^
+main.cpp: At global scope:
+main.cpp:36:10: error: 'function' in namespace 'std' does not name a template type
+     std::function<bool(Args&&...)> func_;
+          ^
+main.cpp:38:17: error: expected ')' before '<' token
+  A(std::function<bool(Args&&...)> func)
+                 ^
+main.cpp:40:2: error: expected unqualified-id before '{' token
+  {
+  ^
+main.cpp:46:42: error: 'std::shared_ptr' has not been declared
+  static A<FArgs...>* Create(Func f, std::shared_ptr<Type> s_ptr, FArgs&&... args){
+                                          ^
+main.cpp:46:52: error: expected ',' or '...' before '<' token
+  static A<FArgs...>* Create(Func f, std::shared_ptr<Type> s_ptr, FArgs&&... args){
+                                                    ^
+main.cpp: In static member function 'static A<FArgs ...>* A<Args>::Create(Func, int)':
+main.cpp:47:3: error: 'weak_ptr' is not a member of 'std'
+   std::weak_ptr<Type> w_ptr = s_ptr;
+   ^
+main.cpp:47:21: error: expected primary-expression before '>' token
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                     ^
+main.cpp:47:23: error: 'w_ptr' was not declared in this scope
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                       ^
+main.cpp:47:31: error: 's_ptr' was not declared in this scope
+   std::weak_ptr<Type> w_ptr = s_ptr;
+                               ^
+main.cpp:48:16: error: 'bind' is not a member of 'std'
+   auto bound = std::bind(f, s_ptr.get(), std::forward<FArgs>(args)...);
+                ^
+main.cpp:48:42: error: 'forward' is not a member of 'std'
+   auto bound = std::bind(f, s_ptr.get(), std::forward<FArgs>(args)...);
+                                          ^
+main.cpp:48:60: error: expected primary-expression before '>' token
+   auto bound = std::bind(f, s_ptr.get(), std::forward<FArgs>(args)...);
+                                                            ^
+main.cpp:48:62: error: 'args' was not declared in this scope
+   auto bound = std::bind(f, s_ptr.get(), std::forward<FArgs>(args)...);
+                                                              ^
+main.cpp: In member function 'bool A<Args>::Call(Args&& ...)':
+main.cpp:60:16: error: 'forward' is not a member of 'std'
+   return func_(std::forward<Args>(args)...);
+                ^
+main.cpp:60:33: error: expected primary-expression before '>' token
+   return func_(std::forward<Args>(args)...);
+                                 ^
