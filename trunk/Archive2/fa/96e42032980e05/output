@@ -1,0 +1,53 @@
+main.cpp:8:1: error: expected class-name before '{' token
+ {
+ ^
+main.cpp:13:26: error: 'Base' was not declared in this scope
+ void thr(std::shared_ptr<Base> p)
+                          ^
+main.cpp:13:30: error: template argument 1 is invalid
+ void thr(std::shared_ptr<Base> p)
+                              ^
+main.cpp: In function 'void thr(int)':
+main.cpp:16:21: error: 'Base' was not declared in this scope
+     std::shared_ptr<Base> lp = p; // thread-safe, even though the
+                     ^
+main.cpp:16:25: error: template argument 1 is invalid
+     std::shared_ptr<Base> lp = p; // thread-safe, even though the
+                         ^
+main.cpp:16:30: error: invalid type in declaration before '=' token
+     std::shared_ptr<Base> lp = p; // thread-safe, even though the
+                              ^
+main.cpp:22:42: error: request for member 'get' in 'lp', which is of non-class type 'int'
+                 << "  lp.get() = " << lp.get()
+                                          ^
+main.cpp:23:48: error: request for member 'use_count' in 'lp', which is of non-class type 'int'
+                 << ", lp.use_count() = " << lp.use_count() << '\n';
+                                                ^
+main.cpp: In function 'int main()':
+main.cpp:29:21: error: 'Base' was not declared in this scope
+     std::shared_ptr<Base> p = std::make_shared<Derived>();
+                     ^
+main.cpp:29:25: error: template argument 1 is invalid
+     std::shared_ptr<Base> p = std::make_shared<Derived>();
+                         ^
+main.cpp:29:29: error: invalid type in declaration before '=' token
+     std::shared_ptr<Base> p = std::make_shared<Derived>();
+                             ^
+main.cpp:29:57: error: cannot convert 'std::shared_ptr<Derived>' to 'int' in initialization
+     std::shared_ptr<Base> p = std::make_shared<Derived>();
+                                                         ^
+main.cpp:32:38: error: request for member 'get' in 'p', which is of non-class type 'int'
+               << "  p.get() = " << p.get()
+                                      ^
+main.cpp:33:44: error: request for member 'use_count' in 'p', which is of non-class type 'int'
+               << ", p.use_count() = " << p.use_count() << '\n';
+                                            ^
+main.cpp:35:7: error: request for member 'reset' in 'p', which is of non-class type 'int'
+     p.reset(); // release ownership from main
+       ^
+main.cpp:38:38: error: request for member 'get' in 'p', which is of non-class type 'int'
+               << "  p.get() = " << p.get()
+                                      ^
+main.cpp:39:44: error: request for member 'use_count' in 'p', which is of non-class type 'int'
+               << ", p.use_count() = " << p.use_count() << '\n';
+                                            ^
