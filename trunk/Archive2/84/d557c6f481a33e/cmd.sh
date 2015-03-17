@@ -1,0 +1,1 @@
+clang++ -std=c++14 -fno-elide-constructors -Wall -pedantic -Wextra -Wfatal-errors main.cpp && ./a.out;
