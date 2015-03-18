@@ -1,0 +1,23 @@
+main.cpp:26:5: error: use of undeclared identifier 'foo'; did you mean 'X::foo'?
+    foo(x);
+    ^~~
+    X::foo
+main.cpp:9:10: note: 'X::foo' declared here
+    void foo(typename outer<T>::inner)
+         ^
+main.cpp:26:5: error: no matching function for call to 'foo'
+    foo(x);
+    ^~~
+main.cpp:9:10: note: candidate template ignored: couldn't infer template argument 'T'
+    void foo(typename outer<T>::inner)
+         ^
+2 errors generated.
+
+main.cpp: In function 'int main()':
+main.cpp:26:10: error: 'foo' was not declared in this scope
+     foo(x);
+          ^
+main.cpp:26:10: note: suggested alternative:
+main.cpp:9:10: note:   'X::foo'
+     void foo(typename outer<T>::inner)
+          ^
