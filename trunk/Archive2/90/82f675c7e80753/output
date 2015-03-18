@@ -1,0 +1,16 @@
+main.cpp:18:25: error: expected ')' before '<' token
+     Foo(initializer_list<int> i) {
+                         ^
+main.cpp: In function 'int main()':
+main.cpp:25:20: error: no matching function for call to 'Foo::Foo(<brace-enclosed initializer list>)'
+   Foo foo({1, 2, 3});
+                    ^
+main.cpp:25:20: note: candidates are:
+main.cpp:16:7: note: constexpr Foo::Foo()
+ class Foo {
+       ^
+main.cpp:16:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp:16:7: note: constexpr Foo::Foo(const Foo&)
+main.cpp:16:7: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const Foo&'
+main.cpp:16:7: note: constexpr Foo::Foo(Foo&&)
+main.cpp:16:7: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'Foo&&'
