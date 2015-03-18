@@ -1,0 +1,16 @@
+main.cpp:9:26: error: qualifiers are not allowed on declaration of 'operator int&'
+    const operator int&() const { return val_; }
+                          ^
+main.cpp:9:26: error: 'const' qualifiers cannot be applied to 'int&'
+main.cpp: In member function 'Int::operator int&() const':
+main.cpp:9:41: error: invalid initialization of reference of type 'int&' from expression of type 'const int'
+    const operator int&() const { return val_; }
+                                         ^
+main.cpp: In member function 'Int& Int::operator=(int)':
+main.cpp:12:41: error: 'v' was not declared in this scope
+    Int&  operator =(int i)     { val_ = v; return *this; }
+                                         ^
+main.cpp: At global scope:
+main.cpp:12:25: warning: unused parameter 'i' [-Wunused-parameter]
+    Int&  operator =(int i)     { val_ = v; return *this; }
+                         ^
