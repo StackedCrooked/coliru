@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'FCreate(Func, std::shared_ptr<_Tp2>, FArgs&& ...)::<lambda(FArgs&& ...)> [with Func = int (B::*)(int); Type = B; FArgs = {const std::_Placeholder<1>&}]':
+main.cpp:10:4:   required from 'struct FCreate(Func, std::shared_ptr<_Tp2>, FArgs&& ...) [with Func = int (B::*)(int); Type = B; FArgs = {const std::_Placeholder<1>&}]::<lambda(const struct std::_Placeholder<1>&)>'
+main.cpp:16:2:   required from 'std::function<bool(FArgs ...)> FCreate(Func, std::shared_ptr<_Tp2>, FArgs&& ...) [with Func = int (B::*)(int); Type = B; FArgs = {const std::_Placeholder<1>&}]'
+main.cpp:31:81:   required from here
+main.cpp:12:4: error: 'class B' has no member named 'f'
+    ptr->f(f_args...);
+    ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional:2418:7: error: 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = FCreate(Func, std::shared_ptr<_Tp2>, FArgs&& ...) [with Func = int (B::*)(int); Type = B; FArgs = {const std::_Placeholder<1>&}]::<lambda(const std::_Placeholder<1>&)>; <template-parameter-2-2> = void; _Res = bool; _ArgTypes = {const std::_Placeholder<1>&}]', declared using local type 'FCreate(Func, std::shared_ptr<_Tp2>, FArgs&& ...) [with Func = int (B::*)(int); Type = B; FArgs = {const std::_Placeholder<1>&}]::<lambda(const std::_Placeholder<1>&)>', is used but never defined [-fpermissive]
+       function<_Res(_ArgTypes...)>::
+       ^
