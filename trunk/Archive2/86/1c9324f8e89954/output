@@ -1,0 +1,43 @@
+main.cpp:37:44: error: use of undeclared identifier 'basic'
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                           ^
+main.cpp:37:51: error: expected class name
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                                  ^
+main.cpp:37:66: error: use of undeclared identifier 'basic'
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                                                 ^
+main.cpp:37:73: error: expected class name
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                                                        ^
+main.cpp:37:93: error: use of undeclared identifier 'basic'
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                                                                            ^
+main.cpp:37:100: error: expected class name
+struct entity_impl : public entity, public basic::events, public basic::thread_free, public basic::thread_safe
+                                                                                                   ^
+main.cpp:46:18: error: 'register_handler' marked 'override' but does not override any member functions
+    virtual void register_handler() override { std::cout << __func__ << std::endl; }
+                 ^
+main.cpp:50:18: error: 'foo' marked 'override' but does not override any member functions
+    virtual void foo(transaction&) override { std::cout << __func__ << std::endl; }
+                 ^
+main.cpp:52:18: error: 'bar' marked 'override' but does not override any member functions
+    virtual void bar(transaction&) override { std::cout << __func__ << std::endl; }
+                 ^
+main.cpp:54:18: error: 'foo' marked 'override' but does not override any member functions
+    virtual void foo() override { std::cout << __func__ << std::endl; }
+                 ^
+main.cpp:56:18: error: 'bar' marked 'override' but does not override any member functions
+    virtual void bar() override { std::cout << __func__ << std::endl; }
+                 ^
+main.cpp:40:60: error: non-const lvalue reference to type 'entity::events' cannot bind to a value of unrelated type 'entity_impl'
+    virtual entity::events& get_events() override { return *this; }
+                                                           ^~~~~
+main.cpp:42:70: error: non-const lvalue reference to type 'entity::thread_free' cannot bind to a value of unrelated type 'entity_impl'
+    virtual entity::thread_free& get_thread_free() override { return *this; }
+                                                                     ^~~~~
+main.cpp:44:70: error: non-const lvalue reference to type 'entity::thread_safe' cannot bind to a value of unrelated type 'entity_impl'
+    virtual entity::thread_safe& get_thread_safe() override { return *this; }
+                                                                     ^~~~~
+14 errors generated.
