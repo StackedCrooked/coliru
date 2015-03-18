@@ -1,0 +1,107 @@
+main.cpp:17:19: error: template-id 'foo<10>' in declaration of primary template
+ void foo<10>(F&& f) {
+                   ^
+main.cpp:30:17: error: template-id 'bar<10>' in declaration of primary template
+ void bar<10>(F f) {
+                 ^
+main.cpp:43:17: error: template-id 'zoo<10>' in declaration of primary template
+ void zoo<10>(F f) {
+                 ^
+main.cpp:23:30: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting 'template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&) [with _Tp = void (&)()]'
+     foo<level+1>(forward<F>(f));
+                              ^
+main.cpp:23:31:   recursively required from 'void foo(F&&) [with int level = 1; F = void (&)()]'
+main.cpp:23:31:   required from 'void foo(F&&) [with int level = 0; F = void()]'
+main.cpp:62:71:   required from here
+
+main.cpp:23:30: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting 'template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&) [with _Tp = void (&)()]'
+main.cpp:23:31:   recursively required from 'void foo(F&&) [with int level = 1; F = void (&)()]'
+main.cpp:23:31:   required from 'void foo(F&&) [with int level = 0; F = void()]'
+main.cpp:62:71:   required from here
+
+main.cpp:23:30: error: no matching function for call to 'forward(void (&)())'
+main.cpp:23:30: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:76:5: note:   substitution of deduced template arguments resulted in errors seen above
+/usr/include/c++/4.8/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:87:5: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:36:24: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting 'template<class _Tp> constexpr typename std::remove_reference< <template-parameter-1-1> >::type&& std::move(_Tp&&) [with _Tp = void (*&)()]'
+     bar<level+1>(move(f));
+                        ^
+main.cpp:36:25:   recursively required from 'void bar(F) [with int level = 1; F = void (*)()]'
+main.cpp:36:25:   required from 'void bar(F) [with int level = 0; F = void()]'
+main.cpp:63:71:   required from here
+
+main.cpp:36:24: error: no matching function for call to 'move(void (*&)())'
+main.cpp:36:24: note: candidates are:
+In file included from /usr/include/c++/4.8/bits/stl_pair.h:59:0,
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:64,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/move.h:101:5: note: template<class _Tp> constexpr typename std::remove_reference< <template-parameter-1-1> >::type&& std::move(_Tp&&)
+     move(_Tp&& __t) noexcept
+     ^
+/usr/include/c++/4.8/bits/move.h:101:5: note:   substitution of deduced template arguments resulted in errors seen above
+In file included from /usr/include/c++/4.8/bits/char_traits.h:39:0,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/stl_algobase.h:483:5: note: template<class _II, class _OI> _OI std::move(_II, _II, _OI)
+     move(_II __first, _II __last, _OI __result)
+     ^
+/usr/include/c++/4.8/bits/stl_algobase.h:483:5: note:   template argument deduction/substitution failed:
+main.cpp:36:24: note:   candidate expects 3 arguments, 1 provided
+     bar<level+1>(move(f));
+                        ^
+In file included from /usr/include/c++/4.8/deque:66:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main.cpp:8:
+/usr/include/c++/4.8/bits/deque.tcc:1004:5: note: template<class _Tp> std::_Deque_iterator<_Tp, _Tp&, _Tp*> std::move(std::_Deque_iterator<_Tp, const _Tp&, const _Tp*>, std::_Deque_iterator<_Tp, const _Tp&, const _Tp*>, std::_Deque_iterator<_Tp, _Tp&, _Tp*>)
+     move(_Deque_iterator<_Tp, const _Tp&, const _Tp*> __first,
+     ^
+/usr/include/c++/4.8/bits/deque.tcc:1004:5: note:   template argument deduction/substitution failed:
+main.cpp:36:24: note:   mismatched types 'std::_Deque_iterator<_Tp, const _Tp&, const _Tp*>' and 'void (*)()'
+     bar<level+1>(move(f));
+                        ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from main.cpp:8:
+/usr/include/c++/4.8/bits/stl_deque.h:403:5: note: template<class _Tp> std::_Deque_iterator<_Tp, _Tp&, _Tp*> std::move(std::_Deque_iterator<_Tp, _Tp&, _Tp*>, std::_Deque_iterator<_Tp, _Tp&, _Tp*>, std::_Deque_iterator<_Tp, _Tp&, _Tp*>)
+     move(_Deque_iterator<_Tp, _Tp&, _Tp*> __first,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:403:5: note:   template argument deduction/substitution failed:
+main.cpp:36:24: note:   mismatched types 'std::_Deque_iterator<_Tp, _Tp&, _Tp*>' and 'void (*)()'
+     bar<level+1>(move(f));
+                        ^
+main.cpp:49:19: error: template instantiation depth exceeds maximum of 900 (use -ftemplate-depth= to increase the maximum) substituting 'template<int level, class F> void zoo(F) [with int level = 900; F = <missing>]'
+     zoo<level+1>(f);
+                   ^
+main.cpp:49:19:   recursively required from 'void zoo(F) [with int level = 1; F = void (*)()]'
+main.cpp:49:19:   required from 'void zoo(F) [with int level = 0; F = void()]'
+main.cpp:64:71:   required from here
+
+main.cpp:49:19: error: no matching function for call to 'zoo(void (*&)())'
+main.cpp:49:19: note: candidates are:
+main.cpp:48:6: note: template<int level, class F> void zoo(F)
+ void zoo(F f) {
+      ^
+main.cpp:48:6: note:   substitution of deduced template arguments resulted in errors seen above
+main.cpp:43:6: note: template<class F> void zoo(F)
+ void zoo<10>(F f) {
+      ^
+main.cpp:43:6: note:   template argument deduction/substitution failed:
