@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:11:29: error: no matching function for call to 'std::vector<std::pair<int, std::basic_string<char> > >::push_back(int, const char [6])'
+     vec.push_back(1, "hello"); // erro
+                             ^
+main.cpp:11:29: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::pair<int, std::basic_string<char> >; _Alloc = std::allocator<std::pair<int, std::basic_string<char> > >; std::vector<_Tp, _Alloc>::value_type = std::pair<int, std::basic_string<char> >]
+       push_back(const value_type& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:913:7: note:   candidate expects 1 argument, 2 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::pair<int, std::basic_string<char> >; _Alloc = std::allocator<std::pair<int, std::basic_string<char> > >; std::vector<_Tp, _Alloc>::value_type = std::pair<int, std::basic_string<char> >]
+       push_back(value_type&& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:931:7: note:   candidate expects 1 argument, 2 provided
