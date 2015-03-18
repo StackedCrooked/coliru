@@ -1,0 +1,1 @@
+g++ main.cpp -lboost_chrono -lboost_system && ./a.out
