@@ -1,0 +1,1 @@
+clang++ -stdlib=libc++ -std=gnu++1z -Ofast -Wall -Wextra -Weverything -pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof -Wno-padded main.cpp -D__extern_always_inline=inline -o test && ./test
