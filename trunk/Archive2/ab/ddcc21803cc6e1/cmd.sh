@@ -1,0 +1,1 @@
+cp /Archive2/f2/4f90c0790d0e58/main.cpp boilerplate.hpp && clang++ -std=c++14 -Wall main.cpp && ./a.out
