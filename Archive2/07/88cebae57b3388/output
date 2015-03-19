@@ -1,0 +1,100 @@
+main.cpp:20:5: error: complex integer types are a GNU extension [-Werror,-Wgnu-complex-integer]
+    int complex z15 = 1+2*I;
+    ^
+main.cpp:21:34: error: call to '__tg_promote' is ambiguous
+    printf("z15 = %.1f%+.1fi\n", creal(z15), cimag(z15));
+                                 ^~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:1368:31: note: expanded from macro 'creal'
+#define creal(__x) __tg_creal(__tg_promote1((__x))(__x))
+                              ^~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:56:50: note: expanded from macro '__tg_promote1'
+#define __tg_promote1(__x)           (__typeof__(__tg_promote(__x)))
+                                                 ^~~~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:52:40: note: candidate function
+static float _Complex       _TG_ATTRSp __tg_promote(float _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:53:40: note: candidate function
+static double _Complex      _TG_ATTRSp __tg_promote(double _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:54:40: note: candidate function
+static long double _Complex _TG_ATTRSp __tg_promote(long double _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:43:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(int);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:44:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned int);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:45:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:46:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:47:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(long long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:48:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned long long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:49:40: note: candidate function
+static float                _TG_ATTRSp __tg_promote(float);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:50:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(double);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:51:40: note: candidate function
+static long double          _TG_ATTRSp __tg_promote(long double);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:41:41: note: candidate function has been explicitly made unavailable
+static _Argument_type_is_not_arithmetic __tg_promote(...)
+                                        ^
+main.cpp:21:46: error: call to '__tg_promote' is ambiguous
+    printf("z15 = %.1f%+.1fi\n", creal(z15), cimag(z15));
+                                             ^~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:1281:31: note: expanded from macro 'cimag'
+#define cimag(__x) __tg_cimag(__tg_promote1((__x))(__x))
+                              ^~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:56:50: note: expanded from macro '__tg_promote1'
+#define __tg_promote1(__x)           (__typeof__(__tg_promote(__x)))
+                                                 ^~~~~~~~~~~~
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:52:40: note: candidate function
+static float _Complex       _TG_ATTRSp __tg_promote(float _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:53:40: note: candidate function
+static double _Complex      _TG_ATTRSp __tg_promote(double _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:54:40: note: candidate function
+static long double _Complex _TG_ATTRSp __tg_promote(long double _Complex);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:43:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(int);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:44:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned int);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:45:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:46:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:47:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(long long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:48:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(unsigned long long);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:49:40: note: candidate function
+static float                _TG_ATTRSp __tg_promote(float);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:50:40: note: candidate function
+static double               _TG_ATTRSp __tg_promote(double);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:51:40: note: candidate function
+static long double          _TG_ATTRSp __tg_promote(long double);
+                                       ^
+/usr/local/bin/../lib/clang/3.5.0/include/tgmath.h:41:41: note: candidate function has been explicitly made unavailable
+static _Argument_type_is_not_arithmetic __tg_promote(...)
+                                        ^
+3 errors generated.
