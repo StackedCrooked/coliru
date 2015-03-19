@@ -1,0 +1,13 @@
++ clang++ -std=c++14 -O3 -Wall -pedantic -Wextra -pthread -Wno-unused-variable -Wno-unused-parameter -Wconversion -stdlib=libc++ main.cpp -lsupc++
++ ./a.out
+auto f(T &&) [T = foo &]
+T &&forward(typename std::remove_reference<T>::type &) [T = foo &]
+int &foo::get() &
+T &&forward(typename std::remove_reference<T>::type &) [T = int &]
+void g(int &)
+------
+auto f(T &&) [T = foo]
+T &&forward(typename std::remove_reference<T>::type &) [T = foo]
+int foo::get() &&
+T &&forward(typename std::remove_reference<T>::type &&) [T = int]
+void g(int &&)
