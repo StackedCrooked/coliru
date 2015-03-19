@@ -1,0 +1,45 @@
+In file included from main.cpp:7:
+In file included from /usr/local/include/boost/bind.hpp:22:
+/usr/local/include/boost/bind/bind.hpp:1201:22: error: invalid operands to binary expression ('const Age' and 'int')
+BOOST_BIND_OPERATOR( !=, not_equal )
+~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/usr/local/include/boost/bind/bind.hpp:1188:91: note: expanded from macro 'BOOST_BIND_OPERATOR'
+    template<class V, class W> bool operator()(V const & v, W const & w) const { return v op w; } \
+                                                                                          ^
+/usr/local/include/boost/bind/bind.hpp:303:16: note: in instantiation of function template specialization 'boost::_bi::not_equal::operator()<Age, int>' requested here
+        return unwrapper<F>::unwrap(f, 0)(a[base_type::a1_], a[base_type::a2_]);
+               ^
+/usr/local/include/boost/bind/bind_template.hpp:32:27: note: in instantiation of function template specialization 'boost::_bi::list2<boost::_bi::bind_t<Age, boost::_mfi::mf0<Age, Person>, boost::_bi::list1<boost::arg<1> > >, boost::_bi::value<int> >::operator()<bool, boost::_bi::not_equal, boost::_bi::list1<Person &> >' requested here
+        BOOST_BIND_RETURN l_(type<result_type>(), f_, a, 0);
+                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/predefined_ops.h:231:16: note: in instantiation of function template specialization 'boost::_bi::bind_t<bool, boost::_bi::not_equal, boost::_bi::list2<boost::_bi::bind_t<Age, boost::_mfi::mf0<Age, Person>, boost::_bi::list1<boost::arg<1> > >, boost::_bi::value<int> > >::operator()<Person>' requested here
+        { return bool(_M_pred(*__it)); }
+                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algo.h:643:7: note: in instantiation of function template specialization '__gnu_cxx::__ops::_Iter_pred<boost::_bi::bind_t<bool, boost::_bi::not_equal, boost::_bi::list2<boost::_bi::bind_t<Age, boost::_mfi::mf0<Age, Person>, boost::_bi::list1<boost::arg<1> > >, boost::_bi::value<int> > > >::operator()<__gnu_cxx::__normal_iterator<Person *, std::vector<Person, std::allocator<Person> > > >' requested here
+        if (!__pred(__first))
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algo.h:711:19: note: in instantiation of function template specialization 'std::__remove_copy_if<__gnu_cxx::__normal_iterator<Person *, std::vector<Person, std::allocator<Person> > >, std::back_insert_iterator<std::vector<Person, std::allocator<Person> > >, __gnu_cxx::__ops::_Iter_pred<boost::_bi::bind_t<bool, boost::_bi::not_equal, boost::_bi::list2<boost::_bi::bind_t<Age, boost::_mfi::mf0<Age, Person>, boost::_bi::list1<boost::arg<1> > >, boost::_bi::value<int> > > > >' requested here
+      return std::__remove_copy_if(__first, __last, __result,
+                  ^
+main.cpp:51:8: note: in instantiation of function template specialization 'std::remove_copy_if<__gnu_cxx::__normal_iterator<Person *, std::vector<Person, std::allocator<Person> > >, std::back_insert_iterator<std::vector<Person, std::allocator<Person> > >, boost::_bi::bind_t<bool, boost::_bi::not_equal, boost::_bi::list2<boost::_bi::bind_t<Age, boost::_mfi::mf0<Age, Person>, boost::_bi::list1<boost::arg<1> > >, boost::_bi::value<int> > > >' requested here
+  std::remove_copy_if(v.begin(), v.end(), std::back_inserter(ageof35),boost::bind(&Person::GetAge,_1)!=35);
+       ^
+/usr/local/include/boost/optional/optional.hpp:1254:6: note: candidate template ignored: could not match 'optional<type-parameter-0-0>' against 'const Age'
+bool operator != ( optional<T> const& x, optional<T> const& y )
+     ^
+/usr/local/include/boost/optional/optional.hpp:1288:6: note: candidate template ignored: could not match 'optional<type-parameter-0-0>' against 'const Age'
+bool operator != ( optional<T> const& x, T const& y )
+     ^
+/usr/local/include/boost/optional/optional.hpp:1322:6: note: candidate template ignored: could not match 'optional<type-parameter-0-0>' against 'const int'
+bool operator != ( T const& x, optional<T> const& y )
+     ^
+/usr/local/include/boost/optional/optional.hpp:1357:6: note: candidate template ignored: could not match 'optional<type-parameter-0-0>' against 'const Age'
+bool operator != ( optional<T> const& x, none_t ) BOOST_NOEXCEPT
+     ^
+/usr/local/include/boost/optional/optional.hpp:1391:6: note: candidate template ignored: could not match 'optional<type-parameter-0-0>' against 'const int'
+bool operator != ( none_t, optional<T> const& y ) BOOST_NOEXCEPT
+     ^
+/usr/local/include/boost/smart_ptr/shared_ptr.hpp:733:40: note: candidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'const Age'
+template<class T, class U> inline bool operator!=(shared_ptr<T> const & a, shared_ptr<U> const & b) BOOST_NOEXCEPT
+                                       ^
+1 error generated.
