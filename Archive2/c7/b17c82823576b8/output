@@ -1,0 +1,12 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:32:4: error: no matching function for call to 'addThenFunction(int, int, main(int, char**)::<lambda(int)>)'
+   });
+    ^
+main.cpp:32:4: note: candidate is:
+main.cpp:17:6: note: template<class RetVal, class ... Args> void addThenFunction(int, int, std::function<_Res(_ArgTypes ...)>)
+ void addThenFunction(int a, int b, std::function<RetVal(Args...)> cb)
+      ^
+main.cpp:17:6: note:   template argument deduction/substitution failed:
+main.cpp:32:4: note:   'main(int, char**)::<lambda(int)>' is not derived from 'std::function<_Res(_ArgTypes ...)>'
+   });
+    ^
