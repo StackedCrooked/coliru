@@ -1,0 +1,26 @@
+main.cpp:261:32: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    SortingVector<Payroll> temp();
+                               ^~
+main.cpp:261:32: note: replace parentheses with an initializer to declare a variable
+    SortingVector<Payroll> temp();
+                               ^~
+                               {}
+main.cpp:268:37: error: 'arraySize' is a private member of 'SimpleVector<Payroll>'
+        for (int i = 0; i < aVector.arraySize; i++) {
+                                    ^
+main.cpp:164:9: note: declared private here
+    int arraySize;
+        ^
+main.cpp:271:17: error: no matching function for call to 'strcmp'
+            x = strcmp(aVector[i], aVector[i + 1]);
+                ^~~~~~
+/usr/include/string.h:143:12: note: candidate function not viable: no known conversion from 'Payroll' to 'const char *' for 1st argument
+extern int strcmp (__const char *__s1, __const char *__s2)
+           ^
+main.cpp:274:17: error: subscript of pointer to function type 'SortingVector<Payroll> ()'
+                temp[i] = aVector[i];
+                ^~~~
+main.cpp:276:34: error: subscript of pointer to function type 'SortingVector<Payroll> ()'
+                aVector[i + 1] = temp[i];
+                                 ^~~~
+1 warning and 4 errors generated.
