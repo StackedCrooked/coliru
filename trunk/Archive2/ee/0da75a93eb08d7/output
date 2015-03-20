@@ -1,0 +1,22 @@
+main.cpp:23:30: error: 'name' is a private member of 'Person'
+    return oss<<"Name: "<<id.name << "Age:"<<id.Age<<"\n";
+                             ^
+main.cpp:18:17: note: declared private here
+    std::string name;
+                ^
+main.cpp:23:49: error: 'Age' is a private member of 'Person'
+    return oss<<"Name: "<<id.name << "Age:"<<id.Age<<"\n";
+                                                ^
+main.cpp:17:9: note: declared private here
+    int Age;
+        ^
+main.cpp:43:8: error: no member named 'transform' in namespace 'std'
+  std::transform(v.begin(),v.end(),std::inserter(persons,persons.end()), std::make_pair<std::string,int>(boost::bind(&Person::GetName,_1)),(boost::bind(&Person::GetAge,_1)));
+  ~~~~~^
+main.cpp:43:74: error: no matching function for call to 'make_pair'
+  std::transform(v.begin(),v.end(),std::inserter(persons,persons.end()), std::make_pair<std::string,int>(boost::bind(&Person::GetName,_1)),(boost::bind(&Person::GetAge,_1)));
+                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:286:5: note: candidate function template not viable: requires 2 arguments, but 1 was provided
+    make_pair(_T1 __x, _T2 __y)
+    ^
+4 errors generated.
