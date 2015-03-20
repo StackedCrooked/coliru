@@ -1,0 +1,57 @@
+# 1 "main.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "main.cpp"
+
+
+
+
+"baz,boo"
+
+namespace std { class string; }
+
+struct Foo
+{
+    double baz;
+    std::string boo;
+}
+
+struct Node
+{
+    Node(const std::string &nmspace) : ns(nmspace) {}
+    std::string ns;
+
+    void param(const std::string &name, double &out, const double &defaultVal) const
+    {
+        if (name == "baz") out = 42.0;
+    }
+
+    void param(const std::string &name, std::string &out, const std::string &defaultVal) const
+    {
+        if (name == "boo") out = "yesindeedy";
+    }
+}
+
+template<typename T, typename Args...>
+Node &get_param_from(const Node &node, const std::string &name, T &out, const T &defaultVal)
+{
+    node.param(name,out,defaultVal);
+    return node;
+}
+
+template<typename T, typename... Args>
+void am3p_get_ros_params(const char* s, T value, Args... args)
+{
+ while (s && *s) {
+  if (*s=='%' && *++s!='%') {
+   std::cout << value;
+   return printf(++s, args...);
+  }
+  std::cout << *s++;
+ }
+ throw std::runtime error("extra arguments provided to printf");
+}
+
+
+4
+bash: line 7: ./a.out: No such file or directory
