@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:18:30: error: no matching function for call to 'foo(int, std::nullptr_t)'
+     foo<int*, int>(0, nullptr);
+                              ^
+main.cpp:18:30: note: candidate is:
+main.cpp:10:6: note: template<class T, class ... U> void foo(T, EnableIf<std::is_arithmetic<typename depend<T, U>::type> >* ...)
+ void foo(T, EnableIf<std::is_arithmetic<depend_t<T, U>>>*...) {}
+      ^
+main.cpp:10:6: note:   template argument deduction/substitution failed:
