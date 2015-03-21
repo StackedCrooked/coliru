@@ -1,0 +1,14 @@
+main.cpp: In constructor 'Daughter::Daughter(Son*)':
+main.cpp:13:31: error: no matching function for call to 'Base::Base(Son&)'
+     Daughter(Son* s) : Base(*s){};
+                               ^
+main.cpp:13:31: note: candidate is:
+main.cpp:7:5: note: constexpr Base::Base(const Base&)
+     Base(const Base&) =default;
+     ^
+main.cpp:7:5: note:   no known conversion for argument 1 from 'Son' to 'const Base&'
+main.cpp: In constructor 'Son::Son(Daughter*)':
+main.cpp:7:5: error: 'constexpr Base::Base(const Base&)' is private
+main.cpp:18:31: error: within this context
+     Son(Daughter* d) : Base(*d){};
+                               ^
