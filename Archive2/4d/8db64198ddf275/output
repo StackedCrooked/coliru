@@ -1,0 +1,79 @@
++ g++ -S -O0 -std=c++11 main.cpp
++ c++filt
++ cat temp.s
+	.file	"main.cpp"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$48, %rsp
+	movl	%edi, -36(%rbp)
+	movq	%rsi, -48(%rbp)
+	leaq	-16(%rbp), %rax
+	movq	%rax, %rdi
+	call	Sample<int>::Sample()
+	leaq	-17(%rbp), %rax
+	movq	%rax, %rdi
+	call	Sample<char>::Sample()
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.section	.text._ZN6SampleIiEC2Ev,"axG",@progbits,_ZN6SampleIiEC5Ev,comdat
+	.align 2
+	.weak	Sample<int>::Sample()
+	.type	Sample<int>::Sample(), @function
+Sample<int>::Sample():
+.LFB4:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movl	$0, (%rax)
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE4:
+	.size	Sample<int>::Sample(), .-Sample<int>::Sample()
+	.weak	Sample<int>::Sample()
+	.set	Sample<int>::Sample(),Sample<int>::Sample()
+	.section	.text._ZN6SampleIcEC2Ev,"axG",@progbits,_ZN6SampleIcEC5Ev,comdat
+	.align 2
+	.weak	Sample<char>::Sample()
+	.type	Sample<char>::Sample(), @function
+Sample<char>::Sample():
+.LFB7:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movb	$0, (%rax)
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE7:
+	.size	Sample<char>::Sample(), .-Sample<char>::Sample()
+	.weak	Sample<char>::Sample()
+	.set	Sample<char>::Sample(),Sample<char>::Sample()
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
