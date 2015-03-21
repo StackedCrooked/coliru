@@ -1,0 +1,19 @@
+main.cpp:29:19: warning: unused parameter 'h' [-Wunused-parameter]
+void foo (Handler h, std::enable_if_t<is_callable_with<Handler(yield_context)>::value>* = 0)
+                  ^
+main.cpp:35:18: warning: unused parameter 'h' [-Wunused-parameter]
+void foo(Handler h, std::enable_if_t<is_callable_with<Handler(func_type)>::value>* = 0)
+                 ^
+main.cpp:42:3: error: call to 'foo' is ambiguous
+  foo([] (func_type) {});
+  ^~~
+main.cpp:29:6: note: candidate function [with Handler = (lambda at main.cpp:42:7)]
+void foo (Handler h, std::enable_if_t<is_callable_with<Handler(yield_context)>::value>* = 0)
+     ^
+main.cpp:35:6: note: candidate function [with Handler = (lambda at main.cpp:42:7)]
+void foo(Handler h, std::enable_if_t<is_callable_with<Handler(func_type)>::value>* = 0)
+     ^
+main.cpp:43:25: warning: unused parameter 'f' [-Wunused-parameter]
+  foo([] (yield_context f) {});
+                        ^
+3 warnings and 1 error generated.
