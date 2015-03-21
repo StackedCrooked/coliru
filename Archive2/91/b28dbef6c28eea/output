@@ -1,0 +1,13 @@
+main.cpp: In constructor 'Daughter::Daughter(Son*)':
+main.cpp:12:31: error: no matching function for call to 'Base::Base(Son&)'
+     Daughter(Son* s) : Base(*s){};
+                               ^
+main.cpp:12:31: note: candidates are:
+main.cpp:6:7: note: constexpr Base::Base()
+ class Base{
+       ^
+main.cpp:6:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp:6:7: note: constexpr Base::Base(const Base&)
+main.cpp:6:7: note:   no known conversion for argument 1 from 'Son' to 'const Base&'
+main.cpp:6:7: note: constexpr Base::Base(Base&&)
+main.cpp:6:7: note:   no known conversion for argument 1 from 'Son' to 'Base&&'
