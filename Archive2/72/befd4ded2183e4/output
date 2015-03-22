@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:21:15: error: no match for 'operator*' (operand types are 'A' and 'BigInt')
+  A result = a * i;
+               ^
+main.cpp:21:15: note: candidate is:
+main.cpp:10:3: note: template<class T, class TNum> T operator*(const T&, param<TNum>)
+ T operator * ( const T& t , param< TNum > num ) {
+   ^
+main.cpp:10:3: note:   template argument deduction/substitution failed:
+main.cpp:21:17: note:   couldn't deduce template parameter 'TNum'
+  A result = a * i;
+                 ^
+main.cpp:22:13: error: no match for 'operator*' (operand types are 'A' and 'float')
+  result = a * 1.0f;
+             ^
+main.cpp:22:13: note: candidate is:
+main.cpp:10:3: note: template<class T, class TNum> T operator*(const T&, param<TNum>)
+ T operator * ( const T& t , param< TNum > num ) {
+   ^
+main.cpp:10:3: note:   template argument deduction/substitution failed:
+main.cpp:22:15: note:   couldn't deduce template parameter 'TNum'
+  result = a * 1.0f;
+               ^
