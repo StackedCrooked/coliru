@@ -1,0 +1,16 @@
+main.c: In function 'main':
+main.c:11:12: warning: passing argument 1 of 'strcat' discards 'const' qualifier from pointer target type
+     strcat(a,'c');
+            ^
+In file included from main.c:2:0:
+/usr/include/string.h:136:14: note: expected 'char * restrict' but argument is of type 'const char *'
+ extern char *strcat (char *__restrict __dest, __const char *__restrict __src)
+              ^
+main.c:11:14: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast
+     strcat(a,'c');
+              ^
+In file included from main.c:2:0:
+/usr/include/string.h:136:14: note: expected 'const char * restrict' but argument is of type 'int'
+ extern char *strcat (char *__restrict __dest, __const char *__restrict __src)
+              ^
+bash: line 7:  2837 Segmentation fault      (core dumped) ./a.out
