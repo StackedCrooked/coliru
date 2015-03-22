@@ -1,0 +1,31 @@
+main.cpp:13:8: error: member access into incomplete type 'Foo'
+    foo->f();
+       ^
+main.cpp:10:7: note: forward declaration of 'Foo'
+class Foo;
+      ^
+main.cpp:15:2: error: expected ';' after class
+}
+ ^
+ ;
+main.cpp:18:11: error: base class 'Boo' has private constructor
+  Foo() : Boo(this) {}
+          ^
+main.cpp:12:3: note: implicitly declared private here
+  Boo(Foo *foo) {
+  ^
+main.cpp:20:2: error: expected ';' after class
+}
+ ^
+ ;
+main.cpp:25:9: error: no matching constructor for initialization of 'Boo'
+    Boo b;
+        ^
+main.cpp:12:3: note: candidate constructor not viable: requires single argument 'foo', but no arguments were provided
+  Boo(Foo *foo) {
+  ^
+main.cpp:11:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+class Boo { 
+      ^
+main.cpp:11:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 0 were provided
+5 errors generated.
