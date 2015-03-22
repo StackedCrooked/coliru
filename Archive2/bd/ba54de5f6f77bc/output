@@ -1,0 +1,16 @@
+main.cpp:4:77: error: 'value' in 'std::conditional_t<true, std::integral_constant<bool, true>, std::integral_constant<bool, false> > {aka struct std::integral_constant<bool, true>}' does not name a type
+ using cond = std::conditional_t< true , std::true_type , std::false_type >::value;
+                                                                             ^
+main.cpp:6:53: error: 'cond' was not declared in this scope
+ template< typename T , typename = std::enable_if_t< cond< T > , T > >
+                                                     ^
+main.cpp:6:61: error: template argument 1 is invalid
+ template< typename T , typename = std::enable_if_t< cond< T > , T > >
+                                                             ^
+main.cpp:6:69: error: expected unqualified-id before '>' token
+ template< typename T , typename = std::enable_if_t< cond< T > , T > >
+                                                                     ^
+main.cpp: In function 'int main()':
+main.cpp:10:13: error: 'func' was not declared in this scope
+     func( 1 );
+             ^
