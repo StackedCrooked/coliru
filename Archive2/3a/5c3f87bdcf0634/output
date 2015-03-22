@@ -1,0 +1,9 @@
+main.cpp:13:70: warning: multiple unsequenced modifications to '_val' [-Wunsequenced]
+                (raw[+char_("_0-9a-fA-F")] >>  char_("hHxX")) [ _val = _strtoul(_1,16) ] /* hexadecimal with suffix */
+                                                                     ^
+1 warning generated.
+Successful parse: '123_456' -> 123456
+Successful parse: '123456' -> 123456
+Successful parse: '1_bh' -> 27
+Successful parse: '0_010Q' -> 8
+Successful parse: '1010_1010_0111_0111_b' -> 43639
