@@ -1,0 +1,1 @@
+g++ -O3 -std=c++11 -Wall -pedantic main.cpp --param inline-min-speedup=2 -DMYOWNFLAG && time ./a.out; g++ -O3 -std=c++11 -Wall -pedantic main.cpp --param inline-min-speedup=2 && time ./a.out;
