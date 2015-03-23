@@ -1,0 +1,17 @@
+main.cpp: In copy constructor 'Dog::Dog(const Dog&)':
+main.cpp:9:49: error: no matching function for call to 'Dog::getName() const'
+          Dog(const Dog& d) { m_name = d.getName(); m_age = d.getAge(); }
+                                                 ^
+main.cpp:9:49: note: candidate is:
+main.cpp:10:17: note: std::string Dog::getName() <near match>
+          string getName() { return m_name; }
+                 ^
+main.cpp:10:17: note:   no known conversion for implicit 'this' parameter from 'const Dog*' to 'Dog*'
+main.cpp:9:69: error: no matching function for call to 'Dog::getAge() const'
+          Dog(const Dog& d) { m_name = d.getName(); m_age = d.getAge(); }
+                                                                     ^
+main.cpp:9:69: note: candidate is:
+main.cpp:11:14: note: int Dog::getAge() <near match>
+          int getAge() { return m_age; }
+              ^
+main.cpp:11:14: note:   no known conversion for implicit 'this' parameter from 'const Dog*' to 'Dog*'
