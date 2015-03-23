@@ -1,0 +1,19 @@
+main.cpp:4:63: error: 'vector' in namespace 'std' does not name a type
+ template<class T, class Alloc = std::allocator<T>> class std::vector; 
+                                                               ^
+main.cpp:10:18: error: 'vector' is not a member of 'std'
+ struct is_vector<std::vector<T, Alloc>> : std::true_type { };
+                  ^
+main.cpp:10:18: error: 'vector' is not a member of 'std'
+main.cpp:10:33: error: wrong number of template arguments (2, should be 1)
+ struct is_vector<std::vector<T, Alloc>> : std::true_type { };
+                                 ^
+main.cpp:7:8: error: provided for 'template<class T> struct is_vector'
+ struct is_vector : std::false_type { };
+        ^
+main.cpp:10:38: error: expected unqualified-id before '>' token
+ struct is_vector<std::vector<T, Alloc>> : std::true_type { };
+                                      ^
+main.cpp:10:61: warning: extra ';' [-Wpedantic]
+ struct is_vector<std::vector<T, Alloc>> : std::true_type { };
+                                                             ^
