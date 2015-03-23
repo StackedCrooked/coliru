@@ -1,0 +1,17 @@
+Assignment check
+     7    10     3     2    13
+Source before move ctor
+     7    10     3     2    13
+Source after move ctor
+
+Destination after move ctor
+     7    10     3     2    13
+*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x0000000000de1030 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x7e846)[0x7f154ba3d846]
+./a.out[0x401c5e]
+./a.out[0x400f51]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)[0x7f154b9e076d]
+./a.out[0x4016f1]
+======= Memory map: ========
+bash: line 7:  2737 Aborted                 (core dumped) ./a.out
