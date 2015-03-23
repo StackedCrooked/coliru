@@ -1,0 +1,10 @@
+main.cpp:13:5: error: call to 'foo' is ambiguous
+    foo({ { "a", foo(10) } });
+    ^~~
+main.cpp:6:22: note: candidate function
+std::shared_ptr<int> foo(std::initializer_list<std::pair<std::string, std::shared_ptr<int> > >) {return {};}
+                     ^
+main.cpp:7:22: note: candidate function
+std::shared_ptr<int> foo(std::initializer_list<std::shared_ptr<int> >) { return {}; }
+                     ^
+1 error generated.
