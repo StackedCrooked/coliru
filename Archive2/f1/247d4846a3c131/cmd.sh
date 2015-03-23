@@ -1,0 +1,1 @@
+clang++ -std=c++14 -O2 -Wall -pedantic -pthread -lboost_locale -lboost_system main.cpp && ./a.out
