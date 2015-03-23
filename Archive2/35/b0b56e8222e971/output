@@ -1,0 +1,45 @@
+main.cpp: In function 'int main()':
+main.cpp:13:62: error: no matching function for call to 'regex_replace(std::ostreambuf_iterator<char, std::char_traits<char> >, std::basic_string<char>::iterator, std::basic_string<char>::iterator, std::regex&, const char [2])'
+                       text.begin(), text.end(), vowel_re, "*");
+                                                              ^
+main.cpp:13:62: note: candidates are:
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2162:5: note: template<class _Out_iter, class _Bi_iter, class _Rx_traits, class _Ch_type> _Out_iter std::regex_replace(_Out_iter, _Bi_iter, _Bi_iter, const std::basic_regex<_Ch_type, _Rx_traits>&, const std::basic_string<_Ch_type>&, std::regex_constants::match_flag_type)
+     regex_replace(_Out_iter __out, _Bi_iter __first, _Bi_iter __last,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2162:5: note:   template argument deduction/substitution failed:
+main.cpp:13:62: note:   mismatched types 'const std::basic_string<_Ch_type>' and 'const char [2]'
+                       text.begin(), text.end(), vowel_re, "*");
+                                                              ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2182:5: note: template<class _Rx_traits, class _Ch_type> std::basic_string<_Ch_type> std::regex_replace(const std::basic_string<_Ch_type>&, const std::basic_regex<_Ch_type, _Rx_traits>&, const std::basic_string<_Ch_type>&, std::regex_constants::match_flag_type)
+     regex_replace(const basic_string<_Ch_type>& __s,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2182:5: note:   template argument deduction/substitution failed:
+main.cpp:13:62: note:   'std::ostreambuf_iterator<char, std::char_traits<char> >' is not derived from 'const std::basic_string<_Ch_type>'
+                       text.begin(), text.end(), vowel_re, "*");
+                                                              ^
+main.cpp:16:66: error: no matching function for call to 'regex_replace(std::string&, std::regex&, const char [5])'
+    std::cout << '\n' << std::regex_replace(text, vowel_re, "[$&]") << '\n';
+                                                                  ^
+main.cpp:16:66: note: candidates are:
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2162:5: note: template<class _Out_iter, class _Bi_iter, class _Rx_traits, class _Ch_type> _Out_iter std::regex_replace(_Out_iter, _Bi_iter, _Bi_iter, const std::basic_regex<_Ch_type, _Rx_traits>&, const std::basic_string<_Ch_type>&, std::regex_constants::match_flag_type)
+     regex_replace(_Out_iter __out, _Bi_iter __first, _Bi_iter __last,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2162:5: note:   template argument deduction/substitution failed:
+main.cpp:16:66: note:   deduced conflicting types for parameter '_Bi_iter' ('std::basic_regex<char>' and 'const char*')
+    std::cout << '\n' << std::regex_replace(text, vowel_re, "[$&]") << '\n';
+                                                                  ^
+In file included from /usr/include/c++/4.8/regex:62:0,
+                 from main.cpp:3:
+/usr/include/c++/4.8/bits/regex.h:2182:5: note: template<class _Rx_traits, class _Ch_type> std::basic_string<_Ch_type> std::regex_replace(const std::basic_string<_Ch_type>&, const std::basic_regex<_Ch_type, _Rx_traits>&, const std::basic_string<_Ch_type>&, std::regex_constants::match_flag_type)
+     regex_replace(const basic_string<_Ch_type>& __s,
+     ^
+/usr/include/c++/4.8/bits/regex.h:2182:5: note:   template argument deduction/substitution failed:
+main.cpp:16:66: note:   mismatched types 'const std::basic_string<_Ch_type>' and 'const char [5]'
+    std::cout << '\n' << std::regex_replace(text, vowel_re, "[$&]") << '\n';
+                                                                  ^
