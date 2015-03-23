@@ -1,0 +1,1 @@
+g++ --std=c++14 -O0 -Wall -pthread main.cpp -fno-elide-constructors -Wno-unused-but-set-variable && ./a.out
