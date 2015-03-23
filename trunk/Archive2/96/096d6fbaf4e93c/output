@@ -1,0 +1,20 @@
+main.cpp: In lambda function:
+main.cpp:91:100: error: 'const struct MyClass' has no member named 'get'
+     auto it = std::partition(refs.begin(), refs.end(), [](MyClass const& mc) { return "Mike" != mc.get().name; });
+                                                                                                    ^
+In file included from /usr/local/include/c++/4.9.2/algorithm:62:0,
+                 from /usr/local/include/boost/core/swap.hpp:25,
+                 from /usr/local/include/boost/utility/swap.hpp:15,
+                 from /usr/local/include/boost/tuple/detail/tuple_basic.hpp:40,
+                 from /usr/local/include/boost/tuple/tuple.hpp:28,
+                 from /usr/local/include/boost/tuple/tuple_comparison.hpp:19,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_algo.h: In instantiation of '_BidirectionalIterator std::__partition(_BidirectionalIterator, _BidirectionalIterator, _Predicate, std::bidirectional_iterator_tag) [with _BidirectionalIterator = __gnu_cxx::__normal_iterator<boost::reference_wrapper<const MyClass>*, std::vector<boost::reference_wrapper<const MyClass> > >; _Predicate = alternative_remove_mikes(Table&)::<lambda(const MyClass&)>]':
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:4508:43:   required from '_BIter std::partition(_BIter, _BIter, _Predicate) [with _BIter = __gnu_cxx::__normal_iterator<boost::reference_wrapper<const MyClass>*, std::vector<boost::reference_wrapper<const MyClass> > >; _Predicate = alternative_remove_mikes(Table&)::<lambda(const MyClass&)>]'
+main.cpp:91:113:   required from here
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1495:30: error: could not convert '__pred.alternative_remove_mikes(Table&)::<lambda(const MyClass&)>((* &(& __first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<boost::reference_wrapper<const MyClass>*, std::vector<boost::reference_wrapper<const MyClass> > >())->boost::reference_wrapper<T>::operator T&<const MyClass>()))' from 'void' to 'bool'
+      else if (__pred(*__first))
+                              ^
+/usr/local/include/c++/4.9.2/bits/stl_algo.h:1503:35: error: void value not ignored as it ought to be
+      else if (!bool(__pred(*__last)))
+                                   ^
