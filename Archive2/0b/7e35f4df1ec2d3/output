@@ -1,0 +1,25 @@
+main.cpp: In function 'int main()':
+main.cpp:23:32: error: no matching function for call to 'stoi(const char [6], int, int)'
+     s1 = std::stoi("abc 2",4,10);
+                                ^
+main.cpp:23:32: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2858:3: note: int std::stoi(const string&, std::size_t*, int) <near match>
+   stoi(const string& __str, size_t* __idx = 0, int __base = 10)
+   ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2858:3: note:   no known conversion for argument 2 from 'int' to 'std::size_t* {aka long unsigned int*}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2961:3: note: int std::stoi(const wstring&, std::size_t*, int)
+   stoi(const wstring& __str, size_t* __idx = 0, int __base = 10)
+   ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:2961:3: note:   no known conversion for argument 1 from 'const char [6]' to 'const wstring& {aka const std::basic_string<wchar_t>&}'
+gcc (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
