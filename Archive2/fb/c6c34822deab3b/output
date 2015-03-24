@@ -1,0 +1,44 @@
+5
+
+[[[[[ customPrintPlacementTest
+** CRITICAL ** D: double{-7.77} ; I: 42 ; C: Q
+double{1.4} int{77} char{T}
+]]]]] customPrintPlacementTest
+
+[[[[[ noisyTest
+$$ Value constructor (5)
+$$ Default constructor (-13)
+$$ Value constructor (42)
+** CRITICAL ** Noisy{5} Noisy{-13} Noisy{42}
+$$ Copy constructor (5)
+$$ Move constructor (-13)
+$$ Default constructor (-13)
+$$ Value constructor (-3)
+** CRITICAL ** Noisy{5} Noisy{13} Noisy{42} Noisy{5} Noisy{-13} Noisy{-13} Noisy{-3}
+$$ Move assignment operator (5)
+$$ Copy assignment operator (13)
+** CRITICAL ** Noisy{5} Noisy{13} Noisy{42} Noisy{-5} Noisy{-13} Noisy{5} Noisy{13}
+]]]]] noisyTest
+$$ Destructor (13)
+$$ Destructor (5)
+$$ Destructor (-13)
+$$ Destructor (-5)
+$$ Destructor (42)
+$$ Destructor (13)
+$$ Destructor (5)
+
+[[[[[ debugSsTest
+@DEBUG_SS: I'm a debug message. You'll not see me in the final release!
+$$ Default constructor (-13)
+@DEBUG_SS: Hello there! -5 double{1.00001e+07} q $  ! 	 \
+ Noisy{-13}
+$$ Destructor (-13)
+]]]]] debugSsTest
+
+[[[[[ variadicTest
+26 double{2.3} 99 SIX AggressiveString{added number: 2}
+]]]]] variadicTest
+
+[[[[[ cubicVariadicTest
+AggressiveString{1A1B2A1A1B2B3A} AggressiveString{1A1B2A1A1B2B3B}
+]]]]] cubicVariadicTest
