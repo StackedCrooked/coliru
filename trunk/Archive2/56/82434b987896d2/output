@@ -1,0 +1,172 @@
+main.cpp: In function 'int main()':
+main.cpp:27:56: error: no matching function for call to 'std::basic_string<char>::insert(__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, char)'
+     s.insert(s.cbegin() + s.find_first_of('n') + 1, ':');
+                                                        ^
+main.cpp:27:56: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(iterator __p, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note: template<class _InputIterator> void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+         insert(iterator __p, _InputIterator __beg, _InputIterator __end)
+         ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note:   template argument deduction/substitution failed:
+main.cpp:27:48: note:   cannot convert 's.std::basic_string<_CharT, _Traits, _Alloc>::cbegin<char, std::char_traits<char>, std::allocator<char> >().__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(((__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >::difference_type)s.std::basic_string<_CharT, _Traits, _Alloc>::find_first_of<char, std::char_traits<char>, std::allocator<char> >(110, 0ul))).__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(1l)' (type '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >') to type 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+     s.insert(s.cbegin() + s.find_first_of('n') + 1, ':');
+                                                ^
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str,
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note:   candidate expects 4 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s, size_type __n);
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note: std::basic_string<_CharT, _Traits, _Alloc>::iterator std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+main.cpp:31:59: error: no matching function for call to 'std::basic_string<char>::insert(__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, int, char)'
+     s.insert(s.cbegin() + s.find_first_of(':') + 1, 2, '=');
+                                                           ^
+main.cpp:31:59: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(iterator __p, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note: template<class _InputIterator> void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+         insert(iterator __p, _InputIterator __beg, _InputIterator __end)
+         ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note:   template argument deduction/substitution failed:
+main.cpp:31:48: note:   cannot convert 's.std::basic_string<_CharT, _Traits, _Alloc>::cbegin<char, std::char_traits<char>, std::allocator<char> >().__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(((__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >::difference_type)s.std::basic_string<_CharT, _Traits, _Alloc>::find_first_of<char, std::char_traits<char>, std::allocator<char> >(58, 0ul))).__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(1l)' (type '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >') to type 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+     s.insert(s.cbegin() + s.find_first_of(':') + 1, 2, '=');
+                                                ^
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note:   candidate expects 2 arguments, 3 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note:   candidate expects 2 arguments, 3 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str,
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note:   candidate expects 4 arguments, 3 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s, size_type __n);
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note:   candidate expects 2 arguments, 3 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note: std::basic_string<_CharT, _Traits, _Alloc>::iterator std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note:   candidate expects 2 arguments, 3 provided
+main.cpp:45:63: error: no matching function for call to 'std::basic_string<char>::insert(__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >, const std::initializer_list<char>&)'
+         s.insert(s.cbegin() + s.find_first_of('g') + 1, period);
+                                                               ^
+main.cpp:45:63: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(iterator __p, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1203:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note: template<class _InputIterator> void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _InputIterator, _InputIterator) [with _InputIterator = _InputIterator; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+         insert(iterator __p, _InputIterator __beg, _InputIterator __end)
+         ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1220:9: note:   template argument deduction/substitution failed:
+main.cpp:45:52: note:   cannot convert 's.std::basic_string<_CharT, _Traits, _Alloc>::cbegin<char, std::char_traits<char>, std::allocator<char> >().__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(((__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >::difference_type)s.std::basic_string<_CharT, _Traits, _Alloc>::find_first_of<char, std::char_traits<char>, std::allocator<char> >(103, 0ul))).__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator+<const char*, std::basic_string<char> >(1l)' (type '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >') to type 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+         s.insert(s.cbegin() + s.find_first_of('g') + 1, period);
+                                                    ^
+In file included from /usr/local/include/c++/4.9.2/string:52:0,
+                 from /usr/local/include/c++/4.9.2/bits/locale_classes.h:40,
+                 from /usr/local/include/c++/4.9.2/bits/ios_base.h:41,
+                 from /usr/local/include/c++/4.9.2/ios:42,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iterator:64,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note: void std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, std::initializer_list<_Tp>) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, initializer_list<_CharT> __l)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1231:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1251:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos1, const basic_string& __str,
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1273:7: note:   candidate expects 4 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s, size_type __n);
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1296:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, const _CharT* __s)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1314:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::size_type {aka long unsigned int}'
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note: std::basic_string<_CharT, _Traits, _Alloc>& std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::size_type, std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       insert(size_type __pos, size_type __n, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1337:7: note:   candidate expects 3 arguments, 2 provided
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note: std::basic_string<_CharT, _Traits, _Alloc>::iterator std::basic_string<_CharT, _Traits, _Alloc>::insert(std::basic_string<_CharT, _Traits, _Alloc>::iterator, _CharT) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::basic_string<_CharT, _Traits, _Alloc>::iterator = __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >; typename _Alloc::rebind<_CharT>::other::pointer = char*]
+       insert(iterator __p, _CharT __c)
+       ^
+/usr/local/include/c++/4.9.2/bits/basic_string.h:1355:7: note:   no known conversion for argument 1 from '__gnu_cxx::__normal_iterator<const char*, std::basic_string<char> >' to 'std::basic_string<char>::iterator {aka __gnu_cxx::__normal_iterator<char*, std::basic_string<char> >}'
