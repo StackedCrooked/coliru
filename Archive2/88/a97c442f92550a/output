@@ -1,0 +1,8 @@
++ clang++ -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -Wconversion -pthread -stdlib=libc++ main.cpp -lsupc++
++ ./a.out
+void Foo(T...) [T = <int, long, char, const char *>]
+------------------
+void Foo(T...) [T = <int>]
+void Foo(T...) [T = <long>]
+void Foo(T...) [T = <char>]
+void Foo(T...) [T = <const char *>]
