@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libc++ main.cpp -lsupc++ -Weverything -Werror
