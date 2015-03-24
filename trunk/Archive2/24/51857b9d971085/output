@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:29:40: error: no matching function for call to 'make_function(std::plus<int>)'
+     test(make_function(std::plus<int>()));
+                                        ^
+main.cpp:29:40: note: candidate is:
+main.cpp:22:31: note: template<class R, class ... ArgTypes> std::function<_Res(_ArgTypes ...)> make_function(R (*)(ArgTypes ...))
+ std::function<R(ArgTypes...)> make_function(R (*f)(ArgTypes...))
+                               ^
+main.cpp:22:31: note:   template argument deduction/substitution failed:
+main.cpp:29:40: note:   mismatched types 'R (*)(ArgTypes ...)' and 'std::plus<int>'
+     test(make_function(std::plus<int>()));
+                                        ^
+main.cpp:30:41: error: no matching function for call to 'make_function(std::minus<int>)'
+     test(make_function(std::minus<int>()));
+                                         ^
+main.cpp:30:41: note: candidate is:
+main.cpp:22:31: note: template<class R, class ... ArgTypes> std::function<_Res(_ArgTypes ...)> make_function(R (*)(ArgTypes ...))
+ std::function<R(ArgTypes...)> make_function(R (*f)(ArgTypes...))
+                               ^
+main.cpp:22:31: note:   template argument deduction/substitution failed:
+main.cpp:30:41: note:   mismatched types 'R (*)(ArgTypes ...)' and 'std::minus<int>'
+     test(make_function(std::minus<int>()));
+                                         ^
