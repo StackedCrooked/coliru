@@ -1,0 +1,1 @@
+g++ -std=c++14 -Wall -shared -fpic -o libplugin-chocolate.so main.cpp
