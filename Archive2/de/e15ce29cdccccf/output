@@ -1,0 +1,12 @@
+main.cpp: In instantiation of 'struct IsIterable<std::vector<int> >':
+main.cpp:19:46:   required from here
+main.cpp:14:42: error: call of overloaded 'is_beg_iterable()' is ambiguous
+     enum { value = sizeof(is_beg_iterable<C>()) == sizeof(true_type) }; 
+                                          ^
+main.cpp:14:42: note: candidates are:
+main.cpp:11:41: note: static IsIterable<C>::true_type IsIterable<C>::is_beg_iterable(typename T::const_iterator) [with T = std::vector<int>; C = std::vector<int>; IsIterable<C>::true_type = char; typename T::const_iterator = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >]
+     template<class T> static true_type  is_beg_iterable(typename T::const_iterator = C().begin()); 
+                                         ^
+main.cpp:12:41: note: static IsIterable<C>::false_type IsIterable<C>::is_beg_iterable(...) [with T = std::vector<int>; C = std::vector<int>; IsIterable<C>::false_type = long int]
+     template<class T> static false_type is_beg_iterable(...); 
+                                         ^
