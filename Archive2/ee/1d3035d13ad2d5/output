@@ -1,0 +1,11 @@
+main.cpp:12:12: error: invalid use of template-name 'B' without an argument list
+     friend B;
+            ^
+main.cpp: In instantiation of 'B< <template-parameter-1-1> >::B(A*) [with T = int]':
+main.cpp:28:27:   required from here
+main.cpp:15:10: error: 'void A::foo()' is private
+     void foo() { throw std::runtime_error("Works!"); }
+          ^
+main.cpp:24:22: error: within this context
+     B(A* a) { a->foo(); }
+                      ^
