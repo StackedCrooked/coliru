@@ -1,0 +1,28 @@
+main.cpp: In constructor 'C::C()':
+main.cpp:10:5: error: 'finalize_class::finalize_class()' is protected
+     finalize_class(){}   
+     ^
+main.cpp:20:8: error: within this context
+ struct C : B
+        ^
+main.cpp:11:5: error: 'finalize_class::~finalize_class()' is protected
+     ~finalize_class(){} 
+     ^
+main.cpp:20:8: error: within this context
+ struct C : B
+        ^
+main.cpp: In function 'int main()':
+main.cpp:26:7: note: synthesized method 'C::C()' first required here 
+     C c;
+       ^
+main.cpp: In destructor 'C::~C()':
+main.cpp:11:5: error: 'finalize_class::~finalize_class()' is protected
+     ~finalize_class(){} 
+     ^
+main.cpp:20:8: error: within this context
+ struct C : B
+        ^
+main.cpp: In function 'int main()':
+main.cpp:26:7: note: synthesized method 'C::~C()' first required here 
+     C c;
+       ^
