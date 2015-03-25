@@ -1,0 +1,34 @@
+main.cpp: In function 'int main()':
+main.cpp:21:15: error: 'string' was not declared in this scope
+     std::pair<string, string> p({"A", "B"});
+               ^
+main.cpp:21:15: note: suggested alternative:
+In file included from /usr/local/include/c++/4.9.2/string:39:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stringfwd.h:62:33: note:   'std::string'
+   typedef basic_string<char>    string;   
+                                 ^
+main.cpp:21:23: error: the value of 'string' is not usable in a constant expression
+     std::pair<string, string> p({"A", "B"});
+                       ^
+main.cpp:21:15: note: 'string' was not declared 'constexpr'
+     std::pair<string, string> p({"A", "B"});
+               ^
+main.cpp:21:29: error: template argument 1 is invalid
+     std::pair<string, string> p({"A", "B"});
+                             ^
+main.cpp:21:29: error: type/value mismatch at argument 2 in template parameter list for 'template<class _T1, class _T2> struct std::pair'
+main.cpp:21:29: error:   expected a type, got 'string'
+main.cpp:21:32: error: invalid type in declaration before '(' token
+     std::pair<string, string> p({"A", "B"});
+                                ^
+main.cpp:21:43: warning: list-initializer for non-class type must not be parenthesized
+     std::pair<string, string> p({"A", "B"});
+                                           ^
+main.cpp:21:43: error: cannot convert '<brace-enclosed initializer list>' to 'int' in initialization
+main.cpp:22:20: error: request for member 'first' in 'p', which is of non-class type 'int'
+     std::cout << p.first << " " << p.second;
+                    ^
+main.cpp:22:38: error: request for member 'second' in 'p', which is of non-class type 'int'
+     std::cout << p.first << " " << p.second;
+                                      ^
