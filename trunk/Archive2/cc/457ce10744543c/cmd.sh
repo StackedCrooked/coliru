@@ -1,0 +1,1 @@
+gcc -std=gnu11 -Wall -Wextra -O3 -x c main.cpp && ./a.out
