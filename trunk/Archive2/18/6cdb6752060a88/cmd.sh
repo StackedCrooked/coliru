@@ -1,0 +1,1 @@
+runhaskell main.cpp "abcd" main.cpp
