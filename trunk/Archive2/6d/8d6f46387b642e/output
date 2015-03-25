@@ -1,0 +1,43 @@
+main.cpp: In function 'principal':
+main.cpp:6:5: error: unknown type name 'ARCHIVO'
+     ARCHIVO * fp = fopen ( "test.txt" , "r" ) ; 
+     ^
+main.cpp:6:20: error: initialization from incompatible pointer type
+     ARCHIVO * fp = fopen ( "test.txt" , "r" ) ; 
+                    ^
+main.cpp:7:5: error: implicit declaration of function 'si' [-Wimplicit-function-declaration]
+     si ( ! fp )  { 
+     ^
+main.cpp:7:18: error: expected ';' before '{' token
+     si ( ! fp )  { 
+                  ^
+main.cpp:13:5: error: unknown type name 'mientras'
+     mientras que  ( ( c =  fgetc ( fp ) )  ! =  EOF )  {  // bucle al leer el archivo de E / S estándar CI 
+     ^
+main.cpp:13:21: error: expected declaration specifiers or '...' before '(' token
+     mientras que  ( ( c =  fgetc ( fp ) )  ! =  EOF )  {  // bucle al leer el archivo de E / S estándar CI 
+                     ^
+main.cpp:17:5: error: implicit declaration of function 'FERROR' [-Wimplicit-function-declaration]
+     si  ( FERROR ( fp ) ) 
+     ^
+main.cpp:18:9: error: expected ';' before 'puts'
+         puts ( "error de E / S al leer" ) ; 
+         ^
+main.cpp:19:5: error: unknown type name 'lo'
+     lo demás  si  ( feof ( fp ) ) 
+     ^
+main.cpp:19:5: error: stray '\303' in program
+main.cpp:19:5: error: stray '\241' in program
+main.cpp:19:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before 's'
+     lo demás  si  ( feof ( fp ) ) 
+             ^
+main.cpp:22:14: error: passing argument 1 of 'fclose' from incompatible pointer type
+     fclose ( fp ) ; 
+              ^
+In file included from main.cpp:1:0:
+/usr/include/stdio.h:238:12: note: expected 'struct FILE *' but argument is of type 'int *'
+ extern int fclose (FILE *__stream);
+            ^
+main.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
