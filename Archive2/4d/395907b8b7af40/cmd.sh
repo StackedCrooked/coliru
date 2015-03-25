@@ -1,0 +1,1 @@
+g++-4.9 -std=c11  -O2 -Wall -Wextra -pedantic -pthread -pedantic-errors -m64 main.cpp -lm  && ./a.out
