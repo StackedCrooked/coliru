@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -Werror -pedantic main.cpp -pthread -lboost_context && ./a.out
