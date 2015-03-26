@@ -1,0 +1,54 @@
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/unordered_map:47:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/hashtable.h:35:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/hashtable_policy.h:85:11: error: implicit instantiation of undefined template 'std::hash<DeliveryMethodType>'
+        noexcept(declval<const _Hash&>()(declval<const _Key&>()))>
+                 ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/type_traits:135:14: note: in instantiation of template class 'std::__detail::__is_noexcept_hash<DeliveryMethodType, std::hash<DeliveryMethodType> >' requested here
+    : public conditional<_B1::value, _B2, _B1>::type
+             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/type_traits:145:39: note: in instantiation of template class 'std::__and_<std::__is_fast_hash<std::hash<DeliveryMethodType> >, std::__detail::__is_noexcept_hash<DeliveryMethodType, std::hash<DeliveryMethodType> > >' requested here
+    : public integral_constant<bool, !_Pp::value>
+                                      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unordered_map.h:46:34: note: in instantiation of template class 'std::__not_<std::__and_<std::__is_fast_hash<std::hash<DeliveryMethodType> >, std::__detail::__is_noexcept_hash<DeliveryMethodType, std::hash<DeliveryMethodType> > > >' requested here
+           typename _Tr = __umap_traits<__cache_default<_Key, _Hash>::value>>
+                                        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unordered_map.h:100:15: note: in instantiation of default argument for '__umap_hashtable<DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()>, std::hash<DeliveryMethodType>, std::equal_to<DeliveryMethodType>, std::allocator<std::pair<const DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()> > > >' required here
+      typedef __umap_hashtable<_Key, _Tp, _Hash, _Pred, _Alloc>  _Hashtable;
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:28:23: note: in instantiation of template class 'std::unordered_map<DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()>, std::hash<DeliveryMethodType>, std::equal_to<DeliveryMethodType>, std::allocator<std::pair<const DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()> > > >' requested here
+      s_factoryMethods.insert({key, creator});
+                      ^
+main.cpp:55:42: note: in instantiation of member function 'GenericFactory<DeliveryMethodType, IDeliveryMethod>::Register' requested here
+static auto key = DeliveryMethodFactory::Register(DeliveryMethodType::BUBBLE, []() {
+                                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/functional_hash.h:58:12: note: template is declared here
+    struct hash;
+           ^
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/unordered_map:48:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unordered_map.h:482:7: error: multiple overloads of 'erase' instantiate to the same signature 'iterator (iterator)'
+      erase(iterator __it)
+      ^
+main.cpp:28:23: note: in instantiation of template class 'std::unordered_map<DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()>, std::hash<DeliveryMethodType>, std::equal_to<DeliveryMethodType>, std::allocator<std::pair<const DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()> > > >' requested here
+      s_factoryMethods.insert({key, creator});
+                      ^
+main.cpp:55:42: note: in instantiation of member function 'GenericFactory<DeliveryMethodType, IDeliveryMethod>::Register' requested here
+static auto key = DeliveryMethodFactory::Register(DeliveryMethodType::BUBBLE, []() {
+                                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unordered_map.h:477:7: note: previous declaration is here
+      erase(const_iterator __position)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/unordered_map.h:143:9: error: excess elements in scalar initializer
+      : _M_h(__n, __hf, __eql, __a)
+        ^       ~~~~~~~~~~~~~~~~~~
+main.cpp:51:33: note: in instantiation of member function 'std::unordered_map<DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()>, std::hash<DeliveryMethodType>, std::equal_to<DeliveryMethodType>, std::allocator<std::pair<const DeliveryMethodType, std::function<std::unique_ptr<IDeliveryMethod, std::default_delete<IDeliveryMethod> > ()> > > >::unordered_map' requested here
+GenericFactory<Key, Interface>::s_factoryMethods;
+                                ^
+main.cpp:28:7: note: in instantiation of static data member 'GenericFactory<DeliveryMethodType, IDeliveryMethod>::s_factoryMethods' requested here
+      s_factoryMethods.insert({key, creator});
+      ^
+main.cpp:55:42: note: in instantiation of member function 'GenericFactory<DeliveryMethodType, IDeliveryMethod>::Register' requested here
+static auto key = DeliveryMethodFactory::Register(DeliveryMethodType::BUBBLE, []() {
+                                         ^
+3 errors generated.
