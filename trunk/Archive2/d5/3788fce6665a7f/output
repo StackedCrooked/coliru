@@ -1,0 +1,26 @@
+In file included from /usr/local/include/c++/4.9.2/string:53:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/basic_string.tcc: In instantiation of 'static _CharT* std::basic_string<_CharT, _Traits, _Alloc>::_S_construct(std::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = short_alloc<char, 200ul>; std::basic_string<_CharT, _Traits, _Alloc>::size_type = unsigned int]':
+/usr/local/include/c++/4.9.2/bits/basic_string.tcc:179:58:   required from 'std::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = short_alloc<char, 200ul>]'
+main.cpp:121:80:   required from here
+/usr/local/include/c++/4.9.2/bits/basic_string.tcc:156:27: error: no matching function for call to 'short_alloc<char, 200ul>::short_alloc()'
+       if (__n == 0 && __a == _Alloc())
+                           ^
+/usr/local/include/c++/4.9.2/bits/basic_string.tcc:156:27: note: candidates are:
+main.cpp:78:5: note: short_alloc<T, N>::short_alloc(const short_alloc<T, N>&) [with T = char; long unsigned int N = 200ul]
+     short_alloc(const short_alloc&) = default;
+     ^
+main.cpp:78:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:76:9: note: template<class U> short_alloc<T, N>::short_alloc(const short_alloc<_Up, N>&)
+         short_alloc(const short_alloc<U, N>& a) noexcept
+         ^
+main.cpp:76:9: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.2/string:53:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/basic_string.tcc:156:27: note:   candidate expects 1 argument, 0 provided
+       if (__n == 0 && __a == _Alloc())
+                           ^
+main.cpp:74:5: note: short_alloc<T, N>::short_alloc(arena<N>&) [with T = char; long unsigned int N = 200ul]
+     short_alloc(arena<N>& a) noexcept : a_(a) {}
+     ^
+main.cpp:74:5: note:   candidate expects 1 argument, 0 provided
