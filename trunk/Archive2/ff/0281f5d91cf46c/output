@@ -1,0 +1,11 @@
+main.cpp: In function 'int main()':
+main.cpp:39:12: error: ambiguous overload for 'operator*' (operand types are 'Point {aka boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>}' and 'double')
+     point1 * value;
+            ^
+main.cpp:39:12: note: candidates are:
+main.cpp:10:7: note: Point operator*(const Point&, typename boost::geometry::detail::param<Point>::type) [with Point = boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>; typename boost::geometry::detail::param<Point>::type = const double]
+ Point operator*(const Point & p, typename detail::param< Point >::type value) {
+       ^
+main.cpp:18:7: note: Point operator*(const Point1&, const Point2&) [with Point1 = boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>; Point2 = double; Point = boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>]
+ Point operator*(const Point1 & p1, const Point2 & p2) {
+       ^
