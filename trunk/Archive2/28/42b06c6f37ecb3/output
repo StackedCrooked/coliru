@@ -1,0 +1,126 @@
+main.cpp:34:23: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-e ... extrayez tous les fichiers dans '"DATNAME"'/'"ELFNAME"' à '"FOLDERNAME"\\'\n"
+                       ^
+main.cpp:34:72: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-e ... extrayez tous les fichiers dans '"DATNAME"'/'"ELFNAME"' à '"FOLDERNAME"\\'\n"
+                                                                        ^
+main.cpp:34:84: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-e ... extrayez tous les fichiers dans '"DATNAME"'/'"ELFNAME"' à '"FOLDERNAME"\\'\n"
+                                                                                    ^
+main.cpp:35:23: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-i ... insérez tous les fichiers dans '"FOLDERNAME"\\' à '"DATNAMENEW"'/'"ELFNAMENEW"'\n"
+                       ^
+main.cpp:35:75: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-i ... insérez tous les fichiers dans '"FOLDERNAME"\\' à '"DATNAMENEW"'/'"ELFNAMENEW"'\n"
+                                                                           ^
+main.cpp:35:95: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+                       "-i ... insérez tous les fichiers dans '"FOLDERNAME"\\' à '"DATNAMENEW"'/'"ELFNAMENEW"'\n"
+                                                                                               ^
+main.cpp: In function 'int main(int, char**)':
+main.cpp:38:34: error: 'strcmpi' was not declared in this scope
+   if      (!strcmpi(argv[1], "-e")) Extract();
+                                  ^
+main.cpp: In function 'void Extract()':
+main.cpp:54:30: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   elf = Load(ELFNAME, &elflen);
+                              ^
+main.cpp:54:30: error: invalid conversion from 'unsigned int*' to 'int*' [-fpermissive]
+main.cpp:54:30: error: invalid conversion from 'char*' to 'unsigned char*' [-fpermissive]
+main.cpp:55:30: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   dat = Load(DATNAME, &datlen);
+                              ^
+main.cpp:55:30: error: invalid conversion from 'unsigned int*' to 'int*' [-fpermissive]
+main.cpp:55:30: error: invalid conversion from 'char*' to 'unsigned char*' [-fpermissive]
+main.cpp:57:20: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   Folder(FOLDERNAME);
+                    ^
+main.cpp:67:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       case 0x56414270: sprintf(filename, "%s/%04d.VAB", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:68:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       case 0x00000010: sprintf(filename, "%s/%04d.TIM", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:69:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       default:         sprintf(filename, "%s/%04d.BIN", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:74:46: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+     Save(filename, dat + lba * SECTORLEN, len);
+                                              ^
+main.cpp:74:24: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+     Save(filename, dat + lba * SECTORLEN, len);
+                        ^
+main.cpp: In function 'void Insert()':
+main.cpp:84:30: error: expected unqualified-id before 'new'
+   unsigned char *elf, *dat, *new;
+                              ^
+main.cpp:84:30: error: expected initializer before 'new'
+main.cpp:90:30: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   elf = Load(ELFNAME, &elflen);
+                              ^
+main.cpp:90:30: error: invalid conversion from 'unsigned int*' to 'int*' [-fpermissive]
+main.cpp:90:30: error: invalid conversion from 'char*' to 'unsigned char*' [-fpermissive]
+main.cpp:91:30: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   dat = Load(DATNAME, &datlen);
+                              ^
+main.cpp:91:30: error: invalid conversion from 'unsigned int*' to 'int*' [-fpermissive]
+main.cpp:91:30: error: invalid conversion from 'char*' to 'unsigned char*' [-fpermissive]
+main.cpp:101:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       case 0x56414270: sprintf(filename, "%s/%04d.VAB", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:102:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       case 0x00000010: sprintf(filename, "%s/%04d.TIM", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:103:70: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+       default:         sprintf(filename, "%s/%04d.BIN", FOLDERNAME, i); break;
+                                                                      ^
+main.cpp:108:9: error: expected type-specifier before '=' token
+     new = Load(filename, &len);
+         ^
+main.cpp:108:30: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+     new = Load(filename, &len);
+                              ^
+main.cpp:108:30: error: invalid conversion from 'unsigned int*' to 'int*' [-fpermissive]
+main.cpp:111:19: error: expected type-specifier before ',' token
+     if (fwrite(new, 1, len, fp) != len) EXIT("Ecrire une erreur\n");
+                   ^
+main.cpp:112:13: error: expected type-specifier before ')' token
+     free(new);
+             ^
+main.cpp:116:16: error: expected type-specifier before '=' token
+       if ((new = (char *) malloc(len)) == NULL) EXIT("Erreur de mémoire\n");
+                ^
+main.cpp:117:36: error: expected type-specifier before '[' token
+       for (j = 0; j < len; j++) new[j] = 0xFF;
+                                    ^
+main.cpp:118:21: error: expected type-specifier before ',' token
+       if (fwrite(new, 1, len, fp) != len) EXIT("Ecrire une erreur\n");
+                     ^
+main.cpp:119:15: error: expected type-specifier before ')' token
+       free(new);
+               ^
+main.cpp:126:31: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+   Save(ELFNAMENEW, elf, elflen);
+                               ^
+main.cpp:126:31: error: invalid conversion from 'unsigned char*' to 'char*' [-fpermissive]
+main.cpp: In function 'char* Load(char*, int*)':
+main.cpp:138:29: error: 'filelength' was not declared in this scope
+   fs = filelength(fileno(fp));
+                             ^
+main.cpp:140:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (fread(fb, 1, fs, fp) != fs) EXIT("Lire une erreur\n");
+                            ^
+main.cpp: In function 'void Save(char*, char*, int)':
+main.cpp:152:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (fwrite(buffer, 1, length, fp) != length) EXIT("Ecrire une erreur\n");
+                                     ^
+main.cpp: In function 'void Folder(char*)':
+main.cpp:162:21: error: 'mkdir' was not declared in this scope
+       if (mkdir(path) > 0) EXIT("Erreur de dossier\n");
+                     ^
+main.cpp:166:17: error: 'mkdir' was not declared in this scope
+   if (mkdir(path) > 0) EXIT("Erreur de dossier\n");
+                 ^
+main.cpp: At global scope:
+main.cpp:168:1: error: expected unqualified-id before 'return'
+ return 0;
+ ^
