@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libc++ main.cpp -lsupc++ && ./a.out <<< "papaya"
