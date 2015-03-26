@@ -1,0 +1,19 @@
+main.cpp:73:5: error: static_assert failed
+    static_assert(builder.valid());
+    ^             ~~~~~~~~~~~~~~~
+main.cpp:59:20: error: no matching conversion for functional-style cast from 'int' to 'foo::File'
+            return File(params...);
+                   ^~~~~~~~~~~
+main.cpp:75:25: note: in instantiation of member function 'foo::OpenFile<int>::build' requested here
+    auto file = builder.build(1000);
+                        ^
+main.cpp:22:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'int' to 'const foo::File' for 1st argument
+    struct File {
+           ^
+main.cpp:22:12: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'int' to 'foo::File' for 1st argument
+    struct File {
+           ^
+main.cpp:23:9: note: candidate constructor not viable: no known conversion from 'int' to 'const std::string' (aka 'const basic_string<char, char_traits<char>, allocator<char> >') for 1st argument
+        File(const std::string &/*filename*/, int /*blockSize*/ = 1024, bool /*isReadonly*/ = false) {}
+        ^
+2 errors generated.
