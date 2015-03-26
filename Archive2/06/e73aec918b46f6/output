@@ -1,0 +1,86 @@
+In file included from /usr/local/include/boost/geometry/core/closure.hpp:22:0,
+                 from /usr/local/include/boost/geometry/geometry.hpp:19,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:2:
+/usr/local/include/boost/geometry/core/point_type.hpp: In instantiation of 'struct boost::geometry::traits::point_type<double>':
+/usr/local/include/boost/geometry/core/point_type.hpp:66:17:   required from 'struct boost::geometry::core_dispatch::point_type<void, double>'
+/usr/local/include/boost/geometry/core/coordinate_type.hpp:58:62:   required from 'struct boost::geometry::core_dispatch::coordinate_type<void, double>'
+/usr/local/include/boost/geometry/core/coordinate_type.hpp:92:25:   required from 'struct boost::geometry::coordinate_type<double>'
+/usr/local/include/boost/geometry/arithmetic/arithmetic.hpp:41:23:   required from 'struct boost::geometry::detail::param<double>'
+main.cpp:11:7:   required by substitution of 'template<class Point> Point operator*(typename boost::geometry::detail::param<Point>::type, const Point&) [with Point = double]'
+main.cpp:47:14:   required from here
+/usr/local/include/boost/geometry/core/point_type.hpp:45:5: error: no matching function for call to 'assertion_failed(mpl_::failed************ (boost::geometry::traits::point_type<double>::NOT_IMPLEMENTED_FOR_THIS_POINT_TYPE::************)(mpl_::assert_::types<double, mpl_::na, mpl_::na, mpl_::na>))'
+     BOOST_MPL_ASSERT_MSG
+     ^
+/usr/local/include/boost/geometry/core/point_type.hpp:45:5: note: candidate is:
+/usr/local/include/boost/mpl/assert.hpp:83:5: note: template<bool C> int mpl_::assertion_failed(typename mpl_::assert<C>::type)
+ int assertion_failed( typename assert<C>::type );
+     ^
+/usr/local/include/boost/mpl/assert.hpp:83:5: note:   template argument deduction/substitution failed:
+/usr/local/include/boost/geometry/core/point_type.hpp:45:5: note:   cannot convert 'boost::geometry::traits::point_type<Geometry>::NOT_IMPLEMENTED_FOR_THIS_POINT_TYPE48::assert_arg<double>()' (type 'mpl_::failed************ (boost::geometry::traits::point_type<double>::NOT_IMPLEMENTED_FOR_THIS_POINT_TYPE::************)(mpl_::assert_::types<double, mpl_::na, mpl_::na, mpl_::na>)') to type 'mpl_::assert<false>::type {aka mpl_::assert<false>}'
+     BOOST_MPL_ASSERT_MSG
+     ^
+In file included from /usr/local/include/boost/geometry/core/coordinate_dimension.hpp:24:0,
+                 from /usr/local/include/boost/geometry/geometry.hpp:20,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:2:
+/usr/local/include/boost/geometry/core/point_type.hpp: In instantiation of 'struct boost::geometry::core_dispatch::point_type<void, double>':
+/usr/local/include/boost/geometry/core/coordinate_type.hpp:58:62:   required from 'struct boost::geometry::core_dispatch::coordinate_type<void, double>'
+/usr/local/include/boost/geometry/core/coordinate_type.hpp:92:25:   required from 'struct boost::geometry::coordinate_type<double>'
+/usr/local/include/boost/geometry/arithmetic/arithmetic.hpp:41:23:   required from 'struct boost::geometry::detail::param<double>'
+main.cpp:11:7:   required by substitution of 'template<class Point> Point operator*(typename boost::geometry::detail::param<Point>::type, const Point&) [with Point = double]'
+main.cpp:47:14:   required from here
+/usr/local/include/boost/geometry/core/point_type.hpp:66:17: error: no type named 'type' in 'struct boost::geometry::traits::point_type<double>'
+         >::type type;
+                 ^
+main.cpp: In function 'int main()':
+main.cpp:47:12: error: no match for 'operator*' (operand types are 'Point {aka boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>}' and 'double')
+     point1 * value;
+            ^
+main.cpp:47:12: note: candidates are:
+main.cpp:11:7: note: template<class Point> Point operator*(typename boost::geometry::detail::param<Point>::type, const Point&)
+ Point operator*(typename detail::param< Point >::type value, const Point & p) {
+       ^
+main.cpp:11:7: note:   substitution of deduced template arguments resulted in errors seen above
+In file included from /usr/local/include/boost/type_traits/is_complex.hpp:12:0,
+                 from /usr/local/include/boost/type_traits.hpp:49,
+                 from /usr/local/include/boost/geometry/util/promote_floating_point.hpp:19,
+                 from /usr/local/include/boost/geometry/core/coordinate_type.hpp:23,
+                 from /usr/local/include/boost/geometry/geometry.hpp:22,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/complex:399:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const _Tp&, const std::complex<_Tp>&)
+     operator*(const _Tp& __x, const complex<_Tp>& __y)
+     ^
+/usr/local/include/c++/4.9.2/complex:399:5: note:   template argument deduction/substitution failed:
+main.cpp:47:14: note:   mismatched types 'const std::complex<_Tp>' and 'double'
+     point1 * value;
+              ^
+In file included from /usr/local/include/boost/type_traits/is_complex.hpp:12:0,
+                 from /usr/local/include/boost/type_traits.hpp:49,
+                 from /usr/local/include/boost/geometry/util/promote_floating_point.hpp:19,
+                 from /usr/local/include/boost/geometry/core/coordinate_type.hpp:23,
+                 from /usr/local/include/boost/geometry/geometry.hpp:22,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/complex:390:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const _Tp&)
+     operator*(const complex<_Tp>& __x, const _Tp& __y)
+     ^
+/usr/local/include/c++/4.9.2/complex:390:5: note:   template argument deduction/substitution failed:
+main.cpp:47:14: note:   'Point {aka boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>}' is not derived from 'const std::complex<_Tp>'
+     point1 * value;
+              ^
+In file included from /usr/local/include/boost/type_traits/is_complex.hpp:12:0,
+                 from /usr/local/include/boost/type_traits.hpp:49,
+                 from /usr/local/include/boost/geometry/util/promote_floating_point.hpp:19,
+                 from /usr/local/include/boost/geometry/core/coordinate_type.hpp:23,
+                 from /usr/local/include/boost/geometry/geometry.hpp:22,
+                 from /usr/local/include/boost/geometry.hpp:17,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/complex:381:5: note: template<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const std::complex<_Tp>&)
+     operator*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+     ^
+/usr/local/include/c++/4.9.2/complex:381:5: note:   template argument deduction/substitution failed:
+main.cpp:47:14: note:   'Point {aka boost::geometry::model::point<double, 3ul, boost::geometry::cs::cartesian>}' is not derived from 'const std::complex<_Tp>'
+     point1 * value;
+              ^
