@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:67:16: error: no matching function for call to 'B::foo()'
+     z.foo<int>();
+                ^
+main.cpp:67:16: note: candidate is:
+main.cpp:44:10: note: template<class T> void B::foo(T)
+     void foo(T)
+          ^
+main.cpp:44:10: note:   template argument deduction/substitution failed:
+main.cpp:67:16: note:   candidate expects 1 argument, 0 provided
+     z.foo<int>();
+                ^
+main.cpp:68:19: error: no matching function for call to 'B::foo()'
+     z.foo<double>();
+                   ^
+main.cpp:68:19: note: candidate is:
+main.cpp:44:10: note: template<class T> void B::foo(T)
+     void foo(T)
+          ^
+main.cpp:44:10: note:   template argument deduction/substitution failed:
+main.cpp:68:19: note:   candidate expects 1 argument, 0 provided
+     z.foo<double>();
+                   ^
