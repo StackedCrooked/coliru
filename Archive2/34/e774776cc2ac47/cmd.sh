@@ -1,0 +1,3 @@
+clang++ -std=c++11 -Os -Wall -Wextra -pedantic main.cpp && 
+base64 -d <<< "AgpKRURFQyBmaWxlIGdlbmVyYXRlZCBieSBKb2huIERvZSoKRE0gU0lHTkVUSUNTKFBISUxJUFMpKgpERCBHQUwxNlI4KgpRUDIwKgpRVjAqCkcwKkYwKgpMMDAwMDAgMTExMDEwMTExMTEwMDExMDExMTEwMTEwMTExMDExMTEwMDExMTExMSoKQ0RFQUQqCgNCRUVGCg==
+" |./a.out
