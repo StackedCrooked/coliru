@@ -1,0 +1,24 @@
+main.cpp: In instantiation of 'struct Vector<int, 12>':
+main.cpp:41:21:   required from here
+main.cpp:14:5: error: static assertion failed: stdlib did not apply EBO!
+     static_assert(std::is_base_of<VectorAllocator<T, N>, std::vector<T, VectorAllocator<T, N>>>::value, "stdlib did not apply EBO!");
+     ^
+main.cpp: In instantiation of 'void VectorAllocator<T, N>::deallocate(int*, int) [with T = int; int N = 12]':
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:383:9:   required from 'static void std::allocator_traits<_Alloc>::deallocate(_Alloc&, std::allocator_traits<_Alloc>::pointer, std::allocator_traits<_Alloc>::size_type) [with _Alloc = VectorAllocator<int, 12>; std::allocator_traits<_Alloc>::pointer = int*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:178:37:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = int; _Alloc = VectorAllocator<int, 12>; std::_Vector_base<_Tp, _Alloc>::pointer = int*; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:161:33:   required from 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = int; _Alloc = VectorAllocator<int, 12>]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:257:15:   required from 'std::vector<_Tp, _Alloc>::vector() [with _Tp = int; _Alloc = VectorAllocator<int, 12>]'
+main.cpp:13:36:   required from here
+main.cpp:30:48: error: invalid static_cast from type 'VectorAllocator<int, 12>*' to type 'Vector<int, 12>*'
+     auto self = static_cast<Vector<T, N>*>(this);
+                                                ^
+main.cpp: In instantiation of 'int* VectorAllocator<T, N>::allocate(int, const void*) [with T = int; int N = 12]':
+main.cpp:19:31:   required from 'int* VectorAllocator<T, N>::allocate(int) [with T = int; int N = 12]'
+/usr/local/include/c++/4.9.2/bits/alloc_traits.h:357:32:   required from 'static std::allocator_traits<_Alloc>::pointer std::allocator_traits<_Alloc>::allocate(_Alloc&, std::allocator_traits<_Alloc>::size_type) [with _Alloc = VectorAllocator<int, 12>; std::allocator_traits<_Alloc>::pointer = int*; std::allocator_traits<_Alloc>::size_type = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:170:46:   required from 'std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = int; _Alloc = VectorAllocator<int, 12>; std::_Vector_base<_Tp, _Alloc>::pointer = int*; std::size_t = long unsigned int]'
+/usr/local/include/c++/4.9.2/bits/vector.tcc:412:46:   required from 'void std::vector<_Tp, _Alloc>::_M_emplace_back_aux(_Args&& ...) [with _Args = {const int&}; _Tp = int; _Alloc = VectorAllocator<int, 12>]'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:923:27:   required from 'void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = int; _Alloc = VectorAllocator<int, 12>; std::vector<_Tp, _Alloc>::value_type = int]'
+main.cpp:44:24:   required from here
+main.cpp:22:48: error: invalid static_cast from type 'VectorAllocator<int, 12>*' to type 'Vector<int, 12>*'
+     auto self = static_cast<Vector<T, N>*>(this);
+                                                ^
