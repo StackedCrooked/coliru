@@ -1,0 +1,12 @@
+g++
+main.cpp:7:32: error: the value of 's2' is not usable in a constant expression
+     static constexpr auto t2 = s2;  //error here
+                                ^
+main.cpp:3:13: note: 's2' used in its own initializer
+ constexpr S s2;
+             ^
+clang++
+main.cpp:3:13: error: default initialization of an object of const type 'const S' requires a user-provided default constructor
+constexpr S s2;
+            ^
+1 error generated.
