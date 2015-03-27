@@ -1,0 +1,11 @@
+main.cpp: In instantiation of 'void test(container<T>&&) [with T = MoveMe]':
+main.cpp:37:22:   required from here
+main.cpp:31:32: error: invalid initialization of non-const reference of type 'MoveMe&' from an rvalue of type 'MoveMe'
+     auto& m4 = container<T>()[0];
+                                ^
+main.cpp:28:11: warning: unused variable 'm2' [-Wunused-variable]
+     auto& m2 = rv_container[0];
+           ^
+main.cpp:31:11: warning: unused variable 'm4' [-Wunused-variable]
+     auto& m4 = container<T>()[0];
+           ^
