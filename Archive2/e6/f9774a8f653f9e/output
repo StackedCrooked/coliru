@@ -1,0 +1,18 @@
+main.cpp: In function 'int main()':
+main.cpp:19:14: warning: variable 'f' set but not used [-Wunused-but-set-variable]
+         auto f = std::get<0>(std::move(foo_bar));
+              ^
+main.cpp:26:13: error: no matching function for call to 'foo::foo()'
+         foo f;
+             ^
+main.cpp:26:13: note: candidates are:
+main.cpp:4:5: note: foo::foo(int)
+     foo(int) {}
+     ^
+main.cpp:4:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr foo::foo(const foo&)
+ struct foo {
+        ^
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr foo::foo(foo&&)
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
