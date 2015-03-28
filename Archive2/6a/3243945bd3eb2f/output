@@ -1,0 +1,8 @@
++ gcc -x c -std=c99 -fsanitize=undefined -Wall -Wextra -Wconversion -Wmaybe-uninitialized -O1 -pedantic main.cpp
+main.cpp: In function ‘main’:
+main.cpp:9:5: warning: ‘sec’ is used uninitialized in this function [-Wuninitialized]
+     printf("sec = %d\n",sec);
+     ^
++ ./a.out
+sec = 0
+Bye!
