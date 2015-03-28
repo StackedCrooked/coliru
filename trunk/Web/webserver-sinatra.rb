@@ -40,9 +40,9 @@ post '/feedback' do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
                 text = request.body.read.gsub('NOTE', 'IAMGAY').split("\n")[0]
-                if text == ''
-                    return 
-                end
+                return if text =~ /jform/
+
+                return if text == ''
                 file.puts(text)
             end
         end
