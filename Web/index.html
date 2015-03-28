@@ -43,7 +43,7 @@
             return this.replace(/^\s+|\s+$/g, "");
         };
 
-        app.defaultCmd = "g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+        app.defaultCmd = "g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
         app.defaultSrc = "#include <iostream>\n#include <string>\n#include <vector>\n\ntemplate<typename T>\nstd::ostream& operator<<(std::ostream& os, const std::vector<T>& vec)\n{\n    for (auto& el : vec)\n    {\n        os << el << ' ';\n    }\n    return os;\n}\n\nint main()\n{\n    std::vector<std::string> words = {\n        \"Hello\", \"from\", \"GCC\", __VERSION__, \"!\"\n    };\n    std::cout << words << std::endl;\n}\n";
 
         app.elements.editor.getSession().setValue(localStorage.getItem(window.location.pathname.replace(/^\//,"") + "src") || localStorage.getItem("src") || app.defaultSrc);
