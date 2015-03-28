@@ -1,0 +1,19 @@
+CLANG_FIX = 0
+void print_type() [with T = long int]
+void print_type() [with T = int]
+====================================
+CLANG_FIX = 1
+void print_type() [with T = long int]
+void print_type() [with T = int]
+====================================
+main.cpp:35:27: error: no matching member function for call to 'get'
+    print_type<decltype(d.get<long>())>();
+                        ~~^~~~~~~~~
+main.cpp:11:10: note: candidate template ignored: substitution failure [with U = long]: no matching member function for call to 'helper'
+    auto get() -> decltype(this->helper<U>(this));
+         ^                       ~~~~~~
+1 error generated.
+CLANG_FIX = 1
+void print_type() [T = long]
+void print_type() [T = int]
+====================================
