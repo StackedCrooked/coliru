@@ -1,0 +1,18 @@
++ clang -x c -std=c99 -fsanitize=undefined -Weverything -Wall -Wextra -Wconversion -O0 -pedantic main.cpp
+main.cpp:23:3: warning: no newline at end of file [-Wnewline-eof]
+} 
+  ^
+main.cpp:11:25: warning: variable 'sec' is uninitialized when used here [-Wuninitialized]
+    printf("sec = %d\n",sec);
+                        ^~~
+main.cpp:5:12: note: initialize the variable 'sec' to silence this warning
+    int sec,min,left;
+           ^
+            = 0
+2 warnings generated.
++ ./a.out
+This program converts seconds to minutes and seconds. 
+Just enter the number of seconds. 
+Enter 0 to end the program. 
+sec = 0
+Bye!
