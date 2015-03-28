@@ -40,8 +40,8 @@ post '/feedback' do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
                 text = request.body.read.gsub('NOTE', 'IAMGAY').split("\n")[0]
-                return if text =~ /jform/
 
+                return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
                 return if text == ''
                 file.puts(text)
             end
