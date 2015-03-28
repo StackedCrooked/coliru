@@ -1,0 +1,51 @@
+main.cpp: In function 'int main()':
+main.cpp:18:27: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+     std::vector<double> a { 0,1,2,3,4,5,6,7,8,9 };
+                           ^
+main.cpp:18:49: error: in C++98 'a' must be initialized by constructor, not by '{...}'
+     std::vector<double> a { 0,1,2,3,4,5,6,7,8,9 };
+                                                 ^
+main.cpp:18:49: error: no matching function for call to 'std::vector<double>::vector(<brace-enclosed initializer list>)'
+main.cpp:18:49: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:407:9: note: template<class _InputIterator> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:407:9: note:   template argument deduction/substitution failed:
+main.cpp:18:49: note:   cannot convert '2' (type 'int') to type 'const allocator_type& {aka const std::allocator<double>&}'
+     std::vector<double> a { 0,1,2,3,4,5,6,7,8,9 };
+                                                 ^
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:3:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:318:7: note: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = double; _Alloc = std::allocator<double>]
+       vector(const vector& __x)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:318:7: note:   candidate expects 1 argument, 10 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:303:7: note: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::value_type = double; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<double>]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:303:7: note:   candidate expects 3 arguments, 10 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:264:7: note: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<double>]
+       vector(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:264:7: note:   candidate expects 1 argument, 10 provided
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:253:7: note: std::vector<_Tp, _Alloc>::vector() [with _Tp = double; _Alloc = std::allocator<double>]
+       vector()
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:253:7: note:   candidate expects 0 arguments, 10 provided
+main.cpp:20:10: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+     for (auto d : calc(a, f1)
+          ^
+main.cpp:20:15: error: 'd' does not name a type
+     for (auto d : calc(a, f1)
+               ^
+main.cpp:22:1: error: expected ';' before '}' token
+ }
+ ^
+main.cpp:22:1: error: expected primary-expression before '}' token
+main.cpp:22:1: error: expected ';' before '}' token
+main.cpp:22:1: error: expected primary-expression before '}' token
+main.cpp:22:1: error: expected ')' before '}' token
+main.cpp:22:1: error: expected primary-expression before '}' token
+bash: line 8: ./a.out: No such file or directory
