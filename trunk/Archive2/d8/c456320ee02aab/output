@@ -1,0 +1,13 @@
+main.cpp:4:8: error: elaborated type refers to a typedef
+struct T * p;       // error: elaborated type refers to a typedef
+       ^
+main.cpp:2:18: note: declared here
+typedef struct S T;
+                 ^
+main.cpp:5:2: error: expected unqualified-id
+T{};                // error: expected unqualified-id
+ ^
+main.cpp:6:4: error: C++ requires a type specifier for all declarations
+T::T(){}            // error: C++ requires a type specifier for all declarations
+~  ^
+3 errors generated.
