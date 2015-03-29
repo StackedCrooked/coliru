@@ -1,0 +1,51 @@
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -lcxxrt -ldl
+main.cpp:1:1: error: unknown type name 'Say'
+Say I have a spell object of the form:
+^
+main.cpp:1:6: error: expected ';' after top level declarator
+Say I have a spell object of the form:
+     ^
+     ;
+main.cpp:11:14: warning: missing terminating ' character [-Winvalid-pp-token]
+and such. Let's create a Spell called Fireball:
+             ^
+main.cpp:22:6: warning: missing terminating ' character [-Winvalid-pp-token]
+doesn't even allow for calling a specific data structure! So we need to REFACTOR.
+     ^
+main.cpp:45:3: warning: missing terminating ' character [-Winvalid-pp-token]
+We'll need to design a new status_effect or Effect class or data structure:
+  ^
+main.cpp:60:9: warning: missing terminating ' character [-Winvalid-pp-token]
+Now, let's say that we want to change the effects of the Spell based on our
+        ^
+main.cpp:61:46: warning: missing terminating ' character [-Winvalid-pp-token]
+environment. Say, a Spell is now weaker if it's within a "Holy" environment.
+                                             ^
+main.cpp:62:15: warning: missing terminating ' character [-Winvalid-pp-token]
+Okay then, let's just design an Environment data structure for our functions
+              ^
+main.cpp:89:14: warning: missing terminating ' character [-Winvalid-pp-token]
+This means we'll probably want to limit the amount of changes per second, have a 
+             ^
+main.cpp:117:9: warning: missing terminating ' character [-Winvalid-pp-token]
+Now, let's say we want a system to require more than one player to put their
+        ^
+main.cpp:163:22: warning: missing terminating ' character [-Winvalid-pp-token]
+        * This also means we'll need to REFACTOR once again to define types of spells
+                            ^
+main.cpp:175:47: warning: missing terminating ' character [-Winvalid-pp-token]
+Find how many times we had to say refactor. It's all in CAPS already.
+                                              ^
+main.cpp:176:5: warning: missing terminating ' character [-Winvalid-pp-token]
+That's more than once, and more than twice. Game like MapleStory, I bet, tried to
+    ^
+main.cpp:177:68: warning: missing terminating ' character [-Winvalid-pp-token]
+make their system more flexible to attract more players, but couldn't. Based on legacy code,
+                                                                   ^
+main.cpp:179:18: warning: missing terminating ' character [-Winvalid-pp-token]
+However, I bet it'll hit a wall too.
+                 ^
+main.cpp:190:76: warning: missing terminating ' character [-Winvalid-pp-token]
+Allowing the insertion of new data fields or types is great for design--you're not changing
+                                                                           ^
+14 warnings and 2 errors generated.
