@@ -1,0 +1,15 @@
+main.cpp: In function 'int main()':
+main.cpp:12:43: error: call of overloaded 'Spam(<brace-enclosed initializer list>)' is ambiguous
+  Spam({ { "1", Spam() }, { "2", Spam() } });
+                                           ^
+main.cpp:12:43: note: candidates are:
+main.cpp:8:2: note: Spam::Spam(const std::initializer_list<Spam>&)
+  Spam(const std::initializer_list<Spam > & il);
+  ^
+main.cpp:7:2: note: Spam::Spam(const std::initializer_list<std::pair<const std::basic_string<char>, Spam> >&)
+  Spam(const std::initializer_list<std::pair<const std::string, Spam > > &  il);
+  ^
+main.cpp:3:8: note: constexpr Spam::Spam(const Spam&)
+ struct Spam
+        ^
+main.cpp:3:8: note: constexpr Spam::Spam(Spam&&)
