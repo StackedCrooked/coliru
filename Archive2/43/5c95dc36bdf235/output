@@ -1,0 +1,36 @@
+main.cpp: In function 'int main()':
+main.cpp:12:16: error: namespace 'std::literals' not allowed in using-declaration
+     using std::literals;
+                ^
+main.cpp:13:11: error: unable to find string literal operator 'operator""s'
+  Spam({ { "1"s, Spam() }, { "2"s, Spam() } });
+           ^
+main.cpp:13:29: error: unable to find string literal operator 'operator""s'
+  Spam({ { "1"s, Spam() }, { "2"s, Spam() } });
+                             ^
+main.cpp:13:45: error: no matching function for call to 'Spam::Spam(<brace-enclosed initializer list>)'
+  Spam({ { "1"s, Spam() }, { "2"s, Spam() } });
+                                             ^
+main.cpp:13:45: note: candidates are:
+main.cpp:8:2: note: Spam::Spam(const std::initializer_list<Spam>&)
+  Spam(const std::initializer_list<Spam > & il);
+  ^
+main.cpp:8:2: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const std::initializer_list<Spam>&'
+main.cpp:7:2: note: Spam::Spam(const std::initializer_list<std::pair<const std::basic_string<char>, Spam> >&)
+  Spam(const std::initializer_list<std::pair<const std::string, Spam > > &  il);
+  ^
+main.cpp:7:2: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const std::initializer_list<std::pair<const std::basic_string<char>, Spam> >&'
+main.cpp:6:2: note: Spam::Spam(bool)
+  Spam(bool flag);
+  ^
+main.cpp:6:2: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'bool'
+main.cpp:5:5: note: Spam::Spam()
+     Spam();
+     ^
+main.cpp:5:5: note:   candidate expects 0 arguments, 1 provided
+main.cpp:3:8: note: constexpr Spam::Spam(const Spam&)
+ struct Spam
+        ^
+main.cpp:3:8: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'const Spam&'
+main.cpp:3:8: note: constexpr Spam::Spam(Spam&&)
+main.cpp:3:8: note:   no known conversion for argument 1 from '<brace-enclosed initializer list>' to 'Spam&&'
