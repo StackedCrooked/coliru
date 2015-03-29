@@ -1,0 +1,1 @@
+clang++ -std=c++14 -W{all,extra,error} -pedantic main.cpp -emit-llvm -S -O3 && cat main.ll | c++filt
