@@ -1,0 +1,1 @@
+g++ -std=c++14 -O2 -Wall -Wextra -lboost_system -pedantic main.cpp && ./a.out
