@@ -1,0 +1,14 @@
++ clang++ -std=c++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp
+main.cpp:7:17: error: calling a private constructor of class 'std::__1::seed_seq'
+  std::seed_seq seed2(seed1);
+                ^
+/usr/include/c++/v1/random:3552:5: note: declared private here
+    seed_seq(const seed_seq&); // = delete;
+    ^
+main.cpp:8:25: error: calling a private constructor of class 'std::__1::seed_seq'
+  std::seed_seq seed3 = seed2;
+                        ^
+/usr/include/c++/v1/random:3552:5: note: declared private here
+    seed_seq(const seed_seq&); // = delete;
+    ^
+2 errors generated.
