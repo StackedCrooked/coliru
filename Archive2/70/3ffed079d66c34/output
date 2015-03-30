@@ -1,0 +1,13 @@
+main.cpp:20:20: error: static_assert expression is not an integral constant expression
+    static_assert( s.data == "lol"_sv, "" );
+                   ^~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/experimental/string_view:233:35: note: non-constexpr function 'length' cannot be used in a constant expression
+            : __data(__s), __size(_Traits::length(__s)) {}
+                                  ^
+main.cpp:20:20: note: in call to 'basic_string_view(&data[0])'
+    static_assert( s.data == "lol"_sv, "" );
+                   ^
+/usr/include/c++/v1/string:651:19: note: declared here
+    static size_t length(const char_type* __s) {return strlen(__s);}
+                  ^
+1 error generated.
