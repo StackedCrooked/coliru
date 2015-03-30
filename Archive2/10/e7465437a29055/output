@@ -1,0 +1,70 @@
+0  clang           0x0000000002225045 llvm::sys::PrintStackTrace(_IO_FILE*) + 37
+1  clang           0x0000000002225783
+2  libpthread.so.0 0x00007ff56a28acb0
+3  clang           0x00000000013a9b17
+4  clang           0x00000000013aff6e
+5  clang           0x00000000013aff4a
+6  clang           0x00000000013ae8c1
+7  clang           0x00000000013ab4eb
+8  clang           0x00000000013b237a
+9  clang           0x00000000013a71d2
+10 clang           0x00000000008e9911 clang::CodeGen::CodeGenModule::getMangledName(clang::GlobalDecl) + 433
+11 clang           0x00000000008f1075 clang::CodeGen::CodeGenModule::GetAddrOfFunction(clang::GlobalDecl, llvm::Type*, bool, bool) + 69
+12 clang           0x00000000009a467a clang::CodeGen::CodeGenFunction::EmitCXXOperatorMemberCallExpr(clang::CXXOperatorCallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot) + 250
+13 clang           0x000000000099b76d clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) + 653
+14 clang           0x00000000009b7bf7
+15 clang           0x00000000009af96c clang::CodeGen::CodeGenFunction::EmitScalarExpr(clang::Expr const*, bool) + 76
+16 clang           0x000000000098b559 clang::CodeGen::CodeGenFunction::EmitAnyExpr(clang::Expr const*, clang::CodeGen::AggValueSlot, bool) + 217
+17 clang           0x000000000096b11c clang::CodeGen::CodeGenFunction::EmitCallArg(clang::CodeGen::CallArgList&, clang::Expr const*, clang::QualType) + 2156
+18 clang           0x000000000096a871 clang::CodeGen::CodeGenFunction::EmitCallArgs(clang::CodeGen::CallArgList&, llvm::ArrayRef<clang::QualType>, clang::ConstExprIterator, clang::ConstExprIterator, bool) + 641
+19 clang           0x000000000095d11a
+20 clang           0x00000000009a3873 clang::CodeGen::CodeGenFunction::EmitCXXMemberCall(clang::CXXMethodDecl const*, clang::SourceLocation, llvm::Value*, clang::CodeGen::ReturnValueSlot, llvm::Value*, llvm::Value*, clang::QualType, clang::ConstExprIterator, clang::ConstExprIterator) + 659
+21 clang           0x00000000009a46d2 clang::CodeGen::CodeGenFunction::EmitCXXOperatorMemberCallExpr(clang::CXXOperatorCallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot) + 338
+22 clang           0x000000000099b76d clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) + 653
+23 clang           0x0000000000992667 clang::CodeGen::CodeGenFunction::EmitCallExprLValue(clang::CallExpr const*) + 39
+24 clang           0x000000000098b5f7 clang::CodeGen::CodeGenFunction::EmitLValue(clang::Expr const*) + 119
+25 clang           0x00000000009a45be clang::CodeGen::CodeGenFunction::EmitCXXOperatorMemberCallExpr(clang::CXXOperatorCallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot) + 62
+26 clang           0x000000000099b76d clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) + 653
+27 clang           0x0000000000992667 clang::CodeGen::CodeGenFunction::EmitCallExprLValue(clang::CallExpr const*) + 39
+28 clang           0x000000000098b5f7 clang::CodeGen::CodeGenFunction::EmitLValue(clang::Expr const*) + 119
+29 clang           0x000000000098b422 clang::CodeGen::CodeGenFunction::EmitIgnoredExpr(clang::Expr const*) + 34
+30 clang           0x00000000008d22fa clang::CodeGen::CodeGenFunction::EmitStmt(clang::Stmt const*) + 394
+31 clang           0x00000000008d93cb clang::CodeGen::CodeGenFunction::EmitCompoundStmtWithoutScope(clang::CompoundStmt const&, bool, clang::CodeGen::AggValueSlot) + 91
+32 clang           0x00000000008e49a6 clang::CodeGen::CodeGenFunction::GenerateCode(clang::GlobalDecl, llvm::Function*, clang::CodeGen::CGFunctionInfo const&) + 1174
+33 clang           0x00000000008f06a3 clang::CodeGen::CodeGenModule::EmitGlobalFunctionDefinition(clang::GlobalDecl, llvm::GlobalValue*) + 931
+34 clang           0x00000000008eda3d clang::CodeGen::CodeGenModule::EmitGlobalDefinition(clang::GlobalDecl, llvm::GlobalValue*) + 317
+35 clang           0x00000000008ef79b clang::CodeGen::CodeGenModule::EmitGlobal(clang::GlobalDecl) + 1403
+36 clang           0x00000000008f2720 clang::CodeGen::CodeGenModule::EmitTopLevelDecl(clang::Decl*) + 976
+37 clang           0x00000000008ae3af
+38 clang           0x00000000008ad74e
+39 clang           0x0000000000a39b83 clang::ParseAST(clang::Sema&, bool, bool) + 387
+40 clang           0x00000000008ac92c clang::CodeGenAction::ExecuteAction() + 76
+41 clang           0x0000000000700229 clang::FrontendAction::Execute() + 57
+42 clang           0x00000000006d7073 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 787
+43 clang           0x00000000006be473 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 3155
+44 clang           0x00000000006b60bb cc1_main(char const**, char const**, char const*, void*) + 651
+45 clang           0x00000000006bc636 main + 8454
+46 libc.so.6       0x00007ff5692b476d __libc_start_main + 237
+47 clang           0x00000000006b5d3d
+Stack dump:
+0.	Program arguments: /usr/local/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -disable-llvm-verifier -main-file-name main.cpp -mrelocation-model static -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -g -dwarf-column-info -resource-dir /usr/local/bin/../lib/clang/3.5.0 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2 -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/x86_64-unknown-linux-gnu -internal-isystem /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/backward -internal-isystem /usr/local/include -internal-isystem /usr/local/bin/../lib/clang/3.5.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -Wall -pedantic -std=c++1y -fdeprecated-macro -fdebug-compilation-dir /tmp/1427720392.33111 -ferror-limit 19 -fmessage-length 0 -pthread -mstackrealign -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o /tmp/main-ee8584.o -x c++ main.cpp 
+1.	<eof> parser at end of file
+2.	main.cpp:31:5: LLVM IR generation of declaration 'main'
+3.	main.cpp:31:5: Generating code for declaration 'main'
+4.	main.cpp:25:10: Mangling declaration 'copy_assignable_function<(lambda at main.cpp:32:16)>::operator()'
+clang: error: unable to execute command: Segmentation fault (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+clang: note: diagnostic msg: PLEASE submit a bug report to http://llvm.org/bugs/ and include the crash backtrace, preprocessed source, and associated run script.
+clang: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang: note: diagnostic msg: /tmp/main-4dc6cf.cpp
+clang: note: diagnostic msg: /tmp/main-4dc6cf.sh
+clang: note: diagnostic msg: 
+
+********************
