@@ -1,0 +1,36 @@
+main.cpp:10:1: error: expected ';' after class definition
+ }
+ ^
+main.cpp: In constructor 'Test::Test()':
+main.cpp:9:36: error: no matching function for call to 'std::exception::exception(<brace-enclosed initializer list>)'
+     Test() { throw exception{"WOO!"}; }
+                                    ^
+main.cpp:9:36: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/ios:39:0,
+                 from /usr/local/include/c++/4.9.2/ostream:38,
+                 from /usr/local/include/c++/4.9.2/iostream:39,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/exception:63:5: note: std::exception::exception()
+     exception() _GLIBCXX_USE_NOEXCEPT { }
+     ^
+/usr/local/include/c++/4.9.2/exception:63:5: note:   candidate expects 0 arguments, 1 provided
+/usr/local/include/c++/4.9.2/exception:60:9: note: constexpr std::exception::exception(const std::exception&)
+   class exception
+         ^
+/usr/local/include/c++/4.9.2/exception:60:9: note:   no known conversion for argument 1 from 'const char [5]' to 'const std::exception&'
+main.cpp: At global scope:
+main.cpp:17:25: error: expected ')' before ';' token
+     Experiment(int i = 0; int j = 0)
+                         ^
+main.cpp:17:35: error: expected ';' at end of member declaration
+     Experiment(int i = 0; int j = 0)
+                                   ^
+main.cpp:17:36: error: expected unqualified-id before ')' token
+     Experiment(int i = 0; int j = 0)
+                                    ^
+main.cpp:41:1: error: expected '}' at end of input
+ }
+ ^
+main.cpp:17:35: error: expected unqualified-id at end of input
+     Experiment(int i = 0; int j = 0)
+                                   ^
