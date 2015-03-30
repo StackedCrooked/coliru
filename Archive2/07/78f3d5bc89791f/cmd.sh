@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread -l boost_log -DBOOST_LOG_DYN_LINK main.cpp && ./a.out
