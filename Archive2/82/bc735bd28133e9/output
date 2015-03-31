@@ -1,0 +1,40 @@
+main.cpp:17:31: error: no type named 'Tuple' in 'Foo'
+    using Tuple = typename T::Tuple;
+                  ~~~~~~~~~~~~^~~~~
+main.cpp:38:50: note: in instantiation of template class 'TupleIterable<Foo>' requested here
+struct Foo : public TupleComparable<Foo>, public TupleIterable<Foo>
+                                                 ^
+main.cpp:65:21: warning: self-comparison always evaluates to true [-Wtautological-compare]
+    std::cout << (f == f) << std::endl;
+                    ^
+main.cpp:65:21: error: invalid operands to binary expression ('Foo' and 'Foo')
+    std::cout << (f == f) << std::endl;
+                  ~ ^  ~
+main.cpp:10:10: note: candidate function not viable: no known conversion from 'Foo' to 'const TupleComparable<Foo>' for object argument
+    bool operator==(const TupleComparable& other) const {
+         ^
+main.cpp:66:21: error: invalid operands to binary expression ('Foo' and 'Foo')
+    std::cout << (f == g) << std::endl;
+                  ~ ^  ~
+main.cpp:10:10: note: candidate function not viable: no known conversion from 'Foo' to 'const TupleComparable<Foo>' for object argument
+    bool operator==(const TupleComparable& other) const {
+         ^
+main.cpp:67:21: error: invalid operands to binary expression ('Foo' and 'Foo')
+    std::cout << (f == h) << std::endl;
+                  ~ ^  ~
+main.cpp:10:10: note: candidate function not viable: no known conversion from 'Foo' to 'const TupleComparable<Foo>' for object argument
+    bool operator==(const TupleComparable& other) const {
+         ^
+main.cpp:69:7: error: no member named 'for_each' in 'Foo'
+    f.for_each<Printer>();
+    ~ ^
+main.cpp:69:16: error: 'Printer' does not refer to a value
+    f.for_each<Printer>();
+               ^
+main.cpp:52:8: note: declared here
+struct Printer{
+       ^
+main.cpp:69:25: error: expected expression
+    f.for_each<Printer>();
+                        ^
+1 warning and 7 errors generated.
