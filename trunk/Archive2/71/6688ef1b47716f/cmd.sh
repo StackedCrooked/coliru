@@ -1,0 +1,1 @@
+gcc  -std=c99 -O2 -Wall -Wvariadic-macros -Wpedantic -pthread main.cpp && ./a.out
