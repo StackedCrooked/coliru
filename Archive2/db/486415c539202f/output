@@ -1,0 +1,40 @@
+main.cpp: In function 'int main()':
+main.cpp:11:16: error: use of deleted function 'std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)'
+         : std::cin
+                ^
+In file included from /usr/local/include/c++/4.9.2/fstream:38:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/istream:58:11: note: 'std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_istream : virtual public basic_ios<_CharT, _Traits>
+           ^
+/usr/local/include/c++/4.9.2/istream:58:11: error: use of deleted function 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)'
+In file included from /usr/local/include/c++/4.9.2/ios:44:0,
+                 from /usr/local/include/c++/4.9.2/istream:38,
+                 from /usr/local/include/c++/4.9.2/fstream:38,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_ios.h:66:11: note: 'std::basic_ios<char>::basic_ios(const std::basic_ios<char>&)' is implicitly deleted because the default definition would be ill-formed:
+     class basic_ios : public ios_base
+           ^
+In file included from /usr/local/include/c++/4.9.2/ios:42:0,
+                 from /usr/local/include/c++/4.9.2/istream:38,
+                 from /usr/local/include/c++/4.9.2/fstream:38,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/ios_base.h:786:5: error: 'std::ios_base::ios_base(const std::ios_base&)' is private
+     ios_base(const ios_base&);
+     ^
+In file included from /usr/local/include/c++/4.9.2/ios:44:0,
+                 from /usr/local/include/c++/4.9.2/istream:38,
+                 from /usr/local/include/c++/4.9.2/fstream:38,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/basic_ios.h:66:11: error: within this context
+     class basic_ios : public ios_base
+           ^
+main.cpp:11:16: error: use of deleted function 'std::basic_istream<char>::basic_istream(const std::basic_istream<char>&)'
+         : std::cin
+                ^
+main.cpp:12:5: error: invalid initialization of non-const reference of type 'std::istream& {aka std::basic_istream<char>&}' from an rvalue of type 'std::istream {aka std::basic_istream<char>}'
+     );
+     ^
+main.cpp:4:6: note: in passing argument 1 of 'void f(std::istream&)'
+ void f(std::istream&);
+      ^
