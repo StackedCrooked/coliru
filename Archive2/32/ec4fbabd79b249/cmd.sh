@@ -1,0 +1,1 @@
+runghc -XTypeFamilies -XFlexibleContexts main.cpp
