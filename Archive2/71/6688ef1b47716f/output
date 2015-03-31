@@ -1,0 +1,18 @@
+cc1plus: warning: command line option '-std=c99' is valid for C/ObjC but not for C++
+main.cpp:17:58: warning: anonymous variadic macros were introduced in C99 [-Wvariadic-macros]
+ #define _big_endian_loop(it_name, value_name, size_name, ...)\
+                                                          ^
+main.cpp:23:61: warning: anonymous variadic macros were introduced in C99 [-Wvariadic-macros]
+ #define _little_endian_loop(it_name, value_name, size_name, ...)\
+                                                             ^
+main.cpp:38:54: warning: anonymous variadic macros were introduced in C99 [-Wvariadic-macros]
+ #define _endian_loop(it_name, value_name, size_name, ...)\
+                                                      ^
+main.cpp: In function 'void print_le_binary(FILE*, void*, size_t)':
+main.cpp:39:39: warning: ISO C++ does not allow C99 designated initializers [-Wpedantic]
+ union {uint8_t u8; uint16_t u16;} t = {.u16 = 1};\
+                                       ^
+main.cpp:53:5: note: in expansion of macro '_endian_loop'
+     _endian_loop(it, value, size,
+     ^
+0010001111010101100110111100010010011101011100101111011101011011
