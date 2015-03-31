@@ -1,0 +1,110 @@
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/vector:61:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/allocator.h:46:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ext/new_allocator.h:93:7: error: multiple overloads of 'address' instantiate to the same signature 'const_pointer (const_reference) const noexcept'
+      address(const_reference __x) const _GLIBCXX_NOEXCEPT
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/allocator.h:92:29: note: in instantiation of template class '__gnu_cxx::new_allocator<const T>' requested here
+    class allocator: public __allocator_base<_Tp>
+                            ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/alloc_traits.h:85:24: note: in instantiation of template class 'std::allocator<const T>' requested here
+      typedef typename _Alloc::value_type value_type;
+                       ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ext/alloc_traits.h:97:5: note: in instantiation of template class 'std::allocator_traits<std::allocator<const T> >' requested here
+  : std::allocator_traits<_Alloc>
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:74:35: note: in instantiation of template class '__gnu_cxx::__alloc_traits<std::allocator<const T> >' requested here
+      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
+                                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:214:30: note: in instantiation of template class 'std::_Vector_base<const T, std::allocator<const T> >' requested here
+    class vector : protected _Vector_base<_Tp, _Alloc>
+                             ^
+main.cpp:11:26: note: in instantiation of template class 'std::vector<const T, std::allocator<const T> >' requested here
+    std::vector<T const> xs;
+                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ext/new_allocator.h:89:7: note: previous declaration is here
+      address(reference __x) const _GLIBCXX_NOEXCEPT
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/ext/new_allocator.h:110:9: error: no matching function for call to 'operator delete'
+      { ::operator delete(__p); }
+        ^~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/alloc_traits.h:383:13: note: in instantiation of member function '__gnu_cxx::new_allocator<const T>::deallocate' requested here
+      { __a.deallocate(__p, __n); }
+            ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:178:9: note: in instantiation of member function 'std::allocator_traits<std::allocator<const T> >::deallocate' requested here
+          _Tr::deallocate(_M_impl, __p, __n);
+               ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:160:9: note: in instantiation of member function 'std::_Vector_base<const T, std::allocator<const T> >::_M_deallocate' requested here
+      { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:253:7: note: in instantiation of member function 'std::_Vector_base<const T, std::allocator<const T> >::~_Vector_base' requested here
+      vector()
+      ^
+main.cpp:11:26: note: in instantiation of member function 'std::vector<const T, std::allocator<const T> >::vector' requested here
+    std::vector<T const> xs;
+                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/new:132:6: note: candidate function not viable: no known conversion from 'pointer' (aka 'const T *') to 'void *' for 1st argument; take the address of the argument with &
+void operator delete(void*) _GLIBCXX_USE_NOEXCEPT
+     ^
+note: candidate function not viable: requires 2 arguments, but 1 was provided
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/new:140:6: note: candidate function not viable: requires 2 arguments, but 1 was provided
+void operator delete(void*, const std::nothrow_t&) _GLIBCXX_USE_NOEXCEPT
+     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/new:152:13: note: candidate function not viable: requires 2 arguments, but 1 was provided
+inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
+            ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/vector:60:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_algobase.h:67:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:980:16: error: binding of reference to type 'value_type' (aka 'T') to a value of type 'typename std::remove_reference<const T &>::type' (aka 'const T') drops qualifiers
+      { return std::move(*_M_current); }
+               ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:75:45: note: in instantiation of member function 'std::move_iterator<const T *>::operator*' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                                                          ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:125:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<const T *>, const T *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:278:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::move_iterator<const T *>, const T *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:299:19: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::move_iterator<const T *>, const T *, const T>' requested here
+      return std::__uninitialized_copy_a
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/vector.tcc:421:15: note: in instantiation of function template specialization 'std::__uninitialized_move_if_noexcept_a<const T *, const T *, std::allocator<const T> >' requested here
+              = std::__uninitialized_move_if_noexcept_a
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/vector.tcc:101:4: note: in instantiation of function template specialization 'std::vector<const T, std::allocator<const T> >::_M_emplace_back_aux<>' requested here
+          _M_emplace_back_aux(std::forward<_Args>(__args)...);
+          ^
+main.cpp:12:8: note: in instantiation of function template specialization 'std::vector<const T, std::allocator<const T> >::emplace_back<>' requested here
+    xs.emplace_back();
+       ^
+In file included from main.cpp:1:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/vector:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_construct.h:75:13: error: static_cast from 'const T *' to 'void *' is not allowed
+    { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
+            ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:75:8: note: in instantiation of function template specialization 'std::_Construct<const T, T>' requested here
+                std::_Construct(std::__addressof(*__cur), *__first);
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:125:2: note: in instantiation of function template specialization 'std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<const T *>, const T *>' requested here
+        __uninit_copy(__first, __last, __result);
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:278:19: note: in instantiation of function template specialization 'std::uninitialized_copy<std::move_iterator<const T *>, const T *>' requested here
+    { return std::uninitialized_copy(__first, __last, __result); }
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_uninitialized.h:299:19: note: in instantiation of function template specialization 'std::__uninitialized_copy_a<std::move_iterator<const T *>, const T *, const T>' requested here
+      return std::__uninitialized_copy_a
+                  ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/vector.tcc:421:15: note: in instantiation of function template specialization 'std::__uninitialized_move_if_noexcept_a<const T *, const T *, std::allocator<const T> >' requested here
+              = std::__uninitialized_move_if_noexcept_a
+                     ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/vector.tcc:101:4: note: in instantiation of function template specialization 'std::vector<const T, std::allocator<const T> >::_M_emplace_back_aux<>' requested here
+          _M_emplace_back_aux(std::forward<_Args>(__args)...);
+          ^
+main.cpp:12:8: note: in instantiation of function template specialization 'std::vector<const T, std::allocator<const T> >::emplace_back<>' requested here
+    xs.emplace_back();
+       ^
+4 errors generated.
