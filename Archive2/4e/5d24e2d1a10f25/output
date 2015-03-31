@@ -1,0 +1,12 @@
++ clang++ -std=c++11 -O -Wall -Wextra -pedantic -Wno-unused -pthread main.cpp
++ ./a.out
+construct Foo @0x7ffff21bd210
+destroy Foo @0x7ffff21bd210
++ clang++ -std=c++11 -DBAD_CASE -O -Wall -Wextra -pedantic -Wno-unused -pthread main.cpp
+main.cpp:29:5: error: static_assert failed "Type is too big for buffer."
+    static_assert(sizeof(T) <= sizeof(space_),
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:59:23: note: in instantiation of function template specialization 'buffer<42, 0>::emplace<TooBig>' requested here
+    auto tbptr = buf2.emplace<TooBig>(); // static_assert fails.
+                      ^
+1 error generated.
