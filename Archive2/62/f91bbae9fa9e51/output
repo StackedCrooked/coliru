@@ -1,0 +1,16 @@
++ clang++ -std=c++11 -O -Wall -Wextra -pedantic -Wno-unused -pthread main.cpp
+main.cpp:23:35: error: use of undeclared identifier 'Base'
+    static_assert(std::is_base_of<Base, T>(),
+                                  ^
+1 error generated.
++ clang++ -std=c++11 -DBAD_CASE -O -Wall -Wextra -pedantic -Wno-unused -pthread main.cpp
+main.cpp:23:35: error: use of undeclared identifier 'Base'
+    static_assert(std::is_base_of<Base, T>(),
+                                  ^
+main.cpp:25:5: error: static_assert failed "Type is too big for buffer."
+    static_assert(sizeof(T) <= sizeof(space_),
+    ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:59:23: note: in instantiation of function template specialization 'buffer<42, 0>::emplace<TooBig>' requested here
+    auto tbptr = buf2.emplace<TooBig>(); // static_assert fails.
+                      ^
+2 errors generated.
