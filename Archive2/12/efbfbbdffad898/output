@@ -1,0 +1,94 @@
+main.cpp: In function 'int main(int, char**)':
+main.cpp:57:14: error: no match for 'operator=' (operand types are 'std::unordered_map<short unsigned int, std::function<int(const Base&)> >::mapped_type {aka std::function<int(const Base&)>}' and 'int (Foo::*)(const Base&)const')
+         d[0] = &Foo::print_add;  // store a call to a member function
+              ^
+main.cpp:57:14: note: candidates are:
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/functional:2270:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = int; _ArgTypes = {const Base&}]
+       operator=(const function& __x)
+       ^
+/usr/include/c++/4.8/functional:2270:7: note:   no known conversion for argument 1 from 'int (Foo::*)(const Base&)const' to 'const std::function<int(const Base&)>&'
+/usr/include/c++/4.8/functional:2288:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = int; _ArgTypes = {const Base&}]
+       operator=(function&& __x)
+       ^
+/usr/include/c++/4.8/functional:2288:7: note:   no known conversion for argument 1 from 'int (Foo::*)(const Base&)const' to 'std::function<int(const Base&)>&&'
+/usr/include/c++/4.8/functional:2302:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = int; _ArgTypes = {const Base&}; std::nullptr_t = std::nullptr_t]
+       operator=(nullptr_t)
+       ^
+/usr/include/c++/4.8/functional:2302:7: note:   no known conversion for argument 1 from 'int (Foo::*)(const Base&)const' to 'std::nullptr_t'
+/usr/include/c++/4.8/functional:2331:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = _Functor; _Res = int; _ArgTypes = {const Base&}]
+  operator=(_Functor&& __f)
+  ^
+/usr/include/c++/4.8/functional:2331:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:2340:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Tp>) [with _Functor = _Functor; _Res = int; _ArgTypes = {const Base&}]
+  operator=(reference_wrapper<_Functor> __f) noexcept
+  ^
+/usr/include/c++/4.8/functional:2340:2: note:   template argument deduction/substitution failed:
+main.cpp:57:14: note:   'int (Foo::*)(const Base&)const' is not derived from 'std::reference_wrapper<_Tp>'
+         d[0] = &Foo::print_add;  // store a call to a member function
+              ^
+main.cpp:59:14: error: no match for 'operator=' (operand types are 'std::unordered_map<short unsigned int, std::function<int(const Base&)> >::mapped_type {aka std::function<int(const Base&)>}' and 'main(int, char**)::__lambda0')
+         d[2] = [](const Base& x) { print_num(x); }; // store a lambda
+              ^
+main.cpp:59:14: note: candidates are:
+In file included from main.cpp:4:0:
+/usr/include/c++/4.8/functional:2270:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = int; _ArgTypes = {const Base&}]
+       operator=(const function& __x)
+       ^
+/usr/include/c++/4.8/functional:2270:7: note:   no known conversion for argument 1 from 'main(int, char**)::__lambda0' to 'const std::function<int(const Base&)>&'
+/usr/include/c++/4.8/functional:2288:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = int; _ArgTypes = {const Base&}]
+       operator=(function&& __x)
+       ^
+/usr/include/c++/4.8/functional:2288:7: note:   no known conversion for argument 1 from 'main(int, char**)::__lambda0' to 'std::function<int(const Base&)>&&'
+/usr/include/c++/4.8/functional:2302:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = int; _ArgTypes = {const Base&}; std::nullptr_t = std::nullptr_t]
+       operator=(nullptr_t)
+       ^
+/usr/include/c++/4.8/functional:2302:7: note:   no known conversion for argument 1 from 'main(int, char**)::__lambda0' to 'std::nullptr_t'
+/usr/include/c++/4.8/functional:2331:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_CheckResult<std::function<_Res(_ArgTypes ...)>::_Invoke<_Functor>, _Res>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = _Functor; _Res = int; _ArgTypes = {const Base&}]
+  operator=(_Functor&& __f)
+  ^
+/usr/include/c++/4.8/functional:2331:2: note:   template argument deduction/substitution failed:
+/usr/include/c++/4.8/functional:2340:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Tp>) [with _Functor = _Functor; _Res = int; _ArgTypes = {const Base&}]
+  operator=(reference_wrapper<_Functor> __f) noexcept
+  ^
+/usr/include/c++/4.8/functional:2340:2: note:   template argument deduction/substitution failed:
+main.cpp:59:14: note:   'main(int, char**)::__lambda0' is not derived from 'std::reference_wrapper<_Tp>'
+         d[2] = [](const Base& x) { print_num(x); }; // store a lambda
+              ^
+main.cpp:57:14: error: no viable overloaded '='
+        d[0] = &Foo::print_add;  // store a call to a member function
+        ~~~~ ^ ~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2241:7: note: candidate function not viable: no known conversion from 'int (Foo::*)(const Base &) const' to 'const std::function<int (const Base &)>' for 1st argument
+      operator=(const function& __x)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2259:7: note: candidate function not viable: no known conversion from 'int (Foo::*)(const Base &) const' to 'std::function<int (const Base &)>' for 1st argument
+      operator=(function&& __x)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2273:7: note: candidate function not viable: no known conversion from 'int (Foo::*)(const Base &) const' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2302:2: note: candidate template ignored: substitution failure [with _Functor = int (Foo::*)(const Base &) const]: no matching function for call to object of type '_Mem_fn<int (Foo::*)(const Base &) const>'
+        operator=(_Functor&& __f)
+        ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2311:2: note: candidate template ignored: could not match 'reference_wrapper<type-parameter-0-0>' against 'int (Foo::*)(const Base &) const'
+        operator=(reference_wrapper<_Functor> __f) noexcept
+        ^
+main.cpp:59:14: error: no viable overloaded '='
+        d[2] = [](const Base& x) { print_num(x); }; // store a lambda
+        ~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2241:7: note: candidate function not viable: no known conversion from '(lambda at main.cpp:59:16)' to 'const std::function<int (const Base &)>' for 1st argument
+      operator=(const function& __x)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2259:7: note: candidate function not viable: no known conversion from '(lambda at main.cpp:59:16)' to 'std::function<int (const Base &)>' for 1st argument
+      operator=(function&& __x)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2273:7: note: candidate function not viable: no known conversion from '(lambda at main.cpp:59:16)' to 'nullptr_t' for 1st argument
+      operator=(nullptr_t)
+      ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2163:39: note: candidate template ignored: disabled by 'enable_if' [with _Functor = (lambda at main.cpp:59:16)]
+        using _Requires = typename enable_if<_Cond::value, _Tp>::type;
+                                             ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:2311:2: note: candidate template ignored: could not match 'reference_wrapper<type-parameter-0-0>' against '(lambda at main.cpp:59:16)'
+        operator=(reference_wrapper<_Functor> __f) noexcept
+        ^
+2 errors generated.
