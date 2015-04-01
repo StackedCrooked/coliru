@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:13:11: warning: possible problem detected in invocation of delete operator: [-Wdelete-incomplete]
+  delete f.p;
+           ^
+main.cpp:13:11: warning: invalid use of incomplete type 'struct MyStruct'
+main.cpp:4:8: warning: forward declaration of 'struct MyStruct'
+ struct MyStruct;
+        ^
+main.cpp:13:11: note: neither the destructor nor the class-specific operator delete will be called, even if they are declared when the class is defined
+  delete f.p;
+           ^
+main.cpp:13:11: warning: 'f.foo::p' is used uninitialized in this function [-Wuninitialized]
