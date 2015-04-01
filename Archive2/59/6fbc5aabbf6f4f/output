@@ -1,0 +1,95 @@
+IndexedFileInfo inserting entries
+=================================
+[ 1  2  3]
+[01,05,10] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+[03,08,12] [004.txt->004.txt] - duplicate, not inserted
+[03,08,12] [005.txt->005.txt] - duplicate, not inserted
+[03,08,12] [006.txt->006.txt] - duplicate, not inserted
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+[01,05,10] [xxx.txt->xxx.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+IndexedFileInfo identity order
+==============================
+[ A  B  C]
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+[01,05,10] [xxx.txt->xxx.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+IndexedFileInfo by DIR_FILTER
+=============================
+[ A  B  C]
+[01,05,10] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+ModuleLoadList - composite key order
+====================================
+[ A  B  C]
+[01,05,10] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+ModuleLoadList (C >= 22)
+=================================
+[ A  B  C]
+ModuleLoadList (lb22<->ub23)
+============================
+[ A  B  C]
+ModuleLoadList (Value3 == 21)
+=============================
+[ A  B  C]
+ModuleLoadList Sequencing
+=========================
+[ A  B  C]
+run->mValue1[1]
+[01,05,10] [xxx.txt->xxx.txt]
+[01,05,10] [yyy.txt->yyy.txt]
+run->mValue2[5]
+run->mValue1[2]
+[02,05,11] [abc.txt->abc.txt]
+[02,05,11] [def.txt->def.txt]
+[02,05,11] [xxx.txt->xxx.txt]
+run->mValue2[5]
+run->mValue1[3]
+[03,03,12] [ghi.txt->ghi.txt]
+[03,03,12] [jkl.txt->jkl.txt]
+run->mValue2[3]
+run->mValue1[3]
+[03,08,12] [004.txt->004.txt]
+[03,08,12] [005.txt->005.txt]
+[03,08,12] [006.txt->006.txt]
+run->mValue2[8]
