@@ -1,0 +1,45 @@
+main.cpp: In instantiation of 'std::unique_ptr<_Tp> make_unique1(U&&) [with T = A; U = const int&]':
+main.cpp:41:32:   required from here
+main.cpp:28:56: error: no matching function for call to 'A::A(const int&)'
+     return std::unique_ptr<T>(new T(std::forward<U>(u)));
+                                                        ^
+main.cpp:28:56: note: candidates are:
+main.cpp:8:5: note: A::A(int&)
+     A(int& n)  { std::cout << "lvalue overload, n=" << n << "\n"; }
+     ^
+main.cpp:8:5: note:   no known conversion for argument 1 from 'const int' to 'int&'
+main.cpp:7:5: note: A::A(int&&)
+     A(int&& n) { std::cout << "rvalue overload, n=" << n << "\n"; }
+     ^
+main.cpp:7:5: note:   no known conversion for argument 1 from 'const int' to 'int&&'
+main.cpp:6:8: note: constexpr A::A(const A&)
+ struct A {
+        ^
+main.cpp:6:8: note:   no known conversion for argument 1 from 'const int' to 'const A&'
+main.cpp:6:8: note: constexpr A::A(A&&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'const int' to 'A&&'
+main.cpp: In instantiation of 'B::B(T1&&, T2&&, T3&&) [with T1 = int; T2 = const int&; T3 = int]':
+main.cpp:34:59:   required from 'std::unique_ptr<_Tp> make_unique(U&& ...) [with T = B; U = {int, const int&, int}]'
+main.cpp:44:36:   required from here
+main.cpp:17:33: error: no matching function for call to 'A::A(<brace-enclosed initializer list>)'
+         a3_{std::forward<T3>(t3)}
+                                 ^
+main.cpp:17:33: note: candidates are:
+main.cpp:8:5: note: A::A(int&)
+     A(int& n)  { std::cout << "lvalue overload, n=" << n << "\n"; }
+     ^
+main.cpp:8:5: note:   no known conversion for argument 1 from 'const int' to 'int&'
+main.cpp:7:5: note: A::A(int&&)
+     A(int&& n) { std::cout << "rvalue overload, n=" << n << "\n"; }
+     ^
+main.cpp:7:5: note:   no known conversion for argument 1 from 'const int' to 'int&&'
+main.cpp:6:8: note: constexpr A::A(const A&)
+ struct A {
+        ^
+main.cpp:6:8: note:   no known conversion for argument 1 from 'const int' to 'const A&'
+main.cpp:6:8: note: constexpr A::A(A&&)
+main.cpp:6:8: note:   no known conversion for argument 1 from 'const int' to 'A&&'
+main.cpp: In function 'std::unique_ptr<_Tp> make_unique1(U&&) [with T = A; U = const int&]':
+main.cpp:29:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
