@@ -1,0 +1,14 @@
++ clang++ -O2 -stdlib=libc++ -std=c++11 -Weverything -Wextra main.cpp -lcxxrt -ldl
+main.cpp:11:21: warning: comparison of constant 6 with expression of type 'bool' is always true [-Wtautological-constant-out-of-range-compare]
+    cout << (L <= a <= U) << endl;
+             ~~~~~~ ^  ~
+1 warning generated.
++ ./a.out
+1
++ g++ -O2 -std=c++11 -Wall -Wextra main.cpp -lcxxrt -ldl
+main.cpp: In function 'int main()':
+main.cpp:11:16: warning: comparisons like 'X<=Y<=Z' do not have their mathematical meaning [-Wparentheses]
+     cout << (L <= a <= U) << endl;
+                ^
++ ./a.out
+1
