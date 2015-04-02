@@ -1,0 +1,1 @@
+for p in {,clan}g++; do $p -std=c++14 -O3 -Wall -pedantic -pthread main.cpp -O2 -S && cat main.s | c++filt && perl -e 'print "-" x 80 . "\n";'; done

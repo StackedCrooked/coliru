@@ -1,0 +1,156 @@
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	f()
+	.type	f(), @function
+f():
+.LFB925:
+	.cfi_startproc
+	rep; ret
+	.cfi_endproc
+.LFE925:
+	.size	f(), .-f()
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+.LCOLDB1:
+	.section	.text.startup,"ax",@progbits
+.LHOTB1:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB926:
+	.cfi_startproc
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE926:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE1:
+	.section	.text.startup
+.LHOTE1:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
+--------------------------------------------------------------------------------
+	.text
+	.file	"main.cpp"
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI0_0:
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+.LCPI0_1:
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.text
+	.globl	f()
+	.align	16, 0x90
+	.type	f(),@function
+f():                                  # @f()
+	.cfi_startproc
+# BB#0:                                 # %.lr.ph.i.i.i3
+	subq	$40, %rsp
+.Ltmp0:
+	.cfi_def_cfa_offset 48
+	movaps	.LCPI0_0(%rip), %xmm0
+	movups	%xmm0, -128(%rsp)
+	movups	%xmm0, -112(%rsp)
+	movups	%xmm0, -96(%rsp)
+	movups	%xmm0, -80(%rsp)
+	movups	%xmm0, -64(%rsp)
+	movups	%xmm0, -48(%rsp)
+	movups	%xmm0, -32(%rsp)
+	movups	%xmm0, -16(%rsp)
+	movups	%xmm0, (%rsp)
+	movups	%xmm0, 16(%rsp)
+	movl	$1, 32(%rsp)
+	movl	$1, 36(%rsp)
+	movaps	.LCPI0_1(%rip), %xmm0
+	movups	%xmm0, -128(%rsp)
+	movups	%xmm0, -112(%rsp)
+	movups	%xmm0, -96(%rsp)
+	movups	%xmm0, -80(%rsp)
+	movups	%xmm0, -64(%rsp)
+	movups	%xmm0, -48(%rsp)
+	movups	%xmm0, -32(%rsp)
+	movups	%xmm0, -16(%rsp)
+	movups	%xmm0, (%rsp)
+	movups	%xmm0, 16(%rsp)
+	movabsq	$8589934594, %rax       # imm = 0x200000002
+	movq	%rax, 32(%rsp)
+	addq	$40, %rsp
+	retq
+.Ltmp1:
+	.size	f(), .Ltmp1-f()
+	.cfi_endproc
+
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align	16
+.LCPI1_0:
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+	.long	1                       # 0x1
+.LCPI1_1:
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.long	2                       # 0x2
+	.text
+	.globl	main
+	.align	16, 0x90
+	.type	main,@function
+main:                                   # @main
+	.cfi_startproc
+# BB#0:                                 # %.lr.ph.i.i.i3.i
+	subq	$40, %rsp
+.Ltmp2:
+	.cfi_def_cfa_offset 48
+	movaps	.LCPI1_0(%rip), %xmm0
+	movups	%xmm0, -128(%rsp)
+	movups	%xmm0, -112(%rsp)
+	movups	%xmm0, -96(%rsp)
+	movups	%xmm0, -80(%rsp)
+	movups	%xmm0, -64(%rsp)
+	movups	%xmm0, -48(%rsp)
+	movups	%xmm0, -32(%rsp)
+	movups	%xmm0, -16(%rsp)
+	movups	%xmm0, (%rsp)
+	movups	%xmm0, 16(%rsp)
+	movl	$1, 32(%rsp)
+	movl	$1, 36(%rsp)
+	movaps	.LCPI1_1(%rip), %xmm0
+	movups	%xmm0, -128(%rsp)
+	movups	%xmm0, -112(%rsp)
+	movups	%xmm0, -96(%rsp)
+	movups	%xmm0, -80(%rsp)
+	movups	%xmm0, -64(%rsp)
+	movups	%xmm0, -48(%rsp)
+	movups	%xmm0, -32(%rsp)
+	movups	%xmm0, -16(%rsp)
+	movups	%xmm0, (%rsp)
+	movups	%xmm0, 16(%rsp)
+	movabsq	$8589934594, %rax       # imm = 0x200000002
+	movq	%rax, 32(%rsp)
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	retq
+.Ltmp3:
+	.size	main, .Ltmp3-main
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
+--------------------------------------------------------------------------------
