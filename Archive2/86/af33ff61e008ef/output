@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:14:41: error: no matching function for call to 'bar(foo<int>, convertible<int>)'
+     bar(foo<int> {}, convertible<int> {});
+                                         ^
+main.cpp:14:41: note: candidate is:
+main.cpp:5:6: note: template<class T> void bar(foo<T>, foo<T>)
+ void bar(foo<T>, foo<T>) {}
+      ^
+main.cpp:5:6: note:   template argument deduction/substitution failed:
+main.cpp:14:41: note:   'convertible<int>' is not derived from 'foo<T>'
+     bar(foo<int> {}, convertible<int> {});
+                                         ^
