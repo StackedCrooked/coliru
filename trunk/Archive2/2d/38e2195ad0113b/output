@@ -1,0 +1,12 @@
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda; std::false_type = std::integral_constant<bool, false>]':
+/usr/local/include/c++/4.9.2/functional:1914:51:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda]'
+/usr/local/include/c++/4.9.2/functional:2428:19:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:36:46:   required from 'std::future<decltype (fn())> sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]'
+main.cpp:44:6:   required from here
+/usr/local/include/c++/4.9.2/functional:1878:34: error: use of deleted function 'sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda::lambda(const sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda&)'
+    __dest._M_access<_Functor*>() =
+                                  ^
+main.cpp:16:12: note: 'sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda::lambda(const sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda&)' is implicitly declared as deleted because 'sync(F) [with F = main()::<lambda()>; decltype (fn()) = int]::lambda' declares a move constructor or move assignment operator
+     struct lambda
+            ^
