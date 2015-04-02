@@ -1,0 +1,1 @@
+set -x; g++ -std=gnu++11 -O -Wall -Wextra main.cpp -lquadmath && ./a.out
