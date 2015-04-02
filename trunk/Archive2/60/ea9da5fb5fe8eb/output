@@ -1,0 +1,12 @@
++ g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp
+main.cpp:5:31: error: aggregate 'TD<void(int (&)[2], int (&)[3], int (&)[4])> t' has incomplete type and cannot be defined
+ TD<decltype(f<int, 2, 3, 4>)> t;
+                               ^
++ clang++ -stdlib=libc++ -std=c++1y -O2 -Wall -pedantic -pthread -lcxxrt -ldl main.cpp
+main.cpp:5:31: error: implicit instantiation of undefined template 'TD<void (int (&)[2], int (&)[3], int (&)[4])>'
+TD<decltype(f<int, 2, 3, 4>)> t;
+                              ^
+main.cpp:4:25: note: template is declared here
+template<class T> class TD;
+                        ^
+1 error generated.
