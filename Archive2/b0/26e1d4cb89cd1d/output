@@ -1,0 +1,13 @@
+main.cpp: In function 'int main()':
+main.cpp:17:20: error: no matching function for call to 'asdf(main()::<lambda(int)>)'
+     asdf([](int) {});
+                    ^
+main.cpp:17:20: note: candidate is:
+main.cpp:6:6: note: template<class Func, class> void asdf(Func)
+ void asdf(Func doThing) {
+      ^
+main.cpp:6:6: note:   template argument deduction/substitution failed:
+main.cpp:5:25: error: no type named 'type' in 'class std::result_of<main()::<lambda(int)>()>'
+ template<typename Func, typename = typename std::result_of<Func()>::type>
+                         ^
+1
