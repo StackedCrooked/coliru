@@ -1,0 +1,11 @@
+main.cpp:18:25: warning: 'va_start' has undefined behavior with reference types [-Wvarargs]
+    va_start(arguments, userString);
+                        ^
+/usr/local/bin/../lib/clang/3.5.0/include/stdarg.h:33:52: note: expanded from macro 'va_start'
+#define va_start(ap, param) __builtin_va_start(ap, param)
+                                                   ^
+main.cpp:9:28: note: parameter of type 'const string &' (aka 'const basic_string<char> &') is declared here
+string write(string const& userString, ...)
+                           ^
+1 warning generated.
+This is 5 a string. -1.9
