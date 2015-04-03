@@ -1,0 +1,1 @@
+clang++ main.cpp -Os -Wall -Werror -Wpedantic -Wextra -std=c++1z && ./a.out
