@@ -1,0 +1,20 @@
++ clang++ -std=c++1y -Wall -pedantic main.cpp
+main.cpp:42:3: error: no matching function for call to 'foo2'
+  foo2( typename s::lhs{}, std::forward<Ts>(ts)... );
+  ^~~~
+main.cpp:48:5: note: in instantiation of function template specialization 'foo<int, int, double, double>' requested here
+    foo(1, 2, 4.5, 5.5);
+    ^
+main.cpp:35:6: note: candidate function not viable: requires 3 arguments, but 5 were provided
+void foo2(types<T0s...>, T0s&&... t0s, T1s&&... t1s) {
+     ^
+1 error generated.
++ g++ -std=c++1y -Wall -pedantic main.cpp
+main.cpp: In instantiation of 'void foo(Ts&& ...) [with Ts = {int, int, double, double}]':
+main.cpp:48:23:   required from here
+main.cpp:42:52: error: too few arguments to function 'void foo2(types<lhs ...>, T0s&& ..., T1s&& ...) [with T0s = {int, int}; T1s = {int, int, double, double}]'
+   foo2( typename s::lhs{}, std::forward<Ts>(ts)... );
+                                                    ^
+main.cpp:35:6: note: declared here
+ void foo2(types<T0s...>, T0s&&... t0s, T1s&&... t1s) {
+      ^
