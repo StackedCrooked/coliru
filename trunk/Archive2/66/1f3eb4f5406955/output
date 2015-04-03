@@ -1,0 +1,18 @@
+main.cpp: In instantiation of 'any::concrete<TDerived, Ts>::concrete(TDerived*) [with TDerived = base; Ts = base2]':
+main.cpp:47:94:   required from 'static any any::create(T*) [with T = base; Ts = {base2}]'
+main.cpp:137:39:   required from here
+main.cpp:24:50: error: invalid static_cast from type 'base*' to type 'base2*'
+             , concrete<Ts>(static_cast<Ts*>(ptr))...
+                                                  ^
+main.cpp:24:50: error: no matching function for call to 'any::concrete<base2>::concrete()'
+main.cpp:24:50: note: candidates are:
+main.cpp:33:9: note: any::concrete<TDerived>::concrete(T*) [with T = base2]
+         concrete(T* p)
+         ^
+main.cpp:33:9: note:   candidate expects 1 argument, 0 provided
+main.cpp:31:12: note: constexpr any::concrete<base2>::concrete(const any::concrete<base2>&)
+     struct concrete<T>
+            ^
+main.cpp:31:12: note:   candidate expects 1 argument, 0 provided
+main.cpp:31:12: note: constexpr any::concrete<base2>::concrete(any::concrete<base2>&&)
+main.cpp:31:12: note:   candidate expects 1 argument, 0 provided
