@@ -1,0 +1,26 @@
+main.cpp: In function 'int main()':
+main.cpp:15:16: error: no matching function for call to 'foo(std::vector<int>&)'
+    my_ns::foo(a);
+                ^
+main.cpp:15:16: note: candidate is:
+main.cpp:9:7: note: template<class T> decltype (my_ns::begin(f)) my_ns::foo(T&&)
+  auto foo(T&& f) -> decltype(begin(f)) { return begin(f); }
+       ^
+main.cpp:9:7: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> decltype (my_ns::begin(f)) my_ns::foo(T&&) [with T = std::vector<int>&]':
+main.cpp:15:16:   required from here
+main.cpp:9:37: error: call of overloaded 'begin(std::vector<int>&)' is ambiguous
+  auto foo(T&& f) -> decltype(begin(f)) { return begin(f); }
+                                     ^
+main.cpp:9:37: note: candidates are:
+main.cpp:6:7: note: decltype (t.begin()) my_ns::begin(T&) [with T = std::vector<int>; decltype (t.begin()) = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]
+  auto begin(T & t) -> decltype(t.begin()) { return t.begin(); }
+       ^
+In file included from /usr/local/include/c++/4.9.2/vector:66:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/range_access.h:58:5: note: decltype (__cont.begin()) std::begin(const _Container&) [with _Container = std::vector<int>; decltype (__cont.begin()) = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >]
+     begin(const _Container& __cont) -> decltype(__cont.begin())
+     ^
+/usr/local/include/c++/4.9.2/bits/range_access.h:48:5: note: decltype (__cont.begin()) std::begin(_Container&) [with _Container = std::vector<int>; decltype (__cont.begin()) = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]
+     begin(_Container& __cont) -> decltype(__cont.begin())
+     ^
