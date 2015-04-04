@@ -1,0 +1,143 @@
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.text
+	.p2align 4,,15
+	.globl	_Z3getPKhi
+	.type	_Z3getPKhi, @function
+_Z3getPKhi:
+.LFB3:
+	.cfi_startproc
+	xor	eax, eax
+	xor	r8d, r8d
+	xor	edx, edx
+	xor	ecx, ecx
+.L13:
+	cmp	esi, 32
+	jg	.L15
+	cmp	esi, 16
+	jg	.L16
+	cmp	esi, 8
+	jg	.L17
+	add	ecx, r8d
+	add	edx, ecx
+	add	eax, edx
+	mov	edx, eax
+	and	eax, 65535
+	shr	edx, 16
+	add	edx, eax
+	lea	eax, [rdx-65535]
+	cmp	edx, 65536
+	cmovae	edx, eax
+	mov	eax, esi
+	sub	eax, 2
+	js	.L8
+	mov	r8d, eax
+	shr	r8d
+	mov	eax, r8d
+	lea	rcx, [rdi+2+rax*2]
+	.p2align 4,,10
+	.p2align 3
+.L9:
+	movzx	eax, WORD PTR [rdi]
+	add	rdi, 2
+	add	edx, eax
+	cmp	rdi, rcx
+	jne	.L9
+	neg	r8d
+	lea	eax, [rsi-4+r8*2]
+.L8:
+	cmp	eax, -1
+	je	.L18
+.L10:
+	movzx	eax, dx
+	shr	edx, 16
+	add	eax, edx
+	lea	edx, [rax-65535]
+	cmp	eax, 65536
+	cmovae	eax, edx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L15:
+	movzx	r10d, WORD PTR [rdi]
+	movzx	r9d, WORD PTR [rdi+8]
+	sub	esi, 32
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+2]
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+16]
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+10]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+4]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+18]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+12]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+6]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+20]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+14]
+	add	r9d, r10d
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+22]
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+24]
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+26]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+28]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+30]
+	add	rdi, 32
+	add	eax, r9d
+	jmp	.L13
+	.p2align 4,,10
+	.p2align 3
+.L16:
+	movzx	r10d, WORD PTR [rdi]
+	movzx	r9d, WORD PTR [rdi+8]
+	sub	esi, 16
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+2]
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+10]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+4]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+12]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+6]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+14]
+	add	rdi, 16
+	add	r9d, r10d
+	add	eax, r9d
+	jmp	.L13
+	.p2align 4,,10
+	.p2align 3
+.L17:
+	movzx	r9d, WORD PTR [rdi]
+	sub	esi, 8
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+2]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+4]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+6]
+	add	rdi, 8
+	add	eax, r9d
+	jmp	.L13
+	.p2align 4,,10
+	.p2align 3
+.L18:
+	movzx	eax, BYTE PTR [rdi]
+	add	edx, eax
+	jmp	.L10
+	.cfi_endproc
+.LFE3:
+	.size	_Z3getPKhi, .-_Z3getPKhi
+	.ident	"GCC: (Ubuntu/Linaro 4.7.3-2ubuntu1~12.04) 4.7.3"
+	.section	.note.GNU-stack,"",@progbits
