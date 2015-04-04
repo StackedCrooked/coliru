@@ -1,0 +1,17 @@
+main.cpp:12:39: error: 'typename std::enable_if<(! B)>::type foo<B>::bar()' cannot be overloaded
+     typename std::enable_if<!B>::type bar()
+                                       ^
+main.cpp:7:38: error: with 'typename std::enable_if<B>::type foo<B>::bar()'
+     typename std::enable_if<B>::type bar()
+                                      ^
+main.cpp: In instantiation of 'class foo<false>':
+main.cpp:21:16:   required from here
+main.cpp:7:38: error: no type named 'type' in 'struct std::enable_if<false, void>'
+main.cpp: In function 'int main()':
+main.cpp:7:38: error: 'typename std::enable_if<B>::type foo<B>::bar() [with bool B = true; typename std::enable_if<B>::type = void]' is private
+main.cpp:22:11: error: within this context
+     a.bar();
+           ^
+main.cpp:23:7: error: 'class foo<false>' has no member named 'bar'
+     b.bar();
+       ^
