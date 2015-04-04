@@ -1,0 +1,1 @@
+set -x; g++ -x c -o test -std=c11 -O3 -pedantic-errors main.cpp  && ./test
