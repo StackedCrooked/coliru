@@ -1,0 +1,118 @@
+	.file	"main.cpp"
+	.intel_syntax noprefix
+	.text
+	.p2align 4,,15
+	.globl	_Z3getPKti
+	.type	_Z3getPKti, @function
+_Z3getPKti:
+.LFB3:
+	.cfi_startproc
+	xor	ecx, ecx
+	xor	r8d, r8d
+	xor	edx, edx
+	xor	eax, eax
+.L12:
+	cmp	esi, 32
+	jg	.L14
+	cmp	esi, 8
+	jg	.L15
+	add	ecx, r8d
+	add	edx, ecx
+	add	eax, edx
+	movzx	r9d, ax
+	shr	eax, 16
+	lea	edx, [rax+r9]
+	lea	eax, [rdx-65535]
+	cmp	edx, 65536
+	cmovae	edx, eax
+	mov	eax, esi
+	sub	eax, 2
+	js	.L7
+	mov	r8d, eax
+	shr	r8d
+	mov	eax, r8d
+	lea	rcx, [rdi+2+rax*2]
+	.p2align 4,,10
+	.p2align 3
+.L8:
+	movzx	eax, WORD PTR [rdi]
+	add	rdi, 2
+	add	edx, eax
+	cmp	rdi, rcx
+	jne	.L8
+	neg	r8d
+	lea	eax, [rsi-4+r8*2]
+.L7:
+	cmp	eax, -1
+	je	.L16
+.L9:
+	movzx	eax, dx
+	shr	edx, 16
+	add	eax, edx
+	lea	edx, [rax-65535]
+	cmp	eax, 65536
+	cmovae	eax, edx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L14:
+	movzx	r10d, WORD PTR [rdi]
+	movzx	r9d, WORD PTR [rdi+8]
+	sub	esi, 32
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+2]
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+16]
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+10]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+4]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+18]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+12]
+	add	r9d, r10d
+	movzx	r10d, WORD PTR [rdi+6]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+20]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+14]
+	add	r9d, r10d
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+22]
+	add	ecx, r9d
+	movzx	r9d, WORD PTR [rdi+24]
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+26]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+28]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+30]
+	add	rdi, 32
+	add	ecx, r9d
+	jmp	.L12
+	.p2align 4,,10
+	.p2align 3
+.L15:
+	movzx	r9d, WORD PTR [rdi]
+	sub	esi, 8
+	add	eax, r9d
+	movzx	r9d, WORD PTR [rdi+2]
+	add	edx, r9d
+	movzx	r9d, WORD PTR [rdi+4]
+	add	r8d, r9d
+	movzx	r9d, WORD PTR [rdi+6]
+	add	rdi, 8
+	add	ecx, r9d
+	jmp	.L12
+	.p2align 4,,10
+	.p2align 3
+.L16:
+	movzx	eax, BYTE PTR [rdi]
+	add	edx, eax
+	jmp	.L9
+	.cfi_endproc
+.LFE3:
+	.size	_Z3getPKti, .-_Z3getPKti
+	.ident	"GCC: (Ubuntu/Linaro 4.7.3-2ubuntu1~12.04) 4.7.3"
+	.section	.note.GNU-stack,"",@progbits
