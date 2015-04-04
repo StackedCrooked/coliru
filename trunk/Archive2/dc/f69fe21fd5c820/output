@@ -1,0 +1,57 @@
+main.cpp:23:18: error: no matching function for call to 'f'
+    std::cout << f(xs.begin(), xs.end());
+                 ^
+main.cpp:17:5: note: candidate function not viable: no known conversion from 'iterator' (aka '__normal_iterator<pointer, std::vector<int, std::allocator<int> > >') to 'any_iterator<int, std::input_iterator_tag>' for 1st argument
+int f(any_iterator<int, std::input_iterator_tag> begin, any_iterator<int, std::input_iterator_tag> end) {
+    ^
+In file included from main.cpp:14:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/numeric:62:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_numeric.h:126:22: error: invalid operands to binary expression ('any_iterator<int, std::input_iterator_tag>' and 'any_iterator<int, std::input_iterator_tag>')
+      for (; __first != __last; ++__first)
+             ~~~~~~~ ^  ~~~~~~
+main.cpp:18:17: note: in instantiation of function template specialization 'std::accumulate<any_iterator<int, std::input_iterator_tag>, int>' requested here
+    return std::accumulate(begin, end, 0);
+                ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:304:5: note: candidate template ignored: could not match 'reverse_iterator' against 'any_iterator'
+    operator!=(const reverse_iterator<_Iterator>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:354:5: note: candidate template ignored: could not match 'reverse_iterator' against 'any_iterator'
+    operator!=(const reverse_iterator<_IteratorL>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:1060:5: note: candidate template ignored: could not match 'move_iterator' against 'any_iterator'
+    operator!=(const move_iterator<_IteratorL>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_iterator.h:1066:5: note: candidate template ignored: could not match 'move_iterator' against 'any_iterator'
+    operator!=(const move_iterator<_Iterator>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/postypes.h:221:5: note: candidate template ignored: could not match 'fpos' against 'any_iterator'
+    operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_pair.h:227:5: note: candidate template ignored: could not match 'pair' against 'any_iterator'
+    operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/allocator.h:138:5: note: candidate template ignored: could not match 'allocator' against 'any_iterator'
+    operator!=(const allocator<_T1>&, const allocator<_T2>&)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/allocator.h:143:5: note: candidate template ignored: could not match 'allocator' against 'any_iterator'
+    operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_string.h:2551:5: note: candidate template ignored: could not match 'basic_string' against 'any_iterator'
+    operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_string.h:2563:5: note: candidate template ignored: could not match 'const _CharT *' against 'any_iterator<int, std::input_iterator_tag>'
+    operator!=(const _CharT* __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/basic_string.h:2575:5: note: candidate template ignored: could not match 'basic_string' against 'any_iterator'
+    operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/streambuf_iterator.h:210:5: note: candidate template ignored: could not match 'istreambuf_iterator' against 'any_iterator'
+    operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stream_iterator.h:137:5: note: candidate template ignored: could not match 'istream_iterator' against 'any_iterator'
+    operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+    ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/stl_vector.h:1535:5: note: candidate template ignored: could not match 'vector' against 'any_iterator'
+    operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+    ^
+2 errors generated.
