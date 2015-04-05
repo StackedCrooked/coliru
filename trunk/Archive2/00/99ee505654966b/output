@@ -1,0 +1,25 @@
+main.cpp:15:17: error: type 'double' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+        return {x * factor, y * factor, z * factor};
+                ^~~~~~~~~~
+main.cpp:22:7: note: in instantiation of function template specialization 'Coord<0>::operator*<double>' requested here
+    c * 1.0;
+      ^
+main.cpp:15:17: note: insert an explicit cast to silence this issue
+        return {x * factor, y * factor, z * factor};
+                ^~~~~~~~~~
+                static_cast<int>( )
+main.cpp:15:29: error: type 'double' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+        return {x * factor, y * factor, z * factor};
+                            ^~~~~~~~~~
+main.cpp:15:29: note: insert an explicit cast to silence this issue
+        return {x * factor, y * factor, z * factor};
+                            ^~~~~~~~~~
+                            static_cast<int>( )
+main.cpp:15:41: error: type 'double' cannot be narrowed to 'int' in initializer list [-Wc++11-narrowing]
+        return {x * factor, y * factor, z * factor};
+                                        ^~~~~~~~~~
+main.cpp:15:41: note: insert an explicit cast to silence this issue
+        return {x * factor, y * factor, z * factor};
+                                        ^~~~~~~~~~
+                                        static_cast<int>( )
+3 errors generated.
