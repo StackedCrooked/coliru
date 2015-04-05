@@ -1,0 +1,12 @@
+#include <functional>
+
+int foo( int a ) { return a/2 + a%3 ; }
+
+std::function< int(int) > wrapped_closure() { return []( int a ) { return a/2 + a%3 ; } ; }
+function pointer: 860000 processor clock ticks
+  lambda (local): 420000 processor clock ticks
+ lambda (extern): 410000 processor clock ticks
+==============
+function pointer: 920000 processor clock ticks
+  lambda (local): 410000 processor clock ticks
+ lambda (extern): 400000 processor clock ticks
