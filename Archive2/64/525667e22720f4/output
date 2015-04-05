@@ -1,0 +1,82 @@
+main.cpp:74:18: warning: unused variable 'key_char' [-Wunused-variable]
+            auto key_char   = boost::proto::deep_copy(char_("\x01-\x05\x07-\x08\x0C\x0E-\x1F\x21-\x7F"));
+                 ^
+main.cpp:35:33: warning: unused function 'operator<<' [-Wunused-function]
+    static inline std::ostream& operator<<(std::ostream& os, qualified_nickname const&) { return std::operator<<(os, "[qualified_nickname]"); }
+                                ^
+main.cpp:37:33: warning: unused function 'operator<<' [-Wunused-function]
+    static inline std::ostream& operator<<(std::ostream& os, param              const&) { return std::operator<<(os, "[param]");              }
+                                ^
+main.cpp:38:33: warning: unused function 'operator<<' [-Wunused-function]
+    static inline std::ostream& operator<<(std::ostream& os, params             const&) { return std::operator<<(os, "[params]");             }
+                                ^
+main.cpp:39:33: warning: unused function 'operator<<' [-Wunused-function]
+    static inline std::ostream& operator<<(std::ostream& os, irc_message        const&) { return std::operator<<(os, "[irc_message]");        }
+                                ^
+5 warnings generated.
+<message>
+  <try>:Angel!wings@irc.org</try>
+  <prefix>
+    <try>Angel!wings@irc.org </try>
+    <nickname>
+      <try>Angel!wings@irc.org </try>
+      <nickname>
+        <try>Angel!wings@irc.org </try>
+        <success>!wings@irc.org PRIVM</success>
+        <attributes>[[A, n, g, e, l]]</attributes>
+      </nickname>
+      <success>!wings@irc.org PRIVM</success>
+      <attributes>[[A, n, g, e, l]]</attributes>
+    </nickname>
+    <host>
+      <try>irc.org PRIVMSG Wiz </try>
+      <hostname>
+        <try>irc.org PRIVMSG Wiz </try>
+        <shortname>
+          <try>irc.org PRIVMSG Wiz </try>
+          <success>.org PRIVMSG Wiz :Ar</success>
+          <attributes>[]</attributes>
+        </shortname>
+        <shortname>
+          <try>org PRIVMSG Wiz :Are</try>
+          <success> PRIVMSG Wiz :Are yo</success>
+          <attributes>[]</attributes>
+        </shortname>
+        <success> PRIVMSG Wiz :Are yo</success>
+        <attributes>[]</attributes>
+      </hostname>
+      <success> PRIVMSG Wiz :Are yo</success>
+      <attributes>[[i, r, c, ., o, r, g]]</attributes>
+    </host>
+    <success> PRIVMSG Wiz :Are yo</success>
+    <attributes>[[[A, n, g, e, l], [w, i, n, g, s], [i, r, c, ., o, r, g]]]</attributes>
+  </prefix>
+  <command>
+    <try>PRIVMSG Wiz :Are you</try>
+    <success> Wiz :Are you receiv</success>
+    <attributes>[[wellknown_cmd]]</attributes>
+  </command>
+  <params>
+    <try> Wiz :Are you receiv</try>
+    <middle>
+      <try>Wiz :Are you receivi</try>
+      <success> :Are you receiving </success>
+      <attributes>[[W, i, z]]</attributes>
+    </middle>
+    <middle>
+      <try>:Are you receiving t</try>
+      <fail/>
+    </middle>
+    <trailing>
+      <try>:Are you receiving t</try>
+      <success>\n</success>
+      <attributes>[[:, A, r, e,  , y, o, u,  , r, e, c, e, i, v, i, n, g,  , t, h, i, s,  , m, e, s, s, a, g, e,  , ?]]</attributes>
+    </trailing>
+    <success>\n</success>
+    <attributes>[[[W, i, z], [:, A, r, e,  , y, o, u,  , r, e, c, e, i, v, i, n, g,  , t, h, i, s,  , m, e, s, s, a, g, e,  , ?]]]</attributes>
+  </params>
+  <fail/>
+</message>
+Parse failed
+Remaining unparsed: ':Angel!wings@irc.org PRIVMSG Wiz :Are you receiving this message ?
+'
