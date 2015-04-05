@@ -1,0 +1,28 @@
++ clang++ -std=c++11 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -stdlib=libc++ -pthread main.cpp -lsupc++
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+/usr/include/c++/v1/memory:1645:31: error: no matching constructor for initialization of 'Foo'
+            ::new((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                              ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/memory:1572:18: note: in instantiation of function template specialization 'std::__1::allocator<Foo>::construct<Foo, int, int>' requested here
+            {__a.construct(__p, _VSTD::forward<_Args>(__args)...);}
+                 ^
+/usr/include/c++/v1/memory:1453:14: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<Foo> >::__construct<Foo, int, int>' requested here
+            {__construct(__has_construct<allocator_type, pointer, _Args...>(),
+             ^
+/usr/include/c++/v1/vector:1637:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<Foo> >::construct<Foo, int, int>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+main.cpp:13:7: note: in instantiation of function template specialization 'std::__1::vector<Foo, std::__1::allocator<Foo> >::emplace_back<int, int>' requested here
+    v.emplace_back(3, 4); // fails
+      ^
+main.cpp:4:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+struct Foo // aggregate
+       ^
+main.cpp:4:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+main.cpp:4:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+1 error generated.
