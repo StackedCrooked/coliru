@@ -1,0 +1,1 @@
+clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp && printf ":Angel!wings@irc.org PRIVMSG Wiz :Are you receiving this message ?\r\n" | ./a.out
