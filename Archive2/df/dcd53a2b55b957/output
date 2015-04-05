@@ -1,0 +1,22 @@
+main.cpp:37:7: error: invalid operands to binary expression ('Coord<0>' and 'const char *')
+    c * "";
+    ~ ^ ~~
+main.cpp:29:63: note: candidate template ignored: disabled by 'enable_if' [with T = const char *]
+    auto operator*(const T factor) -> typename std::enable_if<std::is_arithmetic<T>::value, typename std::remove_reference<decltype(*this)>::type>::type const {
+                                                              ^
+main.cpp:19:9: error: static_assert failed "you\342\200\231re wrong"
+        static_assert(std::is_arithmetic<T>::value, "you’re wrong");
+        ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:41:7: note: in instantiation of function template specialization 'Coord<0>::operator^<const char *>' requested here
+    c ^ "";
+      ^
+main.cpp:20:29: error: invalid operands to binary expression ('int' and 'const char *')
+        return Coord<tag>(x * factor, y * factor, z * factor);
+                          ~ ^ ~~~~~~
+main.cpp:25:72: error: invalid operands to binary expression ('int' and 'const char *')
+        return typename std::remove_reference<decltype(*this)>::type(x * factor, y * factor, z * factor);
+                                                                     ~ ^ ~~~~~~
+main.cpp:39:7: note: in instantiation of function template specialization 'Coord<0>::operator%<const char *>' requested here
+    c % "";
+      ^
+4 errors generated.
