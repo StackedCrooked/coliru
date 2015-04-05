@@ -1,0 +1,13 @@
+main.cpp:75:7: error: invalid operands to binary expression ('Coord<0>' and 'const char *')
+    c * "";
+    ~ ^ ~~
+main.cpp:26:63: note: candidate template ignored: disabled by 'enable_if' [with T = const char *]
+    auto operator*(const T factor) -> typename std::enable_if<std::is_arithmetic<T>::value, typename std::remove_reference<decltype(*this)>::type>::type const {
+                                                              ^
+main.cpp:22:72: error: invalid operands to binary expression ('int' and 'const char *')
+        return typename std::remove_reference<decltype(*this)>::type(x * factor, y * factor, z * factor);
+                                                                     ~ ^ ~~~~~~
+main.cpp:77:7: note: in instantiation of function template specialization 'Coord<0>::operator%<const char *>' requested here
+    c % "";
+      ^
+2 errors generated.
