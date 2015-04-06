@@ -1,0 +1,1 @@
+clang++ -std=c++1z -W{all,extra,error} -pedantic main.cpp -rdynamic && ./a.out
