@@ -1,0 +1,1 @@
+mv main.{cpp,c} && clang -std=c11 -W{all,extra,error} -pedantic -fblocks main.c && ./a.out
