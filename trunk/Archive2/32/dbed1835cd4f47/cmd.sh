@@ -1,0 +1,1 @@
+clang++ --std=c++11 main.cpp && ./a.out foo bar baz 1 2 3
