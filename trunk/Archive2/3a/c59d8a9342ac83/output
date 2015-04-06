@@ -1,0 +1,13 @@
+main.cpp:12:11: error: no viable conversion from 'baz<float>' to 'baz<(default) int>'
+    baz<> b = baz<float>();
+          ^   ~~~~~~~~~~~~
+main.cpp:4:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'baz<float>' to 'const baz<int> &' for 1st argument
+struct baz {
+       ^
+main.cpp:4:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'baz<float>' to 'baz<int> &&' for 1st argument
+struct baz {
+       ^
+main.cpp:6:5: note: candidate template ignored: couldn't infer template argument ''
+    operator baz<T>() {
+    ^
+1 error generated.
