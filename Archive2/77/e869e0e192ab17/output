@@ -1,0 +1,10 @@
+main.cpp: In function 'int main()':
+main.cpp:46:66: error: no matching function for call to 'FooSpace::A<int>::test(MySpecialType)'
+     std::cout << "qwer " << B<int>(4).then->test(MySpecialType(5)) << std::endl;
+                                                                  ^
+main.cpp:46:66: note: candidate is:
+main.cpp:14:14: note: bool FooSpace::A<T>::test(double) [with T = int]
+         bool test(double other) {
+              ^
+main.cpp:14:14: note:   no known conversion for argument 1 from 'MySpecialType' to 'double'
+1
