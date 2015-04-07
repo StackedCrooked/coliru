@@ -1,0 +1,24 @@
+In file included from main.cpp:1:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:366:19: error: assigning to 'char *' from incompatible type 'const char *'
+          _M_head(*this) = std::forward<_UHead>
+                         ^ ~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:642:36: note: in instantiation of function template specialization 'std::_Tuple_impl<0, char *&, char *&>::operator=<const char *, const char *>' requested here
+          static_cast<_Inherited&>(*this) = std::move(__in);
+                                          ^
+main.cpp:16:20: note: in instantiation of function template specialization 'std::tuple<char *&, char *&>::operator=<const char *, const char *>' requested here
+    std::tie(i, a) = f("foo");
+                   ^
+In file included from main.cpp:1:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:366:19: error: assigning to 'char *' from incompatible type 'const char *'
+          _M_head(*this) = std::forward<_UHead>
+                         ^ ~~~~~~~~~~~~~~~~~~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:368:19: note: in instantiation of function template specialization 'std::_Tuple_impl<1, char *&>::operator=<const char *>' requested here
+          _M_tail(*this) = std::move
+                         ^
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/tuple:642:36: note: in instantiation of function template specialization 'std::_Tuple_impl<0, char *&, char *&>::operator=<const char *, const char *>' requested here
+          static_cast<_Inherited&>(*this) = std::move(__in);
+                                          ^
+main.cpp:16:20: note: in instantiation of function template specialization 'std::tuple<char *&, char *&>::operator=<const char *, const char *>' requested here
+    std::tie(i, a) = f("foo");
+                   ^
+2 errors generated.
