@@ -1,0 +1,13 @@
+g++
+main.cpp: In function 'int main()':
+main.cpp:9:11: warning: unused variable 'refFunc' [-Wunused-variable]
+     int (&refFunc)() noexcept(true) = func;
+           ^
+main.cpp:10:11: warning: unused variable 'refFunc_1' [-Wunused-variable]
+     int (&refFunc_1)() noexcept(true) = func_1;
+           ^
+clang++
+main.cpp:10:41: error: target exception specification is not superset of source
+    int (&refFunc_1)() noexcept(true) = func_1;
+                                        ^
+1 error generated.
