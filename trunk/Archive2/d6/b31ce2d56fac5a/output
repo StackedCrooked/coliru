@@ -1,0 +1,11 @@
++ clang++ -Wdeprecated -o test -std=c++14 -O3 -pedantic-errors main.cpp -stdlib=libc++ -lsupc++
+main.cpp:6:5: warning: definition of implicit copy constructor for 'CAT' is deprecated because it has a user-declared destructor [-Wdeprecated]
+    ~CAT(){}
+    ^
+main.cpp:12:9: note: implicit copy constructor for 'CAT' first required here
+    CAT c3(c1); //should print out a warning?
+        ^
+1 warning generated.
++ ./test
+CAT()
+CAT()
