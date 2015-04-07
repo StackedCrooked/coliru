@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:24:17: error: no matching function for call to 'helpless(double)'
+     helpless(0.0);
+                 ^
+main.cpp:24:17: note: candidate is:
+main.cpp:17:6: note: template<class Arg, typename std::enable_if<std::is_integral<_Tp>::value, enabled>::type ...<anonymous> > void helpless(Arg)
+ void helpless(Arg) {}
+      ^
+main.cpp:17:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Arg, typename std::enable_if<std::is_integral<_Tp>::value, enabled>::type ...<anonymous> > void helpless(Arg) [with Arg = double; typename std::enable_if<std::is_integral<_Tp>::value, enabled>::type ...<anonymous> = {}]':
+main.cpp:24:17:   required from here
+main.cpp:17:6: error: no type named 'type' in 'struct std::enable_if<false, enabled>'
+main.cpp:25:16: error: no matching function for call to 'helpful(double)'
+     helpful(0.0);
+                ^
+main.cpp:25:16: note: candidate is:
+main.cpp:20:6: note: template<class Arg, typename sensible::enable_if<std::is_integral<_Tp>, enabled>::type ...<anonymous> > void helpful(Arg)
+ void helpful(Arg) {}
+      ^
+main.cpp:20:6: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class Arg, typename sensible::enable_if<std::is_integral<_Tp>, enabled>::type ...<anonymous> > void helpful(Arg) [with Arg = double; typename sensible::enable_if<std::is_integral<_Tp>, enabled>::type ...<anonymous> = {}]':
+main.cpp:25:16:   required from here
+main.cpp:20:6: error: no type named 'type' in 'struct sensible::enable_if<std::is_integral<double>, enabled>'
