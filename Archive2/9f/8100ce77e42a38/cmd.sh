@@ -1,0 +1,1 @@
+cp main.cpp input.dot
