@@ -1,0 +1,1 @@
+clang++ -std=c++14 -stdlib=libc++ main.cpp -lsupc++ -O1 && ./a.out 1000
