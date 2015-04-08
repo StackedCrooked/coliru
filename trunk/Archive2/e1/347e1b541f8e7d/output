@@ -1,0 +1,10 @@
+main.cpp:35:40: error: default template argument in a class template partial specialization
+template <typename Integer, typename = typename std::enable_if<std::is_integral<Integer>::value, void>::type>
+                                       ^
+main.cpp:36:8: warning: class template partial specialization contains a template parameter that cannot be deduced; this partial specialization will never be used
+struct identity_element<std::plus<Integer>> {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:35:29: note: non-deducible template parameter (anonymous)
+template <typename Integer, typename = typename std::enable_if<std::is_integral<Integer>::value, void>::type>
+                            ^
+1 warning and 1 error generated.
