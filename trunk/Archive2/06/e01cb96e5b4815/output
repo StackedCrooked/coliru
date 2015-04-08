@@ -1,0 +1,27 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/utility:157:
+In file included from /usr/include/c++/v1/__tuple:16:
+/usr/include/c++/v1/type_traits:225:78: error: no type named 'type' in 'std::__1::enable_if<false, void>'; 'enable_if' cannot be used to disable this declaration
+template <bool _Bp, class _Tp = void> using enable_if_t = typename enable_if<_Bp, _Tp>::type;
+                                                                             ^~~
+main.cpp:3:30: note: in instantiation of template type alias 'enable_if_t' requested here
+template < int I, class=std::enable_if_t< (I<5) > >
+                             ^
+main.cpp:10:15: note: in instantiation of default argument for 'foo<5>' required here
+    using f = foo<5>;
+              ^~~~~~
+1 error generated.
+
+In file included from /usr/local/include/c++/4.9.2/bits/move.h:57:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59,
+                 from /usr/local/include/c++/4.9.2/utility:70,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/type_traits: In substitution of 'template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = void]':
+main.cpp:10:20:   required from here
+/usr/local/include/c++/4.9.2/type_traits:2234:61: error: no type named 'type' in 'struct std::enable_if<false, void>'
+     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+                                                             ^
+main.cpp: In function 'int main()':
+main.cpp:10:20: error: template argument 2 is invalid
+     using f = foo<5>;
+                    ^
