@@ -1,0 +1,565 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:627:
+In file included from /usr/include/c++/v1/utility:157:
+/usr/include/c++/v1/__tuple:161:5: error: static_assert failed "tuple_element index out of range"
+    static_assert(_Ip != 0, "tuple_element index out of range");
+    ^             ~~~~~~~~
+/usr/include/c++/v1/__tuple:175:22: note: in instantiation of template class 'std::__1::tuple_element<0, std::__1::__tuple_types<> >' requested here
+    typedef typename tuple_element<_Ip-1, __tuple_types<_Tp...> >::type type;
+                     ^
+/usr/include/c++/v1/tuple:154:22: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::__tuple_types<int &> >' requested here
+    typedef typename tuple_element<_Ip, __tuple_types<_Tp...> >::type type;
+                     ^
+/usr/include/c++/v1/tuple:710:10: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::tuple<int &> >' requested here
+typename tuple_element<_Ip, tuple<_Tp...> >::type&
+         ^
+main.cpp:63:59: note: while substituting deduced template arguments into function template 'get' [with _Ip = 1, _Tp = <int &>]
+            std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                          ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+In file included from /usr/include/c++/v1/memory:607:
+/usr/include/c++/v1/tuple:723:12: error: no viable conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, int &>') to 'const __tuple_leaf<1UL, type>'
+    return static_cast<const __tuple_leaf<_Ip, type>&>(__t.base_).get();
+           ^                                           ~~~~~~~~~
+main.cpp:63:64: note: in instantiation of function template specialization 'std::__1::get<1, int &>' requested here
+            std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                               ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+/usr/include/c++/v1/tuple:271:5: note: candidate constructor not viable: no known conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, int &>') to 'const std::__1::__tuple_leaf<1, int, false> &' for 1st argument
+    __tuple_leaf(const __tuple_leaf& __t) = default;
+    ^
+/usr/include/c++/v1/tuple:272:5: note: candidate constructor not viable: no known conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, int &>') to 'std::__1::__tuple_leaf<1, int, false> &&' for 1st argument
+    __tuple_leaf(__tuple_leaf&& __t) = default;
+    ^
+/usr/include/c++/v1/tuple:213:42: note: candidate template ignored: disabled by 'enable_if' [with _Tp = const std::__1::__tuple_impl<std::__1::__tuple_indices<0>, int &> &]
+              class = typename enable_if<is_constructible<_Hp, _Tp>::value>::type>
+                                         ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:627:
+In file included from /usr/include/c++/v1/utility:157:
+/usr/include/c++/v1/__tuple:175:68: error: no type named 'type' in 'std::__1::tuple_element<0, std::__1::__tuple_types<> >'
+    typedef typename tuple_element<_Ip-1, __tuple_types<_Tp...> >::type type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/usr/include/c++/v1/tuple:154:22: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::__tuple_types<float &> >' requested here
+    typedef typename tuple_element<_Ip, __tuple_types<_Tp...> >::type type;
+                     ^
+/usr/include/c++/v1/tuple:710:10: note: in instantiation of template class 'std::__1::tuple_element<1, std::__1::tuple<float &> >' requested here
+typename tuple_element<_Ip, tuple<_Tp...> >::type&
+         ^
+main.cpp:64:13: note: while substituting deduced template arguments into function template 'get' [with _Ip = 1, _Tp = <float &>]
+            std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+            ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/iostream:38:
+In file included from /usr/include/c++/v1/ios:216:
+In file included from /usr/include/c++/v1/__locale:15:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+In file included from /usr/include/c++/v1/memory:607:
+/usr/include/c++/v1/tuple:723:12: error: no viable conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, float &>') to 'const __tuple_leaf<1UL, type>'
+    return static_cast<const __tuple_leaf<_Ip, type>&>(__t.base_).get();
+           ^                                           ~~~~~~~~~
+main.cpp:64:18: note: in instantiation of function template specialization 'std::__1::get<1, float &>' requested here
+            std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                 ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+/usr/include/c++/v1/tuple:271:5: note: candidate constructor not viable: no known conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, float &>') to 'const std::__1::__tuple_leaf<1, int, false> &' for 1st argument
+    __tuple_leaf(const __tuple_leaf& __t) = default;
+    ^
+/usr/include/c++/v1/tuple:272:5: note: candidate constructor not viable: no known conversion from 'const base' (aka 'const __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, float &>') to 'std::__1::__tuple_leaf<1, int, false> &&' for 1st argument
+    __tuple_leaf(__tuple_leaf&& __t) = default;
+    ^
+/usr/include/c++/v1/tuple:213:42: note: candidate template ignored: disabled by 'enable_if' [with _Tp = const std::__1::__tuple_impl<std::__1::__tuple_indices<0>, float &> &]
+              class = typename enable_if<is_constructible<_Hp, _Tp>::value>::type>
+                                         ^
+/usr/include/c++/v1/tuple:714:12: error: non-const lvalue reference to type '__tuple_leaf<1UL, type>' cannot bind to a value of unrelated type 'base' (aka '__tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, int &>')
+    return static_cast<__tuple_leaf<_Ip, type>&>(__t.base_).get();
+           ^                                     ~~~~~~~~~
+main.cpp:64:64: note: in instantiation of function template specialization 'std::__1::get<1, int &>' requested here
+            std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                               ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+main.cpp:64:34: error: read-only variable is not assignable
+            std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+            ~~~~~~~~~~~~~~~~~~~~ ^
+main.cpp:72:3: note: in instantiation of function template specialization 'foo2_t<types<int &> >::operator()<float &>' requested here
+  foo2_t<typename s::lhs>{}( std::forward<Ts>(ts)... );
+  ^
+main.cpp:90:5: note: in instantiation of function template specialization 'foo<int &, float &>' requested here
+    foo(a, c); // this causes error that "tuple_element index out of range" how I can avoid this?
+    ^
+6 errors generated.
+
+main.cpp: In member function 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...)':
+main.cpp:52:52: warning: typedef 'T0' locally defined but not used [-Wunused-local-typedefs]
+         typedef typename common_type<T0s...>::type T0;
+                                                    ^
+main.cpp:53:52: warning: typedef 'T1' locally defined but not used [-Wunused-local-typedefs]
+         typedef typename common_type<T1s...>::type T1;
+                                                    ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'struct std::tuple_element<1ul, std::tuple<int&> >':
+/usr/local/include/c++/4.9.2/tuple:772:5:   required by substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&) [with long unsigned int __i = 1ul; _Elements = {int&}]'
+main.cpp:63:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:680:12: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+     struct tuple_element<__i, tuple<_Head, _Tail...> >
+            ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:85:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+main.cpp:63:78: error: no matching function for call to 'get(std::tuple<int&>&)'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+main.cpp:63:78: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:143:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:143:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:148:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:148:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:153:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:153:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:162:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:162:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:167:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:167:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:172:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:172:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:177:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:177:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:182:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:182:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:187:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:187:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/tuple:756:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:756:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+main.cpp:63:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:756:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+main.cpp:63:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:772:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:772:5: note:   substitution of deduced template arguments resulted in errors seen above
+/usr/local/include/c++/4.9.2/tuple:793:5: note: template<class _Tp, class ... _Types> constexpr _Tp& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:793:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:799:5: note: template<class _Tp, class ... _Types> constexpr _Tp&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Types...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:799:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:805:5: note: template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:805:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:286:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::__debug::get(const std::__debug::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:286:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'const std::__debug::array<_Tp, _Nm>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:278:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::__debug::get(std::__debug::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:278:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:269:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::__debug::get(std::__debug::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:269:5: note:   template argument deduction/substitution failed:
+main.cpp:63:78: note:   'std::tuple<int&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<0>(tie_t1s) = std::get<0>(tie_t0s) + std::get<1>(tie_t0s);
+                                                                              ^
+main.cpp:64:78: error: no matching function for call to 'get(std::tuple<int&>&)'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+main.cpp:64:78: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:143:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:143:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:148:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:148:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:153:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:153:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:162:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:162:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:167:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:167:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:172:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:172:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:177:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:177:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:182:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:182:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:187:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:187:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/tuple:756:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:756:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+main.cpp:64:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:756:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+main.cpp:64:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:772:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:772:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&) [with long unsigned int __i = 1ul; _Elements = {int&}]':
+main.cpp:64:78:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:772:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<int&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:793:5: note: template<class _Tp, class ... _Types> constexpr _Tp& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:793:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:799:5: note: template<class _Tp, class ... _Types> constexpr _Tp&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Types...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:799:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:805:5: note: template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:805:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:286:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::__debug::get(const std::__debug::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:286:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'const std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:278:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::__debug::get(std::__debug::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:278:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:269:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::__debug::get(std::__debug::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:269:5: note:   template argument deduction/substitution failed:
+main.cpp:64:78: note:   'std::tuple<int&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                                                              ^
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/tuple: In instantiation of 'struct std::tuple_element<1ul, std::tuple<float&> >':
+/usr/local/include/c++/4.9.2/tuple:772:5:   required by substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&) [with long unsigned int __i = 1ul; _Elements = {float&}]'
+main.cpp:64:32:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:680:12: error: invalid use of incomplete type 'struct std::tuple_element<0ul, std::tuple<> >'
+     struct tuple_element<__i, tuple<_Head, _Tail...> >
+            ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:85:11: error: declaration of 'struct std::tuple_element<0ul, std::tuple<> >'
+     class tuple_element;
+           ^
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+main.cpp:64:32: error: no matching function for call to 'get(std::tuple<float&>&)'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+main.cpp:64:32: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:143:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:143:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:148:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:148:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:153:5: note: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:153:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+In file included from /usr/local/include/c++/4.9.2/tuple:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/utility:162:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:162:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:167:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:167:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:172:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:172:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:177:5: note: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:177:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:182:5: note: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:182:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/utility:187:5: note: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^
+/usr/local/include/c++/4.9.2/utility:187:5: note:   template argument deduction/substitution failed:
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/tuple:756:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:756:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {float&}]':
+main.cpp:64:32:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:756:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<float&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:764:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple: In substitution of 'template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_c_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(const std::tuple<_Elements ...>&) [with long unsigned int __i = 1ul; _Elements = {float&}]':
+main.cpp:64:32:   required from 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]'
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:764:5: error: no type named 'type' in 'struct std::tuple_element<1ul, std::tuple<float&> >'
+main.cpp: In instantiation of 'void foo2_t<types<lhs ...> >::operator()(const T0s&& ..., T1s&& ...) [with T1s = {float&}; T0s = {int&}]':
+main.cpp:72:54:   required from 'void foo(Ts&& ...) [with Ts = {int&, float&}]'
+main.cpp:90:13:   required from here
+/usr/local/include/c++/4.9.2/tuple:772:5: note: template<long unsigned int __i, class ... _Elements> constexpr typename std::__add_r_ref<typename std::tuple_element<__i, std::tuple<_Elements ...> >::type>::type std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:772:5: note:   substitution of deduced template arguments resulted in errors seen above
+/usr/local/include/c++/4.9.2/tuple:793:5: note: template<class _Tp, class ... _Types> constexpr _Tp& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:793:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:799:5: note: template<class _Tp, class ... _Types> constexpr _Tp&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Types...>&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:799:5: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/tuple:805:5: note: template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Types...>& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/tuple:805:5: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:286:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr const _Tp& std::__debug::get(const std::__debug::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:286:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'const std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:278:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp&& std::__debug::get(std::__debug::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:278:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
+In file included from /usr/local/include/c++/4.9.2/array:328:0,
+                 from /usr/local/include/c++/4.9.2/tuple:39,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/debug/array:269:5: note: template<long unsigned int _Int, class _Tp, long unsigned int _Nm> constexpr _Tp& std::__debug::get(std::__debug::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+/usr/local/include/c++/4.9.2/debug/array:269:5: note:   template argument deduction/substitution failed:
+main.cpp:64:32: note:   'std::tuple<float&>' is not derived from 'std::__debug::array<_Tp, _Nm>'
+             std::get<1>(tie_t1s) = std::get<0>(tie_t0s) - std::get<1>(tie_t0s);
+                                ^
