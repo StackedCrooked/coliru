@@ -1,0 +1,23 @@
+main.cpp: In function 'int main()':
+main.cpp:14:18: error: conversion from 'Base' to non-scalar type 'Derived' requested
+     Derived d1 = b;
+                  ^
+main.cpp:15:40: error: no matching function for call to 'Derived::Derived(Base&)'
+     Derived d2 = static_cast<Derived>(b);
+                                        ^
+main.cpp:15:40: note: candidates are:
+main.cpp:4:7: note: Derived::Derived()
+ class Derived: public Base
+       ^
+main.cpp:4:7: note:   candidate expects 0 arguments, 1 provided
+main.cpp:4:7: note: Derived::Derived(const Derived&)
+main.cpp:4:7: note:   no known conversion for argument 1 from 'Base' to 'const Derived&'
+main.cpp:16:41: error: cannot dynamic_cast 'b' (of type 'class Base') to type 'class Derived' (target is not pointer or reference)
+     Derived d3 = dynamic_cast<Derived>(b);
+                                         ^
+main.cpp:15:13: warning: unused variable 'd2' [-Wunused-variable]
+     Derived d2 = static_cast<Derived>(b);
+             ^
+main.cpp:16:13: warning: unused variable 'd3' [-Wunused-variable]
+     Derived d3 = dynamic_cast<Derived>(b);
+             ^
