@@ -1,0 +1,10 @@
+main.cpp:30:5: error: no matching function for call to 'select_parallel_do'
+    select_parallel_do( first, last, body, &Body::operator(), context);
+    ^~~~~~~~~~~~~~~~~~
+main.cpp:37:5: note: in instantiation of function template specialization 'parallel_do<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >, boost::function<void (int &)> >' requested here
+    parallel_do(foo.begin(),foo.end(),printer);
+    ^
+main.cpp:18:6: note: candidate template ignored: failed template argument deduction
+void select_parallel_do(Iterator first, Iterator last, const Body& body, void (Body::*)(Item, parallel_do_feeder<_Item>&) const, task_group_context& context)
+     ^
+1 error generated.
