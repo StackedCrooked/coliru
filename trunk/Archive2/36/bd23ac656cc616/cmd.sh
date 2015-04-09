@@ -1,0 +1,1 @@
+g++ --version && g++ -std=c++14 -O2 -Wall -Werror -pedantic -pthread main.cpp && ./a.out
