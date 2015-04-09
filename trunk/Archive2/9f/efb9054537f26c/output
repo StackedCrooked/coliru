@@ -1,0 +1,27 @@
++ clang++ -std=c++1y -stdlib=libc++ -Wall -pedantic main.cpp -pthread
+main.cpp:6:7: error: no matching member function for call to 'erase'
+    v.erase(v.rbegin());
+    ~~^~~~~
+/usr/include/c++/v1/vector:747:40: note: candidate function not viable: no known conversion from 'reverse_iterator' (aka 'reverse_iterator<iterator>') to 'const_iterator' (aka '__wrap_iter<const_pointer>') for 1st argument
+    _LIBCPP_INLINE_VISIBILITY iterator erase(const_iterator __position);
+                                       ^
+/usr/include/c++/v1/vector:748:14: note: candidate function not viable: requires 2 arguments, but 1 was provided
+    iterator erase(const_iterator __first, const_iterator __last);
+             ^
+1 error generated.
++ g++ -std=c++1y -Wall -pedantic main.cpp -pthread
+main.cpp: In function 'int main()':
+main.cpp:6:23: error: no matching function for call to 'std::vector<int>::erase(std::vector<int>::reverse_iterator)'
+     v.erase(v.rbegin());
+                       ^
+main.cpp:6:23: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/vector:64:0,
+                 from main.cpp:1:
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:1146:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = int*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const int*]
+       erase(const_iterator __position)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:1146:7: note:   no known conversion for argument 1 from 'std::vector<int>::reverse_iterator {aka std::reverse_iterator<__gnu_cxx::__normal_iterator<int*, std::vector<int> > >}' to 'std::vector<int>::const_iterator {aka __gnu_cxx::__normal_iterator<const int*, std::vector<int> >}'
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:1173:7: note: std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::erase(std::vector<_Tp, _Alloc>::const_iterator, std::vector<_Tp, _Alloc>::const_iterator) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; typename std::_Vector_base<_Tp, _Alloc>::pointer = int*; std::vector<_Tp, _Alloc>::const_iterator = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >; typename __gnu_cxx::__alloc_traits<typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type>::const_pointer = const int*]
+       erase(const_iterator __first, const_iterator __last)
+       ^
+/usr/local/include/c++/4.9.2/bits/stl_vector.h:1173:7: note:   candidate expects 2 arguments, 1 provided
