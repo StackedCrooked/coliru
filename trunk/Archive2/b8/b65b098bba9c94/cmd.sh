@@ -1,0 +1,1 @@
+g++ -O2 -std=c++14 -pedantic -pthread main.cpp && ./a.out
