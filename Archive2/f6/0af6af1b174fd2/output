@@ -1,0 +1,10 @@
+main.cpp:28:5: warning: '/*' within block comment [-Wcomment]
+    /* */
+    ^
+main.cpp:31:5: error: no matching function for call to 'MyStruct'
+    MyStruct([&](double a) {
+    ^~~~~~~~
+main.cpp:15:18: note: candidate template ignored: could not match 'function<bool (type-parameter-0-0)>' against '(lambda at main.cpp:31:14)'
+MyStruct_type<T> MyStruct(std::function<bool(T)> someFunc) {
+                 ^
+1 warning and 1 error generated.
