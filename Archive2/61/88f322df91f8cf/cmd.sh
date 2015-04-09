@@ -1,0 +1,1 @@
+g++ -std=c++14 -Wall main.cpp && echo "{1,2,3,}\n{X,X,2,1}\n{HELLO,WORLD,4,3}\n{@#,&%$,!@#,mmm}" > sudoku.txt &&   ./a.out
