@@ -1,0 +1,87 @@
+main.cpp: In function 'void GameOver()':
+main.cpp:5:5: error: 'time' was not declared in this scope
+     time = 0; //Reset time
+     ^
+main.cpp:7:22: error: 'numberOfInvaderBullets' was not declared in this scope
+  for (int k = 0; k < numberOfInvaderBullets; k++){ //Delete all bullets invader bullets
+                      ^
+main.cpp:8:7: error: 'invaderBullets' was not declared in this scope
+   if (invaderBullets[k] != nullptr){ //Delete only the existing bullets
+       ^
+main.cpp:14:22: error: 'numberOfBullets' was not declared in this scope
+  for (int k = 0; k < numberOfBullets; k++){ //Delete all existing Main Character bullets
+                      ^
+main.cpp:15:7: error: 'bullets' was not declared in this scope
+   if (bullets[k] != nullptr){
+       ^
+main.cpp:21:22: error: 'numberOfEnemies' was not declared in this scope
+  for (int i = 0; i < numberOfEnemies; i++){ //Delete all the invaders
+                      ^
+main.cpp:22:7: error: 'enemies' was not declared in this scope
+   if (enemies[i] != nullptr){
+       ^
+main.cpp:27:6: error: 'HighScores' was not declared in this scope
+  if (HighScores.is_open == true){
+      ^
+main.cpp:28:26: error: 'endl' is not a member of 'std'
+   HighScores << score << std::endl; //Add score to the score file //////////////////////////////////////////////////////// THIS DOES NOT WORK FOR SOME REASON
+                          ^
+main.cpp:30:19: error: 'AddScoreToVector' was not declared in this scope
+  AddScoreToVector(); //Adds current score to the list of high scores 
+                   ^
+main.cpp: In function 'void CollisionDetectionInvaders()':
+main.cpp:34:21: error: 'invaderSize' was not declared in this scope
+     float offsetX = invaderSize + bulletSize/2; //Offset for the hitbox from the center point of the invader (includes the bullet size)
+                     ^
+main.cpp:34:35: error: 'bulletSize' was not declared in this scope
+     float offsetX = invaderSize + bulletSize/2; //Offset for the hitbox from the center point of the invader (includes the bullet size)
+                                   ^
+main.cpp:36:22: error: 'numberOfEnemies' was not declared in this scope
+  for (int i = 0; i < numberOfEnemies; i++){ //Loop through all the invaders
+                      ^
+main.cpp:37:23: error: 'numberOfBullets' was not declared in this scope
+   for (int j = 0; j < numberOfBullets; j++){ //Loop through all the bullets
+                       ^
+main.cpp:38:8: error: 'bullets' was not declared in this scope
+    if (bullets[j] != nullptr && enemies[i] != nullptr){ //If the bullet and the small invader exist
+        ^
+main.cpp:38:33: error: 'enemies' was not declared in this scope
+    if (bullets[j] != nullptr && enemies[i] != nullptr){ //If the bullet and the small invader exist
+                                 ^
+main.cpp: In function 'void CollisionInvaderBullets(float, float)':
+main.cpp:56:26: error: 'bulletSize' was not declared in this scope
+     float offsetX = 50 + bulletSize / 2; //Offset for the hitbox from the center point of the Main Character (includes the bullet size)
+                          ^
+main.cpp:59:22: error: 'numberOfInvaderBullets' was not declared in this scope
+  for (int i = 0; i < numberOfInvaderBullets; i++){ //Loop through all the invaders
+                      ^
+main.cpp:60:7: error: 'invaderBullets' was not declared in this scope
+   if (invaderBullets[i] != nullptr){ //If the bullet exists
+       ^
+main.cpp:69:6: error: 'startGame' was not declared in this scope
+      startGame = false; //Go back to the menu
+      ^
+main.cpp: In function 'void SortHighScores()':
+main.cpp:79:5: error: 'sort' is not a member of 'std'
+     std::sort(HighScoresLoaded.begin(), HighScoresLoaded.end(), std::greater<int>());
+     ^
+main.cpp:79:15: error: 'HighScoresLoaded' was not declared in this scope
+     std::sort(HighScoresLoaded.begin(), HighScoresLoaded.end(), std::greater<int>());
+               ^
+main.cpp:79:65: error: 'greater' is not a member of 'std'
+     std::sort(HighScoresLoaded.begin(), HighScoresLoaded.end(), std::greater<int>());
+                                                                 ^
+main.cpp:79:78: error: expected primary-expression before 'int'
+     std::sort(HighScoresLoaded.begin(), HighScoresLoaded.end(), std::greater<int>());
+                                                                              ^
+main.cpp: In function 'void LoadHighScores()':
+main.cpp:86:6: error: 'HighScores' was not declared in this scope
+  if (HighScores.is_open() == true){ //Make sure the file is open 
+      ^
+main.cpp:88:4: error: 'HighScoresLoaded' was not declared in this scope
+    HighScoresLoaded.push_back(number);
+    ^
+main.cpp: In function 'void Game()':
+main.cpp:97:2: error: 'HighScores' was not declared in this scope
+  HighScores.open("gfx/HighScores.txt"); //Open 
+  ^
