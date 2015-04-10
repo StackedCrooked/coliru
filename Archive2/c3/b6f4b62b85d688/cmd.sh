@@ -1,0 +1,1 @@
+clang++ -std=c++1y -ggdb -Wall -pedantic -pthread main.cpp && ./a.out
