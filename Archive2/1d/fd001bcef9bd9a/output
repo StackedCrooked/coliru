@@ -1,0 +1,11 @@
+In file included from /usr/local/include/boost/signals2/variadic_signal.hpp:42:0,
+                 from /usr/local/include/boost/signals2/signal.hpp:38,
+                 from main.cpp:2:
+/usr/local/include/boost/signals2/detail/signal_template.hpp: In function 'int main()':
+/usr/local/include/boost/signals2/detail/signal_template.hpp:716:19: error: 'boost::signals2::signal<R(Args ...), Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::result_type boost::signals2::signal<R(Args ...), Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::operator()(Args ...) [with Combiner = boost::signals2::optional_last_value<void>; Group = int; GroupCompare = std::less<int>; SlotFunction = boost::function<void()>; ExtendedSlotFunction = boost::function<void(const boost::signals2::connection&)>; Mutex = boost::signals2::mutex; R = void; Args = {}; boost::signals2::signal<R(Args ...), Combiner, Group, GroupCompare, SlotFunction, ExtendedSlotFunction, Mutex>::result_type = void]' is inaccessible
+       result_type operator ()(BOOST_SIGNALS2_SIGNATURE_FULL_ARGS(BOOST_SIGNALS2_NUM_ARGS))
+                   ^
+main.cpp:31:16: error: within this context
+     f.on_stuff();
+                ^
+main.cpp:31:16: error: 'boost::signals2::signal<void(), boost::signals2::optional_last_value<void>, int, std::less<int>, boost::function<void()>, boost::function<void(const boost::signals2::connection&)>, boost::signals2::mutex>' is not an accessible base of 'signal<void(), foo>'
