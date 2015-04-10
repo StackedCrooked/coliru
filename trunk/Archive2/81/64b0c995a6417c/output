@@ -1,0 +1,8 @@
+Parsing 'Set-Cookie: name=value'
+ -- Parse success: ((name value) {})
+Parsing 'Set-Cookie: name=value; Path=/; Domain=domain.com'
+ -- Parse success: ((name value) {[ path=/ ]; [ domain=domain.com ]; })
+Parsing 'set-cookie: name=value; path=/; domain=domain.com'
+ -- Parse success: ((name value) {[ path=/ ]; [ domain=domain.com ]; })
+Parsing 'Set-Cookie: name=value; path=/; domain=.mydomain.com; expires=Thu, 01-Jan-2070 00:00:10 GMT; comment=no_comment'
+ -- Parse success: ((name value) {[ path=/ ]; [ extension=domain=.mydomain.com ]; [ expires=Wed, 01 Jan 2070 00:00:10 GMT ]; [ extension=comment=no_comment ]; })
