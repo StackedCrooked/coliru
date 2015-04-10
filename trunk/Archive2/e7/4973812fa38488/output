@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:27:18: error: no matching function for call to 'foo(trabant)'
+     foo(trabant{});
+                  ^
+main.cpp:27:18: note: candidate is:
+main.cpp:17:1: note: template<class T> typename std::enable_if<std::is_base_of<animal, T>::value>::type foo(T)
+ foo(T) { }
+ ^
+main.cpp:17:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class T> typename std::enable_if<std::is_base_of<animal, T>::value>::type foo(T) [with T = trabant]':
+main.cpp:27:18:   required from here
+main.cpp:17:1: error: no type named 'type' in 'struct std::enable_if<false, void>'
