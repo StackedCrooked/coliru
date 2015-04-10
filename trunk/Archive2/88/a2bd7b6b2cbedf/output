@@ -1,0 +1,13 @@
+main.cpp: In instantiation of 'void tbb::parallel_do(Iterator, Iterator, const Body&, tbb::task_group_context&) [with Iterator = __gnu_cxx::__normal_iterator<int*, std::vector<int> >; Body = boost::function<void(int&)>]':
+main.cpp:48:65:   required from here
+main.cpp:35:85: error: no matching function for call to 'select_parallel_do(__gnu_cxx::__normal_iterator<int*, std::vector<int> >&, __gnu_cxx::__normal_iterator<int*, std::vector<int> >&, const boost::function<void(int&)>&, boost::function1<void, int&>::result_type (boost::function1<void, int&>::*)(int&) const, tbb::task_group_context&)'
+         internal::select_parallel_do( first, last, body, &Body::operator(), context );
+                                                                                     ^
+main.cpp:35:85: note: candidate is:
+main.cpp:16:14: note: template<class Iterator, class Body, class Item> void tbb::internal::select_parallel_do(Iterator, Iterator, const Body&, void (Body::*)(Item) const, tbb::task_group_context&)
+         void select_parallel_do( Iterator first, Iterator last, const Body& body, void (Body::*)(Item) const
+              ^
+main.cpp:16:14: note:   template argument deduction/substitution failed:
+main.cpp:35:85: note:   deduced conflicting types for parameter 'const Body' ('boost::function<void(int&)>' and 'boost::function1<void, int&>')
+         internal::select_parallel_do( first, last, body, &Body::operator(), context );
+                                                                                     ^
