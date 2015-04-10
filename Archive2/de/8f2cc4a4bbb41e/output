@@ -1,0 +1,9 @@
+main.cpp:18:20: error: 'void' is not a valid type for a template non-type parameter
+ template <class T, void_t<decltype( std::declval<T&> () = std::declval<const T&> () )>>
+                    ^
+main.cpp:15:18: error: template parameter 'class<template-parameter-1-2>'
+ template <class, class = void>
+                  ^
+main.cpp:19:8: error: redeclared here as '<typeprefixerror><anonymous>'
+ struct is_copy_assignable : std::is_same<T&, decltype( std::declval<T&> () = std::declval<const T&> () )> {};
+        ^
