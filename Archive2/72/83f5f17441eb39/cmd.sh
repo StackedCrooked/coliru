@@ -1,0 +1,1 @@
+clang++ -std=c++11 -O2 -pthread -lm main.cpp && (for i in {1..80}; do printf '-'; done; echo;) && ./a.out && (for i in {1..80}; do printf '-'; done; echo;) && echo "done!"
