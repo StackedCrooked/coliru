@@ -1,0 +1,9 @@
+Parsing 'Set-Cookie: name=value'
+ -- Parse success: ((name value) (-- -- -- -- 0 0 --))
+Parsing 'Set-Cookie: name=value; Path=/; Domain=domain.com'
+ -- Parse success: ((name value) (-- -- --  [ string_attribute: / ] 0 0  [ string_attribute: Domain=domain.com ]))
+Parsing 'set-cookie: name=value; path=/; domain=domain.com'
+ -- Parse success: ((name value) (-- -- --  [ string_attribute: / ] 0 0  [ string_attribute: domain=domain.com ]))
+Parsing 'Set-Cookie: name=value; path=/; domain=.mydomain.com; expires=Thu, 01-Jan-2070 00:00:10 GMT; comment=no_comment'
+ -- Parse success: ((name value) ( [ expires_av: Wed, 01 Jan 2070 00:00:10 GMT ] -- --  [ string_attribute: / ] 0 0  [ string_attribute: domain=.mydomain.com ]))
+ -- Remaining unparsed: '; comment=no_comment'
