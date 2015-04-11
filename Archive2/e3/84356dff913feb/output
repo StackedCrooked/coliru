@@ -1,0 +1,23 @@
+main.cpp:17:2: error: expected ';' at end of declaration
+T memcpy_cast(U&& from) {
+ ^
+ ;
+main.cpp:17:15: error: unknown type name 'U'
+T memcpy_cast(U&& from) {
+              ^
+main.cpp:17:3: error: C++ requires a type specifier for all declarations
+T memcpy_cast(U&& from) {
+  ^~~~~~~~~~~
+main.cpp:18:26: error: unknown type name 'T'
+    static_assert(sizeof(T) == sizeof(U));
+                         ^
+main.cpp:18:39: error: use of undeclared identifier 'U'
+    static_assert(sizeof(T) == sizeof(U));
+                                      ^
+main.cpp:19:5: error: unknown type name 'T'
+    T to;
+    ^
+main.cpp:25:25: error: expected '(' for function-style cast or type construction
+    memcpy_cast<unsigned>(42);
+                ~~~~~~~~^
+7 errors generated.
