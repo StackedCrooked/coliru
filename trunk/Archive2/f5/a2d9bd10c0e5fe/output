@@ -1,0 +1,27 @@
+main.cpp:5:37: error: template declaration of 'size_t array_size'
+  template<typename T> extern size_t array_size;
+                                     ^
+main.cpp:7:29: error: expected initializer before '<' token
+  constexpr size_t array_size<T[N]> = N;
+                             ^
+main.cpp:10:28: error: expected initializer before '<' token
+ constexpr size_t array_size<std::array<T, N>> = N;
+                            ^
+main.cpp: In function 'void func(Buff&)':
+main.cpp:14:19: error: 'array_size' was not declared in this scope
+     static_assert(array_size<Buff> >= 8, "array_size<Buff> >= 8");
+                   ^
+main.cpp:14:34: error: expected primary-expression before '>' token
+     static_assert(array_size<Buff> >= 8, "array_size<Buff> >= 8");
+                                  ^
+main.cpp:14:36: error: expected primary-expression before '>=' token
+     static_assert(array_size<Buff> >= 8, "array_size<Buff> >= 8");
+                                    ^
+main.cpp: In instantiation of 'void func(Buff&) [with Buff = char [7]]':
+main.cpp:23:12:   required from here
+main.cpp:13:18: warning: unused parameter 'buff' [-Wunused-parameter]
+  void func(Buff &buff) {   
+                  ^
+main.cpp: In instantiation of 'void func(Buff&) [with Buff = std::array<char, 9ul>]':
+main.cpp:24:13:   required from here
+main.cpp:13:18: warning: unused parameter 'buff' [-Wunused-parameter]
