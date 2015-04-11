@@ -1,0 +1,28 @@
+main.cpp: In member function 'void W::operator()()':
+main.cpp:19:10: error: base operand of '->' has non-pointer type 'std::promise<int>'
+         p->set_value(1);
+          ^
+main.cpp: In function 'int main()':
+main.cpp:26:15: error: use of deleted function 'W::W(const W&)'
+     runLater(w);
+               ^
+main.cpp:13:8: note: 'W::W(const W&)' is implicitly deleted because the default definition would be ill-formed:
+ struct W
+        ^
+main.cpp:13:8: error: use of deleted function 'std::promise<_Res>::promise(const std::promise<_Res>&) [with _Res = int]'
+In file included from main.cpp:2:0:
+/usr/local/include/c++/4.9.2/future:978:7: note: declared here
+       promise(const promise&) = delete;
+       ^
+In file included from /usr/local/include/c++/4.9.2/future:38:0,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/functional:2418:7: error:   initializing argument 1 of 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = W; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+       function<_Res(_ArgTypes...)>::
+       ^
+/usr/local/include/c++/4.9.2/functional: In instantiation of 'static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::false_type) [with _Functor = W; std::false_type = std::integral_constant<bool, false>]':
+/usr/local/include/c++/4.9.2/functional:1914:51:   required from 'static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = W]'
+/usr/local/include/c++/4.9.2/functional:2428:19:   required from 'std::function<_Res(_ArgTypes ...)>::function(_Functor) [with _Functor = W; <template-parameter-2-2> = void; _Res = void; _ArgTypes = {}]'
+main.cpp:26:15:   required from here
+/usr/local/include/c++/4.9.2/functional:1878:34: error: use of deleted function 'W::W(const W&)'
+    __dest._M_access<_Functor*>() =
+                                  ^
