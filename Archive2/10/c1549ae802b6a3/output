@@ -1,0 +1,35 @@
+main.cpp: In function 'int main()':
+main.cpp:133:49: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'std::__success_type<std::chrono::duration<long int, std::ratio<1l, 1000000000l> > >::type {aka std::chrono::duration<long int, std::ratio<1l, 1000000000l> >}' [-Wformat=]
+  printf("time took: %u\n", end_time - start_time);
+                                                 ^
+main.cpp: In instantiation of 'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]':
+main.cpp:77:76:   required from 'void EventHandler_2<Args>::AddCallback(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]'
+main.cpp:123:30:   required from here
+main.cpp:34:11: error: no match for 'operator=' (operand types are 'std::function<bool(A*, std::tuple<>)>' and 'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]::<lambda(A*, std::tuple<>)>')
+     func_ = [=](ClassName* raw_ptr, std::tuple<Args&&...> arg_tuple)
+           ^
+main.cpp:34:11: note: candidates are:
+In file included from main.cpp:4:0:
+/usr/local/include/c++/4.9.2/functional:2241:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = bool; _ArgTypes = {A*, std::tuple<>}]
+       operator=(const function& __x)
+       ^
+/usr/local/include/c++/4.9.2/functional:2241:7: note:   no known conversion for argument 1 from 'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]::<lambda(A*, std::tuple<>)>' to 'const std::function<bool(A*, std::tuple<>)>&'
+/usr/local/include/c++/4.9.2/functional:2259:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = bool; _ArgTypes = {A*, std::tuple<>}]
+       operator=(function&& __x)
+       ^
+/usr/local/include/c++/4.9.2/functional:2259:7: note:   no known conversion for argument 1 from 'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]::<lambda(A*, std::tuple<>)>' to 'std::function<bool(A*, std::tuple<>)>&&'
+/usr/local/include/c++/4.9.2/functional:2273:7: note: std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = bool; _ArgTypes = {A*, std::tuple<>}; std::nullptr_t = std::nullptr_t]
+       operator=(nullptr_t)
+       ^
+/usr/local/include/c++/4.9.2/functional:2273:7: note:   no known conversion for argument 1 from 'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]::<lambda(A*, std::tuple<>)>' to 'std::nullptr_t'
+/usr/local/include/c++/4.9.2/functional:2302:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::__and_<std::__not_<std::is_same<typename std::decay<_Tp>::type, std::function<_Res(_ArgTypes ...)> > >, std::__or_<std::is_void<_Tp>, std::is_convertible<std::function<_Res(_ArgTypes ...)>::_Invoke<typename std::decay<_Tp>::type>, _Res> > >, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = _Functor; _Res = bool; _ArgTypes = {A*, std::tuple<>}]
+  operator=(_Functor&& __f)
+  ^
+/usr/local/include/c++/4.9.2/functional:2302:2: note:   template argument deduction/substitution failed:
+/usr/local/include/c++/4.9.2/functional:2311:2: note: template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Tp>) [with _Functor = _Functor; _Res = bool; _ArgTypes = {A*, std::tuple<>}]
+  operator=(reference_wrapper<_Functor> __f) noexcept
+  ^
+/usr/local/include/c++/4.9.2/functional:2311:2: note:   template argument deduction/substitution failed:
+main.cpp:34:11: note:   'CallbackDerived<ClassName, Args>::CallbackDerived(void (ClassName::*)(std::tuple<_Elements ...>), std::shared_ptr<_Tp1>) [with ClassName = A; Args = {}]::<lambda(A*, std::tuple<>)>' is not derived from 'std::reference_wrapper<_Tp>'
+     func_ = [=](ClassName* raw_ptr, std::tuple<Args&&...> arg_tuple)
+           ^
