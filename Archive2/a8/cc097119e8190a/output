@@ -1,0 +1,37 @@
+main.cpp: In function 'int main()':
+main.cpp:38:25: error: narrowing conversion of '2.0e+0' from 'double' to 'int' inside { } [-Wnarrowing]
+     int ai[] = { 1, 2.0 }; // narrowing conversion from double to int:
+                         ^
+main.cpp:18:7: warning: unused variable 's1' [-Wunused-variable]
+     S s1 = { 1, { 2, 3, {4, 5, 6} } };
+       ^
+main.cpp:20:7: warning: unused variable 's3' [-Wunused-variable]
+     S s3{1, {2, 3, {4, 5, 6} } }; // same, using direct-list-initialization syntax
+       ^
+main.cpp:24:9: warning: unused variable 'ar' [-Wunused-variable]
+     int ar[] = {1,2,3}; // ar is int[3]
+         ^
+main.cpp:26:10: warning: unused variable 'cr' [-Wunused-variable]
+     char cr[3] = {'a'}; // array initialized as {'a', '\0', '\0'}
+          ^
+main.cpp:28:9: warning: unused variable 'ar2d1' [-Wunused-variable]
+     int ar2d1[2][2] = {{1, 2}, {3, 4}}; // fully-braced 2D array: {1, 2}
+         ^
+main.cpp:30:9: warning: unused variable 'ar2d2' [-Wunused-variable]
+     int ar2d2[2][2] = {1, 2, 3, 4}; // brace elision: {1, 2}
+         ^
+main.cpp:32:9: warning: unused variable 'ar2d3' [-Wunused-variable]
+     int ar2d3[2][2] = {{1}, {2}};   // only first column: {1, 0}
+         ^
+main.cpp:35:24: warning: unused variable 'std_ar2' [-Wunused-variable]
+     std::array<int, 3> std_ar2{ {1,2,3} };    // std::array is an aggregate
+                        ^
+main.cpp:36:24: warning: unused variable 'std_ar1' [-Wunused-variable]
+     std::array<int, 3> std_ar1 = {1, 2, 3}; // brace-elision okay
+                        ^
+main.cpp:38:9: warning: unused variable 'ai' [-Wunused-variable]
+     int ai[] = { 1, 2.0 }; // narrowing conversion from double to int:
+         ^
+main.cpp:45:7: warning: unused variable 'u1' [-Wunused-variable]
+     U u1 = {1}; // OK, first member of the union
+       ^
