@@ -1,0 +1,55 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+/usr/include/c++/v1/memory:2192:15: error: call to implicitly-deleted copy constructor of 'foo'
+              __first_(_VSTD::forward<_Args1>(_VSTD::get<_I1>(__first_args))...)
+              ^        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/memory:2363:15: note: in instantiation of function template specialization 'std::__1::__libcpp_compressed_pair_imp<foo, std::__1::allocator<foo>, 2>::__libcpp_compressed_pair_imp<const foo &, std::__1::allocator<foo> &&, 0, 0>' requested here
+            : base(__pc, _VSTD::move(__first_args), _VSTD::move(__second_args),
+              ^
+/usr/include/c++/v1/functional:1312:11: note: in instantiation of function template specialization 'std::__1::__compressed_pair<foo, std::__1::allocator<foo> >::__compressed_pair<const foo &, std::__1::allocator<foo> &&>' requested here
+        : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+          ^
+/usr/include/c++/v1/functional:1338:26: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__func' requested here
+    ::new (__hold.get()) __func(__f_.first(), _Alloc(__a));
+                         ^
+/usr/include/c++/v1/functional:1302:14: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__clone' requested here
+    explicit __func(_Fp&& __f)
+             ^
+/usr/include/c++/v1/functional:1596:26: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:22:27: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<foo>' requested here
+    std::function<void()> fun(foo(std::move(p)));
+                          ^
+main.cpp:12:5: note: copy constructor is implicitly deleted because 'foo' has a user-declared move constructor
+    foo(foo&&) = default;
+    ^
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+/usr/include/c++/v1/memory:2192:15: error: call to implicitly-deleted copy constructor of 'foo'
+              __first_(_VSTD::forward<_Args1>(_VSTD::get<_I1>(__first_args))...)
+              ^        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/memory:2363:15: note: in instantiation of function template specialization 'std::__1::__libcpp_compressed_pair_imp<foo, std::__1::allocator<foo>, 2>::__libcpp_compressed_pair_imp<const foo &, const std::__1::allocator<foo> &, 0, 0>' requested here
+            : base(__pc, _VSTD::move(__first_args), _VSTD::move(__second_args),
+              ^
+/usr/include/c++/v1/functional:1307:11: note: in instantiation of function template specialization 'std::__1::__compressed_pair<foo, std::__1::allocator<foo> >::__compressed_pair<const foo &, const std::__1::allocator<foo> &>' requested here
+        : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+          ^
+/usr/include/c++/v1/functional:1346:17: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__func' requested here
+    ::new (__p) __func(__f_.first(), __f_.second());
+                ^
+/usr/include/c++/v1/functional:1302:14: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__clone' requested here
+    explicit __func(_Fp&& __f)
+             ^
+/usr/include/c++/v1/functional:1596:26: note: in instantiation of member function 'std::__1::__function::__func<foo, std::__1::allocator<foo>, void ()>::__func' requested here
+            ::new (__f_) _FF(_VSTD::move(__f));
+                         ^
+main.cpp:22:27: note: in instantiation of function template specialization 'std::__1::function<void ()>::function<foo>' requested here
+    std::function<void()> fun(foo(std::move(p)));
+                          ^
+main.cpp:12:5: note: copy constructor is implicitly deleted because 'foo' has a user-declared move constructor
+    foo(foo&&) = default;
+    ^
+2 errors generated.
