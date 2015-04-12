@@ -1,0 +1,17 @@
++ clang++ -std=c++1y -stdlib=libc++ -Wall -pedantic main.cpp -pthread
+main.cpp:4:19: error: no matching constructor for initialization of 'A'
+    new A[3]{1,2,3};
+                  ^
+main.cpp:1:12: note: candidate constructor not viable: requires 1 argument, but 0 were provided
+struct A { A(int) { } };
+           ^
+main.cpp:1:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+struct A { A(int) { } };
+       ^
+main.cpp:1:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 0 were provided
+main.cpp:4:19: note: in implicit initialization of array element 3 with omitted initializer
+    new A[3]{1,2,3};
+                  ^
+1 error generated.
++ g++ -std=c++1y -Wall -pedantic main.cpp -pthread
++ ./a.out
