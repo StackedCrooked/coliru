@@ -1,0 +1,1 @@
+objdump -f main.o
