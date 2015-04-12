@@ -1,0 +1,17 @@
++ clang++ -std=c++1y -stdlib=libc++ -Wall -pedantic main.cpp -pthread
+main.cpp:11:91: error: no matching constructor for initialization of 'Widget'
+        std::unique_ptr<Widget[]> widget(new Widget[number_of_widgets]{Widget(1, 2), Widget(3, 4)});
+                                                                                                 ^
+main.cpp:4:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 0 were provided
+class Widget {
+      ^
+main.cpp:4:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 0 were provided
+main.cpp:6:5: note: candidate constructor not viable: requires 2 arguments, but 0 were provided
+    Widget(int, int) { }
+    ^
+main.cpp:11:91: note: in implicit initialization of array element 2 with omitted initializer
+        std::unique_ptr<Widget[]> widget(new Widget[number_of_widgets]{Widget(1, 2), Widget(3, 4)});
+                                                                                                 ^
+1 error generated.
++ g++ -std=c++1y -Wall -pedantic main.cpp -pthread
++ ./a.out
