@@ -1,0 +1,25 @@
+clang version 3.5.0 (tags/RELEASE_350/final 217394)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+main.cpp:3:5: error: functions that differ only in their return type cannot be overloaded
+int round(double number);
+~~~ ^
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:311:14: note: previous declaration is here
+__MATHCALLX (round,, (_Mdouble_ __x), (__const__));
+~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/math.h:60:26: note: expanded from macro '__MATHCALLX'
+  __MATHDECLX (_Mdouble_,function,suffix, args, attrib)
+                         ^
+/usr/include/math.h:62:22: note: expanded from macro '__MATHDECLX'
+  __MATHDECL_1(type, function,suffix, args) __attribute__ (attrib); \
+                     ^
+/usr/include/math.h:65:31: note: expanded from macro '__MATHDECL_1'
+  extern type __MATH_PRECNAME(function,suffix) args __THROW
+                              ^
+/usr/include/math.h:68:42: note: expanded from macro '__MATH_PRECNAME'
+#define __MATH_PRECNAME(name,r) __CONCAT(name,r)
+                                         ^
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:94:23: note: expanded from macro '__CONCAT'
+#define __CONCAT(x,y)   x ## y
+                        ^
+1 error generated.
