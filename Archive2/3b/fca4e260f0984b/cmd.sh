@@ -1,0 +1,1 @@
+clang++ -std=c++1z -stdlib=libc++ main.cpp -Weverything -Wno-c++98-compat-pedantic -O3 && ./a.out
