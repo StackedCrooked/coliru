@@ -1,0 +1,1 @@
+gmcs Client.cs /Out:client.exe
