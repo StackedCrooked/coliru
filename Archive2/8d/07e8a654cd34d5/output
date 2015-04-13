@@ -1,0 +1,28 @@
+main.cpp:12:8: error: redeclared with 3 template parameters
+ struct areCopyConstructible : std::false_type {};
+        ^
+main.cpp:6:8: note: previous declaration 'template<class ... Args0toN> struct areCopyConstructible' used 1 template parameter
+ struct areCopyConstructible;
+        ^
+main.cpp:15:8: error: redeclared with 3 template parameters
+ struct areCopyConstructible : areCopyConstructible<Args1toN...> {};
+        ^
+main.cpp:6:8: note: previous declaration 'template<class ... Args0toN> struct areCopyConstructible' used 1 template parameter
+ struct areCopyConstructible;
+        ^
+main.cpp: In function 'int main()':
+main.cpp:20:17: error: incomplete type 'areCopyConstructible<int>' used in nested name specifier
+   static_assert(areCopyConstructible<int>::value, "failed");
+                 ^
+main.cpp:21:17: error: incomplete type 'areCopyConstructible<int, std::basic_string<char, std::char_traits<char>, std::allocator<char> > >' used in nested name specifier
+   static_assert(areCopyConstructible<int, std::string>::value, "failed");
+                 ^
+main.cpp:22:18: error: incomplete type 'areCopyConstructible<std::unique_ptr<int, std::default_delete<int> > >' used in nested name specifier
+   static_assert(!areCopyConstructible<std::unique_ptr<int> >::value, "failed");
+                  ^
+main.cpp:23:18: error: incomplete type 'areCopyConstructible<int, std::unique_ptr<int, std::default_delete<int> > >' used in nested name specifier
+   static_assert(!areCopyConstructible<int, std::unique_ptr<int> >::value, "failed");
+                  ^
+main.cpp:24:18: error: incomplete type 'areCopyConstructible<std::unique_ptr<int, std::default_delete<int> >, int>' used in nested name specifier
+   static_assert(!areCopyConstructible<std::unique_ptr<int>, int >::value, "failed");
+                  ^
