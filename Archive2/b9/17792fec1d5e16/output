@@ -1,0 +1,340 @@
+pub type H3DRes = c_int;
+pub type H3DNode = c_int;
+#[repr(C)]
+enum H3DOptions
+{
+    MaxLogLevel=1,
+    MaxNumMessages,
+    TrilinearFiltering,
+    MaxAnisotropy,
+    TexCompression,
+    SRGBLinearization,
+    LoadTextures,
+    FastAnimation,
+    ShadowMapSize,
+    SampleCount,
+    WireframeMode,
+    DebugViewMode,
+    DumpFailedShaders,
+    GatherTimeStats
+}
+#[repr(C)]
+enum H3DStats
+{
+    TriCount=100,
+    BatchCount,
+    LightPassCount,
+    FrameTime,
+    AnimationTime,
+    GeoUpdateTime,
+    ParticleSimTime,
+    FwdLightsGPUTime,
+    DefLightsGPUTime,
+    ShadowsGPUTime,
+    ParticleGPUTime,
+    TextureVMem,
+    GeometryVMem
+}
+#[repr(C)]
+enum H3DResTypes
+{
+    Undefined=0,
+    SceneGraph,
+    Geometry,
+    Animation,
+    Material,
+    Code,
+    Shader,
+    Texture,
+    ParticleEffect,
+    Pipeline
+}
+#[repr(C)]
+enum H3DResFlags
+{
+    NoQuery=1,
+    NoTexCompression=2,
+    NoTexMipmaps=4,
+    TexCubemap=8,
+    TexDynamic=16,
+    TexRenderable=32,
+    TexSRGB=64
+}
+#[repr(C)]
+enum H3DFormats
+{
+    Unknown=0,
+    TEX_BGRA8,
+    TEX_DXT1,
+    TEX_DXT3,
+    TEX_DXT5,
+    TEX_RGBA16F,
+    TEX_RGBA32F
+}
+#[repr(C)]
+enum H3DGeoRes
+{
+    GeometryElem=200,
+    GeoIndexCountI,
+    GeoVertexCountI,
+    GeoIndices16I,
+    GeoIndexStream,
+    GeoVertPosStream,
+    GeoVertTanStream,
+    GeoVertStaticStream
+}
+#[repr(C)]
+enum H3DAnimRes
+{
+    EntityElem=300,
+    EntFrameCountI
+}
+#[repr(C)]
+enum H3DMatRes
+{
+    MaterialElem=400,
+    SamplerElem,
+    UniformElem,
+    MatClassStr,
+    MatLinkI,
+    MatShaderI,
+    SampNameStr,
+    SampTexResI,
+    UnifNameStr,
+    UnifValueF4
+}
+#[repr(C)]
+enum H3DShaderRes
+{
+    ContextElem=600,
+    SamplerElem,
+    UniformElem,
+    ContNameStr,
+    SampNameStr,
+    SampDefTexResI,
+    UnifNameStr,
+    UnifSizeI,
+    UnifDefValueF4
+}
+#[repr(C)]
+enum H3DTexRes
+{
+    TextureElem=700,
+    ImageElem,
+    TexFormatI,
+    TexSliceCountI,
+    ImgWidthI,
+    ImgHeightI,
+    ImgPixelStream
+}
+#[repr(C)]
+enum H3DPartEffRes
+{
+    ParticleElem=800,
+    ChanMoveVelElem,
+    ChanRotVelElem,
+    ChanSizeElem,
+    ChanColRElem,
+    ChanColGElem,
+    ChanColBElem,
+    ChanColAElem,
+    PartLifeMinF,
+    PartLifeMaxF,
+    ChanStartMinF,
+    ChanStartMaxF,
+    ChanEndRateF,
+    ChanDragElem
+}
+#[repr(C)]
+enum H3DPipeRes
+{
+    StageElem=900,
+    StageNameStr,
+    StageActivationI
+}
+#[repr(C)]
+enum H3DNodeTypes
+{
+    Undefined=0,
+    Group,
+    Model,
+    Mesh,
+    Joint,
+    Light,
+    Camera,
+    Emitter
+}
+#[repr(C)]
+enum H3DNodeFlags
+{
+    NoDraw=1,
+    NoCastShadow=2,
+    NoRayQuery=4,
+    Inactive=7
+}
+#[repr(C)]
+enum H3DNodeParams
+{
+    NameStr=1,
+    AttachmentStr
+}
+#[repr(C)]
+enum H3DModel
+{
+    GeoResI=200,
+    SWSkinningI,
+    LodDist1F,
+    LodDist2F,
+    LodDist3F,
+    LodDist4F,
+    AnimCountI
+}
+#[repr(C)]
+enum H3DMesh
+{
+    MatResI=300,
+    BatchStartI,
+    BatchCountI,
+    VertRStartI,
+    VertREndI,
+    LodLevelI
+}
+#[repr(C)]
+enum H3DJoint
+{
+    JointIndexI=400
+}
+#[repr(C)]
+enum H3DLight
+{
+    MatResI=500,
+    RadiusF,
+    FovF,
+    ColorF3,
+    ColorMultiplierF,
+    ShadowMapCountI,
+    ShadowSplitLambdaF,
+    ShadowMapBiasF,
+    LightingContextStr,
+    ShadowContextStr
+}
+#[repr(C)]
+enum H3DCamera
+{
+    PipeResI=600,
+    OutTexResI,
+    OutBufIndexI,
+    LeftPlaneF,
+    RightPlaneF,
+    BottomPlaneF,
+    TopPlaneF,
+    NearPlaneF,
+    FarPlaneF,
+    ViewportXI,
+    ViewportYI,
+    ViewportWidthI,
+    ViewportHeightI,
+    OrthoI,
+    OccCullingI
+}
+#[repr(C)]
+enum H3DEmitter
+{
+    MatResI=700,
+    PartEffResI,
+    MaxCountI,
+    RespawnCountI,
+    DelayF,
+    EmissionRateF,
+    SpreadAngleF,
+    ForceF3
+}
+#[repr(C)]
+enum H3DModelUpdateFlags
+{
+    Animation=1,
+    Geometry=2
+}
+pub fn h3dGetVersionString() -> *const c_char;
+pub fn h3dCheckExtension(extensionName: *const c_char) -> h3d_bool;
+pub fn h3dGetError() -> h3d_bool;
+pub fn h3dInit() -> h3d_bool;
+pub fn h3dRelease();
+pub fn h3dRender(cameraNode: H3DNode);
+pub fn h3dFinalizeFrame();
+pub fn h3dClear();
+pub fn h3dGetMessage(level: c_inttime: c_float) -> *const c_char;
+pub fn h3dGetOption(param: H3DOptions) -> c_float;
+pub fn h3dSetOption(param: H3DOptionsvalue: c_float) -> h3d_bool;
+pub fn h3dGetStat(param: H3DStatsreset: h3d_bool) -> c_float;
+pub fn h3dShowOverlays(verts: *const c_floatvertCount: c_intcolR: c_floatcolG: c_floatcolB: c_floatcolA: c_floatmaterialRes: H3DResflags: c_int);
+pub fn h3dClearOverlays();
+pub fn h3dGetResType(res: H3DRes) -> c_int;
+pub fn h3dGetResName(res: H3DRes) -> *const c_char;
+pub fn h3dGetNextResource(type: c_intstart: H3DRes) -> H3DRes;
+pub fn h3dFindResource(type: c_intname: *const c_char) -> H3DRes;
+pub fn h3dAddResource(type: c_intname: *const c_charflags: c_int) -> H3DRes;
+pub fn h3dCloneResource(sourceRes: H3DResname: *const c_char) -> H3DRes;
+pub fn h3dRemoveResource(res: H3DRes) -> c_int;
+pub fn h3dIsResLoaded(res: H3DRes) -> h3d_bool;
+pub fn h3dLoadResource(res: H3DResdata: *const c_charsize: c_int) -> h3d_bool;
+pub fn h3dUnloadResource(res: H3DRes);
+pub fn h3dGetResElemCount(res: H3DReselem: c_int) -> c_int;
+pub fn h3dFindResElem(res: H3DReselem: c_intparam: c_intvalue: *const c_char) -> c_int;
+pub fn h3dGetResParamI(res: H3DReselem: c_intelemIdx: c_intparam: c_int) -> c_int;
+pub fn h3dSetResParamI(res: H3DReselem: c_intelemIdx: c_intparam: c_intvalue: c_int);
+pub fn h3dGetResParamF(res: H3DReselem: c_intelemIdx: c_intparam: c_intcompIdx: c_int) -> c_float;
+pub fn h3dSetResParamF(res: H3DReselem: c_intelemIdx: c_intparam: c_intcompIdx: c_intvalue: c_float);
+pub fn h3dGetResParamStr(res: H3DReselem: c_intelemIdx: c_intparam: c_int) -> *const c_char;
+pub fn h3dSetResParamStr(res: H3DReselem: c_intelemIdx: c_intparam: c_intvalue: *const c_char);
+pub fn h3dMapResStream(res: H3DReselem: c_intelemIdx: c_intstream: c_intread: h3d_boolwrite: h3d_bool);
+pub fn h3dUnmapResStream(res: H3DRes);
+pub fn h3dQueryUnloadedResource(index: c_int) -> H3DRes;
+pub fn h3dReleaseUnusedResources();
+pub fn h3dCreateTexture(name: *const c_charwidth: c_intheight: c_intfmt: c_intflags: c_int) -> H3DRes;
+pub fn h3dSetShaderPreambles(vertPreamble: *const c_charfragPreamble: *const c_char);
+pub fn h3dSetMaterialUniform(materialRes: H3DResname: *const c_chara: c_floatb: c_floatc: c_floatd: c_float) -> h3d_bool;
+pub fn h3dResizePipelineBuffers(pipeRes: H3DReswidth: c_intheight: c_int);
+pub fn h3dGetRenderTargetData(pipelineRes: H3DRestargetName: *const c_charbufIndex: c_intwidth: c_intheight: c_intcompCount: c_intdataBuffer: bufferSize: c_int) -> h3d_bool;
+pub fn h3dGetNodeType(node: H3DNode) -> c_int;
+pub fn h3dGetNodeParent(node: H3DNode) -> H3DNode;
+pub fn h3dSetNodeParent(node: H3DNodeparent: H3DNode) -> h3d_bool;
+pub fn h3dGetNodeChild(node: H3DNodeindex: c_int) -> H3DNode;
+pub fn h3dAddNodes(parent: H3DNodesceneGraphRes: H3DRes) -> H3DNode;
+pub fn h3dRemoveNode(node: H3DNode);
+pub fn h3dCheckNodeTransFlag(node: H3DNodereset: h3d_bool) -> h3d_bool;
+pub fn h3dGetNodeTransform(node: H3DNodetx: c_floatty: c_floattz: c_floatrx: c_floatry: c_floatrz: c_floatsx: c_floatsy: c_floatsz: c_float);
+pub fn h3dSetNodeTransform(node: H3DNodetx: c_floatty: c_floattz: c_floatrx: c_floatry: c_floatrz: c_floatsx: c_floatsy: c_floatsz: c_float);
+pub fn h3dGetNodeTransMats(node: H3DNode*relMat: *const c_float*absMat: *const c_float);
+pub fn h3dSetNodeTransMat(node: H3DNodemat4x4: *const c_float);
+pub fn h3dGetNodeParamI(node: H3DNodeparam: c_int) -> c_int;
+pub fn h3dSetNodeParamI(node: H3DNodeparam: c_intvalue: c_int);
+pub fn h3dGetNodeParamF(node: H3DNodeparam: c_intcompIdx: c_int) -> c_float;
+pub fn h3dSetNodeParamF(node: H3DNodeparam: c_intcompIdx: c_intvalue: c_float);
+pub fn h3dGetNodeParamStr(node: H3DNodeparam: c_int) -> *const c_char;
+pub fn h3dSetNodeParamStr(node: H3DNodeparam: c_intvalue: *const c_char);
+pub fn h3dGetNodeFlags(node: H3DNode) -> c_int;
+pub fn h3dSetNodeFlags(node: H3DNodeflags: c_intrecursive: h3d_bool);
+pub fn h3dGetNodeAABB(node: H3DNodeminX: c_floatminY: c_floatminZ: c_floatmaxX: c_floatmaxY: c_floatmaxZ: c_float);
+pub fn h3dFindNodes(startNode: H3DNodename: *const c_chartype: c_int) -> c_int;
+pub fn h3dGetNodeFindResult(index: c_int) -> H3DNode;
+pub fn h3dSetNodeUniforms(node: H3DNodeuniformData: c_floatcount: c_int);
+pub fn h3dCastRay(node: H3DNodeox: c_floatoy: c_floatoz: c_floatdx: c_floatdy: c_floatdz: c_floatnumNearest: c_int) -> c_int;
+pub fn h3dGetCastRayResult(index: c_intnode: H3DNodedistance: c_floatintersection: c_float) -> h3d_bool;
+pub fn h3dCheckNodeVisibility(node: H3DNodecameraNode: H3DNodecheckOcclusion: h3d_boolcalcLod: h3d_bool) -> c_int;
+pub fn h3dAddGroupNode(parent: H3DNodename: *const c_char) -> H3DNode;
+pub fn h3dAddModelNode(parent: H3DNodename: *const c_chargeometryRes: H3DRes) -> H3DNode;
+pub fn h3dSetupModelAnimStage(modelNode: H3DNodestage: c_intanimationRes: H3DReslayer: c_intstartNode: *const c_charadditive: h3d_bool);
+pub fn h3dGetModelAnimParams(modelNode: H3DNodestage: c_inttime: c_floatweight: c_float);
+pub fn h3dSetModelAnimParams(modelNode: H3DNodestage: c_inttime: c_floatweight: c_float);
+pub fn h3dSetModelMorpher(modelNode: H3DNodetarget: *const c_charweight: c_float) -> h3d_bool;
+pub fn h3dUpdateModel(modelNode: H3DNodeflags: c_int);
+pub fn h3dAddMeshNode(parent: H3DNodename: *const c_charmaterialRes: H3DResbatchStart: c_intbatchCount: c_intvertRStart: c_intvertREnd: c_int) -> H3DNode;
+pub fn h3dAddJointNode(parent: H3DNodename: *const c_charjointIndex: c_int) -> H3DNode;
+pub fn h3dAddLightNode(parent: H3DNodename: *const c_charmaterialRes: H3DReslightingContext: *const c_charshadowContext: *const c_char) -> H3DNode;
+pub fn h3dAddCameraNode(parent: H3DNodename: *const c_charpipelineRes: H3DRes) -> H3DNode;
+pub fn h3dSetupCameraView(cameraNode: H3DNodefov: c_floataspect: c_floatnearDist: c_floatfarDist: c_float);
+pub fn h3dGetCameraProjMat(cameraNode: H3DNodeprojMat: c_float);
+pub fn h3dAddEmitterNode(parent: H3DNodename: *const c_charmaterialRes: H3DResparticleEffectRes: H3DResmaxParticleCount: c_intrespawnCount: c_int) -> H3DNode;
+pub fn h3dUpdateEmitter(emitterNode: H3DNodetimeDelta: c_float);
+pub fn h3dHasEmitterFinished(emitterNode: H3DNode) -> h3d_bool;
