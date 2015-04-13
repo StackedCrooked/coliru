@@ -1,0 +1,6 @@
++ clang++ -std=c++11 -fsanitize=undefined,signed-integer-overflow -O3 -Wall -Wextra -Wconversion -pedantic -Wall -pthread main.cpp
++ ./a.out
+void func(T, Args...) [T = int, Args = <double, char, std::basic_string<char>>]: 1
+void func(T, Args...) [T = double, Args = <char, std::basic_string<char>>]: 2.5
+void func(T, Args...) [T = char, Args = <std::basic_string<char>>]: a
+void func(T) [T = std::basic_string<char>]: Hello
