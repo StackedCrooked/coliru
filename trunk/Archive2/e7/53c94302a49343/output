@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:28:5: error: static assertion failed: 
+     static_assert(decltype(fails_to_compile(test())){}, "");
+     ^
+main.cpp: In instantiation of 'void test::foo(It) [with It = const char*]':
+main.cpp:22:14:   required from here
+main.cpp:17:39: error: conversion from 'const char*' to non-scalar type 'std::reverse_iterator<const char*>' requested
+         std::reverse_iterator<It> r = i;
+                                       ^
