@@ -1,0 +1,3928 @@
+main.cpp:209:6: warning: unused parameter 'arg' [-Wunused-parameter]
+main.cpp:212:6: warning: unused parameter 'arg' [-Wunused-parameter]
+main.cpp:215:6: warning: unused parameter 'arg' [-Wunused-parameter]
+main.cpp:218:6: warning: unused parameter 'arg' [-Wunused-parameter]
+main.cpp:221:6: warning: unused parameter 'arg' [-Wunused-parameter]
+main.cpp:224:13: warning: unused parameter 'sig' [-Wunused-parameter]
+main.cpp:224:13: warning: unused parameter 'si' [-Wunused-parameter]
+main.cpp:224:13: warning: unused parameter 'unused' [-Wunused-parameter]
+std::thread::hardware_concurrency() = 1
+default value:
+    corePoolSize = 1, maximumPoolSize = 1, keepAliveTime = 300
+Testing: normal
+    SetConfigurationInformation() return true
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = 2
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = 2
+Testing: 0 <= keepAliveTime
+    SetConfigurationInformation() return false
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = -2
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = 2
+Testing: 1 <= corePoolSize
+    SetConfigurationInformation() return false
+    corePoolSize = 0, maximumPoolSize = 8, keepAliveTime = 2
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = 2
+Testing: corePoolSize <= maximumPoolSize
+    SetConfigurationInformation() return false
+    corePoolSize = 14, maximumPoolSize = 8, keepAliveTime = 2
+    corePoolSize = 4, maximumPoolSize = 8, keepAliveTime = 2
+if (corePoolSize_ > currentThreads_) {
+notify.
+1外
+if (corePoolSize_ > currentThreads_) {
+notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+1内
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+2外
+if (corePoolSize_ > currentThreads_) {
+notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+3外
+if (corePoolSize_ > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+1内
+1内
+12内
+.    conditionVariable_.wait(lk);→exit.
+12.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+3.    conditionVariable_.wait(lk);→exit.
+3.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+5外
+notify.
+notify.
+notify.
+notify.
+2.    conditionVariable_.wait(lk);→exit.
+2内
+12.    conditionVariable_.wait(lk);→exit.
+内
+1内
+12内
+内
+2.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+12.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+退出.if (!enabled) {
+4外
+1退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+5.    conditionVariable_.wait(lk);→exit.
+notify.
+5内
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+1内
+1内
+1内
+1内
+1内
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+1退出.if (!enabled) {
+2.    conditionVariable_.wait(lk);→exit.
+2.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+2退出.ok.
+4.    conditionVariable_.wait(lk);→exit.
+4.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+4退出.if (!enabled) {
+3.    conditionVariable_.wait(lk);→exit.
+3.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+3退出.if (!enabled) {
+6外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+1内
+1内
+1内
+51.    conditionVariable_.wait(lk);→exit.
+内
+51.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+内
+1退出.if (!enabled) {
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+4.    conditionVariable_.wait(lk);→exit.
+4.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+4退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+7外
+notify.
+notify.
+notify.
+notify.
+notify.
+5.    conditionVariable_.wait(lk);→exit.
+5内
+5内
+5内
+5内
+5内
+5内
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+7外
+3.    conditionVariable_.wait(lk);→exit.
+3.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+3退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+1notify.
+.    conditionVariable_.wait(lk);→exit.
+1内
+1内
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+1退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+5notify.
+1.    conditionVariable_.wait(lk);→exit.
+1内
+.    conditionVariable_.wait(lk);→exit.
+15内
+5内
+5内
+5内
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+内
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+1退出.if (!enabled) {
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+677.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+外
+7退出.if (!enabled) {
+5.    conditionVariable_.wait(lk);→exit.
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.ok.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+6外
+7外
+1.    conditionVariable_.wait(lk);→exit.
+1.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+1退出.ok.
+notify.
+notify.
+776.    conditionVariable_.wait(lk);→exit.
+.    conditionVariable_.wait(lk);→exit.
+76内
+6内
+.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+6退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+776.    conditionVariable_.wait(lk);→exit.
+.    conditionVariable_.wait(lk);→exit.
+76.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    conditionVariable_.wait(lk);→exit.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+
+6notify.
+退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7外
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+7退出.ok.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7退出.ok.
+8外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+8外
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {6
+内
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+87外
+notify.
+内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+8.    conditionVariable_.wait(lk);→exit.
+notify.
+8内
+notify.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+87退出.if (!enabled) {
+notify.
+.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+8notify.
+.    conditionVariable_.wait(lk);→exit.
+notify.
+notify.
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+6notify.
+.    conditionVariable_.wait(lk);→exit.
+notify.
+notify.
+notify.
+notify.
+6notify.
+内
+notify.
+8notify.
+6内
+6notify.
+notify.
+.    conditionVariable_.wait(lk);→exit.
+78notify.
+内
+8内
+8内
+88.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+内
+76.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+notify.
+.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+notify.
+8外
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+notify.
+notify.
+notify.
+notify.
+notify.
+8notify.
+.    conditionVariable_.wait(lk);→exit.
+notify.
+8内
+8内
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+68.    conditionVariable_.wait(lk);→exit.
+退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+67.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+6退出.ok.
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+7外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+6外
+notify.
+notify.
+notify.
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+78内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    conditionVariable_.wait(lk);→exit.
+8退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+8.    conditionVariable_.wait(lk);→exit.
+8内
+78内
+内
+8内
+8内
+87.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+8退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+6.    conditionVariable_.wait(lk);→exit.
+86内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+notify.
+6外
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+notify.
+notify.
+8notify.
+.    conditionVariable_.wait(lk);→exit.
+notify.
+8notify.
+内
+notify.
+8内
+86内
+.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+5外
+notify.
+notify.
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+6notify.
+.    conditionVariable_.wait(lk);→exit.
+6notify.
+内
+notify.
+notify.
+6notify.
+.    conditionVariable_.wait(lk);→exit.
+68notify.
+内
+6notify.
+notify.
+内
+notify.
+6内
+6.    conditionVariable_.wait(lk);→exit.
+68} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {内
+内
+6内
+
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+6notify.
+内
+内
+66内
+内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+68.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+内
+66外
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+5.    conditionVariable_.wait(lk);→exit.
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+5.    conditionVariable_.wait(lk);→exit.
+6外
+5内
+5内
+5内
+5内
+5内
+5内
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7外
+66.    conditionVariable_.wait(lk);→exit.
+.    conditionVariable_.wait(lk);→exit.
+66内
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+6退出.if (!enabled) {
+notify.
+notify.
+5.    conditionVariable_.wait(lk);→exit.
+5内
+65.    conditionVariable_.wait(lk);→exit.
+内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.if (!enabled) {
+5.    conditionVariable_.wait(lk);→exit.
+5.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+5退出.ok.
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+6外
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+6notify.
+notify.
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+66.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+7外
+6退出.if (!enabled) {
+6退出.ok.
+6退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7外
+notify.
+notify.
+8外
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+77.    conditionVariable_.wait(lk);→exit.
+内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7外
+notify.
+notify.
+notify.
+notify.
+notify.
+6外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+6外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7外
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+8外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+6notify.
+外
+notify.
+notify.
+notify.
+notify.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+6.    conditionVariable_.wait(lk);→exit.
+notify.
+6notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7内
+7内
+内
+76.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+8外
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+7外
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+notify.
+notify.
+8notify.
+.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+66内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+6外
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8内
+8内
+8内
+8内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+87.    conditionVariable_.wait(lk);→exit.
+内
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+8.    conditionVariable_.wait(lk);→exit.
+8内
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.if (!enabled) {
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+66外
+.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+8.    conditionVariable_.wait(lk);→exit.
+8.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+8退出.ok.
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+notify.
+notify.
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+6外
+notify.
+notify.
+notify.
+notify.
+notify.
+notify.
+6外
+} else if (currentThreads_ < maximumPoolSize_ && taskQueueSize_ + 1 > currentThreads_) {
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6内
+6内
+76内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.ok.
+外
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7退出.if (!enabled) {
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.if (!enabled) {
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6退出.ok.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+66.    conditionVariable_.wait(lk);→exit.
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+76.    conditionVariable_.wait(lk);→exit.
+notify.
+7内
+内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7.    conditionVariable_.wait(lk);→exit.
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+before sleep(4);---------------------------------
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+after sleep(4);---------------------------------
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+6.    conditionVariable_.wait(lk);→exit.
+6.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+6.    conditionVariable_.wait(lk);→exit.
+6.    conditionVariable_.wait(lk);→exit.
+6内
+66.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+notify.
+notify.
+7.    conditionVariable_.wait(lk);→exit.
+7内
+7.    std::lock_guard<std::mutex> lock(terminateTheThreadMutex_);
+6.    conditionVariable_.wait(lk);→exit.
+6.    conditionVariable_.wait(lk);→exit.
+6.    conditionVariable_.wait(lk);→exit.
+Cleanup().
+7.    conditionVariable_.wait(lk);→exit.
+cnt = 499500
