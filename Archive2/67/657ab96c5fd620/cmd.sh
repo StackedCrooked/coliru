@@ -1,0 +1,1 @@
+set -x ; g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread -o hehe1 main.cpp -lboost_regex && ./hehe1
