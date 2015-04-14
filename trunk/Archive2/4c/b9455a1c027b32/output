@@ -1,0 +1,24 @@
+In file included from main.cpp:1:
+In file included from /usr/include/c++/v1/string:439:
+In file included from /usr/include/c++/v1/algorithm:628:
+/usr/include/c++/v1/memory:1645:31: error: no matching constructor for initialization of 'X'
+            ::new((void*)__p) _Up(_VSTD::forward<_Args>(__args)...);
+                              ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/v1/memory:1572:18: note: in instantiation of function template specialization 'std::__1::allocator<X>::construct<X, int, char const (&)[5]>' requested here
+            {__a.construct(__p, _VSTD::forward<_Args>(__args)...);}
+                 ^
+/usr/include/c++/v1/memory:1453:14: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<X> >::__construct<X, int, char const (&)[5]>' requested here
+            {__construct(__has_construct<allocator_type, pointer, _Args...>(),
+             ^
+/usr/include/c++/v1/vector:1637:25: note: in instantiation of function template specialization 'std::__1::allocator_traits<std::__1::allocator<X> >::construct<X, int, char const (&)[5]>' requested here
+        __alloc_traits::construct(this->__alloc(),
+                        ^
+main.cpp:14:6: note: in instantiation of function template specialization 'std::__1::vector<X, std::__1::allocator<X> >::emplace_back<int, char const (&)[5]>' requested here
+  vx.emplace_back(1, "test");
+     ^
+main.cpp:6:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+struct X {
+       ^
+main.cpp:6:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+main.cpp:6:8: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+1 error generated.
