@@ -1,0 +1,34 @@
+main.cpp: In function 'int main()':
+main.cpp:3:25: error: 'CompilerInvocation' does not name a type
+   auto invocation = new CompilerInvocation;
+                         ^
+main.cpp:9:7: error: 'MemoryBuffer' has not been declared
+       MemoryBuffer::getMemBuffer("/// class X { void bee(); };").release());
+       ^
+main.cpp:13:7: error: 'MemoryBuffer' has not been declared
+       MemoryBuffer::getMemBuffer("/// class Y { void gee(); };").release());
+       ^
+main.cpp:15:79: error: 'IK_CXX' was not declared in this scope
+   invocation->getFrontendOpts().Inputs.push_back(FrontendInputFile("baa.cpp", IK_CXX));
+                                                                               ^
+main.cpp:15:85: error: 'FrontendInputFile' was not declared in this scope
+   invocation->getFrontendOpts().Inputs.push_back(FrontendInputFile("baa.cpp", IK_CXX));
+                                                                                     ^
+main.cpp:19:49: error: 'frontend' has not been declared
+   invocation->getFrontendOpts().ProgramAction = frontend::ParseSyntaxOnly;
+                                                 ^
+main.cpp:20:40: error: 'llvm' has not been declared
+   invocation->getTargetOpts().Triple = llvm::sys::getDefaultTargetTriple();
+                                        ^
+main.cpp:22:3: error: 'CompilerInstance' was not declared in this scope
+   CompilerInstance compiler;
+   ^
+main.cpp:23:3: error: 'compiler' was not declared in this scope
+   compiler.setInvocation(invocation);
+   ^
+main.cpp:26:3: error: 'ExampleFrontendAction' was not declared in this scope
+   ExampleFrontendAction test_action;
+   ^
+main.cpp:27:26: error: 'test_action' was not declared in this scope
+   compiler.ExecuteAction(test_action);
+                          ^
