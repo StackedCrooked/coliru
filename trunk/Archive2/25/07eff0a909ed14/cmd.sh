@@ -1,0 +1,2 @@
+clang++ -std=c++98 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors -c -S main.cpp && cat main.s 
+echo ============== && g++ -std=c++98 -O3 -Wall -Wextra -pedantic-errors main.cpp -c -S main.cpp && cat main.s

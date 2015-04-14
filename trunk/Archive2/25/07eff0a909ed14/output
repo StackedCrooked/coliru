@@ -1,0 +1,98 @@
+	.text
+	.file	"main.cpp"
+	.globl	_Z9constructPvRK1A
+	.align	16, 0x90
+	.type	_Z9constructPvRK1A,@function
+_Z9constructPvRK1A:                     # @_Z9constructPvRK1A
+	.cfi_startproc
+# BB#0:
+	xorl	%eax, %eax
+	testq	%rdi, %rdi
+	je	.LBB0_2
+# BB#1:
+	movq	(%rsi), %rax
+	movq	%rax, (%rdi)
+	movq	%rdi, %rax
+.LBB0_2:
+	retq
+.Ltmp0:
+	.size	_Z9constructPvRK1A, .Ltmp0-_Z9constructPvRK1A
+	.cfi_endproc
+
+	.globl	_Z3fooPcii
+	.align	16, 0x90
+	.type	_Z3fooPcii,@function
+_Z3fooPcii:                             # @_Z3fooPcii
+	.cfi_startproc
+# BB#0:
+                                        # kill: EDX<def> EDX<kill> RDX<def>
+	xorl	%eax, %eax
+	testq	%rdi, %rdi
+	je	.LBB1_2
+# BB#1:                                 # %_Z9constructPvRK1A.exit
+	shlq	$32, %rdx
+	movl	%esi, %eax
+	orq	%rdx, %rax
+	movq	%rax, (%rdi)
+	movq	%rdi, %rax
+.LBB1_2:
+	retq
+.Ltmp1:
+	.size	_Z3fooPcii, .Ltmp1-_Z3fooPcii
+	.cfi_endproc
+
+
+	.ident	"clang version 3.5.0 (tags/RELEASE_350/final 217394)"
+	.section	".note.GNU-stack","",@progbits
+==============
+	.file	"main.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.globl	_Z9constructPvRK1A
+	.type	_Z9constructPvRK1A, @function
+_Z9constructPvRK1A:
+.LFB16:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	movq	%rdi, %rax
+	je	.L2
+	movq	(%rsi), %rdx
+	movq	%rdx, (%rdi)
+.L2:
+	rep; ret
+	.cfi_endproc
+.LFE16:
+	.size	_Z9constructPvRK1A, .-_Z9constructPvRK1A
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely
+.LCOLDB1:
+	.text
+.LHOTB1:
+	.p2align 4,,15
+	.globl	_Z3fooPcii
+	.type	_Z3fooPcii, @function
+_Z3fooPcii:
+.LFB17:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	movq	%rdi, %rax
+	je	.L8
+	movl	%esi, (%rdi)
+	movl	%edx, 4(%rdi)
+.L8:
+	rep; ret
+	.cfi_endproc
+.LFE17:
+	.size	_Z3fooPcii, .-_Z3fooPcii
+	.section	.text.unlikely
+.LCOLDE1:
+	.text
+.LHOTE1:
+	.ident	"GCC: (GNU) 4.9.2"
+	.section	.note.GNU-stack,"",@progbits
