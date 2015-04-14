@@ -1,0 +1,14 @@
+main.c:11:8: warning: incompatible pointer types assigning to 'struct A *' from 'char *' [-Wincompatible-pointer-types]
+    p2 = (char*)p + sizeof(struct A);
+       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c:14:17: warning: cast from 'struct A *' to 'double *' increases required alignment from 4 to 8 [-Wcast-align]
+    double* b = (double*)p2;
+                ^~~~~~~~~~~
+main.c:17:16: error: member reference type 'struct A *' is a pointer; maybe you meant to use '->'?
+    int c = *p2.a;
+             ~~^
+               ->
+main.c:17:13: error: indirection requires pointer operand ('int' invalid)
+    int c = *p2.a;
+            ^~~~~
+2 warnings and 2 errors generated.
