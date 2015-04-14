@@ -1,0 +1,9 @@
+main.cpp: In function 'int main()':
+main.cpp:86:49:   in constexpr expansion of 'x.rational<Integral>::operator+<int>((*(const rational<int>*)(& rational<int>(33, 5))))'
+main.cpp:86:49: error: 'constexpr detail::addition<Rational>::addition(const Rational&, const Rational&) [with Rational = rational<int>]' called in a constant expression
+     constexpr auto res = x + rational<int>{33, 5};
+                                                 ^
+main.cpp:21:15: note: 'constexpr detail::addition<Rational>::addition(const Rational&, const Rational&) [with Rational = rational<int>]' is not usable as a constexpr function because:
+     constexpr addition(const Rational& lhs, const Rational& rhs):
+               ^
+main.cpp:21: confused by earlier errors, bailing out

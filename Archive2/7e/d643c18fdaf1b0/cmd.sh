@@ -1,0 +1,1 @@
+g++ -std=c++11 -W{all,extra,error,pedantic} main.cpp && ./a.out
