@@ -1,0 +1,12 @@
++ clang++ -std=c++1y -stdlib=libc++ -Wall -pedantic main.cpp -pthread -lcxxrt -ldl
+main.cpp:28:20: error: explicit specialization of 'DoIt' after instantiation
+    void Foo<int>::DoIt()
+                   ^
+main.cpp:19:7: note: implicit instantiation first required here
+    f.DoIt();
+      ^
+1 error generated.
++ g++ -std=c++1y -Wall -pedantic main.cpp -pthread
+main.cpp:28:25: error: specialization of 'void ns::Foo<T>::DoIt() [with T = int]' after instantiation
+     void Foo<int>::DoIt()
+                         ^
