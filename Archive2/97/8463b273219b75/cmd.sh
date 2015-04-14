@@ -1,0 +1,1 @@
+cat main.cpp > main.c && clang -Weverything main.c && ./a.out
