@@ -1,0 +1,1 @@
+g++ -Wall -Wextra -pedantic main.cpp && ./a.out && echo && clang++ -Wall -Wextra -pedantic main.cpp && ./a.out
