@@ -1,0 +1,18 @@
+main.cpp: In function 'int main()':
+main.cpp:17:31: error: '__LINE' was not declared in this scope
+     source_origin a(__FILE__, __LINE);
+                               ^
+main.cpp:18:19: error: no matching function for call to 'source_origin::source_origin()'
+     source_origin b;
+                   ^
+main.cpp:18:19: note: candidates are:
+main.cpp:7:5: note: source_origin::source_origin(const char*, std::size_t)
+     source_origin(const char* file, std::size_t line)
+     ^
+main.cpp:7:5: note:   candidate expects 2 arguments, 0 provided
+main.cpp:5:8: note: constexpr source_origin::source_origin(const source_origin&)
+ struct source_origin
+        ^
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:5:8: note: constexpr source_origin::source_origin(source_origin&&)
+main.cpp:5:8: note:   candidate expects 1 argument, 0 provided
