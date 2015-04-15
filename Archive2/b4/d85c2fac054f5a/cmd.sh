@@ -1,0 +1,1 @@
+clang++ -std=c++98 -O2 -Wall -Wno-uninitialized -pedantic -pthread main.cpp && ./a.out
