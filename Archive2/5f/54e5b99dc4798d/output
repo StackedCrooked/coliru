@@ -1,0 +1,191 @@
+main.cpp:6:8: warning: class template partial specialization contains template parameters that cannot be deduced; this partial specialization will never be used
+struct SwapImpl<T,Position1,Position2,false,false,Container<LeftAll...>,Container<LeftItem,Middle...,RightItem>,Container<RightAll...>> {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:5:116: note: non-deducible template parameter 'LeftItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                   ^
+main.cpp:5:130: note: non-deducible template parameter 'Middle'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                 ^
+main.cpp:5:140: note: non-deducible template parameter 'RightItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                           ^
+main.cpp:10:8: warning: class template partial specialization contains template parameters that cannot be deduced; this partial specialization will never be used
+struct SwapImpl<T,Position1,Position2,true,false,Container<LeftAll...>,Container<LeftItem,Middle...,RightItem>,Container<RightAll...>> {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:9:116: note: non-deducible template parameter 'LeftItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                   ^
+main.cpp:9:130: note: non-deducible template parameter 'Middle'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                 ^
+main.cpp:9:140: note: non-deducible template parameter 'RightItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                           ^
+main.cpp:14:8: warning: class template partial specialization contains template parameters that cannot be deduced; this partial specialization will never be used
+struct SwapImpl<T,Position1,Position2,false,true,Container<LeftAll...>,Container<LeftItem,Middle...,RightItem>,Container<RightAll...>> {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:13:116: note: non-deducible template parameter 'LeftItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                   ^
+main.cpp:13:130: note: non-deducible template parameter 'Middle'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                 ^
+main.cpp:13:140: note: non-deducible template parameter 'RightItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                           ^
+main.cpp:18:8: warning: class template partial specialization contains template parameters that cannot be deduced; this partial specialization will never be used
+struct SwapImpl<T,Position1,Position2,true,true,Container<LeftAll...>,Container<LeftItem,Middle...,RightItem>,Container<RightAll...>> {
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:17:116: note: non-deducible template parameter 'LeftItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                   ^
+main.cpp:17:130: note: non-deducible template parameter 'Middle'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                 ^
+main.cpp:17:140: note: non-deducible template parameter 'RightItem'
+template<typename T, std::size_t Position1, std::size_t Position2, template <T...> class Container, T...LeftAll, T LeftItem, T...Middle, T RightItem, T...RightAll> 
+                                                                                                                                           ^
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 0, 1, true, true, Container<>, Container<0, 1>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:40:14: note: in instantiation of template class 'Swap<int, 0, 1, Container<0, 1> >' requested here
+    typename Swap<int,0,1,Container<0,1>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:40:50: error: expected a qualified name after 'typename'
+    typename Swap<int,0,1,Container<0,1>>::type::p();
+                                                 ^
+main.cpp:40:50: error: C++ requires a type specifier for all declarations
+    typename Swap<int,0,1,Container<0,1>>::type::p();
+                                                 ^
+main.cpp:40:51: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,0,1,Container<0,1>>::type::p();
+                                                  ^~
+main.cpp:40:51: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,0,1,Container<0,1>>::type::p();
+                                                  ^~
+                                                   = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 0, 1, true, false, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:41:14: note: in instantiation of template class 'Swap<int, 0, 1, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,0,1,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:41:54: error: expected a qualified name after 'typename'
+    typename Swap<int,0,1,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:41:54: error: C++ requires a type specifier for all declarations
+    typename Swap<int,0,1,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:41:55: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,0,1,Container<0,1,2,3>>::type::p();
+                                                      ^~
+main.cpp:41:55: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,0,1,Container<0,1,2,3>>::type::p();
+                                                      ^~
+                                                       = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 0, 2, true, false, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:42:14: note: in instantiation of template class 'Swap<int, 0, 2, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,0,2,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:42:54: error: expected a qualified name after 'typename'
+    typename Swap<int,0,2,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:42:54: error: C++ requires a type specifier for all declarations
+    typename Swap<int,0,2,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:42:55: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,0,2,Container<0,1,2,3>>::type::p();
+                                                      ^~
+main.cpp:42:55: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,0,2,Container<0,1,2,3>>::type::p();
+                                                      ^~
+                                                       = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 0, 3, true, true, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:43:14: note: in instantiation of template class 'Swap<int, 0, 3, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,0,3,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:43:54: error: expected a qualified name after 'typename'
+    typename Swap<int,0,3,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:43:54: error: C++ requires a type specifier for all declarations
+    typename Swap<int,0,3,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:43:55: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,0,3,Container<0,1,2,3>>::type::p();
+                                                      ^~
+main.cpp:43:55: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,0,3,Container<0,1,2,3>>::type::p();
+                                                      ^~
+                                                       = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 1, 2, false, false, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:44:14: note: in instantiation of template class 'Swap<int, 1, 2, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,1,2,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:44:54: error: expected a qualified name after 'typename'
+    typename Swap<int,1,2,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:44:54: error: C++ requires a type specifier for all declarations
+    typename Swap<int,1,2,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:44:55: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,1,2,Container<0,1,2,3>>::type::p();
+                                                      ^~
+main.cpp:44:55: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,1,2,Container<0,1,2,3>>::type::p();
+                                                      ^~
+                                                       = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 1, 3, false, true, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:45:14: note: in instantiation of template class 'Swap<int, 1, 3, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,1,3,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+main.cpp:45:54: error: expected a qualified name after 'typename'
+    typename Swap<int,1,3,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:45:54: error: C++ requires a type specifier for all declarations
+    typename Swap<int,1,3,Container<0,1,2,3>>::type::p();
+                                                     ^
+main.cpp:45:55: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+    typename Swap<int,1,3,Container<0,1,2,3>>::type::p();
+                                                      ^~
+main.cpp:45:55: note: replace parentheses with an initializer to declare a variable
+    typename Swap<int,1,3,Container<0,1,2,3>>::type::p();
+                                                      ^~
+                                                       = 0
+main.cpp:27:27: error: implicit instantiation of undefined template 'SwapImpl<int, 2, 3, false, true, Container<>, Container<0, 1, 2, 3>, Container<> >'
+    using type = typename SwapImpl<T,Position1,Position2,Position1==0,Position2==sizeof...(Ts)-1,Container<>,Container<Ts...>,Container<>>::type;
+                          ^
+main.cpp:46:14: note: in instantiation of template class 'Swap<int, 2, 3, Container<0, 1, 2, 3> >' requested here
+    typename Swap<int,2,3,Container<0,1,2,3>>::type::p();
+             ^
+main.cpp:3:149: note: template is declared here
+template<typename T, std::size_t Position1, std::size_t Position2, bool AtPos1, bool AtPos2, typename Left, typename Middle, typename Right> struct SwapImpl;
+                                                                                                                                                    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+10 warnings and 20 errors generated.
