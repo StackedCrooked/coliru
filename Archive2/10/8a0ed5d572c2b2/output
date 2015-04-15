@@ -1,0 +1,19 @@
+main.cpp: In function 'int main()':
+main.cpp:12:11: error: use of deleted function 'D1::D1(int)'
+     D1 d(4);
+           ^
+main.cpp:8:17: note: 'D1::D1(int)' is implicitly deleted because the default definition would be ill-formed:
+     using Base::Base;
+                 ^
+main.cpp:8:17: error: no matching function for call to 'Base::Base()'
+main.cpp:8:17: note: candidates are:
+main.cpp:4:5: note: Base::Base(int)
+     Base(int) {}
+     ^
+main.cpp:4:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr Base::Base(const Base&)
+ struct Base {
+        ^
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
+main.cpp:3:8: note: constexpr Base::Base(Base&&)
+main.cpp:3:8: note:   candidate expects 1 argument, 0 provided
