@@ -1,0 +1,23 @@
+g++:
+
+main.cpp: In function 'int main()':
+main.cpp:13:6: error: request for member 'operator()' is ambiguous
+   d(0);
+      ^
+main.cpp:6:8: note: candidates are: void Base2::operator()(double)
+   void operator()(double) {}
+        ^
+main.cpp:2:8: note:                 void Base1::operator()(int)
+   void operator()(int) {}
+        ^
+main.cpp:14:8: error: request for member 'operator()' is ambiguous
+   d(0.0);
+        ^
+main.cpp:6:8: note: candidates are: void Base2::operator()(double)
+   void operator()(double) {}
+        ^
+main.cpp:2:8: note:                 void Base1::operator()(int)
+   void operator()(int) {}
+        ^
+clang++:
+
