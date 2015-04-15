@@ -1,0 +1,14 @@
+main.cpp:26:10: warning: unused variable 'l' [-Wunused-variable]
+    auto l = { (f(std::get<Is>(t)), 0)... };
+         ^
+main.cpp:31:11: note: in instantiation of function template specialization 'detail::for_each<const std::tuple<int, int, int, int> &, int (*)(int), 0, 1, 2, 3>' requested here
+  detail::for_each(t, f, detail::gen_seq<sizeof...(Ts)>{});
+          ^
+main.cpp:38:13: note: in instantiation of function template specialization 'detail::for_each_in_tuple<int, int, int, int, int (*)(int)>' requested here
+    detail::for_each_in_tuple(d,f);
+            ^
+1 warning generated.
+9
+4
+7
+3
