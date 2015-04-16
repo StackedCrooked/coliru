@@ -1,0 +1,51 @@
++ g++-4.9 -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -Wconversion -pthread main.cpp
+main.cpp: In instantiation of 'foo::foo(T&&) [with T = int]':
+main.cpp:20:13:   required from here
+main.cpp:8:37: error: no matching function for call to 'forward(int&)'
+     : t(std::forward<std::wstring>(t))
+                                     ^
+main.cpp:8:37: note: candidates are:
+In file included from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/string:40,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/move.h:76:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&)
+     forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/bits/move.h:76:5: note:   template argument deduction/substitution failed:
+main.cpp:8:37: note:   cannot convert 't' (type 'int') to type 'std::remove_reference<std::basic_string<wchar_t> >::type& {aka std::basic_string<wchar_t>&}'
+     : t(std::forward<std::wstring>(t))
+                                     ^
+In file included from /usr/local/include/c++/4.9.2/bits/stl_pair.h:59:0,
+                 from /usr/local/include/c++/4.9.2/bits/stl_algobase.h:64,
+                 from /usr/local/include/c++/4.9.2/bits/char_traits.h:39,
+                 from /usr/local/include/c++/4.9.2/string:40,
+                 from main.cpp:2:
+/usr/local/include/c++/4.9.2/bits/move.h:87:5: note: template<class _Tp> constexpr _Tp&& std::forward(typename std::remove_reference<_From>::type&&)
+     forward(typename std::remove_reference<_Tp>::type&& __t) noexcept
+     ^
+/usr/local/include/c++/4.9.2/bits/move.h:87:5: note:   template argument deduction/substitution failed:
+main.cpp:8:37: note:   cannot convert 't' (type 'int') to type 'std::remove_reference<std::basic_string<wchar_t> >::type&& {aka std::basic_string<wchar_t>&&}'
+     : t(std::forward<std::wstring>(t))
+                                     ^
+main.cpp:10:9: error: static assertion failed: 
+         static_assert(std::is_convertible<T, std::wstring>::value, "");
+         ^
++ clang++ -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-parameter -pthread -stdlib=libc++ main.cpp -lsupc++
+main.cpp:8:9: error: no matching function for call to 'forward'
+    : t(std::forward<std::wstring>(t))
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:20:9: note: in instantiation of function template specialization 'foo::foo<int>' requested here
+    foo f3(0);  // invalid argument type
+        ^
+/usr/include/c++/v1/type_traits:1612:1: note: candidate function [with _Tp = std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> >] not viable: no known conversion from 'int' to 'typename std::remove_reference<basic_string<wchar_t, char_traits<wchar_t>, allocator<wchar_t> > >::type &' (aka 'std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> > &') for 1st argument
+forward(typename std::remove_reference<_Tp>::type& __t) _NOEXCEPT
+^
+/usr/include/c++/v1/type_traits:1620:1: note: candidate function [with _Tp = std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> >] not viable: no known conversion from 'int' to 'typename std::remove_reference<basic_string<wchar_t, char_traits<wchar_t>, allocator<wchar_t> > >::type' (aka 'std::__1::basic_string<wchar_t, std::__1::char_traits<wchar_t>, std::__1::allocator<wchar_t> >') for 1st argument
+forward(typename std::remove_reference<_Tp>::type&& __t) _NOEXCEPT
+^
+main.cpp:10:9: error: static_assert failed ""
+        static_assert(std::is_convertible<T, std::wstring>::value, "");
+        ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
