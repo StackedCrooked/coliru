@@ -1,0 +1,24 @@
+In file included from main.cpp:5:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/type_traits:35:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/bits/c++0x_warning.h:32:2: error: This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+#error This file requires compiler and library support for the \
+ ^
+main.cpp:7:1: error: C++ requires a type specifier for all declarations
+static_assert( std::is_same<int const&, decltype(vref)>{}, "" );
+^~~~~~~~~~~~~
+main.cpp:7:21: error: no member named 'is_same' in namespace 'std'
+static_assert( std::is_same<int const&, decltype(vref)>{}, "" );
+               ~~~~~^
+main.cpp:7:33: error: expected '(' for function-style cast or type construction
+static_assert( std::is_same<int const&, decltype(vref)>{}, "" );
+                            ~~~ ^
+main.cpp:7:41: error: use of undeclared identifier 'decltype'
+static_assert( std::is_same<int const&, decltype(vref)>{}, "" );
+                                        ^
+main.cpp:7:56: error: expected expression
+static_assert( std::is_same<int const&, decltype(vref)>{}, "" );
+                                                       ^
+main.cpp:9:13: warning: no newline at end of file [-Wnewline-eof]
+int main(){}
+            ^
+1 warning and 6 errors generated.
