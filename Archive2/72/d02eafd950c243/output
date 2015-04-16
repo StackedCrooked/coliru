@@ -1,0 +1,58 @@
+clang:
+main.cpp:11:52: error: template argument for template type parameter must be a type
+struct map_call_help<Mapped, std::integer_sequence<indices...>>
+                                                   ^~~~~~~~~~
+/usr/include/c++/v1/utility:671:16: note: template parameter is declared here
+template<class _Tp, _Tp... _Ip>
+               ^
+main.cpp:24:23: error: declaration of 'Mapped' shadows template parameter
+template<int n, class Mapped, class Callable, class... Args>
+                      ^
+main.cpp:10:16: note: template parameter is declared here
+template<class Mapped, int... indices>
+               ^
+main.cpp:24:17: error: cannot combine with previous '(error)' declaration specifier
+template<int n, class Mapped, class Callable, class... Args>
+                ^
+main.cpp:24:29: error: expected unqualified-id
+template<int n, class Mapped, class Callable, class... Args>
+                            ^
+main.cpp:44:5: error: use of undeclared identifier 'map_call'
+    map_call<3, add>(do_stuff, data, 1);
+    ^
+main.cpp:44:17: error: use of undeclared identifier 'add'
+    map_call<3, add>(do_stuff, data, 1);
+                ^
+main.cpp:44:22: error: reference to overloaded function could not be resolved; did you mean to call it?
+    map_call<3, add>(do_stuff, data, 1);
+                     ^~~~~~~~
+main.cpp:37:30: note: possible target for call
+template<class... Args> void do_stuff(const Args & ... args)
+                             ^
+7 errors generated.
+gcc:
+main.cpp:11:30: error: 'integer_sequence' is not a member of 'std'
+ struct map_call_help<Mapped, std::integer_sequence<indices...>>
+                              ^
+main.cpp:11:30: error: 'integer_sequence' is not a member of 'std'
+main.cpp:11:59: error: expected parameter pack before '...'
+ struct map_call_help<Mapped, std::integer_sequence<indices...>>
+                                                           ^
+main.cpp:11:59: error: template argument 2 is invalid
+main.cpp:11:62: error: expected unqualified-id before '>' token
+ struct map_call_help<Mapped, std::integer_sequence<indices...>>
+                                                              ^
+main.cpp: In function 'void map_call(Callable&&, Args&& ...)':
+main.cpp:27:27: error: 'make_int_seq' was not declared in this scope
+     map_call_help<Mapped, make_int_seq<n>>::f(
+                           ^
+main.cpp:27:40: error: template argument 2 is invalid
+     map_call_help<Mapped, make_int_seq<n>>::f(
+                                        ^
+main.cpp:27:41: error: expected unqualified-id before '>' token
+     map_call_help<Mapped, make_int_seq<n>>::f(
+                                         ^
+main.cpp: In function 'int main()':
+main.cpp:43:45: error: variable 'std::tuple<char, short int, int, float, double> data' has initializer but incomplete type
+     std::tuple<char,short,int,float,double> data = {1,3,5};
+                                             ^
