@@ -1,0 +1,1 @@
+g++ -std=c++1y -O3 -Wno-all -pedantic -pthread -lboost_iostreams -lboost_serialization main.cpp && ./a.out
