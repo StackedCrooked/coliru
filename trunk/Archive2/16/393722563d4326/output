@@ -1,0 +1,14 @@
+main.cpp: In function 'CannotCopy bar()':
+main.cpp:13:23: error: use of deleted function 'CannotCopy::CannotCopy(const CannotCopy&)'
+     return CannotCopy();        // This doesn't
+                       ^
+main.cpp:2:5: note: declared here
+     CannotCopy(const CannotCopy&) = delete;
+     ^
+main.cpp: In function 'CannotCopy baz()':
+main.cpp:18:23: error: use of deleted function 'CannotCopy::CannotCopy(const CannotCopy&)'
+     return CannotCopy{};        // This doesn't
+                       ^
+main.cpp:2:5: note: declared here
+     CannotCopy(const CannotCopy&) = delete;
+     ^
