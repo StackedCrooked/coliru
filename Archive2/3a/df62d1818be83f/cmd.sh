@@ -1,0 +1,1 @@
+g++ -std=c++03 -O3 -Wall -pedantic -pthread -lboost_iostreams -lboost_serialization -lboost_system -lboost_thread main.cpp && ./a.out
