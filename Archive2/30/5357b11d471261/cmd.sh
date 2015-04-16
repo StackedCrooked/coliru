@@ -1,0 +1,1 @@
+clang++ -std=c++1y -O3 -Wall -pedantic -pthread -lboost_iostreams -lboost_serialization main.cpp && ./a.out
