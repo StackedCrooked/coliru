@@ -1,0 +1,77 @@
+
+g++#######################################
+
+main.cpp: In function 'int main()':
+main.cpp:50:9: error: use of deleted function 'Foobar<value_type>& Foobar<value_type>::operator=(const Foobar<value_type>&)'
+     foo = bar;
+         ^
+main.cpp:28:8: note: 'Foobar<value_type>& Foobar<value_type>::operator=(const Foobar<value_type>&)' is implicitly deleted because the default definition would be ill-formed:
+ struct Foobar : CopyAssignmentEnabler<typename std::is_nothrow_copy_constructible<T>::type>,
+        ^
+main.cpp:28:8: error: use of deleted function 'CopyAssignmentEnabler<std::integral_constant<bool, false> >& CopyAssignmentEnabler<std::integral_constant<bool, false> >::operator=(const CopyAssignmentEnabler<std::integral_constant<bool, false> >&)'
+main.cpp:11:28: note: declared here
+     CopyAssignmentEnabler& operator=(const CopyAssignmentEnabler&) = delete;
+                            ^
+main.cpp:51:22: error: use of deleted function 'Foobar<value_type>& Foobar<value_type>::operator=(const Foobar<value_type>&)'
+     foo.operator=(bar);
+                      ^
+main.cpp: In instantiation of 'Foobar<T>::Foobar(T) [with T = value_type]':
+main.cpp:45:30:   required from here
+main.cpp:31:30: error: no matching function for call to 'CopyAssignmentEnabler<std::integral_constant<bool, false> >::CopyAssignmentEnabler()'
+     Foobar(T value) : x(value) {}
+                              ^
+main.cpp:31:30: note: candidates are:
+main.cpp:10:5: note: constexpr CopyAssignmentEnabler<std::integral_constant<bool, false> >::CopyAssignmentEnabler(CopyAssignmentEnabler<std::integral_constant<bool, false> >&&)
+     CopyAssignmentEnabler(CopyAssignmentEnabler&&) = default;
+     ^
+main.cpp:10:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:9:5: note: constexpr CopyAssignmentEnabler<std::integral_constant<bool, false> >::CopyAssignmentEnabler(const CopyAssignmentEnabler<std::integral_constant<bool, false> >&)
+     CopyAssignmentEnabler(const CopyAssignmentEnabler&) = default;
+     ^
+main.cpp:9:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:31:30: error: no matching function for call to 'MoveAssignmentEnabler<std::integral_constant<bool, false> >::MoveAssignmentEnabler()'
+     Foobar(T value) : x(value) {}
+                              ^
+main.cpp:31:30: note: candidates are:
+main.cpp:22:5: note: constexpr MoveAssignmentEnabler<std::integral_constant<bool, false> >::MoveAssignmentEnabler(MoveAssignmentEnabler<std::integral_constant<bool, false> >&&)
+     MoveAssignmentEnabler(MoveAssignmentEnabler&&) = default;
+     ^
+main.cpp:22:5: note:   candidate expects 1 argument, 0 provided
+main.cpp:21:5: note: constexpr MoveAssignmentEnabler<std::integral_constant<bool, false> >::MoveAssignmentEnabler(const MoveAssignmentEnabler<std::integral_constant<bool, false> >&)
+     MoveAssignmentEnabler(const MoveAssignmentEnabler&) = default;
+     ^
+main.cpp:21:5: note:   candidate expects 1 argument, 0 provided
+
+clang++###################################
+
+main.cpp:50:9: error: object of type 'Foobar<value_type>' cannot be assigned because its copy assignment operator is implicitly deleted
+    foo = bar;
+        ^
+main.cpp:28:17: note: copy assignment operator of 'Foobar<value_type>' is implicitly deleted because base class 'CopyAssignmentEnabler<typename std::is_nothrow_copy_constructible<value_type>::type>' has a deleted copy assignment operator
+struct Foobar : CopyAssignmentEnabler<typename std::is_nothrow_copy_constructible<T>::type>,
+                ^
+main.cpp:11:28: note: 'operator=' has been explicitly marked deleted here
+    CopyAssignmentEnabler& operator=(const CopyAssignmentEnabler&) = delete;
+                           ^
+main.cpp:51:9: error: call to deleted member function 'operator='
+    foo.operator=(bar);
+    ~~~~^~~~~~~~~
+main.cpp:28:8: note: candidate function (the implicit copy assignment operator) has been implicitly deleted
+struct Foobar : CopyAssignmentEnabler<typename std::is_nothrow_copy_constructible<T>::type>,
+       ^
+main.cpp:31:5: error: constructor for 'Foobar<value_type>' must explicitly initialize the base class 'CopyAssignmentEnabler<typename std::is_nothrow_copy_constructible<value_type>::type>' which does not have a default constructor
+    Foobar(T value) : x(value) {}
+    ^
+main.cpp:45:24: note: in instantiation of member function 'Foobar<value_type>::Foobar' requested here
+    Foobar<value_type> foo(10);
+                       ^
+main.cpp:7:8: note: 'CopyAssignmentEnabler<std::false_type>' declared here
+struct CopyAssignmentEnabler<std::false_type>
+       ^
+main.cpp:31:5: error: constructor for 'Foobar<value_type>' must explicitly initialize the base class 'MoveAssignmentEnabler<typename std::is_nothrow_move_constructible<value_type>::type>' which does not have a default constructor
+    Foobar(T value) : x(value) {}
+    ^
+main.cpp:19:8: note: 'MoveAssignmentEnabler<std::false_type>' declared here
+struct MoveAssignmentEnabler<std::false_type>
+       ^
+4 errors generated.
