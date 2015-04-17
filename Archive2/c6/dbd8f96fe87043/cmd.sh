@@ -1,0 +1,1 @@
+clang++ -std=c++14 main.cpp -pedantic -fdiagnostics-show-template-tree && ./a.out
