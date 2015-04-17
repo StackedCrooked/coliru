@@ -1,0 +1,18 @@
+main.cpp:32:30: error: a function call cannot appear in a constant-expression
+ struct is_pointer<typeof(NULL)> : true_type {};
+                              ^
+main.cpp:32:31: error: template argument 1 is invalid
+ struct is_pointer<typeof(NULL)> : true_type {};
+                               ^
+main.cpp: In function 'int main()':
+main.cpp:47:13: error: no matching function for call to 'foo(NULL)'
+     foo(NULL);
+             ^
+main.cpp:47:13: note: candidate is:
+main.cpp:37:1: note: template<class opt_type_ptr> typename enable_if<is_pointer<T>::value, void>::type foo(opt_type_ptr)
+ foo(opt_type_ptr o1)
+ ^
+main.cpp:37:1: note:   template argument deduction/substitution failed:
+main.cpp: In substitution of 'template<class opt_type_ptr> typename enable_if<is_pointer<T>::value, void>::type foo(opt_type_ptr) [with opt_type_ptr = long int]':
+main.cpp:47:13:   required from here
+main.cpp:37:1: error: no type named 'type' in 'struct enable_if<false, void>'
