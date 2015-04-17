@@ -1,0 +1,1 @@
+g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -lgmp && ./a.out 123123123123123123123123123123123123
