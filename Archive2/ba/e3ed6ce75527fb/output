@@ -1,0 +1,13 @@
+main.cpp:8:8: error: 'A' is not a class, namespace, or scoped enumeration
+struct A::A b;
+       ^
+main.cpp:8:8: error: reference to 'A' is ambiguous
+struct A::A b;
+       ^
+main.cpp:4:8: note: candidate found by name lookup is 'A'
+struct A {A() {std::cout << "::A\n";}};
+       ^
+main.cpp:3:24: note: candidate found by name lookup is 'X::A'
+namespace X {namespace A {struct A {A() {std::cout << "X::A::A\n";}};}}
+                       ^
+2 errors generated.
