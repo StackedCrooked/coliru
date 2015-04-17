@@ -1,0 +1,10 @@
+main.cpp:19:12: error: call to implicitly-deleted copy constructor of 'MyClass'
+    return a; // Can't do this! Copy ctor is implicitly deleted due to ss
+           ^
+main.cpp:11:21: note: copy constructor of 'MyClass' is implicitly deleted because field 'ss' has a deleted copy constructor
+  std::stringstream ss; // This CANNOT be copied
+                    ^
+/usr/include/c++/v1/sstream:876:5: note: copy constructor is implicitly deleted because 'basic_stringstream<char, std::__1::char_traits<char>, std::__1::allocator<char> >' has a user-declared move constructor
+    basic_stringstream(basic_stringstream&& __rhs);
+    ^
+1 error generated.
