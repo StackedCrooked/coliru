@@ -1,0 +1,12 @@
+main.cpp: In function 'int main()':
+main.cpp:33:16: error: no match for 'operator<<' (operand types are 'format' and 'const char [25]')
+       format() << "Number of columns in A (" << cols
+                ^
+main.cpp:33:16: note: candidate is:
+main.cpp:19:18: note: template<class T> format& operator<<(format&, const T&)
+   friend format& operator<<(format& f, const T& data) {
+                  ^
+main.cpp:19:18: note:   template argument deduction/substitution failed:
+main.cpp:33:19: note:   cannot convert 'format()' (type 'format') to type 'format&'
+       format() << "Number of columns in A (" << cols
+                   ^
