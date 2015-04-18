@@ -1,0 +1,22 @@
+main.cpp:8:9: error: no viable conversion from 'PointGeneric<float &, float &>' to 'PointGeneric<float, float>'
+        return Point(x, y);
+               ^~~~~~~~~~~
+main.cpp:2:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'PointGeneric<float &, float &>' to 'const PointGeneric<float, float> &' for 1st argument
+struct PointGeneric {};
+       ^
+main.cpp:2:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'PointGeneric<float &, float &>' to 'PointGeneric<float, float> &&' for 1st argument
+struct PointGeneric {};
+       ^
+main.cpp:13:10: warning: unused variable 'myPt1' [-Wunused-variable]
+    auto myPt1 = Point(5, 6);
+         ^
+main.cpp:16:10: warning: unused variable 'myPt2' [-Wunused-variable]
+    auto myPt2 = Point(someNum, someNum);
+         ^
+main.cpp:18:10: warning: unused variable 'myPt3' [-Wunused-variable]
+    auto myPt3 = Point(someNum, 6);
+         ^
+main.cpp:19:10: warning: unused variable 'myPt4' [-Wunused-variable]
+    auto myPt4 = Point(6, someNum);
+         ^
+4 warnings and 1 error generated.
