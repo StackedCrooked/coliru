@@ -1,0 +1,37 @@
+main.cpp:37:5: error: 'store_wrapper' does not name a type
+     store_wrapper<C>& store_;
+     ^
+main.cpp:40:17: error: 'store_wrapper' has not been declared
+     read_access(store_wrapper<C>& store_) : store_{store_} { ++store_.active_reader_; } 
+                 ^
+main.cpp:40:30: error: expected ',' or '...' before '<' token
+     read_access(store_wrapper<C>& store_) : store_{store_} { ++store_.active_reader_; } 
+                              ^
+main.cpp:40:41: error: return type specification for constructor invalid
+     read_access(store_wrapper<C>& store_) : store_{store_} { ++store_.active_reader_; } 
+                                         ^
+main.cpp: In constructor 'read_access<C>::read_access(int)':
+main.cpp:40:45: error: class 'read_access<C>' does not have any field named 'store_'
+     read_access(store_wrapper<C>& store_) : store_{store_} { ++store_.active_reader_; } 
+                                             ^
+main.cpp:40:52: error: 'store_' was not declared in this scope
+     read_access(store_wrapper<C>& store_) : store_{store_} { ++store_.active_reader_; } 
+                                                    ^
+main.cpp: At global scope:
+main.cpp:53:26: error: 'store_wrapper' does not name a type
+     struct write_access{ store_wrapper<C>& store_; };
+                          ^
+main.cpp: In function 'int main()':
+main.cpp:72:20: error: 'struct read_access<physics_debug_data>' has no member named 'data_'
+     std::cout << f.data_.y;
+                    ^
+main.cpp: In instantiation of 'read_access<C> make_reader(data_store<Ts>&, C) [with C = physics_debug_data; Ts = {physics_entity_data, physics_debug_data}]':
+main.cpp:70:52:   required from here
+main.cpp:58:85: error: invalid static_cast from type 'data_store<physics_entity_data, physics_debug_data>' to type 'physics_debug_data&'
+     read_access<C> make_reader(data_store<Ts...>& d, C) { return {static_cast<C&>(d)}; }
+                                                                                     ^
+main.cpp:58:85: error: could not convert '{<expression error>}' from '<brace-enclosed initializer list>' to 'read_access<physics_debug_data>'
+main.cpp: In function 'read_access<C> make_reader(data_store<Ts>&, C) [with C = physics_debug_data; Ts = {physics_entity_data, physics_debug_data}]':
+main.cpp:58:88: warning: control reaches end of non-void function [-Wreturn-type]
+     read_access<C> make_reader(data_store<Ts...>& d, C) { return {static_cast<C&>(d)}; }
+                                                                                        ^
