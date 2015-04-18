@@ -1,0 +1,1 @@
+mv main.c{pp,} && clang -std=c89 -W{all,extra,pedantic} main.c && ./a.out
