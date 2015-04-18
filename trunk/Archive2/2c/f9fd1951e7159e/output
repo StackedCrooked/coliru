@@ -1,0 +1,13 @@
+main.cpp:24:12: error: no viable conversion from 'SomethingGeneric<float &>' to 'SomethingGeneric<(default) float>'
+    return Something(x);
+           ^~~~~~~~~~~~
+main.cpp:7:8: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'SomethingGeneric<float &>' to 'const SomethingGeneric<float> &' for 1st argument
+struct SomethingGeneric {
+       ^
+main.cpp:7:8: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'SomethingGeneric<float &>' to 'SomethingGeneric<float> &&' for 1st argument
+struct SomethingGeneric {
+       ^
+main.cpp:9:5: note: candidate constructor not viable: no known conversion from 'SomethingGeneric<float &>' to 'float' for 1st argument
+    SomethingGeneric(Tx x) : _x(x) {};
+    ^
+1 error generated.
