@@ -1,0 +1,43 @@
+main.cpp:9:10: warning: unused variable 'myPt1' [-Wunused-variable]
+    auto myPt1 = Point(5, 6);
+         ^
+main.cpp:12:10: warning: unused variable 'myPt2' [-Wunused-variable]
+    auto myPt2 = Point(someNum, someNum);
+         ^
+main.cpp:14:10: warning: unused variable 'myPt3' [-Wunused-variable]
+    auto myPt3 = Point(someNum, 6);
+         ^
+main.cpp:15:10: warning: unused variable 'myPt4' [-Wunused-variable]
+    auto myPt4 = Point(6, someNum);
+         ^
+main.cpp:5:29: warning: function 'Point<int, int>' has internal linkage but is not defined [-Wundefined-internal]
+static PointGeneric<Tx, Ty> Point(Tx&& x, Ty&& y);
+                            ^
+main.cpp:9:18: note: used here
+    auto myPt1 = Point(5, 6);
+                 ^
+main.cpp:5:29: warning: function 'Point<float &, float &>' has internal linkage but is not defined [-Wundefined-internal]
+static PointGeneric<Tx, Ty> Point(Tx&& x, Ty&& y);
+                            ^
+main.cpp:12:18: note: used here
+    auto myPt2 = Point(someNum, someNum);
+                 ^
+main.cpp:5:29: warning: function 'Point<float &, int>' has internal linkage but is not defined [-Wundefined-internal]
+static PointGeneric<Tx, Ty> Point(Tx&& x, Ty&& y);
+                            ^
+main.cpp:14:18: note: used here
+    auto myPt3 = Point(someNum, 6);
+                 ^
+main.cpp:5:29: warning: function 'Point<int, float &>' has internal linkage but is not defined [-Wundefined-internal]
+static PointGeneric<Tx, Ty> Point(Tx&& x, Ty&& y);
+                            ^
+main.cpp:15:18: note: used here
+    auto myPt4 = Point(6, someNum);
+                 ^
+8 warnings generated.
+/tmp/main-355237.o: In function `main':
+main.cpp:(.text+0x1f): undefined reference to `_ZL5PointIiiE12PointGenericIT_T0_EOS1_OS2_'
+main.cpp:(.text+0x3f): undefined reference to `_ZL5PointIRfS0_E12PointGenericIT_T0_EOS2_OS3_'
+main.cpp:(.text+0x53): undefined reference to `_ZL5PointIRfiE12PointGenericIT_T0_EOS2_OS3_'
+main.cpp:(.text+0x67): undefined reference to `_ZL5PointIiRfE12PointGenericIT_T0_EOS2_OS3_'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
