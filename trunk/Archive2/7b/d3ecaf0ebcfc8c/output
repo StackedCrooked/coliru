@@ -1,0 +1,17 @@
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/regex:40:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:1665:56: error: no type named 'type' in 'std::result_of<result (*(std::basic_regex<char, std::regex_traits<char> >, char *))(std::basic_regex<char, std::regex_traits<char> > &, const std::basic_string<char> &)>'
+      typedef typename result_of<_Callable(_Args...)>::type result_type;
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/future:1580:49: note: in instantiation of template class 'std::_Bind_simple<result (*(std::basic_regex<char, std::regex_traits<char> >, char *))(std::basic_regex<char, std::regex_traits<char> > &, const std::basic_string<char> &)>' requested here
+          __state = __future_base::_S_make_async_state(std::__bind_simple(
+                                                       ^
+main.cpp:43:29: note: in instantiation of function template specialization 'std::async<result (&)(std::basic_regex<char, std::regex_traits<char> > &, const std::basic_string<char> &), std::basic_regex<char, std::regex_traits<char> > &, char *&>' requested here
+                results.emplace_back(std::async(std::launch::async, do_grep, r, argv[i]));
+                                          ^
+In file included from main.cpp:2:
+In file included from /usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/regex:40:
+/usr/local/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../include/c++/4.9.2/functional:1694:50: error: no type named 'type' in 'std::result_of<result (*(std::basic_regex<char, std::regex_traits<char> >, char *))(std::basic_regex<char, std::regex_traits<char> > &, const std::basic_string<char> &)>'
+        typename result_of<_Callable(_Args...)>::type
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+2 errors generated.
