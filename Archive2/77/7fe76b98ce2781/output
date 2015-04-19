@@ -1,0 +1,17 @@
+main.cpp:13:21: error: reference to 'i' is ambiguous
+        void f2() { i = 5; }        // ambiguous, B::C::i or A::i?
+                    ^
+main.cpp:2:9: note: candidate found by name lookup is 'A::i'
+    int i;
+        ^
+main.cpp:5:17: note: candidate found by name lookup is 'A::B::C::i'
+            int i;
+                ^
+main.cpp:20:5: error: use of undeclared identifier 'i'; did you mean 'A::i'?
+    i = 5;                          // ill-formed; neither i is visible
+    ^
+    A::i
+main.cpp:2:9: note: 'A::i' declared here
+    int i;
+        ^
+2 errors generated.
