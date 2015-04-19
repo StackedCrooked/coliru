@@ -1,0 +1,23 @@
+main.cpp: In function 'void A::D::f2()':
+main.cpp:14:21: error: reference to 'i' is ambiguous
+         void f2() { i = 5; }        // ambiguous, B::C::i or A::i?
+                     ^
+main.cpp:3:9: note: candidates are: int A::i
+     int i;
+         ^
+main.cpp:6:17: note:                 int A::B::C::i
+             int i;
+                 ^
+main.cpp: In function 'void f4()':
+main.cpp:21:5: error: 'i' was not declared in this scope
+     i = 5;                          // ill-formed; neither i is visible
+     ^
+main.cpp:21:5: note: suggested alternatives:
+main.cpp:3:9: note:   'A::i'
+     int i;
+         ^
+main.cpp:6:17: note:   'A::B::C::i'
+             int i;
+                 ^
+main.cpp:6:17: note:   'A::B::C::i'
+main.cpp:6:17: note:   'A::B::C::i'
