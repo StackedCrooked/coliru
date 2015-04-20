@@ -1,0 +1,1 @@
+Coliru is short for compile-link-run. That's also what it does.
