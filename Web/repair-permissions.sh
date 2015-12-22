@@ -29,7 +29,7 @@ chown -R webserver:coliru /var/chroot/tmp & disown
 chmod -R a+rw /var/chroot/tmp
 
 # Make certain files writeable for the webserver.
-for file in $(echo feedback.txt timeout.txt) ; do
+for file in $(echo feedback.txt timeout.txt ../Archive2.log Archive2.log) ; do
   [ -f ${file} ] || echo >${file}
   chown webserver:coliru ${file}
 done
