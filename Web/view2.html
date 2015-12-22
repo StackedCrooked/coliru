@@ -4,34 +4,18 @@
 <head>
 
     <style type="text/css">
-
-        html, body { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
-        .content { position: relative; font-family: monospace; width: 100%; height: 100%; padding: 0; margin: 0; }
-
-        .hbox {
-            display: box; display: -webkit-box; display: -moz-box; position: relative; padding: 0; margin: 0; 
-            box-orient: horizontal; -webkit-box-orient: horizontal; -moz-box-orient: horizontal;
-            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
-        }
-
-        .vbox {
-            display: box; display: -webkit-box; display: -moz-box;
-            position: relative; padding: 0; margin: 0;
-            box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
-            box-align: stretch; -webkit-box-align: stretch; -moz-box-align: stretch;
-        }
-
-        .error { background-color: #ffbbaa; }
-        .f0 {
-            display: box; display: -webkit-box; display: -moz-box;
+        html, body, textarea {
             position: relative;
-            box-flex: 0.0; -webkit-box-flex: 0.0; -moz-box-flex: 0.0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-
-        .f1 { display: box; display: -webkit-box; display: -moz-box; position: relative; box-flex: 1.0; -webkit-box-flex: 1.0; -moz-box-flex: 1.0; }
 
         #page {
             position: relative;
+            width: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -39,19 +23,37 @@
 
         #editor {
             position: relative;
-            margin: 4px;
-            padding: 4px;
+            width: 100%;
+            height: 70%;
+            margin-bottom: 1px;
+            padding: 0;
         }
 
-        pre { resize: none; position: relative; margin: 0; padding: 0;  font-size: 10pt; font-family: monospace; } 
-        #cmd { margin: 4px; padding: 4px; border: solid gray; background-color: #aaffff; } 
-        #output { margin: 4px; padding: 4px; border: solid gray;  } 
+        #output {
+            position: relative;
+            height: 20%;
+            margin: 0;
+            padding: 0;
+            border: solid gray;
+            background-color: #efeeee;
+            font-size: 10pt;
+            font-family: monospace;
+        }
+
         #footer {
             position: relative;
+            width: 100%;
+            height: 10%;
             overflow: hidden;
         }
 
-        button { margin: 2px; height: 30px; padding-left: 10px; padding-right: 10px; font-size: inherit; }
+        button {
+            position: absolute;
+            margin: 2px;
+            height: 30px;
+            font-size: 10pt;
+        }
+
 
         #cloneButton   { right: 0;    top: 0; height: 30px; width: 60px;  }
         #historyButton { right: 68px; top: 0; height: 30px; width: 130px; }
@@ -64,9 +66,14 @@
             display: none;
         }
 
-        div,textarea { outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
-    </style>
+        textarea {
+            border: 1px solid gray;
+        }
 
+        div,textarea {
+            outline: 0 !important; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+        }
+    </style>
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -85,15 +92,13 @@
     </script>
 </head>
 <body>
-<div id="page" class="content vbox f1">
-    <div id="editor" class="f1"></div>
-    <textarea type="text" id="cmd" rows='1' onkeyup='on_cmd_keyup(event);' onkeydown='on_cmd_keydown(event)' class="f0"></textarea>
-    <div id="output" style="overflow:auto;" class="vbox f0"></div>
+<div id="page">
+    <div id="editor"></div>
+    <div id="output" style="overflow:auto;" class="vbox f1"></div>
 
-    <div id="footer" class="f0 hbox">
-        <div id="path" class="f0"></div>
-        <div class="f1"></div>
-        <button id="cloneButton" class="f0">Edit</button>
+    <div id="footer">
+        <pre id="path"></pre>
+        <button id="cloneButton">Edit</button>
     </div>
 </div>
 <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript"></script>
@@ -138,7 +143,6 @@
     app.output = document.getElementById("output");
     app.output.readOnly = true;
     app.output.data = "Fetching data....";
-    app.cmd_field = document.getElementById("cmd");
 
 
     app.send = function (location, post_data, f) {
@@ -150,7 +154,7 @@
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4) {
                 if (httpRequest.status == 200) {
-                    f(httpRequest.responseText.trim());
+                    f(httpRequest.responseText);//.trim());
                 }
             }
         };
@@ -162,11 +166,16 @@
         app.editor.setValue(obj.src);
         app.editor.getSession().setScrollLeft(0);
         app.cmd = obj.cmd;
-        app.cmd_field.value = obj.cmd;
-        app.cmd_output = obj.output.trim();
-        var lines = app.cmd_output.split(/\n/);
-        app.cmd_field.rows = app.cmd.split(/\n/).length;
-        console.log("rows=" + app.cmd.split(/\n/).length);
+        app.cmd_output = obj.output;//.trim();
+        
+        // Scan for a command that looks like "title <name>" and use the <name> part as Window title.
+        try { 
+          document.title = app.cmd.split(/^[#]{0,1}title\s+/)[1].split(/\n/)[0];
+        } catch (e) {
+          console.log(e);
+        }
+
+        var lines = [obj.cmd + "\n"].concat(app.cmd_output.split(/\n/));
         var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='display: block; margin:0; padding:0; '>";
         var pre_close = "</pre>";
         var text = "";
@@ -174,11 +183,7 @@
         for (var i = 0; i !== lines.length; ++i) {
             var line = lines[i];
             if (line !== '') {
-                    if (line.search(/^\w+.cpp:\d+:\d+/) !== -1) {
-                        text += pre_open.replace(/f0/, "f0 error") + line.replace(/</g, '&lt').replace(/>/g, '&gt') + pre_close;
-                    } else {
-                        text += pre_open + line.replace(/</g, '&lt').replace(/>/g, '&gt') + pre_close;
-                    }
+                text += pre_open + line.replace(/&/, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + pre_close;
                 } else {
                 text += '<br/>';
             }
@@ -222,7 +227,7 @@
             for (i = 0; i != output_lines.length; ++i) {
                 try {
                     var line = output_lines[i];
-                    if (line.search(/^\w+.cpp:\d+:\d+/) !== -1) {
+                    if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
                         var lineno = parseInt(line.split(":")[1]);
                         ace_lines[lineno - 1].style.color = "red";
                     }
@@ -244,7 +249,7 @@
         window.location.href = "/";
     };
     window.highlightError = function(node, b) {
-        if (node.textContent.search(/^\w+.cpp:\d+:\d+/) === -1) {
+        if (node.textContent.search(/^main.cpp:\d+:\d+/) === -1) {
             return;
         }
         node.style.cursor = b ? 'pointer' : 'auto';
@@ -252,7 +257,7 @@
     window.jumpToError = function(node) {
 
         var line = node.textContent;
-        if (line.search(/^\w+.cpp:\d+:\d+/) !== -1) {
+        if (line.search(/^main.cpp:\d+:\d+/) !== -1) {
             var components = line.split(":");
             var lineno = parseInt(components[1]);
             var col = parseInt(components[2]) - 1;
