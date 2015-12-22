@@ -30,11 +30,15 @@ echo "${id}" | sed 's,/,,'
     echo > ${path}/output
     date '+%s' > ${path}/timestamp
 
+
     # perform svn add BEFORE running the script
     # because we can get killed during run
     # actual svn commit will be performed by a 
     # maintenance script 
     svn add --force ${path}
+
+    # add the path to the log file so we know which items are new
+    echo "$path" >> "$COLIRU_ARCHIVE2_LOG"
 
     # use output of compile cache if available
     # note that this does not remove the need
@@ -46,6 +50,7 @@ echo "${id}" | sed 's,/,,'
 
     # run program, writing to output file in the archive
     ./build_and_run.sh >${path}/output 2>&1
+
 
 } >/dev/null 2>&1
 
