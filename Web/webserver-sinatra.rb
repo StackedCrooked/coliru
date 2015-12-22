@@ -24,6 +24,12 @@ get '/*.html' do |file|
 end
 
 
+get '/*.zip' do |file|
+    content_type :zip
+    File.read("#{file}.zip")
+end
+
+
 get '/*.js' do |file|
     content_type :js
     File.read("#{file}.js")
@@ -39,7 +45,7 @@ post '/feedback' do
     Thread.new do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
-                text = request.body.read.gsub('NOTE', 'IAMGAY').split("\n")[0]
+                text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
 
                 return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
                 return if text == ''
@@ -270,6 +276,7 @@ end
 configure do
   enable :cross_origin
   disable :protection
+  mime_type :zip, 'application/octet-stream'
   mime_type :json, 'application/json'
   mime_type :js, 'application/javascript'
   mime_type :jpg, 'image/jpeg'
@@ -357,4 +364,5 @@ def log_request(rid, method, message)
     # Cannot handle the exception here.
   end
 end
+
 
