@@ -24,14 +24,14 @@
         #editor {
             position: relative;
             width: 100%;
-            height: 60%;
+            height: 70%;
             margin-bottom: 1px;
             padding: 0;
         }
 
         #output {
             position: relative;
-            height: 30%;
+            height: 20%;
             margin: 0;
             padding: 0;
             border: solid gray;
@@ -176,8 +176,8 @@
         }
 
         var lines = [obj.cmd + "\n"].concat(app.cmd_output.split(/\n/));
-        var pre_open = "<pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='display: block; margin:0; padding:0; '>";
-        var pre_close = "</pre>";
+        var pre_open = "<div><pre class='f0' onclick='window.jumpToError(this)' onmouseover='window.highlightError(this, true)' onmouseout='window.highlightError(this, false)' style='display: inline-block; margin:0; padding:0; '>";
+        var pre_close = "</pre></div>";
         var text = "";
         var new_line = true;
         for (var i = 0; i !== lines.length; ++i) {
@@ -262,7 +262,6 @@
             var lineno = parseInt(components[1]);
             var col = parseInt(components[2]) - 1;
             app.editor.gotoLine(lineno, col, true);
-            app.editor.focus();
         }
     };
 
