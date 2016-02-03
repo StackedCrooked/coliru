@@ -10,10 +10,10 @@ source coliru_env.source
 
 # The webserver needs write access to the archive.
 # Only occasionally these are run because they are very resource consuming
-export counter="$(./fvar_inc.sh repair-permissions-counter)"
-echo "counter=$counter"
-[ "$(($counter % 7))" == "0" ] && { echo chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown ; }
-[ "$(($counter % 11))" == "0" ] && { echo chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown ; } 
+#export counter="$(./fvar_inc.sh repair-permissions-counter)"
+#echo "counter=$counter"
+#chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown 
+#chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown 
 
 chmod a+rw .
 
