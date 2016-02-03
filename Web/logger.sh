@@ -8,8 +8,10 @@ ps -eopid,comm | grep '_logger.sh' | grep -v grep | awk '{print $1}' | while rea
      kill -9 $line
 done
 
-[ -p .stdout ] || mkfifo .stdout
+[ -p .stdout ] || { rm -f .stdout ; mkfifo .stdout ; }
+[ -p .stderr ] || { rm -f .stderr ; mkfifo .stderr ; }
 chown webserver:coliru .stdout
+chown webserver:coliru .stderr
 
 while true ; do
     ./_logger.sh 
