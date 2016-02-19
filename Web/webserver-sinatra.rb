@@ -286,12 +286,14 @@ configure do
 end
 
 
+$request_rate = 1
+
 def get_timeout
     begin
         result = [60, File.read('timeout.txt').to_i ].min.to_s
-        return result
+        return ([ 4 * result.to_i / $request_rate, 10].max ).to_s
     rescue Exception => _
-        20.to_s
+        ([4 * 20.to_i / $request_rate, 10].max).to_s
     end
 end
 
@@ -356,11 +358,12 @@ end
 
 def log_request(rid, method, message)
   begin 
+      timeout = get_timeout.to_i
       current_time = DateTime.now.strftime('%s').to_i
       elapsed_time = current_time - $start_time
-      request_rate = 60.0 * rid / elapsed_time
-      request_rate = (100 * request_rate).round / 100.0
-      $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{request_rate}/min method=\"#{method}\" message=#{message}"
+      $request_rate = 60.0 * rid / elapsed_time
+      $request_rate = (100 * $request_rate).round / 100.0
+      $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
   rescue Exception => e
     # Cannot handle the exception here.
   end
