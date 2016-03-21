@@ -135,30 +135,34 @@ end
 
 
 post '/share' do
-    Thread.new do
-        result = ''
-        rid = $request_id += 1
-        log_request(rid, "/share", "waiting")
-        $mutex.synchronize do
-            log_request(rid, "/share", "running")
-            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-            dir = "/tmp/coliru/#{id}"
-            FileUtils.mkdir_p(dir)
+    begin
+        Thread.new do
+            result = ''
+            rid = $request_id += 1
+            log_request(rid, "/share", "waiting")
+            $mutex.synchronize do
+                log_request(rid, "/share", "running")
+                id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+                dir = "/tmp/coliru/#{id}"
+                FileUtils.mkdir_p(dir)
 
-            json_obj = JSON.parse(request.body.read)
-            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+                json_obj = JSON.parse(request.body.read)
+                File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+                File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-            skip = false
-            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
-                next if skip
-                skip = (b == '\n')
-                result += b
+                skip = false
+                safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
+                    next if skip
+                    skip = (b == '\n')
+                    result += b
+                end
+                log_request(rid, "/share", "done")
             end
-            log_request(rid, "/share", "done")
-        end
-        stream { |out| out << result }
-    end.join
+            stream { |out| out << result }
+        end.join
+    rescue Exception => e
+        e.to_s
+    end
 end
 
 
@@ -291,9 +295,9 @@ $request_rate = 1
 def get_timeout
     begin
         result = [60, File.read('timeout.txt').to_i ].min.to_s
-        return ([ 4 * result.to_i / $request_rate, 10].max ).to_s
+        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
     rescue Exception => _
-        ([4 * 20.to_i / $request_rate, 10].max).to_s
+        ([5 * 20.to_i / $request_rate, 5].max).to_s
     end
 end
 
@@ -328,6 +332,7 @@ def safe_popen(cmd)
         end
     end
 rescue Exception => e
+    yield e.to_s
     log(e.to_s)
     # kill process group 
     cmd="kill -9 -#{pgid}"
@@ -361,6 +366,17 @@ def log_request(rid, method, message)
       timeout = get_timeout.to_i
       current_time = DateTime.now.strftime('%s').to_i
       elapsed_time = current_time - $start_time
+
+      # Each hour the start_time is reset.
+      # So the request rate is not diluted.
+      if elapsed_time > 3600
+          $start_time = current_time
+          elapsed_time = 0
+      end
+
+      if elapsed_time == 0
+        elapsed_time = 0.1 # avoid division by zero
+      end
       $request_rate = 60.0 * rid / elapsed_time
       $request_rate = (100 * $request_rate).round / 100.0
       $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
