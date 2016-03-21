@@ -371,6 +371,7 @@ def log_request(rid, method, message)
       # So the request rate is not diluted.
       if elapsed_time > 3600
           $start_time = current_time
+          $request_id = 0
           elapsed_time = 0
       end
 
