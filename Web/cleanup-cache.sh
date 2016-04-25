@@ -12,7 +12,7 @@ random_cache_entry ()
 }
 
 
-max=5000
+max=1000
 
 
 while true ; do
@@ -26,5 +26,5 @@ while true ; do
     } || {
         echo "$0: $(cache_size) <= $max. Ok allow cache to grow."
     }
-    sleep 60
+    sleep 300
 done
