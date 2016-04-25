@@ -129,8 +129,12 @@ end
 
 
 post '/timeout' do
-    set_timeout(request.body.read.to_i)
-    return "Timeout is now #{get_timeout} seconds\n"
+    ask_timeout = request.body.read.to_i
+    set_timeout(ask_timeout)
+    got_timeout = get_timeout
+    $stderr.puts "webserver-sinatra.rb: /timeout POST: ask_timeout=#{ask_timeout} got_timeout=#{got_timeout}"
+    
+    return "Timeout is now #{got_timeout} seconds\n"
 end
 
 
@@ -294,7 +298,7 @@ $request_rate = 1
 
 def get_timeout
     begin
-        result = [60, File.read('timeout.txt').to_i ].min.to_s
+        result = [120, File.read('timeout.txt').to_i ].min.to_s
         return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
     rescue Exception => _
         ([5 * 20.to_i / $request_rate, 5].max).to_s
@@ -378,7 +382,7 @@ def log_request(rid, method, message)
       if elapsed_time == 0
         elapsed_time = 0.1 # avoid division by zero
       end
-      $request_rate = 60.0 * rid / elapsed_time
+      $request_rate = [ 60.0 * rid / [elapsed_time, 60].max, 1].max
       $request_rate = (100 * $request_rate).round / 100.0
       $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
   rescue Exception => e
