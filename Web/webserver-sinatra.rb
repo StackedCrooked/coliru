@@ -380,7 +380,7 @@ def log_request(rid, method, message)
       end
 
       if elapsed_time == 0
-        elapsed_time = 0.1 # avoid division by zero
+        elapsed_time = 1 # avoid division by zero
       end
       $request_rate = [ 60.0 * rid / [elapsed_time, 60].max, 1].max
       $request_rate = (100 * $request_rate).round / 100.0
