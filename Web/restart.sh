@@ -11,4 +11,4 @@ done
 
 setsid ./_restart.sh & disown
 
-{ sleep 21600 ; reboot ; } & disown
+{ sleep $((25 * 3600)) ; reboot ; } & disown
