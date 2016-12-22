@@ -1,27 +1,21 @@
 #!/bin/bash
 source logger.source
+
 cache_size () 
 { 
     ls  ../CompileArchive | wc -l
 }
-
-random_cache_entry () 
-{ 
-    random_index="$(($RANDOM % $(cache_size)))"
-    ls ../CompileArchive | head -n $random_index | tail -n1
-}
-
 
 max=1000
 
 
 while true ; do
     [ "$(($(cache_size) > $max))" == "1" ] && {
-        entry=$(random_cache_entry) 
-        echo "$0 delete $entry"
-        [ "$entry" != "" ] && {
-            rm -rf ../CompileArchive/$entry
-        }
+        ls ../CompileArchive | sort -R | head -n50 | while read line ; do
+            cmd="rm -rf ../CompileArchive/$line"
+            echo "$cmd"
+            $cmd
+        done
         continue
     } || {
         echo "$0: $(cache_size) <= $max. Ok allow cache to grow."
