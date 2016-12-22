@@ -18,7 +18,7 @@ max=1000
 while true ; do
     [ "$(($(cache_size) > $max))" == "1" ] && {
         entry=$(random_cache_entry) 
-        echo "$0: $(cache_size) > $max => delete $entry"
+        echo "$0 delete $entry"
         [ "$entry" != "" ] && {
             rm -rf ../CompileArchive/$entry
         }
