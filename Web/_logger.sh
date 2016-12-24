@@ -6,7 +6,7 @@ log() {
     # NOTE: we must have a prefix (like stdout:) in 
     # order to prevent initial -- to be interpreted
     # as command argumn."
-    echo "stdout: $@"
+    #echo "stdout: $@"
     logger "stdout: $@"
 }
 

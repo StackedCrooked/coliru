@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+# Ensure required capabilities are set
+setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.9.1
+setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
+setcap 'cap_sys_chroot=+ep' /bin/bash
+
 # Start cache cleanup script
 nohup ./cleanup-cache.sh >/dev/null 2>&1 </dev/null & disown
 
