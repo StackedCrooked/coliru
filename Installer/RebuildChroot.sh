@@ -7,25 +7,31 @@
 set -x
 set -e
 
-if [ $(whoami) != "root" ] ; then
-	echo "Installation requires root permissions. Exiting." 1>&2
-	exit 1
-fi
-
 CHROOT="/var/chroot"
+ARCHIVE="/Archive"
+ARCHIVE2="/Archive2"
 
 mount_dir_into_chroot() {
     for dir in $@ ; do
         mkdir -p ${CHROOT}${dir}
         mount --bind ${dir} ${CHROOT}${dir}
-        mount -o remount,ro ${CHROOT}${dir}
+        mount -o remount,ro,bind ${CHROOT}${dir}
     done
 }
 
-archive="/Archive"
-archive2="/Archive2"
-mount_dir_into_chroot ${archive} ${archive2} /usr /bin /var /lib /lib64 /etc/alternatives
 
+
+mount_dir_into_chroot /etc/alternatives 
+mount_dir_into_chroot /lib64
+mount_dir_into_chroot /lib
+mount_dir_into_chroot /var
+mount_dir_into_chroot /bin
+mount_dir_into_chroot /usr
+mount_dir_into_chroot ${ARCHIVE2}
+mount_dir_into_chroot ${ARCHIVE}
+
+# /dev is special
+mkdir -p "${CHROOT}/dev"
 
 # Add /dev/null and /dev/random to the chroot
 #
