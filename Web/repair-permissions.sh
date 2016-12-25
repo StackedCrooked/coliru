@@ -18,14 +18,14 @@ source coliru_env.source
 chmod a+rw .
 
 # Cleanup temporary files
-rm -rf /tmp/coliru/* & disown
+rm -rf /tmp/coliru/*
 chown -R webserver:coliru /tmp
 
 
 # Cleanup /var/chroot/tmp and make accessible for coliru
-rm -rf /var/chroot/tmp/* & disown
+rm -rf /var/chroot/tmp/*
 mkdir -p /var/chroot/tmp
-chown -R webserver:coliru /var/chroot/tmp & disown
+chown -R webserver:coliru /var/chroot/tmp
 chmod -R a+rw /var/chroot/tmp
 
 # Make certain files writeable for the webserver.
