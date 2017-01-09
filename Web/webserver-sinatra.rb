@@ -91,6 +91,7 @@ post '/compile' do
                 FileUtils.rmtree(dir)
                 log_request(rid, "/compile", "done")
             end
+			response["Access-Control-Allow-Origin"] = "*"
             stream do |out|
                 out << result
             end
@@ -162,6 +163,7 @@ post '/share' do
                 end
                 log_request(rid, "/share", "done")
             end
+			response["Access-Control-Allow-Origin"] = "*"
             stream { |out| out << result }
         end.join
     rescue Exception => e
@@ -274,6 +276,7 @@ end
 # Implementation details..
 
 
+set :allow_origin, :any
 set :port, ENV['COLIRU_PORT']
 $mutex = Mutex.new
 
