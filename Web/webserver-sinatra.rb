@@ -46,10 +46,10 @@ post '/feedback' do
         $mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
                 text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
-
                 return if text == 'undefined' # for some reason this happens a lot
                 return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
                 return if text == ''
+                return if text.length >= 1000 # max length is 1000 characters
                 file.puts(text)
             end
         end
