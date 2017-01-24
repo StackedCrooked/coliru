@@ -14,7 +14,7 @@ get '/' do
 end
 
 
-get '/mobile' do |_|
+get '/mobile' do
     File.read('mobile.html')
 end
 
@@ -61,6 +61,7 @@ get '/feedback' do
     Thread.new do
         stream do |out|
             out << '<html><body><ul>'
+			#out << '<h3>New comments will are added to queue for moderation.</h3>'
             $mutex.synchronize do
                 File.readlines('feedback.txt').reverse.each { |l| out << "<li style=\"margin-bottom: 4px;\">#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "&nbsp;<b>NOTE</b>")}</li>" }
             end
