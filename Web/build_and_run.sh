@@ -28,5 +28,5 @@ title() { true ; }
 set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
-# Run the command in the chroot and create a new pgid.
+# Run the command in the chroot.
 chroot ${CHROOT} bash -c "${CMD}"
