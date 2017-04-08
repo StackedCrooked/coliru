@@ -14,6 +14,11 @@ get '/' do
 end
 
 
+get '/ping' do
+	""
+end
+
+
 get '/mobile' do
     File.read('mobile.html')
 end
