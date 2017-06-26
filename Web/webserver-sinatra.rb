@@ -103,9 +103,7 @@ post '/compile' do
             end
         end.join
     rescue Exception => e
-        stream do |out|
-			out << e.to_s
-		end
+        e.to_s
     end
 end
 
@@ -230,7 +228,12 @@ end
 
 get '/archive' do       
     get_contents = Proc.new do |path, name|       
-		File.read("#{path}/#{name}")
+        begin       
+            file = "#{path}/#{name}"
+            File.read(file)
+        rescue Exception => e
+          e.to_s
+        end     
     end     
 
 
@@ -238,10 +241,16 @@ get '/archive' do
     stdout = IO.popen("./id2existingpath.sh #{id}")
     Process.detach stdout.pid
     path = stdout.read.strip
+    result = {       
+        :cmd => get_contents.call(path, 'cmd.sh'),        
+        :src => get_contents.call(path, 'main.cpp'),      
+        :output => get_contents.call(path, 'output')      
+    }
     begin
-		return "{ \"cmd\": \"#{get_contents.call(path, 'cmd.sh')}\", \"src\": \"#{get_contents.call(path, 'main.cpp')}\", \"output\": \"#{get_contents.call(path, 'output')}\" }"
-    rescue Exception => e
-		return "{ \"output\": \"#{e.to_s}\" }"
+        return result.to_json
+    rescue Exception
+        result[:output] = "NOTE: JSON encoding for the output failed due to invalid UTF8."
+        return result.to_json
     end
 end     
 
