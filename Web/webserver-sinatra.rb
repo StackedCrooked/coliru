@@ -281,6 +281,8 @@ end
 
 # Implementation details..
 
+# Fix the JSON encoding errors that sometimes occur ("\xE2" on US-ASCII)
+Encoding.default_external = 'UTF-8'
 
 set :allow_origin, :any
 set :port, ENV['COLIRU_PORT']
