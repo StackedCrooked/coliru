@@ -44,7 +44,7 @@
         };
 
         app.defaultCmd = "g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
-		app.defaultSrc = "#include <iostream>\n\nint main()\n{\n    std::cout << \"Hello from GCC \" << __VERSION__ << \"!\" << std::endl;\n}";
+		app.defaultSrc = "#include <iostream>\n\nint main()\n{\n    std::cout << \"Hello from GCC \" << __VERSION__ << \"!\" << std::endl;\n}\n";
 
         app.elements.editor.getSession().setValue(localStorage.getItem(window.location.pathname.replace(/^\//,"") + "src") || localStorage.getItem("src") || app.defaultSrc);
         app.elements.editor.commands.bindKeys({"Ctrl-l":null}) 
