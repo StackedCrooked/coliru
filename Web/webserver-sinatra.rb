@@ -35,6 +35,12 @@ get '/*.zip' do |file|
 end
 
 
+get '/*.txt' do |file|
+    content_type :txt
+    File.read("#{file}.txt")
+end
+
+
 get '/*.js' do |file|
     content_type :js
     File.read("#{file}.js")
@@ -76,7 +82,7 @@ get '/feedback' do
 end
 
 
-$request_id = 0
+$request_id = 1
 post '/compile' do
     begin
         Thread.new do 
@@ -309,7 +315,11 @@ $request_rate = 1
 
 def get_timeout
     begin
-        result = [120, File.read('timeout.txt').to_i ].min.to_s
+		sehe_timeout = File.read('timeout.txt').to_i 
+		if sehe_timeout == 111
+			return 111
+		end
+        result = [120, sehe_timeout].min.to_s
         return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
     rescue Exception => _
         ([5 * 20.to_i / $request_rate, 5].max).to_s
@@ -386,15 +396,16 @@ def log_request(rid, method, message)
       # So the request rate is not diluted.
       if elapsed_time > 3600
           $start_time = current_time
-          $request_id = 0
+          $request_id = 1
           elapsed_time = 0
       end
 
       if elapsed_time == 0
         elapsed_time = 1 # avoid division by zero
       end
-      $request_rate = [ 60.0 * rid / [elapsed_time, 60].max, 1].max
-      $request_rate = (100 * $request_rate).round / 100.0
+      rate = [ 60.0 * rid / [elapsed_time, 60].max, 1].max
+      rate = 100 * rate / 100.0
+      $request_rate = (0.9 * $request_rate + 0.1 * rate).round
       $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
   rescue Exception => e
     # Cannot handle the exception here.
