@@ -1,1 +1,0 @@
-g++ -Wall -Wextra -pthread main.cpp -o main -std=c++14

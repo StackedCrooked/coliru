@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O3 -S  main.cpp && cat main.s

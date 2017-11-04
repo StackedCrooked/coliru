@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -Wextra -fsyntax-only main.cpp

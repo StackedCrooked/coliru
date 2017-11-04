@@ -1,1 +1,0 @@
-mv main.cpp main.c ; gcc -O2 -Wall -pedantic -pthread main.c && ./a.out

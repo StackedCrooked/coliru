@@ -1,1 +1,0 @@
-strings $(which g++) | grep '4.8'

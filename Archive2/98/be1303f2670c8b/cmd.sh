@@ -1,1 +1,0 @@
-g++ -std=c++14  -O3 -Winline -Wextra -pthread -pedantic-errors main.cpp -lm  && ./a.out

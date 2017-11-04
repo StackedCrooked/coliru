@@ -1,1 +1,0 @@
-g++ -std=c++14 -O2 -pedantic -pthread -fno-elide-constructors main.cpp && ./a.out

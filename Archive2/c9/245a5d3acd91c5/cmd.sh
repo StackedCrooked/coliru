@@ -1,1 +1,0 @@
-g++ -std=c++1y -Os -march=native -pedantic main.cpp -Wextra -Wall && ./a.out

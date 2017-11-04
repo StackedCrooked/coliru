@@ -1,1 +1,0 @@
-gcc -x c -std=c99 -Wall  -Wextra -O2 -pedantic -D_GLIBCXX_DEBUG -pthread -lm main.cpp  && ./a.out && objdump -s -j .rodata a.out

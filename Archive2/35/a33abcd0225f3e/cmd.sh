@@ -1,1 +1,0 @@
-g++ -std=c++14 -O3 -fomit-frame-pointer -Wall -Wextra -pedantic-errors main.cpp && ./a.out <<< 95003

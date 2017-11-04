@@ -1,1 +1,0 @@
-clang++ -std=c++1y -o a.o main.cpp && ./a.o

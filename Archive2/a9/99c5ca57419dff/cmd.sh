@@ -1,1 +1,0 @@
-echo "void bar(void) { }" > bar.c; clang++ -std=c11 -x c main.cpp bar.c -O3 && ./a.out

@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 main.cpp && time ./a.out s && time ./a.out v

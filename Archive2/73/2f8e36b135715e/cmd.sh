@@ -1,1 +1,0 @@
-No such file or directory - /root/coliru/Web/../Archive/58376866ea56e717/Archive2/f4/d1196d6223628b/main.cpp/cmd.sh

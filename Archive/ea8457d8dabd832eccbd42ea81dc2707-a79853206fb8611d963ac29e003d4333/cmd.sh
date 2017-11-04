@@ -1,1 +1,0 @@
-find /usr/local/include/boost -type f | sed -s 's,^/usr/local/include/,,'

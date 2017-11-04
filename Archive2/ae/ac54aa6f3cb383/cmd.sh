@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O3 -ffast-math -march=native -DNDEBUG -Wall -Wextra -pedantic -pthread main.cpp && ./a.out

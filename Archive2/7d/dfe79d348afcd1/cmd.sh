@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++14 -O3 -DNDEBUG -Wall -Wextra -pedantic-errors -pthread main.cpp -S -o -

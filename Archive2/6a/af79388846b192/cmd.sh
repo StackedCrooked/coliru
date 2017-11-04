@@ -1,1 +1,0 @@
-g++ -std=c++14 -O2 -Wall -Werror -Waggressive-loop-optimizations -pedantic -pthread main.cpp && ./a.out

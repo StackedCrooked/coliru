@@ -1,1 +1,0 @@
-g++ -O2 -std=c++1y main.cpp && ./a.out

@@ -1,1 +1,0 @@
-cat /Archive2/b0/a7047e4f1bb0a7/main.cpp

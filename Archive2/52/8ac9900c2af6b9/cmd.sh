@@ -1,1 +1,0 @@
-g++ -std=c++03 -Wall -pedantic main.cpp -lboost_system -lboost_filesystem && ./a.out && find a | sort

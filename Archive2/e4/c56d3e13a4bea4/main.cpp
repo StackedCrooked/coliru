@@ -1,2 +1,0 @@
-#include <iostream>
-cout<<"Hello";

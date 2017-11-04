@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -Wall -pedantic -Wno-unsequenced main.cpp && ./a.out

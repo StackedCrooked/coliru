@@ -1,1 +1,0 @@
-clang++ -std=c++14 -stdlib=libc++ -O3 -fomit-frame-pointer -Wall -Wextra -pedantic-errors -c -S main.cpp && cat main.s

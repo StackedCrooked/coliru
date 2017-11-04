@@ -1,1 +1,0 @@
-clang++ -pedantic -std=c++1y -O2 main.cpp && ./a.out

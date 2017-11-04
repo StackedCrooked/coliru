@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread -lboost_system -lssl -lcrypto main.cpp && ./a.out www.google.de 443

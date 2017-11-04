@@ -1,1 +1,0 @@
-clang++ -std=c++14 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out && cat copy.of.main.cpp

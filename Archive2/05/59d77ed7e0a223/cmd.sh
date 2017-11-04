@@ -1,1 +1,0 @@
-g++ -O3 -fpermissive main.cpp && time ./a.out

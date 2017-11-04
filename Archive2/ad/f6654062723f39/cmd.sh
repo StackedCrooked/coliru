@@ -1,1 +1,0 @@
-mv main.cpp Main.hs && runhaskell Main.hs

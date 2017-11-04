@@ -1,1 +1,0 @@
-g++ -std=c++14 -O2 -Wall -Wextra -pedantic-errors -c -S -fomit-frame-pointer main.cpp && cat main.s

@@ -1,1 +1,0 @@
-cp main.cpp read_graphviz_new.cpp

@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O3 -fopenmp -Wall -Wno-unused-variable -pedantic main.cpp -lgomp -lpthread && ./a.out

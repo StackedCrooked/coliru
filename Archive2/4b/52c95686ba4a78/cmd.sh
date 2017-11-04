@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -Wall -Wextra main.cpp -ftemplate-backtrace-limit=0  -fsanitize=undefined  && ./a.out

@@ -1,1 +1,0 @@
-g++ -std=c++98 -O3 -Wall -Wextra -pedantic-errors main.cpp && time ./a.out

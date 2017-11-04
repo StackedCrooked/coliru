@@ -1,1 +1,0 @@
-cat Not running on Coliru (TinyXml)

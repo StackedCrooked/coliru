@@ -1,1 +1,0 @@
-gcc -std=c89 -Wall -Wextra -pedantic your_file_name.c

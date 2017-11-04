@@ -1,1 +1,0 @@
-echo '42 foo' > fails.txt && g++-4.9  main.cpp && ./a.out

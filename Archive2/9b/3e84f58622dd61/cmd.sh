@@ -1,1 +1,0 @@
-g++ -std=c++03 -pedantic main.cpp  && ./a.out

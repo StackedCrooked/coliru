@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O2 -pedantic-errors -Wall main.cpp && ./a.out

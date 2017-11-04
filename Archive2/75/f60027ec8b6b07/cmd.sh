@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O3 main.cpp -lboost_coroutine -lboost_system && ./a.out

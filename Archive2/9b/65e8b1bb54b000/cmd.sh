@@ -1,1 +1,0 @@
-grep "uint8_t" /usr/include/stdint.h

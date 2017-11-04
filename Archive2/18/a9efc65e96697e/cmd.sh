@@ -1,1 +1,0 @@
-gcc -x c -std=c99 -W -Wall -O0 -fno-builtin  -pedantic -Winit-self  main.cpp -pthread -lm && ./a.out

@@ -1,1 +1,0 @@
-clang -O3 -std=c99 -o main -x c main.cpp

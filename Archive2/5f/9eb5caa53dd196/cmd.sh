@@ -1,1 +1,0 @@
-clang -std=c++11 -Wall -o main.o main.cpp && cat main.o

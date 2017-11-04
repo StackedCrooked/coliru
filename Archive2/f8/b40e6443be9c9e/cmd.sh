@@ -1,1 +1,0 @@
-clang++ -std=c++03 -c -Wall main.cpp

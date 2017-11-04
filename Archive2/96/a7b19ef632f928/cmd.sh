@@ -1,1 +1,0 @@
-echo "clang"; clang++ -std=c++11 main.cpp && echo "OK"; echo "GCC"; g++ -std=c++11 main.cpp || echo "FAIL";

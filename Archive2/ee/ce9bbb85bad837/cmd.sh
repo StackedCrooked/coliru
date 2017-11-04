@@ -1,1 +1,0 @@
-set -x; g++ --version; g++ -O2 main.cpp; ./a.out

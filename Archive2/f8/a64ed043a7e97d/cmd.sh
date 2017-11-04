@@ -1,1 +1,0 @@
-g++-4.8  -O0 -Wall -Wextra -Wconversion  -pedantic  -pthread -pedantic-errors -fno-builtin main.cpp  && ./a.out

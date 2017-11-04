@@ -1,1 +1,0 @@
-g++ -O2 -pthread -lboost_thread -lboost_system main.cpp && ./a.out

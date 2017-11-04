@@ -1,1 +1,0 @@
-g++ main.cpp -Wall --std=c++11 -Weffc++ -lboost_thread -lboost_system -pthread && ./a.out

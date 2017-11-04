@@ -1,1 +1,0 @@
-g++ -std=c++11 -fextended-identifiers -Wall main.cpp && ./a.out; echo $?

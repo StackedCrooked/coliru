@@ -1,1 +1,0 @@
-clang++ -std=c++03 -O3 -Wno-all -pedantic -pthread -lboost_iostreams -lboost_serialization main.cpp && ./a.out

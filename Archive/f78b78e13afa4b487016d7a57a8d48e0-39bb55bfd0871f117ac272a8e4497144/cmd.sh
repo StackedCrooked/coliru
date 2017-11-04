@@ -1,1 +1,0 @@
-gcc -std=c++11 -o hello -lstdc++ -lpthread main.cpp && ./hello

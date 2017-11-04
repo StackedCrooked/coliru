@@ -1,1 +1,0 @@
-g++ main.cpp -std=c++14 -O2 -Wall -pedantic && ./a.out

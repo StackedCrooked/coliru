@@ -1,1 +1,0 @@
-g++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_test_exec_monitor && ./a.out

@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O3 -Wall -Wextra -pedantic-errors -c -S main.cpp && cat main.s | grep '^_Z\|memset'

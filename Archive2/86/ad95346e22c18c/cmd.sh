@@ -1,1 +1,0 @@
-mv main.cpp main.c; gcc -std=c99 -O3 -Wall -Wextra -pedantic main.c && ./a.out

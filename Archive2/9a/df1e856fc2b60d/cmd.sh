@@ -1,1 +1,0 @@
-set -x ; gcc -O3 -Wall -Werror -pedantic -fopenmp -x c main.cpp && ./a.out

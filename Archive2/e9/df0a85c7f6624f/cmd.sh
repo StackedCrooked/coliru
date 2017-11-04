@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp -O3 && echo "Hello" | ./a.out

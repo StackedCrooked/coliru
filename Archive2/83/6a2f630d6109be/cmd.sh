@@ -1,1 +1,0 @@
-g++ -std=c++1y -O3 -Wall -Wno-unused-variable -pedantic -pthread main.cpp -lboost_system -lboost_coroutine -lboost_thread -lboost_atomic && ./a.out

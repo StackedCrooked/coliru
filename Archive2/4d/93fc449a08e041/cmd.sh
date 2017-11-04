@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O3 -Wall -fsanitize=undefined main.cpp -o stdint16 && ./stdint16

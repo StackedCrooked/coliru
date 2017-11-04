@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -Wall -Wextra main.cpp -lpthread && ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++11 -stdlib=libc++ -O3 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ && ./a.out <<< 3 && ./a.out

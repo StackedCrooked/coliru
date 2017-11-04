@@ -1,1 +1,0 @@
-set -x; g++ -std=c++11 -O3 -finline-limit=1000 -Wall -Wextra -pedantic-errors -pthread main.cpp && ./a.out

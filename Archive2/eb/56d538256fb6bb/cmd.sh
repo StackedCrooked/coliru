@@ -1,1 +1,0 @@
-g++ -std=c++1y -Os -Werror -pthread -Wall main.cpp -lrt && ./a.out

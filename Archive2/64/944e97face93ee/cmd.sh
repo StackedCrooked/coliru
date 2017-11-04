@@ -1,1 +1,0 @@
-echo "<root><element>text</element></root>">input.xml; clang++ -std=c++11 -Os -Wall -pthread main.cpp && ./a.out input.xml

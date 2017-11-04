@@ -1,1 +1,0 @@
-clang++-3.4 -fsanitize=address main.cpp && ./a.out

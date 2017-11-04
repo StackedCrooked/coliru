@@ -1,1 +1,0 @@
-set -x ; g++-4.8 -O2 -Wall -pedantic main.cpp -std=c++11 -lboost_regex && ./a.out

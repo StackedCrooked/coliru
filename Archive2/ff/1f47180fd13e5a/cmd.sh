@@ -1,1 +1,0 @@
-getconf -a|grep -i cache

@@ -1,1 +1,0 @@
-g++ -Wall -Wextra -pedantic -fsyntax-only main.cpp ; ./a.out\

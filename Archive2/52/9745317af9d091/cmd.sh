@@ -1,1 +1,0 @@
-runhaskell -XFlexibleInstances main.cpp

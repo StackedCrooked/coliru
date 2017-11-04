@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread -fno-rtti -fno-exceptions -o asm.S -S main.cpp && cat asm.S

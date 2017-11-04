@@ -1,1 +1,0 @@
-g++-4.9 -std=c++11 -Wall -pedantic -pthread main.cpp

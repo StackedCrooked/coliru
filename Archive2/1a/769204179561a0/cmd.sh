@@ -1,1 +1,0 @@
-clang++ --analyze -Xclang -analyzer-output -Xclang html -o html main.cpp; cat html/*

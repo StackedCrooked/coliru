@@ -1,1 +1,0 @@
-g++ -std=c++1y -O2 -Wall -Weffc++ -pedantic -pthread main.cpp && ./a.out

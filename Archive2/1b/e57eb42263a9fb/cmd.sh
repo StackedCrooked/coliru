@@ -1,1 +1,0 @@
-g++ -O2 -Wall -pedantic main.cpp -lboost_thread -lboost_log -lboost_system && ./a.out && cat my.log

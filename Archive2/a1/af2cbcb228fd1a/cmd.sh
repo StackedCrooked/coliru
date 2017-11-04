@@ -1,1 +1,0 @@
-set -x; gcc -x c -std=c11 -O3 -Wall -Wextra main.cpp && ./a.out

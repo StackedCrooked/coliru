@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++11 -O3 -march=native -Wall -Wextra -pedantic -pthread main.cpp -stdlib=libc++ -lsupc++ && ./a.out

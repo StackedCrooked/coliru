@@ -1,1 +1,0 @@
-gcc -std=c++11 -Wall main.cpp && echo -e "aaaaaaaaaaaaaaaaaaaaaaaa" | ./a.out

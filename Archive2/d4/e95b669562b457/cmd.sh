@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -g -Wall -pthread main.cpp && valgrind ./a.out

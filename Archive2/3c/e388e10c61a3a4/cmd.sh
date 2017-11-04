@@ -1,1 +1,0 @@
-clang++ -std=c++1z -stdlib=libc++ main.cpp -lsupc++ -Weverything -Wno-c++98-compat-pedantic -Wno-newline-eof && ./a.out

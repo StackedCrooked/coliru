@@ -1,1 +1,0 @@
-clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -Wno-sign-compare main.cpp -lsupc++ && ./a.out && echo ok

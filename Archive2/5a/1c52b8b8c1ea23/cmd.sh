@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O2 -Wall -Wextra -Werror -pedantic -Wno-unused-variable main.cpp && ./a.out

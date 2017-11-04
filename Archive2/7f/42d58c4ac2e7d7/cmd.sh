@@ -1,1 +1,0 @@
-gcc -xc -Wunused-value main.cpp && ./a.out

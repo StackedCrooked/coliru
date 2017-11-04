@@ -1,1 +1,0 @@
-clang++ main.cpp -pedantic-errors -Wall -Wextra && echo "123" | ./a.out

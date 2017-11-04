@@ -1,1 +1,0 @@
-gcc -S -o main.s main.cpp && less main.s && gcc main.cpp && strings ./a.out

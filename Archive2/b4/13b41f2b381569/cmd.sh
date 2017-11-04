@@ -1,1 +1,0 @@
-gcc -S -O2 -Wall -pedantic -pthread main.cpp && cat main.s

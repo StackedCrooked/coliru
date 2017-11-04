@@ -1,1 +1,0 @@
-g++-4.8 -I/usr/local/include/c++/4.8.2/bit -o main main.cpp

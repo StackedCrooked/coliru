@@ -1,1 +1,0 @@
-clang++ main.cpp -std=c++1y && ./a.out

@@ -1,1 +1,0 @@
-clang -lstdc++ -msse4.2 -O2 main.cpp && time ./a.out

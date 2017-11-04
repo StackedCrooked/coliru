@@ -1,1 +1,0 @@
-set -x; clang++ -std=gnu++11 -stdlib=libc++ -O -Wall -Wextra -pedantic -pthread main.cpp -lrt && ./a.out

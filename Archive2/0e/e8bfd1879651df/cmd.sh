@@ -1,1 +1,0 @@
-set -x ; clang++ -O0 -Wall -pedantic main.cpp && ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++0x -O2 -lboost_regex main.cpp && ./a.out

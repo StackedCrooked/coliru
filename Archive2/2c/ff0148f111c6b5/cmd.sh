@@ -1,1 +1,0 @@
-clang++ -std=gnu++14 -Ofast -Wall -pedantic -pthread main.cpp && ./a.out

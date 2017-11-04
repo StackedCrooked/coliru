@@ -1,1 +1,0 @@
-mv main.c{pp,} && gcc -pedantic -std=c11 -Wall -Wextra main.c && ./a.out

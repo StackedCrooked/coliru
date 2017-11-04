@@ -1,1 +1,0 @@
-set -x; g++-4.9 -std=c++98 -O2 -Wall -pedantic -pthread main.cpp && ./a.out

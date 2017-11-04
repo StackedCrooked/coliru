@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++14 -O3 -Wall -pedantic -stdlib=libc++ -lsupc++ main.cpp ; ./a.out

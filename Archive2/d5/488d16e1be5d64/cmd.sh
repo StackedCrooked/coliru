@@ -1,1 +1,0 @@
-clang++ main.cpp -o yes -std=c++1y -Wall -Wextra -pedantic -O2 && ./yes

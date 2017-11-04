@@ -1,1 +1,0 @@
-clang++ -O3 -g -Wall -Wno-c++11-compat-deprecated-writable-strings -pthread main.cpp && ./a.out

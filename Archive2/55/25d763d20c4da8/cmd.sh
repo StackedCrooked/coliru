@@ -1,1 +1,0 @@
-tail -n1 main.cpp | base64 -d

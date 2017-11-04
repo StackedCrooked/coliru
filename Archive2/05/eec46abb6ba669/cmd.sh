@@ -1,1 +1,0 @@
-rm main.cpp && mkdir main.cpp

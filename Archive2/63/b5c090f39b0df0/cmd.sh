@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -Wextra -pedantic-errors -Wno-missing-field-initializers main.cpp && ./a.out

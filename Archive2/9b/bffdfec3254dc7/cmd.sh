@@ -1,1 +1,0 @@
-g++ -D HEX=0x7FFF main.cpp && ./a.out

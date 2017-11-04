@@ -1,2 +1,0 @@
-clang++ -std=c++14 -stdlib=libc++ -DNDEBUG -O3 -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out
-echo --------- && g++ -std=c++14 -DNDEBUG -O3 -Wall -Wextra -pedantic-errors main.cpp && ./a.out

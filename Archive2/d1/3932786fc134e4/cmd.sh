@@ -1,1 +1,0 @@
-g++-4.7 main.cpp -std=c++11 && ./a.out

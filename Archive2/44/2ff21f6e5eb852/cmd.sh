@@ -1,1 +1,0 @@
-clang -std=c99 -O2 -Wall -pedantic -x c main.cpp -o prog && ./prog

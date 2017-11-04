@@ -1,1 +1,0 @@
-g++-4.8 -O3 -Wall -pedantic -fopenmp -march=native main.cpp && ./a.out

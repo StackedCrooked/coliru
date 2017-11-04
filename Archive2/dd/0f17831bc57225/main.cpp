@@ -1,1 +1,0 @@
-void Error(std::vector<Wide::Lexer::Range>, Parser::Error);

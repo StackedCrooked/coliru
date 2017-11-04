@@ -1,1 +1,0 @@
-clang -std=c11 -x c main.cpp -Weverything -D_XOPEN_SOURCE=700 && ./a.out

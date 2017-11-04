@@ -1,1 +1,0 @@
-clang++ -std=c++11 -stdlib=libc++ -O2 -Wall -pedantic /usr/local/lib64/libstdc++.so.6 main.cpp && ./a.out

@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++14 -stdlib=libc++ -O -Wall -Wextra -pedantic main.cpp && ./a.out

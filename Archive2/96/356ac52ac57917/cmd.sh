@@ -1,1 +1,0 @@
-#title FastStack push/pop

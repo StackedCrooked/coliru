@@ -1,1 +1,0 @@
-g++ -std=c++1y -O3 -pedantic -lstdc++ main.cpp && ./a.out |& c++filt -t

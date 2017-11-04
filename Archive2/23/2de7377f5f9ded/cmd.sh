@@ -1,1 +1,0 @@
-g++ main.cpp -Wall -Wextra -pedantic -O2 && echo "3" | ./a.out

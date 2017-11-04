@@ -1,1 +1,0 @@
-set -x; clang++ --version; clang++ main.cpp; ./a.out

@@ -1,2 +1,0 @@
-grep -v "'" /etc/dictionaries-common/words | sort -R | xargs -d\\n -n 3 | while read a b c; do echo "$a $b;$RANDOM;$c"; done > input.txt
-clang++ -std=c++03 -Os -Wall -pedantic -pthread main.cpp && ./a.out

@@ -1,1 +1,0 @@
-runghc main.cpp

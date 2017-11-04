@@ -1,1 +1,0 @@
-s='%' ; for i in {1..20} ; do s="$(echo "$s" | ./uriencode)" ; echo "$s" ; done

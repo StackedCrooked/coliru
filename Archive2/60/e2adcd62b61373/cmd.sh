@@ -1,1 +1,0 @@
-set -x ; clang -x c -std=c99 -O0 -std=c99 -pedantic-errors -Wall -pthread main.cpp && ./a.out

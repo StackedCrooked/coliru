@@ -1,1 +1,0 @@
-set -x ; g++-4.8 -std=c++11 -O3 -Wall -pedantic -S main.cpp -fverbose-asm -o main.S && cat main.S

@@ -1,1 +1,0 @@
-for f in {a..z}; do echo "# filename $f" > $f; done; sed -i -f main.cpp ?; head ?

@@ -1,1 +1,0 @@
-Is a directory - /root/coliru/Web/../Archive2/4c/da99e2ac6e4471/main.cpp

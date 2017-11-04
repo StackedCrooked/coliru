@@ -1,1 +1,0 @@
-clang++ -O0 main.cpp -o unoptimized && (echo UNOPTIMIZED OUTPUT > u.out) && (./unoptimized >> u.out) && clang++ -O2 main.cpp -o optimized && (echo OPTIMIZED OUTPUT > o.out) && (./optimized >> o.out) && pr -m -t u.out o.out

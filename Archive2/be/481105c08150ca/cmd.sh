@@ -1,1 +1,0 @@
-clang++ -std=c++14 -W{all,extra,error} -pedantic main.cpp && ./a.out

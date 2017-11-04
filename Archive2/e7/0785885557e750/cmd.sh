@@ -1,1 +1,0 @@
-g++ -std=c++14 -g -Wl,-Map,main.map -Wall -pedantic main.cpp && cat main.map | grep growl

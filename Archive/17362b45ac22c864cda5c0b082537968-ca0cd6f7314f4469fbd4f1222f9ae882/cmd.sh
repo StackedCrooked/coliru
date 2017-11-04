@@ -1,1 +1,0 @@
-tac  main.cpp | rev

@@ -1,1 +1,0 @@
-g++-4.6 -frtti -Wno-error=format-security -fexceptions -std=c++0x main.cpp && ./a.out

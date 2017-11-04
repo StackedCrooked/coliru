@@ -1,1 +1,0 @@
-g++-4.9 --version && g++-4.9 -std=c++11 main.cpp

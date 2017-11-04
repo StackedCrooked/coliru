@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -pthread main.cpp -Wall -lboost_system -lboost_thread && echo coliru doesn't allow tcp networking ./a.out

@@ -1,1 +1,0 @@
-g++-4.9 -std=c++11 -Wno-unused-variable -Wno-unused-parameter -pthread main.cpp && ./a.out; echo $?

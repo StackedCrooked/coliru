@@ -1,1 +1,0 @@
-clang++ -w -std=c++11 -O0 -ggdb main.cpp && ./a.out

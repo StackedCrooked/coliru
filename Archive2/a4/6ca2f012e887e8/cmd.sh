@@ -1,1 +1,0 @@
-g++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp && ./a.out <<< "0 1 2 0 3 2 0"

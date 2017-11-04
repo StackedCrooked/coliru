@@ -1,1 +1,0 @@
-g++ -std=c++14 -O0 main.cpp -o out && ./out

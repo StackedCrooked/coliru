@@ -1,1 +1,0 @@
-g++-4.8 -Wall -pedantic -O3 main.cpp && ./a.out

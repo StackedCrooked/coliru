@@ -1,1 +1,0 @@
-gcc -o onesixtyone main.cpp

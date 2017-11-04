@@ -1,1 +1,0 @@
-set -x ; g++ -std=c++11 -mavx512f -O2 -Wall -pedantic -pthread main.cpp && ./a.out

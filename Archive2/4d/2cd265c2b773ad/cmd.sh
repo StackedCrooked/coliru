@@ -1,1 +1,0 @@
-clang++ -stdlib=libc++ -std=c++1y -O0 -Wall -pedantic -fsanitize=undefined main.cpp -lcxxrt && ./a.out

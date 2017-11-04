@@ -1,1 +1,0 @@
-clang++ -std=c++14 -Wmultichar main.cpp && ./a.out

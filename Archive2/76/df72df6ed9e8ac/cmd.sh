@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wno-multichar -pthread main.cpp && ./a.out

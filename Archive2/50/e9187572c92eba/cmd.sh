@@ -1,1 +1,0 @@
-set -x; clang++ -fsyntax-only -stdlib=libc++ -std=c++11 -O3 -g -Wall -Wextra -Wpedantic -pthread main.cpp

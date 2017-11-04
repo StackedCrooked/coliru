@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -O2 main.cpp && echo "mary had a little lamb." | ./a.out

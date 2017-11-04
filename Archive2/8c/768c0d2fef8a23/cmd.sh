@@ -1,1 +1,0 @@
-clang++ -std=c++03 -O2 -fstrict-aliasing -Wall -Wextra -pedantic -pthread main.cpp && ./a.out

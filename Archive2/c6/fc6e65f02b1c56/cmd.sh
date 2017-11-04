@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -Wextra -Wpedantic -fno-elide-constructors main.cpp && ./a.out

@@ -1,1 +1,0 @@
-gcc main.cpp && ./a.out && echo yo

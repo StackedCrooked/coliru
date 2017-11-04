@@ -1,1 +1,0 @@
-cd /Archive2/; pwd; ls -alh

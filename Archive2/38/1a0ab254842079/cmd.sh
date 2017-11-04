@@ -1,1 +1,0 @@
-g++ -std=c++11 -O3 -fexpensive-optimizations -Wall -pedantic main.cpp && ./a.out

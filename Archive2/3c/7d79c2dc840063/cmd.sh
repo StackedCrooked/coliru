@@ -1,1 +1,0 @@
-set -x ; g++-4.8  -std=c++98 -O2 -Wall -pedantic main.cpp -lboost_regex && echo "word" | ./a.out

@@ -1,1 +1,0 @@
-clang++  -std=c++0x -ldl -lcxxrt --stdlib=libc++  main.cpp && ./a.out

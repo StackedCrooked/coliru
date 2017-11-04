@@ -1,1 +1,0 @@
-clang++ -Os -std=c++11 -pedantic main.cpp -lboost_system -lboost_thread 2>&1 | sed 's/error/cry/g'

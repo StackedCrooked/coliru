@@ -1,1 +1,0 @@
-gcc -x c -std=c11 -g -Wall -Wextra -pedantic main.cpp

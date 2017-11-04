@@ -1,1 +1,0 @@
-set -x ; clang++ -std=gnu++11 -O2 -pthread main.cpp && ./a.out

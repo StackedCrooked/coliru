@@ -1,1 +1,0 @@
-clang++ -O3 --std=c++11 -Wall -Wextra -Werror -Wuninitialized -Wunused -pthread main.cpp && ./a.out

@@ -1,1 +1,0 @@
-for CC in g++ clang++; do for std in c++1y; do echo $CC $std && $CC -O3 -x c++ -std=$std -Wall -Wextra -pedantic -Wno-unused-parameter main.cpp && ./a.out; done; done

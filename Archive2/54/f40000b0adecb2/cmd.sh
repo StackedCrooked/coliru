@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -Wextra -pedantic main.cpp -lboost_thread -lboost_system && ./a.out 12345

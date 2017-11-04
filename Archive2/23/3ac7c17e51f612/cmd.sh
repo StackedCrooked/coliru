@@ -1,1 +1,0 @@
-g++ -std=c++98 -O2 -Wall -pedantic -pthread main.cpp && echo "17.49 GBP" | ./a.out

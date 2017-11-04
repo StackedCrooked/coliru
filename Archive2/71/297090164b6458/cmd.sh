@@ -1,1 +1,0 @@
-g++ -std=c++11 -O3 -pedantic main.cpp -mtune=native -march=native -S && g++ --version && cat main.s |grep asm_marker -C4

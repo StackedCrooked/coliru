@@ -1,1 +1,0 @@
-cat /usr/local/include/boost/version.hpp | grep 'BOOST_VERSION.[0-9]\+' ; find /usr/local/include/boost -type f | sed -e 's,/usr/local/include/,,g'

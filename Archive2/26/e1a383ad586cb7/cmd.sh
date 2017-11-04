@@ -1,1 +1,0 @@
-clang++ -emit-llvm -S -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -o main.llvm && cat main.llvm && clang-as main.llvm | clang-link  && ./aout

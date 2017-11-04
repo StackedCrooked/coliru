@@ -1,1 +1,0 @@
-clang++ -std=gnu++1z -stdlib=libc++ -Wall -Wno-gnu-string-literal-operator-template main.cpp && ./a.out

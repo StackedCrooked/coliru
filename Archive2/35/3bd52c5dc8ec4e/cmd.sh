@@ -1,1 +1,0 @@
-dd if=/dev/urandom count=10000

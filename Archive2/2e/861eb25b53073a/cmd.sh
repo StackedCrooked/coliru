@@ -1,1 +1,0 @@
-g++-4.8 -O0 -std=c++11 -Wall -pedantic -fopenmp -pthread -c main.cpp

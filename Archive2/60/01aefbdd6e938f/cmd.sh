@@ -1,1 +1,0 @@
-/usr/local/bin/Wide/CLI main.cpp && g++ a.o && ./a.out

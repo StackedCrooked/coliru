@@ -1,1 +1,0 @@
-echo "not compiled; coliru doesn't have cryptopp"

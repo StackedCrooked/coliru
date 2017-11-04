@@ -1,1 +1,0 @@
-ls /usr/local/lib/libboost*

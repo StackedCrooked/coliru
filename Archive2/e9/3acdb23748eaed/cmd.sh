@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -Wall -pedantic -pthread main.cpp -lboost_thread -lboost_system && time ./a.out

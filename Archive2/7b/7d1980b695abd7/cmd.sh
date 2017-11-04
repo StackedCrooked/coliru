@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os main.cpp -Wall -lboost_system -lboost_serialization && ./a.out

@@ -1,1 +1,0 @@
-echo -n hello | hexdump -C

@@ -1,1 +1,0 @@
-clang++ -std=c++1z -Wall main.cpp

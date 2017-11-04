@@ -1,1 +1,0 @@
-g++ -std=c++1y -O3 -Wall -Wno-unused-variable -w -pedantic -pthread main.cpp && ./a.out

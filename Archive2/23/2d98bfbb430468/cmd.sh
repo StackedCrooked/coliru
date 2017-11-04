@@ -1,1 +1,0 @@
-g++ -std=c++11 -O1 -Wall -pedantic main.cpp -lgmp && ./a.out

@@ -1,1 +1,0 @@
-g++-4.7 -std=c++11 -O1 -Wall -pedantic -pthread main.cpp -save-temps -fverbose-asm && ./a.out

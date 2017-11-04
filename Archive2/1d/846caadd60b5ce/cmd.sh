@@ -1,1 +1,0 @@
-g++-4.6 -O2 -g -Wall -Wno-unused-value -pedantic -pthread main.cpp -lrt && ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c99 -x c -O2 -Wall -pedantic -pthread main.cpp && echo "1 2" | ./a.out

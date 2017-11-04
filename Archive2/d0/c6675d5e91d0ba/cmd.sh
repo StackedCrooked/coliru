@@ -1,1 +1,0 @@
-g++ -Wall -pedantic-errors main.cpp && ./a.out

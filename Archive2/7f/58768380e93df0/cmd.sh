@@ -1,1 +1,0 @@
-ls /Archive/918b9a31ca244fccc1bc19f92f7911bd/main.cpp

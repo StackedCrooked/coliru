@@ -1,1 +1,0 @@
-clang++ -std=c++03 -Os -march=native -pedantic main.cpp  && ./a.out

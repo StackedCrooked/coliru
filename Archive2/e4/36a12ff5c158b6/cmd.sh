@@ -1,1 +1,0 @@
-g++ -std=c++11 -Wall -W main.cpp -o main && ./main

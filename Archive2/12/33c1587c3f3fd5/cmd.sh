@@ -1,1 +1,0 @@
-clang++ -std=c++11 -mavx -O3 main.cpp && ./a.out

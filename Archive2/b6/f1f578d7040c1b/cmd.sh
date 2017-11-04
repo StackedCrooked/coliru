@@ -1,1 +1,0 @@
-mv main.cpp main.c && gcc -ansi main.c && ./a.out <<< ""

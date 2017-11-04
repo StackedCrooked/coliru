@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O3 -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof main.cpp && ./a.out

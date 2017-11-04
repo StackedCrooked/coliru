@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -O2 main.cpp && echo "Nothing 1" | ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++1z -Wall -Wextra -Werror -Wno-error=unused-parameter -pedantic main.cpp -O3 && ./a.out

@@ -1,1 +1,0 @@
-http://coliru.stacked-crooked.com/a/ed8b76b41316a7da

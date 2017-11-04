@@ -1,1 +1,0 @@
-clang++ -std=c++14 -pedantic main.cpp && ./a.out

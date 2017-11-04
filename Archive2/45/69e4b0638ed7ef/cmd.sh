@@ -1,1 +1,0 @@
-g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp /Archive2/41/ff0a9435fa2b56/main.cpp -l libboost_unit_test_framework && ./a.out

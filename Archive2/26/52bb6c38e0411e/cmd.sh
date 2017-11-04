@@ -1,1 +1,0 @@
-set -x ; g++  -x c -O2 -Wall  main.cpp && ./a.out

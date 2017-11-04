@@ -1,1 +1,0 @@
-g++ -std=c++11 -O3 -Wall -pedantic -pthread main.cpp -S -funsafe-math-optimizations && cat main.s

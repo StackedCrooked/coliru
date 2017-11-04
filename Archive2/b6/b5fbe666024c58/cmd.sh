@@ -1,1 +1,0 @@
-clang++ -std=c++1z -Wall -Wextra -pedantic main.cpp

@@ -1,1 +1,0 @@
-g++ -std=c++11 -fverbose-asm -S  -masm=intel -O0 -Wall -pedantic -pthread main.cpp -o main.s && cat main.s

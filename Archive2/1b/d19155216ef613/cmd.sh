@@ -1,1 +1,0 @@
-clang++  -std=c++03 -O3 -Wall -pedantic  main.cpp && ./a.out

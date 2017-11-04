@@ -1,1 +1,0 @@
-g++ --version && g++ -std=gnu++11 -O2 -o main main.cpp && ./main

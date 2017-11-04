@@ -1,1 +1,0 @@
-clang++ -stdlib=libstdc++ -std=c++1y -O3 -Wall -pedantic -pthread main.cpp && ./a.out <<< "3   12 34 56   22"

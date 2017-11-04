@@ -1,1 +1,0 @@
-g++ -std=c++1y -O2 -Wall -pedantic -lboost_system -lboost_thread main.cpp && ./a.out

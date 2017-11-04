@@ -1,1 +1,0 @@
-#title Cutting some slack with regard to macro naming rules -- StackedCrooked

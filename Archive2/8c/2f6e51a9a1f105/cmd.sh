@@ -1,1 +1,0 @@
-cat /usr/include/c++/4.8.1/cstdint

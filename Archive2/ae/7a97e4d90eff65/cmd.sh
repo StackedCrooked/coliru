@@ -1,1 +1,0 @@
-set -x ; clang++ -std=c++11 -O3 -g -Wall -Wextra -pedantic -pthread main.cpp && echo 0x10 | ./a.out

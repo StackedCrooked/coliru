@@ -1,1 +1,0 @@
-g++-4.8 -o AVL main.cpp -std=c++11 -Wall -Wextra -O2 && ./AVL

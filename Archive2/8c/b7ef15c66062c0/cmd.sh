@@ -1,1 +1,0 @@
-cat /Archive2/f2/710bdba56fe4de/output | pygmentize -l diff -f html -O full

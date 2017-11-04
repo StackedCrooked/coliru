@@ -1,1 +1,0 @@
-g++ -std=c++11 -Os main.cpp && echo 00000000-0000-{0,4}000-0000-000000000000 $(uuidgen) "{$(uuidgen)}" | ./a.out

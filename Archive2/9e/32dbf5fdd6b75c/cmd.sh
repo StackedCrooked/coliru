@@ -1,1 +1,0 @@
-cp main.cpp Main.hs && ghc --make Main.hs && ./Main

@@ -1,1 +1,0 @@
-clang++ -Wall -o main main.cpp && ./main

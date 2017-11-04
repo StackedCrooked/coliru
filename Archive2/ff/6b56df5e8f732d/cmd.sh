@@ -1,1 +1,0 @@
-g++ -std=c++11 -W -Wall main.cpp && cat /Archive/{{id}}/main.cpp | a.out

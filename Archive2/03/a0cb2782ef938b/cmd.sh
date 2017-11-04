@@ -1,1 +1,0 @@
-echo "This is my sample input" > inputfile && g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp && ./a.out < inputfile

@@ -1,1 +1,0 @@
-g++ -std=c++11 -Wall -Wno-unused-variable -Wno-unused-value main.cpp && ./a.out

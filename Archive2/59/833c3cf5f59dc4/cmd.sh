@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O3 -march=core2 -Wall -pedantic-errors main.cpp && ./a.out

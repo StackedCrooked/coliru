@@ -1,1 +1,0 @@
-set -x ; clang++ -std=c++03 -W -Wall -Wextra -Wconversion -pedantic -O2 main.cpp  && ./a.out

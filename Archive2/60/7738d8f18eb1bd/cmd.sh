@@ -1,1 +1,0 @@
-g++ -std=gnu++1y -Wall -Wextra -pedantic -pthread main.cpp -O3 -c

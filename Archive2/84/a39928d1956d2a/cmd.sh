@@ -1,1 +1,0 @@
-clang++ -std=c++14 -stdlib=libc++  -O2 -Wall -Wextra -Wno-unused-variable -pedantic -pthread -pedantic-errors main.cpp -lm  -lsupc++  && ./a.out

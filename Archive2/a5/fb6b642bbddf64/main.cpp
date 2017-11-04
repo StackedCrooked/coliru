@@ -1,3 +1,0 @@
-void 🍌nd() {}
-
-int main() {}

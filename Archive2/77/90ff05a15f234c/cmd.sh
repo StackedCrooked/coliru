@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O0 -Werror -Wall -pedantic main.cpp

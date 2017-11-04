@@ -1,1 +1,0 @@
-gcc -O3 -std=c++0x -pedantic main.cpp -S && grep -C 20 MyFunc main.s

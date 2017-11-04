@@ -1,1 +1,0 @@
-g++ -pedantic -Wall main.cpp -std=c++11 && ./a.out test 0.1

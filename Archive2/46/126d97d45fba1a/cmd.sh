@@ -1,1 +1,0 @@
-gcc --version && g++ main.cpp -O2 && echo "c++:" && wc -c ./a.out && strip ./a.out && echo "c++ stripped:" && wc -c ./a.out && gcc main.cpp -O2 && echo "c:" && wc -c ./a.out && strip ./a.out && echo "c stripped:" && wc -c ./a.out

@@ -1,1 +1,0 @@
-main = do    putStrLn "Fuck"    putStrLn "Hello"

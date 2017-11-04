@@ -1,1 +1,0 @@
-g++-4.9 -std=c++98 -Og -Wall -Wextra -pedantic main.cpp && ./a.out

@@ -1,1 +1,0 @@
-g++  -g -std=c++11 -Wall -Wextra -v -Weffc++ -Wold-style-cast -lstdc++ main.cpp && ./a.out

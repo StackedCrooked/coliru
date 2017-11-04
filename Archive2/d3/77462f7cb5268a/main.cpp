@@ -1,4 +1,0 @@
-éberlué
-Erdősz
-Groß
-δελτα

@@ -1,1 +1,0 @@
-export HOME=/tmp ; mv main.cpp /tmp ; cd /tmp ; ccache g++ -std=c++11 main.cpp ; ccache -s

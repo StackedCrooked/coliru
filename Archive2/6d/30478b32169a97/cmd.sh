@@ -1,1 +1,0 @@
-g++ -S -std=c++11 -Wall -Wextra main.cpp && cat main.s

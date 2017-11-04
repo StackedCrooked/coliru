@@ -1,1 +1,0 @@
-clang++ -stdlib=libc++ -std=c++03 -O2 -Wall -pedantic -pthread main.cpp -lboost_system -lboost_filesystem && ./a.out

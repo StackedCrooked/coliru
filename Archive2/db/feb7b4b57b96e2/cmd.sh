@@ -1,1 +1,0 @@
-clang++ -std=c++03 -Os -Wall main.cpp; cp main.cpp data.dat; ./a.out; xxd data.dat

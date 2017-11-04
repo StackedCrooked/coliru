@@ -1,1 +1,0 @@
-mv main.cpp main.py && python main.py -t --stuff=20 10 11 12

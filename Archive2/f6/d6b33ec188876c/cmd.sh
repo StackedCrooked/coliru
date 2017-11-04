@@ -1,1 +1,0 @@
-/usr/local/bin/Wide/CLI --stdlib="/usr/local/bin/Wide/WideLibrary" main.cpp && g++ a.o && ./a.out

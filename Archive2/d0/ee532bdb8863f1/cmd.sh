@@ -1,1 +1,0 @@
-clang++ -std=c99 -stdlib=libc++ -x c main.cpp -lsupc++ -Weverything && ./a.out <<< "5"

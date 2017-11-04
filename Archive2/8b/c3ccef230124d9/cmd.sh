@@ -1,1 +1,0 @@
-clang++ -std=c++03 -pedantic main.cpp && for a in {1..5}; do echo $(./a.out <<< $a); done

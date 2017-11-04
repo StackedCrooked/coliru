@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp `pkg-config gtkmm-3.0 --cflags --libs` && ./a.out

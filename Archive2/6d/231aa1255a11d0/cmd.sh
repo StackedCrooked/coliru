@@ -1,1 +1,0 @@
-g++-4.7 -std=c++03 -march=native -Wall -pedantic main.cpp && time ./a.out

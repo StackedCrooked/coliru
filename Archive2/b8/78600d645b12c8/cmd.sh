@@ -1,1 +1,0 @@
-mcs Client.cs /Out:client.exe

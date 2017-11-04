@@ -1,1 +1,0 @@
-g++ -fsigned-char -Wall -Wextra -pedantic main.cpp && ./a.out

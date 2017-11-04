@@ -1,1 +1,0 @@
-g++-4.6 -O2 main.cpp -Wall && ./a.out

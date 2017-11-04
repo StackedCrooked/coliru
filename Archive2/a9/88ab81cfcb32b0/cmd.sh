@@ -1,1 +1,0 @@
-g++ -E -P -std=c++11 -fno-show-column main.cpp

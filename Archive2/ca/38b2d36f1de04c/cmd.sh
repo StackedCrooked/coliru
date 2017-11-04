@@ -1,1 +1,0 @@
-g++ -std=c++11 -Os -pedantic main.cpp -lboost_program_options && ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++1z -stdlib=libc++ -O2 -Wall -pthread main.cpp && ./a.out

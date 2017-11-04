@@ -1,1 +1,0 @@
-set -x ; clang++ -std=c++03  main.cpp  && ./a.out

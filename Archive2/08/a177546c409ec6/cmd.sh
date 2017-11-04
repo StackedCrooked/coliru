@@ -1,1 +1,0 @@
-g++-4.9 main.cpp -Wall -Wextra && ./a.out

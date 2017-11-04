@@ -1,1 +1,0 @@
-g++ -m32 -std=c++11 -O2 -Wall -pedantic -pthread -x c main.cpp && ./a.out

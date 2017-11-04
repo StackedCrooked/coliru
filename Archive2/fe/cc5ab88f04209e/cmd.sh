@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -Wall -pedantic -lboost_system -lm -Wextra main.cpp && ./a.out;

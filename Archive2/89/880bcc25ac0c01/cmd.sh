@@ -1,1 +1,0 @@
-clang++ -std=c++1z -O2 -Wall -Wextra -Werror -Wno-unused-parameter -Wno-error=return-type -pedantic -pthread main.cpp -lboost_system && strace ./a.out

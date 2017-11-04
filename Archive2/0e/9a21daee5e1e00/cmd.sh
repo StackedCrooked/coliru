@@ -1,1 +1,0 @@
-set -x; clang++ -v -stdlib=libc++ -std=c++1y -O3 -march=native -DNDEBUG -Wall -Wextra -pthread main.cpp -lsupc++ && ./a.out

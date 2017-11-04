@@ -1,1 +1,0 @@
-cp main.cpp main.c; clang -Wno-newline-eof -std=c99 -O3 -Wextra -Wall -pedantic-errors main.c -lm && ./a.out

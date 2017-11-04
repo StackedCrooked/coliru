@@ -1,1 +1,0 @@
-clang++ -dumpversion && clang -v

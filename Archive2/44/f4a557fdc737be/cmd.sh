@@ -1,1 +1,0 @@
-g++ -std=c++11 -Os -Wall -pedantic main.cpp && ./a.out <<< "100.0 X"

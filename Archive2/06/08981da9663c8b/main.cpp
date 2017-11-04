@@ -1,3 +1,0 @@
-#include <array>
-
-int main () { }

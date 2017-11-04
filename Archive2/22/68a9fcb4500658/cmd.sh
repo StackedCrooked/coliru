@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O0 main.cpp && ./a.out && echo -e "\n\n===========================\n\n"  && g++-4.8 -std=c++11 -O0 main.cpp -S && cat main.s

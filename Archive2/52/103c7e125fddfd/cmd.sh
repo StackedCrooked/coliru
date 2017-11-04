@@ -1,1 +1,0 @@
-g++ -O3 -std=c++11 -Wall -Wextra -pedantic main.cpp -o root && ./root

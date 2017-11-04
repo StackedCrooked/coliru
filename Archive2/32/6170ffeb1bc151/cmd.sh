@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -Wall -pedantic main.cpp -pthreads -lboost_thread && ./a.out

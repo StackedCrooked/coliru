@@ -1,1 +1,0 @@
-g++ --version && g++ -std=c++11 -O3 -mtune=native -Wall -pedantic -pthread main.cpp && ./a.out

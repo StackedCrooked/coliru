@@ -1,1 +1,0 @@
-g++ main.cpp; echo 1 2 3 | ./a.out

@@ -1,1 +1,0 @@
-g++-4.8 -std=c++0x -O3 -ffast-math -march=native -Wall -Wextra -pthread main.cpp && ./a.out

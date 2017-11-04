@@ -1,1 +1,0 @@
-clang++ -std=c++14 -Wextra -Wall -pedantic -Wsign-compare -Wsign-conversion main.cpp && ./a.out

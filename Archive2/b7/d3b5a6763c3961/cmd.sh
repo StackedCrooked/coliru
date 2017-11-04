@@ -1,1 +1,0 @@
-ln -sfv main.cpp pugixml.hpp

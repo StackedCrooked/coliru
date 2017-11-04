@@ -1,1 +1,0 @@
-g++ -c -std=c++03 -Wall -Wextra -pedantic main.cpp

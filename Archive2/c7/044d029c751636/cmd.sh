@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -Wall -pedantic -stdlib=libc++ -pthread main.cpp && ./a.out

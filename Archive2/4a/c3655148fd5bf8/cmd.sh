@@ -1,1 +1,0 @@
-set -x; g++-4.6 main.cpp && ./a.out

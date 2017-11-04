@@ -1,1 +1,0 @@
-export OMP_NUM_THREADS=4 && g++-4.9 -std=c++14 -O3 -fopenmp -funroll-loops -pedantic -pthread main.cpp && ./a.out 1000

@@ -1,1 +1,0 @@
-g++ -std=c++11 -O0 -Wall -pedantic -pthread -o asm.S -S main.cpp && cat asm.S

@@ -1,1 +1,0 @@
-struct A { static const size_t Len = 5; }; void fn(A& a) { int arr[a.Len]; }

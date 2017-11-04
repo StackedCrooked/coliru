@@ -1,1 +1,0 @@
-g++ -fno-strict-aliasing -O3 -std=c++11 -Wall -Wextra -pedantic main.cpp && ./a.out

@@ -1,1 +1,0 @@
-sh main.cpp start singing ; sh main.cpp aa bb

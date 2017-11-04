@@ -1,1 +1,0 @@
-clang++  main.cpp -std=c++11 -Wall -Wextra -O2 -lboost_thread -lboost_system && ./a.out

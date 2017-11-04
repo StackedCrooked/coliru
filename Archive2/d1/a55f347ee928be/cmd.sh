@@ -1,1 +1,0 @@
-clang -std=c++11 -Weverything -pedantic main.cpp && ./a.out

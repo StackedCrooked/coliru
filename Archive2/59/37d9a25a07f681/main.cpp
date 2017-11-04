@@ -1,3 +1,0 @@
-#include <cstddef>
-
-int main () {}

@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && echo "A\nB\nA\nA\nA\nA\nA\nA\nA\n" | ./a.out

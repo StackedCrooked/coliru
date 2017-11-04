@@ -1,1 +1,0 @@
-clang++ main.cpp -std=c++1y -Wall -Wextra -Werror -pedantic -S -O3 -emit-llvm && cat main.ll

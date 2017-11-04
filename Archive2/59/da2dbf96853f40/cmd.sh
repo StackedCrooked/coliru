@@ -1,1 +1,0 @@
-gcc -Wall -pedantic main.cpp && echo 1 1 1 0 0 0 0 0 0 0 | ./a.out

@@ -1,1 +1,0 @@
-head -6 main.cpp >> one; tail -6 main.cpp >> two; diff one two

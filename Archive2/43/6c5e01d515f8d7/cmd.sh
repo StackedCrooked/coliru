@@ -1,2 +1,0 @@
-#title TBB pipeline example
-g++-4.8 -std=c++11 -O2 -Wall -pedantic -pthread main.cpp -ltbb && ./a.out

@@ -1,1 +1,0 @@
-g++ -std=c++11 -Wall -Werror -pedantic -pthread -DLING_ASSERT_OPT_ENABLED main.cpp && ./a.out

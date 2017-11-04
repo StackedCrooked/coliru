@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -Wall main.cpp -lgmp -lmpfr && ./a.out

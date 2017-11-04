@@ -1,1 +1,0 @@
-clang++ -Wall -Wextra -pedantic -O3 -std=c++1y main.cpp && ./a.out

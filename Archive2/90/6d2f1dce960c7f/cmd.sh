@@ -1,1 +1,0 @@
-g++ -Werror -Wparentheses main.cpp

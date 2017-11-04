@@ -1,1 +1,0 @@
-clang++ -std=c++14 main.cpp -pthread -stdlib=libc++ && ./a.out

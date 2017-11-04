@@ -1,1 +1,0 @@
-clang++ -S -std=c++11 -O2 -Wall -pedantic -pthread -o main.S main.cpp && cat main.S

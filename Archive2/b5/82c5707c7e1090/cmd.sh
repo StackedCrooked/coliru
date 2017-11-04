@@ -1,1 +1,0 @@
-g++ -std=c++1y -O3 -Wall -Wconversion -pedantic main.cpp && ./a.out

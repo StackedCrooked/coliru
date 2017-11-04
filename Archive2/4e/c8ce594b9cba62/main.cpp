@@ -1,1 +1,0 @@
-class A{}; class B : private A{}; class C : public B { A* a; };

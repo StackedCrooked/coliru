@@ -1,1 +1,0 @@
-g++  -O2 -Wall  -std=gnu++0x -Werror -pedantic -pthread main.cpp && ./a.out

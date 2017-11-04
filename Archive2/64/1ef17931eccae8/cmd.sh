@@ -1,1 +1,0 @@
-Wide.sh main.cpp

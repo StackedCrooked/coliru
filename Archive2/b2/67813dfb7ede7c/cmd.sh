@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++14 -O3 -pedantic-errors main.cpp && ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++14 -stdlib=libc++ -Wall -Wextra -pedantic-errors main.cpp -lsupc++ && ./a.out 1234 123abc3 123456789 abcd 12345678987654

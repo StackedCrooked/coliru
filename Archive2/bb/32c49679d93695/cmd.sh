@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wall -pedantic -lboost_regex main.cpp && ./a.out

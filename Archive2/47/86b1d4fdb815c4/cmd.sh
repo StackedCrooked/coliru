@@ -1,1 +1,0 @@
-mv main.cpp main.c && clang main.c -Wall -Wextra -Werror -pedantic -O3 -S -o main.S && cat main.S

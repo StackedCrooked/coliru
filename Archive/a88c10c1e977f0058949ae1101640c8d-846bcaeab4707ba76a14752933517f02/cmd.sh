@@ -1,1 +1,0 @@
-g++ -std=c++11 main.cpp -O3 && ln -s a.out "a program like ccache" && ./a\ program\ like\ ccache

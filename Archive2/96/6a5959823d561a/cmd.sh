@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -march=native -Wall -pedantic main.cpp && time ./a.out

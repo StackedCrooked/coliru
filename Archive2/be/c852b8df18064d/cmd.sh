@@ -1,1 +1,0 @@
-g++ -Os main.cpp && ./a.out

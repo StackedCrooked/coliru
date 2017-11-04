@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O2 -Wall -pedantic main.cpp /Archive2/24/6ad0cfa7603f2d/main.cpp -o a.out && ./a.out

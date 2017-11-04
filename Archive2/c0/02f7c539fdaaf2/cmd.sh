@@ -1,1 +1,0 @@
-set -x; clang++ -O -std=c++14 -Wall -Wextra -pedantic -pthread main.cpp && (./a.out || echo "Great failure")

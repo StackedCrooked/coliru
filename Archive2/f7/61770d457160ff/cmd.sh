@@ -1,1 +1,0 @@
-clang++ main.cpp -O0 -std=c++1y  -lboost_system -g -rdynamic && ./a.out

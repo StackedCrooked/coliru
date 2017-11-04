@@ -1,1 +1,0 @@
-clang++ -std=c++1z -stdlib=libc++ -Weverything -pthread main.cpp -lsupc++ -O3 && ./a.out

@@ -1,1 +1,0 @@
-find /usr/include /usr/local/include -iname '*python.h'

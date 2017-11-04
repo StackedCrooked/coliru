@@ -1,1 +1,0 @@
-time g++ -std=c++11 -O3 -pedantic main.cpp -DNDEBUG && ./a.out

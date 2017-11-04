@@ -1,1 +1,0 @@
-echo "GCC" && g++ -std=c++11 main.cpp && ./a.out && echo "CLANG:" && clang++ -stdlib=libc++ -std=c++11 main.cpp && ./a.out

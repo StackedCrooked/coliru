@@ -1,1 +1,0 @@
-#include <stdio.h> main()[ pintf("ciao")]

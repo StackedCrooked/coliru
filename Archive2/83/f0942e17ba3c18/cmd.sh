@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -S -masm=intel main.cpp -o -

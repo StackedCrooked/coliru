@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -pthread -lm main.cpp && ./a.out && echo "done!"

@@ -1,1 +1,0 @@
-clang++ --version && clang++ -std=c++11 main.cpp && echo "clang build is OK" && g++ --version && g++ -std=c++11 main.cpp

@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread main.cpp && for i in $(seq 1 100); do ./a.out $i; done

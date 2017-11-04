@@ -1,1 +1,0 @@
-clang++ -std=c++1y -stdlib=libc++ -Wall -Wextra -pedantic-errors main.cpp -lsupc++ -o test && ./test && echo ok

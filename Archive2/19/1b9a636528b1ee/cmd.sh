@@ -1,1 +1,0 @@
-gcc -xc -O0 main.cpp && ./a.out; echo; gcc -xc -O0 -S main.cpp -o - | perl -e "while(<>){ print if(/main:/../ret/); }"

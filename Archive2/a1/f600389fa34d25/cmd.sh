@@ -1,1 +1,0 @@
-g++ -std=c++1z -O2 -Wall -Wextra -pedantic -pthread main.cpp && valgrind ./a.out -lc++abi

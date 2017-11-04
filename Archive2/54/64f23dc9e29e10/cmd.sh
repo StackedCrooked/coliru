@@ -1,1 +1,0 @@
-mkdir test; mkdir test2; ls -l; mv test test2; ls -l; ls -l test2;

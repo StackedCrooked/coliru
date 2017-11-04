@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -pedantic main.cpp -lboost_system && ./a.out

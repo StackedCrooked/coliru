@@ -1,1 +1,0 @@
-struct test{} _ = "text";

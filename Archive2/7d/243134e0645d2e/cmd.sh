@@ -1,1 +1,0 @@
-clang++ -std=c++1z -O0 -pthread main.cpp && ./a.out

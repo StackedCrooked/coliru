@@ -1,1 +1,0 @@
-g++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp && echo "a1" | ./a.out

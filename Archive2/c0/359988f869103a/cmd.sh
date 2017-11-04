@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -Wall -W -Werror -pedantic -Ofast main.cpp && ./a.out

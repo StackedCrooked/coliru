@@ -1,1 +1,0 @@
-g++-4.8 -Wall -pedantic -pthread main.cpp && echo "John Rhens Pimentel" | ./a.out && cat foo.txt

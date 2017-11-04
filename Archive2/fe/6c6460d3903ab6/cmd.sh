@@ -1,1 +1,0 @@
-mv main.cpp main.hs; ghc main.hs -o a.out; ./a.out; ghc main.hs -O2 -S -o a.s; cat ./a.s

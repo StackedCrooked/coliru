@@ -1,1 +1,0 @@
-set -x ; g++-4.8 -std=c++11 -O1 -Wall -pedantic -pthread main.cpp -S && uname -a && cat main.s

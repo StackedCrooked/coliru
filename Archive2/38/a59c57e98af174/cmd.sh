@@ -1,1 +1,0 @@
-clang++ -std=c++1y -stdlib=libstdc++ -pedantic main.cpp -o test && ./test

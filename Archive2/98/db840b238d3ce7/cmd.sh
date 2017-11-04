@@ -1,1 +1,0 @@
-clang++ -Weverything -Wno-c++98-compat -std=c++1z -stdlib=libc++ main.cpp -lsupc++ && ./a.out

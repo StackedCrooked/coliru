@@ -1,1 +1,0 @@
-cat main.cpp | c++filt -t

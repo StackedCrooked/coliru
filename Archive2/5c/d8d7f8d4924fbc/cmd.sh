@@ -1,1 +1,0 @@
-runghc -XExistentialQuantification main.cpp

@@ -1,1 +1,0 @@
-g++ -E -x c++ - -v < /dev/null

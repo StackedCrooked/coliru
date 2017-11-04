@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -O2 -Wall -pedantic-errors -pthread main.cpp && g++-4.8 --version && ./a.out

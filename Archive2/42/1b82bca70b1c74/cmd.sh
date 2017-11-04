@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -Werror -Wall -pthread main.cpp -lboost_thread && ./a.out

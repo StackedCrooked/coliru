@@ -1,3 +1,0 @@
-void $and$() {}
-
-int main() {}

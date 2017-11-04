@@ -1,1 +1,0 @@
-clang++ -std=c++14 -Wall -Wextra -Werror -pedantic -pthread main.cpp && ./a.out

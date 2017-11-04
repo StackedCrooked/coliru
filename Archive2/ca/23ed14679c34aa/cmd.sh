@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -Wall -Wextra -O3 -pedantic -pthread main.cpp && nm ./a.out | grep ZN1AIi

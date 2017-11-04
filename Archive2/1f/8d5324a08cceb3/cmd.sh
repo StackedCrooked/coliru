@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pthread main.cpp -lboost_system -lboost_thread && mtrace ./a.out

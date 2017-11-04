@@ -1,1 +1,0 @@
-clang++ main.cpp -Wall -Wextra -Werror -pedantic $(llvm-config --cppflags --libs all) && ./a.out

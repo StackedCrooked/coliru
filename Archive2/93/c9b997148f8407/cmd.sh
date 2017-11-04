@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -pthread main.cpp && ./a.out -c 4 100

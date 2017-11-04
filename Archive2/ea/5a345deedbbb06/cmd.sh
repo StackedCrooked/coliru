@@ -1,1 +1,0 @@
-g++-4.9 -std=c++11 -Wall -Wextra -ftemplate-backtrace-limit=0 main.cpp && ./a.out

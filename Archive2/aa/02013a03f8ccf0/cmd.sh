@@ -1,1 +1,0 @@
-#title Quiz: rock, paper and scissors

@@ -1,1 +1,0 @@
-clang++ main.cpp -fno-elide-constructors && ./a.out

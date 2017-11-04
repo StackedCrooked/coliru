@@ -1,1 +1,0 @@
-int main() { int const* ptr{};  reinterpret_cast<int*>(ptr);  }

@@ -1,3 +1,0 @@
-
-    interrupted
-    Returned: 0

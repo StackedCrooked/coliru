@@ -1,1 +1,0 @@
-gcc -fopenmp -x c main.cpp && ./a.out

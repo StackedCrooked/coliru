@@ -1,1 +1,0 @@
-clang -Wall -O3 -c -o optnone.o main.cpp

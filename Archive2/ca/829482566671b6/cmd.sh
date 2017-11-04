@@ -1,1 +1,0 @@
-set -x ; gcc-4.8 -x c -std=c11 -O2 -Wall -Wextra -Werror -pedantic main.cpp && ./a.out

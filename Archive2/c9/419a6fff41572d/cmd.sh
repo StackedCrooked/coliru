@@ -1,1 +1,0 @@
-g++-4.7 -O3 -g3 -Wall -c -fmessage-length=0 -std=c++11 main.cpp && echo "Compiled ok."

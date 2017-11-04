@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O0 -Wall -pedantic main.cpp -lboost_system -lboost_serialization && ./a.out

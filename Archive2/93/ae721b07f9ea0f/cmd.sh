@@ -1,1 +1,0 @@
-clang++ -O2 -Weverything -fsanitize=undefined main.cpp && ./a.out

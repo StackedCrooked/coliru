@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++11 -O3 -Wall -pedantic main.cpp -stdlib=libc++ -lsupc++ && echo "1 2 3 4 5 6 7" | ./a.out

@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++14 -O -Wall -Wextra -pedantic -pthread main.cpp -lsupc++ && time ./a.out

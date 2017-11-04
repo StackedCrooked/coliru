@@ -1,1 +1,0 @@
-clang++ main.cpp -std=c++11 -O3 -Wall -Wextra -Werror -pedantic -S && cat main.s

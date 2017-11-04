@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O2 -Wall -pedantic -pthread main.cpp 2>/dev/null && ./a.out

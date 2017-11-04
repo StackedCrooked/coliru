@@ -1,1 +1,0 @@
-clang++ -std=c++03 main.cpp -pthread && ./a.out

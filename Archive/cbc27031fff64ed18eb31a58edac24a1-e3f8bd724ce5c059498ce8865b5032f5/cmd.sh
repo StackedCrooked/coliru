@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -pedantic -pthread -fopenmp main.cpp -S -ftree-vectorize -march=corei7-avx -mtune=corei7-avx  && cat main.s | grep -C 5 vmulpd 

@@ -1,1 +1,0 @@
-set -x ; g++-4.8 -std=c++11 -fno-elide-constructors -O2 -pedantic -pthread main.cpp && ./a.out

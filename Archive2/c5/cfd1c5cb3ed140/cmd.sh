@@ -1,1 +1,0 @@
-set -x ; clang++ -Wall -pedantic main.cpp && ./a.out | c++filt -t

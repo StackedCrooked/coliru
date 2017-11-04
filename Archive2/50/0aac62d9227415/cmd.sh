@@ -1,1 +1,0 @@
-g++ -std=c++1y -O0 -Wall  -pthread main.cpp && ./a.out

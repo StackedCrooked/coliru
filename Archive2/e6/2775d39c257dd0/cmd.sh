@@ -1,1 +1,0 @@
-g++ -v 2>&1 | grep version; g++ -std=c++14 -O2 -Wall -pedantic -pthread main.cpp && ./a.out

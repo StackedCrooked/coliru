@@ -1,1 +1,0 @@
-clang++ -std=c++1y -Os -pthread main.cpp -lboost_system -lboost_serialization && ./a.out

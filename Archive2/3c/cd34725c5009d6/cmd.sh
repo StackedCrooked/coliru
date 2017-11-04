@@ -1,1 +1,0 @@
-set -x ; cat main.cpp > main.c; gcc-4.8 main.c && echo "Hello" | ./a.out

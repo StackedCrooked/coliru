@@ -1,1 +1,0 @@
-clang++ -c -stdlib=libc++ -std=c++11 -Wall -pedantic main.cpp

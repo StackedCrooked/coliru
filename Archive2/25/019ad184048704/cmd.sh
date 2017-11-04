@@ -1,1 +1,0 @@
-clang++ --version && clang++ -std=c++11 -Wall -Wextra -pedantic -pthread main.cpp && ./a.out && g++ --version && g++ -std=c++11 -Wall -Wextra -pedantic -pthread -Og main.cpp && ./a.out

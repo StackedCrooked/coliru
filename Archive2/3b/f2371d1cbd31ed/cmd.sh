@@ -1,1 +1,0 @@
-g++ -std=c++98 -O3 -w -pedantic -pthread main.cpp -lboost_timer -lboost_system && ./a.out

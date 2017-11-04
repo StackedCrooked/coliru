@@ -1,1 +1,0 @@
-clang++ main.cpp -Wall -Wextra && ./a.out

@@ -1,1 +1,0 @@
-g++-4.9 -std=c++14 -Wall -Wconversion -Wsystem-headers -pedantic -pthread main.cpp && ./a.out

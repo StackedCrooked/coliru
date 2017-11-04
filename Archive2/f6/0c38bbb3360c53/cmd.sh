@@ -1,1 +1,0 @@
-perl -W main.cpp

@@ -1,1 +1,0 @@
-clang++ -stdlib=libc++ -std=c++11 -O3 -march=native -DNDEBUG -Wall -Wextra -pthread main.cpp -c

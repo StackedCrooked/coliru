@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -Wall -fpermissive -pthread main.cpp && ./a.out

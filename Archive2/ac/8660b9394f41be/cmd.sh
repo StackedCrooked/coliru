@@ -1,1 +1,0 @@
-ln main.{cpp,c}; gcc -Os -Wall main.c; cp main.c data.dat; ./a.out; xxd data.dat

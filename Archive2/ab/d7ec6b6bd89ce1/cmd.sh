@@ -1,1 +1,0 @@
-g++-4.9 -std=c++1y -O3 -Wall -Wextra -pedantic-errors main.cpp && ./a.out

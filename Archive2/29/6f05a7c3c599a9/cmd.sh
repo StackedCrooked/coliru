@@ -1,1 +1,0 @@
-set -x ; g++-4.8 -std=c++11 -O2 -Wall -pedantic -Weffc++ -Wextra main.cpp && ./a.out <<< "3 4"

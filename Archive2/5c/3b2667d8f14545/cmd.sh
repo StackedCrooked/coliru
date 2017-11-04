@@ -1,1 +1,0 @@
-g++-4.8 -std=c++11 -c -O2 -Wall -pedantic -pthread main.cpp && echo "compilation succeeded" || echo "compilation failed"

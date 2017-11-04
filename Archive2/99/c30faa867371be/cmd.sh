@@ -1,1 +1,0 @@
-#include<stdio.h>    main()     scanf ("%d")       fact=1;            for (count=2;count<n;count=count+1)          fact=fact*count;   printf (il fattoriale di %d è %d", n, fact);               }

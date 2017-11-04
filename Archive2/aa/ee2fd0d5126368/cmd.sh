@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -Wconversion -Wsign-conversion -pedantic -pthread main.cpp && ./a.out

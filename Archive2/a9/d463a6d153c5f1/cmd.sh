@@ -1,1 +1,0 @@
-mv main.cpp main.s ; g++ main.s ; ./a.out ; echo "$?"

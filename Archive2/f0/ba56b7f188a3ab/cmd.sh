@@ -1,1 +1,0 @@
-clang++ -std=c++14 -O2 -Wall -pedantic -pthread -Wweak-vtables main.cpp && ./a.out

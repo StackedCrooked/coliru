@@ -1,1 +1,0 @@
-set -x; clang++ -std=c++11 -O -Wall -Wextra -pedantic-errors -pthread -stdlib=libstdc++ -S -o - main.cpp

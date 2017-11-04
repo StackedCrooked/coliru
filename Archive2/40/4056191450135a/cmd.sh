@@ -1,1 +1,0 @@
-clang++ -m32 -std=c++11 -Weverything main.cpp -c

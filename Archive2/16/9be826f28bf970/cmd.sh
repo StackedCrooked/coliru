@@ -1,1 +1,0 @@
-g++ main.cpp && ./a.out test 0.1

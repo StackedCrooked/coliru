@@ -1,5 +1,0 @@
-int a[];
-
-int main()
-{
-}

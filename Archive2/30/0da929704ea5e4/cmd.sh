@@ -1,1 +1,0 @@
-clang++ -std=c++1y -Wfatal-errors -O2 -pthread main.cpp && ./a.out

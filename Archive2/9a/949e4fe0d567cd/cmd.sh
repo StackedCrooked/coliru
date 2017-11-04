@@ -1,1 +1,0 @@
-g++-4.8 -Wall -pedantic -pthread main.cpp && echo "Juan Dela Cruz" | ./a.out && cat foo.txt

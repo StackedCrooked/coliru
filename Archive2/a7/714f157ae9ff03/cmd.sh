@@ -1,1 +1,0 @@
-g++-4.8 -Os -std=c++11 -Wall -pedantic main.cpp && ./a.out

@@ -1,1 +1,0 @@
-clang++ -O2 -m64 -march=native -std=c++11 -stdlib=libc++ main.cpp -nodefaultlibs -lc++ -lm -lc -lgcc_s -lgcc && ./a.out

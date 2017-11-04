@@ -1,1 +1,0 @@
-set -x ; clang -x c -std=c99 -W -Wall -Wextra -pedantic main.cpp  && ./a.out

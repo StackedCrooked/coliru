@@ -1,1 +1,0 @@
-cp main.cpp main.c; gcc -std=c99 -O3 -Wextra -Wall -pedantic-errors main.c -lm && ./a.out

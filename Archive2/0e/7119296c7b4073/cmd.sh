@@ -1,1 +1,0 @@
-gcc -x c main.cpp && echo -e "1 10" | ./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O0 -Wall -Werror -pedantic -pthread main.cpp && g++ --version && ./a.out

@@ -1,1 +1,0 @@
-clang -O3 -Wextra -Wall -pedantic -pthread main.cpp && echo 5|./a.out

@@ -1,1 +1,0 @@
-clang++ -std=c++0x -Os -Werror -phtread -Wall main.cpp -lrt && ./a.out

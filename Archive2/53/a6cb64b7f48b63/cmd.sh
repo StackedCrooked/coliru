@@ -1,1 +1,0 @@
-gcc-4.8 -Wconversion main.cpp && ./a.out

@@ -1,1 +1,0 @@
-clang++ -c -std=c++11 -fno-elide-constructors main.cpp

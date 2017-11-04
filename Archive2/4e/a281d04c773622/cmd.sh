@@ -1,1 +1,0 @@
-clang++ -std=c++1y -O3 -g -Weverything -pedantic-errors -pthread main.cpp && echo 10:35 | ./a.out

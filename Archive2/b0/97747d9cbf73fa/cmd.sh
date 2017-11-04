@@ -1,1 +1,0 @@
-echo "test" > file && gcc -std=c90 -O2 -Wall -pedantic -pthread main.cpp && ./a.out && ls

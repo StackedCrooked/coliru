@@ -1,1 +1,0 @@
-g++-4.8 -E -o - main.cpp | tail -n1

@@ -1,1 +1,0 @@
-g++ -std=c++11 -O2 -Wall -Wextra -pedantic -Wold-style-cast -pthread main.cpp && ./a.out

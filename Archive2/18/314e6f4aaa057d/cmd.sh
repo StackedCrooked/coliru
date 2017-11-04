@@ -1,1 +1,0 @@
-clang++ -std=c++11 -O2 -Wall -pedantic -fno-caret-diagnostics -ftemplate-backtrace-limit=1 -pthread main.cpp && ./a.out

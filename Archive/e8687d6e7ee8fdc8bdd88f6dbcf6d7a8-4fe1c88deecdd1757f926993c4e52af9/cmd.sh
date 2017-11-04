@@ -1,1 +1,0 @@
-mv main.cpp main.c && clang main.c -std=c89 && ./a.out

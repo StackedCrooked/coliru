@@ -1,1 +1,0 @@
-g++ -std=c++11 -pedantic -W -Wall -Werror -Ofast -o marker main.cpp && ./marker

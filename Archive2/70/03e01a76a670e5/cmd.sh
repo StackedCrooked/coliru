@@ -1,1 +1,0 @@
-pwd ; set -x ; export HOME=/tmp ; ccache g++ -c -std=c++11 main.cpp ; g++ main.o ; ls ; ccache -s

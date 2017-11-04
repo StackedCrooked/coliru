@@ -1,1 +1,0 @@
-g++-4.6  -O3 -Wall -pedantic -pthread main.cpp && g++-4.6 --version && nm ./a.out

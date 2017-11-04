@@ -1,1 +1,0 @@
-g++ -O3 -Wall -pedantic -fopenmp -x c main.cpp && ./a.out

@@ -1,1 +1,0 @@
-g++ -std=c++03 -Os -Wall -pedantic main.cpp -lboost_locale && ./a.out; lsb_release -a; uname -a

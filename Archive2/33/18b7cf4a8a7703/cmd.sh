@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Wextra -pedantic -Wsign-compare -Wsign-conversion main.cpp && ./a.out

@@ -1,1 +1,0 @@
-clang++ main.cpp -Wall -Wextra -pedantic -std=c++1y -stdlib=libc++ -lsupc++ && ./a.out

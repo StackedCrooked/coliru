@@ -1,1 +1,0 @@
-clang++ -std=c++11 -Os -Werror -pthread -Wall main.cpp && ./a.out

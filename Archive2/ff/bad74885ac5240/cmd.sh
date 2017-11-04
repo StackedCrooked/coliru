@@ -1,1 +1,0 @@
-gcc-4.8 -std=c++11 -O2 -pedantic -pthread -Wall main.cpp -lstdc++ && ./a.out

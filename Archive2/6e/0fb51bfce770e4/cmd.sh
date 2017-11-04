@@ -1,1 +1,0 @@
-gcc-4.8 -O2 -Wall -pedantic -pthread main.cpp && ./a.out 5555
