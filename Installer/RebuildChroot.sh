@@ -27,6 +27,7 @@ mount_dir_into_chroot /lib
 mount_dir_into_chroot /var
 mount_dir_into_chroot /bin
 mount_dir_into_chroot /usr
+mount_dir_into_chroot /proc
 mount_dir_into_chroot ${ARCHIVE2}
 mount_dir_into_chroot ${ARCHIVE}
 
