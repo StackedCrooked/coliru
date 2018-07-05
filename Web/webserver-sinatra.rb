@@ -8,6 +8,44 @@ require 'pp'
 require 'sinatra'
 require 'sinatra/cross_origin'
 
+require 'webrick/ssl'
+require 'webrick/https'
+
+
+module Sinatra
+    class Application
+
+        def self.get_server_options()
+                result = {
+                    :Host => bind,
+                    :Port => port
+                }
+                return result
+        end
+
+        def self.get_secure_server_options()
+                result = get_server_options()
+                result[:SSLEnable] = true
+                result[:SSLCertificate] = OpenSSL::X509::Certificate.new(File.open(ENV['COLIRU_CERTIFICATE']).read)
+                result[:SSLPrivateKey] = OpenSSL::PKey::RSA.new(File.open(ENV['COLIRU_PRIVATE_KEY']).read)
+                return result
+        end
+
+        def self.run!
+            use_https = ENV['COLIRU_CERTIFICATE'] != nil
+            server_options = use_https ? get_secure_server_options() : get_server_options()
+
+            Rack::Handler::WEBrick.run self, server_options do |server|
+                [:INT, :TERM].each { |sig| trap(sig) { server.stop } }
+                server.threaded = settings.threaded if server.respond_to? :threaded=
+                set :running, true
+            end
+        end
+        
+    end
+end
+
+
 
 get '/' do
     File.read('index.html')
