@@ -14,6 +14,8 @@ id="$(./hash.sh)"
 # search for previous result in the compile cache
 [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
     cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" 2>/dev/null && exit
+
+    # In case the 'output' file was not found.
     rm -rf "${COLIRU_COMPILE_ARCHIVE}/${id}"
 }
 
