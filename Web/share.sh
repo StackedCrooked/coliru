@@ -30,9 +30,6 @@ echo "${id}" | sed 's,/,,'
     echo > ${path}/output
     date '+%s' > ${path}/timestamp
 
-    # add the path to the log file so we know which items are new
-    echo "$path" >> "$COLIRU_ARCHIVE2_LOG"
-
     # use output of compile cache if available
     # note that this does not remove the need
     [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
