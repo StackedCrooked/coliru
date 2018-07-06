@@ -10,7 +10,7 @@ cp /etc/letsencrypt/live/stacked-crooked.com/privkey.pem .
 for i in {1..10} ; do 
     for i in {1..10} ; do
         COLIRU_PORT=443 COLIRU_CERTIFICATE=fullchain.pem COLIRU_PRIVATE_KEY=privkey.pem ./run.sh
-        echo "WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY"
+        echo "HTTPS (443) WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY" >>output.log 2>&1
     done
     echo "RESTARTING WEBSERVER NOW"
     sleep 60

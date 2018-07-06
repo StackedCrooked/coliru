@@ -3,9 +3,8 @@
 # Start the webserver
 for i in {1..10} ; do 
     for i in {1..10} ; do
-        pkill -u 2001
         ./run.sh
-        echo "WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY"
+        echo "HTTP (80) WEBSERVER STOPPED. RESTARTING WEBSERVER IMMEDIATELY" >>output.log 2>&1
     done
     echo "RESTARTING WEBSERVER NOW"
     sleep 60
