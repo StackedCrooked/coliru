@@ -3,7 +3,7 @@
 
 # Ensure required capabilities are set
 
-setcap 'cap_net_bind_service=+ep' $(dirname $(which ruby))/$(readlink $(which ruby)) # follow ruby link
+setcap 'cap_net_bind_service=+ep' $(readlink -f $(which ruby)) # follow ruby link
 setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
 setcap 'cap_sys_chroot=+ep' /bin/bash
 
