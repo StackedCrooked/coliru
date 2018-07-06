@@ -36,8 +36,6 @@ module Sinatra
             server_options = use_https ? get_secure_server_options() : get_server_options()
 
             Rack::Handler::WEBrick.run self, server_options do |server|
-                [:INT, :TERM].each { |sig| trap(sig) { server.stop } }
-                server.threaded = settings.threaded if server.respond_to? :threaded=
                 set :running, true
             end
         end
