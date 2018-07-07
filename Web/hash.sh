@@ -14,7 +14,7 @@
 # increment cache_invalidator to force invalidating all caches
 (
     cd "${INPUT_FILES_DIR}"
-    echo cache_invalidator=2
+    echo cache_invalidator=3
 
     # Wide requires boost lib in /usr/local/lib
     LD_LIBRARY_PATH="/usr/local/lib" /usr/local/bin/Wide/CLI --version
