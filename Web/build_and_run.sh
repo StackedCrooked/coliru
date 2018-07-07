@@ -8,15 +8,20 @@ cp ${INPUT_FILES_DIR}/main.cpp ${jobdir}/main.cpp
 chmod -R a+w ${jobdir}
 
 
+cleanup_file="/tmp/cleanup_${COLIRU_PORT}"
+
+
 # Cleanup temp files from previous job
-[ ! -f /tmp/cleanup ] || {
-    bash /tmp/cleanup
-    rm -f /tmp/cleanup
+[ -f "${cleanup_file}" ] && {
+	bash "${cleanup_file}"
+    rm -f "${cleanup_file}"
 }
 
+
 # Schedule cleanup of temp files for this job.
-echo "rm -rf ${INPUT_FILES_DIR}" >> /tmp/cleanup
-echo "rm -rf ${jobdir}" >> /tmp/cleanup
+echo "rm -rf ${INPUT_FILES_DIR}" >> "${cleanup_file}"
+echo "rm -rf ${jobdir}" >> "${cleanup_file}"
+
 
 # Prepare the command.
 CMD="set -e
