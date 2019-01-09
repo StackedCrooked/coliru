@@ -123,15 +123,16 @@ get '/feedback' do
 end
 
 
-$request_id = 1
+$next_request_id = 1
 post '/compile' do
     begin
+		log_event()
         Thread.new do 
             result = ""
-            rid = $request_id += 1
-            log_request(rid, "/compile", "waiting")
+            request_id = $next_request_id += 1
+            log_request(request_id, "/compile", "waiting")
             $mutex.synchronize do
-                log_request(rid, "/compile", "running")
+                log_request(request_id, "/compile", "running")
                 request_text = request.body.read
                 json_obj = JSON.parse(request_text)
                 id = "#{Time.now.utc.to_f}"
@@ -142,7 +143,7 @@ post '/compile' do
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
                 safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1") { |line| result += line }
                 FileUtils.rmtree(dir)
-                log_request(rid, "/compile", "done")
+                log_request(request_id, "/compile", "done")
             end
 			response["Access-Control-Allow-Origin"] = "*"
             stream do |out|
@@ -196,10 +197,10 @@ post '/share' do
     begin
         Thread.new do
             result = ''
-            rid = $request_id += 1
-            log_request(rid, "/share", "waiting")
+            request_id = $next_request_id += 1
+            log_request(request_id, "/share", "waiting")
             $mutex.synchronize do
-                log_request(rid, "/share", "running")
+                log_request(request_id, "/share", "running")
                 id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
                 dir = "/tmp/coliru/#{id}"
                 FileUtils.mkdir_p(dir)
@@ -214,7 +215,7 @@ post '/share' do
                     skip = (b == '\n')
                     result += b
                 end
-                log_request(rid, "/share", "done")
+                log_request(request_id, "/share", "done")
             end
 			response["Access-Control-Allow-Origin"] = "*"
             stream { |out| out << result }
@@ -326,6 +327,15 @@ get '/log' do
 end
 
 
+get '/events' do 
+	stream do |out|
+		out << "<html><body><pre>"
+		$event_log_table.each { |k,v| out << "#{k} #{v}\n"; }
+		out << "</pre></body></html>"
+	end
+end
+
+
 # Implementation details..
 
 # Fix the JSON encoding errors that sometimes occur ("\xE2" on US-ASCII)
@@ -334,6 +344,9 @@ Encoding.default_external = 'UTF-8'
 set :allow_origin, :any
 set :port, ENV['COLIRU_PORT']
 $mutex = Mutex.new
+$event_log_table = {}
+
+
 
 options '/*' do
   response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
@@ -427,7 +440,7 @@ def log(str)
     end
 end
 
-def log_request(rid, method, message)
+def log_request(request_id, method, message)
   begin 
       timeout = get_timeout.to_i
       current_time = DateTime.now.strftime('%s').to_i
@@ -437,20 +450,31 @@ def log_request(rid, method, message)
       # So the request rate is not diluted.
       if elapsed_time > 3600
           $start_time = current_time
-          $request_id = 1
+          $next_request_id = 1
           elapsed_time = 0
       end
 
       if elapsed_time == 0
         elapsed_time = 1 # avoid division by zero
       end
-      rate = [ 60.0 * rid / [elapsed_time, 60].max, 1].max
+      rate = [ 60.0 * request_id / [elapsed_time, 60].max, 1].max
       rate = 100 * rate / 100.0
       $request_rate = (0.9 * $request_rate + 0.1 * rate).round
-      $stderr.puts "webserver-sinatra.rb: request_id=#{rid} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
+      $stderr.puts "webserver-sinatra.rb: request_id=#{request_id} elapsed_time=#{elapsed_time} rate=#{$request_rate}/min timeout=#{timeout} method=\"#{method}\" message=#{message}"
   rescue Exception => e
     # Cannot handle the exception here.
   end
+end
+
+def log_event()
+	begin
+		now = DateTime.now
+		key = "#{now.hour}:00"
+		val = $event_log_table[key]
+		$event_log_table[key] = val ? val + 1 : 1
+	rescue Exception => e
+		# Can't handle the exception
+	end
 end
 
 
