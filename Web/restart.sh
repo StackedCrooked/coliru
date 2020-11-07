@@ -26,4 +26,4 @@ setsid ./_restart_http.sh & disown
 setsid ./_restart_https.sh & disown
 
 
-{ sleep $((25 * 3600)) ; reboot ; } & disown
+{ sleep $((7 * 24 * 3600)) ; reboot ; } & disown
