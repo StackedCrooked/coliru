@@ -230,7 +230,9 @@ get '/a/:id/:file' do
     content_type (params[:ct] || 'text/plain') 
     id = params[:id]
     file = params[:file]
-    File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
+    return File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
+rescue Exception => e
+	return e.to_s
 end
 
 
