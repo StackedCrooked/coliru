@@ -193,8 +193,29 @@ post '/timeout' do
 end
 
 
+
+def is_spam(text)
+    num_links = 0
+    text.lines.each { |line|
+        if line =~ /^https:\/\//
+            num_links += 1
+            if num_links == 5
+                return true
+            end
+        end
+    }
+    return false
+end
+
+
 post '/share' do
     begin
+        json_obj = JSON.parse(request.body.read)
+        if is_spam(json_obj['src'])
+            $stderr.puts "SPAM DETECTED"
+            throw :spam_detected
+        end
+        $stderr.puts "NO SPAM DETECTED"
         Thread.new do
             result = ''
             request_id = $next_request_id += 1
@@ -205,7 +226,6 @@ post '/share' do
                 dir = "/tmp/coliru/#{id}"
                 FileUtils.mkdir_p(dir)
 
-                json_obj = JSON.parse(request.body.read)
                 File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
                 File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
