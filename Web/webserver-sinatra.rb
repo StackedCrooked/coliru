@@ -193,7 +193,6 @@ post '/timeout' do
 end
 
 
-
 def is_spam(text)
     num_links = 0
     text.lines.each { |line|
@@ -215,7 +214,6 @@ post '/share' do
             $stderr.puts "SPAM DETECTED"
             throw :spam_detected
         end
-        $stderr.puts "NO SPAM DETECTED"
         Thread.new do
             result = ''
             request_id = $next_request_id += 1
