@@ -195,16 +195,7 @@ end
 
 
 def is_spam(text)
-    num_links = 0
-    text.lines.each { |line|
-        if line =~ /http[s]?:\/\//
-            num_links += line.scan(/http[s]?:\/\//).length
-            if num_links >= 5
-                return true
-            end
-        end
-    }
-    return false
+    return text.scan(/http[s]?:\/\//).length >= 5
 end
 
 
