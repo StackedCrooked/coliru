@@ -196,7 +196,8 @@ end
 
 def is_spam(text)
     return text.scan(/http[s]?:\/\//).length >= 5 ||
-        text.scan(/www\.\w+\.\w+/).length >= 5
+        text.scan(/www\.\w+\.\w+/).length >= 5 ||
+        text.scan(/\w+\.com\//).length >= 5
 end
 
 
