@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+# Don't allow outgoing traffic to port 25
+sudo iptables -A OUTPUT -p tcp --dport 25 -j REJECT
+
 # Ensure required capabilities are set
 
 setcap 'cap_net_bind_service=+ep' $(readlink -f $(which ruby)) # follow ruby link
