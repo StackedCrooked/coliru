@@ -1,8 +1,11 @@
 #!/bin/bash
 
 
-# Don't allow outgoing traffic to port 25
+# Don't allow outgoing traffic to port 25, 465 and 587 (SMTP),
+# to avoid this server from being marked as spam/malware.
 sudo iptables -A OUTPUT -p tcp --dport 25 -j REJECT
+sudo iptables -A OUTPUT -p tcp --dport 465 -j REJECT
+sudo iptables -A OUTPUT -p tcp --dport 587 -j REJECT
 
 # Ensure required capabilities are set
 
