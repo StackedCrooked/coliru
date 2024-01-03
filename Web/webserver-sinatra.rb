@@ -95,7 +95,7 @@ end
 
 post '/feedback' do
     Thread.new do
-        $mutex.synchronize do
+        $feedback_mutex.synchronize do
             File.open('feedback.txt', 'a') do |file|
                 text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
                 return if text == 'undefined' # for some reason this happens a lot
@@ -104,6 +104,9 @@ post '/feedback' do
                 return if text == ''
                 return if text.length >= 1000 # max length is 1000 characters
                 file.puts(text)
+
+                # Temporary hack to protect against flooding.
+                sleep 5
             end
         end
     end.join
@@ -358,6 +361,7 @@ Encoding.default_external = 'UTF-8'
 set :allow_origin, :any
 set :port, ENV['COLIRU_PORT']
 $mutex = Mutex.new
+$feedback_mutex = Mutex.new
 $event_log_table = {}
 
 
