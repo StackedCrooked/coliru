@@ -69,10 +69,6 @@ setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
 setcap 'cap_kill=+ep' /bin/kill
 setcap 'cap_kill=+ep' /usr/bin/pgrep
 
-# Allow unshare to be run without root permissions
-# So we can disable network access for the sandbox.
-setcap 'cap_sys_admin+ep' /usr/bin/unshare
-
 
 
 # Create users and groups.
