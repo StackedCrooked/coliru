@@ -34,4 +34,4 @@ set +e
 $(cat ${INPUT_FILES_DIR}/cmd.sh)"
 
 # Run the command in the chroot.
-unshare -n chroot ${CHROOT} bash -c "${CMD}"
+unshare -c -n chroot ${CHROOT} bash -c "${CMD}"
