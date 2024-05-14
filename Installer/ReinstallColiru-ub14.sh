@@ -65,10 +65,14 @@ setcap 'cap_net_bind_service=+ep' /usr/bin/ruby1.9.1 || true
 setcap 'cap_sys_chroot=+ep' /bin/bash
 setcap 'cap_sys_chroot=+ep' /usr/sbin/chroot
 
-
 # Allow kill and pkill to kill without root priviliges.
 setcap 'cap_kill=+ep' /bin/kill
 setcap 'cap_kill=+ep' /usr/bin/pgrep
+
+# Allow unshare to be run without root permissions
+# So we can disable network access for the sandbox.
+setcap 'cap_sys_admin+ep' /usr/bin/unshare
+
 
 
 # Create users and groups.
