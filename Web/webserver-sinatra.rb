@@ -126,46 +126,40 @@ end
 
 
 get '/feedback' do
-    Thread.new do
-        stream do |out|
-            out << '<html><body><ul>'
-			#out << '<h3>New comments will are added to queue for moderation.</h3>'
-            $mutex.synchronize do
-                File.readlines('feedback.txt').reverse.each { |l| out << "<li style=\"margin-bottom: 4px;\">#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "&nbsp;<b>NOTE</b>")}</li>" }
-            end
-            out << '</ul></body></html>'
+    stream do |out|
+        out << '<html><body><ul>'
+        #out << '<h3>New comments will are added to queue for moderation.</h3>'
+        $mutex.synchronize do
+            File.readlines('feedback.txt').reverse.each { |l| out << "<li style=\"margin-bottom: 4px;\">#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "&nbsp;<b>NOTE</b>")}</li>" }
         end
-    end.join
+        out << '</ul></body></html>'
+    end
 end
 
 
 $next_request_id = 1
 post '/compile' do
     begin
-		log_event()
-        Thread.new do 
-            result = ""
-            request_id = $next_request_id += 1
-            log_request(request_id, "/compile", "waiting")
-            $mutex.synchronize do
-                log_request(request_id, "/compile", "running")
-                request_text = request.body.read
-                json_obj = JSON.parse(request_text)
-                id = "#{Time.now.utc.to_f}"
-                dir = "/tmp/coliru/#{id}"
-                FileUtils.mkdir_p(dir)
+        log_event()
+        result = ""
+        request_id = $next_request_id += 1
+        log_request(request_id, "/compile", "waiting")
+        $mutex.synchronize do
+            log_request(request_id, "/compile", "running")
+            request_text = request.body.read
+            json_obj = JSON.parse(request_text)
+            id = "#{Time.now.utc.to_f}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
 
-                File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-                File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-                safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1") { |line| result += line }
-                FileUtils.rmtree(dir)
-                log_request(request_id, "/compile", "done")
-            end
-			response["Access-Control-Allow-Origin"] = "*"
-            stream do |out|
-                out << result
-            end
-        end.join
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1") { |line| result += line }
+            FileUtils.rmtree(dir)
+            log_request(request_id, "/compile", "done")
+        end
+        response["Access-Control-Allow-Origin"] = "*"
+        result
     rescue Exception => e
         e.to_s
     end
@@ -178,19 +172,17 @@ end
 
 
 post '/sh' do
-    Thread.new do 
-        id = ""
-        dir = ""
-        $mutex.synchronize do
-            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-            dir = "/tmp/coliru/#{id}"
-            FileUtils.mkdir_p(dir)
-            File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
-        end
-        stream do |out|
-            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| out << line }
-        end
-    end.join
+    id = ""
+    dir = ""
+    $mutex.synchronize do
+        id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+        dir = "/tmp/coliru/#{id}"
+        FileUtils.mkdir_p(dir)
+        File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
+    end
+    stream do |out|
+        safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| out << line }
+    end
 end
 
 
@@ -223,30 +215,28 @@ post '/share' do
             $stderr.puts "SPAM DETECTED"
             throw :spam_detected
         end
-        Thread.new do
-            result = ''
-            request_id = $next_request_id += 1
-            log_request(request_id, "/share", "waiting")
-            $mutex.synchronize do
-                log_request(request_id, "/share", "running")
-                id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-                dir = "/tmp/coliru/#{id}"
-                FileUtils.mkdir_p(dir)
+        result = ''
+        request_id = $next_request_id += 1
+        log_request(request_id, "/share", "waiting")
+        $mutex.synchronize do
+            log_request(request_id, "/share", "running")
+            id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
+            dir = "/tmp/coliru/#{id}"
+            FileUtils.mkdir_p(dir)
 
-                File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
-                File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
+            File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
+            File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
-                skip = false
-                safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
-                    next if skip
-                    skip = (b == '\n')
-                    result += b
-                end
-                log_request(request_id, "/share", "done")
+            skip = false
+            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
+                next if skip
+                skip = (b == '\n')
+                result += b
             end
-			response["Access-Control-Allow-Origin"] = "*"
-            stream { |out| out << result }
-        end.join
+            log_request(request_id, "/share", "done")
+        end
+        response["Access-Control-Allow-Origin"] = "*"
+        result
     rescue Exception => e
         e.to_s
     end
