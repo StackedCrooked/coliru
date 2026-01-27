@@ -35,11 +35,6 @@ RUNNER_TMPFS_SIZE="${COLIRU_RUNNER_TMPFS_SIZE:-64m}"
 
 RUN_CMD=$(cat <<'EOF'
 set -e
-ulimit -u "${COLIRU_RUNNER_NPROC}"
-ulimit -f "${COLIRU_RUNNER_FSIZE}"
-if [ -n "${COLIRU_RUNNER_CPU}" ]; then
-    ulimit -t "${COLIRU_RUNNER_CPU}"
-fi
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
 cd "${COLIRU_RUNNER_WORKDIR}"
 title() { true ; }
@@ -47,6 +42,11 @@ set +e
 source "${COLIRU_RUNNER_WORKDIR}/cmd.sh"
 EOF
 )
+
+EXTRA_ARGS=""
+if [ -n "${RUNNER_CPU}" ]; then
+    EXTRA_ARGS="${EXTRA_ARGS} --ulimit cpu=${RUNNER_CPU}"
+fi
 
 # Run the command in a dedicated runner container.
 docker run --rm \
@@ -59,6 +59,7 @@ docker run --rm \
     --memory-swap "${RUNNER_MEMORY_SWAP}" \
     --ulimit "nproc=${RUNNER_NPROC}" \
     --ulimit "fsize=${RUNNER_FSIZE}" \
+    ${EXTRA_ARGS} \
     --cap-drop ALL \
     --security-opt no-new-privileges \
     --user "${RUNNER_USER}" \
