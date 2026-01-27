@@ -3,6 +3,7 @@ set -e
 
 # Prepare the job directory (shared with runner container)
 export jobdir="${INPUT_FILES_DIR}"
+jobid=$(basename "${jobdir}")
 mkdir -p "${jobdir}"
 chmod -R a+w "${jobdir}"
 
@@ -23,6 +24,7 @@ echo "rm -rf ${INPUT_FILES_DIR}" >> "${cleanup_file}"
 # Runner defaults (override via env).
 RUNNER_IMAGE="${COLIRU_RUNNER_IMAGE:-coliru-runner:latest}"
 RUNNER_WORKDIR="${COLIRU_RUNNER_WORKDIR:-/job}"
+RUNNER_JOBDIR="${RUNNER_WORKDIR}/${jobid}"
 RUNNER_USER="${COLIRU_RUNNER_USER:-0}"
 RUNNER_CPUS="${COLIRU_RUNNER_CPUS:-1}"
 RUNNER_MEMORY="${COLIRU_RUNNER_MEMORY:-512m}"
@@ -32,6 +34,7 @@ RUNNER_NPROC="${COLIRU_RUNNER_NPROC:-50}"
 RUNNER_FSIZE="${COLIRU_RUNNER_FSIZE:-4000}"
 RUNNER_CPU="${COLIRU_RUNNER_CPU:-}"
 RUNNER_TMPFS_SIZE="${COLIRU_RUNNER_TMPFS_SIZE:-64m}"
+RUNNER_VOLUME="${COLIRU_RUNNER_VOLUME:-}"
 
 RUN_CMD=$(cat <<'EOF'
 set -e
@@ -46,6 +49,13 @@ EOF
 EXTRA_ARGS=""
 if [ -n "${RUNNER_CPU}" ]; then
     EXTRA_ARGS="${EXTRA_ARGS} --ulimit cpu=${RUNNER_CPU}"
+fi
+
+MOUNT_ARGS=""
+if [ -n "${RUNNER_VOLUME}" ]; then
+    MOUNT_ARGS="--mount type=volume,src=${RUNNER_VOLUME},dst=${RUNNER_WORKDIR}"
+else
+    MOUNT_ARGS="-v ${jobdir}:${RUNNER_JOBDIR}:rw"
 fi
 
 # Run the command in a dedicated runner container.
@@ -63,11 +73,11 @@ docker run --rm \
     --cap-drop ALL \
     --security-opt no-new-privileges \
     --user "${RUNNER_USER}" \
-    -e COLIRU_RUNNER_WORKDIR="${RUNNER_WORKDIR}" \
+    -e COLIRU_RUNNER_WORKDIR="${RUNNER_JOBDIR}" \
     -e COLIRU_RUNNER_NPROC="${RUNNER_NPROC}" \
     -e COLIRU_RUNNER_FSIZE="${RUNNER_FSIZE}" \
     -e COLIRU_RUNNER_CPU="${RUNNER_CPU}" \
-    -v "${jobdir}:${RUNNER_WORKDIR}:rw" \
-    -w "${RUNNER_WORKDIR}" \
+    ${MOUNT_ARGS} \
+    -w "${RUNNER_JOBDIR}" \
     "${RUNNER_IMAGE}" \
     /bin/bash -lc "${RUN_CMD}"

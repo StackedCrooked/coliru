@@ -28,6 +28,9 @@ else
 fi
 export DOCKER_GID
 
+docker volume create coliru_jobs >/dev/null 2>&1 || true
+docker run --rm -v coliru_jobs:/job busybox sh -c 'chown -R 2001:2001 /job' >/dev/null 2>&1 || true
+
 docker build -t coliru-runner:latest "${ROOT_DIR}/Docker/runner"
 
 cd "${ROOT_DIR}"

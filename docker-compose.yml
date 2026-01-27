@@ -10,10 +10,16 @@ services:
       COLIRU_URL: "0.0.0.0"
       COLIRU_PORT: "8080"
       COLIRU_RUNNER_IMAGE: "coliru-runner:latest"
+      COLIRU_JOB_ROOT: "/job"
+      COLIRU_RUNNER_VOLUME: "coliru_jobs"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./Archive:/Archive:ro
       - ./Archive2:/Archive2:rw
       - ./Archive2:/opt/coliru/Archive2:rw
+      - coliru_jobs:/job:rw
     group_add:
       - "${DOCKER_GID}"
+volumes:
+  coliru_jobs:
+    name: coliru_jobs

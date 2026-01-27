@@ -25,8 +25,8 @@ RUN useradd -m -u 2001 webserver
 WORKDIR /opt/coliru
 COPY . /opt/coliru
 
-RUN mkdir -p /Archive /Archive2 /tmp/coliru \
-    && chown -R webserver:webserver /tmp/coliru
+RUN mkdir -p /Archive /Archive2 /tmp/coliru /job \
+    && chown -R webserver:webserver /tmp/coliru /job
 
 ENV COLIRU_URL=0.0.0.0
 ENV COLIRU_PORT=8080

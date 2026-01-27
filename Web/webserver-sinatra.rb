@@ -18,6 +18,8 @@ end
 require 'webrick/ssl'
 require 'webrick/https'
 
+JOB_ROOT = ENV['COLIRU_JOB_ROOT'] || '/tmp/coliru'
+
 
 module Sinatra
     class Application
@@ -149,7 +151,7 @@ post '/compile' do
             request_text = request.body.read
             json_obj = JSON.parse(request_text)
             id = "#{Time.now.utc.to_f}"
-            dir = "/tmp/coliru/#{id}"
+                dir = "#{JOB_ROOT}/#{id}"
             FileUtils.mkdir_p(dir)
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
@@ -176,7 +178,7 @@ post '/sh' do
     dir = ""
     $mutex.synchronize do
         id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-        dir = "/tmp/coliru/#{id}"
+        dir = "#{JOB_ROOT}/#{id}"
         FileUtils.mkdir_p(dir)
         File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
     end
@@ -221,7 +223,7 @@ post '/share' do
         $mutex.synchronize do
             log_request(request_id, "/share", "running")
             id = "#{Time.now.utc.to_i}-#{rand(Time.now.utc.to_i)}"
-            dir = "/tmp/coliru/#{id}"
+            dir = "#{JOB_ROOT}/#{id}"
             FileUtils.mkdir_p(dir)
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
