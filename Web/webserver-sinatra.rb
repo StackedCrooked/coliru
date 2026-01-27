@@ -8,6 +8,13 @@ require 'pp'
 require 'sinatra'
 require 'sinatra/cross_origin'
 
+begin
+    require 'rack/handler/webrick'
+rescue LoadError
+    require 'rackup'
+    require 'webrick'
+end
+
 require 'webrick/ssl'
 require 'webrick/https'
 
@@ -34,8 +41,13 @@ module Sinatra
         def self.run!
             use_https = ENV['COLIRU_CERTIFICATE'] != nil
             server_options = use_https ? get_secure_server_options() : get_server_options()
+            handler = if defined?(Rackup::Handler::WEBrick)
+                Rackup::Handler::WEBrick
+            else
+                Rack::Handler::WEBrick
+            end
 
-            Rack::Handler::WEBrick.run self, server_options do |server|
+            handler.run(self, **server_options) do |server|
                 set :running, true
             end
         end
@@ -494,5 +506,3 @@ def log_event()
 		# Can't handle the exception
 	end
 end
-
-

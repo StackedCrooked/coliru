@@ -18,7 +18,7 @@ RUN apt-get update \
         docker.io \
     && rm -rf /var/lib/apt/lists/*
 
-RUN gem install sinatra shotgun popen4 json sinatra-cross_origin --no-document
+RUN gem install sinatra shotgun popen4 json sinatra-cross_origin rackup webrick --no-document
 
 RUN useradd -m -u 2001 webserver
 
