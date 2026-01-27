@@ -1,0 +1,20 @@
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Docker/webserver/Dockerfile
+    image: coliru-webserver:latest
+    ports:
+      - "8080:8080"
+    environment:
+      COLIRU_URL: "0.0.0.0"
+      COLIRU_PORT: "8080"
+      COLIRU_RUNNER_IMAGE: "coliru-runner:latest"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./Archive:/Archive:ro
+      - ./Archive2:/Archive2:rw
+      - ./Archive2:/opt/coliru/Archive2:rw
+      - ./CompileArchive:/opt/coliru/CompileArchive:rw
+    group_add:
+      - "${DOCKER_GID}"
