@@ -12,6 +12,7 @@ services:
       COLIRU_RUNNER_IMAGE: "coliru-runner:latest"
       COLIRU_JOB_ROOT: "/job"
       COLIRU_RUNNER_VOLUME: "coliru_jobs"
+      COLIRU_RUNNER_FSIZE: "1048576" # 512MB (ulimit fsize uses 512-byte blocks)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./Archive:/Archive:ro
