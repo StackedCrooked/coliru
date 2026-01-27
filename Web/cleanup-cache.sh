@@ -1,9 +1,12 @@
 #!/bin/bash
+source coliru_env.source
 source logger.source
+
+mkdir -p "${COLIRU_COMPILE_CACHE}"
 
 cache_size () 
 { 
-    ls  ../CompileArchive | wc -l
+    ls "${COLIRU_COMPILE_CACHE}" | wc -l
 }
 
 max=1000
@@ -11,8 +14,8 @@ max=1000
 
 while true ; do
     [ "$(($(cache_size) > $max))" == "1" ] && {
-        ls ../CompileArchive | sort -R | head -n50 | while read line ; do
-            cmd="rm -rf ../CompileArchive/$line"
+        ls "${COLIRU_COMPILE_CACHE}" | sort -R | head -n50 | while read line ; do
+            cmd="rm -rf ${COLIRU_COMPILE_CACHE}/$line"
             echo "$cmd"
             $cmd
         done

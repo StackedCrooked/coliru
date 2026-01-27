@@ -13,7 +13,7 @@ source coliru_env.source
 #export counter="$(./fvar_inc.sh repair-permissions-counter)"
 #echo "counter=$counter"
 #chown -R webserver:coliru ${COLIRU_ARCHIVE2} & disown 
-#chown -R webserver:coliru ${COLIRU_COMPILE_ARCHIVE} & disown 
+#chown -R webserver:coliru ${COLIRU_COMPILE_CACHE} & disown 
 
 chmod a+rw .
 

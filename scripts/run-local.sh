@@ -3,7 +3,7 @@ set -eu
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-mkdir -p "${ROOT_DIR}/Archive" "${ROOT_DIR}/Archive2" "${ROOT_DIR}/CompileArchive"
+mkdir -p "${ROOT_DIR}/Archive" "${ROOT_DIR}/Archive2"
 
 ensure_writable_dir() {
     dir="$1"
@@ -19,7 +19,6 @@ ensure_writable_dir() {
     fi
 }
 
-ensure_writable_dir "${ROOT_DIR}/CompileArchive"
 ensure_writable_dir "${ROOT_DIR}/Archive2"
 
 if [ -S /var/run/docker.sock ]; then

@@ -32,8 +32,8 @@ echo "${id}" | sed 's,/,,'
 
     # use output of compile cache if available
     # note that this does not remove the need
-    [ -d ${COLIRU_COMPILE_ARCHIVE}/${id} ] && {
-        cat "${COLIRU_COMPILE_ARCHIVE}/${id}/output" >"${path}/output"
+    [ -d ${COLIRU_COMPILE_CACHE}/${id} ] && {
+        cat "${COLIRU_COMPILE_CACHE}/${id}/output" >"${path}/output"
         exit
     }
 
@@ -42,4 +42,3 @@ echo "${id}" | sed 's,/,,'
 
 
 } >/dev/null 2>&1
-
