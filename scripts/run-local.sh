@@ -5,6 +5,23 @@ ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 mkdir -p "${ROOT_DIR}/Archive" "${ROOT_DIR}/Archive2" "${ROOT_DIR}/CompileArchive"
 
+ensure_writable_dir() {
+    dir="$1"
+    owner_uid="$(stat -c %u "$dir" 2>/dev/null || echo "")"
+    if [ "$owner_uid" != "2001" ]; then
+        if command -v sudo >/dev/null 2>&1; then
+            sudo chown -R 2001:2001 "$dir"
+        else
+            echo "Directory owner must be uid 2001: $dir" >&2
+            echo "Fix with: sudo chown -R 2001:2001 $dir" >&2
+            exit 1
+        fi
+    fi
+}
+
+ensure_writable_dir "${ROOT_DIR}/CompileArchive"
+ensure_writable_dir "${ROOT_DIR}/Archive2"
+
 if [ -S /var/run/docker.sock ]; then
     DOCKER_GID="$(stat -c %g /var/run/docker.sock)"
 else
