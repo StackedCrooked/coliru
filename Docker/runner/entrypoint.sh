@@ -3,6 +3,7 @@ set -e
 
 WORKDIR="${COLIRU_RUNNER_WORKDIR:-/job}"
 TIMEOUT="${COLIRU_RUNNER_TIMEOUT:-20}"
+MAX_OUTPUT="${COLIRU_RUNNER_MAX_OUTPUT:-524288}"
 
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
 cd "${WORKDIR}"
@@ -19,8 +20,13 @@ if ! is_number "${TIMEOUT}"; then
     exit 2
 fi
 
+if ! is_number "${MAX_OUTPUT}"; then
+    echo "COLIRU_RUNNER_MAX_OUTPUT must be a number" 1>&2
+    exit 2
+fi
+
 if [ "${TIMEOUT}" -gt 0 ]; then
-    setsid /bin/bash -lc "cd \"${WORKDIR}\"; source ./cmd.sh" &
+    setsid sh -c "cd \"${WORKDIR}\"; /bin/bash -lc 'source ./cmd.sh' 2>&1 | head -c \"${MAX_OUTPUT}\"" &
     cmd_pid=$!
 
     (
@@ -37,4 +43,5 @@ if [ "${TIMEOUT}" -gt 0 ]; then
     exit "${status}"
 fi
 
-exec /bin/bash -lc "cd \"${WORKDIR}\"; source ./cmd.sh"
+cd "${WORKDIR}"
+/bin/bash -lc 'source ./cmd.sh' 2>&1 | head -c "${MAX_OUTPUT}"
