@@ -53,7 +53,7 @@ module Sinatra
                 set :running, true
             end
         end
-        
+
     end
 end
 
@@ -68,7 +68,7 @@ get '/.well-known/acme-challenge/*' do |file|
 	return File.read(".well-known/acme-challenge/#{file}")
 end
 
-	
+
 get '/ping' do
 	""
 end
@@ -200,7 +200,7 @@ post '/timeout' do
     set_timeout(ask_timeout)
     got_timeout = get_timeout
     $stderr.puts "webserver-sinatra.rb: /timeout POST: ask_timeout=#{ask_timeout} got_timeout=#{got_timeout}"
-    
+
     return "Timeout is now #{got_timeout} seconds\n"
 end
 
@@ -249,7 +249,7 @@ end
 
 
 get '/a/:id/:file' do
-    content_type (params[:ct] || 'text/plain') 
+    content_type (params[:ct] || 'text/plain')
     id = params[:id]
     file = params[:file]
     return File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
@@ -298,25 +298,25 @@ get '/Archive/*' do |file|
 end
 
 
-get '/archive' do       
-    get_contents = Proc.new do |path, name|       
-        begin       
+get '/archive' do
+    get_contents = Proc.new do |path, name|
+        begin
             file = "#{path}/#{name}"
             File.read(file)
         rescue Exception => e
           e.to_s
-        end     
-    end     
+        end
+    end
 
 
     id = "#{params[:id]}"
     stdout = IO.popen("./id2existingpath.sh #{id}")
     Process.detach stdout.pid
     path = stdout.read.strip
-    result = {       
-        :cmd => get_contents.call(path, 'cmd.sh'),        
-        :src => get_contents.call(path, 'main.cpp'),      
-        :output => get_contents.call(path, 'output')      
+    result = {
+        :cmd => get_contents.call(path, 'cmd.sh'),
+        :src => get_contents.call(path, 'main.cpp'),
+        :output => get_contents.call(path, 'output')
     }
     begin
         return result.to_json
@@ -324,7 +324,7 @@ get '/archive' do
         result[:output] = "NOTE: JSON encoding for the output failed due to invalid UTF8."
         return result.to_json
     end
-end     
+end
 
 
 get '/history' do
@@ -351,7 +351,7 @@ get '/log' do
 end
 
 
-get '/events' do 
+get '/events' do
 	stream do |out|
 		out << "<html><body><pre>"
 		$event_log_table.each { |k,v| out << "#{k} #{v}\n"; }
@@ -394,12 +394,9 @@ $request_rate = 1
 
 def get_timeout
     begin
-		sehe_timeout = File.read('timeout.txt').to_i 
-		if sehe_timeout == 111
-			return 111
-		end
+        sehe_timeout = File.read('timeout.txt').to_i
         result = [120, sehe_timeout].min.to_s
-        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
+        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 10 ].min.to_s
     rescue Exception => _
         ([5 * 20.to_i / $request_rate, 5].max).to_s
     end
@@ -456,7 +453,7 @@ def log(str)
 end
 
 def log_request(request_id, method, message)
-  begin 
+  begin
       timeout = get_timeout.to_i
       current_time = DateTime.now.strftime('%s').to_i
       elapsed_time = current_time - $start_time
