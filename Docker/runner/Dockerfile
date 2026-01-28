@@ -14,4 +14,7 @@ RUN apt-get update \
 
 RUN useradd -m -u 2001 runner
 
+COPY entrypoint.sh /runner/entrypoint.sh
+RUN chmod +x /runner/entrypoint.sh
+
 WORKDIR /job

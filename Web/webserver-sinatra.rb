@@ -156,7 +156,8 @@ post '/compile' do
 
             File.open("#{dir}/cmd.sh", 'w') { |f| f << json_obj['cmd'] }
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
-            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1") { |line| result += line }
+            timeout = get_timeout.to_i
+            safe_popen("COLIRU_RUNNER_TIMEOUT=#{timeout} INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh 2>&1", timeout: timeout) { |line| result += line }
             FileUtils.rmtree(dir)
             log_request(request_id, "/compile", "done")
         end
@@ -183,7 +184,8 @@ post '/sh' do
         File.open("#{dir}/cmd.sh", 'w') { |f| f << request.body.read }
     end
     stream do |out|
-        safe_popen("INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh") { |line| out << line }
+        timeout = get_timeout.to_i
+        safe_popen("COLIRU_RUNNER_TIMEOUT=#{timeout} INPUT_FILES_DIR=#{dir} setsid ./sandbox.sh", timeout: timeout) { |line| out << line }
     end
 end
 
@@ -230,7 +232,8 @@ post '/share' do
             File.open("#{dir}/main.cpp", 'w') { |f| f << json_obj['src'] }
 
             skip = false
-            safe_popen("INPUT_FILES_DIR=#{dir} setsid ./share.sh") do |b|
+            timeout = get_timeout.to_i
+            safe_popen("COLIRU_RUNNER_TIMEOUT=#{timeout} INPUT_FILES_DIR=#{dir} setsid ./share.sh", timeout: timeout) do |b|
                 next if skip
                 skip = (b == '\n')
                 result += b
@@ -412,10 +415,10 @@ def set_timeout(t)
 end
 
 
-def safe_popen(cmd)
+def safe_popen(cmd, timeout: nil)
     fd = IO.popen("#{cmd} 2>&1")
-    pgid = fd.readline
-    Timeout.timeout(get_timeout.to_i) do
+    fd.readline
+    Timeout.timeout(timeout || get_timeout.to_i) do
         set_timeout(20)
 
         cur_char_count = 0
@@ -435,20 +438,10 @@ def safe_popen(cmd)
 rescue Exception => e
     yield e.to_s
     log(e.to_s)
-    # kill process group 
-    cmd="kill -9 -#{pgid}"
-    log("Kill PGID: #{cmd}")
-    IO.popen(cmd) {||}
-
-    # kill normally as well
-    cmd="kill -9 #{pgid}"
-    log("Also kill as normal PID: #{cmd}")
-    IO.popen(cmd) {||}
-
-    # also kill master process 
-    cmd = "kill -9 #{fd.pid}"
-    log("Kill master process: #{cmd}")
-    IO.popen(cmd) {||}
+    begin
+        Process.kill('KILL', fd.pid)
+    rescue Exception => _
+    end
 ensure
     Process.detach fd.pid
 end

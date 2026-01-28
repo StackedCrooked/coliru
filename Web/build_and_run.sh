@@ -35,16 +35,7 @@ RUNNER_FSIZE="${COLIRU_RUNNER_FSIZE:-1048576}"
 RUNNER_CPU="${COLIRU_RUNNER_CPU:-}"
 RUNNER_TMPFS_SIZE="${COLIRU_RUNNER_TMPFS_SIZE:-64m}"
 RUNNER_VOLUME="${COLIRU_RUNNER_VOLUME:-}"
-
-RUN_CMD=$(cat <<'EOF'
-set -e
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64
-cd "${COLIRU_RUNNER_WORKDIR}"
-title() { true ; }
-set +e
-source "${COLIRU_RUNNER_WORKDIR}/cmd.sh"
-EOF
-)
+RUNNER_TIMEOUT="${COLIRU_RUNNER_TIMEOUT:-}"
 
 EXTRA_ARGS=""
 if [ -n "${RUNNER_CPU}" ]; then
@@ -74,10 +65,11 @@ docker run --rm \
     --security-opt no-new-privileges \
     --user "${RUNNER_USER}" \
     -e COLIRU_RUNNER_WORKDIR="${RUNNER_JOBDIR}" \
+    -e COLIRU_RUNNER_TIMEOUT="${RUNNER_TIMEOUT}" \
     -e COLIRU_RUNNER_NPROC="${RUNNER_NPROC}" \
     -e COLIRU_RUNNER_FSIZE="${RUNNER_FSIZE}" \
     -e COLIRU_RUNNER_CPU="${RUNNER_CPU}" \
     ${MOUNT_ARGS} \
     -w "${RUNNER_JOBDIR}" \
     "${RUNNER_IMAGE}" \
-    /bin/bash -lc "${RUN_CMD}"
+    /runner/entrypoint.sh
