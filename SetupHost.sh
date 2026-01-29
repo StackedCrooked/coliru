@@ -25,6 +25,9 @@ fi
 systemctl enable --now docker
 systemctl enable --now nginx
 
+# Build runner image locally (required for /compile).
+docker build -t coliru-runner:latest "${REPO_ROOT}/Docker/runner"
+
 # Compose wrapper for systemd (detects compose v2 or v1).
 cat >/usr/local/bin/coliru-compose <<'EOF'
 #!/bin/sh

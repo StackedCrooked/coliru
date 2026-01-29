@@ -87,7 +87,7 @@ sudo COLIRU_DOMAIN=_ COLIRU_PORT=8080 ./SetupHost.sh
 
 Notes:
 - `COLIRU_DOMAIN=_` is a catch-all (good for dev).
-- The script installs Docker + Nginx, sets up systemd, and runs `docker compose up -d`.
+- The script installs Docker + Nginx, builds the runner image, sets up systemd, and runs `docker compose up -d`.
 
 ## 8) Verify the service
 
