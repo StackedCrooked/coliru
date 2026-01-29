@@ -1,5 +1,7 @@
 # Coliru LXD “Pretend Host” Setup (Ubuntu 24.04)
 
+_Note: This document is AI-generated and should be reviewed for accuracy._
+
 This creates a clean host-like environment (LXD container) where we install Docker + Nginx and run the Coliru stack with a reverse proxy.
 
 ---
