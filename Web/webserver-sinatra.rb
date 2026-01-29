@@ -54,11 +54,6 @@ get '/' do
 end
 
 
-get '/.well-known/acme-challenge/*' do |file|
-	return File.read(".well-known/acme-challenge/#{file}")
-end
-
-
 get '/ping' do
 	""
 end
