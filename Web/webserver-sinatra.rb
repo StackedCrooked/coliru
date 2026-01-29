@@ -15,8 +15,7 @@ rescue LoadError
     require 'webrick'
 end
 
-require 'webrick/ssl'
-require 'webrick/https'
+
 
 JOB_ROOT = ENV['COLIRU_JOB_ROOT'] || '/tmp/coliru'
 
@@ -32,17 +31,8 @@ module Sinatra
                 return result
         end
 
-        def self.get_secure_server_options()
-                result = get_server_options()
-                result[:SSLEnable] = true
-                result[:SSLCertificate] = OpenSSL::X509::Certificate.new(File.open(ENV['COLIRU_CERTIFICATE']).read)
-                result[:SSLPrivateKey] = OpenSSL::PKey::RSA.new(File.open(ENV['COLIRU_PRIVATE_KEY']).read)
-                return result
-        end
-
         def self.run!
-            use_https = ENV['COLIRU_CERTIFICATE'] != nil
-            server_options = use_https ? get_secure_server_options() : get_server_options()
+            server_options = get_server_options()
             handler = if defined?(Rackup::Handler::WEBrick)
                 Rackup::Handler::WEBrick
             else

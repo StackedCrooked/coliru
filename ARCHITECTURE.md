@@ -89,7 +89,7 @@ This removes TLS handling from `webserver-sinatra.rb` and `_restart_https.sh`.
 
 ## 6) Deployment & Host Setup
 
-- `SetupHost.sh` performs host provisioning:
+- `SetupHost.sh` performs host provisioning (TLS mode via `COLIRU_TLS_MODE`):
   - installs Docker + Nginx
   - configures Nginx reverse proxy
   - installs systemd unit (`coliru.service`)

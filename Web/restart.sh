@@ -22,8 +22,4 @@ chown -R webserver:coliru /tmp
 setsid ./_restart_http.sh & disown
 
 
-# Start HTTPS server
-setsid ./_restart_https.sh & disown
-
-
 { sleep $((5 * 24 * 3600)) ; reboot ; } & disown

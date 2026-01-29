@@ -2,8 +2,10 @@
 set -eu
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-COLIRU_DOMAIN="${COLIRU_DOMAIN:-_}"
+COLIRU_DOMAIN="${COLIRU_DOMAIN:-localhost}"
 COLIRU_PORT="${COLIRU_PORT:-8080}"
+COLIRU_TLS_MODE="${COLIRU_TLS_MODE:-selfsigned}" # none | selfsigned | letsencrypt
+COLIRU_EMAIL="${COLIRU_EMAIL:-}"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "SetupHost.sh must be run as root." >&2
@@ -53,7 +55,18 @@ COLIRU_PORT=${COLIRU_PORT}
 EOF
 
 # Nginx reverse proxy config (HTTP only; TLS can be added later).
-cat >/etc/nginx/sites-available/coliru <<EOF
+if [ "${COLIRU_TLS_MODE}" = "selfsigned" ]; then
+    mkdir -p /etc/nginx/certs
+    if [ ! -f /etc/nginx/certs/localhost.crt ]; then
+        openssl req -x509 -nodes -newkey rsa:2048 -days 365 \
+            -keyout /etc/nginx/certs/localhost.key \
+            -out /etc/nginx/certs/localhost.crt \
+            -subj "/CN=${COLIRU_DOMAIN}"
+    fi
+fi
+
+if [ "${COLIRU_TLS_MODE}" = "none" ]; then
+    cat >/etc/nginx/sites-available/coliru <<EOF
 server {
     listen 80;
     server_name ${COLIRU_DOMAIN};
@@ -67,6 +80,31 @@ server {
     }
 }
 EOF
+else
+    cat >/etc/nginx/sites-available/coliru <<EOF
+server {
+    listen 80;
+    server_name ${COLIRU_DOMAIN};
+    return 301 https://\$host\$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name ${COLIRU_DOMAIN};
+
+    ssl_certificate     /etc/nginx/certs/localhost.crt;
+    ssl_certificate_key /etc/nginx/certs/localhost.key;
+
+    location / {
+        proxy_pass http://127.0.0.1:${COLIRU_PORT};
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+    }
+}
+EOF
+fi
 
 ln -sf /etc/nginx/sites-available/coliru /etc/nginx/sites-enabled/coliru
 if [ -e /etc/nginx/sites-enabled/default ]; then
@@ -74,6 +112,15 @@ if [ -e /etc/nginx/sites-enabled/default ]; then
 fi
 nginx -t
 systemctl reload nginx
+
+if [ "${COLIRU_TLS_MODE}" = "letsencrypt" ]; then
+    if [ -z "${COLIRU_EMAIL}" ]; then
+        echo "COLIRU_EMAIL is required for letsencrypt." >&2
+        exit 1
+    fi
+    apt-get install -y certbot python3-certbot-nginx
+    certbot --nginx -d "${COLIRU_DOMAIN}" -m "${COLIRU_EMAIL}" --agree-tos --non-interactive
+fi
 
 # systemd unit to keep coliru running on boot.
 cat >/etc/systemd/system/coliru.service <<EOF
@@ -100,3 +147,6 @@ systemctl enable --now coliru
 
 echo "Setup complete."
 echo "Nginx proxying http://${COLIRU_DOMAIN} -> http://127.0.0.1:${COLIRU_PORT}"
+if [ "${COLIRU_TLS_MODE}" != "none" ]; then
+    echo "Nginx TLS mode: ${COLIRU_TLS_MODE}"
+fi
