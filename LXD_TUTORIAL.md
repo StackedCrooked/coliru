@@ -69,7 +69,7 @@ lxc restart coliru-host
 ## 6) Copy the repo into LXD
 
 ```sh
-lxc file push -r /home/francis/coliru coliru-host/root/coliru
+lxc file push -r /path/to/coliru coliru-host/root/coliru
 ```
 
 ## 7) Run the host setup script inside LXD
