@@ -13,10 +13,10 @@ ensure_writable_dir() {
     owner_uid="$(stat -c %u "$dir" 2>/dev/null || echo "")"
     if [ "$owner_uid" != "2001" ]; then
         if command -v sudo >/dev/null 2>&1; then
-            sudo chown -R 2001:2001 "$dir"
+            sudo chown -R 2001:2000 "$dir"
         else
             echo "Directory owner must be uid 2001: $dir" >&2
-            echo "Fix with: sudo chown -R 2001:2001 $dir" >&2
+            echo "Fix with: sudo chown -R 2001:2000 $dir" >&2
             exit 1
         fi
     fi

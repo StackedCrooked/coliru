@@ -32,9 +32,9 @@ systemctl enable --now nginx
 ARCHIVE_DIR="${COLIRU_ARCHIVE_ROOT%/}"
 mkdir -p "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
 if getent passwd webserver >/dev/null 2>&1; then
-    chown webserver:webserver "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+    chown webserver:coliru "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
 else
-    chown 2001:2001 "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+    chown 2001:2000 "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
 fi
 
 # Build runner image locally (required for /compile).
