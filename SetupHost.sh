@@ -6,6 +6,7 @@ COLIRU_DOMAIN="${COLIRU_DOMAIN:-localhost}"
 COLIRU_PORT="${COLIRU_PORT:-8080}"
 COLIRU_TLS_MODE="${COLIRU_TLS_MODE:-selfsigned}" # none | selfsigned | letsencrypt
 COLIRU_EMAIL="${COLIRU_EMAIL:-}"
+COLIRU_ARCHIVE_ROOT="${COLIRU_ARCHIVE_ROOT:-/}"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "SetupHost.sh must be run as root." >&2
@@ -26,6 +27,15 @@ fi
 
 systemctl enable --now docker
 systemctl enable --now nginx
+
+# Archive directories for the webserver (writeable).
+ARCHIVE_DIR="${COLIRU_ARCHIVE_ROOT%/}"
+mkdir -p "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+if getent passwd webserver >/dev/null 2>&1; then
+    chown webserver:webserver "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+else
+    chown 2001:2001 "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+fi
 
 # Build runner image locally (required for /compile).
 docker build -t coliru-runner:latest "${REPO_ROOT}/Docker/runner"
@@ -52,6 +62,7 @@ cat >/etc/coliru/coliru.env <<EOF
 DOCKER_GID=${DOCKER_GID}
 COLIRU_DOMAIN=${COLIRU_DOMAIN}
 COLIRU_PORT=${COLIRU_PORT}
+COLIRU_ARCHIVE_ROOT=${COLIRU_ARCHIVE_ROOT}
 EOF
 
 # Nginx reverse proxy config (HTTP only; TLS can be added later).

@@ -88,6 +88,7 @@ sudo COLIRU_DOMAIN=localhost COLIRU_PORT=8080 COLIRU_TLS_MODE=selfsigned ./Setup
 Notes:
 - `COLIRU_TLS_MODE` can be `none`, `selfsigned` (dev), or `letsencrypt` (prod).
 - For `letsencrypt`, also set `COLIRU_EMAIL`.
+- Archives are mounted from `${COLIRU_ARCHIVE_ROOT:-/}` (default `/Archive`, `/Archive2`, `/Archive3`).
 - The script installs Docker + Nginx, builds the runner image, sets up systemd, and runs `docker compose up -d`.
 
 ## 8) Verify the service

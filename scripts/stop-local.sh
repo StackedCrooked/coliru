@@ -1,4 +1,6 @@
 #!/bin/sh
+# Stop the local Docker compose stack (webserver + runner).
+# Usage: ./scripts/stop-local.sh
 set -eu
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"

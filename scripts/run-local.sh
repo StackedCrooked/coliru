@@ -1,9 +1,12 @@
 #!/bin/sh
+# This script runs the Coliru website on your local machine. It's not used in production.
+# Usage: ./scripts/run-local.sh
 set -eu
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+export COLIRU_ARCHIVE_ROOT="${ROOT_DIR}"
 
-mkdir -p "${ROOT_DIR}/Archive" "${ROOT_DIR}/Archive2"
+mkdir -p "${ROOT_DIR}/Archive" "${ROOT_DIR}/Archive2" "${ROOT_DIR}/Archive3"
 
 ensure_writable_dir() {
     dir="$1"
@@ -20,6 +23,7 @@ ensure_writable_dir() {
 }
 
 ensure_writable_dir "${ROOT_DIR}/Archive2"
+ensure_writable_dir "${ROOT_DIR}/Archive3"
 
 if [ -S /var/run/docker.sock ]; then
     DOCKER_GID="$(stat -c %g /var/run/docker.sock)"

@@ -17,9 +17,10 @@ services:
       COLIRU_RUNNER_MAX_OUTPUT: "524288" # 512KB output cap in bytes
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./Archive:/Archive:ro
-      - ./Archive2:/Archive2:rw
-      - ./Archive2:/opt/coliru/Archive2:rw
+      - ${COLIRU_ARCHIVE_ROOT:-.}/Archive:/Archive:ro
+      - ${COLIRU_ARCHIVE_ROOT:-.}/Archive2:/Archive2:rw
+      - ${COLIRU_ARCHIVE_ROOT:-.}/Archive2:/opt/coliru/Archive2:rw
+      - ${COLIRU_ARCHIVE_ROOT:-.}/Archive3:/Archive3:rw
       - coliru_jobs:/job:rw
     group_add:
       - "${DOCKER_GID}"

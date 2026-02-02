@@ -1,4 +1,8 @@
 #!/bin/sh
+# Rebuild local Docker images (runner + webserver) without using cache.
+# Use this after changing Dockerfiles or dependencies when a normal rebuild
+# seems to keep using old layers.
+# Usage: ./scripts/rebuild.sh
 set -eu
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"

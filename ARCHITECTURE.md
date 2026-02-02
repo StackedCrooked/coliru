@@ -41,8 +41,9 @@ Key endpoints:
 - Job dirs are created under `COLIRU_JOB_ROOT` (default `/job`).
 
 ### 2.4 Archives
-- `Archive` and `Archive2` hold user-submitted program files and outputs.
-- These are mounted into the webserver container for viewing/sharing.
+- `Archive`, `Archive2`, and `Archive3` hold user-submitted program files and outputs.
+- New writes go to `Archive3`; reads search `Archive3 → Archive2 → Archive`.
+- Archives are mounted into the webserver container (root controlled by `COLIRU_ARCHIVE_ROOT`).
 - **Compile cache** is stored under `COLIRU_COMPILE_CACHE` (default `/tmp/CompileCache`).
 
 ---
@@ -99,7 +100,7 @@ This removes TLS handling from `webserver-sinatra.rb` and `_restart_https.sh`.
 
 ## 7) Persistence & Data
 
-- **Archive / Archive2**: persistent, migrated between VPSs
+- **Archive / Archive2 / Archive3**: persistent, migrated between VPSs
 - **Compile cache**: local, disposable, not part of share links
 - **Job dirs**: ephemeral, should be cleaned (cleanup strategy deferred)
 
