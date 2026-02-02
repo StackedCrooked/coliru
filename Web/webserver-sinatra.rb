@@ -11,6 +11,27 @@ require 'sinatra/cross_origin'
 require 'webrick/ssl'
 require 'webrick/https'
 
+ARCHIVE = ENV['COLIRU_ARCHIVE'] || '/Archive'
+ARCHIVE2 = ENV['COLIRU_ARCHIVE2'] || '/Archive2'
+ARCHIVE3 = ENV['COLIRU_ARCHIVE3'] || '/Archive3'
+
+
+def archive_path_candidates_for_id(id, file = nil)
+    pathified = "#{id[0..1]}/#{id[2..-1]}"
+    candidates = [
+        File.join(ARCHIVE3, pathified),
+        File.join(ARCHIVE2, pathified),
+        File.join(ARCHIVE, id)
+    ]
+    return candidates unless file
+    candidates.map { |c| File.join(c, file) }
+end
+
+
+def archive_file_candidates(path_fragment)
+    [ARCHIVE3, ARCHIVE2, ARCHIVE].map { |base| File.join(base, path_fragment) }
+end
+
 
 module Sinatra
     class Application
@@ -245,7 +266,10 @@ get '/a/:id/:file' do
     content_type (params[:ct] || 'text/plain') 
     id = params[:id]
     file = params[:file]
-    return File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
+    archive_path_candidates_for_id(id, file).each do |path|
+        return File.read(path) if File.exist?(path)
+    end
+    raise "Archive entry not found"
 rescue Exception => e
 	return e.to_s
 end
@@ -278,13 +302,13 @@ end
 get '/Archive/*' do |file|
     content_type :txt
     begin
-        real_file = "#{ENV['COLIRU_ARCHIVE2']}/#{file}"
-
-        if File.directory? real_file
-            Dir.entries(real_file).join("\n").to_s
-        else
-            File.read(real_file)
+        archive_file_candidates(file).each do |real_file|
+            if File.directory?(real_file)
+                return Dir.entries(real_file).join("\n").to_s
+            end
+            return File.read(real_file) if File.exist?(real_file)
         end
+        raise "Archive entry not found"
     rescue Exception => e
         e.to_s
     end
@@ -494,5 +518,3 @@ def log_event()
 		# Can't handle the exception
 	end
 end
-
-
