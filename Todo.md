@@ -29,6 +29,9 @@
 - **LXD dev environment**:
   - LXD container used as “host OS” for Nginx + Docker.
   - LXD proxy ports for 80/443 (443 works with self-signed cert in dev).
+- **Archive migration in progress**:
+  - Old site writes to `Archive3`.
+  - `Archive` and `Archive2` have been rsynced to the new VPS.
 
 ## Known open items (from our todo list)
 
@@ -54,7 +57,7 @@
    - Keep reading from `Archive2` for existing links.
    - Optionally read `Archive3` too (if link routing depends on it).
 3) Deploy that minimal change to the current server.
-4) Start rsync of **Archive** and **Archive2** (large) to the new VPS.
+4) Start rsync of **Archive** and **Archive2** (large) to the new VPS. (done)
 5) Final cutover: rsync **Archive3** (small) right before DNS switch.
 
 ## Suggested next steps (Monday)
@@ -65,7 +68,7 @@
    - Deploy to old server.
 
 2) **Data transfer**
-   - Start large rsync for Archive/Archive2 in the background.
+   - Archive/Archive2 rsync complete.
    - Just before cutover, rsync Archive3 for the delta.
 
 3) **TLS on new VPS**
@@ -87,4 +90,3 @@
   - `rsync -a --delete /path/to/Archive/ user@new:/path/Archive/`
   - `rsync -a --delete /path/to/Archive2/ user@new:/path/Archive2/`
   - `rsync -a --delete /path/to/Archive3/ user@new:/path/Archive3/`
-
