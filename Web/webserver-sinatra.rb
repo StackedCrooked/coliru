@@ -366,6 +366,7 @@ end
 configure do
   enable :cross_origin
   disable :protection
+  disable :host_authorization
   mime_type :zip, 'application/octet-stream'
   mime_type :json, 'application/json'
   mime_type :js, 'application/javascript'
