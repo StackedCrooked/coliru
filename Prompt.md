@@ -1,6 +1,6 @@
-# Prompt for continuing work
+# Prompt for continuing work (updated after cutover)
 
-You are helping migrate the Coliru C++ runner site to Docker and to a new VPS. The repo is at `/home/francis/coliru`. We are currently working on branch **`docker`** for the containerized refactor; the old site still runs from **`master`**.
+You are helping migrate the Coliru C++ runner site to Docker and to a new VPS. The repo is at `/home/francis/coliru`. The new VPS is **live** at `https://coliru.stacked-crooked.com`. The old VPS has been rsynced and is ready to be retired after final validation.
 
 ## Context summary
 
@@ -9,34 +9,35 @@ You are helping migrate the Coliru C++ runner site to Docker and to a new VPS. T
 - `Web/build_and_run.sh` runs the runner container and passes limits.
 - `CompileArchive` was renamed to `CompileCache` (config: `COLIRU_COMPILE_CACHE`).
 - The webserver container runs as non-root `webserver` user.
-- TLS/HTTPS was removed from the app code. TLS is handled by **Nginx on the host** (reverse proxy).
+- TLS/HTTPS was removed from the app code. TLS is handled by **Nginx on the host** (reverse proxy) with Let’s Encrypt.
 - `SetupHost.sh` is an idempotent host setup script for Ubuntu 24.04:
   - Installs Docker, Nginx, certbot (for letsencrypt), sets up systemd service.
   - Supports `COLIRU_TLS_MODE` (`none`, `selfsigned`, `letsencrypt`), default `selfsigned`.
   - Defaults `COLIRU_DOMAIN=localhost` if not set.
+  - If Ubuntu repo lacks `docker-compose-plugin`, it adds Docker’s official repo and installs it.
+  - Creates archive dirs using `COLIRU_ARCHIVE_ROOT` (default `/`) and sets ownership (uid 2001, gid 2000).
 
 ## Recent changes
 
 - Removed ACME challenge route from `Web/webserver-sinatra.rb`.
+- Disabled default host blocking by setting `host_authorization` to allow `coliru.stacked-crooked.com`, `localhost`, `127.0.0.1`.
 - Created docs: `LXD_TUTORIAL.md` and `ARCHITECTURE.md` (AI-generated notes included).
 - LXD is used as a dev “host OS” for Nginx + Docker. Port 443 proxied from host to LXD.
 
-## Main open issue: archive migration
+## Archive migration status
 
-Old site writes to `Archive` and `Archive2` (hundreds of thousands of files). You need to move data to a new VPS without missing files. Renaming `Archive2` breaks old links, so you need an **Archive3** strategy.
-
-Proposed plan:
-1) Create branch from `master` named `transition-archive3`.
-2) On this branch, modify **old site** to write new jobs to `Archive3` (keep reads from `Archive2`).
-3) Deploy that minimal change to the old server.
-4) Start rsync of `Archive` + `Archive2` to the new VPS (large, long).
-5) Just before cutover, rsync `Archive3` (small, final delta).
+Migration completed:
+1) Branch `transition-archive3` created and deployed on old site.
+2) New writes go to `Archive3`, reads search `Archive3 → Archive2 → Archive`.
+3) `Archive` and `Archive2` rsynced to new VPS.
+4) Final `Archive3` rsync done.
+5) New VPS serving HTTPS with Let’s Encrypt.
 
 ## What to do next
 
-- Help identify where in the old code to change write path from `Archive2` → `Archive3` and update reads if needed.
-- Provide exact edits and deploy steps.
-- Later: add certbot auto-renewal to `SetupHost.sh` (enable `certbot.timer` when `COLIRU_TLS_MODE=letsencrypt`).
+- Post-cutover validation (compile/share, archive lookups).
+- Confirm certbot renewal timer.
+- Decommission old VPS after validation.
 
 ## Notes
 

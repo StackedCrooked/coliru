@@ -1,4 +1,4 @@
-# Todo (as of 2026-01-29)
+# Todo (as of 2026-02-03)
 
 > Note: AI-generated summary based on our recent work.
 
@@ -32,6 +32,7 @@
 - **Archive migration in progress**:
   - Old site writes to `Archive3`.
   - `Archive` and `Archive2` have been rsynced to the new VPS.
+  - Final `Archive3` rsync done; new site is live.
 
 ## Known open items (from our todo list)
 
@@ -44,49 +45,37 @@
 
 ## Current problem / focus
 
-**Archive migration** without downtime or missing files.
-- Old site writes to `Archive` + `Archive2`.
-- New VPS needs all archives, but old site still writes while you migrate.
-- You do not want to rename `Archive2` because old links break.
+**Post-cutover validation and cleanup.**
+- Confirm archive lookups, compile/share, and HTTPS.
+- Final shutdown of old VPS after validation.
 
-### Proposed migration plan (Archive3 approach)
+### Migration status (Archive3 approach)
 
-1) **Create a new git branch from `master`** to update the *old* site:
-   - Suggested name: `transition-archive3`.
-2) On that branch, make the **old site write new jobs to `Archive3`** instead of `Archive2`.
-   - Keep reading from `Archive2` for existing links.
-   - Optionally read `Archive3` too (if link routing depends on it).
-3) Deploy that minimal change to the current server.
-4) Start rsync of **Archive** and **Archive2** (large) to the new VPS. (done)
-5) Final cutover: rsync **Archive3** (small) right before DNS switch.
+- Branch `transition-archive3` created and deployed to old site.
+- New writes go to `Archive3`; reads search Archive3 → Archive2 → Archive.
+- `Archive` and `Archive2` rsynced to new VPS.
+- Final `Archive3` rsync completed.
+- New VPS serving HTTPS.
 
-## Suggested next steps (Monday)
+## Next steps
 
-1) **Branching for migration**
-   - Create branch from `master`: `transition-archive3`.
-   - Implement Archive3 write path + read path update.
-   - Deploy to old server.
+1) **Validation**
+   - Test `/compile`, `/share`, and `/a/<id>/main.cpp` publicly.
+   - Spot-check old archive IDs.
 
-2) **Data transfer**
-   - Archive/Archive2 rsync complete.
-   - Just before cutover, rsync Archive3 for the delta.
+2) **Old VPS shutdown**
+   - Confirm no remaining dependencies on the old host.
+   - Cancel Rackspace VPS.
 
-3) **TLS on new VPS**
-   - After DNS points to new VPS, run certbot once.
-   - Ensure certbot timer is enabled for renewals.
+3) **TLS renewal**
+   - Confirm certbot timer is active.
 
-4) **Return to Docker branch**
-   - Continue Docker refactor + deployment on new VPS.
+4) **Cleanup**
+   - Remove/flag deprecated scripts.
+   - Revisit output truncation + job cleanup plan.
 
 ## Commands you’ll likely need
 
-- Update old site with Archive3 change:
-  - `git checkout master`
-  - `git checkout -b transition-archive3`
-  - edit code to write to Archive3
-  - deploy on old server
-
-- Rsync (examples):
-  - `rsync -a --delete /path/to/Archive/ user@new:/path/Archive/`
-  - `rsync -a --delete /path/to/Archive2/ user@new:/path/Archive2/`
-  - `rsync -a --delete /path/to/Archive3/ user@new:/path/Archive3/`
+- Validate:
+  - `curl -I https://coliru.stacked-crooked.com`
+  - `curl -H 'Content-Type: application/json' -d '{"cmd":"g++ main.cpp && ./a.out","src":"#include <iostream>\nint main(){ std::cout << \"Hello World!\" << std::endl; }"}' https://coliru.stacked-crooked.com/compile`
