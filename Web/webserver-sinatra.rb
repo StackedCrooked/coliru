@@ -366,7 +366,7 @@ end
 configure do
   enable :cross_origin
   disable :protection
-  disable :host_authorization
+  set :host_authorization, { permitted_hosts: ['coliru.stacked-crooked.com', 'localhost', '127.0.0.1'] }
   mime_type :zip, 'application/octet-stream'
   mime_type :json, 'application/json'
   mime_type :js, 'application/javascript'
