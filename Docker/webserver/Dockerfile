@@ -26,7 +26,8 @@ WORKDIR /opt/coliru
 COPY . /opt/coliru
 
 RUN mkdir -p /Archive /Archive2 /tmp/coliru /job \
-    && chown -R webserver:webserver /tmp/coliru /job
+    && chown -R webserver:webserver /tmp/coliru /job \
+    && chown webserver:webserver /opt/coliru/Web/feedback.txt
 
 ENV COLIRU_URL=0.0.0.0
 ENV COLIRU_PORT=8080
