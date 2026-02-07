@@ -95,6 +95,10 @@ fi
 
 # Feedback storage (persisted outside the image).
 mkdir -p "${COLIRU_STATE_ROOT}"
+if [ -d "${COLIRU_STATE_ROOT}/feedback.txt" ]; then
+    echo "Repairing ${COLIRU_STATE_ROOT}/feedback.txt directory -> file"
+    rm -rf "${COLIRU_STATE_ROOT}/feedback.txt"
+fi
 touch "${COLIRU_STATE_ROOT}/feedback.txt"
 if getent passwd webserver >/dev/null 2>&1; then
     chown webserver:coliru "${COLIRU_STATE_ROOT}" "${COLIRU_STATE_ROOT}/feedback.txt"

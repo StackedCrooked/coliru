@@ -16,12 +16,13 @@ services:
       COLIRU_RUNNER_MAX_FILESIZE: "524288" # KB
       COLIRU_RUNNER_CPU: "10" # CPU time limit in seconds
       COLIRU_RUNNER_MAX_OUTPUT: "524288" # 512KB output cap in bytes
+      COLIRU_FEEDBACK_FILE: "/state/feedback.txt"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${COLIRU_ARCHIVE_ROOT:-.}/Archive:/Archive:ro
       - ${COLIRU_ARCHIVE_ROOT:-.}/Archive2:/Archive2:rw
       - ${COLIRU_ARCHIVE_ROOT:-.}/Archive2:/opt/coliru/Archive2:rw
-      - ${COLIRU_STATE_ROOT:-./Web}/feedback.txt:/opt/coliru/Web/feedback.txt:rw
+      - ${COLIRU_STATE_ROOT:-./Web}:/state:rw
       - coliru_jobs:/job:rw
     group_add:
       - "${DOCKER_GID}"

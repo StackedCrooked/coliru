@@ -18,10 +18,19 @@ end
 
 
 JOB_ROOT = ENV['COLIRU_JOB_ROOT'] || '/tmp/coliru'
+FEEDBACK_FILE = ENV['COLIRU_FEEDBACK_FILE'] || 'feedback.txt'
 
 
 def get_existing_archive_path(id)
     IO.popen(["./id2existingpath.sh", id]) { |stdout| stdout.read.strip }
+end
+
+
+def ensure_feedback_file
+    feedback_dir = File.dirname(FEEDBACK_FILE)
+    FileUtils.mkdir_p(feedback_dir) unless feedback_dir == '.'
+    FileUtils.touch(FEEDBACK_FILE)
+    FEEDBACK_FILE
 end
 
 
@@ -100,7 +109,7 @@ end
 post '/feedback' do
     Thread.new do
         $feedback_mutex.synchronize do
-            File.open('feedback.txt', 'a') do |file|
+            File.open(ensure_feedback_file, 'a') do |file|
                 text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
                 return if text == 'undefined' # for some reason this happens a lot
                 return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
@@ -122,7 +131,7 @@ get '/feedback' do
         out << '<html><body><ul>'
         #out << '<h3>New comments will are added to queue for moderation.</h3>'
         $mutex.synchronize do
-            File.readlines('feedback.txt').reverse.each { |l| out << "<li style=\"margin-bottom: 4px;\">#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "&nbsp;<b>NOTE</b>")}</li>" }
+            File.readlines(ensure_feedback_file).reverse.each { |l| out << "<li style=\"margin-bottom: 4px;\">#{l.gsub('<', '&lt;').gsub('>', '&gt;').gsub("NOTE", "&nbsp;<b>NOTE</b>")}</li>" }
         end
         out << '</ul></body></html>'
     end
