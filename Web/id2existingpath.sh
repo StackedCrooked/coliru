@@ -1,14 +1,24 @@
 #!/bin/bash
 source coliru_env.source
 
-# get the path
-path=$(./id2path.sh ${1})
+id="$1"
+pathifiedId="$(./pathify-id.sh "${id}")"
 
-# if it exists return it
-[ -d "${path}" ] && {
-    echo "${path}"
+# Prefer the newest archive first.
+[ -d "${COLIRU_ARCHIVE3}/${pathifiedId}" ] && {
+    echo "${COLIRU_ARCHIVE3}/${pathifiedId}"
     exit
 }
 
-# else return path to the old archive
-echo "${COLIRU_ARCHIVE}/${1}"
+[ -d "${COLIRU_ARCHIVE2}/${pathifiedId}" ] && {
+    echo "${COLIRU_ARCHIVE2}/${pathifiedId}"
+    exit
+}
+
+[ -d "${COLIRU_ARCHIVE}/${id}" ] && {
+    echo "${COLIRU_ARCHIVE}/${id}"
+    exit
+}
+
+# Default to the newest location for new writes.
+echo "${COLIRU_ARCHIVE3}/${pathifiedId}"

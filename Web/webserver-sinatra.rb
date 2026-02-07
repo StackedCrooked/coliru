@@ -20,6 +20,11 @@ end
 JOB_ROOT = ENV['COLIRU_JOB_ROOT'] || '/tmp/coliru'
 
 
+def get_existing_archive_path(id)
+    IO.popen(["./id2existingpath.sh", id]) { |stdout| stdout.read.strip }
+end
+
+
 module Sinatra
     class Application
 
@@ -237,7 +242,8 @@ get '/a/:id/:file' do
     content_type (params[:ct] || 'text/plain')
     id = params[:id]
     file = params[:file]
-    return File.read("../Archive2/#{id[0..1]}/#{id[2..-1]}/#{file}")
+    archive_dir = get_existing_archive_path(id)
+    return File.read("#{archive_dir}/#{file}")
 rescue Exception => e
 	return e.to_s
 end
@@ -270,7 +276,9 @@ end
 get '/Archive/*' do |file|
     content_type :txt
     begin
-        real_file = "#{ENV['COLIRU_ARCHIVE2']}/#{file}"
+        roots = [ENV['COLIRU_ARCHIVE3'], ENV['COLIRU_ARCHIVE2'], ENV['COLIRU_ARCHIVE']]
+        real_file = roots.map { |root| "#{root}/#{file}" }.find { |path| File.exist?(path) }
+        real_file ||= "#{ENV['COLIRU_ARCHIVE3']}/#{file}"
 
         if File.directory? real_file
             Dir.entries(real_file).join("\n").to_s

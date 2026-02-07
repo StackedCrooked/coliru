@@ -8,6 +8,9 @@ COLIRU_TLS_MODE="${COLIRU_TLS_MODE:-selfsigned}" # none | selfsigned | letsencry
 COLIRU_EMAIL="${COLIRU_EMAIL:-}"
 COLIRU_ARCHIVE_ROOT="${COLIRU_ARCHIVE_ROOT:-/}"
 COLIRU_STATE_ROOT="${COLIRU_STATE_ROOT:-/var/coliru/state}"
+COLIRU_COMPRESSED_ARCHIVE_ENABLE="${COLIRU_COMPRESSED_ARCHIVE_ENABLE:-1}"
+COLIRU_COMPRESSED_ARCHIVE_IMAGE="${COLIRU_COMPRESSED_ARCHIVE_IMAGE:-/var/lib/coliru/compressed-archive.img}"
+COLIRU_COMPRESSED_ARCHIVE_MOUNT="${COLIRU_COMPRESSED_ARCHIVE_MOUNT:-/mnt/compressed-archive}"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "SetupHost.sh must be run as root." >&2
@@ -22,7 +25,7 @@ add-apt-repository -y universe
 apt-get update
 
 # Try Ubuntu packages first.
-if ! apt-get install -y docker.io docker-compose-plugin nginx; then
+if ! apt-get install -y docker.io docker-compose-plugin nginx btrfs-progs; then
     # Add Docker's official repo to get docker-compose-plugin on newer Ubuntu.
     install -m 0755 -d /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -30,11 +33,47 @@ if ! apt-get install -y docker.io docker-compose-plugin nginx; then
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" \
         >/etc/apt/sources.list.d/docker.list
     apt-get update
-    apt-get install -y docker.io docker-compose-plugin nginx
+    apt-get install -y docker.io docker-compose-plugin nginx btrfs-progs
 fi
 
 systemctl enable --now docker
 systemctl enable --now nginx
+
+if [ "${COLIRU_COMPRESSED_ARCHIVE_ENABLE}" = "1" ]; then
+    install -d -m 0755 "$(dirname "${COLIRU_COMPRESSED_ARCHIVE_IMAGE}")"
+    install -d -m 0755 "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}"
+
+    if [ ! -f "${COLIRU_COMPRESSED_ARCHIVE_IMAGE}" ]; then
+        truncate -s 80G "${COLIRU_COMPRESSED_ARCHIVE_IMAGE}"
+    fi
+
+    fs_type="$(blkid -o value -s TYPE "${COLIRU_COMPRESSED_ARCHIVE_IMAGE}" 2>/dev/null || true)"
+    if [ -z "${fs_type}" ]; then
+        mkfs.btrfs -f "${COLIRU_COMPRESSED_ARCHIVE_IMAGE}"
+    elif [ "${fs_type}" != "btrfs" ]; then
+        echo "Compressed archive image exists but is not btrfs: ${COLIRU_COMPRESSED_ARCHIVE_IMAGE}" >&2
+        exit 1
+    fi
+
+    fstab_entry="${COLIRU_COMPRESSED_ARCHIVE_IMAGE} ${COLIRU_COMPRESSED_ARCHIVE_MOUNT} btrfs loop,compress=zstd:3,nofail 0 0"
+    fstab_tmp="$(mktemp)"
+    awk -v m="${COLIRU_COMPRESSED_ARCHIVE_MOUNT}" '!($2==m && $3=="btrfs") { print }' /etc/fstab > "${fstab_tmp}"
+    printf '%s\n' "${fstab_entry}" >> "${fstab_tmp}"
+    cat "${fstab_tmp}" >/etc/fstab
+    rm -f "${fstab_tmp}"
+
+    if ! mountpoint -q "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}"; then
+        mount "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}"
+    fi
+
+    # If caller did not override roots, move defaults onto the compressed mount.
+    if [ "${COLIRU_ARCHIVE_ROOT}" = "/" ]; then
+        COLIRU_ARCHIVE_ROOT="${COLIRU_COMPRESSED_ARCHIVE_MOUNT}"
+    fi
+    if [ "${COLIRU_STATE_ROOT}" = "/var/coliru/state" ]; then
+        COLIRU_STATE_ROOT="${COLIRU_COMPRESSED_ARCHIVE_MOUNT}"
+    fi
+fi
 
 # Archive directories for the webserver (writeable).
 ARCHIVE_DIR="${COLIRU_ARCHIVE_ROOT%/}"
@@ -82,6 +121,9 @@ COLIRU_DOMAIN=${COLIRU_DOMAIN}
 COLIRU_PORT=${COLIRU_PORT}
 COLIRU_ARCHIVE_ROOT=${COLIRU_ARCHIVE_ROOT}
 COLIRU_STATE_ROOT=${COLIRU_STATE_ROOT}
+COLIRU_COMPRESSED_ARCHIVE_ENABLE=${COLIRU_COMPRESSED_ARCHIVE_ENABLE}
+COLIRU_COMPRESSED_ARCHIVE_IMAGE=${COLIRU_COMPRESSED_ARCHIVE_IMAGE}
+COLIRU_COMPRESSED_ARCHIVE_MOUNT=${COLIRU_COMPRESSED_ARCHIVE_MOUNT}
 EOF
 
 # Nginx reverse proxy config (HTTP only; TLS can be added later).
@@ -158,6 +200,7 @@ cat >/etc/systemd/system/coliru.service <<EOF
 Description=Coliru webserver (docker compose)
 After=docker.service network-online.target
 Wants=docker.service network-online.target
+RequiresMountsFor=${COLIRU_ARCHIVE_ROOT} ${COLIRU_STATE_ROOT}
 
 [Service]
 Type=oneshot
