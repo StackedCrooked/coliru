@@ -6,11 +6,11 @@ COLIRU_DOMAIN="${COLIRU_DOMAIN:-localhost}"
 COLIRU_PORT="${COLIRU_PORT:-8080}"
 COLIRU_TLS_MODE="${COLIRU_TLS_MODE:-selfsigned}" # none | selfsigned | letsencrypt
 COLIRU_EMAIL="${COLIRU_EMAIL:-}"
-COLIRU_ARCHIVE_ROOT="${COLIRU_ARCHIVE_ROOT:-/}"
-COLIRU_STATE_ROOT="${COLIRU_STATE_ROOT:-/var/coliru/state}"
 COLIRU_COMPRESSED_ARCHIVE_ENABLE="${COLIRU_COMPRESSED_ARCHIVE_ENABLE:-1}"
 COLIRU_COMPRESSED_ARCHIVE_IMAGE="${COLIRU_COMPRESSED_ARCHIVE_IMAGE:-/var/lib/coliru/compressed-archive.img}"
 COLIRU_COMPRESSED_ARCHIVE_MOUNT="${COLIRU_COMPRESSED_ARCHIVE_MOUNT:-/mnt/compressed-archive}"
+COLIRU_ARCHIVE_ROOT="${COLIRU_ARCHIVE_ROOT:-/mnt/compressed-archive}"
+COLIRU_STATE_ROOT="${COLIRU_STATE_ROOT:-/mnt/compressed-archive}"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo "SetupHost.sh must be run as root." >&2
