@@ -107,22 +107,20 @@ end
 
 
 post '/feedback' do
-    Thread.new do
-        $feedback_mutex.synchronize do
-            File.open(ensure_feedback_file, 'a') do |file|
-                text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
-                return if text == 'undefined' # for some reason this happens a lot
-                return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
-                return if text =~ /http[s]?:\/\// # don't allow links
-                return if text == ''
-                return if text.length >= 1000 # max length is 1000 characters
-                file.puts(text)
+    $feedback_mutex.synchronize do
+        File.open(ensure_feedback_file, 'a') do |file|
+            text = request.body.read.gsub('NOTE', 'REMARK').split("\n")[0]
+            return if text == 'undefined' # for some reason this happens a lot
+            return if text =~ /jform/ # this blocks commercial spam that contains the string 'jform'
+            return if text =~ /http[s]?:\/\// # don't allow links
+            return if text == ''
+            return if text.length >= 1000 # max length is 1000 characters
+            file.puts(text)
 
-                # Temporary hack to protect against flooding.
-                sleep 5
-            end
+            # Temporary hack to protect against flooding.
+            sleep 5
         end
-    end.join
+    end
 end
 
 
