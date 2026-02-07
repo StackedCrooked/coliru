@@ -34,7 +34,6 @@ pathifiedId="$(./pathify-id.sh ${id})"
 # no previous result found => compile it and print the output
 mkdir -p ${COLIRU_COMPILE_CACHE}/${id}
 
-
-/bin/bash -c "exec > >(tee ${COLIRU_COMPILE_CACHE}/${id}/output)
-exec 2>&1
-./build_and_run.sh"
+# Avoid process-substitution tee here because failed runner startups can leave
+# defunct tee children behind. A plain pipeline is reaped correctly by bash.
+./build_and_run.sh 2>&1 | tee "${COLIRU_COMPILE_CACHE}/${id}/output"
