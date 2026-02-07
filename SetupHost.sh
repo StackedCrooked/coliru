@@ -68,20 +68,17 @@ if [ "${COLIRU_COMPRESSED_ARCHIVE_ENABLE}" = "1" ]; then
 
     # Prepare destination layout on the compressed filesystem.
     mkdir -p "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive" \
-        "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive2" \
-        "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive3"
+        "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive2"
     touch "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/feedback.txt"
     if getent passwd webserver >/dev/null 2>&1; then
         chown webserver:coliru \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive" \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive2" \
-            "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive3" \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/feedback.txt"
     else
         chown 2001:2000 \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive" \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive2" \
-            "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/Archive3" \
             "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/feedback.txt"
     fi
     chmod 664 "${COLIRU_COMPRESSED_ARCHIVE_MOUNT}/feedback.txt"
@@ -89,11 +86,11 @@ fi
 
 # Archive directories for the webserver (writeable).
 ARCHIVE_DIR="${COLIRU_ARCHIVE_ROOT%/}"
-mkdir -p "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+mkdir -p "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2"
 if getent passwd webserver >/dev/null 2>&1; then
-    chown webserver:coliru "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+    chown webserver:coliru "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2"
 else
-    chown 2001:2000 "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2" "${ARCHIVE_DIR}/Archive3"
+    chown 2001:2000 "${ARCHIVE_DIR}/Archive" "${ARCHIVE_DIR}/Archive2"
 fi
 
 # Feedback storage (persisted outside the image).

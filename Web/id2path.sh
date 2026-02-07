@@ -8,4 +8,4 @@ set -e
 source coliru_env.source
 
 id="$(./pathify-id.sh $1)"
-echo "${COLIRU_ARCHIVE3}/${id}"
+echo "${COLIRU_ARCHIVE2}/${id}"

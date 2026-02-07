@@ -276,9 +276,9 @@ end
 get '/Archive/*' do |file|
     content_type :txt
     begin
-        roots = [ENV['COLIRU_ARCHIVE3'], ENV['COLIRU_ARCHIVE2'], ENV['COLIRU_ARCHIVE']]
+        roots = [ENV['COLIRU_ARCHIVE2'], ENV['COLIRU_ARCHIVE']]
         real_file = roots.map { |root| "#{root}/#{file}" }.find { |path| File.exist?(path) }
-        real_file ||= "#{ENV['COLIRU_ARCHIVE3']}/#{file}"
+        real_file ||= "#{ENV['COLIRU_ARCHIVE2']}/#{file}"
 
         if File.directory? real_file
             Dir.entries(real_file).join("\n").to_s
