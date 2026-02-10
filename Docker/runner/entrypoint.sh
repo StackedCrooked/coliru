@@ -26,7 +26,7 @@ if ! is_number "${MAX_OUTPUT}"; then
 fi
 
 if [ "${TIMEOUT}" -gt 0 ]; then
-    setsid sh -c "cd \"${WORKDIR}\"; /bin/bash -lc 'source ./cmd.sh' 2>&1 | head -c \"${MAX_OUTPUT}\"" &
+    setsid sh -c "cd \"${WORKDIR}\"; /bin/bash -c 'source ./cmd.sh' 2>&1 | head -c \"${MAX_OUTPUT}\"" &
     cmd_pid=$!
 
     (
@@ -44,4 +44,4 @@ if [ "${TIMEOUT}" -gt 0 ]; then
 fi
 
 cd "${WORKDIR}"
-/bin/bash -lc 'source ./cmd.sh' 2>&1 | head -c "${MAX_OUTPUT}"
+/bin/bash -c 'source ./cmd.sh' 2>&1 | head -c "${MAX_OUTPUT}"
