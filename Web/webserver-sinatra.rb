@@ -397,7 +397,7 @@ def get_timeout
     begin
         sehe_timeout = File.read('timeout.txt').to_i
         result = [120, sehe_timeout].min.to_s
-        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 10 ].min.to_s
+        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
     rescue Exception => _
         ([5 * 20.to_i / $request_rate, 5].max).to_s
     end
