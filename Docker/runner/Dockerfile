@@ -32,6 +32,6 @@ RUN useradd -m -u 2001 runner
 COPY entrypoint.sh /runner/entrypoint.sh
 RUN chmod +x /runner/entrypoint.sh
 
-RUN apt-get install -y --no-install-recommends libssl-dev
+RUN apt-get update && apt-get install -y --no-install-recommends libssl-dev
 
 WORKDIR /job
