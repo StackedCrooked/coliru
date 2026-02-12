@@ -395,11 +395,19 @@ $request_rate = 1
 
 def get_timeout
     begin
-        sehe_timeout = File.read('timeout.txt').to_i
-        result = [120, sehe_timeout].min.to_s
-        return [ [ 5 * result.to_i / $request_rate, 5 ].max, 60 ].min.to_s
-    rescue Exception => _
-        ([5 * 20.to_i / $request_rate, 5].max).to_s
+        timeout_path = File.expand_path('timeout.txt')
+        timeout_raw = File.read(timeout_path)
+        sehe_timeout = timeout_raw.to_i
+        capped_timeout = [120, sehe_timeout].min
+        scaled_timeout = 5 * capped_timeout / $request_rate
+        min_clamped_timeout = [scaled_timeout, 5].max
+        final_timeout = [min_clamped_timeout, 60].min
+        $stderr.puts "webserver-sinatra.rb: get_timeout path=#{timeout_path} raw=#{timeout_raw.inspect} parsed=#{sehe_timeout} capped=#{capped_timeout} request_rate=#{$request_rate} scaled=#{scaled_timeout} min_clamped=#{min_clamped_timeout} final=#{final_timeout}"
+        return final_timeout.to_s
+    rescue Exception => e
+        fallback_timeout = ([5 * 20.to_i / $request_rate, 5].max)
+        $stderr.puts "webserver-sinatra.rb: get_timeout rescue error=#{e.class} message=#{e.message.inspect} request_rate=#{$request_rate.inspect} fallback=#{fallback_timeout}"
+        fallback_timeout.to_s
     end
 end
 
